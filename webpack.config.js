@@ -6,6 +6,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
 module.exports = {
+<<<<<<< HEAD
   entry: ["react-hot-loader/patch", "./src/index"],
   output: {
     path: path.join(__dirname, "/dist"),
@@ -14,6 +15,12 @@ module.exports = {
   },
   devServer:{
     historyApiFallback: true
+=======
+  entry: "./src/index",
+  output: {
+    path: path.join(__dirname, "/dist"),
+    filename: "bundle.js",
+>>>>>>> 4ea4369910f8fcc3767f69be208c44968f55ad7b
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
