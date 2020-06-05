@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthCard from "../../../components/Cards/AuthCard";
+import AuthCard from "../../../Containers/Cards/AuthCard";
 import { Typography, TextField, Checkbox, Button } from '@material-ui/core';
 import SocialLogin from '../../../components/Auth/SocialLogin';
 import AdornmentInput from '../../../components/Inputs/AdornmentInput';

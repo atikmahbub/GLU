@@ -1,0 +1,80 @@
+.bottom-line {
+  width: 50%;
+  height: 0.3rem;
+  background-color: $primary;
+  border-radius: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+// dashboard style
+.dashboard-wrapper {
+  .dashboard-container {
+    @include flex(center, space-between, row);
+    .dashboard-sidebar {
+      width: 14rem;
+      background-color: $white;
+      height: 100vh;
+      overflow-y: auto;
+      @include disableScroll;
+    }
+    .dashboard-content {
+      width: calc(100% - 14rem);
+      background-color: $lightGray;
+      height: 100vh;
+      overflow: auto;
+      @include disableScroll;
+      .dashboard-main-content {
+        padding: 1.5rem;
+        .dashboard-header {
+          @include flex(center, flex-start, row);
+          background-color: $white;
+          padding: 2rem 1rem;
+          margin-bottom: 1.5rem;
+          @include borderRadius;
+          @include cardShadow;
+          .header {
+            @include flex(center, space-between, row);
+            .icon {
+              color: $primary;
+              font-size: 3rem;
+              margin-right: 1rem;
+            }
+            .heading {
+              // font-size: 2rem;
+              font-weight: 900;
+              letter-spacing: 0.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-container {
+  @include cardShadow;
+  @include borderRadius;
+  background-color: $white;
+  margin-bottom: 1.5rem;
+}
+
+.blue-gradient {
+  border-radius: 0.3rem;
+  background: linear-gradient(45deg, #667eea, #64b6ff);
+  color: $white;
+}
+.red-gradient {
+  border-radius: 0.3rem;
+  background: linear-gradient(45deg, #ff5858, #fb5895);
+  color: $white;
+}
+.green-gradient {
+  border-radius: 0.3rem;
+  background: linear-gradient(45deg, #27b958, #1eb99d);
+  color: $white;
+}
+
+.primary{
+    color: $primary;
+}

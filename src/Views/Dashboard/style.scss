@@ -1,0 +1,79 @@
+.dashboard-sidebar {
+    @include cardShadow;
+    z-index: 2;
+    .logo-container{
+        @include flex(center, center, column);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: $primary;
+        .logo{
+            font-weight: 900;
+            color: $white;
+        }
+        .slogan{
+            color: $white;
+        }
+    }
+  ul {
+    width: 100%;
+    transition: all 0.3s;
+    li {
+      background-color: #fff;
+      
+      button {
+        width: 100%;
+        @include flex(center, flex-start, row);
+        padding-left: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        .MuiSvgIcon-root{
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: $primary;
+        }
+      }
+      ul {
+          border-left: 0.3rem solid $primary;;
+          list-style: none;
+        li {
+          background-color: $lightPrimary;
+          button{
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-status {
+    @include flex(center, space-between, column);
+    padding: 1rem;
+    .status-header {
+        @include flex(center, space-between, row);
+        margin-bottom: 1rem;
+        .status-icon{
+            color:inherit;
+            font-size: 2rem;
+            margin-right: 0.4rem;
+        }
+        .status-heading{
+            color:inherit;
+            font-weight: 200;
+            font-size: 0.8rem;
+        }
+      }   
+      .total-no{
+          font-size: 3rem;
+          color:inherit;
+          font-weight: 800;
+          align-self: center;
+          margin-bottom: 1rem;
+      } 
+      .total-status{
+          color:inherit;
+          font-weight: 200;
+          font-size: 0.8rem;
+      }
+  }

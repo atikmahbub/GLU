@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthCard from "../../../components/Cards/AuthCard";
+import AuthCard from "../../../Containers/Cards/AuthCard";
 import SocialLogin from '../../../components/Auth/SocialLogin';
 import AdornmentInput from '../../../components/Inputs/AdornmentInput';
 import { Typography, TextField, Checkbox, Button } from '@material-ui/core';
+import SelectField from '../../../components/Inputs/SelectField';
 
+const loginAs = ["Superadmin", "Admin", "Teacher", "Parent", "Student", "Account", "Librarrian"];
 class Login extends React.PureComponent {
   render() {
     return (
@@ -15,6 +17,7 @@ class Login extends React.PureComponent {
               Glu.
             </Typography>
             <Typography className="slogan">Great learning umbrella.</Typography>
+            <SelectField label="Login As" className="mb-4" getValue={(value)=>console.log(value)} options={loginAs}/>
             <TextField
               className="mb-4"
               variant="outlined"
