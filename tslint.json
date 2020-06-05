@@ -4,6 +4,7 @@
 	],
 	"rules": {
 		"no-var-keyword": true,
+		"no-unused-variable": true,
 		"no-parameter-reassignment": true,
 		"typedef": false,
 		"readonly-keyword": false,
