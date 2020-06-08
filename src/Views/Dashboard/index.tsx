@@ -1,16 +1,19 @@
 import React from 'react';
 import {
     Dashboard as DashboardIcon,
-    People,
-    Home,
-    MenuBook,
     AccountBalanceWallet,
-    Business,
     Settings,
+    AccountCircle,
+    School,
+    Book,
 } from '@material-ui/icons';
 import Sidebar from '../../components/Dashobard/Sidebar';
 import Dashboard from './Dashboard';
 import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
+import StudentList from '../StudentList/StudentList';
+import ParentList from '../ParentList/ParentList';
+import TeacherList from '../TeacherList/TeacherList';
 
 export interface sidebarItems {
     menuName: string;
@@ -37,7 +40,7 @@ const NavigationMenu: any[] = [
     },
     {
         menuName: 'Users',
-        icon: <People />,
+        icon: <AccountCircle />,
         isExpandable: true,
         menuList: [
             {
@@ -52,35 +55,22 @@ const NavigationMenu: any[] = [
                 isExpandable: false,
                 isOpen: false,
                 menuList: [],
-                routeName: '/student',
+                routeName: '/students',
             },
+
             {
-                menuName: 'Admission',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/admission',
-            },
-            {
-                menuName: 'Teachers',
+                menuName: 'Teacher',
                 isExpandable: false,
                 isOpen: false,
                 menuList: [],
                 routeName: '/teachers',
             },
             {
-                menuName: 'Teacher Permission',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/teacher-permission',
-            },
-            {
                 menuName: 'Parent',
                 isExpandable: false,
                 isOpen: false,
                 menuList: [],
-                routeName: '/parent',
+                routeName: '/parents',
             },
             {
                 menuName: 'Accountant',
@@ -89,26 +79,19 @@ const NavigationMenu: any[] = [
                 menuList: [],
                 routeName: '/accountent',
             },
-            {
-                menuName: 'Librarrian',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/librarrian',
-            },
         ],
         routeName: '',
     },
     {
         menuName: 'Academic',
-        icon: <Home />,
+        icon: <School />,
         isExpandable: true,
         menuList: [],
         routeName: '',
     },
     {
         menuName: 'Exam',
-        icon: <MenuBook />,
+        icon: <Book />,
         isExpandable: true,
         routeName: '',
         menuList: [
@@ -121,7 +104,6 @@ const NavigationMenu: any[] = [
             },
             {
                 menuName: 'Exams',
-                icon: <DashboardIcon />,
                 isExpandable: false,
                 isOpen: false,
                 menuList: [],
@@ -144,7 +126,7 @@ const NavigationMenu: any[] = [
         ],
     },
     {
-        menuName: 'Accounting',
+        menuName: 'Accounts',
         icon: <AccountBalanceWallet />,
         isExpandable: true,
         routeName: '',
@@ -172,49 +154,49 @@ const NavigationMenu: any[] = [
             },
         ],
     },
-    {
-        menuName: 'Back Office',
-        icon: <Business />,
-        isExpandable: true,
-        menuList: [
-            {
-                menuName: 'Library',
-                isExpandable: true,
-                menuList: [
-                    {
-                        menuName: 'Book List Manager',
-                        isExpandable: false,
-                        isOpen: false,
-                        menuList: [],
-                        routeName: '/book-list-Manager',
-                    },
-                    {
-                        menuName: 'Book Issue Report',
-                        isExpandable: false,
-                        isOpen: false,
-                        menuList: [],
-                        routeName: '/book-issue-report',
-                    },
-                ],
-                routeName: '',
-            },
-            {
-                menuName: 'Session Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '',
-            },
-            {
-                menuName: 'Addon Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/book-list-Manager',
-            },
-        ],
-        routeName: '',
-    },
+    // {
+    //     menuName: 'Back Office',
+    //     icon: <Business />,
+    //     isExpandable: true,
+    //     menuList: [
+    //         {
+    //             menuName: 'Library',
+    //             isExpandable: true,
+    //             menuList: [
+    //                 {
+    //                     menuName: 'Book List Manager',
+    //                     isExpandable: false,
+    //                     isOpen: false,
+    //                     menuList: [],
+    //                     routeName: '/book-list-Manager',
+    //                 },
+    //                 {
+    //                     menuName: 'Book Issue Report',
+    //                     isExpandable: false,
+    //                     isOpen: false,
+    //                     menuList: [],
+    //                     routeName: '/book-issue-report',
+    //                 },
+    //             ],
+    //             routeName: '',
+    //         },
+    //         {
+    //             menuName: 'Session Manager',
+    //             isExpandable: false,
+    //             isOpen: false,
+    //             menuList: [],
+    //             routeName: '',
+    //         },
+    //         {
+    //             menuName: 'Addon Manager',
+    //             isExpandable: false,
+    //             isOpen: false,
+    //             menuList: [],
+    //             routeName: '/book-list-Manager',
+    //         },
+    //     ],
+    //     routeName: '',
+    // },
     {
         menuName: 'Settings',
         icon: <Settings />,
@@ -272,9 +254,14 @@ const index: React.FunctionComponent = () => {
             <div className="dashboard-container">
                 <Sidebar NavigationMenu={NavigationMenu} />
                 <div className="dashboard-content">
+                    <Header title="Dashboard" icon={<DashboardIcon className="icon" />} />
                     <div className="dashboard-main-content">
-                        <Header title="Dashboard" icon={<DashboardIcon className="icon" />} />
-                        <Dashboard />
+                        <Switch>
+                            <Route path="/dashboard/students" component={StudentList} />
+                            <Route path="/dashboard/parents" component={ParentList} />
+                            <Route path="/dashboard/teachers" component={TeacherList} />
+                            <Route path="/dashboard" component={Dashboard} />
+                        </Switch>
                     </div>
                 </div>
             </div>

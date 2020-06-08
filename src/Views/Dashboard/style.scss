@@ -1,79 +1,239 @@
-.dashboard-sidebar {
-    @include cardShadow;
-    z-index: 2;
-    .logo-container{
-        @include flex(center, center, column);
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        background-color: $primary;
-        .logo{
-            font-weight: 900;
+.card-status.attandece-card {
+    color: $white;
+    background-color: $primary;
+    border-radius: 0.3rem;
+    .status-header {
+        .status-icon {
             color: $white;
         }
-        .slogan{
+        .status-heading {
             color: $white;
         }
     }
-  ul {
-    width: 100%;
-    transition: all 0.3s;
-    li {
-      background-color: #fff;
-      
-      button {
-        width: 100%;
-        @include flex(center, flex-start, row);
-        padding-left: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        .MuiSvgIcon-root{
-            font-size: 2rem;
-            margin-right: 1rem;
-            color: $primary;
-        }
-      }
-      ul {
-          border-left: 0.3rem solid $primary;;
-          list-style: none;
-        li {
-          background-color: $lightPrimary;
-          button{
-            color: $white;
-          }
-        }
-      }
+    .total-no {
+        color: $white;
     }
-  }
 }
 
 .card-status {
-    @include flex(center, space-between, column);
+    // @include flex(center, space-between, column);
     padding: 1rem;
+    color: $headingPrimary;
     .status-header {
-        @include flex(center, space-between, row);
+        @include flex(center, start, row);
         margin-bottom: 1rem;
-        .status-icon{
-            color:inherit;
+        .status-icon {
+            color: inherit;
             font-size: 2rem;
             margin-right: 0.4rem;
         }
-        .status-heading{
-            color:inherit;
+        .status-heading {
+            color: inherit;
             font-weight: 200;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
-      }   
-      .total-no{
-          font-size: 3rem;
-          color:inherit;
-          font-weight: 800;
-          align-self: center;
-          margin-bottom: 1rem;
-      } 
-      .total-status{
-          color:inherit;
-          font-weight: 200;
-          font-size: 0.8rem;
-      }
-  }
+        .right-icon-box {
+            align-self: flex-end;
+            border-radius: 0.5rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: #ff5252ad;
+            margin-left: auto;
+            @include flex(center, center, row);
+            .icon {
+                color: $white;
+            }
+        }
+    }
+    .total-no {
+        font-size: 2rem;
+        color: #7d7d7e;
+        font-weight: 500;
+        align-self: center;
+        margin-bottom: 1rem;
+    }
+    .total-status {
+        color: inherit;
+        font-weight: 200;
+        font-size: 0.9rem;
+    }
+}
+
+// Revenue Chart Styles
+.dashboard-session-card-wrapper {
+    position: relative;
+    height: 100%;
+    @include borderRadius;
+    @include cardShadow;
+    .heading {
+        padding: 1rem;
+        margin: 0;
+        @include flex(center, space-between, row);
+        &:last-child {
+            margin-bottom: 1rem;
+            border-bottom: none;
+        }
+        .head-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        .head-dots {
+            cursor: pointer;
+        }
+    }
+    .revenue-content {
+        @include disableScroll;
+        .revenue-week-stat {
+            padding: 1rem;
+            @include flex(center, space-around, row);
+            .sub-text {
+                font-size: 0.9rem;
+                font-weight: 100;
+                color: $textPrimary;
+                margin-left: 1.6rem;
+            }
+            .revenue-count {
+                font-size: 1.3rem;
+                font-weight: 600;
+                @include flex(center, flex-start, row);
+                .bullet-icon {
+                    width: 0.5rem;
+                    height: 0.5rem;
+                    border-radius: 50%;
+                    display: inline-block;
+                    margin-right: 1rem;
+                    background-color: red;
+                }
+                .current {
+                    color: $primary;
+                }
+                .previous {
+                    color: $white;
+                }
+            }
+        }
+        .revenue-chart {
+        }
+    }
+}
+.upcomming-event-container {
+    padding: 1rem;
+    .event-header {
+        @include flex(center, space-between, row);
+        margin-bottom: 1rem;
+        .heading {
+            color: $textPrimary;
+            font-weight: 500;
+        }
+        .icon {
+            color: $primary;
+        }
+    }
+    .event-body {
+        .event-chip-card {
+            border: 1px solid $textPrimary;
+            border-radius: 0.3rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            @include flex(center, space-between, row);
+            .circle {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 3rem;
+                background-color: $primary;
+                font-size: 1rem;
+                color: $white;
+                @include flex(center, center, row);
+            }
+            .middle {
+                .heading {
+                    color: $textPrimary;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                }
+                .subheading {
+                    color: $textPrimary;
+                    font-size: 0.7rem;
+                    font-weight: 400;
+                }
+            }
+            .right {
+                .icon {
+                    color: $primary;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+//chart tooltip style
+.tooltip-7785 {
+    box-shadow: 0 0 19px 1px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-family: 'Roboto';
+    min-width: 5rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    z-index: 99999;
+    background-color: #fff !important;
+    display: block;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    font-size: '2.5em';
+}
+.highcharts-series-1 {
+    stroke-dasharray: 5, 8;
+    width: 1px;
+    fill: #fff;
+    stroke: #fff;
+    background-color: #fff;
+}
+
+g.highcharts-axis-labels.highcharts-yaxis-labels text,
+g.highcharts-axis-labels.highcharts-xaxis-labels text {
+    fill: rgb(130, 140, 158) !important;
+    font-size: 0.9rem !important;
+    font-family: 'Roboto';
+}
+
+.arrow {
+    position: absolute;
+    bottom: -5px;
+    margin-left: -5px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+}
+
+.my-histogram .highcharts-point {
+    stroke-dasharray: 5, 8;
+    width: 1px;
+    background-color: red;
+}
+
+.dashboard-table-container{
+    padding: 1rem;
+    .table-header{
+        @include flex(center, space-between, row);
+        .heading{
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .icon{
+            font-size: 1rem;
+        }
+        margin-bottom: 1rem;
+    }
+    .download-btn{
+        background-color: $primary;
+        color: $white;
+        border-radius: 0.4rem;
+        font-size: 0.65rem;
+        text-transform: capitalize;
+        font-weight: 100;
+
+    }
+}
