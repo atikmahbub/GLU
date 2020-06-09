@@ -5,7 +5,7 @@ const Signup = React.lazy(()=> import('./Views/Auth/Signup/Signup'));
 const ForgotPassword = React.lazy(()=> import('./Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(()=> import('./Views/Auth/ForgotPassword/SetNewPassword'));
 const SignupForm = React.lazy(()=> import('./Views/SignupForm'));
-const Dashboard = React.lazy(()=> import('./Views/Dashboard'));
+const Dashboard = React.lazy(()=> import('./Views/Dashboard/index'));
 
 
 
@@ -22,7 +22,7 @@ export class App extends React.Component {
                     <Route exact path="/forgot-password" component={ForgotPassword} />
                     <Route exact path="/reset-password" component={SetNewPassword} />
                     <Route  path="/signup-as" component={SignupForm} />
-                    <Route  path="/dashboard" component={Dashboard} />
+                    <Route  path="/dashboard/" component={Dashboard} />
                 </Switch>
                 </Suspense>
             </Router>

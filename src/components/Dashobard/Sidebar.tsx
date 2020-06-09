@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, ueEffect } from 'react';
 import { Typography, Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
+import { ArrowForwardIos } from '@material-ui/icons';
 
 export interface sidebarItems {
     menuName: string;
@@ -21,15 +22,26 @@ interface sidebarProps {
     NavigationMenu: sidebarItems[];
 }
 const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
+    const [active, setActive] = useState<boolean>();
     const routes = useHistory();
-
+    const { url } = useRouteMatch();
+    const { pathname } = useLocation();
     const [sidebarMenu, setSidebarMenu] = useState(NavigationMenu);
     const handleSubMenu = (index: number) => {
         let menu = [...sidebarMenu];
         menu[index].isOpen = !menu[index].isOpen;
-        console.log(index, menu);
         setSidebarMenu(menu);
     };
+
+    // useEffect(()=>{
+    //     sidebarMenu.forEach(menu=>{
+    //         menu.menuList.forEach(submenu=>{
+    //             if(pathname === `${url}${submenu.routeName}`){
+    //                 setActive(true);
+    //             }
+    //         })
+    //     })
+    // }, [])
 
     return (
         <div className="dashboard-sidebar">
@@ -37,26 +49,50 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                 <Typography variant="h3" className="logo">
                     Glu.
                 </Typography>
-                <Typography className="slogan">Great learning umbrella.</Typography>
                 <div className="bottom-line"></div>
             </div>
             <ul>
                 {sidebarMenu.map((menu: any, index: number) => (
-                    <li
-                        onClick={() => {
-                            handleSubMenu(index);
-                        }}>
+                    <li>
                         <Button
+                            startIcon={menu.icon}
                             onClick={() => {
-                                !menu.isExpandable && routes.push(menu.routeName);
+                                !menu.isExpandable &&
+                                    routes.push({
+                                        pathname: menu.routeName,
+                                        state: { icon: String(menu.icon), breadcrumb: menu.routeName },
+                                    });
+                                handleSubMenu(index);
                             }}>
-                            {menu.icon}
                             {menu.menuName}
+                            {menu.isExpandable ? (
+                                <ArrowForwardIos
+                                    style={{
+                                        transform: menu.isOpen ? 'rotate(90deg)' : 'rotate(0)',
+                                        transition: 'All 0.2s',
+                                    }}
+                                    className="arrows"
+                                />
+                            ) : null}
                         </Button>
-                        <ul style={{ display: menu.isOpen ? 'block' : 'none' }}>
-                            {menu.menuList.map((submenu: sidebarItems, i: number) => (
-                                <li onClick={() => {}}>
-                                    <Button onClick={() => !submenu.isExpandable && routes.push(submenu.routeName)}>
+                        <ul style={{ display: menu.isOpen  ? 'block' : 'none' }}>
+                            {menu.menuList.map((submenu: sidebarItems) => (
+                                <li
+                                    style={{
+                                        backgroundColor:
+                                            pathname === `${url}${submenu.routeName}` ? 'rgba(0,0,0,0.23)' : '',
+                                    }}>
+                                    <Button
+                                        onClick={() => {
+                                            !submenu.isExpandable &&
+                                                routes.push({
+                                                    pathname: `${url}${submenu.routeName}`,
+                                                    state: {
+                                                        icon: String(menu.icon),
+                                                        breadcrumb: `${url}${submenu.routeName}`,
+                                                    },
+                                                });
+                                        }}>
                                         {submenu.menuName}
                                     </Button>
                                     <ul style={{ display: 'none' }}>

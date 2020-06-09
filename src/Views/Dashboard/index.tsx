@@ -1,16 +1,22 @@
 import React from 'react';
 import {
     Dashboard as DashboardIcon,
-    People,
-    Home,
-    MenuBook,
-    AccountBalanceWallet,
-    Business,
-    Settings,
 } from '@material-ui/icons';
 import Sidebar from '../../components/Dashobard/Sidebar';
 import Dashboard from './Dashboard';
 import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
+import StudentList from '../StudentList/StudentList';
+import ParentList from '../ParentList/ParentList';
+import TeacherList from '../TeacherList/TeacherList';
+import AddNewStudent from '../AddNewStudent/AddNewStudent';
+import { NavigationMenu } from '../../Routes/SidebarRoutes/SidebarRoute';
+import StaffList from '../StaffList/StaffList';
+import AccountantList from '../AccountantList/AccountantList';
+import AddNewTeacher from '../AddNewTeacher/AddNewTeacher';
+import AddNewStaff from '../AddNewStaff/AddNewStaff';
+import AddNewParent from '../AddNewParent/AddNewParent';
+import AddNewAccountant from '../AddNewAccountant/AddNewAccountant';
 
 export interface sidebarItems {
     menuName: string;
@@ -26,255 +32,28 @@ export interface sidebarItems {
     ];
     routeName: string;
 }
-const NavigationMenu: any[] = [
-    {
-        menuName: 'Dashboard',
-        icon: <DashboardIcon />,
-        isExpandable: false,
-        isOpen: false,
-        menuList: [],
-        routeName: '/dashboard',
-    },
-    {
-        menuName: 'Users',
-        icon: <People />,
-        isExpandable: true,
-        menuList: [
-            {
-                menuName: 'Admin',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/admin',
-            },
-            {
-                menuName: 'Student',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/student',
-            },
-            {
-                menuName: 'Admission',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/admission',
-            },
-            {
-                menuName: 'Teachers',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/teachers',
-            },
-            {
-                menuName: 'Teacher Permission',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/teacher-permission',
-            },
-            {
-                menuName: 'Parent',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/parent',
-            },
-            {
-                menuName: 'Accountant',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/accountent',
-            },
-            {
-                menuName: 'Librarrian',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/librarrian',
-            },
-        ],
-        routeName: '',
-    },
-    {
-        menuName: 'Academic',
-        icon: <Home />,
-        isExpandable: true,
-        menuList: [],
-        routeName: '',
-    },
-    {
-        menuName: 'Exam',
-        icon: <MenuBook />,
-        isExpandable: true,
-        routeName: '',
-        menuList: [
-            {
-                menuName: 'Marks',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/marks',
-            },
-            {
-                menuName: 'Exams',
-                icon: <DashboardIcon />,
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/exams',
-            },
-            {
-                menuName: 'Grades',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/grades',
-            },
-            {
-                menuName: 'Promotion',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/promotion',
-            },
-        ],
-    },
-    {
-        menuName: 'Accounting',
-        icon: <AccountBalanceWallet />,
-        isExpandable: true,
-        routeName: '',
-        menuList: [
-            {
-                menuName: 'Student Fee Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/studen-free-manager',
-            },
-            {
-                menuName: 'Expense Category',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/expense-category',
-            },
-            {
-                menuName: 'Expense Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/expense-manager',
-            },
-        ],
-    },
-    {
-        menuName: 'Back Office',
-        icon: <Business />,
-        isExpandable: true,
-        menuList: [
-            {
-                menuName: 'Library',
-                isExpandable: true,
-                menuList: [
-                    {
-                        menuName: 'Book List Manager',
-                        isExpandable: false,
-                        isOpen: false,
-                        menuList: [],
-                        routeName: '/book-list-Manager',
-                    },
-                    {
-                        menuName: 'Book Issue Report',
-                        isExpandable: false,
-                        isOpen: false,
-                        menuList: [],
-                        routeName: '/book-issue-report',
-                    },
-                ],
-                routeName: '',
-            },
-            {
-                menuName: 'Session Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '',
-            },
-            {
-                menuName: 'Addon Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/book-list-Manager',
-            },
-        ],
-        routeName: '',
-    },
-    {
-        menuName: 'Settings',
-        icon: <Settings />,
-        isExpandable: true,
-        menuList: [
-            {
-                menuName: 'System Settings',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'system-settings',
-            },
-            {
-                menuName: 'Website Settings',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'website-settings',
-            },
-            {
-                menuName: 'School Settings',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'school-settings',
-            },
-            {
-                menuName: 'Payment Settings',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'payment-settings',
-            },
-            {
-                menuName: 'SMTP Settings',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'smtp-settings',
-            },
-            {
-                menuName: 'About',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: 'about',
-            },
-        ],
-        routeName: '',
-    },
-];
+
 const index: React.FunctionComponent = () => {
     return (
         <div className="dashboard-wrapper">
             <div className="dashboard-container">
                 <Sidebar NavigationMenu={NavigationMenu} />
                 <div className="dashboard-content">
+                    <Header title="Dashboard" icon={<DashboardIcon className="icon" />} />
                     <div className="dashboard-main-content">
-                        <Header title="Dashboard" icon={<DashboardIcon className="icon" />} />
-                        <Dashboard />
+                        <Switch>
+                            <Route path="/dashboard/students" component={StudentList} />
+                            <Route path="/dashboard/student/add-new-student" component={AddNewStudent} />
+                            <Route path="/dashboard/student/add-new-teacher" component={AddNewTeacher} />
+                            <Route path="/dashboard/student/add-new-staff" component={AddNewStaff} />
+                            <Route path="/dashboard/student/add-new-parent" component={AddNewParent} />
+                            <Route path="/dashboard/accountant/add-new-accountant" component={AddNewAccountant} />
+                            <Route path="/dashboard/parents" component={ParentList} />
+                            <Route path="/dashboard/teachers" component={TeacherList} />
+                            <Route path="/dashboard/Staff" component={StaffList} />
+                            <Route path="/dashboard/accountant" component={AccountantList} />
+                            <Route path="/dashboard" component={Dashboard} />
+                        </Switch>
                     </div>
                 </div>
             </div>
