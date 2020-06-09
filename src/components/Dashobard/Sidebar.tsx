@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, ueEffect } from 'react';
 import { Typography, Button } from '@material-ui/core';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
 import { ArrowForwardIos } from '@material-ui/icons';
 
 export interface sidebarItems {
@@ -22,15 +22,26 @@ interface sidebarProps {
     NavigationMenu: sidebarItems[];
 }
 const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
+    const [active, setActive] = useState<boolean>();
     const routes = useHistory();
-    const {url} = useRouteMatch();
+    const { url } = useRouteMatch();
+    const { pathname } = useLocation();
     const [sidebarMenu, setSidebarMenu] = useState(NavigationMenu);
     const handleSubMenu = (index: number) => {
         let menu = [...sidebarMenu];
         menu[index].isOpen = !menu[index].isOpen;
-        console.log(index, menu);
         setSidebarMenu(menu);
     };
+
+    // useEffect(()=>{
+    //     sidebarMenu.forEach(menu=>{
+    //         menu.menuList.forEach(submenu=>{
+    //             if(pathname === `${url}${submenu.routeName}`){
+    //                 setActive(true);
+    //             }
+    //         })
+    //     })
+    // }, [])
 
     return (
         <div className="dashboard-sidebar">
@@ -42,14 +53,16 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
             </div>
             <ul>
                 {sidebarMenu.map((menu: any, index: number) => (
-                    <li
-                        onClick={() => {
-                            handleSubMenu(index);
-                        }}>
+                    <li>
                         <Button
                             startIcon={menu.icon}
                             onClick={() => {
-                                !menu.isExpandable && routes.push({pathname:menu.routeName, state:{icon: String(menu.icon), breadcrumb:menu.routeName} });
+                                !menu.isExpandable &&
+                                    routes.push({
+                                        pathname: menu.routeName,
+                                        state: { icon: String(menu.icon), breadcrumb: menu.routeName },
+                                    });
+                                handleSubMenu(index);
                             }}>
                             {menu.menuName}
                             {menu.isExpandable ? (
@@ -62,10 +75,24 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                 />
                             ) : null}
                         </Button>
-                        <ul style={{ display: menu.isOpen ? 'block' : 'none' }}>
+                        <ul style={{ display: menu.isOpen  ? 'block' : 'none' }}>
                             {menu.menuList.map((submenu: sidebarItems) => (
-                                <li onClick={() => {}}>
-                                    <Button onClick={() => !submenu.isExpandable && routes.push({pathname:`${url}${submenu.routeName}`, state:{icon: String(menu.icon), breadcrumb: `${url}${submenu.routeName}`} })}>
+                                <li
+                                    style={{
+                                        backgroundColor:
+                                            pathname === `${url}${submenu.routeName}` ? 'rgba(0,0,0,0.23)' : '',
+                                    }}>
+                                    <Button
+                                        onClick={() => {
+                                            !submenu.isExpandable &&
+                                                routes.push({
+                                                    pathname: `${url}${submenu.routeName}`,
+                                                    state: {
+                                                        icon: String(menu.icon),
+                                                        breadcrumb: `${url}${submenu.routeName}`,
+                                                    },
+                                                });
+                                        }}>
                                         {submenu.menuName}
                                     </Button>
                                     <ul style={{ display: 'none' }}>

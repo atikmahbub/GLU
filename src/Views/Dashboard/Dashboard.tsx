@@ -6,9 +6,8 @@ import CardStatus from './CardStatus';
 import SessionInsightsChart from './SessionInsightsChart';
 import OutlineBtn from '../../components/Button/OutlineBtn';
 import CardTable from '../../components/Table/CardTable';
-import { colors } from '../../Styles/colors';
 
-interface tableProps{
+interface tableProps {
     student: string;
     class: string;
     invoice: string;
@@ -65,80 +64,78 @@ const Dashboard: React.FunctionComponent = () => {
                                 },
                                 {
                                     width: '23%',
-
                                     title: 'Class',
                                     field: 'class',
                                 },
                                 {
                                     width: '23%',
-
                                     title: 'Invoice',
                                     field: 'invoice',
                                 },
                                 {
                                     width: '23%',
-
                                     title: 'Amount',
                                     field: 'amount',
                                 },
                                 {
                                     width: '23%',
-
                                     title: 'Status',
                                     field: 'status',
-                                    render: (rowData:tableProps) => (<Typography style={{color:"#34F178", fontSize:"0.75rem"}}>{rowData.status}</Typography>)
-
+                                    render: (rowData: tableProps) => (
+                                        <Typography style={{ color: '#34F178', fontSize: '0.75rem' }}>
+                                            {rowData.status}
+                                        </Typography>
+                                    ),
                                 },
                                 {
                                     width: '23%',
-
                                     title: 'Action',
                                     field: 'action',
-                                    render: () => (<Button className="download-btn">Download</Button>)
+                                    render: () => <Button className="download-btn">Download</Button>,
                                 },
                             ]}
                             rowData={[
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                                 {
                                     student: 'Ashish Gupta',
-                                    class: "IV",
-                                    invoice: "BXHD42H78G",
-                                    amount: "AED 1200",
-                                    status: "Sucess"
+                                    class: 'IV',
+                                    invoice: 'BXHD42H78G',
+                                    amount: 'AED 1200',
+                                    status: 'Sucess',
                                 },
                             ]}
                         />

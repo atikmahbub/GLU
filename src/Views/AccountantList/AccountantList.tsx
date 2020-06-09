@@ -1,6 +1,6 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle, MoreHoriz } from '@material-ui/icons';
+import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import commonImg from '../../Assets/images';
 import AddButton from '../../components/Dashobard/AddButton';
@@ -14,11 +14,11 @@ interface colDataType {
     designation: string;
     action: string;
 }
-const TeacherList: React.FunctionComponent = () => {
+const AccountantList: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/student/add-new-teacher', state:{
-            breadcrumb: '/dashboard/teacher/Add New Teacher'
+        routes.push({pathname:'/dashboard/accountant/add-new-accountant', state:{
+            breadcrumb: '/dashboard/student/Add New Accountant'
         }})
     }
     return (
@@ -26,9 +26,9 @@ const TeacherList: React.FunctionComponent = () => {
             <CardContainer>
                 <AddButton
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Teachers"
+                    title="Accountants"
                     btnIcon={<Add />}
-                    btnTitle="Add Teacher"
+                    btnTitle="Add accountant"
                     trigger={handleRoutes}
                 />
             </CardContainer>
@@ -39,7 +39,7 @@ const TeacherList: React.FunctionComponent = () => {
                         showPagination={true}
                         columns={[
                             {
-                                width: '23%',
+                                width: '20%',
                                 title: 'Profile',
                                 field: 'profile',
                                 render: (rowData: colDataType) => (
@@ -47,26 +47,17 @@ const TeacherList: React.FunctionComponent = () => {
                                 ),
                             },
                             {
-                                width: '23%',
-
+                                width: '30%',
                                 title: 'Name',
                                 field: 'name',
                             },
                             {
-                                width: '23%',
-
-                                title: 'Department',
-                                field: 'department',
+                                width: '30%',
+                                title: 'Email',
+                                field: 'email',
                             },
                             {
-                                width: '23%',
-
-                                title: 'Designation',
-                                field: 'designation',
-                            },
-                            {
-                                width: '23%',
-
+                                width: '10%',
                                 title: 'Action',
                                 field: 'action',
                                 render: () => (<ActionToolbar/>)
@@ -76,36 +67,37 @@ const TeacherList: React.FunctionComponent = () => {
                             {
                                 profile: commonImg.photo,
                                 name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
+                                email: 'xyz@gmail.com',
                                 action: '',
                             },
                             {
                                 profile: commonImg.photo,
                                 name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
+                                email: 'xyz@gmail.com',
                                 action: '',
                             },
                             {
                                 profile: commonImg.photo,
                                 name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
+                                email: 'xyz@gmail.com',
                                 action: '',
                             },
                             {
                                 profile: commonImg.photo,
                                 name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
+                                email: 'xyz@gmail.com',
                                 action: '',
                             },
                             {
                                 profile: commonImg.photo,
                                 name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
+                                email: 'xyz@gmail.com',
+                                action: '',
+                            },
+                            {
+                                profile: commonImg.photo,
+                                name: 'Rebacco Elision',
+                                email: 'xyz@gmail.com',
                                 action: '',
                             },
                         ]}
@@ -116,4 +108,4 @@ const TeacherList: React.FunctionComponent = () => {
     );
 };
 
-export default TeacherList;
+export default AccountantList;

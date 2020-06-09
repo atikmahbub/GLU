@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography, IconButton, Badge, Avatar, makeStyles } from '@material-ui/core';
 import { Notifications } from '@material-ui/icons';
 import OutlineBtn from '../../components/Button/OutlineBtn';
 import { colors } from '../../Styles/colors';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
-import { useRouteMatch, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 
 interface headerProps {
     title: string;
@@ -30,12 +30,27 @@ const useStyles = makeStyles({
         boxShadow: '0px 2px 20px #CFD9DF66',
     },
 });
-const Header: React.FunctionComponent<headerProps> = ({ title, icon }) => {
+const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
+    const [navArray, setNavArray] = useState<String[]>([]);
     const classes = useStyles();
     const routes = useLocation();
     const navigation = routes.state;
-    const navArray = (navigation as locationProps).breadcrumb.replace("/", "").split("/")
-    console.log(routes);
+    const setNavigation = () => {
+        if(routes.state){
+            setNavArray((navigation as locationProps).breadcrumb.replace("/", "").split("/"));
+        }else {
+            const navigation = routes.pathname.replace("/", "").split("/");
+            setNavArray(navigation);
+        }
+    }
+    useEffect(()=>{
+        setNavigation();
+    }, []);
+
+    useEffect(()=>{
+        setNavigation();
+    }, [routes])
+    
     return (
         <div className="dashboard-header">
             <div className="header-top">
@@ -61,7 +76,7 @@ const Header: React.FunctionComponent<headerProps> = ({ title, icon }) => {
                     {navArray.map((item, i)=>(
                         <>
                         <span>{item}</span>
-                        <span className="splitter">{(i+1)%2!==0 && navArray.length>1 ? ">" : null} </span> 
+                        <span className="splitter">  { i!== navArray.length-1  ? ">" : null} </span> 
                         </>
                     ))}
                 </Typography>

@@ -5,6 +5,7 @@ import CardTable from '../../components/Table/CardTable';
 import commonImg from '../../Assets/images';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import { useHistory } from 'react-router-dom';
 
 interface colDataType {
     profile: string;
@@ -14,6 +15,12 @@ interface colDataType {
     action: string;
 }
 const ParentList: React.FunctionComponent = () => {
+    const routes = useHistory();
+    const handleRoutes = () => {
+        routes.push({pathname:'/dashboard/student/add-new-parent', state:{
+            breadcrumb: '/dashboard/student/Add New Parent'
+        }})
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -22,6 +29,7 @@ const ParentList: React.FunctionComponent = () => {
                     title="Parents"
                     btnIcon={<Add />}
                     btnTitle="Add Parent"
+                    trigger={handleRoutes}
                 />
             </CardContainer>
             <CardContainer>

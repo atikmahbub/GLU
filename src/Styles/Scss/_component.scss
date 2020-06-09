@@ -40,10 +40,11 @@
                         @include flex(center, space-between, row);
                         p {
                             margin-right: 1rem;
-                            font-weight: 800;
-                            font-size: 1rem;
+                            font-weight: 500;
+                            font-size: 1.4rem;
                         }
                     }
+                   
                     .bages-avatar {
                         @include flex(center, space-between, row);
                         button.notification-btn {
@@ -59,7 +60,7 @@
                 }
                 .header {
                     @include flex(center, flex-start, row);
-                    padding: 0.3rem 1.5rem;
+                    padding: 0.2rem 1.5rem;
                     width: 100%;
                     background-color: $grayPrimary;
                     align-self: flex-start;
@@ -69,9 +70,9 @@
                         margin-right: 1rem;
                     }
                     .heading {
-                        font-size: 1rem;
+                        font-size: 0.8rem;
                         font-weight: 500;
-                        letter-spacing: 0.1rem;
+                        // letter-spacing: 0.1rem;
                         text-transform: capitalize;
                         .splitter {
                             display: inline-block;
@@ -130,7 +131,7 @@
                 padding-top: 1rem;
                 padding-bottom: 1rem;
                 .MuiSvgIcon-root {
-                    font-size: 1.5rem;
+                    font-size: 1.2rem;
                     margin-right: 1rem;
                     color: $white;
                 }
@@ -142,7 +143,6 @@
                 }
             }
             ul {
-                border-left: 0.3rem solid $primary;
                 list-style: none;
                 li {
                     background-color: $primary;
@@ -252,4 +252,23 @@
     padding: 0.2rem;
     color: $white;
     @include flex(center, center, row);
+}
+
+//input style
+.custom-input {
+    margin-bottom: 1.7rem !important;
+    .MuiInputLabel-outlined {
+        z-index: 1;
+        transform: translate(14px, 15px) scale(1);
+        pointer-events: none;
+        color: #AAACAD;
+        font-weight: 100;
+        font-size: 14px;
+    }
+    fieldset.MuiOutlinedInput-notchedOutline {
+        border-color: $darkGray;
+    }
+    .MuiSvgIcon-root{
+        color: $darkGray;
+    }
 }
