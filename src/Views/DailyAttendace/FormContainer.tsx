@@ -1,42 +1,35 @@
-import React, { useState } from 'react';
+import React, { createRef } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import FormRow from './FormRow';
-import { IconButton, Button } from '@material-ui/core';
-import { Add, Delete } from '@material-ui/icons';
+import { Button, makeStyles, IconButton } from '@material-ui/core';
+import DateSelector from '../../components/DateTimeSelector/DateSelector';
+import { DateRange } from '@material-ui/icons';
+
+const useStyle = makeStyles({
+    datePickerStyle: {
+        display:"none"
+    },
+})
 
 const FormContainer: React.FunctionComponent = () => {
-    const [rows, setRows] = useState([1]);
-
-    const addRows = () => {
-        const total = [...rows];
-        total.push(1);
-        setRows(total);
-    };
-
-    const deleteRows = (index:number) => {
-        const total = [...rows];
-        total.splice(index, 1);
-        setRows(total);
-    };
-
+    // const datePicker = createRef();
+    // const classes = useStyle();
+    // const handleDatePicker = () => {
+        
+    // }
     return (
         <CardContainer>
+            {/* <div className="date-chooser">
+                <IconButton onClick={handleDatePicker}>
+                <DateRange/>
+                </IconButton>
+                <DateSelector ref={datePicker} style={classes.datePickerStyle} />
+            </div> */}
         <div className="student-container">
-            {rows.map((value, index) => (
                 <div className="student-form-row  w-100">
                     <FormRow />
-                    {index === 0 ? (
-                        <IconButton onClick={addRows} className="button-container">
-                            <Add className="icon-btn" />
-                        </IconButton>
-                    ) : (
-                        <IconButton onClick={()=>deleteRows(index)} className="button-container delete-btn">
-                            <Delete className="icon-btn" />
-                        </IconButton>
-                    )}
+                    <Button className="filter-btn">Filter</Button>
                 </div>
-            ))}
-            <Button className="gray-btn">Add & Invite</Button>
         </div>
     </CardContainer>
     );

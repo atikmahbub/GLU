@@ -1,29 +1,31 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle, Add } from '@material-ui/icons';
-import { colors } from '../../Styles/colors';
+import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
+import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import { useHistory } from 'react-router-dom';
 
-interface props{
-    triggerModal?: ()=> void
-}
-const DailyAttendance: React.FunctionComponent<props> = ({triggerModal}) => {
+const StudentClasses: React.FunctionComponent = () => {
+    const routes = useHistory();
+    const handleRoutes = () => {
+        routes.push({pathname:'/dashboard/accountant/add-new-accountant', state:{
+            breadcrumb: '/dashboard/student/Add New Accountant'
+        }})
+    }
     return (
-        <div className="content-wrapper-student">
+        <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    style={{backgroundColor:colors.primary}}
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Daily Attendance"
-                    btnTitle="Take Attendance"
-                    btnIcon={<Add/>}
-                    trigger={triggerModal}
+                    title="Classes"
+                    btnIcon={<Add />}
+                    btnTitle="Add class"
+                    trigger={handleRoutes}
                 />
             </CardContainer>
             <CardContainer>
-                <div className="student-attendance-table">
+                <div className="student-table">
                     <CardTable
                         showToolbar={true}
                         showPagination={true}
@@ -40,13 +42,13 @@ const DailyAttendance: React.FunctionComponent<props> = ({triggerModal}) => {
                             },
                             {
                                 width: '20%',
-                                title: 'Date',
-                                field: 'date',
+                                title: 'Faculty Head',
+                                field: 'facultyHead',
                             },
                             {
                                 width: '20%',
-                                title: 'Presence',
-                                field: 'presence',
+                                title: 'Student',
+                                field: 'student',
                             },
                             {
                                 width: '10%',
@@ -58,46 +60,40 @@ const DailyAttendance: React.FunctionComponent<props> = ({triggerModal}) => {
                         rowData={[
                             {
                                 class: "One",
-                                section: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
+                                section: 'A, B, C',
+                                facultyHead: 'John Dow',
+                                student: "25",
                                 action: '',
                             },
                             {
                                 class: "Two",
-                                section: 'B',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
+                                section: 'A, B, C',
+                                facultyHead: 'John Dow',
+                                student: "25",
                                 action: '',
                             },
                             {
                                 class: "Three",
-                                section: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
+                                section: 'A, B, C, D',
+                                facultyHead: 'John Dow',
+                                student: "25",
                                 action: '',
                             },
                             {
                                 class: "Four",
-                                section: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
+                                section: 'A, B',
+                                facultyHead: 'John Dow',
+                                student: "25",
                                 action: '',
                             },
                             {
                                 class: "Five",
-                                section: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
+                                section: 'A, B',
+                                facultyHead: 'John Dow',
+                                student: "25",
                                 action: '',
                             },
-                            {
-                                class: "Six",
-                                section: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: "25/28",
-                                action: '',
-                            },
+                        
                         ]}
                     />
                 </div>
@@ -106,4 +102,4 @@ const DailyAttendance: React.FunctionComponent<props> = ({triggerModal}) => {
     );
 };
 
-export default DailyAttendance;
+export default StudentClasses;

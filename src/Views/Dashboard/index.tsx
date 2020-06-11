@@ -5,6 +5,7 @@ import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
 import { NavigationMenu } from '../../Routes/SidebarRoutes/SidebarRoute';
 import { dashboardRoutes } from '../../Routes/Dashboard/routes';
+import {v4 as uuidv4} from "uuid";
 
 const index: React.FunctionComponent = () => {
     return (
@@ -16,7 +17,7 @@ const index: React.FunctionComponent = () => {
                     <div className="dashboard-main-content">
                         <Switch>
                             {dashboardRoutes.map((route) => (
-                                <Route path={route.pathname} component={route.component} />
+                                <Route exact key={uuidv4()} path={route.pathname} component={route.component} />
                             ))}
                         </Switch>
                     </div>

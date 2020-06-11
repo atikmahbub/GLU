@@ -18,6 +18,7 @@ const DateSelector = ({ getDate, style, icon }) => {
             <KeyboardDatePicker
                 disableToolbar
                 variant="inline"
+                className="custom-input mb-0"
                 inputVariant="outlined"
                 format="dd/MM/yyyy"
                 margin="normal"

@@ -1,35 +1,78 @@
-.student-container{
-    padding:6rem;
-    @include flex(center, center, column);
-    .gray-btn{
-        background-color: $darkGray;
-        color: $white;
-        font-size: 0.8rem;
-        text-transform: capitalize;
-        font-weight: 100;
-        width: 18rem;
-        &:hover{
-        background-color: $darkGray;
+.student-attendance-table{
+    padding: 1.5rem;
+}
+.card-container {
+    position: relative;
+    .date-chooser {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2rem;
+    }
+}
+.student-container {
+    .student-form-row {
+        .row {
+            width: calc(100% - 5rem);
+        }
+        .filter-btn {
+            align-self: baseline;
+            height: 2.7rem;
+            width: 9%;
+            @include grayBtn;
         }
     }
-    .student-form-row{
+}
+.modal-form {
+    .button-container {
         @include flex(center, space-between, row);
-        .row{
-
-            width: calc(100% - 2.5rem);
+        margin-bottom: 1.5rem;
+        button {
+            padding: 0.4rem 1.5rem;
+            border-radius: 0.5rem;
         }
-        .button-container{
-            border-radius: 0.8rem;
-            width: 2.8rem;
-            height: 2.8rem;
-            background-color: #25BDB3;
-            align-self: baseline;
-            .icon-btn{
-                color: $white;
+    }
+    .attendance-table {
+        .attendance-card {
+            @include flex(center, space-between, row);
+            .name {
+                font-size: 0.9rem;
             }
+            border: 1px solid #dce1e3;
+            border-radius: 7px;
+            padding: 0 1rem;
+            margin-bottom: 1rem;
         }
-        .delete-btn{
-            background-color: #FF5252;
+        .attendance-checkbox {
+            .radio-group {
+                @include flex(center, space-between, row);
+                width: 11.5rem;
+                label{
+                    margin: 0;
+                }
+                .title {
+                    span {
+                        &:last-child {
+                            font-size: 0.8rem;
+                            color: $primary;
+                        }
+                    }
+                    .icon {
+                        color: $primary;
+                    }
+                }
+                .title.absent {
+                    span {
+                        &:last-child {
+                            font-size: 0.8rem;
+                            color: $headingPrimary;
+                        }
+                    }
+                    .icon {
+                        color: $headingPrimary;
+                    }
+                }
+            }
         }
     }
 }

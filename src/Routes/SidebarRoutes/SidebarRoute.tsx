@@ -67,22 +67,28 @@ export const NavigationMenu: any[] = [
         isExpandable: true,
         menuList: [
             {
+                menuName: 'Sessions',
+                isExpandable: false,
+                menuList: [],
+                routeName: '/sessions',
+            },
+            {
                 menuName: 'Daily Attendance',
                 isExpandable: false,
                 menuList: [],
                 routeName: '/daily-attendance',
             },
             {
-                menuName: 'Class Routien',
+                menuName: 'Class Routine',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/class-routien',
+                routeName: '/class-routine',
             },
             {
-                menuName: 'Subject',
+                menuName: 'Subjects',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/subject',
+                routeName: '/subjects',
             },
             {
                 menuName: 'Syllabus',
@@ -91,10 +97,10 @@ export const NavigationMenu: any[] = [
                 routeName: '/syllabus',
             },
             {
-                menuName: 'class',
+                menuName: 'classes',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/class',
+                routeName: '/classes',
             },
             {
                 menuName: 'class Room',
@@ -103,10 +109,10 @@ export const NavigationMenu: any[] = [
                 routeName: '/class-room',
             },
             {
-                menuName: 'department',
+                menuName: 'departments',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/department',
+                routeName: '/departments',
             },
             {
                 menuName: 'Event Calender',
