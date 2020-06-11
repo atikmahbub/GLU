@@ -13,7 +13,7 @@ module.exports = {
     publicPath: "/"
   },
   devServer:{
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

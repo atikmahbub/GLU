@@ -8,38 +8,40 @@ import {
 import PropTypes from "prop-types";
 
 
-const DateSelector = ({getDate, toolbarDisable})=> {
+const TimeSelector = ({getDate, toolbarDisable, label})=> {
   const [selectedDate, setSelectedDate] = React.useState();
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-  useEffect(() => {
-     getDate(selectedDate)
-  }, [selectedDate]);
+  // useEffect(() => {
+  //    getDate(selectedDate)
+  // }, [selectedDate]);
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <MuiPickersUtilsProvider variant="outlined" utils={DateFnsUtils}>
         <KeyboardTimePicker
           disableToolbar={toolbarDisable}
-          variant="outline"
-          format="MM/dd/yyyy"
           margin="normal"
+          inputVariant="outlined"
+          className="custom-input mt-0"
           id="date-picker-inline"
-          label="Date picker inline"
+          label={label}
           value={selectedDate}
           onChange={handleDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
+          fullWidth
         />
     </MuiPickersUtilsProvider>
   );
 }
 
-DateSelector.propTypes = {
+TimeSelector.propTypes = {
     getDate: PropTypes.func,
-    toolbarDisable: PropTypes.bool
+    toolbarDisable: PropTypes.bool,
+    label: PropTypes.string
 }
 
-export default DateSelector;
+export default TimeSelector;

@@ -1,4 +1,4 @@
-export const classes = [
+export const classes: string[] = [
     "Class One",
     "Class Two",
     "Class Three",
