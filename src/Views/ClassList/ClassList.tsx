@@ -4,15 +4,11 @@ import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
-import { useHistory } from 'react-router-dom';
 
-const StudentClasses: React.FunctionComponent = () => {
-    const routes = useHistory();
-    const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/accountant/add-new-accountant', state:{
-            breadcrumb: '/dashboard/student/Add New Accountant'
-        }})
-    }
+interface props{
+    triggerModal: ()=> void
+}
+const ClassList: React.FunctionComponent<props> = ({triggerModal}) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -21,7 +17,7 @@ const StudentClasses: React.FunctionComponent = () => {
                     title="Classes"
                     btnIcon={<Add />}
                     btnTitle="Add class"
-                    trigger={handleRoutes}
+                    trigger={triggerModal}
                 />
             </CardContainer>
             <CardContainer>
@@ -102,4 +98,4 @@ const StudentClasses: React.FunctionComponent = () => {
     );
 };
 
-export default StudentClasses;
+export default ClassList;

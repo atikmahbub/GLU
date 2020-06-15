@@ -7,6 +7,7 @@ import { Button, IconButton } from '@material-ui/core';
 import FormRow from './FormRow';
 import { classes } from '../../Helper/classArray';
 import { colors } from '../../Styles/colors';
+import { useHistory } from 'react-router-dom';
 
 const AddNewStudent: React.FunctionComponent = () => {
     const [rows, setRows] = useState([1]);
@@ -23,6 +24,14 @@ const AddNewStudent: React.FunctionComponent = () => {
         setRows(total);
     };
 
+    const routes = useHistory();
+    const handleRoutes = () => {
+        routes.push({pathname:'/dashboard/student/bulk-upload', state:{
+            breadcrumb: '/dashboard/student/student admission'
+        }})
+    }
+
+
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -31,7 +40,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                     icon={<AccountCircle className="icon-circle" />}
                     title="Student Admission"
                     btnTitle="Bulk Upload"
-                    // trigger={handleRoutes}
+                    trigger={handleRoutes}
                 />
             </CardContainer>
             <CardContainer>
@@ -68,7 +77,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                             )}
                         </div>
                     ))}
-                    <Button className="gray-btn">Add & Invite</Button>
+                    <Button form="student-form" type="submit" className="gray-btn">Add & Invite</Button>
                 </div>
             </CardContainer>
         </div>

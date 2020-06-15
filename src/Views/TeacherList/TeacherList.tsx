@@ -1,6 +1,6 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle, MoreHoriz } from '@material-ui/icons';
+import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import commonImg from '../../Assets/images';
 import AddButton from '../../components/Dashobard/AddButton';

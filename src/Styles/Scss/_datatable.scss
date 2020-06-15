@@ -1,6 +1,15 @@
 // data table style
 div.MuiPaper-elevation2 {
     box-shadow: none;
+    div{
+        &:nth-child(2){
+            div {
+                div {
+                    @include disableScroll;
+                }
+            }
+        }
+    }
     tr.MuiTableRow-root {
         &:nth-child(even) {
             td.MuiTableCell-root {
@@ -57,6 +66,15 @@ th.MuiTableCell-root {
     // data table style
     div.MuiPaper-elevation2 {
         box-shadow: none;
+        div{
+            &:nth-child(2){
+                div {
+                    div {
+                        @include disableScroll;
+                    }
+                }
+            }
+        }
         tr.MuiTableRow-root {
             td.MuiTableCell-root {
                 &:first-child{
@@ -113,13 +131,6 @@ th.MuiTableCell-root {
         }
     }
 
-    .Component-horizontalScrollContainer-11 {
-        div {
-            div {
-                @include disableScroll;
-            }
-        }
-    }
     .search-box-container{
         .export-btn{
             background-color: $primary;

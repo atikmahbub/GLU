@@ -4,8 +4,15 @@ import AddButton from '../../components/Dashobard/AddButton';
 import { AccountCircle } from '@material-ui/icons';
 import { colors } from '../../Styles/colors';
 import FormContainer from './FormContainer';
+import { useHistory } from 'react-router-dom';
 
 const AddNewStaff: React.FunctionComponent = () => {
+    const routes = useHistory();
+    const handleRoutes = () => {
+        routes.push({pathname:'/dashboard/teacher/bulk-upload', state:{
+            breadcrumb: '/dashboard/student/Teacher Data Upload'
+        }})
+    }
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -14,7 +21,7 @@ const AddNewStaff: React.FunctionComponent = () => {
                     icon={<AccountCircle className="icon-circle" />}
                     title="Add New Staff"
                     btnTitle="Bulk Upload"
-                    // trigger={handleRoutes}
+                    trigger={handleRoutes}
                 />
             </CardContainer>
             <FormContainer/>

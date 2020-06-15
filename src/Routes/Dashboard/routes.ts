@@ -8,11 +8,20 @@ import TeacherList from '../../Views/TeacherList/TeacherList';
 import StaffList from '../../Views/StaffList/StaffList';
 import Dashboard from '../../Views/Dashboard/Dashboard';
 import DailyAttendance from '../../Views/DailyAttendace';
-import ClassRoutine from '../../Views/ClassRoutine/ClassRoutine';
-import Subject from '../../Views/Subject/Subject';
+import ClassRoutine from '../../Views/ClassRoutine';
+import SubjectList from '../../Views/SubjectList';
 import SessionList from '../../Views/SessionList';
-import StudentClasses from '../../Views/StudentClasses/StudentClasses';
-import Departments from '../../Views/Departments/Departments';
+import ClassList from '../../Views/ClassList';
+import Departments from '../../Views/Departments';
+import syllabusList from '../../Views/SyllabusList';
+import PermissionList from '../../Views/PermissionLIist/PermissionList';
+import StudentFees from '../../Views/StudentFees';
+import ExpenseCategory from '../../Views/ExpenseCategory';
+import ExpenseManager from '../../Views/ExpenseManager';
+import AddStudentBulk from '../../Views/AddStudentBulk/AddStudentBulk';
+import AddParentBulk from '../../Views/AddParentBulk/AddParentBulk';
+import AddTeacherBulk from '../../Views/AddTeacherBulk/AddTeacherBulk';
+import AddStaffBulk from '../../Views/AddStaffBulk/AddStaffBulk';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: Dashboard },
@@ -26,10 +35,18 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/Staff', component: StaffList },
     { pathname: '/dashboard/daily-attendance', component: DailyAttendance },
     { pathname: '/dashboard/class-routine', component: ClassRoutine },
-    { pathname: '/dashboard/subjects', component: Subject },
+    { pathname: '/dashboard/subjects', component: SubjectList },
     { pathname: '/dashboard/sessions', component: SessionList },
-    { pathname: '/dashboard/classes', component: StudentClasses },
+    { pathname: '/dashboard/classes', component: ClassList },
     { pathname: '/dashboard/departments', component: Departments },
-
+    { pathname: '/dashboard/syllabus', component: syllabusList },
+    { pathname: '/dashboard/permissions', component: PermissionList },
+    { pathname: '/dashboard/studen-free-manager', component: StudentFees },
+    { pathname: '/dashboard/expense-category', component: ExpenseCategory },
+    { pathname: '/dashboard/expense-manager', component: ExpenseManager },
+    { pathname: '/dashboard/student/bulk-upload', component: AddStudentBulk },
+    { pathname: '/dashboard/teacher/bulk-upload', component: AddTeacherBulk },
+    { pathname: '/dashboard/parent/bulk-upload', component: AddParentBulk },
+    { pathname: '/dashboard/staff/bulk-upload', component: AddStaffBulk },
 
 ];
