@@ -30,6 +30,15 @@ const index: React.FunctionComponent = () => {
                                 label="Class Name"
                             />
                             {errors.className && <ErrorMessage msg={classFormValidation.errorMsg.className} />}
+                            <TextField
+                                variant="outlined"
+                                inputRef={register}
+                                name="section"
+                                className="custom-input"
+                                fullWidth
+                                label="Section Name"
+                            />
+                            {errors.section && <ErrorMessage msg={classFormValidation.errorMsg.section} />}
                             <Button type="submit" className="session-button">
                                 Create Class
                             </Button>

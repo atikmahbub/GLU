@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,  withRouter } from "react-router-dom";
 import AuthCard from "../../../Containers/Cards/AuthCard";
 import SocialLogin from '../../../components/Auth/SocialLogin';
 import AdornmentInput from '../../../components/Inputs/AdornmentInput';
 import { Typography, TextField, Checkbox, Button } from '@material-ui/core';
 import SelectField from '../../../components/Inputs/SelectField';
+import {RouteComponentProps} from "react-router-dom";
 
 const loginAs = ["Superadmin", "Admin", "Teacher", "Parent", "Student", "Account", "Librarrian"];
-class Login extends React.PureComponent {
+class Login extends React.PureComponent<RouteComponentProps> {
   render() {
     return (
       <div className="login-wrapper">
@@ -29,7 +30,7 @@ class Login extends React.PureComponent {
               <Checkbox className="remember-me-checkbox" color="primary" />
               <Link to="forgot-password">Forgot Passowrd ?</Link>
             </div>
-            <Button className="gradient-button" fullWidth>
+            <Button className="gradient-button" onClick={()=> this.props.history.push("/dashboard")}  fullWidth>
               Login to Account
             </Button>
               <SocialLogin/>
@@ -43,4 +44,4 @@ class Login extends React.PureComponent {
   }
 }
 
-export default Login;
+export default withRouter(Login);
