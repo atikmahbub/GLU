@@ -32,12 +32,13 @@ const index: React.FunctionComponent = () => {
                                 control={control}
                             />
                             {errors.class && <ErrorMessage msg={subjectFormValidation.errorMsg.class} />}
-                            <SelectController
+                            <TextField
+                                variant="outlined"
                                 className="custom-input"
-                                label="Select Class"
-                                options={['Hindi', 'English', 'Computer']}
+                                inputRef={register}
+                                label="Select Subject"
                                 name="subject"
-                                control={control}
+                                fullWidth
                             />
                             {errors.subject && <ErrorMessage msg={subjectFormValidation.errorMsg.subject} />}
                             <Button className="session-button" type="submit">

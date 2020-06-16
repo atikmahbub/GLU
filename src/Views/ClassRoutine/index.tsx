@@ -23,7 +23,7 @@ const index: React.FunctionComponent = () => {
     return (
         <div>
             {toggler ? (
-                <ModalBox title="Take Attendance" modalHandler={handleToggler}>
+                <ModalBox title="Create Class Routine" modalHandler={handleToggler}>
                     <div className="modal-form">
                         <form onSubmit={handleSubmit(submit)}>
                             <SelectController
@@ -70,7 +70,7 @@ const index: React.FunctionComponent = () => {
                             <TimeSelector label="Start Time" />
                             <TimeSelector label="End Time" />
                             <Button className="session-button" type="submit">
-                                Update Attendance
+                                Create Class Routine
                             </Button>
                         </form>
                     </div>
