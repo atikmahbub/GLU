@@ -3,25 +3,72 @@ import ModalBox from '../../components/Modal/ModalBox';
 import SessionList from './SessionList';
 import { TextField, Button } from '@material-ui/core';
 import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
-import SelectField from '../../components/Inputs/SelectField';
+import SelectController from '../../components/Inputs/SelectController';
 import { classes } from '../../Helper/classArray';
+import DateSelector from '../../components/DateTimeSelector/DateSelector';
+import { useForm } from 'react-hook-form';
+import { sessionFormValidation } from '../../Helper/FormValidations/sessionFormValidation';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const index: React.FunctionComponent = () => {
     const [toggler, setToggler] = useState(false);
     const handleToggler = () => {
-        setToggler(!toggler)
-    }
+        setToggler(!toggler);
+    };
+    const { register, errors, handleSubmit, control } = useForm({
+        validationSchema: sessionFormValidation.validationSetting,
+    });
+    const submit = (data: object) => console.log(data);
     return (
         <div>
             {toggler ? (
                 <ModalBox title="Create Session" modalHandler={handleToggler}>
                     <div className="modal-form">
-                        <TimeSelector  label="Start Time"/>
-                        <TimeSelector label="End Time"/>
-                        <TextField variant="outlined" className="custom-input" fullWidth label="Topic Name" />
-                        <SelectField className="custom-input" label="Select Class" options={classes} getValue={()=>{}} />
-                        <SelectField className="custom-input" label="Faculty Name" options={["john", "lea", "Deven", "Jinwie"]} getValue={()=>{}} />
-                        <Button className="session-button">Create Session</Button>
+                        <form onSubmit={handleSubmit(submit)}>
+                            <div className="mb-4">
+                                <DateSelector />
+                            </div>
+                            <TimeSelector label="Start Time" />
+                            <TimeSelector label="End Time" />
+                            <TextField
+                                variant="outlined"
+                                name="topicName"
+                                inputRef={register}
+                                className="custom-input"
+                                fullWidth
+                                label="Topic Name"
+                            />
+                            {errors.topicName && <ErrorMessage msg={sessionFormValidation.errorMsg.topicName} />}
+                            <SelectController
+                                name="class"
+                                control={control}
+                                options={classes}
+                                label="Select Class"
+                                className="custom-input"
+                            />
+                    
+                            
+                            {errors.class && <ErrorMessage msg={sessionFormValidation.errorMsg.class} />}
+                            <SelectController
+                                name="section"
+                                control={control}
+                                options={['A', 'B']}
+                                label="Select section"
+                                className="custom-input"
+                            />
+                            {errors.section && <ErrorMessage msg={sessionFormValidation.errorMsg.section}/>}
+                            <SelectController
+                                className="custom-input"
+                                label="Faculty Name"
+                                control={control}
+                                name="faculty"
+                                options={['john', 'lea', 'Deven', 'Jinwie']}
+                            />
+                            {errors.faculty && <ErrorMessage msg={sessionFormValidation.errorMsg.faculty}/>}
+                            <Button type="submit" className="session-button">
+                                Create Session
+                            </Button>
+                        </form>
                     </div>
                 </ModalBox>
             ) : null}

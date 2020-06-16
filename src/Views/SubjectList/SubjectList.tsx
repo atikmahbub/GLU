@@ -5,7 +5,10 @@ import { AccountCircle, Add } from '@material-ui/icons';
 import { colors } from '../../Styles/colors';
 import FormContainer from './FormContainer';
 
-const Subject: React.FunctionComponent = () => {
+interface props{
+    triggerModal: ()=> void
+}
+const SubjectList: React.FunctionComponent<props> = ({triggerModal}) => {
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -15,7 +18,7 @@ const Subject: React.FunctionComponent = () => {
                     title="Subject"
                     btnTitle="Add Subject"
                     btnIcon={<Add/>}
-                    // trigger={handleRoutes}
+                    trigger={triggerModal}
                 />
             </CardContainer>
             <FormContainer/>
@@ -23,4 +26,4 @@ const Subject: React.FunctionComponent = () => {
     );
 };
 
-export default Subject;
+export default SubjectList;

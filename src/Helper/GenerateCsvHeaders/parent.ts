@@ -1,0 +1,1 @@
+export const parent = ["Profile", "ParentId", "Name", "Email"]

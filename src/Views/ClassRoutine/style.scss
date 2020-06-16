@@ -11,3 +11,34 @@
         }
     }
 }
+.class-routine-table{
+    padding: 1.5rem;
+    .title-card-container{
+        @include flex(center, flex-start, row);
+    }
+    .tile-card{
+        padding: 0.5rem;
+        width: 10rem;
+        margin-right: 1.5rem;
+        background-color: #636B8E;
+        border-radius: 0.3rem;
+        @include flex(center, center, column);
+        .title-row{
+            @include flex(center, center, row);
+            margin-bottom: 0.1rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .icon{
+                color: $white;
+                font-size: 0.9rem;
+            }
+            .title{
+                font-size: 0.8rem;
+                font-weight: 100;
+                color: $white;
+                margin-left: 0.4rem;
+            }
+        }
+    }
+}

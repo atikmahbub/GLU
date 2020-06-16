@@ -1,31 +1,57 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Typography, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { Controller } from 'react-hook-form';
+import { attendanceForm } from '../../Helper/FormValidations/attendanceForm';
+import ErrorMessage from '../../components/ErrorMessage';
 
-interface props{
-    data?: string
+interface props {
+    data: { name: string; attendance: string };
+    handler: (value: string) => void;
+    control: any;
+    errors: any;
+    name: string;
 }
-const AttendanceCard: React.FunctionComponent<props> = ({data}) => {
-    const [available, setAvailable] = useState("");
-
-    const handleChange =(e: React.ChangeEvent<HTMLInputElement>) => {
-        setAvailable((e.target as HTMLInputElement).value)
-    }
+const AttendanceCard: React.FunctionComponent<props> = ({ data, handler, control, errors, name }) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        handler((e.target as HTMLInputElement).value);
+    };
+    console.log("running")
     return (
-        <div className="attendance-card">
-        <Typography className="name">{data}</Typography>
-        <div className="attendance-checkbox">
-            <RadioGroup
-                className="radio-group"
-                aria-label="gender"
-                name="attendance"
-                value={available}
-                onChange={handleChange}>
-                <FormControlLabel className="title" value="Present" control={<Radio className="icon" />} label="Present" />
-                <FormControlLabel className="title absent" value="Absent" control={<Radio className="icon" />} label="Absent" />
-            </RadioGroup>
-        </div>
-    </div>
+        <>
+            <div className="attendance-card">
+                <Typography className="name">{data.name}</Typography>
+                <div className="attendance-checkbox">
+                    {/* <Controller
+                        as={ */}
+                            <RadioGroup
+                                className="radio-group"
+                                name={name}
+                                aria-label="gender"
+                                value={data.attendance}
+                                onChange={handleChange}>
+                                <FormControlLabel
+                                    className="title"
+                                    value="present"
+                                    control={<Radio className="icon" />}
+                                    label="Present"
+                                />
+                                <FormControlLabel
+                                    className="title absent"
+                                    value="absent"
+                                    control={<Radio className="icon" />}
+                                    label="Absent"
+                                />
+                            </RadioGroup>
+                        {/* }
+                        name={name}
+                        control={control}
+                        defaultValue=""
+                    /> */}
+                </div>
+            </div>
+            {/* {errors.attendance && <ErrorMessage msg={attendanceForm.errorMsg.section} />} */}
+        </>
     );
-}
+};
 
 export default AttendanceCard;
