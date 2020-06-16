@@ -10,7 +10,7 @@ const AddNewTeacher: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
         routes.push({pathname:'/dashboard/teacher/bulk-upload', state:{
-            breadcrumb: '/dashboard/student/Teacher Data Upload'
+            breadcrumb: '/dashboard/Teacher/Teacher Data Upload'
         }})
     }
     return (

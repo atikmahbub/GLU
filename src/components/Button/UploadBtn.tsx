@@ -20,7 +20,6 @@ const UploadBtn: React.FunctionComponent<props> = ({ text, getFile, btnType }) =
 
     const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
         const totalFile = (e.target as HTMLInputElement).files;
-        console.log(totalFile);
         if (totalFile) {
             getFile(totalFile[0]);
             setFilename(totalFile[0]);

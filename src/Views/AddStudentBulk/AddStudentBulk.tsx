@@ -1,15 +1,21 @@
-import React  from 'react';
+import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle, GetApp } from '@material-ui/icons';
+import { AccountCircle } from '@material-ui/icons';
 import SelectField from '../../components/Inputs/SelectField';
 import { Button } from '@material-ui/core';
-
 import { classes } from '../../Helper/classArray';
 import { colors } from '../../Styles/colors';
 import UploadBtn from '../../components/Button/UploadBtn';
+import GenerateCsvFileBtn from '../../components/Button/GenerateCsvFileBtn';
+import { student } from '../../Helper/GenerateCsvHeaders/student';
+import { parseCsvFile } from "../../Helper/parseCsvFile";
+
 
 const AddStudentBulk: React.FunctionComponent = () => {
+    const [csvfile, setCsvfile] = useState<File>();
+    const handleCsvFile = (file: File) => parseCsvFile(file, setCsvfile);
+    console.log(csvfile)
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -41,12 +47,12 @@ const AddStudentBulk: React.FunctionComponent = () => {
                             />
                         </div>
                     </div>
-                    <div className="row mb-4  w-100">
-                        <div className="col-md-6 col-lg-3 ml-auto">
-                            <Button className="green-btn-light" endIcon={<GetApp />}>Generate CSV File</Button>
+                    <div className="row   w-100">
+                        <div className="col-md-6 mb-4 col-lg-3 ml-auto">
+                            <GenerateCsvFileBtn filename="students.csv" headers={student} />
                         </div>
-                        <div className="col-md-6 col-lg-5 mr-auto">
-                            <UploadBtn btnType="inputBtn" text="upload" getFile={(file)=>{}}/>
+                        <div className="col-md-6 mb-4 col-lg-5 mr-auto">
+                            <UploadBtn btnType="inputBtn" text="upload" getFile={(file) => handleCsvFile(file)} />
                         </div>
                     </div>
 

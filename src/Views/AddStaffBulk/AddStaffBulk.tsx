@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle, GetApp } from '@material-ui/icons';
-import SelectField from '../../components/Inputs/SelectField';
+import { AccountCircle } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
-
-import { classes } from '../../Helper/classArray';
 import { colors } from '../../Styles/colors';
 import UploadBtn from '../../components/Button/UploadBtn';
+import { parseCsvFile } from '../../Helper/parseCsvFile';
+import GenerateCsvFileBtn from '../../components/Button/GenerateCsvFileBtn';
+import { teacher } from '../../Helper/GenerateCsvHeaders/teacher';
 
 const AddStaffBulk: React.FunctionComponent = () => {
-   
+    const [csvfile, setCsvfile] = useState<File>();
+    const handleCsvFile = (file: File) => parseCsvFile(file, setCsvfile);
+
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -24,30 +26,18 @@ const AddStaffBulk: React.FunctionComponent = () => {
             </CardContainer>
             <CardContainer>
                 <div className="student-container">
-                    {/* <div className="row   w-100">
-                        <div className="col-md-6 col-lg-4 ml-auto">
-                            <SelectField
-                                className="custom-input"
-                                options={classes}
-                                label="Select Class"
-                                getValue={() => {}}
+                    <div className="row   w-100">
+                        <div className="col-md-6 mb-4 col-lg-3 ml-auto">
+                            <GenerateCsvFileBtn filename="staff.csv" headers={teacher} />
+                        </div>
+                        <div className="col-md-6 mb-4 col-lg-5 mr-auto">
+                            <UploadBtn
+                                btnType="inputBtn"
+                                text="upload"
+                                getFile={(file: File) => {
+                                    handleCsvFile(file);
+                                }}
                             />
-                        </div>
-                        <div className="col-md-6 col-lg-4 mr-auto">
-                            <SelectField
-                                className="custom-input"
-                                options={['A', 'B']}
-                                label="Select A Section"
-                                getValue={() => {}}
-                            />
-                        </div>
-                    </div> */}
-                    <div className="row mb-4  w-100">
-                        <div className="col-md-6 col-lg-3 ml-auto">
-                            <Button className="green-btn-light" endIcon={<GetApp />}>Generate CSV File</Button>
-                        </div>
-                        <div className="col-md-6 col-lg-5 mr-auto">
-                            <UploadBtn btnType="inputBtn" text="upload" getFile={(file)=>{}}/>
                         </div>
                     </div>
 
