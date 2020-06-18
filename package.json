@@ -12,7 +12,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "predeploy": "npm run build",
+"deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
   },
   "author": "Vincent Chee",
   "license": "ISC",
-  "homepage": "",
+  "homepage": "http://gyanv2.github.io/halo-frontend-react",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
