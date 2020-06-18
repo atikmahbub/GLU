@@ -1,6 +1,10 @@
 {
   "name": "glu-school",
   "version": "1.0.0",
+  "engines": {
+    "npm": "6.14.5",
+    "node": "12.16.2"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
