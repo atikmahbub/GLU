@@ -7,7 +7,7 @@ const FormRow = () => {
         <div className="row">
             <div className="col-lg">
                 <SelectField
-                    className="custom-input"
+                    className=" custom-select-input mb-0"
                     options={classes}
                     label="Select A class"
                     getValue={() => {}}

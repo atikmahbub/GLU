@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 
 const AddNewStudent: React.FunctionComponent = () => {
     const [rows, setRows] = useState([1]);
-
+    const [formdata, setFormdata] = useState<Array<object>>([]);
     const addRows = () => {
         const total = [...rows];
         total.push(1);
@@ -22,6 +22,9 @@ const AddNewStudent: React.FunctionComponent = () => {
         const total = [...rows];
         total.splice(index, 1);
         setRows(total);
+        const data = [...formdata];
+        data.splice(index, 1);
+        setFormdata(data);
     };
 
     const routes = useHistory();
@@ -31,6 +34,11 @@ const AddNewStudent: React.FunctionComponent = () => {
         }})
     }
 
+    const handleChange = (value: object, index: number) => {
+            const data = [...formdata];
+            data[index] = value;
+            setFormdata(data);
+    }
 
     return (
         <div className="content-wrapper-student">
@@ -65,7 +73,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                     </div>
                     {rows.map((value, index) => (
                         <div className="student-form-row  w-100">
-                            <FormRow />
+                            <FormRow onChange={(value)=>handleChange(value, index)} />
                             {index === 0 ? (
                                 <IconButton onClick={addRows} className="button-container">
                                     <Add className="icon-btn" />

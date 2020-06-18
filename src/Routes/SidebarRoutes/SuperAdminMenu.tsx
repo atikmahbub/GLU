@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dashboard as DashboardIcon, AccountBalanceWallet, Settings, AccountCircle, School } from '@material-ui/icons';
 
-export const NavigationMenu: any[] = [
+export const SuperAdminMenu: any[] = [
     {
         menuName: 'Dashboard',
         icon: <DashboardIcon />,
