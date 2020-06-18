@@ -17,6 +17,7 @@ const CardTable = ({
     rowClick,
     wantRows,
     getWantRows,
+    filterRender
 }) => {
     return (
         <MaterialTable
@@ -30,7 +31,7 @@ const CardTable = ({
             columns={columns}
             data={rowData}
             components={{
-                Toolbar: (props) => (showToolbar ? <SearchBoxFilterExport availabeProps={props} /> : null),
+                Toolbar: (props) => (showToolbar ? <SearchBoxFilterExport filter={filterRender} availabeProps={props} /> : null),
             }}
             onRowClick={rowClick}    
             options={{
@@ -72,6 +73,7 @@ CardTable.propTypes = {
     rowClick: PropTypes.func,
     wantRows: PropTypes.bool,
     getWantRows: PropTypes.func,
+    filterRender: PropTypes.element
 };
 
 export default memo(CardTable);

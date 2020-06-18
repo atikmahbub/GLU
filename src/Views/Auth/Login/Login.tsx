@@ -9,6 +9,24 @@ import {RouteComponentProps} from "react-router-dom";
 
 const loginAs = ["Superadmin", "Admin", "Teacher", "Parent", "Student", "Account", "Librarrian"];
 class Login extends React.PureComponent<RouteComponentProps> {
+  state = {
+    loginAs:'',
+    email:'',
+    password: ''
+  }
+  handleLoginAs = (value: string) => {
+    this.setState({...this.state, loginAs: value})
+  }
+  handleEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    this.setState({...this.state, email: e.target.value})
+  }
+  handlePassword = (value: string) => {
+    this.setState({...this.state, password: value});
+  }
+  handleForm = () => {
+    localStorage.setItem('auth', JSON.stringify(this.state));
+    this.props.history.push("/dashboard")
+  }
   render() {
     return (
       <div className="login-wrapper">
@@ -18,19 +36,21 @@ class Login extends React.PureComponent<RouteComponentProps> {
               Glu.
             </Typography>
             <Typography className="slogan">Great learning umbrella.</Typography>
-            <SelectField label="Login As" className="mb-4" getValue={(value)=>console.log(value)} options={loginAs}/>
+            <SelectField label="Login As" className="mb-4" getValue={(value)=>this.handleLoginAs(value)} options={loginAs}/>
             <TextField
               className="mb-4"
               variant="outlined"
+              value={this.state.email}
+              onChange={this.handleEmail}
               label="Email Address"
               fullWidth
             />
-           <AdornmentInput/>
+           <AdornmentInput value={this.state.password} onChange={(value)=> this.handlePassword(value)}/>
             <div className="remember-me-container">
               <Checkbox className="remember-me-checkbox" color="primary" />
               <Link to="forgot-password">Forgot Passowrd ?</Link>
             </div>
-            <Button className="gradient-button" onClick={()=> this.props.history.push("/dashboard")}  fullWidth>
+            <Button className="gradient-button" onClick={this.handleForm}  fullWidth>
               Login to Account
             </Button>
               <SocialLogin/>

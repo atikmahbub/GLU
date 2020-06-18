@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ModalBox from '../../components/Modal/ModalBox';
 import { TextField, Button } from '@material-ui/core';
-import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
 import { classes } from '../../Helper/classArray';
 import SubjectList from './SubjectList';
 import SelectController from '../../components/Inputs/SelectController';

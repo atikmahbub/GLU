@@ -8,9 +8,11 @@
         }
         .filter-btn{
             align-self: baseline;
-            height: 2.7rem;
+            height: 2.4rem;
+            align-self: center;
             width: 9%;
             @include grayBtn;
+            margin-right: 1.5rem;
         }
     }
 }

@@ -1,62 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SelectField from '../../components/Inputs/SelectField';
 import { TextField } from '@material-ui/core';
-import { useForm, Controller } from 'react-hook-form';
 
-const FormRow: React.FunctionComponent = () => {
-    const { control, handleSubmit } = useForm();
-    const onSubmit = (data: any) => console.log(data);
+interface props{
+    onChange: (value:any) => void;
+}
+const FormRow: React.FunctionComponent<props> = ({onChange}) => {
+    const [state, setState] = useState({name:"", email:"", gender:"", parent:"" });
+    const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({...state, name: e.target.value})
+    }
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({...state, email: e.target.value})
+    }
+    const handleGender = (value: string) =>{
+        setState({...state, gender:value})
+    }
+    const handleParent = (value:string) => {
+        setState({...state, parent: value})
+    }
+
+    useEffect(()=>{
+        onChange(state);
+    }, [state])
+
     return (
-        <form id="student-form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="row form-container">
-                <div className="col-lg-3">
-                    <Controller
-                        as={<TextField className="custom-input" label="Name" variant="outlined" fullWidth />}
-                        name="name"
-                        control={control}
-                        defaultValue=""
-                    />
-                </div>
-                <div className="col-lg-3">
-                    <Controller
-                        as={<TextField className="custom-input" label="Email" variant="outlined" fullWidth />}
-                        name="email"
-                        control={control}
-                        defaultValue=""
-                    />
-                </div>
-                <div className="col-lg-3">
-                    <Controller
-                        as={
-                            <SelectField
-                                className="custom-input"
-                                options={['Male', 'Female']}
-                                label="Select Gender"
-                                getValue={() => {}}
-                            />
-                        }
-                        name="gender"
-                        control={control}
-                        defaultValue=""
-                    />
-                </div>
-                <div className="col-lg-3">
-                    <Controller
-                        as={
-                            <SelectField
-                                className="custom-input"
-                                options={['', '']}
-                                label="Select Parent"
-                                getValue={() => {}}
-                            />
-                        }
-                        name="parent"
-                        control={control}
-                        defaultValue=""
-                    />
-                </div>
+        <div className="row">
+            <div className="col-lg-3">
+                <TextField className="custom-input" value={state.name} onChange={handleName} label="Name" variant="outlined" fullWidth />
             </div>
-        </form>
+            <div className="col-lg-3">
+                <TextField className="custom-input" value={state.email} onChange={handleEmail}  label="Email" variant="outlined" fullWidth />
+            </div>
+            <div className="col-lg-3">
+                <SelectField
+                    className="custom-input"
+                    options={['Male', 'Female']}
+                    label="Select Gender"
+                    getValue={(value) => {handleGender(value)}}
+                />
+            </div>
+            <div className="col-lg-3">
+                <SelectField className="custom-input" options={['', '']} label="Select Parent" getValue={(value) => {handleParent(value)}} />
+            </div>
+        </div>
     );
 };
 

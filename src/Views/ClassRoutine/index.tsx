@@ -15,7 +15,7 @@ const index: React.FunctionComponent = () => {
     const handleToggler = () => {
         setToggler(!toggler);
     };
-    const { register, errors, handleSubmit, control } = useForm({
+    const { errors, handleSubmit, control } = useForm({
         validationSchema: routineFormValidation.validationSetting,
     });
     const submit = (data: object) => console.log(data);

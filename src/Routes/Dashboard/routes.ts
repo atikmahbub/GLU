@@ -22,9 +22,10 @@ import AddStudentBulk from '../../Views/AddStudentBulk/AddStudentBulk';
 import AddParentBulk from '../../Views/AddParentBulk/AddParentBulk';
 import AddTeacherBulk from '../../Views/AddTeacherBulk/AddTeacherBulk';
 import AddStaffBulk from '../../Views/AddStaffBulk/AddStaffBulk';
+import {getDashboard} from "./getDashboard";
 
 export const dashboardRoutes = [
-    { pathname: '/dashboard', component: Dashboard },
+    { pathname: '/dashboard', component: getDashboard() },
     { pathname: '/dashboard/students', component: StudentList },
     { pathname: '/dashboard/student/add-new-student', component: AddNewStudent },
     { pathname: '/dashboard/student/add-new-teacher', component: AddNewTeacher },
