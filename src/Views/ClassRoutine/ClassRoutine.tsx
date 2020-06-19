@@ -6,12 +6,14 @@ import { colors } from '../../Styles/colors';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import TitleCardContainer from './TitleCardContainer';
-import "./routineTable.scss";
+import './routineTable.scss';
+import FormRow from './FormRow';
+import { Button } from '@material-ui/core';
 
-interface props{
-    triggerModal: ()=> void
+interface props {
+    triggerModal: () => void;
 }
-const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
+const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -29,6 +31,12 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                     <CardTable
                         showToolbar={true}
                         showPagination={false}
+                        filterRender={
+                            <div className="student-form-row  w-100">
+                                <FormRow />
+                                <Button className="filter-btn">Filter</Button>
+                            </div>
+                        }
                         columns={[
                             {
                                 width: '15%',
@@ -39,9 +47,7 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                                 width: '75%',
                                 title: 'Routine',
                                 field: 'routine',
-                                render: () => (
-                                   <TitleCardContainer/>
-                                ),
+                                render: () => <TitleCardContainer />,
                             },
 
                             {
@@ -54,32 +60,32 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                         rowData={[
                             {
                                 class: 'Monday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                             {
                                 class: 'Tuesday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                             {
                                 class: 'Wednesday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                             {
                                 class: 'Thursday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                             {
                                 class: 'Friday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                             {
                                 class: 'Saturday',
-                                routine: "",
+                                routine: '',
                                 action: '',
                             },
                         ]}

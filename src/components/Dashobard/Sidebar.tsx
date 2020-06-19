@@ -73,7 +73,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                 !menu.isExpandable &&
                                     routes.push({
                                         pathname: menu.routeName,
-                                        state: { icon: String(menu.icon), breadcrumb: menu.routeName },
+                                        state: { breadcrumb: menu.routeName },
                                     });
                                 handleSubMenu(index);
                             }}>
@@ -93,7 +93,6 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                                 routes.push({
                                                     pathname: `${url}${submenu.routeName}`,
                                                     state: {
-                                                        icon: String(menu.icon),
                                                         breadcrumb: `${url}${submenu.routeName}`,
                                                     },
                                                 });
@@ -116,7 +115,6 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                                         routes.push({
                                                             pathname: `${url}${childSubmenu.routeName}`,
                                                             state: {
-                                                                icon: String(menu.icon),
                                                                 breadcrumb: `${url}${childSubmenu.routeName}`,
                                                             },
                                                         })

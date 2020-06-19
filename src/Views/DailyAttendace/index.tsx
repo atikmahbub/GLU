@@ -63,7 +63,7 @@ const index: React.FunctionComponent = () => {
         students[index].attendance = value;
         setTotalStudent(students);
     };
-    const { register, errors, handleSubmit, control } = useForm({
+    const { errors, handleSubmit, control } = useForm({
         validationSchema: attendanceForm.validationSetting,
     });
     const submit = (data: object) => console.log(data);
