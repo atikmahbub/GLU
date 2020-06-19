@@ -16,7 +16,7 @@ export const TeacherMenu: any[] = [
         isOpen: false,
         isExpandable: false,
         menuList: [],
-        routeName: '/',
+        routeName: '/dashboard/teacher-profile',
     },
     {
         menuName: 'classroom',
@@ -57,11 +57,11 @@ export const TeacherMenu: any[] = [
         routeName: '',
         menuList: [
             {
-                menuName: 'Student Attendacne',
+                menuName: 'Student Attendance',
                 isExpandable: false,
                 isOpen: false,
                 menuList: [],
-                routeName: '/studen-attendance',
+                routeName: '/student-attendance',
             },
             {
                 menuName: 'Exam Reports',

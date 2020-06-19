@@ -1,6 +1,6 @@
 import React from 'react';
 import SelectField from '../../components/Inputs/SelectField';
-import { months } from '../../Helper/months';
+import { classes } from '../../Helper/classArray';
 
 const FormRow = () => {
     return (
@@ -8,16 +8,16 @@ const FormRow = () => {
             <div className="col-lg">
                 <SelectField
                     className="custom-select-input mb-0"
-                    options={months}
-                    label="Select A Month"
+                    options={classes}
+                    label="Select A Class"
                     getValue={() => {}}
                 />
             </div>
             <div className="col-lg">
                 <SelectField
                     className="custom-select-input mb-0"
-                    options={["2020"]}
-                    label="Select A Year"
+                    options={["A", "B"]}
+                    label="Select A Section"
                     getValue={() => {}}
                 />
             </div>

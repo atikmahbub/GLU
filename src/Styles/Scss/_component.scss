@@ -294,6 +294,16 @@
         color: $darkGray;
         font-weight: 500;
     }
+    .MuiOutlinedInput-adornedEnd {
+        padding-right: 0 !important;
+    }
+    .MuiIconButton-root{
+        padding: 0;
+        margin-right: 1rem;
+    }
+    .MuiInputAdornment-positionEnd {
+        margin-left: 0;
+    }
 }
 
 // modal box style

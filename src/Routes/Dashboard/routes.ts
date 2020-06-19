@@ -23,6 +23,7 @@ import AddParentBulk from '../../Views/AddParentBulk/AddParentBulk';
 import AddTeacherBulk from '../../Views/AddTeacherBulk/AddTeacherBulk';
 import AddStaffBulk from '../../Views/AddStaffBulk/AddStaffBulk';
 import {getDashboard} from "./getDashboard";
+import TeacherProfile from '../../Views/TeacherProfile/TeacherProfile';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -49,5 +50,5 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/teacher/bulk-upload', component: AddTeacherBulk },
     { pathname: '/dashboard/parent/bulk-upload', component: AddParentBulk },
     { pathname: '/dashboard/staff/bulk-upload', component: AddStaffBulk },
-
+    { pathname: '/dashboard/teacher-profile', component: TeacherProfile },
 ];
