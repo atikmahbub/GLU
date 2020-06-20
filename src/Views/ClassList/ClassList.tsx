@@ -14,9 +14,9 @@ const ClassList: React.FunctionComponent<props> = ({triggerModal}) => {
             <CardContainer>
                 <AddButton
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Classes"
+                    title="Year Group"
                     btnIcon={<Add />}
-                    btnTitle="Add class"
+                    btnTitle="Add Year Group"
                     trigger={triggerModal}
                 />
             </CardContainer>
@@ -28,18 +28,18 @@ const ClassList: React.FunctionComponent<props> = ({triggerModal}) => {
                         columns={[
                             {
                                 width: '20%',
-                                title: 'Class',
-                                field: 'class',
+                                title: 'Year',
+                                field: 'year',
                             },
                             {
                                 width: '20%',
-                                title: 'Section',
-                                field: 'section',
+                                title: 'Form Group',
+                                field: 'formGroup',
                             },
                             {
                                 width: '20%',
-                                title: 'Faculty Head',
-                                field: 'facultyHead',
+                                title: 'Teacher\'s',
+                                field: 'teacher',
                             },
                             {
                                 width: '20%',
@@ -55,37 +55,37 @@ const ClassList: React.FunctionComponent<props> = ({triggerModal}) => {
                         ]}
                         rowData={[
                             {
-                                class: "One",
-                                section: 'A, B, C',
-                                facultyHead: 'John Dow',
+                                year: "One",
+                                formGroup: 'A, B, C',
+                                teacher: 'John Dow',
                                 student: "25",
                                 action: '',
                             },
                             {
-                                class: "Two",
-                                section: 'A, B, C',
-                                facultyHead: 'John Dow',
+                                year: "Two",
+                                formGroup: 'A, B, C',
+                                teacher: 'John Dow',
                                 student: "25",
                                 action: '',
                             },
                             {
-                                class: "Three",
-                                section: 'A, B, C, D',
-                                facultyHead: 'John Dow',
+                                year: "Three",
+                                formGroup: 'A, B, C, D',
+                                teacher: 'John Dow',
                                 student: "25",
                                 action: '',
                             },
                             {
-                                class: "Four",
-                                section: 'A, B',
-                                facultyHead: 'John Dow',
+                                year: "Four",
+                                formGroup: 'A, B',
+                                teacher: 'John Dow',
                                 student: "25",
                                 action: '',
                             },
                             {
-                                class: "Five",
-                                section: 'A, B',
-                                facultyHead: 'John Dow',
+                                year: "Five",
+                                formGroup: 'A, B',
+                                teacher: 'John Dow',
                                 student: "25",
                                 action: '',
                             },

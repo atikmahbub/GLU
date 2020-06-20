@@ -39,7 +39,7 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/class-routine', component: ClassRoutine },
     { pathname: '/dashboard/subjects', component: SubjectList },
     { pathname: '/dashboard/sessions', component: SessionList },
-    { pathname: '/dashboard/classes', component: ClassList },
+    { pathname: '/dashboard/year-group', component: ClassList },
     { pathname: '/dashboard/departments', component: Departments },
     { pathname: '/dashboard/syllabus', component: syllabusList },
     { pathname: '/dashboard/permissions', component: PermissionList },

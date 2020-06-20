@@ -73,10 +73,10 @@ export const SuperAdminMenu: any[] = [
                 routeName: '/sessions',
             },
             {
-                menuName: 'classes',
+                menuName: 'Year-Group',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/classes',
+                routeName: '/year-group',
             },
             {
                 menuName: 'Subjects',

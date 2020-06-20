@@ -24,10 +24,10 @@ export const TeacherMenu: any[] = [
         isExpandable: true,
         menuList: [
             {
-                menuName: 'Classes',
+                menuName: 'Year Group',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/classes',
+                routeName: '/year-group',
             },
             {
                 menuName: 'Departments',

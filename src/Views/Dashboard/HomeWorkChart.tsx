@@ -3,11 +3,12 @@ import { Typography } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import {colors} from "../../Styles/colors";
+import { colors } from '../../Styles/colors';
+import { Person } from '@material-ui/icons';
 
 const options = {
     chart: {
-        type: 'spline',
+        type: 'column',
         height: 204,
         scrollablePlotArea: {
             minWidth: 300,
@@ -18,7 +19,7 @@ const options = {
         text: '',
     },
     xAxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        categories: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10", "Year 11", "Year 12" ],
         tickInterval: 0,
         plotLines: [
             {
@@ -32,8 +33,8 @@ const options = {
         },
     },
     yAxis: {
-        categories: [0, 5000, 10000, 15000, 20000],
-        tickInterval: 5000,
+        categories: [0, 1000],
+        tickInterval: 500,
         title: {
             text: null,
         },
@@ -53,14 +54,14 @@ const options = {
             content += `
             <div ><div class="arrow"></div><span class="tooltip-7785">
             <span style="font-weight:900; font-size:1rem;">
-            <span style="color:black; margin-left:5px;">$ ${this.y} </span></span></span></div>
-            `
+            <span style="color:black; margin-left:5px;"> ${this.y} </span></span></span></div>
+            `;
             return content;
         },
     },
     series: [
         {
-            data: [0, 16000, 8000, 18000, 13000, 5000, 12000],
+            data: [1000, 600, 200, 500, 800, 900, 1000, 500, 100, 300, 660, 980],
             color: colors.primary,
             lineWidth: 3.5,
             showInLegend: false,
@@ -75,7 +76,7 @@ const options = {
             },
         },
         {
-            data: [0, 6000, 1000, 7000, 17000, 18000, 2000],
+            data: [0, 400, 800, 500, 200, 100, 0, 500, 900, 700, 340, 20],
             color: colors.grayPrimary,
             lineWidth: 1,
             showInLegend: false,
@@ -93,24 +94,28 @@ const options = {
     },
 };
 
-export const SessionInsightsChart = () => {
+export const HomeWorkChart = () => {
     return (
         <>
             <div className="heading">
-                <Typography className="head-text">Session Insights</Typography>
+                <Typography className="head-text">Homework Completed</Typography>
             </div>
             <div className="revenue-content">
                 <div className="revenue-week-stat">
                     <div className="col-md-3">
-                        <Typography className="sub-text ">Session Taken</Typography>
+                        <Typography className="sub-text ">Homework completed</Typography>
                         <Typography className="revenue-count">
-                            <span style={{backgroundColor: colors.primary}} className="current bullet-icon"></span>4,320
+                            <span style={{ backgroundColor: colors.primary }} className="current bullet-icon"></span>
+                            1000
                         </Typography>
                     </div>
                     <div className="col-md-3">
-                        <Typography className="sub-text ">Session Added</Typography>
+                        <Typography className="sub-text ">Homework not completed</Typography>
                         <Typography className="revenue-count">
-                            <span style={{backgroundColor: colors.grayPrimary}} className="previous bullet-icon"></span>5,320
+                            <span
+                                style={{ backgroundColor: colors.grayPrimary }}
+                                className="previous bullet-icon"></span>
+                            100
                         </Typography>
                     </div>
                 </div>
@@ -122,4 +127,4 @@ export const SessionInsightsChart = () => {
     );
 };
 
-export default SessionInsightsChart;
+export default HomeWorkChart;

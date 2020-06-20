@@ -3,12 +3,13 @@ import { Typography } from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import {colors} from "../../Styles/colors";
+import { colors } from '../../Styles/colors';
+import { Person } from '@material-ui/icons';
 
 const options = {
     chart: {
-        type: 'spline',
-        height: 204,
+        type: 'column',
+        height: 300,
         scrollablePlotArea: {
             minWidth: 300,
             scrollPositionX: 1,
@@ -18,7 +19,7 @@ const options = {
         text: '',
     },
     xAxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        categories: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6", "Year 7", "Year 8", "Year 9", "Year 10", "Year 11", "Year 12" ],
         tickInterval: 0,
         plotLines: [
             {
@@ -32,8 +33,8 @@ const options = {
         },
     },
     yAxis: {
-        categories: [0, 5000, 10000, 15000, 20000],
-        tickInterval: 5000,
+        categories: [0, 1000],
+        tickInterval: 500,
         title: {
             text: null,
         },
@@ -53,14 +54,14 @@ const options = {
             content += `
             <div ><div class="arrow"></div><span class="tooltip-7785">
             <span style="font-weight:900; font-size:1rem;">
-            <span style="color:black; margin-left:5px;">$ ${this.y} </span></span></span></div>
-            `
+            <span style="color:black; margin-left:5px;"> ${this.y} </span></span></span></div>
+            `;
             return content;
         },
     },
     series: [
         {
-            data: [0, 16000, 8000, 18000, 13000, 5000, 12000],
+            data: [500, 600, 200, 500, 400, 500, 100, 300, 500, 350, 450, 480],
             color: colors.primary,
             lineWidth: 3.5,
             showInLegend: false,
@@ -75,7 +76,7 @@ const options = {
             },
         },
         {
-            data: [0, 6000, 1000, 7000, 17000, 18000, 2000],
+            data: [0, 10, 10, 5, 20, 10, 4, 1, 0, 5, 10, 12],
             color: colors.grayPrimary,
             lineWidth: 1,
             showInLegend: false,
@@ -85,6 +86,23 @@ const options = {
                 symbol: 'circle',
             },
         },
+        {
+            type: 'pie',
+            name: 'Total Result',
+            data: [{
+                y: 1000,
+                color: "#007AFF"
+            }, {
+                y: 23,
+                color: "#DCE1E3"
+            }],
+            center: [50, 30],
+            size: 100,
+            showInLegend: false,
+            dataLabels: {
+                enabled: false
+            }
+        }
     ],
     navigation: {
         menuItemStyle: {
@@ -93,24 +111,28 @@ const options = {
     },
 };
 
-export const SessionInsightsChart = () => {
+export const ExamReportChart = () => {
     return (
         <>
             <div className="heading">
-                <Typography className="head-text">Session Insights</Typography>
+                <Typography className="head-text">Exam Result</Typography>
             </div>
             <div className="revenue-content">
                 <div className="revenue-week-stat">
                     <div className="col-md-3">
-                        <Typography className="sub-text ">Session Taken</Typography>
+                        <Typography className="sub-text ">Passed Student</Typography>
                         <Typography className="revenue-count">
-                            <span style={{backgroundColor: colors.primary}} className="current bullet-icon"></span>4,320
+                            <span style={{ backgroundColor: colors.primary }} className="current bullet-icon"></span>
+                            4,320
                         </Typography>
                     </div>
                     <div className="col-md-3">
-                        <Typography className="sub-text ">Session Added</Typography>
+                        <Typography className="sub-text ">Failed Student</Typography>
                         <Typography className="revenue-count">
-                            <span style={{backgroundColor: colors.grayPrimary}} className="previous bullet-icon"></span>5,320
+                            <span
+                                style={{ backgroundColor: colors.grayPrimary }}
+                                className="previous bullet-icon"></span>
+                            5,320
                         </Typography>
                     </div>
                 </div>
@@ -122,4 +144,4 @@ export const SessionInsightsChart = () => {
     );
 };
 
-export default SessionInsightsChart;
+export default ExamReportChart;
