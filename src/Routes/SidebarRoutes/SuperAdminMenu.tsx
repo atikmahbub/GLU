@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dashboard as DashboardIcon, AccountBalanceWallet, Settings, AccountCircle, School } from '@material-ui/icons';
+import { Dashboard as DashboardIcon, AccountBalanceWallet, Settings, AccountCircle, School, HowToReg } from '@material-ui/icons';
 
 export const SuperAdminMenu: any[] = [
     {
@@ -11,17 +11,18 @@ export const SuperAdminMenu: any[] = [
         routeName: '/dashboard',
     },
     {
+        menuName: 'Admin',
+        icon:<HowToReg />,
+        isExpandable: false,
+        isOpen: false,
+        menuList: [],
+        routeName: '/dashboard/admin',
+    },
+    {
         menuName: 'Users',
         icon: <AccountCircle />,
         isExpandable: true,
         menuList: [
-            {
-                menuName: 'Admin',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/admin',
-            },
             {
                 menuName: 'Student',
                 isExpandable: false,
@@ -79,10 +80,10 @@ export const SuperAdminMenu: any[] = [
                 routeName: '/year-group',
             },
             {
-                menuName: 'Subjects',
+                menuName: 'Class Groups',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/subjects',
+                routeName: '/class-groups',
             },
             {
                 menuName: 'departments',
@@ -103,10 +104,10 @@ export const SuperAdminMenu: any[] = [
                 routeName: '/event-calender',
             },
             {
-                menuName: 'Class Routine',
+                menuName: 'Timetables',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/class-routine',
+                routeName: '/timetables',
             },
 
             {
@@ -116,10 +117,10 @@ export const SuperAdminMenu: any[] = [
                 routeName: '/syllabus',
             },
             {
-                menuName: 'class Room',
+                menuName: 'Extra Curricular Activities',
                 isExpandable: false,
                 menuList: [],
-                routeName: '/class-room',
+                routeName: '/extra-curricular-activities',
             },
         ],
         routeName: '',

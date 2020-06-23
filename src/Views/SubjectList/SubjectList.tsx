@@ -16,7 +16,7 @@ const SubjectList: React.FunctionComponent<props> = ({triggerModal}) => {
                     style={{backgroundColor:colors.primary}}
                     icon={<AccountCircle className="icon-circle" />}
                     title="Subject"
-                    btnTitle="Add Subject"
+                    btnTitle="Create Class Group"
                     btnIcon={<Add/>}
                     trigger={triggerModal}
                 />

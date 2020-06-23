@@ -79,7 +79,7 @@ const index: React.FunctionComponent = () => {
                             <SelectController
                                 className="custom-input"
                                 options={classes}
-                                label="Select A Class"
+                                label="Year Group"
                                 name="class"
                                 control={control}
                             />
@@ -89,7 +89,7 @@ const index: React.FunctionComponent = () => {
                                 options={['A', 'B', 'C']}
                                 name="section"
                                 control={control}
-                                label="Select A Section"
+                                label="Form Group"
                             />
                             {errors.section && <ErrorMessage msg={attendanceForm.errorMsg.section} />}
                             <div className="button-container">

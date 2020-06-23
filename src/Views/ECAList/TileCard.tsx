@@ -10,7 +10,7 @@ const TileCard: React.FunctionComponent<props> = ({data}) => {
         <div className="tile-card">
                 <TitleRow icon={<EmojiEvents className="icon" />} title={data.activity} />
                 <TitleRow icon={<QueryBuilder className="icon" />} title={data.time} />
-                <TitleRow icon={<PersonPin className="icon" />} title={data.teacher} />
+                <TitleRow icon={<PersonPin className="icon" />} title={data.department} />
                 <TitleRow icon={<People className="icon" />} title={data.students} />
             </div>
     );

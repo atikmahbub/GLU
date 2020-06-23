@@ -14,11 +14,11 @@ const index: React.FunctionComponent = () => {
     const { register, errors, handleSubmit } = useForm({
         validationSchema: classFormValidation.validationSetting,
     });
-    const submit = (data:object) => console.log(data);
+    const submit = (data: object) => console.log(data);
     return (
         <div>
             {toggler ? (
-                <ModalBox title="Create Class" modalHandler={handleToggler}>
+                <ModalBox title="Create Year Group" modalHandler={handleToggler}>
                     <div className="modal-form">
                         <form onSubmit={handleSubmit(submit)}>
                             <TextField
@@ -27,7 +27,7 @@ const index: React.FunctionComponent = () => {
                                 name="className"
                                 className="custom-input"
                                 fullWidth
-                                label="Class Name"
+                                label="Year Group"
                             />
                             {errors.className && <ErrorMessage msg={classFormValidation.errorMsg.className} />}
                             <TextField
@@ -36,11 +36,11 @@ const index: React.FunctionComponent = () => {
                                 name="section"
                                 className="custom-input"
                                 fullWidth
-                                label="Section Name"
+                                label="Form Group"
                             />
                             {errors.section && <ErrorMessage msg={classFormValidation.errorMsg.section} />}
                             <Button type="submit" className="session-button">
-                                Create Class
+                                Create Year Group
                             </Button>
                         </form>
                     </div>

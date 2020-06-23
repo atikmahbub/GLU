@@ -20,8 +20,8 @@ const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
                 <AddButton
                     style={{ backgroundColor: colors.primary }}
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Class Routine"
-                    btnTitle="Add Routine"
+                    title="Timetables"
+                    btnTitle="Add New Timetable"
                     btnIcon={<Add />}
                     trigger={triggerModal}
                 />
@@ -47,7 +47,7 @@ const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
                                 width: '75%',
                                 title: 'Routine',
                                 field: 'routine',
-                                render: () => <TitleCardContainer />,
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
                             },
 
                             {
@@ -60,32 +60,32 @@ const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
                         rowData={[
                             {
                                 class: 'Monday',
-                                routine: '',
+                                routine: {activity: "Physics", time:"10:00AM - 12:00PM", teacher:"Toni ferad", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Tuesday',
-                                routine: '',
+                                routine: {activity: "Chemistry", time:"01:00AM - 2:00PM", teacher:"john smith", students:"Govind, Mohit"},
                                 action: '',
                             },
                             {
                                 class: 'Wednesday',
-                                routine: '',
+                                routine: {activity: "Biology", time:"10:00AM - 12:00PM", teacher:"johns cena", students:"year 1, B"},
                                 action: '',
                             },
                             {
                                 class: 'Thursday',
-                                routine: '',
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smithArt", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Friday',
-                                routine: '',
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smith", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Saturday',
-                                routine: '',
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smith", students:"year 1, A"},
                                 action: '',
                             },
                         ]}

@@ -5,30 +5,32 @@ import { AccountCircle, Add } from '@material-ui/icons';
 import { colors } from '../../Styles/colors';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import TitleCardContainer from './TitleCardContainer';
+import './routineTable.scss';
 import FormRow from './FormRow';
 import { Button } from '@material-ui/core';
 
 interface props {
-    triggerModal?: () => void;
+    triggerModal: () => void;
 }
-const DailyAttendance: React.FunctionComponent<props> = ({ triggerModal }) => {
+const ECATable: React.FunctionComponent<props> = ({ triggerModal }) => {
     return (
         <div className="content-wrapper-student">
             <CardContainer>
                 <AddButton
                     style={{ backgroundColor: colors.primary }}
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Daily Attendance"
-                    btnTitle="Take Attendance"
+                    title="Extra Curricular Activity"
+                    btnTitle="Add New Extra Curricular Activity"
                     btnIcon={<Add />}
                     trigger={triggerModal}
                 />
             </CardContainer>
             <CardContainer>
-                <div className="student-attendance-table">
+                <div className="class-routine-table">
                     <CardTable
                         showToolbar={true}
-                        showPagination={true}
+                        showPagination={false}
                         filterRender={
                             <div className="student-form-row  w-100">
                                 <FormRow />
@@ -37,25 +39,17 @@ const DailyAttendance: React.FunctionComponent<props> = ({ triggerModal }) => {
                         }
                         columns={[
                             {
-                                width: '20%',
-                                title: 'Year Group',
-                                field: 'yearGroup',
+                                width: '15%',
+                                title: 'Class',
+                                field: 'class',
                             },
                             {
-                                width: '20%',
-                                title: 'Form Group',
-                                field: 'formGroup',
+                                width: '75%',
+                                title: 'Routine',
+                                field: 'routine',
+                                render: (rowData:any) => <TitleCardContainer  data={rowData.routine}/>,
                             },
-                            {
-                                width: '20%',
-                                title: 'Date',
-                                field: 'date',
-                            },
-                            {
-                                width: '20%',
-                                title: 'Presence',
-                                field: 'presence',
-                            },
+
                             {
                                 width: '10%',
                                 title: 'Action',
@@ -65,45 +59,33 @@ const DailyAttendance: React.FunctionComponent<props> = ({ triggerModal }) => {
                         ]}
                         rowData={[
                             {
-                                yearGroup: 'One',
-                                formGroup: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Monday',
+                                routine: {activity: "singing", time:"10:00AM - 12:00PM", department:"Art", students:"year 1, A"},
                                 action: '',
                             },
                             {
-                                yearGroup: 'Two',
-                                formGroup: 'B',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Tuesday',
+                                routine: {activity: "singing", time:"01:00AM - 2:00PM", department:"Science", students:"Govind, Rohit, Mohit"},
                                 action: '',
                             },
                             {
-                                yearGroup: 'Three',
-                                formGroup: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Wednesday',
+                                routine: {activity: "singing", time:"10:00AM - 12:00PM", department:"Art", students:"year 1, A"},
                                 action: '',
                             },
                             {
-                                yearGroup: 'Four',
-                                formGroup: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Thursday',
+                                routine: {activity: "singing", time:"10:00AM - 12:00PM", department:"Art", students:"year 1, A"},
                                 action: '',
                             },
                             {
-                                yearGroup: 'Five',
-                                formGroup: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Friday',
+                                routine: {activity: "singing", time:"10:00AM - 12:00PM", department:"Art", students:"year 1, A"},
                                 action: '',
                             },
                             {
-                                yearGroup: 'Six',
-                                formGroup: 'A',
-                                date: 'Dec, 10, 2020',
-                                presence: '25/28',
+                                class: 'Saturday',
+                                routine: {activity: "singing", time:"10:00AM - 12:00PM", department:"Art", students:"year 1, A"},
                                 action: '',
                             },
                         ]}
@@ -114,4 +96,4 @@ const DailyAttendance: React.FunctionComponent<props> = ({ triggerModal }) => {
     );
 };
 
-export default DailyAttendance;
+export default ECATable;

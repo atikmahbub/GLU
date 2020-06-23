@@ -28,7 +28,7 @@ const FormRow = () => {
                 <SelectField
                     className=" custom-select-input mb-0"
                     options={classes}
-                    label="Select A Class"
+                    label="Year Group"
                     getValue={() => {}}
                 />
             </div>
@@ -36,7 +36,7 @@ const FormRow = () => {
                 <SelectField
                     className=" custom-select-input mb-0"
                     options={["A", "B", "C"]}
-                    label="Select A Section"
+                    label="Form Group"
                     getValue={() => {}}
                 />
             </div>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import ModalBox from '../../components/Modal/ModalBox';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import SelectController from '../../components/Inputs/SelectController';
 import { classes } from '../../Helper/classArray';
-import ClassRoutine from './ClassRoutine';
-import { dayNames } from '../../Helper/dayNames';
+import ECATable from './ECATable';
 import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '../../components/ErrorMessage';
@@ -17,7 +16,7 @@ const index: React.FunctionComponent = () => {
     const handleToggler = () => {
         setToggler(!toggler);
     };
-    const { errors, handleSubmit, control } = useForm({
+    const { errors, handleSubmit, control, register } = useForm({
         validationSchema: routineFormValidation.validationSetting,
     });
     const submit = (data: object) => console.log(data);
@@ -25,9 +24,36 @@ const index: React.FunctionComponent = () => {
     return (
         <div>
             {toggler ? (
-                <ModalBox title="Create Class Routine" modalHandler={handleToggler}>
+                <ModalBox title="Create Extra Curricular Activity" modalHandler={handleToggler}>
                     <div className="modal-form">
                         <form onSubmit={handleSubmit(submit)}>
+                            <TextField
+                                className="custom-input"
+                                variant="outlined"
+                                label="Activity Name"
+                                inputRef={register}
+                                name="activityName"
+                                fullWidth
+                            />
+                            {errors.class && <ErrorMessage msg={routineFormValidation.errorMsg.class} />}
+                            <div className="mb-4">
+                                <DateSelector getDate={() => {}} />
+                            </div>
+                            <TimeSelector label="Start Time" />
+                            <TimeSelector label="End Time" />
+                            {errors.section && <ErrorMessage msg={routineFormValidation.errorMsg.section} />}
+                            <SelectController
+                                className="custom-input mb-3"
+                                label="Select Department"
+                                control={control}
+                                options={['Hindi', 'English', 'Maths']}
+                                name="department"
+                            />
+                            {errors.department && <ErrorMessage msg={routineFormValidation.errorMsg.department} />}
+                            {errors.subject && <ErrorMessage msg={routineFormValidation.errorMsg.subject} />}
+                            <SelectionInput option={['raju', 'mohit', 'rahul']} labelName="Select Teachers" />
+                            {errors.teacher && <ErrorMessage msg={routineFormValidation.errorMsg.teacher} />}
+
                             <SelectController
                                 className="custom-input"
                                 label="Year Group"
@@ -35,57 +61,14 @@ const index: React.FunctionComponent = () => {
                                 options={classes}
                                 name="class"
                             />
-                            {errors.class && <ErrorMessage msg={routineFormValidation.errorMsg.class} />}
                             <SelectController
                                 className="custom-input mb-3"
                                 label="Form Group"
                                 control={control}
-                                options={['A', 'B', 'C']}
+                                options={['A', 'B']}
                                 name="section"
                             />
-                            {errors.section && <ErrorMessage msg={routineFormValidation.errorMsg.section} />}
-                            <SelectionInput
-                                labelName="Select Students"
-                                option={['john', 'chingwank', 'tom']}
-                            />
-                            <SelectController
-                                className="custom-input"
-                                label="Select Department"
-                                control={control}
-                                options={['Hindi', 'English', 'Maths']}
-                                name="department"
-                            />
-                            {errors.department && <ErrorMessage msg={routineFormValidation.errorMsg.department} />}
-                            <SelectController
-                                className="custom-input"
-                                label="Select Teacher"
-                                control={control}
-                                options={['John', 'Alex', 'david']}
-                                name="teacher"
-                            />
-                            {errors.teacher && <ErrorMessage msg={routineFormValidation.errorMsg.teacher} />}
-                            <SelectController
-                                className="custom-input"
-                                label="Select Subject"
-                                control={control}
-                                options={['Hindi', 'English', 'Math']}
-                                name="subject"
-                            />
-                            {errors.subject && <ErrorMessage msg={routineFormValidation.errorMsg.subject} />}
-
-                            <SelectController
-                                className="custom-input"
-                                label="Select Day"
-                                control={control}
-                                options={dayNames}
-                                name="day"
-                            />
-                            {errors.day && <ErrorMessage msg={routineFormValidation.errorMsg.day} />}
-                            <div className="mb-4">
-                                <DateSelector getDate={() => {}} />
-                            </div>
-                            <TimeSelector label="Start Time" />
-                            <TimeSelector label="End Time" />
+                            <SelectionInput option={['john', 'venky', 'chinchan']} labelName="Select Students" />
                             <Button className="session-button" type="submit">
                                 Create Class Routine
                             </Button>
@@ -93,7 +76,7 @@ const index: React.FunctionComponent = () => {
                     </div>
                 </ModalBox>
             ) : null}
-            <ClassRoutine triggerModal={handleToggler} />
+            <ECATable triggerModal={handleToggler} />
         </div>
     );
 };
