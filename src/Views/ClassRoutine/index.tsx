@@ -9,6 +9,8 @@ import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
 import { useForm } from 'react-hook-form';
 import ErrorMessage from '../../components/ErrorMessage';
 import { routineFormValidation } from '../../Helper/FormValidations/routineFormValidation';
+import DateSelector from '../../components/DateTimeSelector/DateSelector';
+import SelectionInput from '../../components/Inputs/SelectionInput';
 
 const index: React.FunctionComponent = () => {
     const [toggler, setToggler] = useState(false);
@@ -28,28 +30,32 @@ const index: React.FunctionComponent = () => {
                         <form onSubmit={handleSubmit(submit)}>
                             <SelectController
                                 className="custom-input"
-                                label="Select Class"
+                                label="Year Group"
                                 control={control}
                                 options={classes}
                                 name="class"
                             />
                             {errors.class && <ErrorMessage msg={routineFormValidation.errorMsg.class} />}
                             <SelectController
-                                className="custom-input"
-                                label="Select Section"
+                                className="custom-input mb-3"
+                                label="Form Group"
                                 control={control}
                                 options={['A', 'B', 'C']}
                                 name="section"
                             />
                             {errors.section && <ErrorMessage msg={routineFormValidation.errorMsg.section} />}
+                            <SelectionInput
+                                labelName="Select Students"
+                                option={['john', 'chingwank', 'tom']}
+                            />
                             <SelectController
                                 className="custom-input"
-                                label="Select Subject"
+                                label="Select Department"
                                 control={control}
-                                options={['Hindi', 'English', 'Math']}
-                                name="subject"
+                                options={['Hindi', 'English', 'Maths']}
+                                name="department"
                             />
-                            {errors.subject && <ErrorMessage msg={routineFormValidation.errorMsg.subject} />}
+                            {errors.department && <ErrorMessage msg={routineFormValidation.errorMsg.department} />}
                             <SelectController
                                 className="custom-input"
                                 label="Select Teacher"
@@ -58,6 +64,14 @@ const index: React.FunctionComponent = () => {
                                 name="teacher"
                             />
                             {errors.teacher && <ErrorMessage msg={routineFormValidation.errorMsg.teacher} />}
+                            <SelectController
+                                className="custom-input"
+                                label="Select Subject"
+                                control={control}
+                                options={['Hindi', 'English', 'Math']}
+                                name="subject"
+                            />
+                            {errors.subject && <ErrorMessage msg={routineFormValidation.errorMsg.subject} />}
 
                             <SelectController
                                 className="custom-input"
@@ -67,6 +81,9 @@ const index: React.FunctionComponent = () => {
                                 name="day"
                             />
                             {errors.day && <ErrorMessage msg={routineFormValidation.errorMsg.day} />}
+                            <div className="mb-4">
+                                <DateSelector getDate={() => {}} />
+                            </div>
                             <TimeSelector label="Start Time" />
                             <TimeSelector label="End Time" />
                             <Button className="session-button" type="submit">

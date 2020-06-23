@@ -1,9 +1,9 @@
-.student-container{
-    .student-form-row{
-        .row{
+.student-container {
+    .student-form-row {
+        .row {
             width: calc(100% - 5rem);
         }
-        .filter-btn{
+        .filter-btn {
             align-self: baseline;
             height: 2.7rem;
             width: 9%;
@@ -11,29 +11,44 @@
         }
     }
 }
-.class-routine-table{
+.class-routine-table {
     padding: 1.5rem;
-    .title-card-container{
+    .student-form-row {
+        @include flex(center, center, row);
+        .row {
+            width: 20rem;
+            margin-right: 1rem;
+        }
+        .filter-btn {
+            align-self: baseline;
+            height: 2.4rem;
+            align-self: center;
+            width: 9%;
+            @include grayBtn;
+            margin-right: 1.5rem;
+        }
+    }
+    .title-card-container {
         @include flex(center, flex-start, row);
     }
-    .tile-card{
+    .tile-card {
         padding: 0.5rem;
         width: 10rem;
         margin-right: 1.5rem;
-        background-color: #636B8E;
+        background-color: #636b8e;
         border-radius: 0.3rem;
         @include flex(center, center, column);
-        .title-row{
+        .title-row {
             @include flex(center, center, row);
             margin-bottom: 0.1rem;
-            &:last-child{
+            &:last-child {
                 margin-bottom: 0;
             }
-            .icon{
+            .icon {
                 color: $white;
                 font-size: 0.9rem;
             }
-            .title{
+            .title {
                 font-size: 0.8rem;
                 font-weight: 100;
                 color: $white;

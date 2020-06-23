@@ -1,23 +1,23 @@
 import React from 'react';
 import SelectField from '../../components/Inputs/SelectField';
-import { months } from '../../Helper/months';
+import { classes } from '../../Helper/classArray';
 
 const FormRow = () => {
     return (
         <div className="row">
             <div className="col-lg">
                 <SelectField
-                    className="custom-input"
-                    options={months}
-                    label="Select A Month"
+                    className="custom-select-input mb-0"
+                    options={classes}
+                    label="Select A Class"
                     getValue={() => {}}
                 />
             </div>
             <div className="col-lg">
                 <SelectField
-                    className="custom-input"
-                    options={["2020"]}
-                    label="Select A Year"
+                    className="custom-select-input mb-0"
+                    options={["A", "B"]}
+                    label="Select A Section"
                     getValue={() => {}}
                 />
             </div>

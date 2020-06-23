@@ -43,7 +43,7 @@ const index: React.FunctionComponent = () => {
                                 name="class"
                                 control={control}
                                 options={classes}
-                                label="Select Class"
+                                label="Year Group"
                                 className="custom-input"
                             />
                     
@@ -53,7 +53,7 @@ const index: React.FunctionComponent = () => {
                                 name="section"
                                 control={control}
                                 options={['A', 'B']}
-                                label="Select section"
+                                label="Form Group"
                                 className="custom-input"
                             />
                             {errors.section && <ErrorMessage msg={sessionFormValidation.errorMsg.section}/>}

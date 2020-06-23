@@ -1,11 +1,11 @@
 import React from 'react';
 import { Typography, IconButton, Button } from '@material-ui/core';
-import { Face, PeopleAlt, ArrowForward, ControlPoint, ArrowForwardIos } from '@material-ui/icons';
+import { Face, PeopleAlt, ArrowForward, ControlPoint, ArrowForwardIos, MoreVert } from '@material-ui/icons';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import CardStatus from './CardStatus';
-import SessionInsightsChart from './SessionInsightsChart';
 import OutlineBtn from '../../components/Button/OutlineBtn';
 import CardTable from '../../components/Table/CardTable';
+import GraphContainer from './GraphContainer';
 
 interface tableProps {
     student: string;
@@ -30,9 +30,7 @@ const Dashboard: React.FunctionComponent = () => {
         <div className="row">
             <div className="col-md-8">
                 <CardContainer>
-                    <div className="dashboard-session-card-wrapper">
-                        <SessionInsightsChart />
-                    </div>
+                    <GraphContainer />
                 </CardContainer>
                 <div className="row">
                     {userList.map((item) => (

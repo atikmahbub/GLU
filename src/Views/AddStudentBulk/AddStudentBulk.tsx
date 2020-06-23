@@ -34,7 +34,7 @@ const AddStudentBulk: React.FunctionComponent = () => {
                             <SelectField
                                 className="custom-input"
                                 options={classes}
-                                label="Select Class"
+                                label="Year Group"
                                 getValue={() => {}}
                             />
                         </div>
@@ -42,7 +42,7 @@ const AddStudentBulk: React.FunctionComponent = () => {
                             <SelectField
                                 className="custom-input"
                                 options={['A', 'B']}
-                                label="Select A Section"
+                                label="Form Group"
                                 getValue={() => {}}
                             />
                         </div>

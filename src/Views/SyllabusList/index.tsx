@@ -37,7 +37,7 @@ const index: React.FunctionComponent = () => {
                             {errors.title && <ErrorMessage msg={syllabusFormValidation.errorMsg.title} />}
                             <SelectController
                                 className="custom-input"
-                                label="Select Class"
+                                label="Year Group"
                                 options={classes}
                                 name="class"
                                 control={control}
@@ -45,7 +45,7 @@ const index: React.FunctionComponent = () => {
                             {errors.class && <ErrorMessage msg={syllabusFormValidation.errorMsg.class} />}
                             <SelectController
                                 className="custom-input"
-                                label="Select Section"
+                                label="Form Group"
                                 options={['john', 'lea', 'Deven', 'Jinwie']}
                                 name="section"
                                 control={control}

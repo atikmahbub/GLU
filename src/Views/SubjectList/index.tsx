@@ -20,17 +20,33 @@ const index: React.FunctionComponent = () => {
     return (
         <div>
             {toggler ? (
-                <ModalBox title="Create Subject" modalHandler={handleToggler}>
+                <ModalBox title="Create Class Group" modalHandler={handleToggler}>
                     <div className="modal-form">
                         <form onSubmit={handleSubmit(submit)}>
-                            <SelectController
+                        <SelectController
                                 className="custom-input"
-                                label="Select Class"
-                                options={classes}
-                                name="class"
+                                label="Select Department"
+                                options={["science", "computer"]}
+                                name="department"
                                 control={control}
                             />
-                            {errors.class && <ErrorMessage msg={subjectFormValidation.errorMsg.class} />}
+                            {errors.department && <ErrorMessage msg={subjectFormValidation.errorMsg.department} />}
+                            <SelectController
+                                className="custom-input"
+                                label="Year Group"
+                                options={classes}
+                                name="yearGroup"
+                                control={control}
+                            />
+                            {errors.yearGroup && <ErrorMessage msg={subjectFormValidation.errorMsg.yearGroup} />}
+                            <SelectController
+                                className="custom-input"
+                                label="Form Group"
+                                options={classes}
+                                name="formGroup"
+                                control={control}
+                            />
+                            {errors.formGroup && <ErrorMessage msg={subjectFormValidation.errorMsg.formGroup} />}
                             <TextField
                                 variant="outlined"
                                 className="custom-input"
@@ -41,7 +57,7 @@ const index: React.FunctionComponent = () => {
                             />
                             {errors.subject && <ErrorMessage msg={subjectFormValidation.errorMsg.subject} />}
                             <Button className="session-button" type="submit">
-                                Create Subject
+                            Create Class Group
                             </Button>
                         </form>
                     </div>

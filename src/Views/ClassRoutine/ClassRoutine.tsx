@@ -6,20 +6,22 @@ import { colors } from '../../Styles/colors';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import TitleCardContainer from './TitleCardContainer';
-import "./routineTable.scss";
+import './routineTable.scss';
+import FormRow from './FormRow';
+import { Button } from '@material-ui/core';
 
-interface props{
-    triggerModal: ()=> void
+interface props {
+    triggerModal: () => void;
 }
-const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
+const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
     return (
         <div className="content-wrapper-student">
             <CardContainer>
                 <AddButton
                     style={{ backgroundColor: colors.primary }}
                     icon={<AccountCircle className="icon-circle" />}
-                    title="Class Routine"
-                    btnTitle="Add Routine"
+                    title="Timetables"
+                    btnTitle="Add New Timetable"
                     btnIcon={<Add />}
                     trigger={triggerModal}
                 />
@@ -29,6 +31,12 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                     <CardTable
                         showToolbar={true}
                         showPagination={false}
+                        filterRender={
+                            <div className="student-form-row  w-100">
+                                <FormRow />
+                                <Button className="filter-btn">Filter</Button>
+                            </div>
+                        }
                         columns={[
                             {
                                 width: '15%',
@@ -39,9 +47,7 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                                 width: '75%',
                                 title: 'Routine',
                                 field: 'routine',
-                                render: () => (
-                                   <TitleCardContainer/>
-                                ),
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
                             },
 
                             {
@@ -54,32 +60,32 @@ const ClassRoutine: React.FunctionComponent<props> = ({triggerModal}) => {
                         rowData={[
                             {
                                 class: 'Monday',
-                                routine: "",
+                                routine: {activity: "Physics", time:"10:00AM - 12:00PM", teacher:"Toni ferad", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Tuesday',
-                                routine: "",
+                                routine: {activity: "Chemistry", time:"01:00AM - 2:00PM", teacher:"john smith", students:"Govind, Mohit"},
                                 action: '',
                             },
                             {
                                 class: 'Wednesday',
-                                routine: "",
+                                routine: {activity: "Biology", time:"10:00AM - 12:00PM", teacher:"johns cena", students:"year 1, B"},
                                 action: '',
                             },
                             {
                                 class: 'Thursday',
-                                routine: "",
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smithArt", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Friday',
-                                routine: "",
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smith", students:"year 1, A"},
                                 action: '',
                             },
                             {
                                 class: 'Saturday',
-                                routine: "",
+                                routine: {activity: "Maths", time:"10:00AM - 12:00PM", teacher:"john smith", students:"year 1, A"},
                                 action: '',
                             },
                         ]}

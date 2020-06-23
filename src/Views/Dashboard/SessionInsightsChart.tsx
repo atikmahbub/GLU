@@ -98,9 +98,6 @@ export const SessionInsightsChart = () => {
         <>
             <div className="heading">
                 <Typography className="head-text">Session Insights</Typography>
-                <Typography className="head-dots">
-                    <MoreVertIcon />
-                </Typography>
             </div>
             <div className="revenue-content">
                 <div className="revenue-week-stat">

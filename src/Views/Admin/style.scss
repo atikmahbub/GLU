@@ -1,0 +1,44 @@
+.admin-page-container {
+    .admin-page {
+        padding: 4rem;
+        .social-media-container {
+            .social-link-container {
+                @include flex(center, flex-start, row);
+                margin-bottom: 1.5rem;
+                .left-part {
+                    width: 3rem;
+                    height: 3rem;
+                    background-color: #DCE1E3;
+                    @include flex(center, center, row);
+                    .icon {
+                        color: #007AFF;
+                        font-size: 2rem;
+                    }
+                }
+                .right-part{
+                    width: calc(100% - 3rem);
+                    .MuiInputLabel-animated{
+                        padding-left: 1rem;
+                        font-size: 0.9rem;
+                    }
+                    input{
+                        padding-left: 1rem;
+                    }
+                }
+            }
+        }
+        .button-container{
+            @include flex(center, center, row);
+            margin-top: 2rem;
+            
+        }
+    }
+    .school-information-container {
+    }
+    .heading {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #403b3b;
+        margin-bottom: 1rem;
+    }
+}

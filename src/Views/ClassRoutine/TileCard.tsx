@@ -1,13 +1,17 @@
 import React from 'react';
 import TitleRow from './TitleRow';
-import { AccountCircle, Book, QueryBuilder } from '@material-ui/icons';
+import { QueryBuilder, EmojiEvents, PersonPin, People } from '@material-ui/icons';
 
-const TileCard: React.FunctionComponent = () => {
+interface props{
+    data: any
+}
+const TileCard: React.FunctionComponent<props> = ({data}) => {
     return (
         <div className="tile-card">
-                <TitleRow icon={<Book className="icon" />} title="English" />
-                <TitleRow icon={<QueryBuilder className="icon" />} title="10:00AM-11:30AM" />
-                <TitleRow icon={<AccountCircle className="icon" />} title="Toni Fadel" />
+                <TitleRow icon={<EmojiEvents className="icon" />} title={data.activity} />
+                <TitleRow icon={<QueryBuilder className="icon" />} title={data.time} />
+                <TitleRow icon={<PersonPin className="icon" />} title={data.teacher} />
+                <TitleRow icon={<People className="icon" />} title={data.students} />
             </div>
     );
 }
