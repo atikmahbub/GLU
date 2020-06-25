@@ -9,11 +9,18 @@ import TitleCardContainer from './TitleCardContainer';
 import './routineTable.scss';
 import FormRow from './FormRow';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 interface props {
     triggerModal: () => void;
 }
 const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
+    const routes = useHistory();
+    const redirectBulk = () => {
+        routes.push({pathname:'/dashboard/timetable-bulk-upload', state:{
+            breadcrumb: '/dashboard/timetable-bulk-upload'
+        }})
+    }
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -21,8 +28,11 @@ const ClassRoutine: React.FunctionComponent<props> = ({ triggerModal }) => {
                     style={{ backgroundColor: colors.primary }}
                     icon={<AccountCircle className="icon-circle" />}
                     title="Timetables"
+                    bulkbtn={true}
+                    bulkText= "Bulk Upload"
                     btnTitle="Add New Timetable"
                     btnIcon={<Add />}
+                    bulkTrigger={redirectBulk}
                     trigger={triggerModal}
                 />
             </CardContainer>

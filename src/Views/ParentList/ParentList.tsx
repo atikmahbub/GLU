@@ -21,6 +21,11 @@ const ParentList: React.FunctionComponent = () => {
             breadcrumb: '/dashboard/student/Add New Parent'
         }})
     }
+    const redirectDetails = () => {
+        routes.push({pathname:'/dashboard/parent-details', state:{
+            breadcrumb: '/dashboard/parent details'
+        }})
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -69,7 +74,7 @@ const ParentList: React.FunctionComponent = () => {
 
                                 title: 'Options',
                                 field: 'action',
-                                render: () => (<ActionToolbar/>)
+                                render: () => (<ActionToolbar showDetail={true} detailClick={redirectDetails}/>)
                             },
                         ]}
                         rowData={[

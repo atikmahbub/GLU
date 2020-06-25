@@ -26,6 +26,11 @@ import TeacherProfile from '../../Views/TeacherProfile/TeacherProfile';
 import Admin from '../../Views/Admin/Admin';
 import AddNewEvent from '../../Views/AddNewEvent/AddNewEvent';
 import ECA from "../../Views/ECAList";
+import StudentDetails from '../../Views/StudentDetails/StudentDetails';
+import TeacherDetails from '../../Views/TeacherDetails/TeacherDetails';
+import ParentDetails from '../../Views/ParentDetails/ParentDetails';
+import DepartmentDetails from '../../Views/DepartmentDetails/DepartmentDetails';
+import TimeTableBulk from '../../Views/TimeTableBulk/TimeTableBulk';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -56,5 +61,9 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/admin', component: Admin },
     { pathname: '/dashboard/event-calender', component: AddNewEvent },
     { pathname: '/dashboard/extra-curricular-activities', component: ECA },
-
+    { pathname: '/dashboard/student-details', component: StudentDetails },
+    { pathname: '/dashboard/teacher-details', component: TeacherDetails },
+    { pathname: '/dashboard/parent-details', component: ParentDetails },
+    { pathname: '/dashboard/department-details', component: DepartmentDetails },
+    { pathname: '/dashboard/timetable-bulk-upload', component: TimeTableBulk },
 ];

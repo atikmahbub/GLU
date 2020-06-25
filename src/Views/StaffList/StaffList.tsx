@@ -69,7 +69,7 @@ const StaffList: React.FunctionComponent = () => {
 
                                 title: 'Action',
                                 field: 'action',
-                                render: () => (<ActionToolbar/>)
+                                render: () => (<ActionToolbar showDetail={false}/>)
                             },
                         ]}
                         rowData={[

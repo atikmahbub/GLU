@@ -1,0 +1,54 @@
+.project-category-wrapper {
+    .project-category {
+        width: 100%;
+        .hero-text {
+            margin-bottom: 1.3rem;
+        }
+        .subheading {
+            // @include subHeading;
+            color: $headingPrimary;
+            margin-bottom: 1rem;
+        }
+        .project-category-cards-wrapper {
+            width: 100%;
+            @include flex(center, start, row);
+            .slide-control-icon {
+                cursor: pointer;
+                &:last-child {
+                    margin-left: 1rem;
+                }
+            }
+            .project-category-selection {
+                width: 100%;
+                @include flex(start, start, row);
+                overflow-x: auto;
+                // @include custumScroller;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                -ms-overflow-style: none;
+                .project-cat-name {
+                    float: left;
+                    min-width: 10rem;
+                    min-height: 10rem;
+                    background: $primary;
+                    border-radius: 0.5rem;
+                    @include flex(center, space-around, column);
+                    padding: 0.5rem;
+                    margin: 0.5rem;
+                    transition: all 0.4s;
+                    &:hover {
+                        border: 1px solid $primary;
+                        transform: translateY(-3px);
+                        cursor: pointer;
+                    }
+                    p {
+                        color: $white;
+                        font-size: 0.8rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

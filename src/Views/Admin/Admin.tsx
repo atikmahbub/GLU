@@ -19,6 +19,14 @@ const Admin: React.FunctionComponent = () => {
                             <div className="school-information-container">
                                 <Typography className="heading">School Information</Typography>
                                 <div className="row">
+                                    <div className="col-md-12">
+                                    <TextField
+                                            variant="outlined"
+                                            className="custom-input"
+                                            label="School Name"
+                                            fullWidth
+                                        />
+                                    </div>
                                     <div className="col-md-6">
                                         <TextField
                                             variant="outlined"

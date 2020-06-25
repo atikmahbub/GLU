@@ -4,11 +4,18 @@ import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import { useHistory } from 'react-router-dom';
 
 interface props {
     triggerModal: () => void;
 }
 const Departments: React.FunctionComponent<props> = ({triggerModal}) => {
+    const routes = useHistory();
+    const redirectDetails = () => {
+        routes.push({pathname:'/dashboard/department-details', state:{
+            breadcrumb: '/dashboard/department details'
+        }})
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -35,7 +42,7 @@ const Departments: React.FunctionComponent<props> = ({triggerModal}) => {
                                 width: '10%',
                                 title: 'Action',
                                 field: 'action',
-                                render: () => <ActionToolbar />,
+                                render: () => <ActionToolbar showDetail={true} detailClick={redirectDetails}/>,
                             },
                         ]}
                         rowData={[

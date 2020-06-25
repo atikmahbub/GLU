@@ -21,6 +21,11 @@ const StudentList: React.FunctionComponent = () => {
             breadcrumb: '/dashboard/student/student Admission'
         }})
     }
+    const redirectDetails = () => {
+        routes.push({pathname:'/dashboard/student-details', state:{
+            breadcrumb: '/dashboard/student details'
+        }})
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -69,7 +74,7 @@ const StudentList: React.FunctionComponent = () => {
 
                                 title: 'Action',
                                 field: 'action',
-                                render: () => (<ActionToolbar/>)
+                                render: () => (<ActionToolbar showDetail={true} detailClick={redirectDetails}/>)
                             },
                         ]}
                         rowData={[
