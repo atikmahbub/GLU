@@ -1,4 +1,4 @@
-import StudentList from '../../Views/StudentList/StudentList';
+import StudentList from '../../Views/StudentList';
 import AddNewStudent from '../../Views/AddNewStudent/AddNewStudent';
 import AddNewTeacher from '../../Views/AddNewTeacher/AddNewTeacher';
 import AddNewStaff from '../../Views/AddNewStaff/AddNewStaff';

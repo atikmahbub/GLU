@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
 import { ArrowForwardIos } from '@material-ui/icons';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface sidebarItems {
     menuName: string;
@@ -66,7 +67,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
             </div>
             <ul>
                 {sidebarMenu.map((menu: any, index: number) => (
-                    <li>
+                    <li key={uuidv4()}>
                         <Button
                             startIcon={menu.icon}
                             onClick={() => {
@@ -83,6 +84,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                         <ul style={{ display: menu.isOpen ? 'block' : 'none' }}>
                             {menu.menuList.map((submenu: sidebarItems) => (
                                 <li
+                                    key={uuidv4()}
                                     style={{
                                         backgroundColor:
                                             pathname === `${url}${submenu.routeName}` ? 'rgba(0,0,0,0.23)' : '',
@@ -104,11 +106,13 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                     <ul style={{ display: submenu.isOpen ? 'block' : 'none' }}>
                                         {submenu.menuList.map((childSubmenu) => (
                                             <li
-                                            style={{
-                                                backgroundColor:
-                                                    pathname === `${url}${childSubmenu.routeName}` ? 'rgba(0,0,0,0.23)' : '',
-                                            }}
-                                            >
+                                                key={uuidv4()}
+                                                style={{
+                                                    backgroundColor:
+                                                        pathname === `${url}${childSubmenu.routeName}`
+                                                            ? 'rgba(0,0,0,0.23)'
+                                                            : '',
+                                                }}>
                                                 <Button
                                                     onClick={() =>
                                                         !childSubmenu.isExpandable &&

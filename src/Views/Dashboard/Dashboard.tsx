@@ -6,6 +6,8 @@ import CardStatus from './CardStatus';
 import OutlineBtn from '../../components/Button/OutlineBtn';
 import CardTable from '../../components/Table/CardTable';
 import GraphContainer from './GraphContainer';
+import {v4 as uuidv4} from "uuid";
+
 
 interface tableProps {
     student: string;
@@ -34,7 +36,7 @@ const Dashboard: React.FunctionComponent = () => {
                 </CardContainer>
                 <div className="row">
                     {userList.map((item) => (
-                        <div className="col-md-6">
+                        <div key={uuidv4()} className="col-md-6">
                             <CardContainer>
                                 <CardStatus
                                     icon={<PeopleAlt className="status-icon" />}
@@ -167,7 +169,7 @@ const Dashboard: React.FunctionComponent = () => {
                             </div>
                             <div className="event-body">
                                 {eventList.map((item) => (
-                                    <div className="event-chip-card">
+                                    <div key={uuidv4()} className="event-chip-card">
                                         <div className="left">
                                             <div className="circle">
                                                 {item.eventDate.split(' ')[2].replace(',', '')}

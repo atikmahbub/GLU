@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, IconButton, Badge, Avatar, makeStyles } from '@material-ui/core';
-import { Notifications } from '@material-ui/icons';
+import { Notifications, PowerSettingsNew } from '@material-ui/icons';
 import OutlineBtn from '../../components/Button/OutlineBtn';
 import { colors } from '../../Styles/colors';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
-import {  useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+import {v4 as uuidv4} from "uuid";
 
 interface headerProps {
     title: string;
     icon: any;
 }
 interface locationProps {
-    icon: string,
-    breadcrumb: string
+    icon: string;
+    breadcrumb: string;
 }
 const useStyles = makeStyles({
     colorPrimary: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
     },
     datePickerStyle: {
         color: '#000',
-        margin:0,
+        margin: 0,
         backgroundColor: '#fff',
         border: '1px solid #EAEDEF',
         borderRadius: '25px',
@@ -31,26 +32,33 @@ const useStyles = makeStyles({
     },
 });
 const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
+    const history = useHistory();
     const [navArray, setNavArray] = useState<String[]>([]);
     const classes = useStyles();
     const routes = useLocation();
     const navigation = routes.state;
     const setNavigation = () => {
-        if(routes.state){
-            setNavArray((navigation as locationProps).breadcrumb.replace("/", "").split("/"));
-        }else {
-            const navigation = routes.pathname.replace("/", "").split("/");
+        if (routes.state) {
+            setNavArray((navigation as locationProps).breadcrumb.replace('/', '').split('/'));
+        } else {
+            const navigation = routes.pathname.replace('/', '').split('/');
             setNavArray(navigation);
         }
+    };
+
+    const resetAuth = () => {
+        localStorage.removeItem('auth');
+        history.push('/');
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         setNavigation();
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         setNavigation();
-    }, [routes])
-    
+    }, [routes]);
+
     return (
         <div className="dashboard-header">
             <div className="header-top">
@@ -64,24 +72,30 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                             <Notifications />
                         </Badge>
                     </IconButton>
-                    <Avatar
-                        alt="Remy Sharp"
-                        src="https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg"
-                    />
+                    {/* <div className="user-avatar-sectio"> */}
+                        <Avatar
+                            alt="Remy Sharp"
+                            src="https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg"
+                        />
+
+                    {/* </div> */}
+                    <IconButton onClick={resetAuth} className="notification-btn mr-0 ml-4">
+                        <PowerSettingsNew/>
+                    </IconButton>
                 </div>
             </div>
             <div className="header">
                 {icon}
                 <Typography variant="h4" className="heading">
-                    {navArray.map((item, i)=>(
-                        <>
-                        <span>{item}</span>
-                        <span className="splitter">  { i!== navArray.length-1  ? ">" : null} </span> 
-                        </>
+                    {navArray.map((item, i) => (
+                        <div key={uuidv4()}>
+                            <span>{item}</span>
+                            <span className="splitter"> {i !== navArray.length - 1 ? '>' : null} </span>
+                        </div>
                     ))}
                 </Typography>
                 <div className="date-container">
-                <DateSelector style={classes.datePickerStyle}/>
+                    <DateSelector style={classes.datePickerStyle} />
                 </div>
             </div>
         </div>

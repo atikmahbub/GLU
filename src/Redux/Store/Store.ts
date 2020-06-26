@@ -1,8 +1,11 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import thunkMiddleware  from "redux-thunk";
+import { createLogger } from 'redux-logger'
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { RootReducer } from '../Reducers/index';
+
+const loggerMiddleware = createLogger();
 
 const persistConfig = {
   key: "root",
@@ -18,12 +21,13 @@ const Store =
     ? createStore(
         persistedReducer,
         compose(
-          applyMiddleware(thunk),
+          applyMiddleware(thunkMiddleware, loggerMiddleware),
           (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
           (window as any).__REDUX_DEVTOOLS_EXTENSION__()
         )
       )
-    : createStore(persistedReducer, compose(applyMiddleware(thunk)));
+    : 
+  createStore(persistedReducer, applyMiddleware(thunkMiddleware, loggerMiddleware));
 
 let persistor = persistStore(Store);
 const dispatch = Store.dispatch;

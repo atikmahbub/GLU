@@ -5,9 +5,12 @@ export const getDashboard = () => {
     const getItme = localStorage.getItem('auth');
     const user: auth = getItme && JSON.parse(getItme);
 
-    switch (user.loginAs) {
-        case 'Teacher': {
+    switch (user.role) {
+        case 'teacher': {
             return TeacherDashboard;
+        }
+        case 'school': {
+            return Dashboard;
         }
         default: {
             return Dashboard;
