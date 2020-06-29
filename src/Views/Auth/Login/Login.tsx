@@ -8,7 +8,6 @@ import SelectField from '../../../components/Inputs/SelectField';
 import { RouteComponentProps } from 'react-router-dom';
 import { userLoginAPIcall } from '../../../Redux/Actions/loginAction';
 import { dispatch } from '../../../Redux/Store/Store';
-import history from '../../../Utility/history';
 import Loader from '../../../components/Loader';
 import { connect } from 'react-redux';
 
@@ -65,7 +64,11 @@ class Login extends React.PureComponent<props> {
                             <Checkbox className="remember-me-checkbox" color="primary" />
                             <Link to="forgot-password">Forgot Passowrd ?</Link>
                         </div>
-                        <Button className="gradient-button" onClick={this.handleForm} fullWidth>
+                        <Button
+                            className="gradient-button"
+                            disabled={this.props.loader}
+                            onClick={this.handleForm}
+                            fullWidth>
                             {this.props.loader ? <Loader /> : 'Login to Account'}
                         </Button>
                         <SocialLogin />

@@ -88,10 +88,10 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                 {icon}
                 <Typography variant="h4" className="heading">
                     {navArray.map((item, i) => (
-                        <div key={uuidv4()}>
+                        <span key={uuidv4()}>
                             <span>{item}</span>
                             <span className="splitter"> {i !== navArray.length - 1 ? '>' : null} </span>
-                        </div>
+                        </span>
                     ))}
                 </Typography>
                 <div className="date-container">

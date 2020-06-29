@@ -17,8 +17,8 @@ interface colDataType {
 const ParentList: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/student/add-new-parent', state:{
-            breadcrumb: '/dashboard/student/Add New Parent'
+        routes.push({pathname:'/dashboard/parent/add-new-parent', state:{
+            breadcrumb: '/dashboard/parent/Add New Parent'
         }})
     }
     const redirectDetails = () => {

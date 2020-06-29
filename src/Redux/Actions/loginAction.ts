@@ -4,8 +4,8 @@ import { endponts } from '../../Utility/endpoints';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { USER_LOGIN } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
-import { getSchoolAPIcall } from './schoolAction';
 import { toast } from 'react-toastify';
+import { handleError } from './errorHandler';
 
 export const userLoginAPIcall = (data: loginAuth, history: any) => {
     return (dispatch: any) => {
@@ -16,16 +16,10 @@ export const userLoginAPIcall = (data: loginAuth, history: any) => {
                 toast.success('Successfully LoggedIn!', { autoClose: 2000 });
                 dispatch(userLogin(res.data.data));
                 dispatch(spinner(false));
-                dispatch(getSchoolAPIcall());
                 history.push(routeEndpoints.dashboard);
             })
-            .catch((error: any) => {
-                dispatch(spinner(false));
-                if (error.response) {
-                    toast.warn(error.response.data.message);
-                } else {
-                    toast.error('Something Went Wrong!');
-                }
+            .catch((err: any) => {
+                handleError(dispatch,err);
             });
     };
 };

@@ -10,7 +10,7 @@ const AddNewParent: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
         routes.push({pathname:'/dashboard/parent/bulk-upload', state:{
-            breadcrumb: '/dashboard/parent/Teacher Data Upload'
+            breadcrumb: '/dashboard/parent/parent Data Upload'
         }})
     }
     return (

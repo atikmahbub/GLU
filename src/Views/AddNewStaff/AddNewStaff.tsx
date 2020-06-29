@@ -9,8 +9,8 @@ import { useHistory } from 'react-router-dom';
 const AddNewStaff: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/teacher/bulk-upload', state:{
-            breadcrumb: '/dashboard/student/Teacher Data Upload'
+        routes.push({pathname:'/dashboard/staff/bulk-upload', state:{
+            breadcrumb: '/dashboard/staff/staff Data Upload'
         }})
     }
     return (

@@ -2,30 +2,54 @@ import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
-import commonImg from '../../Assets/images';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { routeEndpoints } from '../../Utility/routeEndpoints';
 
 interface colDataType {
+    id: number;
     profile: string;
     name: string;
-    class: string;
-    id: string;
+    yearGroup: string;
+    formGroup: string;
     action: string;
 }
-const StudentList: React.FunctionComponent = () => {
+interface props {
+    students: colDataType[];
+}
+const StudentList: React.FunctionComponent<props> = ({ students }) => {
     const routes = useHistory();
+    const dispatch = useDispatch();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/student/add-new-student', state:{
-            breadcrumb: '/dashboard/student/student Admission'
-        }})
-    }
+        routes.push({
+            pathname: routeEndpoints.student.addNewStudent,
+            state: {
+                breadcrumb: routeEndpoints.student.studentAdmission,
+            },
+        });
+    };
     const redirectDetails = () => {
-        routes.push({pathname:'/dashboard/student-details', state:{
-            breadcrumb: '/dashboard/student details'
-        }})
-    }
+        routes.push({
+            pathname: routeEndpoints.student.details,
+            state: {
+                breadcrumb: routeEndpoints.student.breadcrumb,
+            },
+        });
+    };
+    const handleEdit = (data: colDataType) => {
+        routes.push({
+            pathname: '/dashboard/student/add-new-student',
+            state: {
+                breadcrumb: routeEndpoints.student.editStudent,
+                teacherInfo: data,
+            },
+        });
+    };
+    const handleDelete = (deleteId: number) => {
+        // dispatch(deleteTeacherAPIcall(deleteId));
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -53,95 +77,39 @@ const StudentList: React.FunctionComponent = () => {
                             },
                             {
                                 width: '23%',
-
                                 title: 'Name',
                                 field: 'name',
                             },
                             {
                                 width: '23%',
-
                                 title: 'Year Group',
                                 field: 'yearGroup',
                             },
                             {
                                 width: '23%',
-
+                                title: 'Form Group',
+                                field: 'formGroup',
+                            },
+                            {
+                                width: '23%',
                                 title: 'id',
                                 field: 'id',
                             },
                             {
                                 width: '23%',
-
                                 title: 'Action',
                                 field: 'action',
-                                render: () => (<ActionToolbar showDetail={true} detailClick={redirectDetails}/>)
+                                render: (rowData: colDataType) => (
+                                    <ActionToolbar
+                                        showDetail={true}
+                                        detailClick={redirectDetails}
+                                        deleteClick={() => handleDelete(rowData.id)}
+                                        editClick={() => handleEdit(rowData)}
+                                    />
+                                ),
                             },
                         ]}
-                        rowData={[
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                yearGroup: 'Vth Standard',
-                                id: 'SMG1039cd10',
-                                action: '',
-                            },
-                        ]}
+                        rowData={students}
                     />
                 </div>
             </CardContainer>

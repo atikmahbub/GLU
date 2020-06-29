@@ -3,8 +3,8 @@ import AddNewStudent from '../../Views/AddNewStudent/AddNewStudent';
 import AddNewTeacher from '../../Views/AddNewTeacher/AddNewTeacher';
 import AddNewStaff from '../../Views/AddNewStaff/AddNewStaff';
 import AddNewParent from '../../Views/AddNewParent/AddNewParent';
-import ParentList from '../../Views/ParentList/ParentList';
-import TeacherList from '../../Views/TeacherList/TeacherList';
+import ParentList from '../../Views/ParentList';
+import TeacherList from '../../Views/TeacherList';
 import StaffList from '../../Views/StaffList/StaffList';
 import DailyAttendance from '../../Views/DailyAttendace';
 import ClassRoutine from '../../Views/ClassRoutine';
@@ -31,14 +31,15 @@ import TeacherDetails from '../../Views/TeacherDetails/TeacherDetails';
 import ParentDetails from '../../Views/ParentDetails/ParentDetails';
 import DepartmentDetails from '../../Views/DepartmentDetails/DepartmentDetails';
 import TimeTableBulk from '../../Views/TimeTableBulk/TimeTableBulk';
+import ECAbulk from '../../Views/ECAbulk/ECAbulk';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
     { pathname: '/dashboard/students', component: StudentList },
     { pathname: '/dashboard/student/add-new-student', component: AddNewStudent },
-    { pathname: '/dashboard/student/add-new-teacher', component: AddNewTeacher },
-    { pathname: '/dashboard/student/add-new-staff', component: AddNewStaff },
-    { pathname: '/dashboard/student/add-new-parent', component: AddNewParent },
+    { pathname: '/dashboard/teacher/add-new-teacher', component: AddNewTeacher },
+    { pathname: '/dashboard/staff/add-new-staff', component: AddNewStaff },
+    { pathname: '/dashboard/parent/add-new-parent', component: AddNewParent },
     { pathname: '/dashboard/parents', component: ParentList },
     { pathname: '/dashboard/teachers', component: TeacherList },
     { pathname: '/dashboard/Staff', component: StaffList },
@@ -66,4 +67,5 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/parent-details', component: ParentDetails },
     { pathname: '/dashboard/department-details', component: DepartmentDetails },
     { pathname: '/dashboard/timetable-bulk-upload', component: TimeTableBulk },
+    { pathname: '/dashboard/extra-curricular-activities-bulk-upload', component: ECAbulk },
 ];

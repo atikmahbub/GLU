@@ -2,17 +2,31 @@ import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
 import { AccountCircle } from '@material-ui/icons';
-import { Button } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
 import UploadBtn from '../../components/Button/UploadBtn';
 import { parseCsvFile } from '../../Helper/parseCsvFile';
 import GenerateCsvFileBtn from '../../components/Button/GenerateCsvFileBtn';
 import { teacher } from '../../Helper/GenerateCsvHeaders/teacher';
+import { useDispatch } from 'react-redux';
+import AddInviteBtn from '../../components/Button/AddInviteBtn';
+import { addNewTeacherAPIcall } from '../../Redux/Actions/teacherAction';
+import { useHistory } from 'react-router-dom';
 
 const AddTeacherBulk: React.FunctionComponent = () => {
-    const [csvfile, setCsvfile] = useState<File>();
+    const [csvfile, setCsvfile] = useState([]);
     const handleCsvFile = (file: File) => parseCsvFile(file, setCsvfile);
-    console.log(csvfile);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const submitData = () => {
+       const data = csvfile.map((item: { phoneNumber: number }) => {
+            return {
+                ...item,
+                phoneNumber: String(item.phoneNumber),
+            };
+        });
+        console.log(data);
+        dispatch(addNewTeacherAPIcall({ teachers: data }, history));
+    };
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -41,9 +55,7 @@ const AddTeacherBulk: React.FunctionComponent = () => {
                         </div>
                     </div>
 
-                    <Button form="student-form" type="submit" className="gray-btn">
-                        Add & Invite
-                    </Button>
+                    <AddInviteBtn click={submitData} />
                 </div>
             </CardContainer>
         </div>

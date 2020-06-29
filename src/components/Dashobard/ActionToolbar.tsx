@@ -4,9 +4,11 @@ import { Button } from '@material-ui/core';
 
 interface props {
     detailClick?: () => void;
+    editClick?: () => void;
+    deleteClick?: () => void;
     showDetail?: boolean;
 }
-const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, showDetail }) => {
+const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, deleteClick, showDetail, editClick }) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(!show);
@@ -28,10 +30,10 @@ const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, showDetail
                         </li>
                     )}
                     <li>
-                        <Button fullWidth>Edit</Button>
+                        <Button onClick={editClick} fullWidth>Edit</Button>
                     </li>
                     <li>
-                        <Button className="delete-btn" fullWidth>
+                        <Button className="delete-btn" onClick={deleteClick} fullWidth>
                             Delete
                         </Button>
                     </li>

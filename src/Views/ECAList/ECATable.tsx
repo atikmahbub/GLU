@@ -9,11 +9,18 @@ import TitleCardContainer from './TitleCardContainer';
 import './routineTable.scss';
 import FormRow from './FormRow';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 interface props {
     triggerModal: () => void;
 }
 const ECATable: React.FunctionComponent<props> = ({ triggerModal }) => {
+    const routes = useHistory();
+    const redirectBulk = () => {
+        routes.push({pathname:'/dashboard/extra-curricular-activities-bulk-upload', state:{
+            breadcrumb: '/dashboard/extra curricular activity/ bulk upload'
+        }})
+    }
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -22,8 +29,11 @@ const ECATable: React.FunctionComponent<props> = ({ triggerModal }) => {
                     icon={<AccountCircle className="icon-circle" />}
                     title="Extra Curricular Activity"
                     btnTitle="Add New Extra Curricular Activity"
+                    bulkbtn={true}
+                    bulkText= "Bulk Upload"
                     btnIcon={<Add />}
                     trigger={triggerModal}
+                    bulkTrigger={redirectBulk}
                 />
             </CardContainer>
             <CardContainer>
