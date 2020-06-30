@@ -30,7 +30,7 @@ class Verification extends React.PureComponent<RouteComponentProps> {
   }
   handleRegister = () => {
     if(this.state.username!=='' && this.state.password!==''){
-      this.props.authRegister(this.state);
+      this.props.authRegister(this.state, this.props.history);
     }
   }
   render() {
@@ -83,7 +83,7 @@ class Verification extends React.PureComponent<RouteComponentProps> {
 }
 const mapDispatchToProps = (dispatch:any) => {
   return {
-    authRegister: (data:any) => dispatch(authRegisterAPIcall(data))
+    authRegister: (data:any, history: any) => dispatch(authRegisterAPIcall(data, history))
   }
 }
 
