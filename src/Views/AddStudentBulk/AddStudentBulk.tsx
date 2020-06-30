@@ -9,13 +9,20 @@ import { colors } from '../../Styles/colors';
 import UploadBtn from '../../components/Button/UploadBtn';
 import GenerateCsvFileBtn from '../../components/Button/GenerateCsvFileBtn';
 import { student } from '../../Helper/GenerateCsvHeaders/student';
-import { parseCsvFile } from "../../Helper/parseCsvFile";
-
+import { parseCsvFile } from '../../Helper/parseCsvFile';
+import { useSelector, useDispatch } from 'react-redux';
+import Loader from '../../components/Loader';
+import { addNewStudentAPIcall } from '../../Redux/Actions/studentAction';
 
 const AddStudentBulk: React.FunctionComponent = () => {
-    const [csvfile, setCsvfile] = useState<File>();
+    const [csvfile, setCsvfile] = useState([]);
+    const loader = useSelector((state: any) => state.uiReducer.loader);
+    const dispatch = useDispatch();
     const handleCsvFile = (file: File) => parseCsvFile(file, setCsvfile);
-    console.log(csvfile)
+    const submitData = () => {
+        const data = [...csvfile];
+        dispatch(addNewStudentAPIcall({students:data}))
+    }
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -56,8 +63,8 @@ const AddStudentBulk: React.FunctionComponent = () => {
                         </div>
                     </div>
 
-                    <Button form="student-form" type="submit" className="gray-btn">
-                        Add & Invite
+                    <Button form="student-form" disabled={loader} onClick={submitData} type="submit" className="gray-btn">
+                        {loader ? <Loader /> : 'Add & Invite'}
                     </Button>
                 </div>
             </CardContainer>

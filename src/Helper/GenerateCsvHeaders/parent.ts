@@ -1,1 +1,1 @@
-export const parent = ["Profile", "ParentId", "Name", "Email"]
+export const parent = ["first_name", "last_name", "email", "gender", "phoneNumber"]

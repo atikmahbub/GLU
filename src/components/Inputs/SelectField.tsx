@@ -7,19 +7,19 @@ interface selectFieldProps {
     className?: string;
     getValue: (value: string) => void;
     name?: string;
-    ref?: any
+    value?: number | string
+    ref?: any,
+    disabled?: boolean
 }
-const SelectField: React.FunctionComponent<selectFieldProps> = ({ label, options, className, getValue, name, ref }) => {
-    const [select, setSelect] = useState('');
+const SelectField: React.FunctionComponent<selectFieldProps> = ({ label, value, options,disabled, className, getValue, name, ref }) => {
     const handleSelect = (e: React.SyntheticEvent<EventTarget>) => {
         const value = (e.target as HTMLInputElement).value;
-        setSelect(value);
         getValue(value);
     };
     return (
         <FormControl  variant="outlined" className={className} fullWidth>
             <InputLabel id="select-field">{label}</InputLabel>
-            <Select  name={name} inputRef={ref}  labelId="select-field" value={select} onChange={handleSelect} label={label}>
+            <Select disabled={disabled}  name={name} inputRef={ref}  labelId="select-field" value={value} onChange={handleSelect} label={label}>
                 {options.map((item) => (
                     <MenuItem key={item} value={item}>
                         {item}

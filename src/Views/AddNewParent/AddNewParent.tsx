@@ -5,12 +5,13 @@ import { AccountCircle } from '@material-ui/icons';
 import { colors } from '../../Styles/colors';
 import FormContainer from './FormContainer';
 import { useHistory } from 'react-router-dom';
+import { routeEndpoints } from '../../Utility/routeEndpoints';
 
 const AddNewParent: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/parent/bulk-upload', state:{
-            breadcrumb: '/dashboard/parent/Teacher Data Upload'
+        routes.push({pathname:routeEndpoints.parent.bulkUpload, state:{
+            breadcrumb: routeEndpoints.parent.bulkBread
         }})
     }
     return (

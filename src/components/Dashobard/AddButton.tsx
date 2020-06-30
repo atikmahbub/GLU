@@ -11,6 +11,9 @@ interface AddButtonProps {
     style?: object;
     component?: string;
     hideBtn?: boolean;
+    bulkbtn?: boolean;
+    bulkText?: string;
+    bulkTrigger?: () => void;
 }
 const AddButton: React.FunctionComponent<AddButtonProps> = ({
     icon,
@@ -20,6 +23,9 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
     trigger,
     component,
     hideBtn,
+    bulkbtn,
+    bulkText,
+    bulkTrigger,
     ...props
 }) => {
     const getComponent = () => {
@@ -52,6 +58,16 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
                     {icon}
                     <Typography className="heading">{title}</Typography>
                 </div>
+                {bulkbtn && (
+                    <Button
+                        {...props}
+                        startIcon={btnIcon}
+                        style={{ marginLeft: 'auto', marginRight: 5 }}
+                        onClick={bulkTrigger}
+                        className="rounded-btn">
+                        {bulkText}
+                    </Button>
+                )}
                 {hideBtn ? null : getComponent()}
             </div>
         </div>

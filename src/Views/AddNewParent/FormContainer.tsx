@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import FormRow from './FormRow';
-import { IconButton, Button } from '@material-ui/core';
-import { Add, Delete } from '@material-ui/icons';
+import AddInviteBtn from '../../components/Button/AddInviteBtn';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import EditableAddBtn from '../../components/Dashobard/EditableAddBtn';
+import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
+import { addNewParentAPIcall, editParentAPIcall } from '../../Redux/Actions/parentAction';
+import { addParentFormDataType } from '../../Interfaces/parentModule';
 
 const FormContainer: React.FunctionComponent = () => {
     const [rows, setRows] = useState([1]);
-    const [formdata, setFormdata] = useState<Array<object>>([]);
+    const [formdata, setFormdata] = useState<Array<addParentFormDataType>>([]);
+    const [editable, setEditable] = useState(false);
+    const [editId, setEditId] = useState(-1);
+    const routes = useHistory();
+    const dispatch = useDispatch();
 
     const addRows = () => {
         const total = [...rows];
@@ -19,10 +28,21 @@ const FormContainer: React.FunctionComponent = () => {
         total.splice(index, 1);
         setRows(total);
     };
-    const handleChange = (value: object, index: number) => {
-        const data = [...formdata];
+    const handleChange = (value: addParentFormDataType, index: number) => {
+        const data: Array<addParentFormDataType> = [...formdata];
         data[index] = value;
         setFormdata(data);
+    };
+    const submitData = () => {
+        const data = {...formdata[0]};
+        delete data.email;
+        delete data.gender;
+        delete data.phoneNumber;
+        if (editable) {
+            dispatch(editParentAPIcall(data, editId, routes))
+        } else {
+            dispatch(addNewParentAPIcall({ parents: formdata }, routes));
+        }
     };
 
     return (
@@ -30,19 +50,20 @@ const FormContainer: React.FunctionComponent = () => {
             <div className="student-container">
                 {rows.map((value, index) => (
                     <div className="student-form-row  w-100">
-                        <FormRow onChange={(value)=>handleChange(value, index)}/>
+                        <FormRow
+                            disable={editable}
+                            setId={setEditId}
+                            editable={() => setEditable(true)}
+                            onChange={(value) => handleChange(value, index)}
+                        />
                         {index === 0 ? (
-                            <IconButton onClick={addRows} className="button-container">
-                                <Add className="icon-btn" />
-                            </IconButton>
+                            <EditableAddBtn editable={editable} click={addRows} />
                         ) : (
-                            <IconButton onClick={() => deleteRows(index)} className="button-container delete-btn">
-                                <Delete className="icon-btn" />
-                            </IconButton>
+                            <EditableDeleteBtn editable={editable} click={() => deleteRows(index)} />
                         )}
                     </div>
                 ))}
-                <Button className="gray-btn">Add & Invite</Button>
+                <AddInviteBtn click={submitData} />
             </div>
         </CardContainer>
     );

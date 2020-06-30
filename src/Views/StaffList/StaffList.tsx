@@ -17,8 +17,8 @@ interface colDataType {
 const StaffList: React.FunctionComponent = () => {
     const routes = useHistory();
     const handleRoutes = () => {
-        routes.push({pathname:'/dashboard/student/add-new-staff', state:{
-            breadcrumb: '/dashboard/student/Add New Staff'
+        routes.push({pathname:'/dashboard/staff/add-new-staff', state:{
+            breadcrumb: '/dashboard/staff/Add New Staff'
         }})
     }
     return (
@@ -69,7 +69,7 @@ const StaffList: React.FunctionComponent = () => {
 
                                 title: 'Action',
                                 field: 'action',
-                                render: () => (<ActionToolbar/>)
+                                render: () => (<ActionToolbar showDetail={false}/>)
                             },
                         ]}
                         rowData={[

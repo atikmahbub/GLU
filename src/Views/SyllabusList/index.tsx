@@ -53,17 +53,33 @@ const index: React.FunctionComponent = () => {
                             {errors.section && <ErrorMessage msg={syllabusFormValidation.errorMsg.section} />}
                             <SelectController
                                 className="custom-input"
+                                label="Select Department"
+                                options={['Hindi', 'English', 'Math', 'science']}
+                                name="department"
+                                control={control}
+                            />
+                            {errors.department && <ErrorMessage msg={syllabusFormValidation.errorMsg.department} />}
+                            <SelectController
+                                className="custom-input"
                                 label="Select Subject"
                                 options={['Hindi', 'English', 'Math', 'science']}
                                 name="subject"
                                 control={control}
                             />
                             {errors.subject && <ErrorMessage msg={syllabusFormValidation.errorMsg.subject} />}
+                            <SelectController
+                                className="custom-input"
+                                label="Select Teacher"
+                                options={['Hindi', 'English', 'Math', 'science']}
+                                name="teacher"
+                                control={control}
+                            />
+                            {errors.teacher && <ErrorMessage msg={syllabusFormValidation.errorMsg.teacher} />}
                             <div className="upload-file-container">
                                 <div className="file-name-container">
-                                    <Typography className="file-name">{file.name}</Typography>
                                 </div>
                                 <UploadBtn
+                                    btnType="inputBtn"
                                     text="Upload Syllabus"
                                     getFile={(data) => {
                                         setFile(data);

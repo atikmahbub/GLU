@@ -49,13 +49,13 @@ const AddNewEvent: React.FunctionComponent = () => {
                                             className="title"
                                             value="wholeschool"
                                             control={<Radio className="icon" />}
-                                            label="Whole School"
+                                            label="All"
                                         />
                                         <FormControlLabel
                                             className="title absent"
                                             value="perticular"
                                             control={<Radio className="icon" />}
-                                            label="Perticular"
+                                            label=""
                                         />
                                     </RadioGroup>
                                 </div>
@@ -65,8 +65,8 @@ const AddNewEvent: React.FunctionComponent = () => {
                                             className="custom-input"
                                             options={[
                                                 'departments',
-                                                'subjects',
                                                 'year groups',
+                                                'parents',
                                                 'students',
                                                 'teachers',
                                                 'form groups',
