@@ -7,6 +7,7 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTeacherAPIcall } from '../../Redux/Actions/teacherAction';
+import { routeEndpoints } from '../../Utility/routeEndpoints';
 
 interface colDataType {
     id: number;
@@ -26,25 +27,25 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     const dispatch = useDispatch();
     const handleRoutes = () => {
         routes.push({
-            pathname: '/dashboard/teacher/add-new-teacher',
+            pathname: routeEndpoints.teacher.addNewTeacher,
             state: {
-                breadcrumb: '/dashboard/teacher/Add New Teacher',
+                breadcrumb: routeEndpoints.teacher.addNewTeacherBread,
             },
         });
     };
     const redirectDetails = () => {
         routes.push({
-            pathname: '/dashboard/teacher-details',
+            pathname: routeEndpoints.teacher.details,
             state: {
-                breadcrumb: '/dashboard/teacher/Add New Teacher',
+                breadcrumb: routeEndpoints.teacher.details,
             },
         });
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
-            pathname: '/dashboard/teacher/add-new-teacher',
+            pathname:  routeEndpoints.teacher.addNewTeacher,
             state: {
-                breadcrumb: '/dashboard/teacher/Edit Teacher',
+                breadcrumb: routeEndpoints.teacher.editTeacher,
                 teacherInfo: data,
             },
         });

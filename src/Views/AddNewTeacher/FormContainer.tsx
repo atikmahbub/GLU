@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import FormRow from './FormRow';
-import { IconButton, Button } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { Add, Delete } from '@material-ui/icons';
-import { useSelector, useDispatch } from 'react-redux';
-import Loader from '../../components/Loader';
+import { useDispatch } from 'react-redux';
 import { addNewTeacherAPIcall, editTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import { useHistory } from 'react-router-dom';
+import AddInviteBtn from '../../components/Button/AddInviteBtn';
+import EditableAddBtn from '../../components/Dashobard/EditableAddBtn';
+import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
+
 
 const FormContainer: React.FunctionComponent = () => {
     const [rows, setRows] = useState([1]);
     const [formdata, setFormdata] = useState<Array<object>>([]);
     const routes = useHistory();
-    const loader = useSelector((state: any) => state.uiReducer.loader);
     const [editable, setEditable] = useState(false);
     const [editId, setEditId] = useState(-1);
     const dispatch = useDispatch();
@@ -62,21 +64,11 @@ const FormContainer: React.FunctionComponent = () => {
                             onChange={(value) => handleChange(value, index)}
                         />
                         {index === 0 ? (
-                            editable ? null : (
-                                <IconButton onClick={addRows} className="button-container">
-                                    <Add className="icon-btn" />
-                                </IconButton>
-                            )
-                        ) : editable ? null : (
-                            <IconButton onClick={() => deleteRows(index)} className="button-container delete-btn">
-                                <Delete className="icon-btn" />
-                            </IconButton>
-                        )}
+                            <EditableAddBtn editable={editable} click={addRows}/>
+                        ) : <EditableDeleteBtn editable={editable} click={()=> deleteRows(index)}/> }
                     </div>
                 ))}
-                <Button className="gray-btn" onClick={submitData} disabled={loader}>
-                    {loader ? <Loader /> : 'Add & Invite'}
-                </Button>
+                <AddInviteBtn click={submitData}/>
             </div>
         </CardContainer>
     );

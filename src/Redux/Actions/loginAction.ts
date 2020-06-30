@@ -30,3 +30,15 @@ export const userLogin = (data: loginData) => {
         payload: data,
     };
 };
+
+
+export const authRegisterAPIcall = (data:{username:string, password: string, token: string}) => {
+    return (dispatch: any)=>{
+        API.post(endponts.authRegister, data).then(res=>{
+            console.log(res.data.data)
+            toast.success("You are successfully registered.");
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}

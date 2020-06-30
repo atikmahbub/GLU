@@ -8,11 +8,26 @@ import UploadBtn from '../../components/Button/UploadBtn';
 import { parseCsvFile } from '../../Helper/parseCsvFile';
 import GenerateCsvFileBtn from '../../components/Button/GenerateCsvFileBtn';
 import { parent } from '../../Helper/GenerateCsvHeaders/parent';
+import AddInviteBtn from '../../components/Button/AddInviteBtn';
+import { useDispatch } from 'react-redux';
+import { addNewParentAPIcall } from '../../Redux/Actions/parentAction';
+import { useHistory } from 'react-router-dom';
+import { addParentFormDataType } from '../../Interfaces/parentModule';
 
 const AddParentBulk: React.FunctionComponent = () => {
-    const [csvfile, setCsvfile] = useState<File>();
+    const [csvfile, setCsvfile] = useState<Array<addParentFormDataType>>([]);
     const handleCsvFile = (file: File) => parseCsvFile(file, setCsvfile);
-   
+    const dispatch = useDispatch();
+    const route = useHistory();
+    const submitData = () => {
+      const data =  csvfile.map((item:addParentFormDataType)=>{
+            return {
+                ...item,
+                phoneNumber: String(item.phoneNumber)
+            }
+        })
+        dispatch(addNewParentAPIcall({parents:data}, route))
+    }
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -35,9 +50,7 @@ const AddParentBulk: React.FunctionComponent = () => {
                         </div>
                     </div>
 
-                    <Button form="student-form" type="submit" className="gray-btn">
-                        Add & Invite
-                    </Button>
+                    <AddInviteBtn click={submitData}/>
                 </div>
             </CardContainer>
         </div>

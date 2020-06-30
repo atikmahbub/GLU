@@ -3,6 +3,8 @@ export const endponts = {
     school: 'schools/school',
     student:'schools/students',
     teacher: 'schools/teachers',
-    parent: 'schools/parents',
-
+    parent: 'schools/guardians',
+    class: 'schools/classes',
+    invitation: 'auth/invite',
+    authRegister: 'auth/register'
 }

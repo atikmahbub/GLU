@@ -1,50 +1,22 @@
-import React, { useState } from 'react';
-import ModalBox from '../../components/Modal/ModalBox';
-import { TextField, Button } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
 import ClassList from './ClassList';
-import { useForm } from 'react-hook-form';
-import ErrorMessage from '../../components/ErrorMessage';
-import { classFormValidation } from '../../Helper/FormValidations/classFormValidation';
+import AddClassModal from './AddClassModal';
+import { useDispatch } from 'react-redux';
+import {getallclassAPIcall} from '../../Redux/Actions/classAction';
 
 const index: React.FunctionComponent = () => {
+    const dispatch = useDispatch();
     const [toggler, setToggler] = useState(false);
     const handleToggler = () => {
         setToggler(!toggler);
     };
-    const { register, errors, handleSubmit } = useForm({
-        validationSchema: classFormValidation.validationSetting,
-    });
-    const submit = (data: object) => console.log(data);
+    useEffect(()=>{
+        dispatch(getallclassAPIcall())
+    },)
     return (
         <div>
             {toggler ? (
-                <ModalBox title="Create Year Group" modalHandler={handleToggler}>
-                    <div className="modal-form">
-                        <form onSubmit={handleSubmit(submit)}>
-                            <TextField
-                                variant="outlined"
-                                inputRef={register}
-                                name="className"
-                                className="custom-input"
-                                fullWidth
-                                label="Year Group"
-                            />
-                            {errors.className && <ErrorMessage msg={classFormValidation.errorMsg.className} />}
-                            <TextField
-                                variant="outlined"
-                                inputRef={register}
-                                name="section"
-                                className="custom-input"
-                                fullWidth
-                                label="Form Group"
-                            />
-                            {errors.section && <ErrorMessage msg={classFormValidation.errorMsg.section} />}
-                            <Button type="submit" className="session-button">
-                                Create Year Group
-                            </Button>
-                        </form>
-                    </div>
-                </ModalBox>
+                <AddClassModal handleToggler={handleToggler}/>
             ) : null}
             <ClassList triggerModal={handleToggler} />
         </div>

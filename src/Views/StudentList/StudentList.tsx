@@ -7,6 +7,7 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
+import { deleteStudentAPIcall } from '../../Redux/Actions/studentAction';
 
 interface colDataType {
     id: number;
@@ -40,15 +41,15 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
-            pathname: '/dashboard/student/add-new-student',
+            pathname: routeEndpoints.student.addNewStudent,
             state: {
                 breadcrumb: routeEndpoints.student.editStudent,
-                teacherInfo: data,
+                studentInfo: data,
             },
         });
     };
     const handleDelete = (deleteId: number) => {
-        // dispatch(deleteTeacherAPIcall(deleteId));
+        dispatch(deleteStudentAPIcall(deleteId));
     };
     return (
         <div className="student-wrapper">

@@ -3,7 +3,7 @@ import AuthCard from "../../../Containers/Cards/AuthCard";
 import { Typography, TextField, Button } from "@material-ui/core";
 import {VerifiedUser} from "@material-ui/icons";
 import {RouteComponentProps} from "react-router-dom";
-import {withRouter} from 'react-router';
+import {withRouter} from 'react-router-dom';
 
 class Login extends React.PureComponent<RouteComponentProps> {
   state = {

@@ -1,18 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import SelectField from '../../components/Inputs/SelectField';
 import { TextField } from '@material-ui/core';
+import { useLocation } from 'react-router-dom';
+import { checkValue } from '../../Helper/checkValue';
 
 interface props {
     onChange: (value: any) => void;
+    editable: ()=> void;
+    setId: Function;
+    disable?: boolean;
+    handleClass: (value:string) => void;
+    handleSection: (value:string) => void;
+
 }
-const FormRow: React.FunctionComponent<props> = ({ onChange }) => {
+const FormRow: React.FunctionComponent<props> = ({ onChange, editable, setId, disable, handleClass, handleSection }) => {
     const [state, setState] = useState({
         first_name: '',
         last_name: '',
         email: '',
-        gender:"", 
+        gender: '',
         // parent:""
     });
+    const [edit, setEdit] = useState<boolean>(false);
+    const routes = useLocation();
+    useEffect(() => {
+        if (routes.hasOwnProperty('state')) {
+            if ((routes as any).state.hasOwnProperty('studentInfo')) {
+                const data = (routes as any).state.studentInfo;
+                const newState = {
+                    first_name: checkValue(data.first_name),
+                    last_name: checkValue(data.last_name),
+                    email: checkValue(data.email),
+                    gender: checkValue(data.gender),
+                };
+                setState(newState);
+                handleClass(data.class);
+                handleSection(data.section);
+                editable();
+                setId(data.id);
+                setEdit(true);
+            console.log(data)
+
+            }
+        }
+    }, []);
     const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, first_name: e.target.value });
     };
@@ -24,7 +55,7 @@ const FormRow: React.FunctionComponent<props> = ({ onChange }) => {
         setState({ ...state, email: e.target.value });
     };
     const handleGender = (value: string) => {
-        setState({...state, gender:value})
+        setState({ ...state, gender: value });
     };
     const handleParent = (value: string) => {
         // setState({...state, parent: value})
@@ -35,7 +66,7 @@ const FormRow: React.FunctionComponent<props> = ({ onChange }) => {
     }, [state]);
 
     return (
-        <div className="row">
+        <div className={`row ${edit ? 'w-100' : ''}`}>
             <div className="col-lg">
                 <TextField
                     className="custom-input"
@@ -69,7 +100,7 @@ const FormRow: React.FunctionComponent<props> = ({ onChange }) => {
             <div className="col-lg">
                 <SelectField
                     className="custom-input"
-                    options={['Male', 'Female']}
+                    options={['male', 'female']}
                     label="Select Gender"
                     getValue={(value) => {
                         handleGender(value);

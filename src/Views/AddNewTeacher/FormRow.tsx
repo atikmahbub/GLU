@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import SelectField from '../../components/Inputs/SelectField';
 import { TextField } from '@material-ui/core';
-import AdornmentInput from '../../components/Inputs/AdornmentInput';
 import { useLocation } from 'react-router-dom';
+import { checkValue } from '../../Helper/checkValue';
 
 interface props {
     onChange: (value: any) => void;
@@ -27,15 +27,14 @@ const FormRow: React.FunctionComponent<props> = ({ onChange, editable, setId, di
         if (routes.hasOwnProperty('state')) {
             if ((routes as any).state.hasOwnProperty('teacherInfo')) {
                 const data = (routes as any).state.teacherInfo;
-                console.log(data)
                 const newState = {
-                    first_name: data.first_name ? data.first_name : '',
-                    last_name: data.last_name ? data.last_name : '',
-                    email: data.email ? data.email : '',
-                    gender: data.gender ? data.gender : '',
-                    department: data.department ? data.department : '',
-                    designation: data.designation ? data.designation : '',
-                    phoneNumber: data.phoneNumber ? data.phoneNumber : data.phoneNumber,
+                    first_name: checkValue(data.first_name),
+                    last_name: checkValue(data.last_name),
+                    email: checkValue(data.email),
+                    gender: checkValue(data.gender),
+                    department: checkValue(data.department),
+                    designation: checkValue(data.designation),
+                    phoneNumber: checkValue(data.phoneNumber),
                 };
                 setState(newState);
                 editable();
