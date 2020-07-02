@@ -259,26 +259,3 @@ g.highcharts-axis-labels.highcharts-xaxis-labels text {
     background-color: red;
 }
 
-.dashboard-table-container{
-    padding: 1rem;
-    .table-header{
-        @include flex(center, space-between, row);
-        .heading{
-            font-weight: 500;
-            font-size: 1rem;
-        }
-        .icon{
-            font-size: 1rem;
-        }
-        margin-bottom: 1rem;
-    }
-    .download-btn{
-        background-color: $primary;
-        color: $white;
-        border-radius: 0.4rem;
-        font-size: 0.65rem;
-        text-transform: capitalize;
-        font-weight: 100;
-
-    }
-}

@@ -51,7 +51,7 @@ const options = {
             content += `
             <div ><div class="arrow"></div><span class="tooltip-7785">
             <span style="font-weight:900; font-size:1rem;">
-            <span style="color:black; margin-left:5px;"> ${this.y} </span></span></span></div>
+            <span style="color:black; margin-left:5px;"> ${(this as any).y} </span></span></span></div>
             `;
             return content;
         },

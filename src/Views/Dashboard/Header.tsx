@@ -6,6 +6,7 @@ import { colors } from '../../Styles/colors';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
 import { useLocation, useHistory } from 'react-router-dom';
 import {v4 as uuidv4} from "uuid";
+import { resetTokenAndLocalStorage } from '../../Utility/API';
 
 interface headerProps {
     title: string;
@@ -47,7 +48,7 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
     };
 
     const resetAuth = () => {
-        localStorage.removeItem('auth');
+        resetTokenAndLocalStorage()
         history.push('/');
     }
 

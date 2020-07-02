@@ -6,7 +6,8 @@ import StudentListTable from './StudentListTable';
 import SubjectListTable from './SubjectListTable';
 import StudentTimeTable from './StudentTimeTable';
 import { studenttimetable, studentECA } from './tabledata';
-import StudentAttendaceChart from './StudentAttendaceChart';
+import ColumnChart from './ColumnChart';
+import StudentAttendanceChart from './StudentAttendanceChart';
 
 const TeacherDetails: React.FunctionComponent = () => {
     return (
@@ -49,11 +50,7 @@ const TeacherDetails: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-2"></div>
                         <div className="col-md-10">
-                            <StudentAttendaceChart
-                                marker1="Present"
-                                marker2="Absent"
-                                chartName="Attendance"
-                            />
+                            <StudentAttendanceChart />
                         </div>
                         <div className="col-md-2"></div>
                         <div className="col-md-10">
@@ -61,14 +58,10 @@ const TeacherDetails: React.FunctionComponent = () => {
                         </div>
                         <div className="col-md-2"></div>
                         <div className="col-md-10">
-                        <StudentAttendaceChart
-                                marker1="Completed"
-                                marker2="not Completed"
-                                chartName="Homework"
-                            />
+                            <ColumnChart clickHandler={()=>{}} marker1="Completed" marker2="not Completed" chartName="Homework" />
                         </div>
                     </div>
-                    
+
                     <div className="row">
                         <div className="col-md-2"></div>
                         <div className="col-md-10">
@@ -79,12 +72,7 @@ const TeacherDetails: React.FunctionComponent = () => {
                         <div className="col-md-2"></div>
                         <div className="col-md-10">
                             <div className="exam-report-status-container">
-                                <StudentAttendaceChart
-                                marker1="Passed"
-                                marker2="Failed"
-                                chartName="Exam"
-                                selectType="exam"
-                            />
+                                <ColumnChart clickHandler={()=>{}} marker1="Passed" marker2="Failed" chartName="Exam" selectType="exam" />
                             </div>
                         </div>
                     </div>

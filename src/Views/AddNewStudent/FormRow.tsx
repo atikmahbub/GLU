@@ -102,6 +102,7 @@ const FormRow: React.FunctionComponent<props> = ({ onChange, editable, setId, di
                     className="custom-input"
                     options={['male', 'female']}
                     label="Select Gender"
+                    value={state.gender}
                     getValue={(value) => {
                         handleGender(value);
                     }}
@@ -112,6 +113,7 @@ const FormRow: React.FunctionComponent<props> = ({ onChange, editable, setId, di
                     className="custom-input"
                     options={['', '']}
                     label="Select Parent"
+                    value={''}
                     getValue={(value) => {
                         handleParent(value);
                     }}

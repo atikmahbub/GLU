@@ -4,6 +4,7 @@ import { spinner } from './uiAction';
 import { handleError } from './errorHandler';
 import { toast } from 'react-toastify';
 import {CLASS_LIST} from '../ActionTypes/classTypes';
+import { appAction } from '../../Interfaces';
 
 export const getallclassAPIcall = () => {
     return (dispatch: any) => {
@@ -18,7 +19,7 @@ export const getallclassAPIcall = () => {
     };
 };
 
-export const classList = (data: any) => {
+export const classList = (data: any): appAction => {
     return {
         type: CLASS_LIST,
         payload: data,

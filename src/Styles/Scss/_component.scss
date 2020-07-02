@@ -520,7 +520,7 @@ button.primary-btn {
                 @include flex(center, flex-start, row);
                 .present {
                     @include flex(center, space-between, row);
-                    .title{
+                    .title {
                         font-size: 0.6rem;
                     }
                     .icon {
@@ -530,7 +530,7 @@ button.primary-btn {
                 }
                 .absent {
                     @include flex(center, space-between, row);
-                    .title{
+                    .title {
                         font-size: 0.6rem;
                     }
                     .icon {
@@ -539,32 +539,32 @@ button.primary-btn {
                 }
             }
         }
-        .parent-child-container{
-            box-shadow: 0 0 10px -1px rgba(0,0,0,0.2);
+        .parent-child-container {
+            box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
             background-color: $primary;
             border-radius: 0.4rem;
             padding: 1.5rem;
             @include flex(center, space-between, column);
             margin-bottom: 1rem;
-            .heading{
+            .heading {
                 text-align: center;
                 font-size: 1.2rem;
                 color: $white;
                 margin: 0.7rem 0;
             }
-            .title{
+            .title {
                 text-align: center;
                 color: $white;
                 font-size: 0.7rem;
             }
-            img{
+            img {
                 width: 5rem;
                 height: 5rem;
                 border-radius: 50%;
                 transition: all 0.3s;
                 cursor: pointer;
-                &:hover{
-                border-radius: 0.4rem;
+                &:hover {
+                    border-radius: 0.4rem;
                 }
             }
         }
@@ -573,7 +573,7 @@ button.primary-btn {
         font-size: 1.5rem;
         font-weight: 500;
         color: $darkGray;
-        span{
+        span {
             padding: 0.4rem;
             margin-left: 1rem;
             background-color: $primary;
@@ -582,7 +582,7 @@ button.primary-btn {
             border-radius: 0.9rem;
             margin-top: 0.2rem;
             position: absolute;
-            box-shadow: 0 0 10px -1px rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
         }
     }
     .sub-heading {
@@ -624,5 +624,51 @@ button.primary-btn {
             color: $white;
             margin-left: 0.4rem;
         }
+    }
+}
+
+//dashboard table style
+.dashboard-table-container {
+    padding: 1rem;
+    .table-header {
+        @include flex(center, space-between, row);
+        .heading {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .icon {
+            font-size: 1rem;
+        }
+        margin-bottom: 1rem;
+    }
+    .download-btn {
+        background-color: $primary;
+        color: $white;
+        border-radius: 0.4rem;
+        font-size: 0.65rem;
+        text-transform: capitalize;
+        font-weight: 100;
+    }
+}
+.attendance-tile-container {
+    @include flex(center, flex-start, row);
+    .attendance-wrapper {
+        width: 80%;
+        height: 1rem;
+        margin-right: 1rem;
+        background-color: rgb(220, 225, 227);
+        border-radius: 1rem;
+        border: 1px solid $lightGray;
+        @include flex(center, flex-start, row);
+        .attendance {
+            height: 0.9rem;
+            background-color: $primary;
+            border-radius: 1rem;
+        }
+    }
+    .total{
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $primary;
     }
 }
