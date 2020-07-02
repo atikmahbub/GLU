@@ -10,7 +10,7 @@
   "scripts": {
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --port 3000 --hot --host 0.0.0.0",
+    "start": "webpack-dev-server --port 4000 --hot --host 0.0.0.0",
     "build": "webpack --mode production",
     "check-types": "tsc",
     "predeploy": "npm run build",
@@ -75,7 +75,7 @@
     "highcharts-react-official": "^3.0.0",
     "history": "^3.3.0",
     "immutable": "^4.0.0-rc.12",
-    "material-table": "^1.57.2",
+    "material-table": "^1.49.0",
     "moment": "^2.24.0",
     "notistack": "^0.9.16",
     "papaparse": "^5.2.0",
