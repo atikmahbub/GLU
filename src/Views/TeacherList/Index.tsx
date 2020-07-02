@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getallTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import commonImg from '../../Assets/images';
 
-const index = () => {
+const Index = () => {
     const dispatch = useDispatch();
     const teachers = useSelector((state:any)=> state.teacherReducer.teacherList);
     const [teacherList, setTeacherList] = useState([]);
@@ -38,4 +38,4 @@ const index = () => {
     );
 }
 
-export default index;
+export default Index;
