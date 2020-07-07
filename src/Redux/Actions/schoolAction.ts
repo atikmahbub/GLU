@@ -94,3 +94,22 @@ export const deleteDepartmentAPIcall = (id:number) => {
             });
     };
 };
+
+export const updateDepartmentAPIcall = (data: any, close: Function) => {
+    const {id, name} = data;
+    return (dispatch: any) => {
+        dispatch(spinner(true));
+        API.put(`${endponts.departments}/${id}`, {name})
+            .then((res) => {
+                console.log(res);
+                dispatch(getAllDepartmentAPIcall());
+                close()
+                dispatch(spinner(false));
+                toast.success("Department Updated Successfully.");
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
