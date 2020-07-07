@@ -95,11 +95,10 @@ export const deleteDepartmentAPIcall = (id:number) => {
     };
 };
 
-export const updateDepartmentAPIcall = (data: any, close: Function) => {
-    const {id, name} = data;
+export const updateDepartmentAPIcall = (id:number, data: {name: string}, close: Function) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
-        API.put(`${endponts.departments}/${id}`, {name})
+        API.put(`${endponts.departments}/${id}`, data)
             .then((res) => {
                 console.log(res);
                 dispatch(getAllDepartmentAPIcall());

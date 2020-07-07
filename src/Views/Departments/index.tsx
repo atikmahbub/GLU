@@ -21,7 +21,7 @@ const index: React.FunctionComponent = () => {
     const submit = (data: any) => {
         console.log(data);
         if (editDepartment) {
-            dispatch(updateDepartmentAPIcall(editDepartment, handleToggler));
+            dispatch(updateDepartmentAPIcall(editDepartment.id, {name: data.department}, handleToggler));
         }else{
             dispatch(addNewDepartmentAPIcall({ name: data.department }, handleToggler));
         }
