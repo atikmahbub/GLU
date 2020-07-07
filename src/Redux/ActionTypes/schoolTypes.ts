@@ -1,1 +1,2 @@
 export const SCHOOL_INFO = 'SCHOOL_INFO';
+export const DEPARTMENT_LIST = 'DEPARTMENT_LIST';

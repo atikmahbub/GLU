@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
 import { AccountCircle, Add } from '@material-ui/icons';
 import { colors } from '../../Styles/colors';
 import FormContainer from './FormContainer';
+import AddSection from './AddSection';
 
 interface props{
     triggerModal: ()=> void
 }
 const SubjectList: React.FunctionComponent<props> = ({triggerModal}) => {
+    const [toggler, setToggler] = useState(false);
+    const handleToggler = () => {
+        setToggler(!toggler);
+    };
     return (
         <div className="content-wrapper-student">
             <CardContainer>
@@ -21,7 +26,8 @@ const SubjectList: React.FunctionComponent<props> = ({triggerModal}) => {
                     trigger={triggerModal}
                 />
             </CardContainer>
-            <FormContainer/>
+            <FormContainer onClick={handleToggler}/>
+            <AddSection show={toggler} onClick={handleToggler}/>
         </div>
     );
 };

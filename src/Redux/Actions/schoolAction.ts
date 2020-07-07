@@ -1,6 +1,6 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
-import { SCHOOL_INFO } from '../ActionTypes/schoolTypes';
+import { SCHOOL_INFO, DEPARTMENT_LIST } from '../ActionTypes/schoolTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { handleError } from './errorHandler';
@@ -38,5 +38,59 @@ export const schoolInfo = (data: any) => {
     return {
         type: SCHOOL_INFO,
         payload: data,
+    };
+};
+
+export const addNewDepartmentAPIcall = (data: any, close: Function) => {
+    return (dispatch: any) => {
+        dispatch(spinner(true));
+        API.post(endponts.departments, data)
+            .then((res) => {
+                console.log(res);
+                dispatch(getAllDepartmentAPIcall());
+                close()
+                dispatch(spinner(false));
+                toast.success("Department Added Successfully.");
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const getAllDepartmentAPIcall = () => {
+    return (dispatch: any) => {
+        dispatch(spinner(true));
+        API.get(endponts.departments)
+            .then((res) => {
+                console.log(res);
+                dispatch(getDepartmentAPIres(res.data.data))
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const getDepartmentAPIres = (data:any) => {
+    return {
+        type: DEPARTMENT_LIST,
+        payload: data
+    }
+}
+
+export const deleteAllDepartmentAPIcall = (id:number) => {
+    return (dispatch: any) => {
+        API.put(`${endponts.departments}/${id}`)
+            .then((res) => {
+                dispatch(getAllDepartmentAPIcall());
+                toast.success('Department deleted successfully.')
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
     };
 };

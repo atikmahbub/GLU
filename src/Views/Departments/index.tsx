@@ -1,20 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalBox from '../../components/Modal/ModalBox';
 import { TextField, Button } from '@material-ui/core';
 import Departments from './Departments';
 import ErrorMessage from '../../components/ErrorMessage';
 import { useForm } from 'react-hook-form';
 import { departmentFormValidation } from '../../Helper/FormValidations/departmentFormValidation';
+import { useDispatch } from 'react-redux';
+import { addNewDepartmentAPIcall, getAllDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 
 const index: React.FunctionComponent = () => {
     const [toggler, setToggler] = useState(false);
+    const [editDepartment, setEditDepartment] = useState();
+    const dispatch = useDispatch();
     const handleToggler = () => {
         setToggler(!toggler);
     };
-    const { register, errors, handleSubmit } = useForm({
+    const { register, errors, handleSubmit, reset } = useForm({
         validationSchema: departmentFormValidation.validationSetting,
     });
-    const submit = (data: object) => console.log(data);
+    const submit = (data: any) => {
+        console.log(data);
+        dispatch(addNewDepartmentAPIcall({ name: data.department }, handleToggler));
+    };
+    useEffect(() => {
+        if (editDepartment) {
+            dispatch(getAllDepartmentAPIcall());
+        }
+        dispatch(getAllDepartmentAPIcall());
+    }, []);
+    useEffect(() => {
+        if (editDepartment) {
+            reset({ department: (editDepartment as any).name });
+            handleToggler();
+        }
+    }, [editDepartment]);
     return (
         <div>
             {toggler ? (
@@ -31,13 +50,13 @@ const index: React.FunctionComponent = () => {
                             />
                             {errors.department && <ErrorMessage msg={departmentFormValidation.errorMsg.department} />}
                             <Button type="submit" className="session-button">
-                                Create Department
+                                {editDepartment ? 'Update Department' : 'Create Department'}
                             </Button>
                         </form>
                     </div>
                 </ModalBox>
             ) : null}
-            <Departments triggerModal={handleToggler} />
+            <Departments editDepartment={setEditDepartment} triggerModal={handleToggler} />
         </div>
     );
 };

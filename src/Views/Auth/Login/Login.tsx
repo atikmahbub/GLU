@@ -18,7 +18,7 @@ type props = {
 };
 class Login extends React.PureComponent<props> {
     state = {
-        role: 'school',
+        // role: 'school',
         username: 'anil1234',
         password: 'Test@1234',
     };
@@ -45,12 +45,12 @@ class Login extends React.PureComponent<props> {
                             Glu.
                         </Typography>
                         <Typography className="slogan">Great learning umbrella.</Typography>
-                        <SelectField
+                        {/* <SelectField
                             label="Login As"
                             className="mb-4"
                             getValue={(value) => this.handleLoginAs(value)}
                             options={loginAs}
-                        />
+                        /> */}
                         <TextField
                             className="mb-4"
                             variant="outlined"

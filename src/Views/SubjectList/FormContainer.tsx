@@ -5,7 +5,10 @@ import { Button } from '@material-ui/core';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 
-const FormContainer: React.FunctionComponent = () => {
+interface props{
+    onClick?: ()=> void
+}
+const FormContainer: React.FunctionComponent<props> = ({onClick}) => {
     return (
         <CardContainer>
             <div className="subject-container">
@@ -53,7 +56,11 @@ const FormContainer: React.FunctionComponent = () => {
                             width: '10%',
                             title: 'Action',
                             field: 'action',
-                            render: () => <ActionToolbar />,
+                            render: () => <ActionToolbar renderComponent={<li>
+                                <Button onClick={onClick} className="edit-btn" fullWidth>
+                                    Section
+                                </Button>
+                            </li>}/>,
                         },
                     ]}
                     rowData={[

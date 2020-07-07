@@ -5,6 +5,7 @@ import {schoolReducer} from './schoolReducer';
 import {studentReducer} from './studentReducer';
 import {teacherReducer} from './teacherReducer';
 import {parentReducer} from './parentReducer';
+import {classReducer} from './classReducer';
 
 
 
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
     schoolReducer,
     studentReducer,
     teacherReducer,
-    parentReducer
+    parentReducer,
+    classReducer
 });

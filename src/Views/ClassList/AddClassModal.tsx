@@ -31,15 +31,6 @@ const AddClassModal: React.FunctionComponent<sideModalProps> = ({handleToggler})
                                 label="Year Group"
                             />
                             {errors.className && <ErrorMessage msg={classFormValidation.errorMsg.className} />}
-                            <TextField
-                                variant="outlined"
-                                inputRef={register}
-                                name="section"
-                                className="custom-input"
-                                fullWidth
-                                label="Form Group"
-                            />
-                            {errors.section && <ErrorMessage msg={classFormValidation.errorMsg.section} />}
                             <Button type="submit" className="session-button">
                                 Create Year Group
                             </Button>

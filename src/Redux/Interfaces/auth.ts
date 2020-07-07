@@ -1,7 +1,7 @@
 export interface loginAuth{
     username: string,
     password: string,
-    role: string,
+    // role: string,
 }
 
 export interface loginData {
