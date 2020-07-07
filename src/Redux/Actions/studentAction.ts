@@ -1,6 +1,6 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
-import { STUDENT_INFO } from '../ActionTypes/studentTypes';
+import { STUDENT_INFO, STUDENT_DETAILS } from '../ActionTypes/studentTypes';
 import { handleError } from './errorHandler';
 import { addNewStudent } from '../Interfaces/student';
 import { spinner } from './uiAction';
@@ -76,3 +76,23 @@ export const editStudentAPIcall = (data: any, editId: number, history: any) => {
             });
     };
 };
+
+export const getStudentDetailsAPIcall = (id:number) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.student}/${id}`)
+            .then((res) => {
+                console.log(res.data)
+                dispatch(studentDetailAPIres(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const studentDetailAPIres = (data:any) => {
+    return {
+        type: STUDENT_DETAILS,
+        payload: data
+    }
+}

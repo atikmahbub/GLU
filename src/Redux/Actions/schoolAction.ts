@@ -81,12 +81,30 @@ export const getDepartmentAPIres = (data:any) => {
     }
 }
 
-export const deleteAllDepartmentAPIcall = (id:number) => {
+export const deleteDepartmentAPIcall = (id:number) => {
     return (dispatch: any) => {
-        API.put(`${endponts.departments}/${id}`)
+        API.delete(`${endponts.departments}/${id}`)
             .then((res) => {
                 dispatch(getAllDepartmentAPIcall());
                 toast.success('Department deleted successfully.')
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const updateDepartmentAPIcall = (id:number, data: {name: string}, close: Function) => {
+    return (dispatch: any) => {
+        dispatch(spinner(true));
+        API.put(`${endponts.departments}/${id}`, data)
+            .then((res) => {
+                console.log(res);
+                dispatch(getAllDepartmentAPIcall());
+                close()
+                dispatch(spinner(false));
+                toast.success("Department Updated Successfully.");
             })
             .catch((err) => {
                 console.log(err);

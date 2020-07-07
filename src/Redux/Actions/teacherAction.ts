@@ -1,7 +1,7 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST } from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 
@@ -72,3 +72,24 @@ export const deleteTeacherAPIcall = (deleteId: number) => {
             });
     };
 };
+
+
+export const getTeacherDetailsAPIcall = (id:number) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.teacher}/${id}`)
+            .then((res) => {
+                console.log(res.data)
+                dispatch(teacherDetailAPIres(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const teacherDetailAPIres = (data:any) => {
+    return {
+        type: TEACHER_DETAILS,
+        payload: data
+    }
+}

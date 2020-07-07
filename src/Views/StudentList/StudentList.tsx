@@ -31,11 +31,12 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             },
         });
     };
-    const redirectDetails = () => {
+    const redirectDetails = (id:number) => {
         routes.push({
             pathname: routeEndpoints.student.details,
             state: {
                 breadcrumb: routeEndpoints.student.breadcrumb,
+                id:id
             },
         });
     };
@@ -103,7 +104,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                 render: (rowData: colDataType) => (
                                     <ActionToolbar
                                         showDetail={true}
-                                        detailClick={redirectDetails}
+                                        detailClick={()=>redirectDetails(rowData.id)}
                                         deleteClick={() => handleDelete(rowData.id)}
                                         editClick={() => handleEdit(rowData)}
                                     />

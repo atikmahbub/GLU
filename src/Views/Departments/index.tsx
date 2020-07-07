@@ -6,7 +6,7 @@ import ErrorMessage from '../../components/ErrorMessage';
 import { useForm } from 'react-hook-form';
 import { departmentFormValidation } from '../../Helper/FormValidations/departmentFormValidation';
 import { useDispatch } from 'react-redux';
-import { addNewDepartmentAPIcall, getAllDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
+import { addNewDepartmentAPIcall, getAllDepartmentAPIcall, updateDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 
 const index: React.FunctionComponent = () => {
     const [toggler, setToggler] = useState(false);
@@ -20,12 +20,13 @@ const index: React.FunctionComponent = () => {
     });
     const submit = (data: any) => {
         console.log(data);
-        dispatch(addNewDepartmentAPIcall({ name: data.department }, handleToggler));
+        if (editDepartment) {
+            dispatch(updateDepartmentAPIcall(editDepartment.id, {name: data.department}, handleToggler));
+        }else{
+            dispatch(addNewDepartmentAPIcall({ name: data.department }, handleToggler));
+        }
     };
     useEffect(() => {
-        if (editDepartment) {
-            dispatch(getAllDepartmentAPIcall());
-        }
         dispatch(getAllDepartmentAPIcall());
     }, []);
     useEffect(() => {

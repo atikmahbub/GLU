@@ -25,11 +25,12 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
             },
         });
     };
-    const redirectDetails = () => {
+    const redirectDetails = (id:number) => {
         routes.push({
             pathname: routeEndpoints.parent.details,
             state: {
                 breadcrumb:  routeEndpoints.parent.breadcrumb,
+                id: id
             },
         });
     };
@@ -94,7 +95,7 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
                                         showDetail={true}
                                         deleteClick={() => handleDelete(rowData.parentId)}
                                         editClick={() => handleEdit(rowData)}
-                                        detailClick={redirectDetails}
+                                        detailClick={()=>redirectDetails(rowData.parentId)}
                                     />
                                 ),
                             },

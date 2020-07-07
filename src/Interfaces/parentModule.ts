@@ -10,13 +10,20 @@ export interface parentListTypes {
     action: string;
 }
 
-export interface addparentArray{
-    parents: Array<addParentFormDataType>
+export interface addparentArray {
+    parents: Array<addParentFormDataType>;
 }
 export interface addParentFormDataType {
-    first_name: string,
-    last_name: string,
-    email: string,
-    gender: string,
-    phoneNumber: string,
+    first_name: string;
+    last_name: string;
+    email: string;
+    gender: string;
+    phoneNumber: string;
+}
+
+export interface parentDetailsTypes {
+    name: string;
+    email: string;
+    phoneNumber: string;
+    profile: string
 }
