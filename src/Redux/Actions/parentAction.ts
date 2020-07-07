@@ -1,7 +1,7 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { PARENT_LIST } from '../ActionTypes/parentTypes';
+import { PARENT_LIST, PARENT_DETAILS } from '../ActionTypes/parentTypes';
 import { addParentFormDataType, addparentArray } from '../../Interfaces/parentModule';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { spinner } from './uiAction';
@@ -76,3 +76,24 @@ export const deleteParentAPIcall = ( deleteId: number) => {
             });
     };
 };
+
+
+export const getParentDetailsAPIcall = (id:number) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.parent}/${id}`)
+            .then((res) => {
+                console.log(res.data)
+                dispatch(parentDetailAPIres(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const parentDetailAPIres = (data:any) => {
+    return {
+        type: PARENT_DETAILS,
+        payload: data
+    }
+}

@@ -81,9 +81,9 @@ export const getDepartmentAPIres = (data:any) => {
     }
 }
 
-export const deleteAllDepartmentAPIcall = (id:number) => {
+export const deleteDepartmentAPIcall = (id:number) => {
     return (dispatch: any) => {
-        API.put(`${endponts.departments}/${id}`)
+        API.delete(`${endponts.departments}/${id}`)
             .then((res) => {
                 dispatch(getAllDepartmentAPIcall());
                 toast.success('Department deleted successfully.')

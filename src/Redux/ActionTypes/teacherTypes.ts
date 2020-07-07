@@ -1,2 +1,3 @@
 export const TEACHER_INFO = "TEACHER_INFO";
 export const TEACHER_LIST = "TEACHER_LIST";
+export const TEACHER_DETAILS = "TEACHER_DETAILS";
