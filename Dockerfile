@@ -18,7 +18,7 @@ RUN npm install react-scripts@3.4.1 -g --silent
 COPY . ./
 
 RUN npm rebuild node-sass
-EXPOSE 7070
+EXPOSE 4000
 
 # start app
 CMD ["npm", "start"]
