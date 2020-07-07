@@ -42,3 +42,19 @@ export const addNewClassAPIcall = (data:any, close: Function) => {
             });
     };
 };
+
+ export const addNewSectionAPIcall = (data:any, id:number, close: Function) => {
+    return (dispatch: any) => {
+        dispatch(spinner(true));
+        API.post(`${endponts.class}/${id}/sections`,data)
+            .then((res) => {
+                console.log(res);
+                dispatch(spinner(false));
+                toast.success("Section Created Successfully.");
+                close();
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};

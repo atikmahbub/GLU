@@ -52,6 +52,7 @@ const CardTable = ({
                 showTextRowsSelected: false,
                 exportButton: true,
                 paging: showPagination,
+                tableLayout:'auto'
             }}
             icons={{
                 Search: () => <Search />,

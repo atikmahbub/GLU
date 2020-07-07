@@ -5,16 +5,27 @@ import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteAllDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 
 interface props {
     triggerModal: () => void;
+    editDepartment: Function
 }
-const Departments: React.FunctionComponent<props> = ({triggerModal}) => {
+const Departments: React.FunctionComponent<props> = ({triggerModal, editDepartment}) => {
     const routes = useHistory();
+    const dispatch = useDispatch();
+    const departmentList = useSelector((state:any)=> state.schoolReducer.departmentList)
     const redirectDetails = () => {
         routes.push({pathname:'/dashboard/department-details', state:{
             breadcrumb: '/dashboard/department details'
         }})
+    }
+    const handleDelete = (id:number) => {
+        dispatch(deleteAllDepartmentAPIcall(id));
+    }
+    const handleEdit = (data:any) => {
+        editDepartment(data);
     }
     return (
         <div className="student-wrapper">
@@ -34,55 +45,22 @@ const Departments: React.FunctionComponent<props> = ({triggerModal}) => {
                         showPagination={true}
                         columns={[
                             {
-                                width: '90%',
-                                title: 'Department',
-                                field: 'department',
+                                cellStyle:{width:'10%'},
+                                title: 'Id',
+                                field: 'id',
                             },
                             {
-                                width: '10%',
+                                cellStyle:{width:'80%'},
+                                title: 'Department',
+                                field: 'name',
+                            },
+                            {
                                 title: 'Action',
                                 field: 'action',
-                                render: () => <ActionToolbar showDetail={true} detailClick={redirectDetails}/>,
+                                render: (rowData:any) => <ActionToolbar deleteClick={()=>handleDelete(rowData.id)} editClick={()=>handleEdit(rowData)} showDetail={true} detailClick={redirectDetails}/>,
                             },
                         ]}
-                        rowData={[
-                            {
-                                department: 'Art Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Biology Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Business Studies Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Chemistry Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Computer Department',
-                                action: '',
-                            },
-                            {
-                                department: 'English Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Mathematics Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Physical Education Department',
-                                action: '',
-                            },
-                            {
-                                department: 'Physics Department',
-                                action: '',
-                            },
-                        ]}
+                        rowData={departmentList ? departmentList : []}
                     />
                 </div>
             </CardContainer>

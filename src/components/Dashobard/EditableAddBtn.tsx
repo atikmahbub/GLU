@@ -3,7 +3,7 @@ import { IconButton } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 
 interface props{
-    editable:boolean
+    editable?:boolean
     click: ()=> void
 }
 const EditableAddBtn: React.FunctionComponent<props> = ({editable, click}) => {
