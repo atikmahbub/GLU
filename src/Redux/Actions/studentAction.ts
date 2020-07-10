@@ -26,7 +26,7 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: addNewStudent) => {
+export const addNewStudentAPIcall = (data: addNewStudent, history:any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)
@@ -39,6 +39,9 @@ export const addNewStudentAPIcall = (data: addNewStudent) => {
                 ides.map((id: number) => {
                     dispatch(invitationAPIcall({ invitee_id: id, for_role: 'student' }));
                 });
+                setTimeout(() => {
+                    history.push('/dashboard/students');
+                }, 1000);
             })
             .catch((err) => {
                 handleError(dispatch, err);

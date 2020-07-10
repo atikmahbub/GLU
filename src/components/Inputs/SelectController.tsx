@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
@@ -8,8 +8,9 @@ interface SelectControllerProps {
     className?: string;
     name: string;
     control?: any;
+    handler?:() => void;
 }
-const SelectController: React.FunctionComponent<SelectControllerProps> = ({ label, options, className, name, control }) => {
+const SelectController: React.FunctionComponent<SelectControllerProps> = ({ label, options, className, name, control, handler }) => {
     const [select, setSelect] = useState("");
     const handleSelect = (e: React.SyntheticEvent<EventTarget>) => {
         const value = (e.target as HTMLInputElement).value;
@@ -29,6 +30,7 @@ const SelectController: React.FunctionComponent<SelectControllerProps> = ({ labe
                     </Select>
                  }
                 name={name}
+                onBlur={handler}
                 defaultValue=""
                 control={control}
                 rules={{ required: true }}

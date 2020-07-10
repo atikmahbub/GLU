@@ -3,7 +3,7 @@ import ModalBox from '../../components/Modal/ModalBox';
 import { TextField, Button } from '@material-ui/core';
 import EditableAddBtn from '../../components/Dashobard/EditableAddBtn';
 import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
-import { addNewSectionAPIcall } from '../../Redux/Actions/classAction';
+import { addNewSectionAPIcall, addBulkSectionAPIcall } from '../../Redux/Actions/classAction';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 
@@ -36,13 +36,18 @@ const AddSection: React.FunctionComponent<props> = ({ onClick, show, sections })
         }
     }, [sections]);
     const submitData = () => {
-        const data = state.map((item: string) => {
+        const availSection = [...state];
+        availSection.splice(0, sections.editSection.length);
+        const data = availSection.map((item: string) => {
             return {
                 name: item,
             };
         });
-        console.log(data);
-        dispatch(addNewSectionAPIcall({ sections: data }, sections.id, onClick));
+        const bulkSection = {
+            className: sections.year,
+            sections: data,
+        };
+        dispatch(addBulkSectionAPIcall(bulkSection, onClick));
     };
     return (
         <div>

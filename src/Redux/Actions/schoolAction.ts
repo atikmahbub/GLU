@@ -1,9 +1,11 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
-import { SCHOOL_INFO, DEPARTMENT_LIST } from '../ActionTypes/schoolTypes';
+import { SCHOOL_INFO, DEPARTMENT_LIST, SESSION_LIST } from '../ActionTypes/schoolTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { handleError } from './errorHandler';
+import { dispatch } from '../Store/Store';
+import { Dispatch } from 'react';
 
 export const getSchoolAPIcall = () => {
     return (dispatch: any) => {
@@ -48,9 +50,9 @@ export const addNewDepartmentAPIcall = (data: any, close: Function) => {
             .then((res) => {
                 console.log(res);
                 dispatch(getAllDepartmentAPIcall());
-                close()
+                close();
                 dispatch(spinner(false));
-                toast.success("Department Added Successfully.");
+                toast.success('Department Added Successfully.');
             })
             .catch((err) => {
                 console.log(err);
@@ -65,7 +67,7 @@ export const getAllDepartmentAPIcall = () => {
         API.get(endponts.departments)
             .then((res) => {
                 console.log(res);
-                dispatch(getDepartmentAPIres(res.data.data))
+                dispatch(getDepartmentAPIres(res.data.data));
             })
             .catch((err) => {
                 console.log(err);
@@ -74,19 +76,19 @@ export const getAllDepartmentAPIcall = () => {
     };
 };
 
-export const getDepartmentAPIres = (data:any) => {
+export const getDepartmentAPIres = (data: any) => {
     return {
         type: DEPARTMENT_LIST,
-        payload: data
-    }
-}
+        payload: data,
+    };
+};
 
-export const deleteDepartmentAPIcall = (id:number) => {
+export const deleteDepartmentAPIcall = (id: number) => {
     return (dispatch: any) => {
         API.delete(`${endponts.departments}/${id}`)
             .then((res) => {
                 dispatch(getAllDepartmentAPIcall());
-                toast.success('Department deleted successfully.')
+                toast.success('Department deleted successfully.');
             })
             .catch((err) => {
                 console.log(err);
@@ -95,16 +97,67 @@ export const deleteDepartmentAPIcall = (id:number) => {
     };
 };
 
-export const updateDepartmentAPIcall = (id:number, data: {name: string}, close: Function) => {
+export const updateDepartmentAPIcall = (id: number, data: { name: string }, close: Function) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.put(`${endponts.departments}/${id}`, data)
             .then((res) => {
                 console.log(res);
                 dispatch(getAllDepartmentAPIcall());
-                close()
+                close();
                 dispatch(spinner(false));
-                toast.success("Department Updated Successfully.");
+                toast.success('Department Updated Successfully.');
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const getAllSessionsAPIcall = () => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(endponts.sessions)
+            .then((res) => {
+                console.log(res);
+                dispatch(getAllSessionAPIres(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const getAllSessionAPIres = (data: any) => {
+    return {
+        type: SESSION_LIST,
+        payload: data,
+    };
+};
+
+export const addSessionsAPIcall = (data: any, close: Function) => {
+    dispatch(spinner(true));
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.sessions, data)
+            .then((res) => {
+                dispatch(spinner(false));
+                console.log(res);
+                toast.success("Session Added Successfully.");
+                dispatch(getAllSessionsAPIcall());
+                close();
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const deleteSessionAPIcall = (id: number) => {
+    return (dispatch: any) => {
+        API.delete(`${endponts.sessions}/${id}`)
+            .then(() => {
+                dispatch(getAllSessionsAPIcall());
+                toast.success('Session deleted successfully.');
             })
             .catch((err) => {
                 console.log(err);

@@ -1,8 +1,9 @@
-import { SCHOOL_INFO, DEPARTMENT_LIST } from '../ActionTypes/schoolTypes';
+import { SCHOOL_INFO, DEPARTMENT_LIST, SESSION_LIST } from '../ActionTypes/schoolTypes';
 
 const initialState = {
     schoolData: null,
     departmentList: null,
+    sessionList: null
 };
 
 export const schoolReducer = (state = initialState, action: any) => {
@@ -14,6 +15,10 @@ export const schoolReducer = (state = initialState, action: any) => {
         }
         case DEPARTMENT_LIST: {
             newState.departmentList = action.payload;
+            return newState;
+        }
+        case SESSION_LIST: {
+            newState.sessionList = action.payload;
             return newState;
         }
         default: {

@@ -4,13 +4,20 @@ import { Add, AccountCircle } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import { useDispatch } from 'react-redux';
+import { deleteSessionAPIcall } from '../../Redux/Actions/schoolAction';
 
 interface props{
-    triggerModal: () => void
+    triggerModal: () => void;
+    availableSession: any
 }
-const SessionList: React.FunctionComponent<props> = ({triggerModal}) => {
+const SessionList: React.FunctionComponent<props> = ({triggerModal, availableSession}) => {
     const handleRoutes = () => {
        triggerModal()
+    }
+    const dispatch = useDispatch();
+    const handleDelete = (id:number) => {
+        dispatch(deleteSessionAPIcall(id));
     }
     return (
         <div className="student-wrapper">
@@ -53,67 +60,10 @@ const SessionList: React.FunctionComponent<props> = ({triggerModal}) => {
                                 width: '10%',
                                 title: 'Action',
                                 field: 'action',
-                                render: () => (<ActionToolbar/>)
+                                render: (rowData:any) => (<ActionToolbar deleteClick={()=>handleDelete(rowData.sessionId)}/>)
                             },
                         ]}
-                        rowData={[
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                            {
-                                duration: "1h 30m",
-                                session: 'Chemical Bond',
-                                yearGroup: 'V Standard',
-                                faculty: "John Dow",
-                                action: '',
-                            },
-                        ]}
+                        rowData={availableSession}
                     />
                 </div>
             </CardContainer>

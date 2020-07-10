@@ -8,7 +8,6 @@ import {parentReducer} from './parentReducer';
 import {classReducer} from './classReducer';
 
 
-
 export const rootReducer = combineReducers({
     authReducer,
     uiReducer,
