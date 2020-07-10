@@ -3,6 +3,7 @@ import ClassList from './ClassList';
 import AddClassModal from './AddClassModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallclassAPIcall } from '../../Redux/Actions/classAction';
+import { checkValue } from '../../Helper/checkValue';
 
 const index: React.FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -16,17 +17,17 @@ const index: React.FunctionComponent = () => {
         dispatch(getallclassAPIcall());
     }, []);
     useEffect(() => {
-        if (classes) {
-            const data = classes.map((element: any) => {
+        if (classes!==null) {
+            const data = classes.map((element: any, index:number) => {
                const sections = element.sections.map((item:any)=>{
                    return item.Section.name;
-                   
                });
                const teachers = element.teachers.map((item:any)=>{
-                return item.Teacher.first_name;
+                return checkValue(item.Teacher.first_name);
                 
             });
                 return {
+                    rowId:index,
                     id: element.class.id,
                     year: element.class.name,
                     formGroup: sections.join(', '),
@@ -36,6 +37,7 @@ const index: React.FunctionComponent = () => {
                     action: '',
                 };
             });
+            console.log(data)
             setclassList(data);
         }
     }, [classes]);

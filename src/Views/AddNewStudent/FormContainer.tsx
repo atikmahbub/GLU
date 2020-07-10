@@ -1,22 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormRow from './FormRow';
 import SelectField from '../../components/Inputs/SelectField';
-import { classes } from '../../Helper/classArray';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNewStudentAPIcall, editStudentAPIcall } from '../../Redux/Actions/studentAction';
 import EditableAddBtn from '../../components/Dashobard/EditableAddBtn';
 import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
 import AddInviteBtn from '../../components/Button/AddInviteBtn';
 import { useHistory } from 'react-router-dom';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import { getallclassAPIcall } from '../../Redux/Actions/classAction';
+import { getClassAndSections } from '../../Helper/getClassSections';
 
 const FormContainer = () => {
     const [rows, setRows] = useState([1]);
     const [state, setState] = useState({ class: '', section: '' });
+    const [classes, setClasses] = useState([]);
+    const [sections, setSections] = useState([]);
+    const classList = useSelector((state: rootReducerType) => state.classReducer.classList);
     const [formdata, setFormdata] = useState<Array<object>>([]);
     const [editable, setEditable] = useState(false);
     const [editId, setEditId] = useState(-1);
     const routes = useHistory();
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getallclassAPIcall());
+    }, []);
+    useEffect(() => {
+        if (classList) {
+            const classSection = getClassAndSections(classList);
+            const data = classSection.map((item: any) => {
+                return Object.keys(item);
+            });
+            setClasses(data);
+        }
+    }, [classList]);
+    useEffect(() => {
+        if (state.class !== '') {
+            const classSection = getClassAndSections(classList);
+            classSection.map((item: any) => {
+                if (item.hasOwnProperty(state.class)) {
+                    setSections(item[state.class]);
+                }
+            });
+        }
+    }, [state.class]);
     const addRows = () => {
         const total = [...rows];
         total.push(1);
@@ -43,7 +70,7 @@ const FormContainer = () => {
     const submitData = () => {
         const data: any = [...formdata];
         data.forEach((item: any) => {
-            item.class = 'first';
+            item.class = state.class[0];
             item.section = state.section;
         });
         const editData:any = { ...formdata[0] };
@@ -58,13 +85,14 @@ const FormContainer = () => {
         if (editable) {
             dispatch(editStudentAPIcall(editData, editId, routes));
         } else {
-            dispatch(addNewStudentAPIcall({ students: data }));
+            dispatch(addNewStudentAPIcall({ students: data }, routes));
         }
         
     };
     const handleClass = (value: string) => {
         setState({ ...state, class: value });
     };
+
 
     return (
         <div className="student-container">
@@ -83,7 +111,7 @@ const FormContainer = () => {
                 <div className="col-lg-4 mr-auto">
                     <SelectField
                         className="custom-input"
-                        options={['A', 'B']}
+                        options={sections}
                         label="Form Group"
                         value={state.section}
                         getValue={(value) => {

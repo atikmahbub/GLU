@@ -3,12 +3,14 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { Button } from '@material-ui/core';
 import CardTable from '../../components/Table/CardTable';
 import CardContainer from '../../Containers/Cards/CardContainer';
+import { useDispatch } from 'react-redux';
+import { deleteClassAPIcall } from '../../Redux/Actions/classAction';
 
 
 interface props{
     onClick: ()=> void;
     classList: any;
-    setSection: Function
+    setSection: Function;
 }
 const FormContainer: React.FunctionComponent<props> = ({onClick, classList, setSection}) => {
     const handleSection = (id:number) => {
@@ -16,6 +18,10 @@ const FormContainer: React.FunctionComponent<props> = ({onClick, classList, setS
             setSection(classList[id])
             onClick()
         }
+    }
+    const dispatch = useDispatch();
+    const handleDelete = (clasname:string) => {
+        dispatch(deleteClassAPIcall(clasname));
     }
     return (
         <CardContainer>
@@ -48,8 +54,8 @@ const FormContainer: React.FunctionComponent<props> = ({onClick, classList, setS
                             width: '10%',
                             title: 'Action',
                             field: 'action',
-                            render: (rowData:any) => <ActionToolbar renderComponent={<li>
-                                <Button onClick={()=>handleSection(rowData.id)} className="edit-btn" fullWidth>
+                            render: (rowData:any) => <ActionToolbar deleteClick={()=>handleDelete(rowData.year)} renderComponent={<li>
+                                <Button onClick={()=>handleSection(rowData.rowId)} className="edit-btn" fullWidth>
                                     Section
                                 </Button>
                             </li>}/>,

@@ -5,8 +5,10 @@ export const endponts = {
     teacher: 'schools/teachers',
     parent: 'schools/guardians',
     class: 'schools/classes',
+    singleClass: 'schools/class',
     section: 'schools/sections',
     invitation: 'auth/invite',
     authRegister: 'auth/register',
-    departments: '/schools/departments'
+    departments: '/schools/departments',
+    sessions: '/session'
 }

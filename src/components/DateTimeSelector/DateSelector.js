@@ -3,15 +3,19 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import PropTypes from 'prop-types';
 
-const DateSelector = ({ getDate, style, icon }) => {
+const DateSelector = ({ handler, style, icon }) => {
     const [selectedDate, setSelectedDate] = React.useState(new Date());
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
+        handler(date);
     };
-    useEffect(() => {
-        //  getDate(selectedDate)
-    }, [selectedDate]);
+    // useEffect(() => {
+    //         if (handler) {
+    //             handler(selectedDate);
+    //         }
+       
+    // }, []);
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -37,9 +41,9 @@ const DateSelector = ({ getDate, style, icon }) => {
 };
 
 DateSelector.propTypes = {
-    getDate: PropTypes.func,
+    handler: PropTypes.func,
     style: PropTypes.string,
     icon: PropTypes.element,
 };
 
-export default DateSelector;
+export default React.memo(DateSelector);
