@@ -1,7 +1,7 @@
 # pull official base image
 FROM node:12.16.2-alpine
 
-# set working director
+# set working directory
 WORKDIR /glufrontend
 
 # add `/app/node_modules/.bin` to $PATH
