@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import SelectField from '../../components/Inputs/SelectField';
 import { Button } from '@material-ui/core';
 import ClassAndSections from '../../Helper/ClassAndSections';
@@ -17,6 +17,7 @@ const FormRow = () => {
     const handleFilter = useCallback((state)=>{
         dispatch(getSubjectListAPIcall(state.setClass, state.setSection))
     },[])
+   
     return (
         <div className="row">
             <ClassAndSections
