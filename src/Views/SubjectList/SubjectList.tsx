@@ -14,7 +14,7 @@ interface props {
 const SubjectList: React.FunctionComponent<props> = ({ triggerModal, setEditData }) => {
     const [subjects, setSubjects] = useState([]);
     const subjectList = useSelector((state: rootReducerType) => state.subjectReducer.subjectList);
-
+    console.log(subjectList)
     useEffect(() => {
         if (subjectList) {
             const data = {
