@@ -15,15 +15,15 @@ const Index = () => {
             const data = students.map((element: any) => {
                 return {
                     profile: element.profile ? element.profile : commonImg.photo,
-                    // class: checkValue(element.SchoolClassDetail.Class.name),
-                    // section: checkValue(element.SchoolClassDetail.Section.name),
-                    email: checkValue(element.User.email),
-                    gender: checkValue(element.User.gender),
-                    name: checkValue(element.first_name) + ' ' + checkValue(element.last_name),
-                    first_name:checkValue(element.first_name),
-                    last_name:checkValue(element.last_name),
-                    // yearGroup: checkValue(element.SchoolClassDetail.Class.name),
-                    // formGroup: checkValue(element.SchoolClassDetail.Section.name),
+                    class: element.SchoolClassDetail ? checkValue(element.SchoolClassDetail?.Class.name) : 'first',
+                    section: element.SchoolClassDetail ? checkValue(element.SchoolClassDetail?.Section.name) : 'A',
+                    email: checkValue(element.User?.email),
+                    gender: checkValue(element.User?.gender),
+                    name: checkValue(element?.first_name) + ' ' + checkValue(element?.last_name),
+                    first_name: checkValue(element?.first_name),
+                    last_name: checkValue(element?.last_name),
+                    yearGroup: element.SchoolClassDetail ? checkValue(element.SchoolClassDetail?.Class.name) : 'first',
+                    formGroup: element.SchoolClassDetail ? checkValue(element.SchoolClassDetail?.Section.name) : 'A',
                     id: element.id,
                     action: '',
                 };
@@ -34,7 +34,7 @@ const Index = () => {
     useEffect(() => {
         dispatch(getallStudentAPIcall());
     }, []);
-    return <StudentList students={studentList}/>;
+    return <StudentList students={studentList} />;
 };
 
 export default Index;
