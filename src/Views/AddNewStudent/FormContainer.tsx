@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormRow from './FormRow';
 import SelectField from '../../components/Inputs/SelectField';
 import { useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
 import AddInviteBtn from '../../components/Button/AddInviteBtn';
 import { useHistory } from 'react-router-dom';
 import ClassAndSections from '../../Helper/ClassAndSections';
+import { getallclassAPIcall } from '../../Redux/Actions/classAction';
 
 const FormContainer = () => {
     const [rows, setRows] = useState([1]);
@@ -46,7 +47,7 @@ const FormContainer = () => {
     const submitData = () => {
         const data: any = [...formdata];
         data.forEach((item: any) => {
-            item.class = state.class[0];
+            item.class = state.class;
             item.section = state.section;
         });
         const editData: any = { ...formdata[0] };
@@ -64,8 +65,12 @@ const FormContainer = () => {
         }
     };
     const handleClass = (value: string) => {
+        console.log(value)
         setState({ ...state, class: value });
     };
+    useEffect(()=>{
+        dispatch(getallclassAPIcall())
+    },[])
 
     return (
         <div className="student-container">

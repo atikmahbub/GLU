@@ -18,7 +18,8 @@ const index: React.FunctionComponent = () => {
     }, []);
     useEffect(() => {
         if (classes!==null) {
-            const data = classes.map((element: any, index:number) => {
+            const check = classes.filter((v:any,i:number,a:any)=>a.findIndex((t:any)=>(t.class.name === v.class.name))===i)
+            const data = check.map((element: any, index:number) => {
                const sections = element.sections.map((item:any)=>{
                    return item.Section?.name;
                });
@@ -32,7 +33,7 @@ const index: React.FunctionComponent = () => {
                     year: element.class.name,
                     formGroup: sections.join(', '),
                     editSection: sections,
-                    teacher: teachers.join(', '),
+                    teacher: teachers.length>0 ? teachers.join(', ') : 'ashish gupta',
                     student: '25',
                     action: '',
                 };

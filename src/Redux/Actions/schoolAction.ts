@@ -163,3 +163,13 @@ export const deleteSessionAPIcall = (id: number) => {
             });
     };
 };
+
+export const getTimeTableAPIcall = () => {
+    return (dispatch: Dispatch<any>)=> {
+        API.get(endponts.timeTable).then((res)=>{
+            console.log(res)
+        }).catch(err=>{
+            handleError(dispatch, err);
+        })
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalBox from '../../components/Modal/ModalBox';
 import { Button } from '@material-ui/core';
 import SelectController from '../../components/Inputs/SelectController';
@@ -11,9 +11,12 @@ import ErrorMessage from '../../components/ErrorMessage';
 import { routineFormValidation } from '../../Helper/FormValidations/routineFormValidation';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
 import SelectionInput from '../../components/Inputs/SelectionInput';
+import { useDispatch } from 'react-redux';
+import { getTimeTableAPIcall } from '../../Redux/Actions/schoolAction';
 
 const index: React.FunctionComponent = () => {
     const [toggler, setToggler] = useState(false);
+    const dispatch = useDispatch();
     const handleToggler = () => {
         setToggler(!toggler);
     };
@@ -21,7 +24,9 @@ const index: React.FunctionComponent = () => {
         validationSchema: routineFormValidation.validationSetting,
     });
     const submit = (data: object) => console.log(data);
-
+    useEffect(()=>{
+        dispatch(getTimeTableAPIcall())
+    },[])
     return (
         <div>
             {toggler ? (
@@ -72,7 +77,6 @@ const index: React.FunctionComponent = () => {
                                 name="subject"
                             />
                             {errors.subject && <ErrorMessage msg={routineFormValidation.errorMsg.subject} />}
-
                             <SelectController
                                 className="custom-input"
                                 label="Select Day"

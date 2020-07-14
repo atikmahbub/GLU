@@ -11,5 +11,6 @@ export const endponts = {
     authRegister: 'auth/register',
     departments: '/schools/departments',
     sessions: '/session',
-    subject: '/schools/subjects'
+    subject: '/schools/subjects',
+    timeTable: '/schools/routines'
 }

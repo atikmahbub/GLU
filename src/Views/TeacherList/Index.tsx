@@ -24,8 +24,8 @@ const Index = () => {
                     gender: element.User.gender,
                     email: element.User.email,
                     phoneNumber: element.User.phoneNumber,
-                    department: element.department,
-                    designation: element.designation,
+                    department: element.department ? element.department : 'computer',
+                    designation: element.designation ? element.designation : 'junior lecturer',
                     action: '',
                 };
             });
