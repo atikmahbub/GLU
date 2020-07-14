@@ -86,7 +86,7 @@ const index: React.FunctionComponent = () => {
                             />
                             {errors.day && <ErrorMessage msg={routineFormValidation.errorMsg.day} />}
                             <div className="mb-4">
-                                <DateSelector getDate={() => {}} />
+                                <DateSelector handler={() => {}} />
                             </div>
                             <TimeSelector label="Start Time" />
                             <TimeSelector label="End Time" />

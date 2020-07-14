@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import SelectField from '../../components/Inputs/SelectField';
 import { Button } from '@material-ui/core';
 import ClassAndSections from '../../Helper/ClassAndSections';
@@ -14,9 +14,9 @@ const FormRow = () => {
         setState({...state, setSection:sectionName});
     }
     const dispatch = useDispatch();
-    const handleFilter = ()=>{
+    const handleFilter = useCallback((state)=>{
         dispatch(getSubjectListAPIcall(state.setClass, state.setSection))
-    }
+    },[])
     return (
         <div className="row">
             <ClassAndSections
@@ -42,12 +42,15 @@ const FormRow = () => {
             </div>
             <div className="col-lg-3">
             <div className="subject-form-row  w-100">
-                <Button className="filter-btn mr-2" onClick={handleFilter}>Filter</Button>
+                <Button className="filter-btn mr-2" onClick={()=>handleFilter(state)}>Filter</Button>
             </div>
             </div>
-            
         </div>
     );
 };
 
-export default React.memo(FormRow);
+function  areEqual(prevProps:any, nextProps:any){
+    return prevProps!==nextProps;
+}
+
+export default React.memo(FormRow, areEqual);
