@@ -3,7 +3,7 @@ import ModalBox from '../../components/Modal/ModalBox';
 import { TextField, Button } from '@material-ui/core';
 import EditableAddBtn from '../../components/Dashobard/EditableAddBtn';
 import EditableDeleteBtn from '../../components/Dashobard/EditableDeleteBtn';
-import { addNewSectionAPIcall, addBulkSectionAPIcall } from '../../Redux/Actions/classAction';
+import { addNewSectionAPIcall, addBulkSectionAPIcall, deleteSectionAPIcall } from '../../Redux/Actions/classAction';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 
@@ -14,6 +14,7 @@ interface props {
 }
 const AddSection: React.FunctionComponent<props> = ({ onClick, show, sections }) => {
     const [state, setState] = useState(['']);
+    const [totalSection, setTotalSection] = useState([]);
     const dispatch = useDispatch();
     const handleAdder = () => {
         const total = [...state];
@@ -21,6 +22,7 @@ const AddSection: React.FunctionComponent<props> = ({ onClick, show, sections })
         setState(total);
     };
     const handlerDelete = (i: number) => {
+        dispatch(deleteSectionAPIcall(sections.year, state[i]));
         const total = [...state];
         total.splice(i, 1);
         setState(total);
@@ -33,6 +35,7 @@ const AddSection: React.FunctionComponent<props> = ({ onClick, show, sections })
     useEffect(() => {
         if (sections) {
             setState(sections.editSection);
+            setTotalSection(sections.editSection);
         }
     }, [sections]);
     const submitData = () => {

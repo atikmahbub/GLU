@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { authReducer } from './authReducer';
 import { uiReducer } from './uiReducer';
-import {schoolReducer} from './schoolReducer';
-import {studentReducer} from './studentReducer';
-import {teacherReducer} from './teacherReducer';
-import {parentReducer} from './parentReducer';
-import {classReducer} from './classReducer';
-
+import { schoolReducer } from './schoolReducer';
+import { studentReducer } from './studentReducer';
+import { teacherReducer } from './teacherReducer';
+import { parentReducer } from './parentReducer';
+import { classReducer } from './classReducer';
+import { subjectReducer } from './subjectReducer';
 
 export const rootReducer = combineReducers({
     authReducer,
@@ -15,5 +15,6 @@ export const rootReducer = combineReducers({
     studentReducer,
     teacherReducer,
     parentReducer,
-    classReducer
+    classReducer,
+    subjectReducer,
 });

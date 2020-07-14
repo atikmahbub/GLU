@@ -1,0 +1,1 @@
+export const SUBJECT_LIST = 'SUBJECT_LIST';

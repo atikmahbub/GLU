@@ -45,10 +45,11 @@ export const addNewClassAPIcall = (data:any, close: Function) => {
 
 export const deleteClassAPIcall = (clasname:string) => {
     return (dispatch: any) => {
-        API.delete(`${endponts.class}/${clasname}`)
+        API.delete(`${endponts.singleClass}/${clasname}`)
             .then((res) => {
                 console.log(res);
                 toast.success("Class Deleted Successfully.");
+                dispatch(getallclassAPIcall());
             })
             .catch((err) => {
                 handleError(dispatch, err);
@@ -100,6 +101,19 @@ export const addBulkSectionAPIcall = (data:any, close: Function) => {
                 dispatch(spinner(false));
                 toast.success("Section Created Successfully.");
                 close();
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const deleteSectionAPIcall = (className:string, sectionName: string) => {
+    return (dispatch: any) => {
+        API.delete(`${endponts.singleClass}${className}/section/${sectionName}`)
+            .then((res) => {
+                console.log(res);
+                toast.success("Section Deleted Successfully.");
             })
             .catch((err) => {
                 handleError(dispatch, err);
