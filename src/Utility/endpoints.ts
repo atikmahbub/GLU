@@ -10,5 +10,6 @@ export const endponts = {
     invitation: 'auth/invite',
     authRegister: 'auth/register',
     departments: '/schools/departments',
-    sessions: '/session'
+    sessions: '/session',
+    subject: '/schools/subjects'
 }

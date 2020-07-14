@@ -3,7 +3,7 @@
     .subject-form-row {
         @include flex(center, center, row);
         .row {
-            width: 15rem;
+            width: 25rem;
             margin-right: 1rem;
         }
         .filter-btn {

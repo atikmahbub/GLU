@@ -6,6 +6,7 @@ export interface rootReducerType {
     teacherReducer: teacherReducerType;
     parentReducer: parentReducerType;
     classReducer: classReducerType;
+    subjectReducer: subjectReducerType;
 }
 
 export interface authReducerType {
@@ -33,4 +34,8 @@ export interface parentReducerType {
 export interface classReducerType {
     classList: any;
     sectionList: any;
+}
+
+export interface subjectReducerType {
+    subjectList: any
 }

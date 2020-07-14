@@ -7,11 +7,9 @@ import DateSelector from '../../components/DateTimeSelector/DateSelector';
 import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
 import { TextField, Button } from '@material-ui/core';
 import SelectController from '../../components/Inputs/SelectController';
-import { useDispatch, useSelector } from 'react-redux';
-import { getallclassAPIcall } from '../../Redux/Actions/classAction';
-import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import { getClassAndSections } from '../../Helper/getClassSections';
+import { useDispatch } from 'react-redux';
 import { addSessionsAPIcall } from '../../Redux/Actions/schoolAction';
+import ClassAndSections from '../../Helper/ClassAndSections';
 
 interface props {
     handleToggler: () => void;
@@ -24,57 +22,30 @@ const AddSessionContainer: React.FunctionComponent<props> = ({ handleToggler }) 
         class_name: '',
         section_name: '',
     });
-    const [classes, setClasses] = useState([]);
-    const [sections, setSections] = useState([]);
-    const classList = useSelector((state: rootReducerType) => state.classReducer.classList);
+    const [classes, setClasses] = useState<Array<string>>([]);
+    const [sections, setSections] = useState<Array<string>>([]);
     const { register, errors, handleSubmit, control, getValues } = useForm({
         validationSchema: sessionFormValidation.validationSetting,
     });
-    useEffect(() => {
-        dispatch(getallclassAPIcall());
-    }, []);
     const dispatch = useDispatch();
     const handleDate = (date: Date) => {
-        console.log(date)
-
         setState({ ...state, scheduled_on: date.toISOString() });
     };
     const handleStartTime = (date: Date) => {
-        console.log(date)
-
-        setState({ ...state, start_time: date.toTimeString()});
+        setState({ ...state, start_time: date.toTimeString() });
     };
     const handleEndTime = (date: Date) => {
-        console.log(date)
         setState({ ...state, end_time: date.toTimeString() });
     };
     const handleClass = () => {
         const values = getValues();
-        setState({ ...state, class_name: values.class[0]});
+        setState({ ...state, class_name: values.class[0] });
     };
     const handleSection = () => {
         const values = getValues();
-        setState({ ...state, section_name: values.section});
+        setState({ ...state, section_name: values.section });
     };
-    useEffect(() => {
-        if (classList) {
-            const classSection = getClassAndSections(classList);
-            const data = classSection.map((item: any) => {
-                return Object.keys(item);
-            });
-            setClasses(data);
-        }
-    }, [classList]);
-    useEffect(() => {
-        if (state.class_name !== '') {
-            const classSection = getClassAndSections(classList);
-            classSection.map((item: any) => {
-                if (item.hasOwnProperty(state.class_name)) {
-                    setSections(item[state.class_name]);
-                }
-            });
-        }
-    }, [state.class_name]);
+
     const submit = (data: any) => {
         const formData = {
             class_name: data.class,
@@ -86,57 +57,62 @@ const AddSessionContainer: React.FunctionComponent<props> = ({ handleToggler }) 
             start_time: state.start_time.split(' ')[0],
             end_time: state.end_time.split(' ')[0],
         };
-        dispatch(addSessionsAPIcall(formData, handleToggler))
+        dispatch(addSessionsAPIcall(formData, handleToggler));
     };
 
     return (
         <ModalBox title="Create Session" modalHandler={handleToggler}>
+            <ClassAndSections
+                handleClasses={(value: Array<string>) => setClasses(value)}
+                handleSections={(value: Array<string>) => setSections(value)}
+                getClassName={state.class_name}
+            />
             <div className="modal-form">
                 <form onSubmit={handleSubmit(submit)}>
-                <div className="mb-4">
-                    <DateSelector  handler={(value:Date) => handleDate(value)} />
-                </div>
-                <TimeSelector label="Start Time" timeHandler={(date: Date) => handleStartTime(date)} />
-                <TimeSelector label="End Time" timeHandler={(date: Date) => handleEndTime(date)} />
-                <TextField
-                    variant="outlined"
-                    name="topicName"
-                    inputRef={register}
-                    className="custom-input"
-                    fullWidth
-                    label="Topic Name"
-                />
-                {errors.topicName && <ErrorMessage msg={sessionFormValidation.errorMsg.topicName} />}
-                <SelectController
-                    name="class"
-                    control={control}
-                    options={classes}
-                    handler={handleClass}
-                    label="Year Group"
-                    className="custom-input"
-                />
+                    <div className="mb-4">
+                        <DateSelector handler={(value: Date) => handleDate(value)} />
+                    </div>
+                    <TimeSelector label="Start Time" timeHandler={(date: Date) => handleStartTime(date)} />
+                    <TimeSelector label="End Time" timeHandler={(date: Date) => handleEndTime(date)} />
+                    <TextField
+                        variant="outlined"
+                        name="topicName"
+                        inputRef={register}
+                        className="custom-input"
+                        fullWidth
+                        label="Topic Name"
+                    />
+                    {errors.topicName && <ErrorMessage msg={sessionFormValidation.errorMsg.topicName} />}
+                    <SelectController
+                        name="class"
+                        control={control}
+                        options={classes}
+                        handler={handleClass}
+                        label="Year Group"
+                        className="custom-input"
+                    />
 
-                {errors.class && <ErrorMessage msg={sessionFormValidation.errorMsg.class} />}
-                <SelectController
-                    name="section"
-                    control={control}
-                    options={sections}
-                    handler={handleSection}
-                    label="Form Group"
-                    className="custom-input"
-                />
-                {errors.section && <ErrorMessage msg={sessionFormValidation.errorMsg.section} />}
-                <SelectController
-                    className="custom-input"
-                    label="Faculty Name"
-                    control={control}
-                    name="faculty"
-                    options={['john', 'lea', 'Deven', 'Jinwie']}
-                />
-                {errors.faculty && <ErrorMessage msg={sessionFormValidation.errorMsg.faculty} />}
-                <Button type="submit"  className="session-button">
-                    Create Session
-                </Button>
+                    {errors.class && <ErrorMessage msg={sessionFormValidation.errorMsg.class} />}
+                    <SelectController
+                        name="section"
+                        control={control}
+                        options={sections}
+                        handler={handleSection}
+                        label="Form Group"
+                        className="custom-input"
+                    />
+                    {errors.section && <ErrorMessage msg={sessionFormValidation.errorMsg.section} />}
+                    <SelectController
+                        className="custom-input"
+                        label="Faculty Name"
+                        control={control}
+                        name="faculty"
+                        options={['john', 'lea', 'Deven', 'Jinwie']}
+                    />
+                    {errors.faculty && <ErrorMessage msg={sessionFormValidation.errorMsg.faculty} />}
+                    <Button type="submit" className="session-button">
+                        Create Session
+                    </Button>
                 </form>
             </div>
         </ModalBox>

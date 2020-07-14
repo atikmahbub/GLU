@@ -63,10 +63,8 @@ export const addNewDepartmentAPIcall = (data: any, close: Function) => {
 
 export const getAllDepartmentAPIcall = () => {
     return (dispatch: any) => {
-        dispatch(spinner(true));
         API.get(endponts.departments)
             .then((res) => {
-                console.log(res);
                 dispatch(getDepartmentAPIres(res.data.data));
             })
             .catch((err) => {

@@ -1,14 +1,25 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import FormRow from './FormRow';
-import { Button } from '@material-ui/core';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import { useDispatch } from 'react-redux';
+import { deleteSubjectAPIcall } from '../../Redux/Actions/subjectAction';
 
 interface props{
-    onClick?: ()=> void
+    onClick: ()=> void;
+    subjectList: any;
+    setEditData: Function;
 }
-const FormContainer: React.FunctionComponent<props> = ({onClick}) => {
+const FormContainer: React.FunctionComponent<props> = ({ subjectList, setEditData, onClick}) => {
+    const dispatch = useDispatch();
+    const handleDelete = (data:any)=>{
+        dispatch(deleteSubjectAPIcall(data.yearGroup, data.formGroup, data.subjectId))
+    }
+    const handleEdit = (data:any) => {
+        setEditData(data);
+        onClick();
+    }
     return (
         <CardContainer>
             <div className="subject-container">
@@ -16,7 +27,6 @@ const FormContainer: React.FunctionComponent<props> = ({onClick}) => {
                     filterRender={
                         <div className="subject-form-row  w-100">
                             <FormRow />
-                            <Button className="filter-btn">Filter</Button>
                         </div>
                     }
                     showToolbar={true}
@@ -25,7 +35,7 @@ const FormContainer: React.FunctionComponent<props> = ({onClick}) => {
                         {
                             width: '20%',
                             title: 'Class Groups',
-                            field: 'classGroups',
+                            field: 'classGroup',
                         },
                         {
                             width: '20%',
@@ -56,105 +66,10 @@ const FormContainer: React.FunctionComponent<props> = ({onClick}) => {
                             width: '10%',
                             title: 'Action',
                             field: 'action',
-                            render: () => <ActionToolbar renderComponent={<li>
-                                <Button onClick={onClick} className="edit-btn" fullWidth>
-                                    Section
-                                </Button>
-                            </li>}/>,
+                            render: (rowData:any) => <ActionToolbar editClick={()=>handleEdit(rowData)} deleteClick={()=>handleDelete(rowData)} />,
                         },
                     ]}
-                    rowData={[
-                        {
-                            classGroups: 'Art',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Biology',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'English Literature',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'English Grammer',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Physics',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Chemistry',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Mathematics',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Hindi',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'History & Civics',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                        {
-                            classGroups: 'Geography',
-                            department: 'Art',
-                            yearGroup: '9th',
-                            formGroup: 'A',
-                            teacher: 'john',
-                            student: 28,
-                            action: '',
-                        },
-                    ]}
+                    rowData={subjectList}
                 />
             </div>
         </CardContainer>

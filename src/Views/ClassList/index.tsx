@@ -20,7 +20,7 @@ const index: React.FunctionComponent = () => {
         if (classes!==null) {
             const data = classes.map((element: any, index:number) => {
                const sections = element.sections.map((item:any)=>{
-                   return item.Section.name;
+                   return item.Section?.name;
                });
                const teachers = element.teachers.map((item:any)=>{
                 return checkValue(item.Teacher.first_name);
