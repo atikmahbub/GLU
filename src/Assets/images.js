@@ -6,7 +6,7 @@ import webdesign2 from './img/web-design2.png';
 import nda from './img/nda1.png';
 import user from './img/user.jpeg';
 import photo from './img/photo.jpg';
-
+import girlScatter from './img/girlScatter.png'
 export const commonImg = {
     google,
     mobile,
@@ -16,6 +16,7 @@ export const commonImg = {
     nda,
     user,
     photo,
+    girlScatter
 };
 
 export default commonImg;
