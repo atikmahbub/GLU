@@ -19,10 +19,10 @@ const index: React.FunctionComponent = () => {
             const data = sessions.map((item: any) => {
                 return {
                     sessionId: item.id,
-                    duration: checkValue(item.duration),
-                    session: checkValue(item.Subject.name),
-                    yearGroup: checkValue(item.Class.name),
-                    faculty: checkValue(item.Teacher?.first_name) + ' ' + checkValue(item.Teacher?.last_name),
+                    duration: checkValue(item?.duration),
+                    session: checkValue(item?.Subject?.name),
+                    yearGroup: checkValue(item?.Class?.name),
+                    faculty: checkValue(item?.Teacher?.first_name) + ' ' + checkValue(item.Teacher?.last_name),
                 };
             });
             setavailableSession(data);
