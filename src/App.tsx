@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import { Close } from '@material-ui/icons';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './Routes/PrivateRoutes/PrivateRoute';
+const Home = React.lazy(() => import('./Views/Home/Home'));
 const Login = React.lazy(() => import('./Views/Auth/Login/Login'));
 const Signup = React.lazy(() => import('./Views/Auth/Signup/Signup'));
 const ForgotPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/ForgotPassword'));
@@ -23,7 +24,8 @@ export class App extends React.Component {
                 <Router>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
-                            <Route exact path="/" component={Login} />
+                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/login" component={Login} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/forgot-password" component={ForgotPassword} />
                             <Route exact path="/reset-password" component={SetNewPassword} />
