@@ -17,6 +17,8 @@ import spectsboy from './img/spectsboy.png';
 import spoongirl from './img/spoongirl.png';
 import women from './img/women.png';
 import whiteBoardSvg from './img/Whiteboard.svg';
+import subectIconSvg from './img/Subjects.svg';
+
 
 export const commonImg = {
     google,
@@ -37,7 +39,8 @@ export const commonImg = {
     spectsboy,
     spoongirl,
     women,
-    whiteBoardSvg
+    whiteBoardSvg,
+    subectIconSvg
 };
 
 export default commonImg;
