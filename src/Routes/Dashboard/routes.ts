@@ -13,6 +13,7 @@ import SessionList from '../../Views/SessionList';
 import ClassList from '../../Views/ClassList';
 import Departments from '../../Views/Departments';
 import syllabusList from '../../Views/SyllabusList';
+import AddSyllabus from '../../Views/AddSyllabus/AddSyllabus';
 import PermissionList from '../../Views/PermissionLIist/PermissionList';
 import StudentFees from '../../Views/StudentFees';
 import ExpenseCategory from '../../Views/ExpenseCategory';
@@ -21,11 +22,11 @@ import AddStudentBulk from '../../Views/AddStudentBulk/AddStudentBulk';
 import AddParentBulk from '../../Views/AddParentBulk/AddParentBulk';
 import AddTeacherBulk from '../../Views/AddTeacherBulk/AddTeacherBulk';
 import AddStaffBulk from '../../Views/AddStaffBulk/AddStaffBulk';
-import {getDashboard} from "./getDashboard";
+import { getDashboard } from './getDashboard';
 import TeacherProfile from '../../Views/TeacherProfile/TeacherProfile';
 import Admin from '../../Views/Admin/Admin';
 import AddNewEvent from '../../Views/AddNewEvent/AddNewEvent';
-import ECA from "../../Views/ECAList";
+import ECA from '../../Views/ECAList';
 import StudentDetails from '../../Views/StudentDetails/StudentDetails';
 import TeacherDetails from '../../Views/TeacherDetails/TeacherDetails';
 import ParentDetails from '../../Views/ParentDetails/ParentDetails';
@@ -50,6 +51,7 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/year-group', component: ClassList },
     { pathname: '/dashboard/departments', component: Departments },
     { pathname: '/dashboard/syllabus', component: syllabusList },
+    { pathname: '/dashboard/add-syllabus', component: AddSyllabus },
     { pathname: '/dashboard/permissions', component: PermissionList },
     { pathname: '/dashboard/studen-free-manager', component: StudentFees },
     { pathname: '/dashboard/expense-category', component: ExpenseCategory },

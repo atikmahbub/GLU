@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import commonImg from '../../Assets/images';
 
 interface props {
     image: string;

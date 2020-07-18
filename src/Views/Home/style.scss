@@ -32,38 +32,6 @@
                     opacity: 1;
                 }
             }
-            .menus-container {
-                @include flex(center, space-between, row);
-                position: absolute;
-                padding: 0 1rem;
-                top: 0;
-                left: 0;
-                width: 100%;
-                transform: translateY(1rem);
-                margin-top: -1rem;
-                transition: all 0.3s;
-                animation: slideDown 0.3s;
-                .left {
-                    ul {
-                        list-style: none;
-                        li {
-                            display: inline-block;
-                            button {
-                                color: $white;
-                                text-transform: capitalize;
-                            }
-                        }
-                    }
-                }
-                .right {
-                    .title {
-                        color: $white;
-                        margin: 0 1rem 1rem 0;
-                        font-size: 1.5rem;
-                        font-weight: 500;
-                    }
-                }
-            }
             .launching-soon-container {
                 position: absolute;
                 bottom: 5rem;
@@ -281,8 +249,65 @@
         }
 
         .email-line {
-            background-color: rgb(179, 179, 179);
+            background-color: $grayPrimary;
             margin-top: 3px;
+        }
+    }
+    .section-seven {
+        padding: 0 1rem;
+        margin-bottom: 5rem;
+        .line {
+            background-color: $grayPrimary;
+        }
+        .people-saying {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #000000;
+        }
+        .border-card-container {
+            padding-left: 1rem;
+            border-left: 1px solid $grayPrimary;
+            .heading {
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            .title {
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+            .subtitle {
+                font-size: 0.7rem;
+                font-weight: 100;
+                color: $headingPrimary;
+            }
+        }
+        .break-section {
+            margin: 3rem 0;
+            width: 100%;
+        }
+        .pen-pad-girl {
+            width: 100%;
+        }
+        .text-section-container {
+            .title {
+                font-size: 1.3rem;
+                font-weight: 500;
+                line-height: 1.5rem;
+            }
+            .subtitle {
+                font-size: 0.8rem;
+                font-weight: 500;
+                margin: 0.5rem 0;
+            }
+            .apple-icon {
+                color: #000;
+                font-size: 1rem;
+                margin-right: 0.5rem;
+            }
+            .google-icon {
+                width: 0.8rem;
+            }
         }
     }
 

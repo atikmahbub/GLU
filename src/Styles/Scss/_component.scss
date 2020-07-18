@@ -666,9 +666,123 @@ button.primary-btn {
             border-radius: 1rem;
         }
     }
-    .total{
+    .total {
         font-size: 0.9rem;
         font-weight: 500;
         color: $primary;
+    }
+}
+//homepage sliding berge menu
+.Navigation__Menu__Container {
+    position: fixed;
+    @include flex(center, center, row);
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100vh;
+    overflow: auto;
+    background-color: $white;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.75s ease;
+    .close-icon-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        .icon {
+            color: $darkGray;
+        }
+    }
+    .menu-list-container {
+        ul {
+            list-style: none;
+            li {
+                a {
+                    text-decoration: none;
+                    font-weight: 500;
+                    color: #000;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+    .bottom-container {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        @include flex(center, space-between, row);
+        .title {
+            a {
+                text-decoration: none;
+                font-size: 0.7rem;
+                font-weight: 500;
+                color: #000;
+            }
+        }
+    }
+}
+.Navigation__Menu__Container.show {
+    left: 0;
+    opacity: 1;
+}
+// homepage menu
+.menus-container {
+    @include flex(center, space-between, row);
+    position: absolute;
+    padding: 0 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(1rem);
+    margin-top: -1rem;
+    transition: all 0.3s;
+    animation: slideDown 0.3s;
+    .left {
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+                button {
+                    color: $white;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    .right {
+        .title {
+            color: $white;
+            margin: 0 1rem 1rem 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.image-thumbnail-container {
+    .title{
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .subtitle{
+        font-weight: 500;
+        font-size: 0.8rem;
+        color: $gray;
+    }
+    .image-thumbnail {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+    }
+    .img {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        object-fit: cover;
+        height: 100%;
     }
 }
