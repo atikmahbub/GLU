@@ -1,141 +1,331 @@
 .home-wrapper {
-    height: 100vh;
-    display: flex;
-    .holding-img {
-        // animation:rotate 1s;
-    }
-    .rotating-box {
-        width: 100%;
+    .holding-container {
         height: 100vh;
-        background-image: url('../../Assets/img/girlScatter.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        animation: rotate 1s;
-        @include flex(center, center, row);
-        .slogan {
-            font-weight: 900;
-            font-size: 10rem;
-            opacity: 0;
-            color: $white;
-            text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
-            transition: all 0.8s;
-            transform: translateY(-1rem);
-            animation: fadein 0.8s;
-        }
-        @keyframes fadein {
-            0% {
-                opacity: 0;
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-1rem);
-
-                opacity: 1;
-            }
-        }
-        .menus-container{
-            @include flex(center,space-between, row);
-            position: absolute;
-            padding: 0 1rem;
-            top: 0;
-            left: 0;
+        display: flex;
+        margin-bottom: 7rem;
+        .rotating-box {
             width: 100%;
-            transform: translateY(1rem);
-            margin-top: -1rem;
-            transition: all 0.3s;
-            animation: slideDown 0.3s;
-            .left{
-                ul{
-                    list-style: none;
-                    li{
-                        display: inline-block;
-                        button {
-                            color: $white;
-                            text-transform: capitalize;
-                        }
-                    }
+            height: 100vh;
+            background-image: url('../../Assets/img/girlScatter.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: rotate 1s;
+            @include flex(center, center, row);
+            .slogan {
+                font-weight: 900;
+                font-size: 10rem;
+                opacity: 0;
+                color: $white;
+                text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+                transition: all 0.8s;
+                transform: translateY(-1rem);
+                animation: fadein 0.8s;
+            }
+            @keyframes fadein {
+                0% {
+                    opacity: 0;
+                    transform: translateY(0);
+                }
+                100% {
+                    transform: translateY(-1rem);
+
+                    opacity: 1;
                 }
             }
-            .right{
-                .title{
+            .launching-soon-container {
+                position: absolute;
+                bottom: 5rem;
+                left: 2rem;
+                transform: translateY(-1rem);
+                margin-top: 1rem;
+                transition: all 0.3s;
+                animation: slideUp 0.3s;
+                .title {
                     color: $white;
-                    margin: 0 1rem 1rem 0;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
+                    font-weight: 100;
+                }
+                .for {
+                    font-size: 2.5rem;
+                    font-weight: 500;
+                    color: $white;
+                    line-height: 2.5rem;
+                }
+            }
+            .bottom-right-container {
+                position: absolute;
+                bottom: 1rem;
+                right: 2rem;
+                @include flex(center, center, row);
+                transform: translateY(-1rem);
+                margin-top: -1rem;
+                transition: all 0.3s;
+                animation: slideUp 0.3s;
+                .title {
+                    color: $white;
+                    font-size: 0.9rem;
+                    font-weight: 100;
+                }
+                .apple-icon {
+                    margin: 0 0.5rem;
+                    font-size: 1rem;
+                    color: $white;
+                }
+                .google-icon {
+                    width: 0.7rem;
+                }
+            }
+        }
+        @keyframes rotate {
+            0% {
+                clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+            }
+            100% {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+        .hide {
+            opacity: 0;
+        }
+    }
+    .section-one {
+        padding: 0 1rem;
+        .img-container {
+            margin-right: 4rem;
+            .spect-boy {
+                width: 100%;
+            }
+        }
+        .section-one-right-part {
+            padding-left: 2rem;
+            .title {
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 1.8rem;
+                margin-bottom: 10rem;
+            }
+            .sppon-girl {
+                margin-top: 7rem;
+                width: 100%;
+            }
+        }
+        .workable-solution {
+            margin-top: 4rem;
+            font-size: 2.7rem;
+            font-weight: 500;
+            line-height: 2.8rem;
+            margin-bottom: 5rem;
+        }
+    }
+    .section-two {
+        position: relative;
+        margin-bottom: 6rem;
+        .ear-ring-girl {
+            width: 100%;
+        }
+        .img-overlay-container {
+            position: absolute;
+            bottom: 10rem;
+            right: 12rem;
+            .title {
+                color: $white;
+            }
+            .msg {
+                font-weight: 400;
+                font-size: 3.5rem;
+                color: $white;
+                line-height: 3rem;
+            }
+        }
+    }
+    .section-three {
+        margin-bottom: 6rem;
+        .left-part {
+            @include flex(center, center, row);
+            .mobile {
+                width: 20rem;
+                height: 40rem;
+                border-radius: 2.3rem;
+                border: 0.5rem solid #000;
+            }
+        }
+        .right-part {
+            @include flex(center, center, column);
+            .title {
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 1.8rem;
+            }
+        }
+    }
+    .section-four {
+        padding: 0 1rem;
+        margin-bottom: 6rem;
+        .short-hair-girl-container {
+            margin-right: 4rem;
+            .short-hair-girl {
+                width: 100%;
+            }
+        }
+        .section-four-right-part-container {
+            .title {
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            .real-time-intraction {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            .board-icon {
+                width: 1.5rem;
+            }
+            .lappy-girl {
+                margin-top: 10rem;
+                width: 100%;
+            }
+        }
+    }
+    .section-five {
+        padding: 1rem;
+        .learn-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+        }
+        .subject {
+            width: 1.5rem;
+        }
+        .subject-list-container {
+            ul {
+                list-style: none;
+                li {
+                    font-weight: 500;
+                    font-size: 2.5rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+    }
+    .section-six {
+        padding: 0 1rem;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        .title {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .msg {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .email-address {
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .email-container {
+            @include flex(center, space-between, row);
+            .email {
+                border: none;
+                width: 80%;
+                font-size: 1rem;
+                color: #5f5f5f;
+                font-weight: 500;
+                &:focus {
+                    outline-color: transparent;
+                }
+                &::placeholder {
+                    padding-left: 0;
+                    font-size: 1rem;
+                    color: #5f5f5f;
                     font-weight: 500;
                 }
             }
-        }
-        .launching-soon-container{
-            position: absolute;
-            bottom: 5rem;
-            left: 2rem;
-            transform: translateY(-1rem);
-            margin-top: 1rem;
-            transition: all 0.3s;
-            animation: slideUp 0.3s;
-            .title{
-                color: $white;
-                font-size: 1rem;
-                font-weight: 100;
-            }
-            .for{
-                font-size: 2.5rem;
+            .subscribe {
+                text-transform: capitalize;
                 font-weight: 500;
-                color: $white;
-                line-height: 2.5rem;
             }
         }
-        .bottom-right-container{
-            position: absolute;
-            bottom: 1rem;
-            right: 2rem;
-            @include flex(center,center, row);
-            transform: translateY(-1rem);
-            margin-top: -1rem;
-            transition: all 0.3s;
-            animation: slideUp 0.3s;
-            .title{
-                color: $white;
-                font-size: 0.9rem;
+
+        .email-line {
+            background-color: $grayPrimary;
+            margin-top: 3px;
+        }
+    }
+    .section-seven {
+        padding: 0 1rem;
+        margin-bottom: 5rem;
+        .line {
+            background-color: $grayPrimary;
+        }
+        .people-saying {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #000000;
+        }
+        .border-card-container {
+            padding-left: 1rem;
+            border-left: 1px solid $grayPrimary;
+            .heading {
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+            .title {
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+            .subtitle {
+                font-size: 0.7rem;
                 font-weight: 100;
+                color: $headingPrimary;
             }
-            .apple-icon{
-                margin: 0 0.5rem;
+        }
+        .break-section {
+            margin: 3rem 0;
+            width: 100%;
+        }
+        .pen-pad-girl {
+            width: 100%;
+        }
+        .text-section-container {
+            .title {
+                font-size: 1.3rem;
+                font-weight: 500;
+                line-height: 1.5rem;
+            }
+            .subtitle {
+                font-size: 0.8rem;
+                font-weight: 500;
+                margin: 0.5rem 0;
+            }
+            .apple-icon {
+                color: #000;
                 font-size: 1rem;
-                color: $white;
+                margin-right: 0.5rem;
             }
-            .google-icon{
-                width: 0.7rem;
+            .google-icon {
+                width: 0.8rem;
             }
         }
     }
-    @keyframes rotate {
+
+    @keyframes slideDown {
         0% {
-            clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+            transform: translateY(0);
         }
         100% {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transform: translateY(1rem);
         }
     }
-    .hide{
-        opacity: 0;
-    }
-}
 
-@keyframes slideDown {
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(1rem);
-    }
-}
-
-@keyframes slideUp {
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(-1rem);
+    @keyframes slideUp {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-1rem);
+        }
     }
 }

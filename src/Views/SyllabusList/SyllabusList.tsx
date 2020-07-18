@@ -6,11 +6,14 @@ import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { Button } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
+import { useHistory } from 'react-router';
 
-interface props {
-    triggerModal: () => void;
-}
-const SyllabusList: React.FunctionComponent<props> = ({ triggerModal }) => {
+
+const SyllabusList: React.FunctionComponent = () => {
+    const routes = useHistory();
+    const handleRoutes = () => [
+        routes.push('/dashboard/add-syllabus')
+    ]
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -19,7 +22,7 @@ const SyllabusList: React.FunctionComponent<props> = ({ triggerModal }) => {
                     title="Syllabus"
                     btnIcon={<Add />}
                     btnTitle="Add Syllabus"
-                    trigger={triggerModal}
+                    trigger={handleRoutes}
                 />
             </CardContainer>
             <CardContainer>

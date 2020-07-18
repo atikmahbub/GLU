@@ -1,0 +1,61 @@
+.footer {
+    padding: 0 1rem;
+    .line {
+        background-color: $grayPrimary;
+        margin: 2rem 0;
+    }
+    .email-container {
+        @include flex(center, space-between, row);
+        .join-glu {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .email {
+            width: 52%;
+            border: none;
+            border-bottom: 1px solid $grayPrimary;
+            &::placeholder {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #8b8b8b;
+            }
+        }
+        .subscribe {
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+    }
+    .address-padding{
+        padding-left: 8rem;
+    }
+    .address-container {
+        .title {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .links {
+            display: block;
+            color: #000;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+    }
+    .breaker{
+    margin-bottom: 4rem;
+    }
+    .build-by {
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        span {
+            font-weight: 300;
+            color: #8b8b8b;
+        }
+    }
+    .glu {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-align: right;
+        margin-bottom: 1rem;
+    }
+}

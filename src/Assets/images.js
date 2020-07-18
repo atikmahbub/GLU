@@ -6,7 +6,20 @@ import webdesign2 from './img/web-design2.png';
 import nda from './img/nda1.png';
 import user from './img/user.jpeg';
 import photo from './img/photo.jpg';
-import girlScatter from './img/girlScatter.png'
+import girlScatter from './img/girlScatter.png';
+import boy from './img/boy.png';
+import earringgirl from './img/earringgirl.png';
+import lappygirl from './img/lappy-girl.png';
+import penpadgirl from './img/penpadgirl.png';
+import shorthair from './img/shorthair.png';
+import smilegirl from './img/smilegirl.png';
+import spectsboy from './img/spectsboy.png';
+import spoongirl from './img/spoongirl.png';
+import women from './img/women.png';
+import whiteBoardSvg from './img/Whiteboard.svg';
+import subectIconSvg from './img/Subjects.svg';
+
+
 export const commonImg = {
     google,
     mobile,
@@ -16,7 +29,18 @@ export const commonImg = {
     nda,
     user,
     photo,
-    girlScatter
+    girlScatter,
+    boy,
+    earringgirl,
+    lappygirl,
+    penpadgirl,
+    shorthair,
+    smilegirl,
+    spectsboy,
+    spoongirl,
+    women,
+    whiteBoardSvg,
+    subectIconSvg
 };
 
 export default commonImg;

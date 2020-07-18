@@ -125,42 +125,6 @@ export const SuperAdminMenu: any[] = [
         ],
         routeName: '',
     },
-    // {
-    //     menuName: 'Exam',
-    //     icon: <Book />,
-    //     isExpandable: true,
-    //     routeName: '',
-    //     menuList: [
-    //         {
-    //             menuName: 'Marks',
-    //             isExpandable: false,
-    //             isOpen: false,
-    //             menuList: [],
-    //             routeName: '/marks',
-    //         },
-    //         {
-    //             menuName: 'Exams',
-    //             isExpandable: false,
-    //             isOpen: false,
-    //             menuList: [],
-    //             routeName: '/exams',
-    //         },
-    //         {
-    //             menuName: 'Grades',
-    //             isExpandable: false,
-    //             isOpen: false,
-    //             menuList: [],
-    //             routeName: '/grades',
-    //         },
-    //         {
-    //             menuName: 'Promotion',
-    //             isExpandable: false,
-    //             isOpen: false,
-    //             menuList: [],
-    //             routeName: '/promotion',
-    //         },
-    //     ],
-    // },
     {
         menuName: 'Accounts',
         icon: <AccountBalanceWallet />,

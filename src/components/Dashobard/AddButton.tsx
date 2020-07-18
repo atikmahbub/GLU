@@ -4,8 +4,8 @@ import SelectField from '../Inputs/SelectField';
 
 interface AddButtonProps {
     icon?: any;
-    title: string;
-    btnTitle: string;
+    title?: string;
+    btnTitle?: string;
     btnIcon?: any;
     trigger?: () => void;
     style?: object;

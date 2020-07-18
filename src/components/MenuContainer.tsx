@@ -1,22 +1,34 @@
 import React from 'react';
 import { IconButton, Button, Typography } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
+import { useHistory } from 'react-router-dom';
 
-const MenuContainer: React.FunctionComponent = () => {
+
+interface props{
+    handleMenu: () => void
+}
+const MenuContainer: React.FunctionComponent<props> = ({handleMenu}) => {
+    const routes = useHistory();
+    const handleSignin = () => {
+        routes.push('/login')
+    }
+    const handleSignup = () => {
+        routes.push('/signup')
+    }
     return (
         <div className="menus-container">
             <div className="left">
                 <ul>
                     <li>
-                        <IconButton>
+                        <IconButton onClick={handleMenu}>
                             <Menu />
                         </IconButton>
                     </li>
                     <li>
-                        <Button>Sign In</Button>
+                        <Button onClick={handleSignin}>Sign In</Button>
                     </li>
                     <li>
-                        <Button>Sign Up</Button>
+                        <Button onClick={handleSignup}>Sign Up</Button>
                     </li>
                 </ul>
             </div>

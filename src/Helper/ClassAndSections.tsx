@@ -10,17 +10,17 @@ interface props{
 }
 const ClassAndSections:React.FunctionComponent<props> = ({getClassName, handleClasses, handleSections}) => {
     const classList = useSelector((state: rootReducerType) => state.classReducer.classList);
-    useEffect(() => {
-        if (classList) {
-            const totalClasses: string[] = [];
-            const classSection = getClassAndSections(classList);
-            classSection.map((item: any) => {
-                const classes = Object.keys(item);
-                totalClasses.push(classes[0])
-            });
-            handleClasses(totalClasses);
-        }
-    }, [classList]);
+    // useEffect(() => {
+    //     if (classList) {
+    //         const totalClasses: string[] = [];
+    //         const classSection = getClassAndSections(classList);
+    //         classSection.map((item: any) => {
+    //             const classes = Object.keys(item);
+    //             totalClasses.push(classes[0])
+    //         });
+    //         handleClasses(totalClasses);
+    //     }
+    // }, [classList]);
     useEffect(() => {
         if (getClassName !== '') {
             const classSection = getClassAndSections(classList);
