@@ -1,5 +1,6 @@
 .footer {
     padding: 0 1rem;
+    font-family: 'CircularXXWeb-Book';
     .line {
         background-color: $grayPrimary;
         margin: 2rem 0;
@@ -8,7 +9,7 @@
         @include flex(center, space-between, row);
         .join-glu {
             font-size: 0.9rem;
-            font-weight: 600;
+            font-family: 'CircularXXWeb-Book';
         }
         .email {
             width: 52%;
@@ -16,28 +17,27 @@
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
                 font-size: 0.9rem;
-                font-weight: 500;
                 color: #8b8b8b;
             }
         }
         .subscribe {
             text-transform: capitalize;
-            font-weight: 600;
+            font-family: 'CircularXXWeb-Book';
         }
     }
     .address-padding{
         padding-left: 8rem;
     }
     .address-container {
+        
         .title {
-            font-weight: 600;
             font-size: 0.9rem;
+            font-family: 'CircularXXWeb-Book';
         }
         .links {
             display: block;
             color: #000;
             font-size: 0.9rem;
-            font-weight: 600;
         }
     }
     .breaker{

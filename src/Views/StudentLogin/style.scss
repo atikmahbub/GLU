@@ -1,0 +1,38 @@
+.credential__container {
+    .credential__form__container {
+        height: calc(100vh - 3.65rem);
+        @include flex(center, center, row);
+        .form-container {
+            width: 45%;
+            .icon {
+                color: $primary;
+                font-size: 1rem;
+            }
+            .keep__signed {
+                margin: 0;
+            }
+            .title {
+                font-family: 'CircularXXWeb-Book';
+                font-size: 1.5rem;
+            }
+            .sub__title {
+                font-family: 'CircularXXWeb-Book';
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+        }
+        .radio-button{
+            .MuiFormControlLabel-label{
+                font-family: 'CircularXXMonoWeb-Regular';
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .forgot__password {
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+        font-family: 'CircularXXWeb-Book';
+        cursor: pointer;
+    }
+}

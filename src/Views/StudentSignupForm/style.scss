@@ -1,0 +1,173 @@
+.signup__setup {
+    @include flex(center, space-between, column);
+    flex-direction: column;
+    height: 100vh;
+    .menu__type2__container {
+        width: 100%;
+    }
+    .wrapper {
+        padding: 1.5rem;
+        width: 100%;
+        .stepper__title {
+            font-family: 'CircularXXWeb-Book';
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+            color: #000;
+        }
+        .stepper_marker {
+            margin-top: 3rem;
+            ul {
+                list-style: none;
+                li {
+                    font-family: 'CircularXXWeb-Book';
+
+                    font-size: 0.8rem;
+                    color: $lightGray;
+                }
+                li.active {
+                    color: #000;
+                    font-family: 'CircularXXWeb-Book';
+                }
+            }
+        }
+        .choose__container {
+            margin-top: 3rem;
+            height: 60vh;
+            overflow: auto;
+            @include disableScroll;
+            fieldset {
+                width: 100%;
+                .MuiFormControlLabel-root {
+                    margin: 0;
+                }
+            }
+            .title {
+                border-bottom: 1px solid $lightGray;
+                .MuiFormControlLabel-label {
+                    font-family: 'CircularXXWeb-Book';
+                    font-size: 1.3rem;
+                    color: #000;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+            .info__container {
+                .search-loc {
+                    color: $primary;
+                    font-size: 1rem;
+                }
+                .icon {
+                    color: $primary;
+                    font-size: 1rem;
+                }
+                fieldset {
+                    width: 100%;
+                    .MuiFormControlLabel-root {
+                        margin: 0;
+                    }
+                    .radio-button {
+                        font-size: 0.8rem;
+                    }
+                }
+                .title {
+                    border-bottom: none;
+
+                    .MuiFormControlLabel-label {
+                        font-family: 'CircularXXWeb-Book';
+                        font-size: 0.9rem;
+                        color: #000;
+
+                        &:hover {
+                            color: $primary;
+                        }
+                    }
+                }
+                .preview {
+                    font-family: 'CircularXXWeb-Book';
+                    border-top: 1px solid $lightGray;
+                    padding-top: 1rem;
+                    .heading {
+                        font-family: inherit;
+                        font-size: 1.5rem;
+                        color: #000;
+                    }
+                    .button__title__row {
+                        @include flex(center, space-between, row);
+                        .title {
+                            font-family: inherit;
+                            color: #000;
+                        }
+                        .button-group {
+                            @include flex(center, space-between, row);
+                            .text-button {
+                                font-family: inherit;
+                                color: $primary;
+                                text-transform: capitalize;
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                }
+                .MuiIconButton-root {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+                .text {
+                    color: #000;
+                    font-family: inherit;
+                    font-size: 0.8rem;
+                }
+                .small__heading {
+                    font-size: 1.094rem;
+                    color: #000;
+                    font-family: 'CircularXXWeb-Book';
+                }
+                .mono__text {
+                    font-family: 'CircularXXMonoWeb-Regular';
+                    font-size: 0.75rem;
+                    color: #000000;
+                    span{
+                        color: $primary;
+                    }
+                }
+                .otp-container {
+                    @include flex(center, space-between, row);
+                    margin-bottom: 3rem;
+                    div {
+                        width: 60%;
+                        div {
+                            width: 10rem;
+                            margin-right: 1rem;
+                            input {
+                                width: 100% !important;
+                                height: 2.5rem;
+                                border: none;
+                                border-bottom: 1px solid $gray;
+                                color: #000000;
+                                &:focus {
+                                    outline-color: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .controller-button {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        .icon {
+            color: #000;
+        }
+    }
+    .controller-button.back {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+    }
+}

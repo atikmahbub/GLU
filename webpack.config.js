@@ -36,19 +36,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
-                test: /\.svg$/,
-                use: 'file-loader',
-            },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            mimetype: 'image/png',
-                        },
-                    },
-                ],
+                test: /\.(jpg|jpeg|png|woff|woff2|gif|eot|ttf|svg)$/,
+                use: 'url-loader',
             },
         ],
     },
@@ -58,8 +47,8 @@ module.exports = {
             filename: 'index.html',
         }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
-        new ErrorOverlayPlugin()
-//         new BundleAnalyzerPlugin(),
+        new ErrorOverlayPlugin(),
+        //         new BundleAnalyzerPlugin(),
     ],
     devtool: 'cheap-module-source-map',
     optimization: {

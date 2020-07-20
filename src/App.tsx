@@ -6,14 +6,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './Routes/PrivateRoutes/PrivateRoute';
 const Home = React.lazy(() => import('./Views/Home/Home'));
 const Support = React.lazy(() => import('./Views/Support/Support'));
+const HelpSupport = React.lazy(() => import('./Views/HelpSupport/HelpSupport'));
 const Login = React.lazy(() => import('./Views/Auth/Login/Login'));
-const Signup = React.lazy(() => import('./Views/Auth/Signup/Signup'));
+const StudentLogin = React.lazy(() => import('./Views/StudentLogin/StudentLogin'));
+const StudentForgotPassword = React.lazy(() => import('./Views/StudentForgotPassword/StudentForgotPassword'));
+const StudentPasswordNew = React.lazy(() => import('./Views/StudentPasswordNew/StudentPasswordNew'));
+const Signup = React.lazy(()=> import('./Views/StudentSignupForm/Index'));
+const ShowWelcome = React.lazy(()=> import('./Views/StudentSignupForm/ShowWelcome'));
 const ForgotPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/SetNewPassword'));
-const verification = React.lazy(()=>import('./Views/Auth/Verification/Verification'))
-const SignupForm = React.lazy(() => import('./Views/SignupForm'));
+const verification = React.lazy(() => import('./Views/Auth/Verification/Verification'));
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
-
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -25,13 +28,17 @@ export class App extends React.Component {
                 <Router>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/" component={Home} />
                             <Route exact path="/login" component={Login} />
+                            <Route exact path="/student-login" component={StudentLogin} />
+                            <Route exact path="/signup-success" component={ShowWelcome} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/support" component={Support} />
+                            <Route exact path="/help-support" component={HelpSupport} />
                             <Route exact path="/forgot-password" component={ForgotPassword} />
+                            <Route exact path="/student-forgot-password" component={StudentForgotPassword} />
                             <Route exact path="/reset-password" component={SetNewPassword} />
-                            <Route path="/signup-as" component={SignupForm} />
+                            <Route exact path="/student-reset-password" component={StudentPasswordNew} />
                             <Route path="/verification" component={verification} />
                             <PrivateRoute path="/dashboard/" component={Dashboard} />
                         </Switch>
