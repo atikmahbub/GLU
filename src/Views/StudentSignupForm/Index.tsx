@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, IconButton } from '@material-ui/core';
 import { ArrowForward, ArrowBack } from '@material-ui/icons';
@@ -8,10 +8,11 @@ import Education from './Education';
 import EducationPreview from './EducationPreview';
 import VerifyAccount from './VerifyAccount';
 import VerificationCode from './VerificationCode';
+import { useHistory } from 'react-router';
 
 const Index: React.FunctionComponent = () => {
     const [active, setActive] = useState(0);
-
+    const routes = useHistory();
     const renderComponent = [
         { title: 'Who are you?', comp: <WhoIam /> },
         { title: 'Your details', comp: <InfoContainer /> },
@@ -26,6 +27,11 @@ const Index: React.FunctionComponent = () => {
     const handleBack = () => {
         setActive((prevState) => prevState - 1);
     };
+    useEffect(()=>{
+        if(active===5){
+            routes.push('/signup-success');
+        }
+    }, [active])
     return (
         <div className="signup__setup">
             <NavigationMenu />
