@@ -1,46 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import {
-    FormControl,
-    FormControlLabel,
-    RadioGroup,
-    Radio,
-} from '@material-ui/core';
+import React, { useState } from 'react';
+import { FormControl, FormControlLabel, RadioGroup, Radio } from '@material-ui/core';
 
-interface props {
-    whoAmIHandler: (value: string) => void; 
-}
-const WhoIam: React.FunctionComponent<props> = ({whoAmIHandler}) => {
+const Identity: React.FunctionComponent = () => {
     const [value, setValue] = useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue((event.target as HTMLInputElement).value);
     };
-    useEffect(()=>{
-        whoAmIHandler(value);
-    }, [value])
+
     return (
         <FormControl component="fieldset">
             <RadioGroup aria-label="whoareu" name="whoareu" value={value} onChange={handleChange}>
                 <FormControlLabel
-                    value="student"
+                    value="dl"
                     className="title"
                     control={<Radio className="radio-button" />}
-                    label="I am a Student"
+                    label="Drivers License"
                 />
                 <FormControlLabel
-                    value="parent"
+                    value="passport"
                     className="title"
                     control={<Radio className="radio-button" />}
-                    label="I am a Parent"
+                    label="Passport"
                 />
                 <FormControlLabel
-                    value="teacher"
+                    value="nationalId"
                     className="title"
                     control={<Radio className="radio-button" />}
-                    label="I am a Tutor"
+                    label="National ID"
                 />
             </RadioGroup>
         </FormControl>
     );
 };
 
-export default WhoIam;
+export default Identity;

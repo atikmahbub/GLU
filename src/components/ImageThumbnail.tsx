@@ -3,8 +3,8 @@ import { Typography } from '@material-ui/core';
 
 interface props {
     image: string;
-    title: string;
-    subtitle: string;
+    title?: string;
+    subtitle?: string;
 }
 const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle }) => {
     return (
