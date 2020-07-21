@@ -109,20 +109,24 @@ const Index: React.FunctionComponent = () => {
         getComponent();
     }, [whoIam]);
     const handleNext = () => {
-        // console.log(active, activeLength);
-        if (active === activeLength - 1) {
-            setHideButtons({ ...hideButtons, farword: true });
-        } else {
-            setActive((prevState) => prevState + 1);
+        if (whoIam !== '') {
+            if (active === activeLength - 1) {
+                setHideButtons({ ...hideButtons, farword: true });
+            } else {
+                setActive((prevState) => prevState + 1);
+            }
         }
     };
     const handleBack = () => {
-        if (active === 0) {
-            setHideButtons({ ...hideButtons, farword: false, backward: true });
-        } else {
-            setActive((prevState) => prevState - 1);
+        if (whoIam !== '') {
+            if (hideButtons.farword) {
+                setHideButtons({ ...hideButtons, farword: false });
+            }
+            if (active === 0) {
+            } else {
+                setActive((prevState) => prevState - 1);
+            }
         }
-        setActive((prevState) => prevState - 1);
     };
     useEffect(() => {
         if (active === 5) {
