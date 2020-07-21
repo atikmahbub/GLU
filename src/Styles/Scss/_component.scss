@@ -800,15 +800,16 @@ button.outline-rec {
         ul {
             li {
                 display: inline-block;
-                padding: 0 1rem;
                 a {
                     color: #000;
-                    font-weight: 500;
                     display: inline-block;
                     padding: 0.2rem;
                     text-decoration: none;
                     button {
                         text-transform: capitalize;
+                        font-family: 'CircularXXSub-BookSubset';
+                        font-size: 0.8rem;
+                        font-weight: 100;
                     }
                 }
             }
@@ -817,6 +818,12 @@ button.outline-rec {
             font-family: 'CircularXXWeb-Book';
             font-size: 2rem;
             margin-right: 1rem;
+        }
+        .icon-button{
+            .icon{
+                color: $white;
+                font-size: 1.5rem;
+            }
         }
     }
 }
@@ -831,6 +838,7 @@ button.outline-button {
     text-transform: capitalize;
     padding: 0.2rem 1.5rem;
     border-radius: 0;
+    color: #000;
 }
 
 .radio-button {
@@ -848,19 +856,19 @@ button.outline-button {
     }
 }
 
-.signup__setup.welcome__page{
+.signup__setup.welcome__page {
     .menu__type2__container {
         .navigation {
             ul {
                 li {
                     a {
-                        button{
+                        button {
                             color: #fff;
                         }
                     }
                 }
             }
-            p{
+            p {
                 color: #fff;
             }
         }

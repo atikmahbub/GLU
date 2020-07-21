@@ -10,7 +10,7 @@
         width: 100%;
         .stepper__title {
             font-family: 'CircularXXWeb-Book';
-            line-height: 1.5rem;
+            line-height: 1.7rem;
             font-size: 1.5rem;
             color: #000;
         }
@@ -35,6 +35,17 @@
             height: 60vh;
             overflow: auto;
             @include disableScroll;
+            .upload-container {
+                @include flex(center, space-between, row);
+                width: 15rem;
+                margin-top: 2rem;
+                .title {
+                    font-size: 0.6rem;
+                    font-family: 'CircularXXMonoWeb-Regular';
+                   border-bottom: none;
+                   color: #000;
+                }
+            }
             fieldset {
                 width: 100%;
                 .MuiFormControlLabel-root {
@@ -120,6 +131,12 @@
                     font-family: inherit;
                     font-size: 0.8rem;
                 }
+                .text-area {
+                    width: 100%;
+                    padding: 1rem;
+                    border: 1px solid $lightGray;
+                    border-radius: 0.3rem;
+                }
                 .small__heading {
                     font-size: 1.094rem;
                     color: #000;
@@ -129,7 +146,7 @@
                     font-family: 'CircularXXMonoWeb-Regular';
                     font-size: 0.75rem;
                     color: #000000;
-                    span{
+                    span {
                         color: $primary;
                     }
                 }
@@ -151,6 +168,30 @@
                                     outline-color: transparent;
                                 }
                             }
+                        }
+                    }
+                }
+                .chip-container {
+                    @include flex(center, flex-start, row);
+                    padding: 1rem;
+                    flex-wrap: wrap;
+                    .chip {
+                        font-family: 'CircularXXWeb-Book';
+                        font-size: 0.8rem;
+                        color: #000000;
+                        margin-right: 1rem;
+                        padding: 0.5rem;
+                        border: 1px solid $lightGray;
+                        position: relative;
+                        padding-right: 1.7rem;
+                        margin-bottom: 1rem;
+                        .close-icon {
+                            position: absolute;
+                            top: 0.5rem;
+                            right: 0.5rem;
+                            color: #000;
+                            font-size: 0.8rem;
+                            cursor: pointer;
                         }
                     }
                 }

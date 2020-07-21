@@ -22,7 +22,7 @@ const StudentLogin = () => {
                     <FormControlLabel color="primary" value="" className="keep__signed radio-button" control={<Radio />} label="Keep me signed in" />
                     </div>
                 </div>
-                <Typography className="forgot__password">Forgot your password</Typography>
+                <Typography className="forgot__password" onClick={handleForgot}>Forgot your password</Typography>
             </div>
         </div>
     );

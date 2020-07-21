@@ -17,6 +17,7 @@ const ForgotPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/Forg
 const SetNewPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('./Views/Auth/Verification/Verification'));
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
+const StudentHomePage = React.lazy(()=> import('./Views/StudentHomepage/Index'));
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -29,9 +30,10 @@ export class App extends React.Component {
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/login" component={Login} />
-                            <Route exact path="/student-login" component={StudentLogin} />
+                            <Route exact path="/admin-login" component={Login} />
+                            <Route exact path="/login" component={StudentLogin} />
                             <Route exact path="/signup-success" component={ShowWelcome} />
+                            <Route exact path="/student-homepage" component={StudentHomePage} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/support" component={Support} />
                             <Route exact path="/help-support" component={HelpSupport} />

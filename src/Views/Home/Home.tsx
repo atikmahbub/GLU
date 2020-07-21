@@ -15,13 +15,23 @@ import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
 
 const Home: React.FunctionComponent = () => {
-    const menuList  = ['Accounts', 'Payment', 'Settings', 'Features', 'Tips And Advice', 'Whiteboard', 'Tutors'];
+    const menuList = [
+        { link: '', name: 'Accounts' },
+        { link: '', name: 'Payment' },
+        { link: '', name: 'Settings' },
+        { link: '', name: 'Features' },
+        { link: '', name: 'Tips And Advice' },
+        { link: '', name: 'Whiteboard' },
+        { link: '', name: 'Tutors' },
+        { link: '/help-support', name: 'Help' },
+        { link: '/support', name: 'Support' },
+    ];
     const [show, setShow] = useState(false);
     const [showOthers, setShowOthers] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
     const handleMenu = () => {
         setMenuShow(!menuShow);
-    }
+    };
     useEffect(() => {
         setTimeout(() => {
             setShow(true);
@@ -32,26 +42,44 @@ const Home: React.FunctionComponent = () => {
     }, []);
     return (
         <div className="home-wrapper">
-             <SlidingMenu show={menuShow} handler={()=>handleMenu()} menus={menuList}/>
+            <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className="rotating-box">
                     <Typography className={`slogan ${show ? 'hide' : ''}`}>Glu</Typography>
-                    {showOthers && <MenuContainer handleMenu={()=>handleMenu()} />}
+                    {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
                 </div>
             </div>
             <SectionOne />
-            <SectionTwoReusable image={commonImg.earringgirl} title="Tutors" msg={<> Access to qualified <br /> and experienced <br /> tutors.</>} />
+            <SectionTwoReusable
+                image={commonImg.earringgirl}
+                title="Tutors"
+                msg={
+                    <>
+                        {' '}
+                        Access to qualified <br /> and experienced <br /> tutors.
+                    </>
+                }
+            />
             <SectionThree />
             <SectionFour imageOne={commonImg.shorthair} imageTwo={commonImg.lappygirl} />
-            <SectionFive/>
-            <SectionSix/>
-            <SectionTwoReusable image={commonImg.women} title="Messanger" msg={<> Keep the convo <br/> going with the in app <br/> messenger.</>} />
-            <SectionThree/>
+            <SectionFive />
+            <SectionSix />
+            <SectionTwoReusable
+                image={commonImg.women}
+                title="Messanger"
+                msg={
+                    <>
+                        {' '}
+                        Keep the convo <br /> going with the in app <br /> messenger.
+                    </>
+                }
+            />
+            <SectionThree />
             <SectionFour imageOne={commonImg.smilegirl} imageTwo={commonImg.boy} />
-            <PeopleSaying/>
-            <Footer/>
+            <PeopleSaying />
+            <Footer />
         </div>
     );
 };

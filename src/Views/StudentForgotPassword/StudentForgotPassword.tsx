@@ -1,9 +1,13 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { TextField, Button, FormControlLabel, Radio, Typography } from '@material-ui/core';
-import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
+import { TextField, Button, Typography } from '@material-ui/core';
+import { useHistory } from 'react-router';
 
 const StudentForgotPassword = () => {
+    const routes = useHistory();
+    const handleSend = () => {
+        routes.push('/student-reset-password')
+    }
     return (
         <div className="credential__container">
             <NavigationMenu />
@@ -15,14 +19,13 @@ const StudentForgotPassword = () => {
                         password.
                     </Typography>
                     <TextField className="line-input mb-4" label="Email Address" fullWidth />
-
                     <div className="button-container">
-                        <Button className="outline-button">Send</Button>
+                        <Button className="outline-button" onClick={handleSend}>Send</Button>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default StudentForgotPassword;

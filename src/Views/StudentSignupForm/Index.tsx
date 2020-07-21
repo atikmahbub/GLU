@@ -5,40 +5,140 @@ import { ArrowForward, ArrowBack } from '@material-ui/icons';
 import WhoIam from './WhoIam';
 import InfoContainer from './InfoContainer';
 import Education from './Education';
-import EducationPreview from './EducationPreview';
+import PreviewCard from './PreviewCard';
 import VerifyAccount from './VerifyAccount';
 import VerificationCode from './VerificationCode';
 import { useHistory } from 'react-router';
+import ParentChildren from './ParentChildren';
+import TeacherBio from './TeacherBio';
+import TeacherExperience from './TeacherExperience';
+import TeacherSkills from './TeacherSkills';
+import IdentyCard from './IdentyCard';
 
 const Index: React.FunctionComponent = () => {
     const [active, setActive] = useState(0);
+    const [whoIam, setWhoIam] = useState('');
+    const [activeLength, setActiveLength] = useState(0);
+    const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const routes = useHistory();
-    const renderComponent = [
-        { title: 'Who are you?', comp: <WhoIam /> },
+    const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
+    const [renderComponent, setRenderComponent] = useState<any>([initial]);
+    const student = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'Your Education', comp: <Education /> },
-        { title: 'Your Education', comp: <EducationPreview /> },
+        {
+            title: 'Your Education',
+            comp: (
+                <PreviewCard title="Education 1" heading1="Don joe" heading2="A-Level" heading3="Maths, Enlgish, ICT" />
+            ),
+        },
         { title: 'Verify Account', comp: <VerifyAccount /> },
         { title: 'Verify Account', comp: <VerificationCode /> },
     ];
+    const parent = [
+        { title: 'Your details', comp: <InfoContainer /> },
+        { title: 'Your Children', comp: <ParentChildren /> },
+        {
+            title: 'Your Children',
+            comp: (
+                <PreviewCard
+                    title="Child 1"
+                    heading1="John Smith"
+                    heading2="john@school.com"
+                    heading3="+44 7711 805 667"
+                />
+            ),
+        },
+        { title: 'Verify Account', comp: <VerifyAccount /> },
+        { title: 'Verify Account', comp: <VerificationCode /> },
+    ];
+    const teacher = [
+        { title: 'Your details', comp: <InfoContainer /> },
+        { title: 'About You', comp: <TeacherBio /> },
+        { title: 'Your Education', comp: <Education /> },
+        {
+            title: 'Your Education',
+            comp: (
+                <PreviewCard
+                    title="Education 1"
+                    heading1="University of Essex "
+                    heading2="Primary Education"
+                    heading3="First Class"
+                />
+            ),
+        },
+        { title: 'Your Experience', comp: <TeacherExperience /> },
+        {
+            title: 'Your Experience',
+            comp: (
+                <PreviewCard
+                    title="Education 1"
+                    heading1="GEMS Intl School"
+                    heading2="Head of Department"
+                    heading3="ICT"
+                />
+            ),
+        },
+        { title: 'Your Skill', comp: <TeacherSkills /> },
+        { title: 'Your Identity', comp: <IdentyCard /> },
+        { title: 'Verify Account', comp: <VerifyAccount /> },
+        { title: 'Verify Account', comp: <VerificationCode /> },
+    ];
+    const getComponent = () => {
+        switch (whoIam) {
+            case 'student':
+                const studentPages = [initial, ...student];
+                setRenderComponent(studentPages);
+                setActiveLength(studentPages.length);
+                break;
+            case 'parent':
+                const parentPages = [initial, ...parent];
+                setRenderComponent(parentPages);
+                setActiveLength(parentPages.length);
+                break;
+            case 'teacher':
+                const teacherPages = [initial, ...teacher];
+                setRenderComponent(teacherPages);
+                setActiveLength(teacherPages.length);
+                break;
+            default:
+                break;
+        }
+    };
+    useEffect(() => {
+        getComponent();
+    }, [whoIam]);
     const handleNext = () => {
-        setActive((prevState) => prevState + 1);
+        // console.log(active, activeLength);
+        if (active === activeLength - 1) {
+            setHideButtons({ ...hideButtons, farword: true });
+        } else {
+            setActive((prevState) => prevState + 1);
+        }
     };
     const handleBack = () => {
+        if (active === 0) {
+            setHideButtons({ ...hideButtons, farword: false, backward: true });
+        } else {
+            setActive((prevState) => prevState - 1);
+        }
         setActive((prevState) => prevState - 1);
     };
-    useEffect(()=>{
-        if(active===5){
-            routes.push('/signup-success');
+    useEffect(() => {
+        if (active === 5) {
+            // routes.push('/signup-success');
         }
-    }, [active])
+    }, [active]);
+    console.log(renderComponent);
     return (
         <div className="signup__setup">
             <NavigationMenu />
             <div className="wrapper">
                 <div className="row">
                     <div className="col-md-6 mb-2">
-                        <Typography className="stepper__title">Step {active + 1}/6</Typography>
+                        <Typography className="stepper__title">
+                            Step {active + 1}/{activeLength}
+                        </Typography>
                         <div className="stepper_marker">
                             <ul>
                                 <li className={`${active === 0 ? 'active' : ''}`}>Who are you </li>
@@ -58,9 +158,11 @@ const Index: React.FunctionComponent = () => {
             <IconButton className="controller-button back" onClick={handleBack}>
                 <ArrowBack className="icon" />
             </IconButton>
-            <IconButton className="controller-button" onClick={handleNext}>
-                <ArrowForward className="icon" />
-            </IconButton>
+            {!hideButtons.farword && (
+                <IconButton className="controller-button" onClick={handleNext}>
+                    <ArrowForward className="icon" />
+                </IconButton>
+            )}
         </div>
     );
 };
