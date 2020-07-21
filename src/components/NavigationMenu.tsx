@@ -17,6 +17,16 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList }) => {
         if (menuList) {
             return (
                 <>
+                    <li>
+                        <IconButton className="icon-button">
+                            <Menu className="icon" />
+                        </IconButton>
+                    </li>
+                    <li>
+                        <IconButton className="icon-button">
+                            <Search className="icon" />
+                        </IconButton>
+                    </li>
                     {menuList.map((item: propsType) => (
                         <li key={uuidv4()}>
                             <Link to={item.link}>
@@ -30,17 +40,17 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList }) => {
             return (
                 <>
                     <li>
-                        <Link to="">
+                        <Link to="/signup">
                             <Button className="outline-rec">Sign Up</Button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="">
+                        <Link to="/login">
                             <Button>Sign In</Button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="">
+                        <Link to="/help-support">
                             <Button>Help</Button>
                         </Link>
                     </li>
@@ -51,19 +61,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList }) => {
     return (
         <div className="menu__type2__container">
             <div className="navigation">
-                <ul>
-                    <li>
-                        <IconButton className="icon-button">
-                            <Menu className="icon" />
-                        </IconButton>
-                    </li>
-                    <li>
-                        <IconButton className="icon-button">
-                            <Search className="icon" />
-                        </IconButton>
-                    </li>
-                    {getMenuList()}
-                </ul>
+                <ul>{getMenuList()}</ul>
                 <Typography className="heading">Glu</Typography>
             </div>
         </div>

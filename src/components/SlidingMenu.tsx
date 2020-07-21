@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 interface props {
     show: boolean;
     handler: () => void;
-    menus: string[];
+    menus: any[];
 }
 const SlidingMenu: React.FunctionComponent<props> = ({ show, handler, menus }) => {
     return (
@@ -17,9 +17,9 @@ const SlidingMenu: React.FunctionComponent<props> = ({ show, handler, menus }) =
             </IconButton>
             <div className="menu-list-container">
                 <ul>
-                    {menus.map((item: string) => (
+                    {menus.map((item: any) => (
                         <li key={uuidv4()}>
-                            <Link to="">{item}</Link>
+                            <Link to={item.link}>{item.name}</Link>
                         </li>
                     ))}
                 </ul>

@@ -18,6 +18,8 @@ import IdentyCard from './IdentyCard';
 const Index: React.FunctionComponent = () => {
     const [active, setActive] = useState(0);
     const [whoIam, setWhoIam] = useState('');
+    const [activeLength, setActiveLength] = useState(0);
+    const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const routes = useHistory();
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
@@ -85,13 +87,19 @@ const Index: React.FunctionComponent = () => {
     const getComponent = () => {
         switch (whoIam) {
             case 'student':
-                setRenderComponent([initial, ...student]);
+                const studentPages = [initial, ...student];
+                setRenderComponent(studentPages);
+                setActiveLength(studentPages.length);
                 break;
             case 'parent':
-                setRenderComponent([initial, ...parent]);
+                const parentPages = [initial, ...parent];
+                setRenderComponent(parentPages);
+                setActiveLength(parentPages.length);
                 break;
             case 'teacher':
-                setRenderComponent([initial, ...teacher]);
+                const teacherPages = [initial, ...teacher];
+                setRenderComponent(teacherPages);
+                setActiveLength(teacherPages.length);
                 break;
             default:
                 break;
@@ -101,9 +109,19 @@ const Index: React.FunctionComponent = () => {
         getComponent();
     }, [whoIam]);
     const handleNext = () => {
-        setActive((prevState) => prevState + 1);
+        // console.log(active, activeLength);
+        if (active === activeLength - 1) {
+            setHideButtons({ ...hideButtons, farword: true });
+        } else {
+            setActive((prevState) => prevState + 1);
+        }
     };
     const handleBack = () => {
+        if (active === 0) {
+            setHideButtons({ ...hideButtons, farword: false, backward: true });
+        } else {
+            setActive((prevState) => prevState - 1);
+        }
         setActive((prevState) => prevState - 1);
     };
     useEffect(() => {
@@ -118,7 +136,9 @@ const Index: React.FunctionComponent = () => {
             <div className="wrapper">
                 <div className="row">
                     <div className="col-md-6 mb-2">
-                        <Typography className="stepper__title">Step {active + 1}/6</Typography>
+                        <Typography className="stepper__title">
+                            Step {active + 1}/{activeLength}
+                        </Typography>
                         <div className="stepper_marker">
                             <ul>
                                 <li className={`${active === 0 ? 'active' : ''}`}>Who are you </li>
@@ -138,9 +158,11 @@ const Index: React.FunctionComponent = () => {
             <IconButton className="controller-button back" onClick={handleBack}>
                 <ArrowBack className="icon" />
             </IconButton>
-            <IconButton className="controller-button" onClick={handleNext}>
-                <ArrowForward className="icon" />
-            </IconButton>
+            {!hideButtons.farword && (
+                <IconButton className="controller-button" onClick={handleNext}>
+                    <ArrowForward className="icon" />
+                </IconButton>
+            )}
         </div>
     );
 };

@@ -13,7 +13,11 @@ const NextClass: React.FunctionComponent = () => {
                 <div className="col-lg-3">
                     <ImageThumbnail image={commonImg.running}/>
                 </div>
-                <div className="col-lg-3"></div>
+                <div className="col-lg-3">
+                    <div className="title__subtitle__card">
+                        <Typography className="title">19/07/20 9am- 10.15am</Typography>
+                    </div>
+                </div>
                 <div className="col-lg-3"></div>
                 <div className="col-lg-1"></div>
             </div>

@@ -30,8 +30,8 @@ export class App extends React.Component {
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/login" component={Login} />
-                            <Route exact path="/student-login" component={StudentLogin} />
+                            <Route exact path="/admin-login" component={Login} />
+                            <Route exact path="/login" component={StudentLogin} />
                             <Route exact path="/signup-success" component={ShowWelcome} />
                             <Route exact path="/student-homepage" component={StudentHomePage} />
                             <Route exact path="/signup" component={Signup} />
