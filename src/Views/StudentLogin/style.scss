@@ -1,4 +1,5 @@
 .credential__container {
+    padding: 1rem;
     .credential__form__container {
         height: calc(100vh - 3.65rem);
         @include flex(center, center, row);

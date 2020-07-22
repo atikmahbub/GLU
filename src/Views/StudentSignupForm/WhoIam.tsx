@@ -10,7 +10,7 @@ interface props {
     whoAmIHandler: (value: string) => void; 
 }
 const WhoIam: React.FunctionComponent<props> = ({whoAmIHandler}) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('student');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue((event.target as HTMLInputElement).value);
     };
