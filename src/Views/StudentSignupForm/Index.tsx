@@ -14,6 +14,9 @@ import TeacherBio from './TeacherBio';
 import TeacherExperience from './TeacherExperience';
 import TeacherSkills from './TeacherSkills';
 import IdentyCard from './IdentyCard';
+import StudentStepper from './StudentStepper';
+import ParentStepper from './ParentStepper';
+import TeacherStepper from './TeacherStepper';
 
 const Index: React.FunctionComponent = () => {
     const [active, setActive] = useState(0);
@@ -23,6 +26,11 @@ const Index: React.FunctionComponent = () => {
     const routes = useHistory();
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
+    const renderStepper = {
+        student: <StudentStepper active={active} />,
+        parent: <ParentStepper active={active} />,
+        teacher: <TeacherStepper active={active} />,
+    };
     const student = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'Your Education', comp: <Education /> },
@@ -128,12 +136,7 @@ const Index: React.FunctionComponent = () => {
             }
         }
     };
-    useEffect(() => {
-        if (active === 5) {
-            // routes.push('/signup-success');
-        }
-    }, [active]);
-    console.log(renderComponent);
+
     return (
         <div className="signup__setup">
             <NavigationMenu />
@@ -143,14 +146,7 @@ const Index: React.FunctionComponent = () => {
                         <Typography className="stepper__title">
                             Step {active + 1}/{activeLength}
                         </Typography>
-                        <div className="stepper_marker">
-                            <ul>
-                                <li className={`${active === 0 ? 'active' : ''}`}>Who are you </li>
-                                <li className={`${active === 1 ? 'active' : ''}`}>Your details</li>
-                                <li className={`${active === 2 || active === 3 ? 'active' : ''}`}>Education</li>
-                                <li className={`${active === 4 || active === 5 ? 'active' : ''}`}>Verificication</li>
-                            </ul>
-                        </div>
+                        <div className="stepper_marker">{renderStepper[whoIam]}</div>
                     </div>
                     <div className="col-md-6 mb-2">
                         <Typography className="stepper__title">Tell us a bit about yourself</Typography>
