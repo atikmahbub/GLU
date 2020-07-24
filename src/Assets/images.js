@@ -42,6 +42,15 @@ import mobileApple from './img/mobile.png';
 import laptopgirl from './img/laptopgirl.png';
 import hoddygirl from './img/hoddygirl.png';
 import menmobileview from './img/menmobileview.png';
+import blackbeauty from './img/blackbeauty.jpg';
+import blackbluetop from './img/blackbluetop.jpg';
+import katoracutting from './img/katoracutting.jpg';
+import maggie from './img/maggie.jpg';
+import oldlady from './img/oldlady.jpg';
+import orangetopgirl from './img/orangetopgirl.jpg';
+import smillingmanspects from './img/smillingmanspects.jpg';
+
+
 
 export const commonImg = {
     google,
@@ -87,7 +96,14 @@ export const commonImg = {
     mobileApple,
     laptopgirl,
     hoddygirl,
-    menmobileview
+    menmobileview,
+    smillingmanspects,
+    orangetopgirl,
+    oldlady,
+    maggie,
+    katoracutting,
+    blackbluetop,
+    blackbeauty
 };
 
 export default commonImg;

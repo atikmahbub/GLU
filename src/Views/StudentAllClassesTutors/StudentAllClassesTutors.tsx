@@ -22,8 +22,8 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
             <NavigationMenu menuList={menu} />
             <div className="filter__row__container">
                 <div className="button__container">
-                    <Typography className="title">Classes</Typography>
-                    <Typography className="title active">Tutors</Typography>
+                    <Typography className="title active">Classes</Typography>
+                    <Typography className="title">Tutors</Typography>
                 </div>
                 <div className="sort__container">
                     <ExpandMore className="arrow__downward" />
