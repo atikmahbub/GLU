@@ -1,20 +1,15 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import commonImg from '../../Assets/images';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import Footer from '../Footer/Footer';
 import FreqQuesAccordion from './FreqQuesAccordion';
+import HeadingRowContainer from '../../components/HeadingRowContainer';
 
 const HelpGuides = () => {
     return (
         <div className="theme-section">
-            <div className="heading-row-container">
-                <Typography className="title">Help Guides</Typography>
-                <Link to="" className="subtitle">
-                    View All
-                </Link>
-            </div>
+            <HeadingRowContainer title="Help Guides" link="View All" />
             <div className="row">
                 <div className="col-lg-6 mb-5">
                     <ImageThumbnail image={commonImg.women} title="Accounts" subtitle="How to manage your accounts" />
@@ -88,17 +83,17 @@ const HelpGuides = () => {
                 </div>
             </div>
             <div className="accordion-container">
-                <hr className="line"/>
+                <hr className="line" />
                 <div className="row">
                     <div className="col-lg-6">
                         <Typography className="freq">Frequently Asked Questions</Typography>
                     </div>
                     <div className="col-lg-6">
-                        <FreqQuesAccordion/>
+                        <FreqQuesAccordion />
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

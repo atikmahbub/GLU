@@ -22,7 +22,7 @@
                 }
             }
         }
-        .large__text{
+        .large__text {
             font-size: 3rem;
             font-family: 'CircularXXWeb-Book';
             color: $white;
@@ -30,21 +30,115 @@
             left: 5rem;
             bottom: 10rem;
         }
-        .overy-heading{
+        .overy-heading {
             position: absolute;
             right: 10rem;
             bottom: 6rem;
-            .small__heading{
+            .small__heading {
                 font-size: 0.8rem;
                 color: $white;
                 font-family: 'CircularXXWeb-Book';
             }
-            .large__heading{
+            .large__heading {
                 font-size: 2.5rem;
                 line-height: 2.5rem;
                 color: $white;
                 font-family: 'CircularXXWeb-Book';
             }
         }
+    }
+    .next__class__card {
+        padding: 1rem;
+        margin-top: 2.5rem;
+        .title {
+            font-size: 1.8rem;
+            line-height: 2rem;
+            font-family: 'CircularXXWeb-Book';
+            color: #000000;
+        }
+        .subtitle {
+            font-size: 0.8rem;
+            color: #000000;
+        }
+        .blue-button {
+            color: $primary;
+            float: right;
+            font-size: 100;
+            text-transform: capitalize;
+        }
+        .image-thumbnail-container {
+            .img {
+                height: 70%;
+            }
+        }
+    }
+    .feature__container {
+        padding: 1rem;
+        .vrboy__container {
+            .image-thumbnail {
+                padding-top: 30%;
+            }
+        }
+        .title {
+            color: #000000;
+            font-size: 1.5rem;
+            font-family: 'CircularXXWeb-Book';
+        }
+    }
+    .class_container {
+        padding: 1rem;
+        margin-bottom: 4rem;
+    }
+    .image__overlay {
+        .img {
+            width: 100%;
+        }
+        .img-overlay-container {
+            .title {
+                margin-bottom: 1rem;
+                font-family: 'CircularXXSub-BookSubset';
+            }
+            .msg {
+                font-size: 3rem;
+            }
+        }
+    }
+    .calender__container {
+        padding: 1rem;
+        margin-bottom: 3rem;
+        .border-left{
+            border-left: 1px solid $lightGray;
+        }
+    }
+    .total__upcomming__classes {
+        padding: 1rem;
+        .dot {
+            font-size: 0.5rem;
+        }
+    }
+    .feature__container{
+        margin-bottom: 3rem;
+        .subject-teacher-container{
+            .image-thumbnail-container {
+                .image-thumbnail{
+                    padding-top: 100%;
+                    .img{
+                        height: 100%;
+                    }
+                }
+               
+            }   
+        }
+        .vrboy__container{
+            .image-thumbnail-container {
+                .image-thumbnail{
+                    padding-top: 60%;
+                }
+               
+            }  
+        }
+    }
+    .tutors{
+        padding: 1rem;
     }
 }

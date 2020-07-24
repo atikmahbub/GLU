@@ -11,13 +11,15 @@ const Login = React.lazy(() => import('./Views/Auth/Login/Login'));
 const StudentLogin = React.lazy(() => import('./Views/StudentLogin/StudentLogin'));
 const StudentForgotPassword = React.lazy(() => import('./Views/StudentForgotPassword/StudentForgotPassword'));
 const StudentPasswordNew = React.lazy(() => import('./Views/StudentPasswordNew/StudentPasswordNew'));
-const Signup = React.lazy(()=> import('./Views/StudentSignupForm/Index'));
-const ShowWelcome = React.lazy(()=> import('./Views/StudentSignupForm/ShowWelcome'));
+const Signup = React.lazy(() => import('./Views/StudentSignupForm/Index'));
+const ShowWelcome = React.lazy(() => import('./Views/StudentSignupForm/ShowWelcome'));
 const ForgotPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('./Views/Auth/Verification/Verification'));
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
-const StudentHomePage = React.lazy(()=> import('./Views/StudentHomepage/Index'));
+const StudentHomePage = React.lazy(() => import('./Views/StudentHomepage/Index'));
+const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesTutors/StudentAllClassesTutors'));
+const TutorList = React.lazy(()=>import('./Views/TutorList/TutorList'));
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -34,6 +36,8 @@ export class App extends React.Component {
                             <Route exact path="/login" component={StudentLogin} />
                             <Route exact path="/signup-success" component={ShowWelcome} />
                             <Route exact path="/student-homepage" component={StudentHomePage} />
+                            <Route exact path="/student-classes" component={StudentClassesTutors} />
+                            <Route exact path="/student-tutors" component={TutorList} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/support" component={Support} />
                             <Route exact path="/help-support" component={HelpSupport} />
