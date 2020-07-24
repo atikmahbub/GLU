@@ -17,15 +17,15 @@ const PeopleSaying: React.FunctionComponent = () => {
                         <div className="col-md-6">
                             <BorderCardContainer
                                 heading="“Best thing for school in years.”"
-                                title="Jamie Lee"
-                                subtitle="Teacher at FFC Academy"
+                                title="Candice Lazare"
+                                subtitle=" Teacher at CCA"
                             />
                         </div>
                         <div className="col-md-6">
                             <BorderCardContainer
                                 heading="“Best thing for school in years.”"
-                                title="Jamie Lee"
-                                subtitle="Teacher at FFC Academy"
+                                title="Vivienne Williams"
+                                subtitle="Student at Mount Stewart"
                             />
                         </div>
                     </div>
@@ -37,8 +37,7 @@ const PeopleSaying: React.FunctionComponent = () => {
                 <div className="col-lg-6 d-flex align-items-center">
                     <div className="text-section-container">
                         <Typography className="title">
-                            An innovative web based app that bridges the gap between school, teachers, parents and
-                            students.
+                        Download Glu to open the door to endless learning, with 365 day around the clock access to teachers, lessons and classes.
                         </Typography>
                         <Typography className="subtitle">App Store and Google Play</Typography>
                         <Apple className="apple-icon" />

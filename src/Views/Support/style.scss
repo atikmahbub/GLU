@@ -84,18 +84,6 @@
 
     .theme-section {
         padding: 1.5rem;
-        .heading-row-container {
-            @include flex(center, space-between, row);
-            margin-bottom: 1.5rem;
-            .title {
-                font-size: 1.5rem;
-                font-weight: 500;
-            }
-            .subtitle {
-                font-weight: 500;
-                font-size: 0.9rem;
-            }
-        }
     }
     .accordion-container {
         padding: 1.5rem;
