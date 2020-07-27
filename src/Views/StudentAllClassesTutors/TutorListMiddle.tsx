@@ -2,8 +2,6 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
-import OutlineButton from '../../components/Button/OutlineButton';
-import { Typography } from '@material-ui/core';
 
 const TutorListMiddle: React.FunctionComponent = () => {
     const imageMetaDeta = [

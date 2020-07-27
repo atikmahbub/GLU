@@ -31,10 +31,10 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
                 </div>
             </div>
             <TotalClasses />
-            <UpcomingClasses />
+            {/* <UpcomingClasses />
             <TutorListMiddle />
             <UpcomingClassesPartSec />
-            <TutorListBottom />
+            <TutorListBottom /> */}
 
             <div className="row">
                 <div className="show__more__wrapper">
