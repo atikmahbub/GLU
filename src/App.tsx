@@ -19,7 +19,7 @@ const verification = React.lazy(() => import('./Views/Auth/Verification/Verifica
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
 const StudentHomePage = React.lazy(() => import('./Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesTutors/StudentAllClassesTutors'));
-const TutorList = React.lazy(()=>import('./Views/TutorList/TutorList'));
+const TutorList = React.lazy(() => import('./Views/TutorList/TutorList'));
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;

@@ -26,18 +26,47 @@ const Index: React.FunctionComponent = () => {
     const routes = useHistory();
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
-    const renderStepper = {
+    const handleNext = () => {
+        if (whoIam !== '') {
+            if (active === activeLength - 1) {
+                setHideButtons({ ...hideButtons, farword: true });
+            } else {
+                setActive((prevState) => prevState + 1);
+            }
+        }
+    };
+    const handleBack = () => {
+        if (whoIam !== '') {
+            if (hideButtons.farword) {
+                setHideButtons({ ...hideButtons, farword: false });
+            }
+            if (active === 0) {
+            } else {
+                setActive((prevState) => prevState - 1);
+            }
+        }
+    };
+    const goBack = () => {
+        setActive((prevState) => prevState - 1);
+    }
+    const renderStepper:any = {
         student: <StudentStepper active={active} />,
         parent: <ParentStepper active={active} />,
         teacher: <TeacherStepper active={active} />,
     };
     const student = [
         { title: 'Your details', comp: <InfoContainer /> },
-        { title: 'Your Education', comp: <Education /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} /> },
         {
             title: 'Your Education',
             comp: (
-                <PreviewCard title="Education 1" heading1="Don joe" heading2="A-Level" heading3="Maths, Enlgish, ICT" />
+                <PreviewCard
+                    title="Education 1"
+                    heading1="Don joe"
+                    heading2="A-Level"
+                    heading3="Maths, Enlgish, ICT"
+                    handler={goBack}
+                />
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount /> },
@@ -45,7 +74,7 @@ const Index: React.FunctionComponent = () => {
     ];
     const parent = [
         { title: 'Your details', comp: <InfoContainer /> },
-        { title: 'Your Children', comp: <ParentChildren /> },
+        { title: 'Your Children', comp: <ParentChildren handler={handleNext} /> },
         {
             title: 'Your Children',
             comp: (
@@ -54,6 +83,7 @@ const Index: React.FunctionComponent = () => {
                     heading1="John Smith"
                     heading2="john@school.com"
                     heading3="+44 7711 805 667"
+                    handler={goBack}
                 />
             ),
         },
@@ -63,7 +93,7 @@ const Index: React.FunctionComponent = () => {
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'About You', comp: <TeacherBio /> },
-        { title: 'Your Education', comp: <Education /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} /> },
         {
             title: 'Your Education',
             comp: (
@@ -72,6 +102,7 @@ const Index: React.FunctionComponent = () => {
                     heading1="University of Essex "
                     heading2="Primary Education"
                     heading3="First Class"
+                    handler={goBack}
                 />
             ),
         },
@@ -84,6 +115,7 @@ const Index: React.FunctionComponent = () => {
                     heading1="GEMS Intl School"
                     heading2="Head of Department"
                     heading3="ICT"
+                    handler={goBack}
                 />
             ),
         },
@@ -116,26 +148,6 @@ const Index: React.FunctionComponent = () => {
     useEffect(() => {
         getComponent();
     }, [whoIam]);
-    const handleNext = () => {
-        if (whoIam !== '') {
-            if (active === activeLength - 1) {
-                setHideButtons({ ...hideButtons, farword: true });
-            } else {
-                setActive((prevState) => prevState + 1);
-            }
-        }
-    };
-    const handleBack = () => {
-        if (whoIam !== '') {
-            if (hideButtons.farword) {
-                setHideButtons({ ...hideButtons, farword: false });
-            }
-            if (active === 0) {
-            } else {
-                setActive((prevState) => prevState - 1);
-            }
-        }
-    };
 
     return (
         <div className="signup__setup">
