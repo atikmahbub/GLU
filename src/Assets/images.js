@@ -1,33 +1,31 @@
+import React from 'react';
 import google from './img/google.png';
 import mobile from './img/mobile-stack.svg';
 import dummy from './img/placeholder-image.svg';
-import webdesign from './img/web-design.png';
-import webdesign2 from './img/web-design2.png';
-import nda from './img/nda1.png';
-import user from './img/user.jpeg';
+import user from './img/user.jpg';
 import photo from './img/photo.jpg';
-import girlScatter from './img/girlScatter.png';
-import boy from './img/boy.png';
-import earringgirl from './img/earringgirl.png';
-import lappygirl from './img/lappy-girl.png';
-import penpadgirl from './img/penpadgirl.png';
-import shorthair from './img/shorthair.png';
-import smilegirl from './img/smilegirl.png';
-import spectsboy from './img/spectsboy.png';
-import spoongirl from './img/spoongirl.png';
-import women from './img/women.png';
+import girlScatter from './img/girlScatter.jpg';
+import boy from './img/boy.jpg';
+import earringgirl from './img/earringgirl.jpg';
+import lappygirl from './img/lappy-girl.jpg';
+import penpadgirl from './img/penpadgirl.jpg';
+import shorthair from './img/shorthair.jpg';
+import smilegirl from './img/smilegirl.jpg';
+import spectsboy from './img/spectsboy.jpg';
+import spoongirl from './img/spoongirl.jpg';
+import women from './img/women.jpg';
 import whiteBoardSvg from './img/Whiteboard.svg';
 import subectIconSvg from './img/Subjects.svg';
-import running from './img/jump.png';
-import chairman from './img/chairwithman.png';
-import vrplayerboy from './img/vrplayerboy.png';
-import bookredinggirl from './img/bookredinggirl.png';
-import jumpinggirl from './img/jumpinggirl.png';
-import twogirl from './img/twogirl.png';
-import tablegirl from './img/tablegirl.png';
+import running from './img/jump.jpg';
+import chairman from './img/chairwithman.jpg';
+import vrplayerboy from './img/vrplayerboy.jpg';
+import bookredinggirl from './img/bookredinggirl.jpg';
+import jumpinggirl from './img/jumpinggirl.jpg';
+import twogirl from './img/twogirl.jpg';
+import tablegirl from './img/tablegirl.jpg';
 import frontfacetwogirl from './img/frontfacetwogirl.jpg';
 import bookwritegirl from './img/bookwritegirl.jpg';
-import bookreadingboy from  './img/bookreadingboy.jpg';
+import bookreadingboy from './img/bookreadingboy.jpg';
 import glasswatergirl from './img/glasswatergirl.jpg';
 import payingpadgirl from './img/payingpadgirl.jpg';
 import typinggirl from './img/typinggirl.jpg';
@@ -37,10 +35,10 @@ import handonhairgirl from './img/handonhairgirl.jpg';
 import brownhairman from './img/brownhairman.jpg';
 import readinggirl from './img/readinggirl.jpg';
 import kidwithpad from './img/kidwithpad.jpg';
-import blurgirl from './img/blurgirl.jpg'
-import mobileApple from './img/mobile.png';
-import laptopgirl from './img/laptopgirl.png';
-import hoddygirl from './img/hoddygirl.png';
+import blurgirl from './img/blurgirl.jpg';
+import mobileApple from './img/mobileApple.png';
+import laptopgirl from './img/laptopgirl.jpg';
+import hoddygirl from './img/hoddygirl.jpg';
 import menmobileview from './img/menmobileview.png';
 import blackbeauty from './img/blackbeauty.jpg';
 import blackbluetop from './img/blackbluetop.jpg';
@@ -50,15 +48,10 @@ import oldlady from './img/oldlady.jpg';
 import orangetopgirl from './img/orangetopgirl.jpg';
 import smillingmanspects from './img/smillingmanspects.jpg';
 
-
-
 export const commonImg = {
     google,
     mobile,
     dummy,
-    webdesign,
-    webdesign2,
-    nda,
     user,
     photo,
     girlScatter,
@@ -103,7 +96,7 @@ export const commonImg = {
     maggie,
     katoracutting,
     blackbluetop,
-    blackbeauty
+    blackbeauty,
 };
 
 export default commonImg;

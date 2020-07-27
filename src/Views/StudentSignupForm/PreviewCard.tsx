@@ -7,8 +7,9 @@ interface props {
     heading1: string;
     heading2: string;
     heading3: string;
+    handler: ()=> void;
 }
-const PreviewCard: React.FunctionComponent<props> = ({ title, heading1, heading2, heading3 }) => {
+const PreviewCard: React.FunctionComponent<props> = ({ title, heading1, heading2, heading3, handler }) => {
     return (
         <div className="info__container">
             <div className="preview">
@@ -29,7 +30,7 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, heading1, heading2
                     {heading3}
                 </Typography>
                 <div className="mb-4"></div>
-                <OutlineButton text="Add More" />
+                <OutlineButton text="Add More" btnClick={()=>handler()} />
             </div>
         </div>
     );
