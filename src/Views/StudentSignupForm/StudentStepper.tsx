@@ -6,11 +6,11 @@ interface props {
 const StudentStepper: React.FunctionComponent<props> = ({active}) => {
     return (
         <ul>
-            <li className={`${active === 0 ? 'active' : ''}`}>Who are you </li>
-            <li className={`${active === 1 ? 'active' : ''}`}>Your details</li>
-            <li className={`${active === 2 || active === 3 ? 'active' : ''}`}>Education</li>
-            <li className={`${active === 4 ? 'active' : ''}`}>Mobile Number</li>
-            <li className={`${active === 5 ? 'active' : ''}`}>Verificication</li>
+            <li className={`${active >= 0 ? 'active' : ''}`}>Who are you </li>
+            <li className={`${active >= 1 ? 'active' : ''}`}>Your details</li>
+            <li className={`${active >= 2 || active === 3 ? 'active' : ''}`}>Education</li>
+            <li className={`${active >= 4 ? 'active' : ''}`}>Mobile Number</li>
+            <li className={`${active >= 5 ? 'active' : ''}`}>Verificication</li>
         </ul>
     );
 };
