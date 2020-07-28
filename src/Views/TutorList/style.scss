@@ -1,60 +1,9 @@
-.student__classes__tutor {
-    .menu__type2__container {
-        .navigation {
-            ul {
-                li {
-                    .icon-button {
-                        .icon {
-                            color: #000000;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .filter__row__container {
-        @include flex(center, space-between, row);
-        font-family: 'CircularXXWeb-Book';
-        padding: 1rem;
-        .button__container {
-            @include flex(center, space-between, row);
-            .title {
-                font-family: inherit;
-                padding-right: 1rem;
-                font-size: 1.7rem;
-            }
-            .active {
-                color: $gray;
-            }
-        }
-        .sort__container {
-            @include flex(center, space-between, row);
-            .arrow__downward {
-                color: #000000;
-                font-size: 1rem;
-            }
-            .sort__title {
-                font-family: inherit;
-                color: #000000;
-                font-size: 0.9rem;
-            }
-        }
-    }
-    .total__classes {
-        padding: 1rem;
-        margin-bottom: 2rem;
-    }
-    .show__more__wrapper {
-        width: 100%;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        .show__more__contianer {
-            @include flex(center, space-between, row);
-            width: 35%;
-            .title {
-                font-family: 'CircularXXMonoWeb-Regular';
-                font-weight: 0.9rem;
-                margin-left: 1rem;
+.teacher__container{
+    padding: 1rem;
+    .small__large__Image__container{
+        .image-thumbnail-container{
+            .image-thumbnail{
+                padding-top: 60%;
             }
         }
     }

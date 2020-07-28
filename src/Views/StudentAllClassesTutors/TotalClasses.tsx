@@ -21,7 +21,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.frontfacetwogirl,
+     img: commonImg.frontfacetwogirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -30,7 +32,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.bookwritegirl,
+     img: commonImg.bookwritegirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -39,7 +43,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.bookreadingboy,
+     img: commonImg.bookreadingboy,
+            // img: commonImg.bookredinggirl,
+
         },
 
         // two
@@ -50,7 +56,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.glasswatergirl,
+     img: commonImg.glasswatergirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -59,7 +67,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.jumpinggirl,
+     img: commonImg.jumpinggirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -68,7 +78,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.payingpadgirl,
+     img: commonImg.payingpadgirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -77,7 +89,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.typinggirl,
+     img: commonImg.typinggirl,
+            // img: commonImg.bookredinggirl,
+
         },
 
         // three
@@ -88,7 +102,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.greentshirtboy,
+     img: commonImg.greentshirtboy,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -97,7 +113,10 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.handonhairgirl,
+             img: commonImg.handonhairgirl,
+            // img: commonImg.bookredinggirl,
+
+            
         },
         {
             title: (
@@ -106,7 +125,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.payingpadgirl,
+             img: commonImg.payingpadgirl,
+            // img: commonImg.bookredinggirl,
+
         },
         {
             title: (
@@ -115,7 +136,9 @@ const TotalClasses = () => {
                 </>
             ),
             subtitle: 'AED200 / 45mins',
-            img: commonImg.girlwithhermom,
+             img: commonImg.girlwithhermom,
+            // img: commonImg.bookredinggirl,
+
         },
     ];
     return (

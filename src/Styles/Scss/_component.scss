@@ -725,6 +725,50 @@ button.primary-btn {
     left: 0;
     opacity: 1;
 }
+.drawer__right__Container {
+    position: fixed;
+    top: 0;
+    right: -50%;
+    width: 65%;
+    height: 100vh;
+    overflow: auto;
+    background-color: $white;
+    z-index: 4;
+    opacity: 0;
+    transition: all 0.75s ease;
+    .button__row {
+        @include flex(center, flex-start, row);
+        .close-icon-btn {
+            margin-right: 1rem;
+            .icon {
+                color: $darkGray;
+            }
+        }
+        .title {
+            color: #000000;
+            font-size: 1.25rem;
+        }
+    }
+}
+.drawer__right__Container.show {
+    right: 0;
+    opacity: 1;
+}
+.full_drawer {
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    position: fixed;
+    z-index: 88866;
+    transition: all 0.5s;
+}
+// drawer content
+.drawer__content {
+    width: 100%;
+    padding: 1rem 3rem 1rem 9.437rem;
+    transition: all 0.5s;
+    background: rgba(0,0,0,0);
+}
 // homepage menu
 .menus-container {
     @include flex(center, space-between, row);
@@ -778,7 +822,7 @@ button.primary-btn {
         width: 100%;
         padding-top: 100%;
     }
-    .img {
+    .lazy-load-image-background {
         position: absolute;
         width: 100%;
         top: 0;
@@ -787,6 +831,16 @@ button.primary-btn {
         right: 0;
         object-fit: cover;
         height: 100%;
+        img {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            object-fit: cover;
+            height: 100%;
+        }
     }
 }
 
@@ -911,18 +965,27 @@ button.outline-button {
 .image__overlay {
     position: relative;
     margin-bottom: 6rem;
+    .left__text {
+        position: absolute;
+        left: 1rem;
+        bottom: 17rem;
+        font-size: 2.5rem;
+        color: $white;
+        line-height: 2.5rem;
+    }
     .img-overlay-container {
         position: absolute;
         bottom: 10rem;
         right: 12rem;
         .title {
             color: $white;
+            font-size: 0.8rem;
         }
         .msg {
             font-weight: 400;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: $white;
-            line-height: 3rem;
+            line-height: 2.5rem;
         }
     }
 }
@@ -951,7 +1014,7 @@ button.outline-button {
     padding: 1rem;
     width: 100%;
     .image-thumbnail-container {
-        .image-thumbnail{
+        .image-thumbnail {
             padding-top: 65%;
         }
         .img {
@@ -960,10 +1023,58 @@ button.outline-button {
         }
     }
     .list {
+        list-style: none;
         li {
+            .icon {
+                font-size: 0.8rem;
+                color: #000000;
+                margin-right: 1rem;
+            }
             font-size: 1.5rem;
             font-family: 'CircularXXWeb-Book';
             color: #000000;
         }
+    }
+}
+
+.small__large__Image__container {
+    .image-thumbnail-container {
+        .image-thumbnail {
+            padding-top: 100%;
+            .img {
+                height: 100%;
+            }
+        }
+    }
+}
+
+// fixed navigation
+.fixed__navigation__container {
+    .menu__type2__container {
+        .navigation {
+            position: fixed;
+            z-index: 3;
+            width: 100%;
+            background: #fff;
+        }
+    }
+}
+
+//icon text row
+.icon__text__container{
+    @include flex(center, flex-start, row);
+    .icontext__container{
+        @include flex(center, flex-start, row);
+        margin-top: 1rem;
+        .icon{
+            font-size: 1.25rem;
+            color: $primary;
+            margin: 0.5rem;
+        }
+        .text{
+            font-size: 1.25rem;
+            font-family: 'CircularXXWeb-Book';
+        }
+        margin-right: 1rem;
     }
 }

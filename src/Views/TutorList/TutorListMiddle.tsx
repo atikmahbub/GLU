@@ -2,8 +2,6 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
-import OutlineButton from '../../components/Button/OutlineButton';
-import { Typography } from '@material-ui/core';
 
 const TutorListMiddle: React.FunctionComponent = () => {
     const imageMetaDeta = [
@@ -13,7 +11,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.bookredinggirl,
         },
         {
@@ -22,7 +20,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.blurgirl,
         },
         {
@@ -31,7 +29,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.bookwritegirl,
         },
         {
@@ -40,7 +38,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.kidwithpad,
         },
 
@@ -51,7 +49,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.glasswatergirl,
         },
         {
@@ -60,7 +58,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.jumpinggirl,
         },
         {
@@ -69,7 +67,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.payingpadgirl,
         },
         {
@@ -78,7 +76,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.typinggirl,
         },
 
@@ -90,7 +88,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.greentshirtboy,
         },
         {
@@ -99,7 +97,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.handonhairgirl,
         },
         {
@@ -108,7 +106,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.payingpadgirl,
         },
         {
@@ -117,86 +115,9 @@ const TutorListMiddle: React.FunctionComponent = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.girlwithhermom,
         },
-        //four
-        // three
-        {
-            title: (
-                <>
-                    Natural selection and evolution <br /> Biology - Jeff Lee
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.greentshirtboy,
-        },
-        {
-            title: (
-                <>
-                    Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.handonhairgirl,
-        },
-        {
-            title: (
-                <>
-                    Introducing advanced long devision <br /> Maths - Sarah Swan
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.payingpadgirl,
-        },
-        {
-            title: (
-                <>
-                    How to structure narrative in fiction <br /> English - Freddy Smith
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.girlwithhermom,
-        },
-        //five
-        // three
-        {
-            title: (
-                <>
-                    Natural selection and evolution <br /> Biology - Jeff Lee
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.blurgirl,
-        },
-        {
-            title: (
-                <>
-                    Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.handonhairgirl,
-        },
-        {
-            title: (
-                <>
-                    Introducing advanced long devision <br /> Maths - Sarah Swan
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.kidwithpad,
-        },
-        {
-            title: (
-                <>
-                    How to structure narrative in fiction <br /> English - Freddy Smith
-                </>
-            ),
-            subtitle: 'AED200 / 45mins',
-            img: commonImg.blurgirl,
-        },
-
     ];
     return (
         <div className="total__classes">

@@ -12,7 +12,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.bookredinggirl,
         },
         {
@@ -21,7 +21,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.frontfacetwogirl,
         },
         {
@@ -30,7 +30,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.bookwritegirl,
         },
         {
@@ -39,7 +39,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.bookreadingboy,
         },
 
@@ -50,7 +50,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.glasswatergirl,
         },
         {
@@ -59,7 +59,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.jumpinggirl,
         },
         {
@@ -68,7 +68,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.payingpadgirl,
         },
         {
@@ -77,7 +77,7 @@ const TutorListBottom: React.FunctionComponent = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200 / 45mins',
+            subtitle: 'AED200h',
             img: commonImg.typinggirl,
         },
     ];

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface props {
     image: string;
@@ -10,7 +12,12 @@ const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle
     return (
         <div className="image-thumbnail-container">
             <div className="image-thumbnail">
-                <img className="img" src={image} alt="" />
+                <LazyLoadImage
+                    alt=""
+                    width="100%"
+                    effect="blur"
+                    src={image}
+                />
             </div>
             <Typography className="title">{title}</Typography>
             <Typography className="subtitle">{subtitle}</Typography>

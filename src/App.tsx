@@ -20,6 +20,11 @@ const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
 const StudentHomePage = React.lazy(() => import('./Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const TutorList = React.lazy(() => import('./Views/TutorList/TutorList'));
+const PreviousClasses = React.lazy(() => import('./Views/PreviousClasses/PreviousClasses'));
+const UpcomingClasses = React.lazy(() => import('./Views/UpcomingClasses/Index'));
+const StudentIndividualSubjects = React.lazy(() => import('./Views/StudentIndividualSubjects/Index'));
+
+
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -37,6 +42,9 @@ export class App extends React.Component {
                             <Route exact path="/signup-success" component={ShowWelcome} />
                             <Route exact path="/student-homepage" component={StudentHomePage} />
                             <Route exact path="/student-classes" component={StudentClassesTutors} />
+                            <Route exact path="/student-previous-classes" component={PreviousClasses} />
+                            <Route exact path="/student-upcoming-classes" component={UpcomingClasses} />
+                            <Route exact path="/student-individual-subjects" component={StudentIndividualSubjects} />
                             <Route exact path="/student-tutors" component={TutorList} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/support" component={Support} />

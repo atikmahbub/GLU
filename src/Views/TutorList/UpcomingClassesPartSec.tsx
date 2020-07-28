@@ -1,26 +1,20 @@
 import React from 'react';
-import ReusableUpcommingClasses from '../../components/ReusableUpcommingClasses';
 import commonImg from '../../Assets/images';
+import SmallLargeImage from '../../components/SmallLargeImage';
 
 const UpcomingClassesPartSec = () => {
     return (
-        <ReusableUpcommingClasses
-            image={commonImg.readinggirl}
-            titleClass="Upcomming Class"
-            titleLeft={
-                <>
-                    24/07/20 <br /> 3pm- 4.30pm
-                </>
-            }
-            titleRight={
-                <>
-                    24/07/20 <br /> 3pm- 4.30pm
-                </>
-            }
-            subtitleLeft="AED200"
-            subtitlteRight="AED200"
-        />
+        <div className="teacher__container">
+            <SmallLargeImage
+                orderOne={2}
+                orderTwo={1}
+                imageOne={commonImg.oldlady}
+                imageTwo={commonImg.smillingmanspects}
+                titleOne="Languages - Johny Duke"
+                titleTwo="Maths - Harry Stannard"
+            />
+        </div>
     );
-}
+};
 
 export default UpcomingClassesPartSec;
