@@ -3,7 +3,7 @@ import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
 
-const TotalClasses = () => {
+const TutorListMiddle: React.FunctionComponent = () => {
     const imageMetaDeta = [
         {
             title: (
@@ -11,8 +11,8 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.bookredinggirl,
+            subtitle: 'AED200h',
+            img: commonImg.greentshirtboy,
         },
         {
             title: (
@@ -20,8 +20,8 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.frontfacetwogirl,
+            subtitle: 'AED200h',
+            img: commonImg.blurgirl,
         },
         {
             title: (
@@ -29,7 +29,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200h',
             img: commonImg.bookwritegirl,
         },
         {
@@ -38,8 +38,8 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.bookreadingboy,
+            subtitle: 'AED200h',
+            img: commonImg.kidwithpad,
         },
 
         // two
@@ -49,7 +49,7 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200h',
             img: commonImg.glasswatergirl,
         },
         {
@@ -58,7 +58,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200h',
             img: commonImg.jumpinggirl,
         },
         {
@@ -67,7 +67,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200h',
             img: commonImg.payingpadgirl,
         },
         {
@@ -76,21 +76,61 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200h',
             img: commonImg.typinggirl,
+        },
+
+        // three
+        // three
+        {
+            title: (
+                <>
+                    Natural selection and evolution <br /> Biology - Jeff Lee
+                </>
+            ),
+            subtitle: 'AED200h',
+            img: commonImg.greentshirtboy,
+        },
+        {
+            title: (
+                <>
+                    Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
+                </>
+            ),
+            subtitle: 'AED200h',
+            img: commonImg.handonhairgirl,
+        },
+        {
+            title: (
+                <>
+                    Introducing advanced long devision <br /> Maths - Sarah Swan
+                </>
+            ),
+            subtitle: 'AED200h',
+            img: commonImg.payingpadgirl,
+        },
+        {
+            title: (
+                <>
+                    How to structure narrative in fiction <br /> English - Freddy Smith
+                </>
+            ),
+            subtitle: 'AED200h',
+            img: commonImg.girlwithhermom,
         },
     ];
     return (
         <div className="total__classes">
-            <div  className="row">
+            <div className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">
                         <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
             </div>
+            
         </div>
     );
 };
 
-export default TotalClasses;
+export default TutorListMiddle;

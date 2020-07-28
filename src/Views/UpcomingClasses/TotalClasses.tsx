@@ -11,8 +11,8 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.bookredinggirl,
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.greentshirtboy,
         },
         {
             title: (
@@ -20,7 +20,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.frontfacetwogirl,
         },
         {
@@ -29,7 +29,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.bookwritegirl,
         },
         {
@@ -38,7 +38,7 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.bookreadingboy,
         },
 
@@ -49,8 +49,8 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.glasswatergirl,
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.thinkingboy,
         },
         {
             title: (
@@ -58,7 +58,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.jumpinggirl,
         },
         {
@@ -67,7 +67,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.payingpadgirl,
         },
         {
@@ -76,8 +76,45 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.typinggirl,
+        },
+        //third
+        {
+            title: (
+                <>
+                    Natural selection and evolution <br /> Biology - Jeff Lee
+                </>
+            ),
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.twogrilpaper,
+        },
+        {
+            title: (
+                <>
+                    Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
+                </>
+            ),
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.frontfacetwogirl,
+        },
+        {
+            title: (
+                <>
+                    Introducing advanced long devision <br /> Maths - Sarah Swan
+                </>
+            ),
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.bookwritegirl,
+        },
+        {
+            title: (
+                <>
+                    How to structure narrative in fiction <br /> English - Freddy Smith
+                </>
+            ),
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.twogrilpaper,
         },
     ];
     return (

@@ -16,9 +16,8 @@ const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle
                     alt=""
                     width="100%"
                     effect="blur"
-                    src={image} // use normal <img> attributes as props
+                    src={image}
                 />
-                {/* <img className="img" src={image} alt="" /> */}
             </div>
             <Typography className="title">{title}</Typography>
             <Typography className="subtitle">{subtitle}</Typography>

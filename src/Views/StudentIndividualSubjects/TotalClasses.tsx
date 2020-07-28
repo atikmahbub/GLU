@@ -2,6 +2,7 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
+import HeadingRowContainer from '../../components/HeadingRowContainer';
 
 const TotalClasses = () => {
     const imageMetaDeta = [
@@ -11,8 +12,8 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
-            subtitle: 'AED200/h',
-            img: commonImg.bookredinggirl,
+            subtitle: 'AED200 / 45mins',
+            img: commonImg.greentshirtboy,
         },
         {
             title: (
@@ -20,7 +21,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.frontfacetwogirl,
         },
         {
@@ -29,7 +30,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.bookwritegirl,
         },
         {
@@ -38,50 +39,13 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
-            subtitle: 'AED200/h',
+            subtitle: 'AED200 / 45mins',
             img: commonImg.bookreadingboy,
-        },
-
-        // two
-        {
-            title: (
-                <>
-                    Natural selection and evolution <br /> Biology - Jeff Lee
-                </>
-            ),
-            subtitle: 'AED200/h',
-            img: commonImg.glasswatergirl,
-        },
-        {
-            title: (
-                <>
-                    Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
-                </>
-            ),
-            subtitle: 'AED200/h',
-            img: commonImg.jumpinggirl,
-        },
-        {
-            title: (
-                <>
-                    Introducing advanced long devision <br /> Maths - Sarah Swan
-                </>
-            ),
-            subtitle: 'AED200/h',
-            img: commonImg.payingpadgirl,
-        },
-        {
-            title: (
-                <>
-                    How to structure narrative in fiction <br /> English - Freddy Smith
-                </>
-            ),
-            subtitle: 'AED200/h',
-            img: commonImg.typinggirl,
         },
     ];
     return (
         <div className="total__classes">
+            <HeadingRowContainer title="Upcoming Classes" link="See All"/>
             <div  className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">

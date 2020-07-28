@@ -8,10 +8,12 @@ const UpcomingClassesPartSec = () => {
             <SmallLargeImage
                 orderOne={2}
                 orderTwo={1}
-                imageOne={commonImg.oldlady}
-                imageTwo={commonImg.smillingmanspects}
-                titleOne="Languages - Johny Duke"
-                titleTwo="Maths - Harry Stannard"
+                imageOne={commonImg.payingpadgirl}
+                imageTwo={commonImg.bookreadingboy}
+                titleOne={<>Biology. <br/> Natural selection and <br/> evolution</>}
+                titleTwo={<>Biology. <br/> Natural selection and <br/> evolution</>}
+                subtitleOne="AED200 / 75mins"
+                subtitleTwo="AED200 / 75mins"  
             />
         </div>
     );

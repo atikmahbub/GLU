@@ -22,9 +22,10 @@
                 font-family: inherit;
                 padding-right: 1rem;
                 font-size: 1.7rem;
+                color: $gray;
             }
             .active {
-                color: $gray;
+                color: #000000;
             }
         }
         .sort__container {

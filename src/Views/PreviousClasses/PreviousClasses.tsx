@@ -8,9 +8,8 @@ import TutorListMiddle from './TutorListMiddle';
 import UpcomingClassesPartSec from './UpcomingClassesPartSec';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Footer from '../Footer/Footer';
-import TutorListBottom from './TutorListBottom';
 
-const StudentAllClassesTutors: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
@@ -22,8 +21,7 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
             <NavigationMenu menuList={menu} />
             <div className="filter__row__container">
                 <div className="button__container">
-                    <Typography className="title active">Classes</Typography>
-                    <Typography className="title">Tutors</Typography>
+                    <Typography className="title active">Previous Classes</Typography>
                 </div>
                 <div className="sort__container">
                     <ExpandMore className="arrow__downward" />
@@ -34,8 +32,6 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
             <UpcomingClasses />
             <TutorListMiddle />
             <UpcomingClassesPartSec />
-            <TutorListBottom />
-
             <div className="row">
                 <div className="show__more__wrapper">
                     <div className="show__more__contianer">
@@ -49,4 +45,4 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
     );
 };
 
-export default StudentAllClassesTutors;
+export default Index;

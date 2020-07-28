@@ -47,6 +47,12 @@ import maggie from './img/maggie.jpg';
 import oldlady from './img/oldlady.jpg';
 import orangetopgirl from './img/orangetopgirl.jpg';
 import smillingmanspects from './img/smillingmanspects.jpg';
+import blueshirtman from './img/blueshirtman.jpg';
+import twogrilpaper from './img/twogrilpaper.jpg';
+import thinkingboy from './img/thinkingboy.jpg';
+import girlsolder from './img/girlsolder.jpg';
+import twogirlsideview from './img/twogirlsideview.jpg';
+import laptopbesideman from './img/laptopbesideman.jpg';
 
 export const commonImg = {
     google,
@@ -97,6 +103,12 @@ export const commonImg = {
     katoracutting,
     blackbluetop,
     blackbeauty,
+    blueshirtman,
+    twogrilpaper,
+    thinkingboy,
+    girlsolder,
+    twogirlsideview,
+    laptopbesideman
 };
 
 export default commonImg;

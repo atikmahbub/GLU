@@ -778,7 +778,16 @@ button.primary-btn {
         width: 100%;
         padding-top: 100%;
     }
-    .lazy-load-image-background{
+    .lazy-load-image-background {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        object-fit: cover;
+        height: 100%;
+        img {
             position: absolute;
             width: 100%;
             top: 0;
@@ -787,18 +796,8 @@ button.primary-btn {
             right: 0;
             object-fit: cover;
             height: 100%;
-            img{
-                position: absolute;
-                width: 100%;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                object-fit: cover;
-                height: 100%;
-            }
+        }
     }
-    
 }
 
 // navigation
@@ -922,18 +921,27 @@ button.outline-button {
 .image__overlay {
     position: relative;
     margin-bottom: 6rem;
+    .left__text {
+        position: absolute;
+        left: 1rem;
+        bottom: 17rem;
+        font-size: 2.5rem;
+        color: $white;
+        line-height: 2.5rem;
+    }
     .img-overlay-container {
         position: absolute;
         bottom: 10rem;
         right: 12rem;
         .title {
             color: $white;
+            font-size: 0.8rem;
         }
         .msg {
             font-weight: 400;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: $white;
-            line-height: 3rem;
+            line-height: 2.5rem;
         }
     }
 }
@@ -962,7 +970,7 @@ button.outline-button {
     padding: 1rem;
     width: 100%;
     .image-thumbnail-container {
-        .image-thumbnail{
+        .image-thumbnail {
             padding-top: 65%;
         }
         .img {
@@ -971,10 +979,39 @@ button.outline-button {
         }
     }
     .list {
+        list-style: none;
         li {
+            .icon {
+                font-size: 0.8rem;
+                color: #000000;
+                margin-right: 1rem;
+            }
             font-size: 1.5rem;
             font-family: 'CircularXXWeb-Book';
             color: #000000;
+        }
+    }
+}
+
+.small__large__Image__container {
+    .image-thumbnail-container {
+        .image-thumbnail {
+            padding-top: 100%;
+            .img {
+                height: 100%;
+            }
+        }
+    }
+}
+
+// fixed navigation
+.fixed__navigation__container {
+    .menu__type2__container {
+        .navigation {
+            position: fixed;
+            z-index: 3;
+            width: 100%;
+            background: #fff;
         }
     }
 }

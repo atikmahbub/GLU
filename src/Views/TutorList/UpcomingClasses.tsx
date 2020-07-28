@@ -1,25 +1,12 @@
 import React from 'react';
-import ReusableUpcommingClasses from '../../components/ReusableUpcommingClasses';
 import commonImg from '../../Assets/images';
+import SmallLargeImage from '../../components/SmallLargeImage';
 
 const UpcomingClasses = () => {
     return (
-        <ReusableUpcommingClasses
-            image={commonImg.brownhairman}
-            titleClass="Upcomming Class"
-            titleLeft={
-                <>
-                    24/07/20 <br /> 3pm- 4.30pm
-                </>
-            }
-            titleRight={
-                <>
-                    24/07/20 <br /> 3pm- 4.30pm
-                </>
-            }
-            subtitleLeft="AED200"
-            subtitlteRight="AED200"
-        />
+        <div className="teacher__container">
+               <SmallLargeImage orderOne={1} orderTwo={2} imageOne={commonImg.orangetopgirl} imageTwo={commonImg.blueshirtman} titleOne="Maths - Chantelle Stannard" titleTwo="Languages - Johny Duke" />
+        </div>
     );
 }
 
