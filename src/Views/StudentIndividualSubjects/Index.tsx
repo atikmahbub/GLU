@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import { FavoriteBorder } from '@material-ui/icons';
@@ -13,18 +13,24 @@ import FixedNavigation from '../../Containers/FixedNavigation';
 import WrapperScroller from '../../Containers/WrapperScroller';
 import commonImg from '../../Assets/images';
 import ImageOverlayContainer from './ImageOverlayContainer';
+import SlidingDrawer from '../../components/SlidingDrawer';
 
 const PreviousClasses: React.FunctionComponent = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
     const menu = [
         { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Subjects' },
         { link: '', name: 'Messages' },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    }
     return (
         <div className="student__classes__tutor">
+            <SlidingDrawer show={openDrawer} handler={handleDrawer}/>
             <FixedNavigation>
-                <NavigationMenu menuList={menu} />
+                <NavigationMenu menuList={menu} handler={handleDrawer} />
             </FixedNavigation>
             <div className="banner__holding__container">
                 <div className="large__text">

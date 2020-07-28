@@ -11,14 +11,15 @@ export interface propsType {
 
 interface props {
     menuList?: propsType[];
+    handler?: ()=> void
 }
-const NavigationMenu: React.FunctionComponent<props> = ({ menuList }) => {
+const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler }) => {
     const getMenuList = () => {
         if (menuList) {
             return (
                 <>
                     <li>
-                        <IconButton className="icon-button">
+                        <IconButton className="icon-button" onClick={handler}>
                             <Menu className="icon" />
                         </IconButton>
                     </li>

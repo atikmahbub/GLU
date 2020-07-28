@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
@@ -9,17 +9,29 @@ import UpcomingClassesPartSec from './UpcomingClassesPartSec';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Footer from '../Footer/Footer';
 import TutorListBottom from '../StudentAllClassesTutors/TutorListBottom';
+import SlidingDrawer from '../../components/SlidingDrawer';
+import FixedNavigation from '../../Containers/FixedNavigation';
+import SlidingDrawerContent from './SlidingDrawerContent';
 
 const PreviousClasses: React.FunctionComponent = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
     const menu = [
         { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Subjects' },
         { link: '', name: 'Messages' },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    };
     return (
         <div className="student__classes__tutor">
-            <NavigationMenu menuList={menu} />
+            <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                <SlidingDrawerContent/>
+                </SlidingDrawer>
+            <FixedNavigation>
+                <NavigationMenu menuList={menu} handler={handleDrawer} />
+            </FixedNavigation>
             <div className="filter__row__container">
                 <div className="button__container">
                     <Typography className="title active">Upcoming Classes</Typography>
@@ -33,7 +45,7 @@ const PreviousClasses: React.FunctionComponent = () => {
             <UpcomingClasses />
             <TutorListMiddle />
             <UpcomingClassesPartSec />
-            <TutorListBottom/>
+            <TutorListBottom />
             <div className="row">
                 <div className="show__more__wrapper">
                     <div className="show__more__contianer">
@@ -42,7 +54,7 @@ const PreviousClasses: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

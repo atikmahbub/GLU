@@ -23,7 +23,7 @@ const PeopleSaying: React.FunctionComponent = () => {
                         </div>
                         <div className="col-md-6">
                             <BorderCardContainer
-                                heading="“Best thing for school in years.”"
+                                heading="“Exactly what i need for my exam revision.”"
                                 title="Vivienne Williams"
                                 subtitle="Student at Mount Stewart"
                             />
