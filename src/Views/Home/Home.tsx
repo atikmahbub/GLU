@@ -57,7 +57,8 @@ const Home: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={
                     <>
-                        Uninterrupted access <br /> to qualified and <br /> experienced teachers.
+                        If you are a  qualified <br />  and  experienced  teacher <br /> then   use  the  Glu  platform <br/>  to 
+                        earn money  from the <br/>  comfort of your own home
                     </>
                 }
             />
@@ -67,7 +68,7 @@ const Home: React.FunctionComponent = () => {
             />
             <SectionFour
                 imageOne={commonImg.hoddygirl}
-                imageTwo={commonImg.laptopgirl}
+                imageTwo={commonImg.lappygirl}
                 msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students."
                 show={false}

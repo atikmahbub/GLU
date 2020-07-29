@@ -7,7 +7,7 @@ import photo from './img/photo.jpg';
 import girlScatter from './img/girlScatter.jpg';
 import boy from './img/boy.jpg';
 import earringgirl from './img/earringgirl.jpg';
-import lappygirl from './img/lappy-girl.jpg';
+import lappygirl from './img/lappygirl.jpg';
 import penpadgirl from './img/penpadgirl.jpg';
 import shorthair from './img/shorthair.jpg';
 import smilegirl from './img/smilegirl.jpg';
