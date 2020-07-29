@@ -77,7 +77,7 @@ const Home: React.FunctionComponent = () => {
             <SectionSix />
             <SectionTwoReusable
                 image={commonImg.women}
-                title="Messanger"
+                title="Messenger"
                 msg={
                     <>
                         Keep the convo <br /> going with the in app <br /> messenger.
@@ -91,7 +91,7 @@ const Home: React.FunctionComponent = () => {
             <SectionFour
                 imageOne={commonImg.smilegirl}
                 imageTwo={commonImg.boy}
-                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
+                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space."
                 show={true}
             />
             <PeopleSaying />
