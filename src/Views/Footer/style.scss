@@ -8,7 +8,9 @@
     .email-container {
         @include flex(center, space-between, row);
         .join-glu {
-            font-size: 1.1rem;
+            font-size: 1.562rem;
+            color: #000;
+            font-weight: 600;
             font-family: 'CircularXXWeb-Book';
         }
         .email {
@@ -16,11 +18,14 @@
             border: none;
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
-                font-size: 0.9rem;
+                font-size: 1.562rem;
                 color: #8b8b8b;
             }
         }
         .subscribe {
+            font-size: 1.562rem;
+            color: #000;
+            font-weight: 600;
             text-transform: capitalize;
             font-family: 'CircularXXWeb-Book';
         }
@@ -31,30 +36,35 @@
     .address-container {
         
         .title {
-            font-size: 1.1rem;
+            font-size: 1.562rem;
+            color: #000;
             font-family: 'CircularXXWeb-Book';
+            font-weight: 600;
         }
         .links {
             display: block;
             color: #000;
-            font-size: 1.1rem;
+            font-size: 1.562rem;
+            font-weight: 600;
         }
     }
     .breaker{
     margin-bottom: 4rem;
     }
     .build-by {
-        font-size: 0.75rem;
+        font-size: 1rem;
         font-weight: 600;
         margin-bottom: 1rem;
+        font-family: 'CircularXXMonoWeb-Regular';
         span {
             font-weight: 300;
             color: #8b8b8b;
         }
     }
     .glu {
-        font-size: 0.75rem;
+        font-size: 1rem;
         font-weight: 600;
+        font-family: 'CircularXXMonoWeb-Regular';
         text-align: right;
         margin-bottom: 1rem;
     }

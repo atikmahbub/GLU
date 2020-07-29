@@ -2,6 +2,7 @@ import React from 'react';
 import { IconButton, Button, Typography } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
+import OutlineButton from './Button/OutlineButton';
 
 
 interface props{
@@ -15,20 +16,26 @@ const MenuContainer: React.FunctionComponent<props> = ({handleMenu}) => {
     const handleSignup = () => {
         routes.push('/signup')
     }
+    const handleHelp = () => {
+        routes.push('/support')
+    }
     return (
         <div className="menus-container">
             <div className="left">
                 <ul>
-                    <li>
+                    {/* <li>
                         <IconButton onClick={handleMenu}>
                             <Menu />
                         </IconButton>
+                    </li> */}
+                    <li>
+                        <OutlineButton btnClick={handleSignup} text="Sign Up"/>
                     </li>
                     <li>
                         <Button onClick={handleSignin}>Sign In</Button>
                     </li>
                     <li>
-                        <Button onClick={handleSignup}>Sign Up</Button>
+                        <Button onClick={handleHelp}>Help</Button>
                     </li>
                 </ul>
             </div>

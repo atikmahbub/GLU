@@ -12,7 +12,7 @@ const SectionSix = () => {
                     <div className="col-lg-6">
                         <Typography className="email-address">Email Address</Typography>
                         <div className="email-container">
-                            <input className="email" placeholder="Enter your email" />
+                            <input className="email" placeholder="harrison@madebysix.com" />
                             <Button className="subscribe">Subscribe</Button>
                         </div>
                         <hr className="email-line" />

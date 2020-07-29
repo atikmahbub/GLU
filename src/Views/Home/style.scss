@@ -2,11 +2,12 @@
     .holding-container {
         height: 100vh;
         display: flex;
-        margin-bottom: 7rem;
+        margin-bottom: 9.375rem;
         .rotating-box {
             width: 100%;
             height: 100vh;
-            background-image: url('../../Assets/img/girlScatter.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('../../Assets/img/girlScatter.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             animation: rotate 1s;
@@ -35,8 +36,8 @@
             }
             .launching-soon-container {
                 position: absolute;
-                bottom: 5rem;
-                left: 2rem;
+                bottom: 11.125rem;
+                left: 3.062rem;
                 transform: translateY(-1rem);
                 margin-top: 1rem;
                 transition: all 0.3s;
@@ -44,22 +45,22 @@
                 font-family: 'CircularXXWeb-Book';
                 .title {
                     color: $white;
-                    font-size: 1rem;
-                    font-weight: 100;
-                    font-family: inherit;
+                    font-size: 1.562rem;
+                    margin-bottom: 1rem;
+                    font-family: 'CircularXXWeb-Book';
                 }
                 .for {
-                    font-size: 2.5rem;
+                    font-size: 5rem;
                     font-weight: 500;
                     color: $white;
-                    line-height: 2.5rem;
+                    line-height: 5rem;
                     font-family: inherit;
                 }
             }
             .bottom-right-container {
                 position: absolute;
-                bottom: 1rem;
-                right: 2rem;
+                bottom: 1.937rem;
+                right: 3.062rem;
                 @include flex(center, center, row);
                 transform: translateY(-1rem);
                 margin-top: -1rem;
@@ -94,20 +95,21 @@
         }
     }
     .section-one {
-        padding: 0 1rem;
+        padding: 0 3.062rem;
         .img-container {
             margin-right: 4rem;
             .spect-boy {
                 width: 100%;
+                object-fit: cover;
             }
         }
         .section-one-right-part {
             padding-left: 2rem;
             .title {
-                font-weight: 500;
-                font-size: 1.5rem;
-                line-height: 1.8rem;
+                font-size: 2.625rem;
+                line-height: 2.625rem;
                 margin-bottom: 10rem;
+                color: #000;
                 font-family: 'CircularXXWeb-Book';
             }
             .sppon-girl {
@@ -116,39 +118,48 @@
             }
         }
         .workable-solution {
-            margin-top: 4rem;
-            font-size: 2.7rem;
-            font-weight: 500;
-            line-height: 2.8rem;
-            margin-bottom: 5rem;
+            margin-top: 10rem;
+            font-size: 5rem;
+            line-height: 5rem;
+            margin-bottom: 9.937rem;
+            color: #000;
             font-family: 'CircularXXWeb-Book';
         }
     }
     .section-two {
         position: relative;
-        margin-bottom: 6rem;
+        margin-bottom: 8.75rem;
+        .opacity-bg {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
         .ear-ring-girl {
             width: 100%;
         }
         .img-overlay-container {
             position: absolute;
-            bottom: 10rem;
-            right: 12rem;
+            bottom: 11.187rem;
+            right: 7.25rem;
             .title {
                 color: $white;
+                font-size: 1.562rem;
                 font-family: 'CircularXXWeb-Book';
+                margin-bottom: 1rem;
             }
             .msg {
-                font-weight: 400;
-                font-size: 3.5rem;
+                font-size: 5rem;
                 color: $white;
                 font-family: 'CircularXXWeb-Book';
-                line-height: 3rem;
+                line-height: 5rem;
             }
         }
     }
     .section-three {
-        margin-bottom: 6rem;
+        margin-bottom: 8.75rem;
         .left-part {
             @include flex(center, center, row);
             .mobile {
@@ -161,18 +172,19 @@
         .right-part {
             @include flex(center, center, column);
             .title {
-                font-weight: 500;
-                font-size: 1.5rem;
-                line-height: 1.8rem;
+                font-size: 2.725rem;
+                line-height: 2.725rem;
+                color: #000;
                 font-family: 'CircularXXWeb-Book';
+                margin-right: 11.687rem;
             }
         }
     }
     .section-four {
-        padding: 0 1rem;
+        padding: 0 3.062rem;
         margin-bottom: 6rem;
         .short-hair-girl-container {
-            margin-right: 4rem;
+            margin-right: 8rem;
             .short-hair-girl {
                 width: 100%;
             }
@@ -180,66 +192,72 @@
         .section-four-right-part-container {
             .title {
                 font-weight: 500;
-                font-size: 1.5rem;
-                line-height: 1.8rem;
-                margin-bottom: 1rem;
+                font-size: 2.625rem;
+                line-height: 2.625rem;
+                margin-bottom: 20.437rem;
+                color: #000;
                 font-family: 'CircularXXWeb-Book';
             }
             .real-time-intraction {
-                font-size: 0.9rem;
-                font-weight: 500;
+                margin-top: -19.537rem;
+                margin-bottom: 2.687rem;
+                font-size: 1.562rem;
                 font-family: 'CircularXXWeb-Book';
             }
             .board-icon {
-                width: 1.5rem;
+                width: 2.687rem;
+                margin-bottom: 10.875rem;
             }
             .lappy-girl {
-                margin-top: 10rem;
                 width: 100%;
             }
         }
     }
     .section-five {
-        padding: 1rem;
+        padding: 2rem 3.062rem;
         .learn-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            line-height: 1.5rem;
+            margin-top: 2rem;
+            font-size: 2.625rem;
+            line-height: 2.625rem;
+            color: #000;
             font-family: 'CircularXXWeb-Book';
+            margin-bottom: 2.437rem;
         }
         .subject {
             width: 1.5rem;
         }
         .subject-list-container {
+            margin-top: 2rem;
             ul {
                 list-style: none;
                 li {
                     font-weight: 500;
-                    font-size: 2.5rem;
-                    line-height: 2.5rem;
-                font-family: 'CircularXXWeb-Book';
+                    font-size: 5rem;
+                    line-height: 5rem;
+                    font-family: 'CircularXXWeb-Book';
+                    color: #000;
                 }
             }
         }
     }
     .section-six {
-        padding: 0 1rem;
+        padding: 0 3.062rem;
         margin-top: 4rem;
         margin-bottom: 4rem;
         .title {
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 1.562rem;
             font-family: 'CircularXXWeb-Book';
+            color: #000;
         }
         .msg {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 2.625rem;
             font-family: 'CircularXXWeb-Book';
+            color: #000;
         }
         .email-address {
-            font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 1.562rem;
             font-family: 'CircularXXWeb-Book';
+            color: #000;
         }
         .email-container {
             @include flex(center, space-between, row);
@@ -250,20 +268,23 @@
                 color: #5f5f5f;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
+                height: 4rem;
                 &:focus {
                     outline-color: transparent;
                 }
                 &::placeholder {
                     padding-left: 0;
-                    font-size: 1rem;
+                    font-size: 2.625rem;
                     color: #5f5f5f;
                     font-weight: 500;
                 }
             }
             .subscribe {
                 text-transform: capitalize;
-                font-weight: 500;
+                font-size: 1.562rem;
+                font-weight: 600;
                 font-family: 'CircularXXWeb-Book';
+                color: #000;
             }
         }
 
@@ -279,7 +300,7 @@
             background-color: $grayPrimary;
         }
         .people-saying {
-            font-size: 1.3rem;
+            font-size: 2.625rem;
             font-weight: 500;
             color: #000000;
             font-family: 'CircularXXWeb-Book';
@@ -289,50 +310,53 @@
             border-left: 1px solid $grayPrimary;
             .heading {
                 font-weight: 500;
-                font-size: 1.2rem;
+                font-size: 2.625rem;
+                line-height: 2.625rem;
                 margin-bottom: 1.2rem;
                 font-family: 'CircularXXWeb-Book';
             }
             .title {
-                font-size: 0.8rem;
+                font-size: 1.562rem;
                 font-weight: 600;
                 font-family: 'CircularXXWeb-Book';
             }
             .subtitle {
-                font-size: 0.7rem;
+                font-size: 1.562rem;
                 font-weight: 100;
                 color: $headingPrimary;
                 font-family: 'CircularXXWeb-Book';
             }
         }
         .break-section {
-            margin: 3rem 0;
+           margin-bottom: 8.937rem;;
             width: 100%;
         }
         .pen-pad-girl {
             width: 100%;
+            padding-right: 10.437rem;
         }
         .text-section-container {
             .title {
-                font-size: 1.3rem;
-                font-weight: 500;
-                line-height: 1.5rem;
+                font-size: 2.625rem;
+                line-height: 2.625rem;
                 font-family: 'CircularXXWeb-Book';
+                color: #000;
+                margin-bottom: 1rem;
             }
             .subtitle {
-                font-size: 0.8rem;
+                font-size: 1.937rem;
                 font-weight: 500;
-                margin: 0.5rem 0;
+                margin-bottom: 2.625rem ;
                 font-family: 'CircularXXWeb-Book';
             }
             .apple-icon {
                 color: #000;
-                font-size: 1rem;
+                font-size: 1.5rem;
                 margin-right: 0.5rem;
                 font-family: 'CircularXXWeb-Book';
             }
             .google-icon {
-                width: 0.8rem;
+                width: 1.25rem;
             }
         }
     }
