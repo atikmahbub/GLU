@@ -773,7 +773,7 @@ button.primary-btn {
 .menus-container {
     @include flex(center, space-between, row);
     position: absolute;
-    padding: 0 1rem;
+    padding: 1.125rem 3.062rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -784,12 +784,19 @@ button.primary-btn {
     .left {
         ul {
             list-style: none;
+            margin-bottom: 0;
             li {
                 display: inline-block;
+                button.outline-button{
+                    border: 1px solid rgba(255,255,255,0.25);
+                    
+                }
                 button {
                     color: $white;
                     text-transform: capitalize;
+                    font-size: 1.25rem;
                     font-family: 'CircularXXWeb-Book';
+                    padding: 0.437rem 1.562rem;
                 }
             }
         }
@@ -797,9 +804,7 @@ button.primary-btn {
     .right {
         .title {
             color: $white;
-            margin: 0 1rem 1rem 0;
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 2.187rem;
             font-family: 'CircularXXWeb-Book';
         }
     }
@@ -1006,7 +1011,7 @@ button.outline-button {
 }
 
 .horizontal__line {
-    background-color: $lightGray;
+    background-color: $gray;
 }
 
 // upcomming class
