@@ -57,7 +57,8 @@ const Home: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={
                     <>
-                        Uninterrupted access <br /> to qualified and <br /> experienced teachers.
+                        If you are a  qualified <br />  and  experienced  teacher <br /> then   use  the  Glu  platform <br/>  to 
+                        earn money  from the <br/>  comfort of your own home
                     </>
                 }
             />
@@ -67,7 +68,7 @@ const Home: React.FunctionComponent = () => {
             />
             <SectionFour
                 imageOne={commonImg.hoddygirl}
-                imageTwo={commonImg.laptopgirl}
+                imageTwo={commonImg.lappygirl}
                 msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students."
                 show={false}
@@ -76,7 +77,7 @@ const Home: React.FunctionComponent = () => {
             <SectionSix />
             <SectionTwoReusable
                 image={commonImg.women}
-                title="Messanger"
+                title="Messenger"
                 msg={
                     <>
                         Keep the convo <br /> going with the in app <br /> messenger.
@@ -90,7 +91,7 @@ const Home: React.FunctionComponent = () => {
             <SectionFour
                 imageOne={commonImg.smilegirl}
                 imageTwo={commonImg.boy}
-                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
+                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space."
                 show={true}
             />
             <PeopleSaying />
