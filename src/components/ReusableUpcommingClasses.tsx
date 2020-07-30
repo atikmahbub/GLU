@@ -21,22 +21,24 @@ const ReusableUpcommingClasses: React.FunctionComponent<props> = ({
     subtitlteRight,
 }) => {
     return (
-        <div className="upcoming__class d-flex">
+        <div className="upcoming__class">
             <div className="row w-100">
                 <div className="col-md-6">
                     <ImageThumbnail image={image} />
                 </div>
-                <div className="col-md-6 d-flex flex-column">
+                <div className="col-md-6 d-flex">
+                    <div className="justification">
                     <ul className="list">
                         <li><FiberManualRecord className="icon"/> {titleClass}</li>
                     </ul>
-                    <div style={{ marginTop: '45%' }} className="row">
-                        <div className="col-md-6 mb-2">
+                    <div className="row">
+                        <div className="col-md-6 mb-2 d-flex">
                             <TitleSubtitle title={titleLeft} subtitle={subtitleLeft} />
                         </div>
-                        <div className="col-md-6 mb-2">
+                        <div className="col-md-6 mb-2 d-flex">
                             <TitleSubtitle title={titleRight} subtitle={subtitlteRight} />
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -16,14 +16,14 @@ const PeopleSaying: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-6">
                             <BorderCardContainer
-                                heading="“Best thing for school in years.”"
+                                heading="“Best thing for school in years”"
                                 title="Candice Lazare"
                                 subtitle=" Teacher at CCA"
                             />
                         </div>
                         <div className="col-md-6">
                             <BorderCardContainer
-                                heading="“Exactly what i need for my exam revision.”"
+                                heading="“Exactly what i need for my exam revision”"
                                 title="Vivienne Williams"
                                 subtitle="Student at Mount Stewart"
                             />
@@ -37,7 +37,7 @@ const PeopleSaying: React.FunctionComponent = () => {
                 <div className="col-lg-6 d-flex align-items-center">
                     <div className="text-section-container">
                         <Typography className="title">
-                        Download Glu to open the door to endless learning, with 365 day around the clock access to teachers, lessons and classes.
+                        Download Glu to open the door to endless learning, with 365 day around the clock access to teachers, lessons and classes
                         </Typography>
                         <Typography className="subtitle">App Store and Google Play</Typography>
                         <Apple className="apple-icon" />
