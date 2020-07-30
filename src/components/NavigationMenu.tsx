@@ -11,9 +11,10 @@ export interface propsType {
 
 interface props {
     menuList?: propsType[];
-    handler?: ()=> void
+    customClass?: string;
+    handler?: () => void;
 }
-const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler }) => {
+const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass }) => {
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -31,7 +32,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler }) =
                     {menuList.map((item: propsType) => (
                         <li key={uuidv4()}>
                             <Link to={item.link}>
-                                <Button>{item.name}</Button>
+                                <Button className="link">{item.name}</Button>
                             </Link>
                         </li>
                     ))}
@@ -62,8 +63,8 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler }) =
     return (
         <div className="menu__type2__container">
             <div className="navigation">
-                <ul>{getMenuList()}</ul>
-                <Typography className="heading">Glu</Typography>
+                <ul className={customClass}>{getMenuList()}</ul>
+                <Typography className={`heading ${customClass}`}>Glu</Typography>
             </div>
         </div>
     );
