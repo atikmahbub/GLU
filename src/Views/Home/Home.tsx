@@ -64,13 +64,13 @@ const Home: React.FunctionComponent = () => {
             />
             <SectionThree
                 image={commonImg.mobileApple}
-                msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student."
+                msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
             />
             <SectionFour
                 imageOne={commonImg.hoddygirl}
                 imageTwo={commonImg.lappygirl}
                 msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
-                            work in tandem, between schools, teachers, parents and students."
+                            work in tandem, between schools, teachers, parents and students"
                 show={false}
             />
             <SectionFive />
@@ -80,18 +80,18 @@ const Home: React.FunctionComponent = () => {
                 title="Messenger"
                 msg={
                     <>
-                        Keep the convo <br /> going with the in app <br /> messenger.
+                        Keep the convo <br /> going with the in app <br /> messenger
                     </>
                 }
             />
             <SectionThree
                 image={commonImg.menmobileview}
-                msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment."
+                msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
             />
             <SectionFour
                 imageOne={commonImg.smilegirl}
                 imageTwo={commonImg.boy}
-                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space."
+                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
                 show={true}
             />
             <PeopleSaying />

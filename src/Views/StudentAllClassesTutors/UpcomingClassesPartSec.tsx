@@ -23,4 +23,4 @@ const UpcomingClassesPartSec = () => {
     );
 }
 
-export default UpcomingClassesPartSec;
+export default React.memo(UpcomingClassesPartSec);

@@ -12,37 +12,7 @@
             }
         }
     }
-    .filter__row__container {
-        @include flex(center, space-between, row);
-        font-family: 'CircularXXWeb-Book';
-        padding: 1rem;
-        .button__container {
-            @include flex(center, space-between, row);
-            .title {
-                font-family: inherit;
-                padding-right: 1rem;
-                font-size: 1.7rem;
-                color: $gray;
-            }
-            .active {
-                color: #000000;
-            }
-        }
-        .sort__container {
-            @include flex(center, space-between, row);
-            .arrow__downward {
-                color: #000000;
-                font-size: 1rem;
-            }
-            .sort__title {
-                font-family: inherit;
-                color: #000000;
-                font-size: 0.9rem;
-            }
-        }
-    }
     .total__classes {
-        padding: 1rem;
         margin-bottom: 2rem;
     }
     .show__more__wrapper {

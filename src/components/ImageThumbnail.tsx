@@ -7,8 +7,9 @@ interface props {
     image: string;
     title?: React.ReactNode;
     subtitle?: string;
+    dateTime?: React.ReactNode;
 }
-const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle }) => {
+const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle, dateTime }) => {
     return (
         <div className="image-thumbnail-container">
             <div className="image-thumbnail">
@@ -19,6 +20,7 @@ const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle
                     src={image}
                 />
             </div>
+            {dateTime}
             <Typography className="title">{title}</Typography>
             <Typography className="subtitle">{subtitle}</Typography>
         </div>

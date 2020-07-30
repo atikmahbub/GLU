@@ -2,6 +2,9 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
+import { FiberManualRecord } from '@material-ui/icons';
+import { Typography } from '@material-ui/core';
+import DateTimeDotText from '../../components/DateTimeDotText';
 
 const TotalClasses = () => {
     const imageMetaDeta = [
@@ -11,6 +14,7 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.greentshirtboy,
         },
@@ -20,6 +24,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.frontfacetwogirl,
         },
@@ -29,6 +34,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.bookwritegirl,
         },
@@ -38,6 +44,7 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.bookreadingboy,
         },
@@ -49,6 +56,7 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.thinkingboy,
         },
@@ -58,6 +66,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.jumpinggirl,
         },
@@ -67,6 +76,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.payingpadgirl,
         },
@@ -76,6 +86,7 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.typinggirl,
         },
@@ -86,6 +97,7 @@ const TotalClasses = () => {
                     Natural selection and evolution <br /> Biology - Jeff Lee
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.twogrilpaper,
         },
@@ -95,6 +107,7 @@ const TotalClasses = () => {
                     Week 3 of a begginers guide <br /> Skateboarding - Morris Jarman
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.frontfacetwogirl,
         },
@@ -104,6 +117,7 @@ const TotalClasses = () => {
                     Introducing advanced long devision <br /> Maths - Sarah Swan
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.bookwritegirl,
         },
@@ -113,16 +127,22 @@ const TotalClasses = () => {
                     How to structure narrative in fiction <br /> English - Freddy Smith
                 </>
             ),
+            dateTime: <DateTimeDotText />,
             subtitle: 'AED200 / 45mins',
             img: commonImg.twogrilpaper,
         },
     ];
     return (
         <div className="total__classes">
-            <div  className="row">
+            <div className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">
-                        <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
+                        <ImageThumbnail
+                            image={item.img}
+                            title={item.title}
+                            dateTime={item.dateTime}
+                            subtitle={item.subtitle}
+                        />
                     </div>
                 ))}
             </div>
@@ -130,4 +150,4 @@ const TotalClasses = () => {
     );
 };
 
-export default  React.memo(TotalClasses);
+export default React.memo(TotalClasses);

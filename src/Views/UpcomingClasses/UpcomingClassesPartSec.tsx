@@ -10,7 +10,7 @@ const UpcomingClassesPartSec = () => {
             titleClass="Upcomming Class"
             titleLeft={
                 <>
-                    24/07/20 <br /> 3pm- 4.30pm
+                    24/07/20 <br /> 3pm- <br /> 4.30pm
                 </>
             }
             titleRight={

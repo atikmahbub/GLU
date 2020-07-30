@@ -28,7 +28,7 @@ const MenuContainer: React.FunctionComponent<props> = ({handleMenu}) => {
                             <Menu />
                         </IconButton>
                     </li> */}
-                    <li>
+                    {/* <li>
                         <OutlineButton btnClick={handleSignup} text="Sign Up"/>
                     </li>
                     <li>
@@ -36,7 +36,7 @@ const MenuContainer: React.FunctionComponent<props> = ({handleMenu}) => {
                     </li>
                     <li>
                         <Button onClick={handleHelp}>Help</Button>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="right">
