@@ -1,16 +1,42 @@
 .banner {
     top: 0px;
     left: 0px;
-    width: 1920px;
-    height: 1080px;
+
+    height: 100vh;
     background: #757470 0% 0% no-repeat padding-box;
     opacity: 1;
+    position: relative;
     &__links {
         color: white;
         li {
             .link {
+                font-size: 20px;
                 color: white;
             }
         }
+    }
+    &__image {
+        position: absolute;
+        top: 150px;
+        left: 1102px;
+        width: 535px;
+        height: 545px;
+        //background: transparent url('img/Stocksy_comp_2414754.png') 0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+    &__heading {
+        position: absolute;
+        top: 581px;
+        left: 49px;
+        width: 647px;
+        height: 267px;
+        text-align: left;
+        font-size: 120px;
+        font-weight: 120;
+        font: Book 120px/120px CircularXXTrial;
+        letter-spacing: 0px;
+        color: #ffffff;
+        opacity: 1;
+        //
     }
 }
