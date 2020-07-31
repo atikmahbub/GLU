@@ -3,7 +3,7 @@ import Banner from './Banner';
 
 const index: React.FunctionComponent = () => {
     return (
-        <div>
+        <div class="wrapper">
             <Banner />
         </div>
     );

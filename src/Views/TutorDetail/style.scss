@@ -1,102 +1,79 @@
-.banner {
-    top: 0px;
-    left: 0px;
+.wrapper {
+    .banner {
+        background: #757470;
+        height: 100vh;
 
-    height: 1080px;
-    background: #757470 0% 0% no-repeat padding-box;
-    opacity: 1;
-    position: relative;
-    &__links {
-        color: white;
-        li {
-            .link {
-                font-size: 20px;
-                color: white;
+        position: relative;
+        &__links {
+            color: white;
+            li {
+                .link {
+                    font-size: 1.25rem;
+                    color: white;
+                }
+            }
+        }
+        &__image {
+            width: 27.8%;
+            position: absolute;
+            top: 9.375rem;
+            left: 68.875rem;
+        }
+        &__heading {
+            position: absolute;
+
+            top: 36.312rem;
+            left: 3.062rem;
+            color: $white;
+            &__text {
+                font-family: 'CircularXXWeb-Book';
+                font-size: 7.5rem;
+                line-height: 7.5rem;
+            }
+            .icontext__container {
+                display: flex;
+                .text {
+                    margin-left: 1rem;
+                }
             }
         }
     }
-    &__image {
-        position: absolute;
-        top: 150px;
-        left: 1102px;
-        width: 535px;
-        height: 545px;
-        //background: transparent url('img/Stocksy_comp_2414754.png') 0% 0% no-repeat padding-box;
-        opacity: 1;
-    }
-    &__heading {
-        position: absolute;
-        top: 581px;
-        left: 49px;
-        width: 647px;
-        height: 267px;
-        text-align: left;
-        font-size: 120px;
-        font-weight: 120;
-        font-family: 'CircularXXWeb-Book';
-        letter-spacing: 0px;
-        color: #ffffff;
-        opacity: 1;
-        //
-    }
-    &__favourite {
-        position: absolute;
-        top: 860px;
-        left: 76px;
-        width: 84px;
-        height: 25px;
-        text-align: left;
-        font: Book 20px/25px 'CircularXXWeb-Book';
-        letter-spacing: 0px;
-        color: #ffffff;
-        opacity: 1;
-        display: flex;
-    }
-    &__favouriteIcon {
-        top: 865px;
-        left: 49px;
-        width: 17px;
-        height: 15px;
-        margin-right: 10px;
-        opacity: 1;
-    }
-    &__favouriteText {
-        top: 860px;
-        left: 76px;
-        width: 84px;
-        height: 25px;
-        text-align: left;
-        font: Book 20px/25px 'CircularXXWeb-Book';
-        letter-spacing: 0px;
-        color: #ffffff;
-        opacity: 1;
-    }
-    &__ratingBox {
-        position: absolute;
-        top: 1015px;
-        left: 49px;
-        // width: 303px;
-        height: 32px;
-        text-align: left;
-        letter-spacing: 0px;
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        &__Grade {
-            font-size: 25px;
-            font-family: 'CircularXXWeb-Book';
-            color: #fff;
-        }
-        &__Icon {
-            width: 17px;
-            height: 16px;
-            color: #fff;
-        }
-        &__Text {
-            color: #ffffff;
-            font-size: 25px;
-            font-family: 'CircularXXWeb-Book';
-        }
-    }
 }
+
+// .wrapper{
+
+//  width:100%;
+//  height:auto;
+//  background: #757470;
+
+// .banner {
+
+//     opacity: 1;
+//     position: relative;
+//     &__links {
+//         color: white;
+//         li {
+//             .link {
+//                 font-size: 1.25rem;
+//                 color: white;
+//             }
+//         }
+//     }
+//     &__image {
+//     width:27.8%;
+//     position:absolute;
+//     top:9.375rem;
+//     left:68.875rem;
+
+//     }
+//     &__heading {
+//     font-size:7.5rem;
+//     top:36.312rem;
+//     position:absolute;
+//     color:$white;
+
+//         //
+//     }
+
+// }
+// }
