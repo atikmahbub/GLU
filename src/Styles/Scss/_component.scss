@@ -806,7 +806,8 @@ button.primary-btn {
     .right {
         .title {
             color: $white;
-            font-size: 2.187rem;
+            margin-top: -0.5rem;
+            width: 4.187rem;
             font-family: 'CircularXXWeb-Book';
         }
     }
@@ -913,7 +914,7 @@ button.outline-rec {
 }
 // horizontal line
 .line {
-    background-color: $grayPrimary;
+    background-color: #cfcfcf;
 }
 
 button.outline-button {
@@ -1034,7 +1035,7 @@ button.outline-button {
 }
 
 .horizontal__line {
-    background-color: $gray;
+    background-color: #cfcfcf;
 }
 
 // upcomming class
@@ -1158,7 +1159,7 @@ button.outline-button {
 }
 .spacing{
     margin-top: 7rem;
-    padding: 2.375rem 3.125rem;
+    padding: 2.375rem 4rem;
         .total__classes{
             padding: 0;
     }
@@ -1224,4 +1225,18 @@ button.outline-button {
             cursor: pointer;
         }
     }
+}
+
+.icon__text__container {        
+.play__button {
+    width: 1.875rem;
+    height: 1.875rem;
+    @include flex(center, center, row);
+    background-color: $primary;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    .icon {
+        color: $white;
+    }
+}
 }

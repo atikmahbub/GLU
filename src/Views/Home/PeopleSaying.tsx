@@ -3,6 +3,7 @@ import { Typography } from '@material-ui/core';
 import BorderCardContainer from './BorderCardContainer';
 import commonImg from '../../Assets/images';
 import { Apple } from '@material-ui/icons';
+import { Icons } from '../../Assets/Icons';
 
 const PeopleSaying: React.FunctionComponent = () => {
     return (
@@ -37,11 +38,12 @@ const PeopleSaying: React.FunctionComponent = () => {
                 <div className="col-lg-6 d-flex align-items-center">
                     <div className="text-section-container">
                         <Typography className="title">
-                        Download Glu to open the door to endless learning, with 365 day around the clock access to teachers, lessons and classes
+                            Download Glu to open the door to endless learning, with 365 day around the clock access to
+                            teachers, lessons and classes
                         </Typography>
                         <Typography className="subtitle">App Store and Google Play</Typography>
                         <Apple className="apple-icon" />
-                        <img className="google-icon" src={commonImg.google} alt="" />
+                        <img className="google-icon" src={Icons.realgoogleIcon} alt="" />
                     </div>
                 </div>
             </div>

@@ -1,20 +1,21 @@
 .footer {
-    padding: 0 1rem;
+    padding: 0 3.062rem;
     font-family: 'CircularXXWeb-Book';
     .line {
         background-color: $grayPrimary;
-        margin: 2rem 0;
+        margin: 4.562rem 0;
     }
     .email-container {
         @include flex(center, space-between, row);
         .join-glu {
             font-size: 1.562rem;
             color: #000;
-            font-weight: 600;
+            font-weight: 500;
             font-family: 'CircularXXWeb-Book';
         }
         .email {
             width: 52%;
+            margin-top: 0.8rem;
             border: none;
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
@@ -25,47 +26,57 @@
         .subscribe {
             font-size: 1.562rem;
             color: #000;
-            font-weight: 600;
+            font-weight: 500;
+
             text-transform: capitalize;
             font-family: 'CircularXXWeb-Book';
         }
     }
-    .address-padding{
+    .address-padding {
         padding-left: 8rem;
     }
     .address-container {
-        
         .title {
             font-size: 1.562rem;
             color: #000;
             font-family: 'CircularXXWeb-Book';
-            font-weight: 600;
+            font-weight: 500;
         }
         .links {
             display: block;
             color: #000;
             font-size: 1.562rem;
-            font-weight: 600;
+            font-weight: 500;
         }
     }
-    .breaker{
-    margin-bottom: 4rem;
+    .breaker {
+        margin-bottom: 4rem;
     }
     .build-by {
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
+
         margin-bottom: 1rem;
         font-family: 'CircularXXMonoWeb-Regular';
         span {
-            font-weight: 300;
-            color: #8b8b8b;
+            a{
+                font-weight: 300;
+                color: #8b8b8b;
+            }
         }
     }
     .glu {
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
         font-family: 'CircularXXMonoWeb-Regular';
         text-align: right;
         margin-bottom: 1rem;
+    }
+    .three__piller__container{
+        position: absolute;
+        right: 1.5rem;
+        img{
+            width: 1.562rem;
+        }
     }
 }

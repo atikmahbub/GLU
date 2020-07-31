@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import MadeBy from './MadeBy';
+import { Icons } from '../../Assets/Icons';
 
 const Footer: React.FunctionComponent = () => {
     return (
@@ -16,12 +17,15 @@ const Footer: React.FunctionComponent = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="address-container address-padding">
-                        <Typography className="title">info@glulearning.com</Typography>
+                        <Typography className="title">Contact</Typography>
                         <Typography className="title">info@glulearning.com</Typography>
                         <Typography className="title">+971 4 554 0350</Typography>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 position-relative">
+                    <div className="three__piller__container">
+                        <img src={Icons.threePiller} alt="three piller"/>
+                    </div>
                     {/* <div className="address-container">
                         <Link className="links" to="">
                             Insagram
@@ -36,17 +40,7 @@ const Footer: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="breaker"></div>
-            <div className="row">
-                <div className="col-md-6">
-                    <Typography className="build-by">
-                        Made &nbsp;by&nbsp; <span>Six</span> &nbsp;&nbsp;&nbsp; Build&nbsp; by&nbsp;
-                        <span>someone</span>
-                    </Typography>
-                </div>
-                <div className="col-md-6">
-                    <Typography className="glu">Glu 2020</Typography>
-                </div>
-            </div>
+            <MadeBy/>
         </div>
     );
 };

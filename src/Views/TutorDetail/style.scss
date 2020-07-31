@@ -1,0 +1,44 @@
+.wrapper {
+    .banner {
+        height: 100vh;
+        background: #757470;
+        opacity: 1;
+        position: relative;
+        &__links {
+            color: white;
+            li {
+                .link {
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+        }
+        &__image {
+            position: absolute;
+            top: 9.375rem;
+            right: 17.687rem;
+            width: 30%;
+            object-fit: cover;
+            opacity: 1;
+        }
+        &__heading__container {
+            left: 3.062rem;
+            position: absolute;
+            bottom: 14.5rem;
+            &__text {
+                font-size: 7.5rem;
+                line-height: 7.5rem;
+                color: $white;
+            }
+            .icon__text__container {
+                .banner__heart__icon {
+                    color: $white;
+                    margin-right: 1rem;
+                }
+                .text {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
