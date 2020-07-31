@@ -4,13 +4,15 @@ import Twitter from "./Icons/twitter.svg";
 import GoogleIcon from "./Icons/GoogleIcon.svg";
 import appleIcon from "./Icons/appleIcon.svg";
 import threePiller from "./Icons/threePiller.svg";
-
-
+import googleIconWhite from "./Icons/googleIconWhite.svg";
+import realgoogleIcon from './Icons/realgoogleIcon.svg';
 export const Icons = {
 Facebook,
 Google,
 Twitter,
 GoogleIcon,
 appleIcon,
-threePiller
+threePiller,
+googleIconWhite,
+realgoogleIcon
 }

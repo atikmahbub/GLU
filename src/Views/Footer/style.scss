@@ -11,11 +11,11 @@
             font-size: 1.562rem;
             color: #000;
             font-weight: 500;
-
             font-family: 'CircularXXWeb-Book';
         }
         .email {
             width: 52%;
+            margin-top: 0.8rem;
             border: none;
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
@@ -68,7 +68,6 @@
     .glu {
         font-size: 1rem;
         font-weight: 500;
-
         font-family: 'CircularXXMonoWeb-Regular';
         text-align: right;
         margin-bottom: 1rem;

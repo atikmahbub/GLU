@@ -4,6 +4,12 @@
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
+        .default-clip {
+            clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+        }
+        .full-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
         .rotating-box {
             width: 100%;
             height: 100vh;
@@ -12,17 +18,20 @@
             background-size: cover;
             background-repeat: no-repeat;
             animation: rotate 1s;
+            animation-delay: 1.5s;
             @include flex(center, center, row);
             .slogan {
                 font-weight: 900;
-                font-size: 10rem;
+                font-size: 22rem;
+                letter-spacing: 1rem;
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
-                text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
+                // text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3);
                 transition: all 0.8s;
                 transform: translateY(-1rem);
-                animation: fadein 0.8s;
+                animation: fadein, slideUp 1s;
+                animation-delay: 1.5s;
             }
             @keyframes fadein {
                 0% {
@@ -31,7 +40,6 @@
                 }
                 100% {
                     transform: translateY(-1rem);
-
                     opacity: 1;
                 }
             }
@@ -84,6 +92,7 @@
                 }
                 .google-icon {
                     width: 0.7rem;
+                    margin-top:1px;
                 }
             }
             .scroll__container {
@@ -100,12 +109,12 @@
                 animation: slideDown 0.3s;
                 .text {
                     font-size: 1.937rem;
-                    font-family: 'CircularXXMonoWeb-Regular';
+                    font-family: 'CircularXXWeb-Book';
                     color: $white;
                     transition: all 0.8s;
                 }
                 .icon {
-                    font-size: 1.537rem;
+                    font-size: 1.737rem;
                     color: $white;
                 }
             }
@@ -118,8 +127,13 @@
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             }
         }
-        .hide {
+        .slogan.show.hide {
             opacity: 0;
+            transition: all 0.5s;
+            animation: fadein, slideDown 1s;
+        }
+        .slogan.show {
+            opacity: 1;
         }
     }
     .section-one {
@@ -238,7 +252,7 @@
                 font-family: 'CircularXXWeb-Book';
             }
             .board-icon {
-                width: 2.687rem;
+                width: 1.375rem;
                 margin-bottom: 10.875rem;
             }
             .lappy-girl {
@@ -313,11 +327,15 @@
                 }
             }
             .subscribe {
+                cursor: pointer;
                 text-transform: capitalize;
                 font-size: 1.562rem;
                 font-weight: 600;
                 font-family: 'CircularXXWeb-Book';
                 color: #000;
+                &:hover{
+                    color: $primary;
+                }
             }
         }
 
@@ -395,7 +413,7 @@
                 font-family: 'CircularXXWeb-Book';
             }
             .google-icon {
-                width: 1rem;
+                width: 1.38rem;
             }
         }
     }

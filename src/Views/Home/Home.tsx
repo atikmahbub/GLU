@@ -28,6 +28,7 @@ const Home: React.FunctionComponent = () => {
         { link: '/support', name: 'Support' },
     ];
     const [show, setShow] = useState(false);
+    const [animationCompelte, setAnimationComplete] = useState(false);
     const [showOthers, setShowOthers] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
     const handleMenu = () => {
@@ -39,14 +40,17 @@ const Home: React.FunctionComponent = () => {
         }, 800);
         setTimeout(() => {
             setShowOthers(true);
-        }, 1000);
+        }, 5000);
+        setTimeout(() => {
+            setAnimationComplete(true);
+        }, 1500);
     }, []);
     return (
         <div className="home-wrapper">
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
-                <div className="rotating-box">
-                    <Typography className={`slogan ${show ? 'hide' : ''}`}>Glu</Typography>
+                <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
+                    <Typography className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`}>Glu</Typography>
 
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
@@ -99,7 +103,7 @@ const Home: React.FunctionComponent = () => {
                 show={true}
             />
             <PeopleSaying />
-            <Footer />
+            <Footer  />
         </div>
     );
 };

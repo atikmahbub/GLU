@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Button } from '@material-ui/core';
 import MadeBy from './MadeBy';
-import commonImg from '../../Assets/images';
 import { Icons } from '../../Assets/Icons';
 
 const Footer: React.FunctionComponent = () => {
