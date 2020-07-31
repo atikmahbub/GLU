@@ -14,6 +14,7 @@ import PeopleSaying from './PeopleSaying';
 import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
 import ScrollButton from './ScrollButton';
+import { Icons } from '../../Assets/Icons';
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -50,7 +51,7 @@ const Home: React.FunctionComponent = () => {
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
-                    <Typography className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`}>Glu</Typography>
+                    <img className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`} src={Icons.logo}/>
 
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}

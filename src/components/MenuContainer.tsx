@@ -3,6 +3,7 @@ import { IconButton, Button, Typography } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import OutlineButton from './Button/OutlineButton';
+import { Icons } from '../Assets/Icons';
 
 
 interface props{
@@ -40,7 +41,7 @@ const MenuContainer: React.FunctionComponent<props> = ({handleMenu}) => {
                 </ul>
             </div>
             <div className="right">
-                <Typography className="title">Glu</Typography>
+                <img className="title" src={Icons.logo}/>
             </div>
         </div>
     );

@@ -806,8 +806,7 @@ button.primary-btn {
     .right {
         .title {
             color: $white;
-            font-size: 3.187rem;
-            line-height: 3.187rem;
+            width: 3.187rem;
             font-family: 'CircularXXWeb-Book';
         }
     }
@@ -914,7 +913,7 @@ button.outline-rec {
 }
 // horizontal line
 .line {
-    background-color: $grayPrimary;
+    background-color: #cfcfcf;
 }
 
 button.outline-button {
@@ -1035,7 +1034,7 @@ button.outline-button {
 }
 
 .horizontal__line {
-    background-color: $gray;
+    background-color: #cfcfcf;
 }
 
 // upcomming class
