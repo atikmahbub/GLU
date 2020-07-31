@@ -1,7 +1,8 @@
 import React from 'react';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
-import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
+import OutlineBtn from '../../components/Button/OutlineBtn';
+import { Button } from '@material-ui/core';
 const Section1: React.FunctionComponent = () => {
     return (
         <div className="section">
@@ -44,6 +45,10 @@ const Section1: React.FunctionComponent = () => {
                         options={['10.00am']}
                         getValue={() => {}}
                     />
+                </div>
+                <div className="button__box">
+                    <Button>Book</Button>
+                    <span className="price">AED200</span>
                 </div>
             </div>
         </div>

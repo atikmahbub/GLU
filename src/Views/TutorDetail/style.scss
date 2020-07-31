@@ -1,8 +1,8 @@
 .wrapper {
-    width: 100%;
     .banner {
         background: #757470;
         height: 67.5rem;
+        width: 100%;
 
         position: relative;
         &__links {
@@ -67,7 +67,6 @@
     }
     .section {
         display: grid;
-
         padding-left: 3.062rem;
         grid-template-columns: repeat(4, 1fr);
         margin-top: 5.625rem;
@@ -107,6 +106,25 @@
                 margin-top: 2.375rem;
                 font-size: 1.562rem;
                 width: 100%;
+            }
+            .button__box {
+                display: flex;
+                position: absolute;
+
+                margin-top: 9.625rem;
+                align-items: center;
+                Button {
+                    background-color: #2267ff;
+                    border-radius: 0.937rem;
+                    color: $white;
+                    padding: 0.2rem 0.4rem;
+                    font-size: 1.25rem;
+                }
+                .price {
+                    margin-left: 1rem;
+                    color: #2267ff;
+                    font-size: 1.25rem;
+                }
             }
         }
     }
