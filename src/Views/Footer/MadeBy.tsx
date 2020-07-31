@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 
 const MadeBy = () => {
     return (
-        <div className="footer">
+        // <div>
             <div className="row">
                 <div className="col-md-6">
                     <Typography className="build-by">
@@ -15,7 +15,7 @@ const MadeBy = () => {
                     <Typography className="glu">Glu 2020</Typography>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 };
 
