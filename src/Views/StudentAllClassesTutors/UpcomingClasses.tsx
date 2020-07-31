@@ -23,4 +23,4 @@ const UpcomingClasses = () => {
     );
 }
 
-export default UpcomingClasses;
+export default React.memo(UpcomingClasses);

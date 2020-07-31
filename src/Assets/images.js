@@ -53,7 +53,8 @@ import thinkingboy from './img/thinkingboy.jpg';
 import girlsolder from './img/girlsolder.jpg';
 import twogirlsideview from './img/twogirlsideview.jpg';
 import laptopbesideman from './img/laptopbesideman.jpg';
-import Stocksy_comp_2414754 from './img/Stocksy_comp_2414754.png';
+import orangetopgirlcrop from './img/Stocksy_comp_2414754.png';
+import boywithdad from './img/boywithdad.jpg';
 
 export const commonImg = {
     google,
@@ -110,7 +111,8 @@ export const commonImg = {
     girlsolder,
     twogirlsideview,
     laptopbesideman,
-    Stocksy_comp_2414754,
+    orangetopgirlcrop,
+    boywithdad,
 };
 
 export default commonImg;

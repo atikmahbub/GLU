@@ -210,4 +210,4 @@ const TutorListMiddle: React.FunctionComponent = () => {
     );
 };
 
-export default TutorListMiddle;
+export default React.memo(TutorListMiddle);

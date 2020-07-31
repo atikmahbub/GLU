@@ -2,7 +2,7 @@
     top: 0px;
     left: 0px;
 
-    height: 100vh;
+    height: 1080px;
     background: #757470 0% 0% no-repeat padding-box;
     opacity: 1;
     position: relative;
@@ -33,10 +33,70 @@
         text-align: left;
         font-size: 120px;
         font-weight: 120;
-        font: Book 120px/120px CircularXXTrial;
+        font-family: 'CircularXXWeb-Book';
         letter-spacing: 0px;
         color: #ffffff;
         opacity: 1;
         //
+    }
+    &__favourite {
+        position: absolute;
+        top: 860px;
+        left: 76px;
+        width: 84px;
+        height: 25px;
+        text-align: left;
+        font: Book 20px/25px 'CircularXXWeb-Book';
+        letter-spacing: 0px;
+        color: #ffffff;
+        opacity: 1;
+        display: flex;
+    }
+    &__favouriteIcon {
+        top: 865px;
+        left: 49px;
+        width: 17px;
+        height: 15px;
+        margin-right: 10px;
+        opacity: 1;
+    }
+    &__favouriteText {
+        top: 860px;
+        left: 76px;
+        width: 84px;
+        height: 25px;
+        text-align: left;
+        font: Book 20px/25px 'CircularXXWeb-Book';
+        letter-spacing: 0px;
+        color: #ffffff;
+        opacity: 1;
+    }
+    &__ratingBox {
+        position: absolute;
+        top: 1015px;
+        left: 49px;
+        // width: 303px;
+        height: 32px;
+        text-align: left;
+        letter-spacing: 0px;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        &__Grade {
+            font-size: 25px;
+            font-family: 'CircularXXWeb-Book';
+            color: #fff;
+        }
+        &__Icon {
+            width: 17px;
+            height: 16px;
+            color: #fff;
+        }
+        &__Text {
+            color: #ffffff;
+            font-size: 25px;
+            font-family: 'CircularXXWeb-Book';
+        }
     }
 }

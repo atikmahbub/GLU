@@ -1,30 +1,28 @@
 import React from 'react';
-import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import IconTextRow from '../../components/IconTextRow';
-import { FavoriteBorder, Person, PersonOutline } from '@material-ui/icons';
+import { FavoriteBorder } from '@material-ui/icons';
 
 const SlidingDrawerContent: React.FunctionComponent = () => {
     return (
         <div className="drawer__content">
             <div className="row">
                 <div className="col-md-8 slider-image-container">
-                    <ImageThumbnail image={commonImg.boy} />
+                    <img src={commonImg.boywithdad} alt="" />
                 </div>
             </div>
             <div className="image__bottom__content">
-                <Typography className="title">Introducing advanced long devision</Typography>
+                <Typography className="title">How to structure narrative in fiction</Typography>
                 <div className="icon__text__container">
                     <IconTextRow icon={<FavoriteBorder className="icon" />} title="Favorite" />
-                    <IconTextRow icon={<PersonOutline className="icon gray-icon" />} title="Available slots" />
                 </div>
                 <div className="time__teacher__container">
                     <Typography className="heading">
-                        19/07/20 <br /> 9am- <br /> 10.15am
+                    19/07/20 <br/> 45mins
                     </Typography>
                     <Typography className="heading">
-                        Maths <br /> Frankie Smith
+                        Maths <br />Esme Stannard
                     </Typography>
                 </div>
                 <div className="chip__container">
@@ -52,4 +50,4 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
     );
 };
 
-export default SlidingDrawerContent;
+export default React.memo(SlidingDrawerContent);

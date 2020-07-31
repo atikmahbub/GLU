@@ -95,4 +95,4 @@ const TutorListBottom: React.FunctionComponent = () => {
     );
 };
 
-export default TutorListBottom;
+export default React.memo(TutorListBottom);

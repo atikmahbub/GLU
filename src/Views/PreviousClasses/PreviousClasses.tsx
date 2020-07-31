@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
@@ -8,17 +8,30 @@ import TutorListMiddle from './TutorListMiddle';
 import UpcomingClassesPartSec from './UpcomingClassesPartSec';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Footer from '../Footer/Footer';
+import FixedNavigation from '../../Containers/FixedNavigation';
+import SlidingDrawer from '../../components/SlidingDrawer';
+import SlidingDrawerContent from './SlidingDrawerContent';
 
-const Index: React.FunctionComponent = () => {
+const PreviousClasses: React.FunctionComponent = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
     const menu = [
         { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Subjects' },
         { link: '', name: 'Messages' },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    };
     return (
         <div className="student__classes__tutor">
-            <NavigationMenu menuList={menu} />
+             <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                <SlidingDrawerContent />
+            </SlidingDrawer>
+            <FixedNavigation>
+                <NavigationMenu menuList={menu} handler={handleDrawer} />
+            </FixedNavigation>
+            <div className="spacing">
             <div className="filter__row__container">
                 <div className="button__container">
                     <Typography className="title active">Previous Classes</Typography>
@@ -41,8 +54,9 @@ const Index: React.FunctionComponent = () => {
                 </div>
             </div>
             <Footer/>
+            </div>
         </div>
     );
 };
 
-export default Index;
+export default PreviousClasses;

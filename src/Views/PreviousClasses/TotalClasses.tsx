@@ -129,4 +129,4 @@ const TotalClasses = () => {
     );
 };
 
-export default TotalClasses;
+export default React.memo(TotalClasses);

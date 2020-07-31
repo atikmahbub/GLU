@@ -16,13 +16,13 @@ const Footer: React.FunctionComponent = () => {
                 </div>
                 <div className="col-md-4">
                     <div className="address-container address-padding">
-                        <Typography className="title">hi@glulearning.com</Typography>
-                        <Typography className="title">support@glulearning.com</Typography>
+                        <Typography className="title">info@glulearning.com</Typography>
+                        <Typography className="title">info@glulearning.com</Typography>
                         <Typography className="title">+971 4 554 0350</Typography>
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="address-container">
+                    {/* <div className="address-container">
                         <Link className="links" to="">
                             Insagram
                         </Link>
@@ -32,7 +32,7 @@ const Footer: React.FunctionComponent = () => {
                         <Link className="links" to="">
                             Twitter
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="breaker"></div>
