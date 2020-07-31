@@ -83,11 +83,30 @@
             }
         }
         .availability__date {
-            grid-column: 3/5;
+            padding-right: 2rem;
+            grid-column: 3/4;
             &__subject__title {
                 font-size: 1.562rem;
-                font-weight: 300;
-                font-family: 'CircularXXSub-RegularSubset';
+                margin-top: 3.937rem;
+            }
+            .start_time {
+                width: 50%;
+                float: left;
+                padding-right: 1rem;
+            }
+            .end_time {
+                width: 50%;
+                float: right;
+                padding-left: 1rem;
+            }
+            &__date__title {
+                margin-top: 2.375rem;
+                font-size: 1.562rem;
+            }
+            &__time__title {
+                margin-top: 2.375rem;
+                font-size: 1.562rem;
+                width: 100%;
             }
         }
     }

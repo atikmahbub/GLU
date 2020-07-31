@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
-
+import DateSelector from '../../components/DateTimeSelector/DateSelector';
+import TimeSelector from '../../components/DateTimeSelector/TimeSelector';
 const Section1: React.FunctionComponent = () => {
     return (
         <div className="section">
@@ -13,12 +14,34 @@ const Section1: React.FunctionComponent = () => {
                 </p>
             </div>
             <div className="availability__date">
-                <div className="col-lg-8 ">
+                <div>
                     <h1 className="availability__date__subject__title">Subjects</h1>
                     <SelectFieldUnderline
                         className="custom-adornment-input mb-3"
                         label="Maths"
                         options={['Maths']}
+                        getValue={() => {}}
+                    />
+                </div>
+                <div>
+                    <h1 className="availability__date__date__title">Date</h1>
+                    <DateSelector />
+                </div>
+                <div className="start_time">
+                    <h1 className="availability__date__time__title">Start Time</h1>
+                    <SelectFieldUnderline
+                        className="custom-adornment-input mb-3"
+                        label="10.00am"
+                        options={['10.00am']}
+                        getValue={() => {}}
+                    />
+                </div>
+                <div className="end_time">
+                    <h1 className="availability__date__time__title">End Time</h1>
+                    <SelectFieldUnderline
+                        className="custom-adornment-input mb-3"
+                        label="10.00am"
+                        options={['10.00am']}
                         getValue={() => {}}
                     />
                 </div>
