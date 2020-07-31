@@ -27,9 +27,12 @@
             font-size: 1.562rem;
             color: #000;
             font-weight: 500;
-
             text-transform: capitalize;
             font-family: 'CircularXXWeb-Book';
+            cursor: pointer;
+            &:hover{
+                color: $primary;
+            }
         }
     }
     .address-padding {
