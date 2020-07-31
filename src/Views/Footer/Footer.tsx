@@ -12,7 +12,7 @@ const Footer: React.FunctionComponent = () => {
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
                         <input type="text" className="email" placeholder="Emai Address" />
-                        <Button className="subscribe">Subscribe</Button>
+                        <Typography className="subscribe">Subscribe</Typography>
                     </div>
                 </div>
                 <div className="col-md-4">

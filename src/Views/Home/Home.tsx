@@ -63,11 +63,10 @@ const Home: React.FunctionComponent = () => {
             <SectionOne />
             <SectionTwoReusable
                 image={commonImg.earringgirl}
-                title="Tutors"
+                title="Qualified teachers"
                 msg={
                     <>
-                        If you are a  qualified <br />  and  experienced  teacher <br /> then   use  the  Glu  platform <br/>  to 
-                        earn money  from the <br/>  comfort of your own home
+                        Sign up with Glu  and earn <br/> money from the comfort <br/> of your own home
                     </>
                 }
             />
