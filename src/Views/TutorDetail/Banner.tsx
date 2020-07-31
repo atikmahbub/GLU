@@ -22,6 +22,12 @@ const Banner: React.FunctionComponent = () => {
                 </h1>
                 <IconTextRow icon={<FavoriteBorderIcon />} title="favourite" />
             </div>
+            <div className="banner__rating">
+                <h1 className="banner__rating__text">Grade: Primary, Secondary</h1>
+                <div className="banner__rating__icon">
+                    <IconTextRow icon={<StarIcon />} title="5/5" />
+                </div>
+            </div>
         </div>
     );
 };

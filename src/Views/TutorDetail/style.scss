@@ -2,6 +2,7 @@
     .banner {
         background: #757470;
         height: 100vh;
+        width: 100%;
 
         position: relative;
         &__links {
@@ -32,48 +33,41 @@
             }
             .icontext__container {
                 display: flex;
+                align-items: center;
                 .text {
                     margin-left: 1rem;
+                    font-size: 1.25rem;
+                    font-family: 'CircularXXSub-RegularSubset';
+                }
+            }
+        }
+        &__rating {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            left: 3.062rem;
+            top: 63.437rem;
+            color: $white;
+            &__text {
+                font-size: 1.562rem;
+                font-weight: 100;
+            }
+            &__icon {
+                .icontext__container {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 1rem;
+                    .text {
+                        padding: 0 1rem;
+                        font-size: 1.562rem;
+                    }
                 }
             }
         }
     }
+    .section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: 1000px;
+    }
 }
-
-// .wrapper{
-
-//  width:100%;
-//  height:auto;
-//  background: #757470;
-
-// .banner {
-
-//     opacity: 1;
-//     position: relative;
-//     &__links {
-//         color: white;
-//         li {
-//             .link {
-//                 font-size: 1.25rem;
-//                 color: white;
-//             }
-//         }
-//     }
-//     &__image {
-//     width:27.8%;
-//     position:absolute;
-//     top:9.375rem;
-//     left:68.875rem;
-
-//     }
-//     &__heading {
-//     font-size:7.5rem;
-//     top:36.312rem;
-//     position:absolute;
-//     color:$white;
-
-//         //
-//     }
-
-// }
-// }
