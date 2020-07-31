@@ -1,8 +1,8 @@
 .wrapper {
+    width: 100%;
     .banner {
         background: #757470;
-        height: 100vh;
-        width: 100%;
+        height: 67.5rem;
 
         position: relative;
         &__links {
@@ -67,7 +67,28 @@
     }
     .section {
         display: grid;
+
+        padding-left: 3.062rem;
         grid-template-columns: repeat(4, 1fr);
-        height: 1000px;
+        margin-top: 5.625rem;
+        .availbility {
+            grid-column: 1/2;
+            font-size: 1.562rem;
+            font-family: 'CircularXXSub-RegularSubset';
+        }
+        .description {
+            grid-column: 3/5;
+            &__text {
+                font-size: 2.625rem;
+            }
+        }
+        .availability__date {
+            grid-column: 3/5;
+            &__subject__title {
+                font-size: 1.562rem;
+                font-weight: 300;
+                font-family: 'CircularXXSub-RegularSubset';
+            }
+        }
     }
 }
