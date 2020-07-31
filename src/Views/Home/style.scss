@@ -1,4 +1,5 @@
 .home-wrapper {
+    transition: all 0.5s ease;
     .holding-container {
         height: 100vh;
         display: flex;
@@ -43,11 +44,13 @@
                 transition: all 0.3s;
                 animation: slideUp 0.3s;
                 font-family: 'CircularXXWeb-Book';
+                transition: all 0.8s;
                 .title {
                     color: $white;
                     font-size: 1.562rem;
                     margin-bottom: 1rem;
                     font-family: 'CircularXXWeb-Book';
+                    transition: all 0.8s;
                 }
                 .for {
                     font-size: 5rem;
@@ -55,6 +58,7 @@
                     color: $white;
                     line-height: 5rem;
                     font-family: inherit;
+                    transition: all 0.8s;
                 }
             }
             .bottom-right-container {
@@ -71,6 +75,7 @@
                     font-size: 0.9rem;
                     font-weight: 100;
                     font-family: 'CircularXXMonoWeb-Regular';
+                    transition: all 0.8s;
                 }
                 .apple-icon {
                     margin: 0 0.5rem;
@@ -95,7 +100,9 @@
                 animation: slideDown 0.3s;
                 .text {
                     font-size: 1.937rem;
+                    font-family: 'CircularXXMonoWeb-Regular';
                     color: $white;
+                    transition: all 0.8s;
                 }
                 .icon {
                     font-size: 1.537rem;
@@ -117,15 +124,19 @@
     }
     .section-one {
         padding: 0 3.062rem;
+        transition: all 0.8s;
         .img-container {
             margin-right: 4rem;
             .spect-boy {
                 width: 100%;
                 object-fit: cover;
+                transition: all 0.8s;
             }
         }
         .section-one-right-part {
             padding-left: 2rem;
+            transition: all 0.8s;
+
             .title {
                 font-size: 2.625rem;
                 line-height: 2.625rem;

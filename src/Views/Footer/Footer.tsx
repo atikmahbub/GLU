@@ -1,6 +1,8 @@
 import React from 'react';
 import { Typography, Button } from '@material-ui/core';
 import MadeBy from './MadeBy';
+import commonImg from '../../Assets/images';
+import { Icons } from '../../Assets/Icons';
 
 const Footer: React.FunctionComponent = () => {
     return (
@@ -21,7 +23,10 @@ const Footer: React.FunctionComponent = () => {
                         <Typography className="title">+971 4 554 0350</Typography>
                     </div>
                 </div>
-                <div className="col-md-3">
+                <div className="col-md-3 position-relative">
+                    <div className="three__piller__container">
+                        <img src={Icons.threePiller} alt="three piller"/>
+                    </div>
                     {/* <div className="address-container">
                         <Link className="links" to="">
                             Insagram
