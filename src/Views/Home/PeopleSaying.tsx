@@ -37,7 +37,8 @@ const PeopleSaying: React.FunctionComponent = () => {
                 <div className="col-lg-6 d-flex align-items-center">
                     <div className="text-section-container">
                         <Typography className="title">
-                        Download Glu to open the door to endless learning, with 365 day around the clock access to teachers, lessons and classes
+                            Download Glu to open the door to endless learning, with 365 day around the clock access to
+                            teachers, lessons and classes
                         </Typography>
                         <Typography className="subtitle">App Store and Google Play</Typography>
                         <Apple className="apple-icon" />

@@ -13,6 +13,7 @@ import SectionSix from './SectionSix';
 import PeopleSaying from './PeopleSaying';
 import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
+import ScrollButton from './ScrollButton';
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -46,9 +47,12 @@ const Home: React.FunctionComponent = () => {
             <div className="holding-container">
                 <div className="rotating-box">
                     <Typography className={`slogan ${show ? 'hide' : ''}`}>Glu</Typography>
+
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
+                    {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
+                    
                 </div>
             </div>
             <SectionOne />

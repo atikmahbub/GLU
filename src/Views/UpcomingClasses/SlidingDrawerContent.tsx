@@ -3,8 +3,8 @@ import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import IconTextRow from '../../components/IconTextRow';
-import { FavoriteBorder, Person, PersonOutline } from '@material-ui/icons';
-
+import { FavoriteBorder, PersonOutline } from '@material-ui/icons';
+import IconTextWrapper from "../../Containers/IconTextWrapper";
 const SlidingDrawerContent: React.FunctionComponent = () => {
     return (
         <div className="drawer__content">
@@ -15,10 +15,10 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
             </div>
             <div className="image__bottom__content">
                 <Typography className="title">Introducing advanced long devision</Typography>
-                <div className="icon__text__container">
+                <IconTextWrapper>
                     <IconTextRow icon={<FavoriteBorder className="icon" />} title="Favorite" />
                     <IconTextRow icon={<PersonOutline className="icon gray-icon" />} title="Available slots" />
-                </div>
+                </IconTextWrapper>
                 <div className="time__teacher__container">
                     <Typography className="heading">
                         19/07/20 <br /> 9am- <br /> 10.15am
@@ -35,15 +35,15 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
                         ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
                         dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-                        sit amet. <br /> <br /> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-                        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                        voluptua.
+                        sit amet. <br /> <br /> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                        et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+                        est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                        takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                        erat, sed diam voluptua.
                     </Typography>
                     <Typography className="read__more">Read More</Typography>
                 </div>

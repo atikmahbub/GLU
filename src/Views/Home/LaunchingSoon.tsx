@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 const LaunchingSoon: React.FunctionComponent = () => {
     return (
         <div className="launching-soon-container">
-            <Typography className="title">Now Available</Typography>
+            <Typography className="title">Launching Soon</Typography>
             <Typography className="for">
                 For Schools, <br /> Teachers, Parents <br /> and Students
             </Typography>
