@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
-import OutlineBtn from '../../components/Button/OutlineBtn';
+
 import { Button } from '@material-ui/core';
 const Section1: React.FunctionComponent = () => {
     return (
