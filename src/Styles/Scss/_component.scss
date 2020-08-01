@@ -846,7 +846,7 @@ button.primary-btn {
     .image-thumbnail {
         position: relative;
         width: 100%;
-        padding-top: 100%;
+        padding-top: 75%;
     }
     .lazy-load-image-background {
         position: absolute;
@@ -981,12 +981,12 @@ button.outline-button {
     @include flex(center, space-between, row);
     margin-bottom: 1.5rem;
     .title {
-        font-size: 1.5rem;
+        font-size: 2.625rem;
         font-family: 'CircularXXWeb-Book';
     }
     .subtitle {
         font-weight: 500;
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
 }
 // image overlay
@@ -1055,7 +1055,7 @@ button.outline-button {
         @include flex(flex-start, space-between, column);
         width: 100%;
         align-self: stretch;
-        .row{
+        .row {
             width: 100%;
         }
         .list {
@@ -1128,6 +1128,25 @@ button.outline-button {
         }
     }
 }
+//black navigation
+.black__navigation {
+    .fixed__navigation__container {
+        .menu__type2__container {
+            .navigation {
+                ul {
+                    li {
+                        button.icon-button {
+                            color: $black;
+                            .icon {
+                                color: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 //icon text row
 .icon__text__container {
@@ -1157,17 +1176,17 @@ button.outline-button {
     top: 100vh;
     background-color: $white;
 }
-.spacing{
+.spacing {
     margin-top: 7rem;
     padding: 2.375rem 4rem;
-        .total__classes{
-            padding: 0;
+    .total__classes {
+        padding: 0;
     }
 }
-// sliding drwaer 
+// sliding drwaer
 .drawer__content {
     .slider-image-container {
-        img{
+        img {
             width: 26.125rem;
             height: 20.25rem;
         }
@@ -1227,16 +1246,29 @@ button.outline-button {
     }
 }
 
-.icon__text__container {        
-.play__button {
-    width: 1.875rem;
-    height: 1.875rem;
-    @include flex(center, center, row);
-    background-color: $primary;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    .icon {
-        color: $white;
+.icon__text__container {
+    .play__button {
+        width: 1.875rem;
+        height: 1.875rem;
+        @include flex(center, center, row);
+        background-color: $primary;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        .icon {
+            color: $white;
+        }
     }
 }
+// sort dropdown
+.sort__container{
+    @include flex(center, space-between, row);
+    width: 2.625rem;
+    .icon{
+        font-size: 1.106rem;
+        color: $black;
+    }
+    .text{
+        font-size: 1.25rem;
+        color: $black;
+    }
 }

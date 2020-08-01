@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Typography } from '@material-ui/core';
 import MenuContainer from '../../components/MenuContainer';
 import LaunchingSoon from './LaunchingSoon';
 import BottomRight from './BottomRight';
