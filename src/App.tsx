@@ -25,6 +25,10 @@ const UpcomingClasses = React.lazy(() => import('./Views/UpcomingClasses/Index')
 const StudentIndividualSubjects = React.lazy(() => import('./Views/StudentIndividualSubjects/Index'));
 const StudentWatchPreviousClass = React.lazy(() => import('./Views/StudentWatchPreviousClass/Index'));
 const TutorDetail = React.lazy(() => import('./Views/TutorDetail/index'));
+const TutorsUpcomingClasses = React.lazy(() => import('./Views/TutorsUpcomingClasses/Index'));
+const StudentTutorPreviousClasses = React.lazy(() => import('./Views/StudentTutorPreviousClasses/Index'));
+
+
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -42,7 +46,9 @@ export class App extends React.Component {
                             <Route exact path="/signup-success" component={ShowWelcome} />
                             <Route exact path="/student-homepage" component={StudentHomePage} />
                             <Route exact path="/student-classes" component={StudentClassesTutors} />
+                            <Route exact path="/tutor-upcoming-classes" component={TutorsUpcomingClasses} />
                             <Route exact path="/student-previous-classes" component={PreviousClasses} />
+                            <Route exact path="/student-tutors-previous-classes" component={StudentTutorPreviousClasses} />
                             <Route exact path="/student-upcoming-classes" component={UpcomingClasses} />
                             <Route exact path="/student-individual-subjects" component={StudentIndividualSubjects} />
                             <Route exact path="/student-watch-previous-class" component={StudentWatchPreviousClass} />

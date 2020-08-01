@@ -55,7 +55,15 @@ import twogirlsideview from './img/twogirlsideview.jpg';
 import laptopbesideman from './img/laptopbesideman.jpg';
 import boywithdad from './img/boywithdad.jpg';
 import chasmisman from './img/chasmisman.jpg';
-import Stocksy_comp_2414754 from './img/Stocksy_comp_2414754.png';
+import orangetopgirlcrop from './img/Stocksy_comp_2414754.png';
+import girlwithlaptop from './img/girlwithlaptop.png';
+import boyondark from "./img/boyondark.jpg";
+import smilingindark from "./img/smilingindark.jpg";
+import whitetshirtgirl from "./img/whitetshirtgirl.jpg";
+import yellowpillowboy from "./img/yellowpillowboy.jpg";
+import greentshirtsmile from "./img/greentshirtsmile.jpg";
+import skettingboy from "./img/skettingboy.jpg";
+import blackshirtgirl from "./img/blackshirtgirl.jpg";
 
 export const commonImg = {
     google,
@@ -114,8 +122,16 @@ export const commonImg = {
     laptopbesideman,
     boywithdad,
     chasmisman,
-    chasmisman,
-    Stocksy_comp_2414754,
+    orangetopgirlcrop,
+    girlwithlaptop,
+    boyondark,
+    smilingindark,
+    whitetshirtgirl,
+    yellowpillowboy,
+    girlwithlaptop,
+    greentshirtsmile,
+    skettingboy,
+    blackshirtgirl
 };
 
 export default commonImg;
