@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Section1 from './Section1';
 import Section2 from './Section2';
+import Upcoming from './upcoming';
 
 const index: React.FunctionComponent = () => {
     return (
@@ -9,6 +10,7 @@ const index: React.FunctionComponent = () => {
             <Banner />
             <Section1 />
             <Section2 />
+            <Upcoming />
         </div>
     );
 };
