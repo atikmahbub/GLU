@@ -1129,7 +1129,7 @@ button.outline-button {
     }
 }
 //black navigation
-.black__navigation {
+// .black__navigation {
     .fixed__navigation__container {
         .menu__type2__container {
             .navigation {
@@ -1146,7 +1146,7 @@ button.outline-button {
             }
         }
     }
-}
+// }
 
 //icon text row
 .icon__text__container {
@@ -1271,4 +1271,7 @@ button.outline-button {
         font-size: 1.25rem;
         color: $black;
     }
+}
+.dashboard__wrapper{
+    padding: 3.062rem;
 }

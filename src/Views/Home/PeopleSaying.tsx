@@ -42,8 +42,10 @@ const PeopleSaying: React.FunctionComponent = () => {
                             teachers, lessons and classes
                         </Typography>
                         <Typography className="subtitle">App Store and Google Play</Typography>
-                        <Apple className="apple-icon" />
-                        <img className="google-icon" src={Icons.realgoogleIcon} alt="" />
+                        <div className="icon__container">
+                            <Apple className="apple-icon" />
+                            <img className="google-icon" src={Icons.realgoogleIcon} alt="" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -92,7 +92,7 @@
                 }
                 .google-icon {
                     width: 0.7rem;
-                    margin-top:1px;
+                    margin-top: 1px;
                 }
             }
             .scroll__container {
@@ -333,7 +333,7 @@
                 font-weight: 600;
                 font-family: 'CircularXXWeb-Book';
                 color: #000;
-                &:hover{
+                &:hover {
                     color: $primary;
                 }
             }
@@ -406,14 +406,21 @@
                 font-family: 'CircularXXWeb-Book';
                 color: #000000;
             }
-            .apple-icon {
-                color: #5c5c5c;
-                font-size: 1.437rem;
-                margin-right: 0.5rem;
-                font-family: 'CircularXXWeb-Book';
-            }
-            .google-icon {
-                width: 1.38rem;
+            .icon__container {
+                @include flex(center, space-between, row);
+                width: 2.8rem;
+                .apple-icon {
+                    color: #5c5c5c;
+                    font-size: 1.437rem;
+                    align-self: flex-end;
+
+                    font-family: 'CircularXXWeb-Book';
+                }
+                .google-icon {
+                    width: 1.2rem;
+                    margin-top: 0.2rem;
+                    // align-self: flex-end;
+                }
             }
         }
     }
@@ -433,6 +440,41 @@
         }
         100% {
             transform: translateY(-1rem);
+        }
+    }
+}
+
+// responsive
+@media screen and (max-width: 768px) {
+    .home-wrapper {
+        .holding-container {
+            .rotating-box {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                    url('../../Assets/img/sketterMobile.png');
+            }
+        }
+        .section-one {
+            .img-container {
+                margin: 0;
+                .spect-boy {
+                    width: 100%;
+                }
+            }
+            .section-one-right-part {
+                .sppon-girl {
+                    display: none;
+                }
+            }
+            .workable-solution {
+                font-size: 4rem;
+                line-height: 4rem;
+            }
+        }
+        .section-two {
+            .ear-ring-girl {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                    url('../../Assets/img/sketterMobile.png');
+            }
         }
     }
 }

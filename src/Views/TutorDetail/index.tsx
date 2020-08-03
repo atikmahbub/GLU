@@ -6,6 +6,7 @@ import Section2 from './Section2';
 import Upcoming from './Upcoming';
 import Career from './Career';
 import Review from './Review';
+import Footer from './Footer';
 
 const index: React.FunctionComponent = () => {
     return (
@@ -19,6 +20,7 @@ const index: React.FunctionComponent = () => {
             <Career />
             <Review />
             <Upcoming title={'Similar Tutors'} />
+            <Footer />
         </div>
     );
 };
