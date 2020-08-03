@@ -206,8 +206,9 @@
     .about__container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+
+        margin: 0 3.062rem;
         margin-top: 11.656rem;
-        padding: 0 3.062rem;
         border-top: 1px solid #ccc;
         padding-top: 2rem;
 
@@ -249,8 +250,9 @@
     .career__container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+
+        margin: 0 3.062rem;
         margin-top: 11.656rem;
-        padding: 0 3.062rem;
         border-top: 1px solid #ccc;
         padding-top: 2rem;
         .experience__box {
@@ -279,6 +281,41 @@
                 font-size: 1.562rem;
                 margin-bottom: 1.625rem;
                 padding-right: 4rem;
+            }
+        }
+    }
+    .review__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        margin: 0 3.062rem;
+        margin-top: 11.656rem;
+        border-top: 1px solid #ccc;
+        padding-top: 2rem;
+        .heading__box {
+            h2,
+            h3,
+            .icon {
+                font-size: 2.687rem;
+            }
+        }
+        .review__box {
+            display: flex;
+        }
+        .para__box {
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #ccc;
+            padding-left: 2rem;
+            padding-right: 4rem;
+            .para {
+                font-size: 1.562rem;
+                margin-top: 1.718rem;
+                margin-bottom: 0.687rem;
+            }
+            .read {
+                color: #2267ff;
+                font-size: 1.25rem;
             }
         }
     }
