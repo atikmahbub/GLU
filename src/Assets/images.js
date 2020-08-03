@@ -57,13 +57,16 @@ import boywithdad from './img/boywithdad.jpg';
 import chasmisman from './img/chasmisman.jpg';
 import orangetopgirlcrop from './img/Stocksy_comp_2414754.png';
 import girlwithlaptop from './img/girlwithlaptop.png';
-import boyondark from "./img/boyondark.jpg";
-import smilingindark from "./img/smilingindark.jpg";
-import whitetshirtgirl from "./img/whitetshirtgirl.jpg";
-import yellowpillowboy from "./img/yellowpillowboy.jpg";
-import greentshirtsmile from "./img/greentshirtsmile.jpg";
-import skettingboy from "./img/skettingboy.jpg";
-import blackshirtgirl from "./img/blackshirtgirl.jpg";
+import boyondark from './img/boyondark.jpg';
+import smilingindark from './img/smilingindark.jpg';
+import whitetshirtgirl from './img/whitetshirtgirl.jpg';
+import yellowpillowboy from './img/yellowpillowboy.jpg';
+import greentshirtsmile from './img/greentshirtsmile.jpg';
+import skettingboy from './img/skettingboy.jpg';
+import blackshirtgirl from './img/blackshirtgirl.jpg';
+import greysmallgirl from './img/greysmallgirl.png';
+import boywithtablet from './img/boywithtablet.png';
+import animated from './img/animated.svg';
 
 export const commonImg = {
     google,
@@ -131,7 +134,10 @@ export const commonImg = {
     girlwithlaptop,
     greentshirtsmile,
     skettingboy,
-    blackshirtgirl
+    blackshirtgirl,
+    greysmallgirl,
+    boywithtablet,
+    animated,
 };
 
 export default commonImg;

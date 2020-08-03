@@ -1,4 +1,5 @@
 import React from 'react';
+import About from './About';
 import Banner from './Banner';
 import Section1 from './Section1';
 import Section2 from './Section2';
@@ -10,7 +11,9 @@ const index: React.FunctionComponent = () => {
             <Banner />
             <Section1 />
             <Section2 />
-            <Upcoming />
+            <Upcoming title={'Upcoming classes'} />
+            <Upcoming title={'Previous Classes'} />
+            <About />
         </div>
     );
 };
