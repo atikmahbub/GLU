@@ -246,4 +246,40 @@
             }
         }
     }
+    .career__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 11.656rem;
+        padding: 0 3.062rem;
+        border-top: 1px solid #ccc;
+        padding-top: 2rem;
+        .experience__box {
+            grid-column: 3/4;
+            border-left: 1px solid #ccc;
+            padding-left: 1.5rem;
+            .title {
+                margin-bottom: 1.75rem;
+            }
+            .para {
+                font-size: 1.562rem;
+                margin-bottom: 1.625rem;
+                padding-right: 4rem;
+                font-weight: bold;
+            }
+        }
+        .education__box {
+            grid-column: 4/5;
+            border-left: 1px solid #ccc;
+            padding-left: 1.5rem;
+            .title {
+                margin-bottom: 1.75rem;
+            }
+            .para {
+                font-weight: bold;
+                font-size: 1.562rem;
+                margin-bottom: 1.625rem;
+                padding-right: 4rem;
+            }
+        }
+    }
 }

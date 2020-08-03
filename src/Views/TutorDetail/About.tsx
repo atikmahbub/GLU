@@ -1,8 +1,4 @@
 import React from 'react';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
-import DateSelector from '../../components/DateTimeSelector/DateSelector';
-
-import { Button } from '@material-ui/core';
 import Skill from './Skill';
 const About: React.FunctionComponent = () => {
     return (
