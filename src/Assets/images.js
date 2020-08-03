@@ -64,6 +64,7 @@ import yellowpillowboy from "./img/yellowpillowboy.jpg";
 import greentshirtsmile from "./img/greentshirtsmile.jpg";
 import skettingboy from "./img/skettingboy.jpg";
 import blackshirtgirl from "./img/blackshirtgirl.jpg";
+import sketterMobile from "./img/sketterMobile.png";
 
 export const commonImg = {
     google,
@@ -131,7 +132,8 @@ export const commonImg = {
     girlwithlaptop,
     greentshirtsmile,
     skettingboy,
-    blackshirtgirl
+    blackshirtgirl,
+    sketterMobile
 };
 
 export default commonImg;
