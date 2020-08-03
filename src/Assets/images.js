@@ -66,15 +66,8 @@ import skettingboy from './img/skettingboy.jpg';
 import blackshirtgirl from './img/blackshirtgirl.jpg';
 import greysmallgirl from './img/greysmallgirl.png';
 import boywithtablet from './img/boywithtablet.png';
-import animated from './img/animated.svg';
-import boyondark from './img/boyondark.jpg';
-import smilingindark from './img/smilingindark.jpg';
-import whitetshirtgirl from './img/whitetshirtgirl.jpg';
-import yellowpillowboy from './img/yellowpillowboy.jpg';
-import greentshirtsmile from './img/greentshirtsmile.jpg';
-import skettingboy from './img/skettingboy.jpg';
-import blackshirtgirl from './img/blackshirtgirl.jpg';
 import sketterMobile from './img/sketterMobile.png';
+import animated from './img/animated.svg';
 
 export const commonImg = {
     google,
