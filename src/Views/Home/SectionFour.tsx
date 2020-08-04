@@ -11,7 +11,7 @@ interface props {
 const SectionFour: React.FunctionComponent<props> = ({ imageOne, imageTwo, msg, show }) => {
     return (
         <div className="section-four">
-            <div className="row">
+            <div className="row make__col__reverse">
                 <div className="col-lg-6">
                     <div className="short-hair-girl-container">
                         <img className="short-hair-girl" src={imageOne} alt="" />

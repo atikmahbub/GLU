@@ -5,7 +5,7 @@ import commonImg from '../../Assets/images';
 const SectionOne = () => {
     return (
         <div className="section-one">
-            <div className="row">
+            <div className="row make__col__reverse">
                 <div className="col-lg-6">
                     <div className="img-container">
                         <img className="spect-boy" src={commonImg.spectsboy} alt="" />
@@ -20,7 +20,9 @@ const SectionOne = () => {
                         <img className="sppon-girl" src={commonImg.spoongirl} alt="" />
                     </div>
                 </div>
-                <div className="col-lg-12">
+            </div>
+            <div className="row">
+            <div className="col-lg-12">
                     <Typography className="workable-solution">
                         Glu provides workable solutions to issues encountered, when pushing for the best learning
                         outcomes for students

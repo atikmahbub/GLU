@@ -3,7 +3,7 @@ import axios from 'axios';
 export const AUTHORIZATION = 'Authorization';
 const proxy = 'https://cors-anywhere.herokuapp.com/';
 export const API = axios.create({
-    baseURL: 'http://stage.antino.io:3000/api/v1/',
+    baseURL: 'http://glu.antino.io:3000/api/v1/',
 });
 
 export const authorize = (token: string) => {

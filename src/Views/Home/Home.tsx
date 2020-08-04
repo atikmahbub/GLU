@@ -62,10 +62,11 @@ const Home: React.FunctionComponent = () => {
             <SectionOne />
             <SectionTwoReusable
                 image={commonImg.earringgirl}
+                mobileImg={commonImg.smallhairwomenmobile}
                 title="Qualified teachers"
                 msg={
                     <>
-                        Sign up with Glu  and earn <br/> money from the comfort <br/> of your own home
+                        Sign up with Glu  and earn money from the comfort  of your own home
                     </>
                 }
             />
@@ -84,10 +85,11 @@ const Home: React.FunctionComponent = () => {
             <SectionSix />
             <SectionTwoReusable
                 image={commonImg.women}
+                mobileImg={commonImg.oldwomenmobile}
                 title="Messenger"
                 msg={
                     <>
-                        Keep the convo <br /> going with the in app <br /> messenger
+                        Keep the convo  going with the in app  messenger
                     </>
                 }
             />

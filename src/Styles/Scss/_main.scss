@@ -20,7 +20,9 @@ html {
         -ms-overflow-style: none;
     }
 }
-
+#root{
+    position: relative;
+}
 @media only screen and (max-width: 1500px) {
     html {
         font-size: 11px;

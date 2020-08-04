@@ -27,7 +27,7 @@ const StudentWatchPreviousClass = React.lazy(() => import('./Views/StudentWatchP
 const TutorDetail = React.lazy(() => import('./Views/TutorDetail/index'));
 const TutorsUpcomingClasses = React.lazy(() => import('./Views/TutorsUpcomingClasses/Index'));
 const StudentTutorPreviousClasses = React.lazy(() => import('./Views/StudentTutorPreviousClasses/Index'));
-
+const studentDashboard = React.lazy(()=>import('./Views/StudentDashboard/Index'));
 
 
 export class App extends React.Component {
@@ -63,6 +63,7 @@ export class App extends React.Component {
                             <Route exact path="/tutor-detail" component={TutorDetail} />
                             <Route path="/verification" component={verification} />
                             <PrivateRoute path="/dashboard/" component={Dashboard} />
+                            <Route path="/studentDashboard/" component={studentDashboard} />
                         </Switch>
                     </Suspense>
                 </Router>

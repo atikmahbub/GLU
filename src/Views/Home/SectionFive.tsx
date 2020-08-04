@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography } from '@material-ui/core';
 import commonImg from '../../Assets/images';
 import HorizontalLine from '../../components/HorizontalLine';
 
 const SectionFive = () => {
     return (
-        <div className="section-five">
+        <div className={`section-five`}>
             <HorizontalLine />
-            <div className="row">
+            <div className={`row`}>
                 <div className="col-lg-6">
-                    <Typography className="learn-title">
-                        Learn or teach, we have over <br /> 30 subjects to pick from, including:
-                    </Typography>
-                    <img className="subject" src={commonImg.subectIconSvg} />
+                    <div className="make__position__sticky">
+                        <Typography className="learn-title">
+                            Learn or teach, we have over <br /> 30 subjects to pick from
+                        </Typography>
+                        <img className="subject" src={commonImg.subectIconSvg} />
+                    </div>
                 </div>
                 <div className="col-lg-6">
                     <div className="subject-list-container">
@@ -34,6 +36,10 @@ const SectionFive = () => {
                             <li>Computer Science</li>
                             <li>Drama</li>
                         </ul>
+                        <Typography className="scrolling__text">Maths, Science, Physics, Chemistry,
+                        Biology, Business Studies, Language, PE, Religious Education, English, Art, Geography,
+                        History, ICT, Computer Science, Drama
+                        </Typography>
                     </div>
                 </div>
             </div>
