@@ -9,7 +9,7 @@ interface props{
 const SectionThree: React.FunctionComponent<props> = ({image, msg}) => {
     return (
         <div className="section-three">
-            <div className="row">
+            <div className="row make__col__reverse">
                 <div className="col-lg-6">
                     <div className="left-part">
                         <img src={image} alt="" />

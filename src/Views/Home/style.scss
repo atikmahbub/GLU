@@ -1,6 +1,8 @@
 .home-wrapper {
     transition: all 0.5s ease;
+    position: relative;
     .holding-container {
+        position: relative;
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
@@ -23,6 +25,7 @@
             .slogan {
                 font-weight: 900;
                 font-size: 22rem;
+                transition: all 0.5s;
                 letter-spacing: 1rem;
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
@@ -56,12 +59,16 @@
                 .title {
                     color: $white;
                     font-size: 1.562rem;
+                    transition: all 0.5s;
                     margin-bottom: 1rem;
                     font-family: 'CircularXXWeb-Book';
                     transition: all 0.8s;
                 }
                 .for {
+                    text-rendering: optimizeLegibility;
+                    -webkit-font-smoothing: antialiased;
                     font-size: 5rem;
+                    transition: all 0.5s;
                     font-weight: 500;
                     color: $white;
                     line-height: 5rem;
@@ -81,6 +88,7 @@
                 .title {
                     color: $white;
                     font-size: 0.9rem;
+                    transition: all 0.5s;
                     font-weight: 100;
                     font-family: 'CircularXXMonoWeb-Regular';
                     transition: all 0.8s;
@@ -88,6 +96,7 @@
                 .apple-icon {
                     margin: 0 0.5rem;
                     font-size: 1rem;
+                    transition: all 0.5s;
                     color: $white;
                 }
                 .google-icon {
@@ -109,12 +118,14 @@
                 animation: slideDown 0.3s;
                 .text {
                     font-size: 1.937rem;
+                    transition: all 0.5s;
                     font-family: 'CircularXXWeb-Book';
                     color: $white;
                     transition: all 0.8s;
                 }
                 .icon {
                     font-size: 1.737rem;
+                    transition: all 0.5s;
                     color: $white;
                 }
             }
@@ -153,6 +164,7 @@
 
             .title {
                 font-size: 2.625rem;
+                transition: all 0.5s;
                 line-height: 2.625rem;
                 margin-bottom: 10rem;
                 color: #000;
@@ -166,6 +178,7 @@
         .workable-solution {
             margin-top: 10rem;
             font-size: 5rem;
+            transition: all 0.5s;
             line-height: 5rem;
             margin-bottom: 9.937rem;
             color: #000;
@@ -185,6 +198,9 @@
             left: 0;
             background-color: rgba(0, 0, 0, 0.3);
         }
+        .ear-ring-girl-mobile {
+            display: none;
+        }
         .ear-ring-girl {
             width: 100%;
         }
@@ -192,13 +208,16 @@
             position: absolute;
             bottom: 11.187rem;
             right: 7.25rem;
+            left: 48%;
             .title {
                 color: $white;
                 font-size: 1.562rem;
+                transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
             }
             .msg {
                 font-size: 5rem;
+                transition: all 0.5s;
                 color: $white;
                 font-family: 'CircularXXWeb-Book';
                 line-height: 5rem;
@@ -207,6 +226,7 @@
     }
     .section-three {
         margin-bottom: 8.75rem;
+        padding: 0 3rem;
         .left-part {
             @include flex(center, center, row);
             .mobile {
@@ -220,10 +240,11 @@
             @include flex(center, center, column);
             .title {
                 font-size: 2.725rem;
+                transition: all 0.5s;
                 line-height: 2.725rem;
                 color: #000;
                 font-family: 'CircularXXWeb-Book';
-                margin-right: 11.687rem;
+                margin-right: 7.25rem;
             }
         }
     }
@@ -240,15 +261,18 @@
             .title {
                 font-weight: 500;
                 font-size: 2.625rem;
+                transition: all 0.5s;
                 line-height: 2.625rem;
                 margin-bottom: 20.437rem;
                 color: #000;
                 font-family: 'CircularXXWeb-Book';
+                margin-right: 7.25rem;
             }
             .real-time-intraction {
                 margin-top: -19.537rem;
                 margin-bottom: 2.687rem;
                 font-size: 1.562rem;
+                transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
             }
             .board-icon {
@@ -262,9 +286,18 @@
     }
     .section-five {
         padding: 2rem 3.062rem;
+        transition: all 0.4s;
+        z-index: 35;
+        background: #fff;
+        .full__height {
+            height: 100vh;
+            overflow: auto;
+            @include disableScroll;
+        }
         .learn-title {
             margin-top: 2rem;
             font-size: 2.625rem;
+            transition: all 0.5s;
             line-height: 2.625rem;
             color: #000;
             font-family: 'CircularXXWeb-Book';
@@ -280,10 +313,14 @@
                 li {
                     font-weight: 500;
                     font-size: 5rem;
+                    transition: all 0.5s;
                     line-height: 5rem;
                     font-family: 'CircularXXWeb-Book';
                     color: #000;
                 }
+            }
+            .scrolling__text{
+                display: none;
             }
         }
     }
@@ -291,18 +328,22 @@
         padding: 0 3.062rem;
         margin-top: 4rem;
         margin-bottom: 4rem;
+        background-color: $white;
         .title {
             font-size: 1.562rem;
+            transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
             color: #000;
         }
         .msg {
             font-size: 2.625rem;
+            transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
             color: #000;
         }
         .email-address {
             font-size: 1.562rem;
+            transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
             color: #000;
         }
@@ -322,6 +363,7 @@
                 &::placeholder {
                     padding-left: 0;
                     font-size: 2.625rem;
+                    transition: all 0.5s;
                     color: #5f5f5f;
                     font-weight: 500;
                 }
@@ -329,8 +371,8 @@
             .subscribe {
                 cursor: pointer;
                 text-transform: capitalize;
-                font-size: 1.562rem;
-                font-weight: 600;
+                font-size: 2.5rem;
+                transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
                 color: #000;
                 &:hover {
@@ -353,6 +395,7 @@
         }
         .people-saying {
             font-size: 2.625rem;
+            transition: all 0.5s;
             font-weight: 500;
             color: #000000;
             font-family: 'CircularXXWeb-Book';
@@ -363,6 +406,7 @@
             .heading {
                 font-weight: 500;
                 font-size: 2.625rem;
+                transition: all 0.5s;
                 line-height: 2.625rem;
                 margin-bottom: 1.2rem;
                 font-family: 'CircularXXWeb-Book';
@@ -370,12 +414,14 @@
             .title {
                 margin-top: 2rem;
                 font-size: 1.562rem;
+                transition: all 0.5s;
                 line-height: 1.562rem;
                 font-weight: 600;
                 font-family: 'CircularXXWeb-Book';
             }
             .subtitle {
                 font-size: 1.562rem;
+                transition: all 0.5s;
                 line-height: 1.862rem;
                 font-weight: 100;
                 color: $headingPrimary;
@@ -393,6 +439,7 @@
         .text-section-container {
             .title {
                 font-size: 2.625rem;
+                transition: all 0.5s;
                 line-height: 2.625rem;
                 font-family: 'CircularXXWeb-Book';
                 color: #000;
@@ -401,6 +448,7 @@
             }
             .subtitle {
                 font-size: 1.937rem;
+                transition: all 0.5s;
                 font-weight: 500;
                 margin-bottom: 2.625rem;
                 font-family: 'CircularXXWeb-Book';
@@ -412,6 +460,7 @@
                 .apple-icon {
                     color: #5c5c5c;
                     font-size: 1.437rem;
+                    transition: all 0.5s;
                     align-self: flex-end;
 
                     font-family: 'CircularXXWeb-Book';
@@ -445,12 +494,67 @@
 }
 
 // responsive
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
     .home-wrapper {
+        overflow-x: hidden;
+        .section-two {
+            .img-overlay-container {
+                right: 4rem !important;
+            }
+        }
         .holding-container {
+            position: relative;
             .rotating-box {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    url('../../Assets/img/sketterMobile.png');
+                    url('../../Assets/img/sketterMobile.jpg') !important;
+            }
+        }
+        .section-five {
+            .subject-list-container {
+                position: relative;
+                ul {
+                    display: none;
+                }
+                .scrolling__text {
+                    display: block;
+                    position: absolute;
+                    width: 291rem;
+                    font-size: 4rem;
+                    animation: scrollFromRightToLeft linear 15s infinite;
+                }
+                @keyframes scrollFromRightToLeft {
+                    0% {
+                        left: 40rem;
+                    }
+                    100% {
+                        left: -295rem;
+                    }
+                }
+            }
+        }
+        .section-six {
+            margin-top: 11rem;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .home-wrapper {
+        .make__col__reverse {
+            flex-direction: column-reverse;
+        }
+        .holding-container {
+            position: relative;
+            .rotating-box {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('../../Assets/img/sketterMobile.jpg') !important;
+                .launching-soon-container {
+                    bottom: 7rem;
+                    .for {
+                        font-size: 4rem;
+                        transition: all 0.5s;
+                        line-height: 4rem;
+                    }
+                }
             }
         }
         .section-one {
@@ -467,13 +571,156 @@
             }
             .workable-solution {
                 font-size: 4rem;
+                transition: all 0.5s;
                 line-height: 4rem;
             }
         }
         .section-two {
             .ear-ring-girl {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    url('../../Assets/img/sketterMobile.png');
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block;
+                width: 100%;
+            }
+            .img-overlay-container {
+                // width: 28rem;
+                bottom: 6.9rem;
+                left: 3rem;
+                right: 28rem;
+                .msg {
+                    font-size: 4rem;
+                    transition: all 0.5s;
+                    line-height: 4.3rem;
+                }
+            }
+        }
+        .section-three {
+            margin-bottom: 6.85rem;
+            .left-part {
+                img {
+                    width: 25.3rem;
+                }
+            }
+            .right-part {
+                .title {
+                    margin: 0;
+                    font-size: 2.5rem;
+                    transition: all 0.5s;
+                    margin-bottom: 7.9rem;
+                }
+            }
+        }
+        .section-four {
+            margin-bottom: 5.35rem;
+            .section-four-right-part-container {
+                .title {
+                    font-size: 2.5rem;
+                    transition: all 0.5s;
+                    margin-bottom: 7.35rem;
+                    margin-right: 0;
+                }
+                .lappy-girl {
+                    display: none;
+                }
+                .real-time-intraction {
+                    margin-top: -5.537rem;
+                }
+                .board-icon {
+                    width: 3rem;
+                }
+            }
+            .short-hair-girl-container {
+                margin-right: 0;
+                .short-hair-girl {
+                    width: 100%;
+                }
+            }
+        }
+        .section-five {
+            padding-top: 0;
+            padding-bottom: 0;
+            .horizontal__line {
+                display: none;
+            }
+            .subject {
+                width: 3rem;
+            }
+        }
+        .section-six {
+            .msg {
+                font-size: 2.5rem;
+                transition: all 0.5s;
+                line-height: 2.5rem;
+                margin-bottom: 2rem;
+            }
+            .email-address {
+                line-height: 2.4rem;
+            }
+            .email-container {
+                .email {
+                    font-size: 2.5rem;
+                    line-height: 1.8rem;
+                    color: #8b8b8b;
+                    height: 2.9rem;
+                }
+                .subscribe {
+                    font-size: 1.8rem;
+                    transition: all 0.5s;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+        .section-seven {
+            margin-bottom: 8rem;
+            .line {
+                display: none;
+            }
+            .people-saying {
+                margin-bottom: 4.3rem;
+                font-size: 2.5rem;
+                transition: all 0.5s;
+            }
+
+            .border-card-container {
+                margin-bottom: 3rem;
+                border-left: 2px solid #cfcfcf70;
+                .heading {
+                    font-size: 2.5rem;
+                    transition: all 0.5s;
+                }
+
+                .title {
+                    font-size: 1.5rem;
+                    transition: all 0.5s;
+                    margin-bottom: 0.3rem;
+                }
+            }
+            .pen-pad-girl {
+                padding-right: 0;
+                margin-bottom: 7.284rem;
+            }
+            .break-section {
+                margin-bottom: 3.937rem;
+            }
+            .text-section-container {
+                .title {
+                    margin-right: 0;
+                    font-size: 2.5rem;
+                    transition: all 0.5s;
+                }
+
+                .icon__container {
+                    .apple-icon {
+                        font-size: 1.938rem;
+                        transition: all 0.5s;
+                    }
+
+                    .google-icon {
+                        width: 1.7rem;
+                        margin-top: 0.23rem;
+                    }
+                }
             }
         }
     }

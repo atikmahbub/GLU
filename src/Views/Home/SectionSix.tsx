@@ -1,7 +1,20 @@
-import React from 'react';
-import { Typography, Button } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Typography } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { emailSubscriber } from '../../Redux/Actions/loginAction';
 
 const SectionSix = () => {
+    const [email, setEmail] = useState('');
+    const disptach = useDispatch();
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    }
+    const resetEmail = () => {
+        setEmail('');
+    }
+    const submitEmail = () => {
+        disptach(emailSubscriber({email}, resetEmail))
+    }
     return (
         <div className="section-six">
                 <div className="row">
@@ -12,8 +25,8 @@ const SectionSix = () => {
                     <div className="col-lg-6">
                         <Typography className="email-address">Email Address</Typography>
                         <div className="email-container">
-                            <input className="email" placeholder="harrison@madebysix.com" />
-                            <Typography className="subscribe">Subscribe</Typography>
+                            <input className="email" placeholder="harrison@six.com" onChange={handleEmail} />
+                            <Typography className="subscribe" onClick={submitEmail}>Subscribe</Typography>
                         </div>
                         <hr className="email-line" />
                     </div>

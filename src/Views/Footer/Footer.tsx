@@ -8,21 +8,21 @@ const Footer: React.FunctionComponent = () => {
         <div className="footer">
             <hr className="line" />
             <div className="row">
-                <div className="col-md-5">
+                <div className="col-lg-5">
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
-                        <input type="text" className="email" placeholder="Emai Address" />
+                        <input type="text" className="email" placeholder="Email Address" />
                         <Typography className="subscribe">Subscribe</Typography>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-lg-4">
                     <div className="address-container address-padding">
                         <Typography className="title">Contact</Typography>
                         <Typography className="title">info@glulearning.com</Typography>
                         <Typography className="title">+971 4 554 0350</Typography>
                     </div>
                 </div>
-                <div className="col-md-3 position-relative">
+                <div className="col-lg-3 position-relative">
                     <div className="three__piller__container">
                         <img src={Icons.threePiller} alt="three piller"/>
                     </div>

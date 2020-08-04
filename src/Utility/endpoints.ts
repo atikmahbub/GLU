@@ -12,5 +12,6 @@ export const endponts = {
     departments: '/schools/departments',
     sessions: '/session',
     subject: '/schools/subjects',
-    timeTable: '/schools/routines'
+    timeTable: '/schools/routines',
+    emailSubscribe:'auth/email'
 }

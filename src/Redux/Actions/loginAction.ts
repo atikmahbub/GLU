@@ -7,6 +7,7 @@ import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { handleError } from './errorHandler';
 import { appAction } from '../../Interfaces';
+import { Dispatch } from 'react';
 
 export const userLoginAPIcall = (data: loginAuth, history: any) => {
     return (dispatch: any) => {
@@ -21,7 +22,7 @@ export const userLoginAPIcall = (data: loginAuth, history: any) => {
                 setAuthrizationToken();
             })
             .catch((err: any) => {
-                handleError(dispatch,err);
+                handleError(dispatch, err);
             });
     };
 };
@@ -33,15 +34,30 @@ export const userLogin = (data: loginData): appAction => {
     };
 };
 
+export const authRegisterAPIcall = (data: { username: string; password: string; token: string }, history: any) => {
+    return (dispatch: any) => {
+        API.post(endponts.authRegister, data)
+            .then((res) => {
+                console.log(res.data.data);
+                toast.success('You are successfully registered.');
+                history.push('/');
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
-export const authRegisterAPIcall = (data:{username:string, password: string, token: string}, history:any) => {
-    return (dispatch: any)=>{
-        API.post(endponts.authRegister, data).then(res=>{
-            console.log(res.data.data)
-            toast.success("You are successfully registered.");
-            history.push('/');
-        }).catch((err)=>{
-            handleError(dispatch,err);
-        })
-    }
-}
+export const emailSubscriber = (data: { email: string }, setEmail:Function) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.emailSubscribe, data)
+            .then((res) => {
+                setEmail();
+                console.log(res);
+                toast.success("Subscription email sent Successfully");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+};
