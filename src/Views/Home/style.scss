@@ -56,7 +56,8 @@
                 font-family: 'CircularXXWeb-Book';
                 transition: all 0.8s;
                 .title {
-                    @include makeFontSmoth(0.156rem, $white);
+                    // @include makeFontSmoth(0.156rem, $white);
+                    color: #fff;
                     font-size: 1.562rem;
                     transition: all 0.5s;
                     margin-bottom: 1rem;
@@ -67,7 +68,8 @@
                     font-size: 5rem;
                     transition: all 0.5s;
                     font-weight: 500;
-                    @include makeFontSmoth(0.156rem, $white);
+                    // @include makeFontSmoth(0.156rem, $white);
+                    color:#fff;
                     line-height: 5rem;
                     font-family: inherit;
                     transition: all 0.8s;
@@ -85,7 +87,7 @@
                 .title {
                     text-shadow: 0 0 0.062rem $white;
                     color: transparent;
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                     transition: all 0.5s;
                     font-weight: 100;
                     font-family: 'CircularXXMonoWeb-Regular';
@@ -93,13 +95,13 @@
                 }
                 .apple-icon {
                     margin: 0 0.5rem;
-                    font-size: 1rem;
+                    font-size: 1.4rem;
                     transition: all 0.5s;
                     color: $white;
                 }
                 .google-icon {
-                    width: 0.7rem;
-                    margin-top: 1px;
+                    width: 0.9rem;
+                    // margin-top: 1px;
                 }
             }
             .scroll__container {
@@ -161,12 +163,14 @@
             transition: all 0.8s;
 
             .title {
-                font-size: 2.625rem;
-                @include makeFontSmoth(0.147rem, #1c1c1c);
+                // font-size: 2.625rem;// commented by sani
+                font-size: 3.4rem; // added by sani
+                // @include makeFontSmoth(0.147rem, #1c1c1c); // commented by sani
+                color:#1c1c1c; // added by sani
+                padding-right:2rem;
                 transition: all 0.5s;
-                line-height: 2.625rem;
+                line-height: 3.4rem; //Changed by sani
                 margin-bottom: 10rem;
-
                 font-family: 'CircularXXWeb-Book';
             }
             .sppon-girl {
