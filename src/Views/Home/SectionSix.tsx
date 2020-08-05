@@ -25,7 +25,7 @@ const SectionSix = () => {
                     <div className="col-lg-6">
                         <Typography className="email-address">Email Address</Typography>
                         <div className="email-container">
-                            <input className="email" placeholder="harrison@six.com" onChange={handleEmail} />
+                            <input className="email" placeholder="harrison@madebysix.com" onChange={handleEmail} />
                             <Typography className="subscribe" onClick={submitEmail}>Subscribe</Typography>
                         </div>
                         <hr className="email-line" />

@@ -10,7 +10,7 @@
         .join-glu {
             font-size: 1.562rem;
             transition: all 0.5s;
-            @include makeFontSmoth(2.2px,#1c1c1c);
+            @include makeFontSmoth(0.2rem, $black);
             font-weight: 500;
             font-family: 'CircularXXWeb-Book';
         }
@@ -20,12 +20,12 @@
             border: none;
             height: 2.5rem;
             font-size: 1.562rem;
-            @include makeFontSmoth(2.2px,#8b8b8b);
+            @include makeFontSmoth(0.2rem, #8b8b8b);
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
                 font-size: 1.562rem;
                 transition: all 0.5s;
-                @include makeFontSmoth(2.2px,#8b8b8b);
+                @include makeFontSmoth(0.2rem, #8b8b8b);
             }
             &:focus {
                 outline-color: transparent;
@@ -34,7 +34,7 @@
         .subscribe {
             font-size: 1.562rem;
             transition: all 0.5s;
-            @include makeFontSmoth(2.2px,#1c1c1c);
+            @include makeFontSmoth(0.2rem, $black);
             font-weight: 500;
             text-transform: capitalize;
             font-family: 'CircularXXWeb-Book';
@@ -50,14 +50,15 @@
     .address-container {
         .title {
             font-size: 1.562rem;
+            line-height: 1.762rem;
             transition: all 0.5s;
-            @include makeFontSmoth(2.2px,#1c1c1c);
+            @include makeFontSmoth(0.2rem, $black);
             font-family: 'CircularXXWeb-Book';
             font-weight: 500;
         }
         .links {
             display: block;
-            @include makeFontSmoth(2.2px,#1c1c1c);
+            @include makeFontSmoth(0.137rem, $black);
             font-size: 1.562rem;
             transition: all 0.5s;
             font-weight: 500;
@@ -70,7 +71,7 @@
         font-size: 1rem;
         transition: all 0.5s;
         font-weight: 500;
-        @include makeFontSmoth(2.2px,#1c1c1c);
+        @include makeFontSmoth(0.137rem, $black);
         margin-bottom: 1rem;
         font-family: 'CircularXXMonoWeb-Regular';
         span {
@@ -87,12 +88,14 @@
         font-family: 'CircularXXMonoWeb-Regular';
         text-align: right;
         margin-bottom: 1rem;
+        @include makeFontSmoth(0.137rem, $black);
     }
     .three__piller__container {
         position: absolute;
         right: 1.5rem;
         img {
             width: 1.562rem;
+            filter: blur(0.068rem);
         }
     }
 }
