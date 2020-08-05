@@ -6,6 +6,9 @@
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
+        .ga-text-container {
+            display: none;
+        }
         .default-clip {
             clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
         }
@@ -125,12 +128,9 @@
                 .icon {
                     font-size: 1.737rem;
                     transition: all 0.5s;
-                    @include makeFontSmoth(0.156rem, $white);
-                    color: #ffffff66;
+                    color: $white;
+                    opacity: 0.8;
                 }
-            }
-            .ga-text-container{
-                display: none;
             }
         }
         @keyframes rotate {
@@ -372,7 +372,7 @@
                     padding-left: 0;
                     font-size: 2.625rem;
                     transition: all 0.5s;
-                    @include makeFontSmoth(0.147rem, #8B8B8B);
+                    @include makeFontSmoth(0.147rem, #8b8b8b);
                     font-weight: 500;
                 }
             }
@@ -508,21 +508,34 @@
 @media screen and (max-width: 425px) {
     .home-wrapper {
         overflow-x: hidden;
+        .make__col__reverse {
+            flex-direction: column-reverse;
+        }
+        .section-one {
+            padding: 0 2.1rem;
+            .section-one-right-part {
+                padding-left: 0;
+                .title {
+                    margin-right: 0;
+                }
+            }
+        }
         .section-two {
+            padding: 0;
             .img-overlay-container {
                 right: 4rem !important;
+                left: 2.1rem !important;
             }
         }
         .holding-container {
             position: relative;
             .rotating-box {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    $girlSkettingMobile !important;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
             }
-            .bottom-right-container{
+            .bottom-right-container {
                 display: none;
             }
-            .ga-text-container{
+            .ga-text-container {
                 display: block;
                 position: absolute;
                 bottom: -2rem;
@@ -530,21 +543,48 @@
                 width: 31rem;
                 left: 2rem;
                 bottom: -4rem;
-                .title{
+                .title {
                     font-family: 'CircularXXMonoWeb-Regular';
                     font-size: 1.2rem;
+                    font-weight: 600;
+                    @include makeFontSmoth(1px, $black);
                 }
-                .icon{
+                .icon {
                     width: 1.349rem;
                     height: 1.6rem;
                 }
-                .google-icon{
-                    width: 1.4rem;   
+                .google-icon {
+                    width: 1.4rem;
                     margin-top: 0.1rem;
                 }
             }
         }
+        .section-three {
+            padding: 0 2.1rem;
+        }
+        .section-four {
+            padding: 0 2.1rem;
+            .short-hair-girl-container {
+                display: none;
+            }
+            .section-four-right-part-container {
+                display: block;
+                .title {
+                    display: none;
+                }
+                .real-time-intraction {
+                    display: none;
+                }
+                .board-icon {
+                    display: none;
+                }
+                .lappy-girl {
+                    display: block !important;
+                }
+            }
+        }
         .section-five {
+            padding: 0 2.1rem;
             .subject-list-container {
                 position: relative;
                 ul {
@@ -569,20 +609,53 @@
         }
         .section-six {
             margin-top: 11rem;
+            padding: 0 2.1rem;
+            .email-container {
+                .email {
+                    width: 65%;
+                }
+            }
         }
-        
+        .section-seven {
+            padding: 0 2.1rem;
+        }
+        .footer {
+            padding: 0 2.1rem;
+        }
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 767px) {
+    .home-wrapper {
+        .section-one {
+            .section-one-right-part {
+                padding-left: 0;
+                margin-top: 10rem;
+            }
+            .workable-solution{
+                margin-top: 0;
+            }
+        }
+        .section-three{
+            .right-part{
+                margin-top: 10rem;
+            }
+        }
+        .section-four{
+            .section-four-right-part-container{
+                margin-top: 10rem;
+            }
+        }
     }
 }
 @media screen and (max-width: 768px) {
     .home-wrapper {
-        .make__col__reverse {
-            flex-direction: column-reverse;
-        }
         .holding-container {
             position: relative;
+            .ga-text-container {
+                display: none;
+            }
             .rotating-box {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    $girlSkettingMobile !important;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {

@@ -6,12 +6,12 @@ const SectionOne = () => {
     return (
         <div className="section-one">
             <div className="row make__col__reverse">
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <div className="img-container">
                         <img className="spect-boy" src={commonImg.spectsboy} alt="" />
                     </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <div className="section-one-right-part">
                         <Typography className="title">
                             Glu is an innovative web based app that bridges the gap between schools, teachers, parents
