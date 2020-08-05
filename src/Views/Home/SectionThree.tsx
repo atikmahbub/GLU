@@ -10,12 +10,12 @@ const SectionThree: React.FunctionComponent<props> = ({image, msg}) => {
     return (
         <div className="section-three">
             <div className="row make__col__reverse">
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <div className="left-part">
                         <img src={image} alt="" />
                     </div>
                 </div>
-                <div className="col-lg-6 d-flex">
+                <div className="col-md-6 col-lg-6 d-flex">
                     <div className="right-part">
                         <Typography className="title">
                             {msg}
