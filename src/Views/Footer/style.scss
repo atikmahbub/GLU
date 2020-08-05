@@ -10,7 +10,7 @@
         .join-glu {
             font-size: 1.562rem;
             transition: all 0.5s;
-            color: #000;
+            @include makeFontSmoth(2.2px,#1c1c1c);
             font-weight: 500;
             font-family: 'CircularXXWeb-Book';
         }
@@ -20,11 +20,12 @@
             border: none;
             height: 2.5rem;
             font-size: 1.562rem;
+            @include makeFontSmoth(2.2px,#8b8b8b);
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
                 font-size: 1.562rem;
                 transition: all 0.5s;
-                color: #8b8b8b;
+                @include makeFontSmoth(2.2px,#8b8b8b);
             }
             &:focus {
                 outline-color: transparent;
@@ -33,7 +34,7 @@
         .subscribe {
             font-size: 1.562rem;
             transition: all 0.5s;
-            color: #000;
+            @include makeFontSmoth(2.2px,#1c1c1c);
             font-weight: 500;
             text-transform: capitalize;
             font-family: 'CircularXXWeb-Book';
@@ -50,13 +51,13 @@
         .title {
             font-size: 1.562rem;
             transition: all 0.5s;
-            color: #000;
+            @include makeFontSmoth(2.2px,#1c1c1c);
             font-family: 'CircularXXWeb-Book';
             font-weight: 500;
         }
         .links {
             display: block;
-            color: #000;
+            @include makeFontSmoth(2.2px,#1c1c1c);
             font-size: 1.562rem;
             transition: all 0.5s;
             font-weight: 500;
@@ -69,7 +70,7 @@
         font-size: 1rem;
         transition: all 0.5s;
         font-weight: 500;
-        color: $black;
+        @include makeFontSmoth(2.2px,#1c1c1c);
         margin-bottom: 1rem;
         font-family: 'CircularXXMonoWeb-Regular';
         span {
