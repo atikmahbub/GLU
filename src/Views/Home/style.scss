@@ -82,7 +82,7 @@
                 transition: all 0.3s;
                 animation: slideUp 0.3s;
                 .title {
-                    text-shadow: 0 0 0.186rem $white;
+                    text-shadow: 0 0 0.064rem $white;
                     color: transparent;
                     font-size: 0.9rem;
                     transition: all 0.5s;
@@ -95,12 +95,12 @@
                     font-size: 1rem;
                     transition: all 0.5s;
                     color: $white;
-                    filter: blur(0.068rem);
+                    // filter: blur(0.068rem);
                 }
                 .google-icon {
                     width: 0.7rem;
                     margin-top: 0.08rem;
-                    filter: blur(0.068rem);
+                    // filter: blur(0.068rem);
                 }
             }
             .scroll__container {
@@ -129,6 +129,9 @@
                     color: #ffffff66;
                 }
             }
+            .ga-text-container{
+                display: none;
+            }
         }
         @keyframes rotate {
             0% {
@@ -156,7 +159,7 @@
                 width: 100%;
                 object-fit: cover;
                 transition: all 0.8s;
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
         }
         .section-one-right-part {
@@ -175,7 +178,7 @@
             .sppon-girl {
                 margin-top: 7rem;
                 width: 100%;
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
         }
         .workable-solution {
@@ -200,7 +203,7 @@
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.3);
-            filter: blur(0.068rem);
+            // filter: blur(0.068rem);
         }
         .ear-ring-girl-mobile {
             display: none;
@@ -234,7 +237,7 @@
         .left-part {
             @include flex(center, center, row);
             img {
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
         }
         .right-part {
@@ -256,7 +259,7 @@
             margin-right: 8rem;
             .short-hair-girl {
                 width: 100%;
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
         }
         .section-four-right-part-container {
@@ -281,11 +284,11 @@
             .board-icon {
                 width: 1.875rem;
                 margin-bottom: 10.875rem;
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
             .lappy-girl {
                 width: 100%;
-                filter: blur(0.068rem);
+                // filter: blur(0.068rem);
             }
         }
     }
@@ -516,6 +519,9 @@
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
                     $girlSkettingMobile !important;
             }
+            .bottom-right-container{
+                display: none;
+            }
         }
         .section-five {
             .subject-list-container {
@@ -542,6 +548,9 @@
         }
         .section-six {
             margin-top: 11rem;
+        }
+        .ga-text-container{
+            display: block;
         }
     }
 }
