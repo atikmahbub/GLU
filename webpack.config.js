@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: ['react-hot-loader/patch', './src/index'],
@@ -48,7 +48,7 @@ module.exports = {
         }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
         new ErrorOverlayPlugin(),
-        //         new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin()
     ],
     devtool: 'cheap-module-source-map',
     optimization: {
