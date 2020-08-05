@@ -38,6 +38,6 @@
 }
 
 @mixin makeFontSmoth($size, $color) {
-    text-shadow: 0 0 $size $color;
-    color: transparent;
+    // text-shadow: 0 0 $size $color;
+    color: $color;
 }
