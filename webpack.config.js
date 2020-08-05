@@ -48,7 +48,8 @@ module.exports = {
         }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
         new ErrorOverlayPlugin(),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin()
     ],
     devtool: 'cheap-module-source-map',
     optimization: {

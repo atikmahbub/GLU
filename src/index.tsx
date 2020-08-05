@@ -6,7 +6,6 @@ import './Styles/Scss/index.scss';
 import { Provider } from 'react-redux';
 import { Store, persistor } from './Redux/Store/Store';
 import { PersistGate } from 'redux-persist/integration/react';
-import 'three-dots';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import Loader from './components/Loader';
