@@ -522,6 +522,27 @@
             .bottom-right-container{
                 display: none;
             }
+            .ga-text-container{
+                display: block;
+                position: absolute;
+                bottom: -2rem;
+                @include flex(center, space-between, row);
+                width: 31rem;
+                left: 2rem;
+                bottom: -4rem;
+                .title{
+                    font-family: 'CircularXXMonoWeb-Regular';
+                    font-size: 1.2rem;
+                }
+                .icon{
+                    width: 1.349rem;
+                    height: 1.6rem;
+                }
+                .google-icon{
+                    width: 1.4rem;   
+                    margin-top: 0.1rem;
+                }
+            }
         }
         .section-five {
             .subject-list-container {
@@ -549,9 +570,7 @@
         .section-six {
             margin-top: 11rem;
         }
-        .ga-text-container{
-            display: block;
-        }
+        
     }
 }
 @media screen and (max-width: 768px) {

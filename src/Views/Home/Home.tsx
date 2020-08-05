@@ -51,25 +51,23 @@ const Home: React.FunctionComponent = () => {
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
-                    <img className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`} src={Icons.logo}/>
-
+                    <img
+                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`}
+                        src={Icons.logo}
+                    />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
-                    <BottomGAtext/>
                 </div>
+                <BottomGAtext />
             </div>
             <SectionOne />
             <SectionTwoReusable
                 image={commonImg.earringgirl}
                 mobileImg={commonImg.smallhairwomenmobile}
                 title="Qualified teachers"
-                msg={
-                    <>
-                        Sign up with Glu  and earn money from the comfort  of your own home
-                    </>
-                }
+                msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
             />
             <SectionThree
                 image={commonImg.mobileApple}
@@ -88,11 +86,7 @@ const Home: React.FunctionComponent = () => {
                 image={commonImg.women}
                 mobileImg={commonImg.oldwomenmobile}
                 title="Messenger"
-                msg={
-                    <>
-                        Keep the convo  going with the in app  messenger
-                    </>
-                }
+                msg={<>Keep the convo going with the in app messenger</>}
             />
             <SectionThree
                 image={commonImg.menmobileview}
@@ -105,7 +99,7 @@ const Home: React.FunctionComponent = () => {
                 show={true}
             />
             <PeopleSaying />
-            <Footer  />
+            <Footer />
         </div>
     );
 };
