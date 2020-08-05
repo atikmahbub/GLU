@@ -14,6 +14,7 @@ import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
 import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
+import BottomGAtext from './BottomGAtext';
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -56,7 +57,7 @@ const Home: React.FunctionComponent = () => {
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
-                    
+                    <BottomGAtext/>
                 </div>
             </div>
             <SectionOne />
