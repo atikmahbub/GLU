@@ -443,7 +443,7 @@
                 margin-top: 2rem;
                 font-size: 1.562rem;
                 transition: all 0.5s;
-                line-height: 1.562rem;
+                line-height: 1.62rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
             }
@@ -540,6 +540,9 @@
                 .title {
                     margin-right: 0;
                 }
+                .sppon-girl {
+                    display: none;
+                }
             }
         }
         .section-two {
@@ -584,24 +587,24 @@
         .section-three {
             padding: 0 2.1rem;
         }
-        .section-four {
-            padding: 0 2.1rem;
-            .short-hair-girl-container {
-                display: none;
-            }
-            .section-four-right-part-container {
-                display: block;
-                .title {
-                    display: none;
-                }
-                .real-time-intraction {
-                    display: none;
-                }
-                .board-icon {
-                    display: none;
-                }
-                .lappy-girl {
-                    display: block !important;
+        .smile__girl__boy {
+            .section-four {
+                padding: 0 2.1rem;
+                .section-four-right-part-container {
+                    .title {
+                        margin-right: 0;
+                        max-width: none;
+                        font-size: 2.4rem;
+                    }
+                    .real-time-intraction {
+                        display: none;
+                    }
+                    .board-icon {
+                        display: none;
+                    }
+                    .lappy-girl {
+                        display: none;
+                    }
                 }
             }
         }
@@ -698,11 +701,7 @@
                     width: 100%;
                 }
             }
-            .section-one-right-part {
-                .sppon-girl {
-                    display: none;
-                }
-            }
+
             .workable-solution {
                 font-size: 4rem;
                 transition: all 0.5s;
