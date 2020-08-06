@@ -95,12 +95,10 @@
                     font-size: 1rem;
                     transition: all 0.5s;
                     color: $white;
-                    // filter: blur(0.068rem);
                 }
                 .google-icon {
                     width: 0.7rem;
                     margin-top: 0.08rem;
-                    // filter: blur(0.068rem);
                 }
             }
             .scroll__container {
@@ -166,7 +164,6 @@
                 width: 100%;
                 object-fit: cover;
                 transition: all 0.8s;
-                // filter: blur(0.068rem);
             }
         }
         .section-one-right-part {
@@ -174,7 +171,7 @@
             transition: all 0.8s;
 
             .title {
-                // max-width: 51.187rem;
+                max-width: 51.187rem;
                 font-size: 2.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
@@ -210,7 +207,6 @@
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.3);
-            // filter: blur(0.068rem);
         }
         .ear-ring-girl-mobile {
             display: none;
@@ -223,6 +219,7 @@
             bottom: 11.187rem;
             right: 10.25rem;
             left: 50%;
+            max-width: 49.062rem;
             .title {
                 @include makeFontSmoth(0.156rem, $white);
                 font-size: 1.562rem;
@@ -244,7 +241,7 @@
         .left-part {
             @include flex(center, center, row);
             img {
-                // filter: blur(0.068rem);
+                transition: all 0.5s;
             }
         }
         .right-part {
@@ -256,6 +253,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
                 margin-right: 3.25rem;
+                max-width: 52.187rem;
             }
         }
     }
@@ -275,7 +273,6 @@
             margin-right: 8rem;
             .short-hair-girl {
                 width: 100%;
-                // filter: blur(0.068rem);
             }
         }
         .section-four-right-part-container {
@@ -288,6 +285,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
                 margin-right: 4.25rem;
+                max-width: 52.187rem;
             }
             .real-time-intraction {
                 margin-top: -19.537rem;
@@ -300,11 +298,11 @@
             .board-icon {
                 width: 1.875rem;
                 margin-bottom: 10.875rem;
-                // filter: blur(0.068rem);
+                transition: all 0.5s;
             }
             .lappy-girl {
                 width: 100%;
-                // filter: blur(0.068rem);
+                transition: all 0.5s;
             }
         }
     }
@@ -340,6 +338,7 @@
                     transition: all 0.5s;
                     line-height: 5rem;
                     font-family: 'CircularXXWeb-Book';
+                    transition: all 0.5s;
                     @include makeFontSmoth(0.147rem, #1c1c1c);
                 }
             }
@@ -377,6 +376,7 @@
                 border: none;
                 width: 80%;
                 font-size: 2.625rem;
+                transition: all 0.5s;
                 @include makeFontSmoth(0.197rem, $black);
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
@@ -394,6 +394,7 @@
             }
             .subscribe {
                 cursor: pointer;
+                transition: all 0.5s;
                 text-transform: capitalize;
                 font-size: 1.625rem;
                 transition: all 0.5s;
@@ -472,6 +473,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 margin-bottom: 1rem;
                 margin-right: 4.312rem;
+                max-width: 52.187rem;
             }
             .subtitle {
                 font-size: 1.937rem;
