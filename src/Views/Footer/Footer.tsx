@@ -8,7 +8,7 @@ const Footer: React.FunctionComponent = () => {
         <div className="footer">
             <hr className="line" />
             <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-5 mr-auto">
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
                         <input type="text" className="email" placeholder="Email Address" />
