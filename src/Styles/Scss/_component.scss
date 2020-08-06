@@ -777,13 +777,13 @@ button.primary-btn {
     @include flex(center, space-between, row);
     position: absolute;
     padding: 1.125rem 3.062rem;
-    top: 0;
+    top: 1rem;
     left: 0;
     width: 100%;
-    transform: translateY(1rem);
+    transform: translateY(0);
     margin-top: -1rem;
     transition: all 0.3s;
-    animation: slideDown 0.3s;
+    animation: slideDown 0.4s linear;
     .left {
         ul {
             list-style: none;

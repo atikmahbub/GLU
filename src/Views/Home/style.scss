@@ -21,7 +21,7 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
-            animation: rotate 0.8s;
+            animation: rotate 1s;
             animation-delay: 1.5s;
             @include flex(center, center, row);
             .slogan {
@@ -32,9 +32,9 @@
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
-                transition: all 0.8s;
-                transform: translateY(-2rem);
-                animation: fadein 0.8s;
+                transition: all 0.1s;
+                transform: translateY(-3rem);
+                animation: fadein 1s;
                 animation-delay: 1.5s;
             }
             @keyframes fadein {
@@ -43,7 +43,7 @@
                     transform: translateY(0);
                 }
                 100% {
-                    transform: translateY(-2rem);
+                    transform: translateY(-3rem);
                     opacity: 1;
                 }
             }
@@ -51,19 +51,16 @@
                 position: absolute;
                 bottom: 11.125rem;
                 left: 3.062rem;
-                transform: translateY(-1rem);
                 margin-top: 1rem;
-                transition: all 0.3s;
-                animation: slideUp 0.3s;
-                font-family: 'CircularXXWeb-Book';
                 transition: all 0.8s;
+                animation: slideDown 0.4s;
+                font-family: 'CircularXXWeb-Book';
                 .title {
                     @include makeFontSmoth(0.186rem, $white);
                     font-size: 1.562rem;
                     transition: all 0.5s;
                     margin-bottom: 1rem;
                     font-family: 'CircularXXWeb-Book';
-                    transition: all 0.8s;
                 }
                 .for {
                     font-size: 5rem;
@@ -80,10 +77,10 @@
                 bottom: 1.937rem;
                 right: 3.062rem;
                 @include flex(center, center, row);
-                transform: translateY(-1rem);
                 margin-top: -1rem;
                 transition: all 0.3s;
-                animation: slideUp 0.3s;
+                animation: slideUp 0.4s linear;
+
                 .title {
                     text-shadow: 0 0 0.064rem $white;
                     color: transparent;
@@ -111,19 +108,18 @@
                 position: absolute;
                 cursor: pointer;
                 padding: 1.125rem 3.062rem;
-                top: 0;
+                top: 1rem;
                 left: 0;
                 width: 12.15rem;
-                transform: translateY(1rem);
+                transform: translateY(0);
                 margin-top: -1rem;
                 transition: all 0.3s;
-                animation: slideDown 0.3s;
+                animation: slideDown 0.4s linear;
                 .text {
                     font-size: 1.562rem;
                     transition: all 0.5s;
                     font-family: 'CircularXXWeb-Book';
                     @include makeFontSmoth(0.156rem, $white);
-                    transition: all 0.8s;
                 }
                 .icon {
                     font-size: 1.737rem;
@@ -144,7 +140,18 @@
         .slogan.show.hide {
             opacity: 0;
             transition: all 0.5s;
-            animation: fadein, slideDown 1s;
+            animation: fadeOutSlideDown 0.5s;
+            transform: translateY(0);
+        }
+        @keyframes fadeOutSlideDown {
+            0%{
+                opacity: 1;
+                transform: translateY(-3rem);
+            }
+            100%{
+                opacity: 0;
+                transform: translateY(0);
+            }
         }
         .slogan.show {
             opacity: 1;
@@ -487,19 +494,23 @@
 
     @keyframes slideDown {
         0% {
-            transform: translateY(0);
+            opacity: 0;
+            transform: translateY(-3rem);
         }
         100% {
-            transform: translateY(1rem);
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
     @keyframes slideUp {
         0% {
-            transform: translateY(0);
+            opacity: 0;
+            bottom: -1.937rem;
         }
         100% {
-            transform: translateY(-1rem);
+            opacity: 1;
+            bottom: 1.937rem;
         }
     }
 }
