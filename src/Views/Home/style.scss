@@ -82,7 +82,7 @@
                 animation: slideUp 0.4s linear;
 
                 .title {
-                    text-shadow: 0 0 0.064rem $white;
+                    text-shadow: 0 0 0.024rem $white;
                     color: transparent;
                     font-size: 0.9rem;
                     transition: all 0.5s;
@@ -654,23 +654,47 @@
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
     .home-wrapper {
+        .make__col__reverse{
+            flex-direction: column-reverse;
+        }
         .section-one {
             .section-one-right-part {
                 padding-left: 0;
-                margin-top: 10rem;
+                margin-top: 1rem;
+                .title{
+                    max-width: none;
+                    margin-right: 0;
+                }
+                .sppon-girl{
+                    display: none;
+                }
             }
             .workable-solution {
-                margin-top: 0;
+                margin-top: 10rem;
             }
         }
         .section-three {
             .right-part {
-                margin-top: 10rem;
+                margin-top: 0;
+                .title{
+                    max-width: none;
+                }
             }
         }
         .section-four {
             .section-four-right-part-container {
-                margin-top: 10rem;
+                margin-top: 0;
+                .title{
+                    max-width: none;
+
+                }
+            }
+        }
+        .section-seven{
+            .text-section-container{
+                .title{
+                    max-width: none;
+                }
             }
         }
     }
