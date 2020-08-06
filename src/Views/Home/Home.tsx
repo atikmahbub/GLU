@@ -52,7 +52,7 @@ const Home: React.FunctionComponent = () => {
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
                     <img
-                        className={`slogan`}
+                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers? 'hide' : ''} `}
                         src={Icons.logo}
                     />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
