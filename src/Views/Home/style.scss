@@ -545,6 +545,33 @@
 }
 
 // responsive
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 9px;
+    }
+    .home-wrapper {
+        .holding-container {
+            .ga-text-container {
+                max-width: 25rem;
+                .title {
+                    font-size: 1rem;
+                }
+                .google-icon{
+                    width: 1.2rem;
+                }
+            }
+        }
+        .section-two {
+            .img-overlay-container {
+                max-width: 29rem!important;
+                .msg {
+                    font-size: 3rem !important;
+                    line-height: 3rem !important;
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 425px) {
     .home-wrapper {
         overflow-x: hidden;
@@ -569,12 +596,12 @@
                 display: none;
             }
             .ear-ring-girl-mobile {
-                display: block!important;
+                display: block !important;
                 width: 100%;
-                height: 100%;
+                height: auto;
             }
             .img-overlay-container {
-                right: 4rem !important;
+                right: 1rem !important;
                 left: 2.1rem !important;
             }
         }
@@ -582,20 +609,27 @@
             position: relative;
             .rotating-box {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
-                .slogan{
+                .slogan {
                     width: 23rem;
                 }
                 .bottom-right-container {
                     display: none;
                 }
             }
-            
-            .ga-text-container{
-                display: flex!important;
+
+            .ga-text-container {
+                display: flex !important;
             }
         }
         .section-three {
             padding: 0 2.1rem;
+        }
+        .section-four{
+            .short-hair-girl-container{
+                .short-hair-girl{
+                    display: none;
+                }
+            }
         }
         .smile__girl__boy {
             .section-four {
@@ -664,18 +698,18 @@
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
     .home-wrapper {
-        .make__col__reverse{
+        .make__col__reverse {
             flex-direction: column-reverse;
         }
         .section-one {
             .section-one-right-part {
                 padding-left: 0;
                 margin-top: 1rem;
-                .title{
-                    max-width: none!important;
+                .title {
+                    max-width: none !important;
                     margin-right: 0;
                 }
-                .sppon-girl{
+                .sppon-girl {
                     display: none;
                 }
             }
@@ -683,44 +717,43 @@
                 margin-top: 10rem;
             }
         }
-        .section-two{
+        .section-two {
             .ear-ring-girl {
                 display: none;
             }
             .ear-ring-girl-mobile {
                 display: block;
                 width: 100%;
-                height: 100%;
+                height: auto;
             }
-            .img-overlay-container{
-                max-width: 29.062rem!important;
-                .msg{
-                    font-size: 3rem!important;
-                    line-height: 3rem!important;
+            .img-overlay-container {
+                max-width: 29.062rem !important;
+                .msg {
+                    font-size: 3rem !important;
+                    line-height: 3rem !important;
                 }
             }
         }
         .section-three {
             .right-part {
                 margin-top: 0;
-                .title{
-                    max-width: none!important;
+                .title {
+                    max-width: none !important;
                 }
             }
         }
         .section-four {
             .section-four-right-part-container {
                 margin-top: 0;
-                .title{
-                    max-width: none!important;
-
+                .title {
+                    max-width: none !important;
                 }
             }
         }
-        .section-seven{
-            .text-section-container{
-                .title{
-                    max-width: none!important;
+        .section-seven {
+            .text-section-container {
+                .title {
+                    max-width: none !important;
                 }
             }
         }
@@ -752,8 +785,8 @@
                     width: 100%;
                 }
             }
-            .section-one-right-part{
-                .title{
+            .section-one-right-part {
+                .title {
                     font-size: 2.125rem;
                     line-height: 2.125rem;
                     margin-right: 0;
@@ -769,7 +802,7 @@
             .ear-ring-girl {
                 display: block;
             }
-            
+
             .ear-ring-girl-mobile {
                 display: none;
                 width: 100%;
@@ -803,7 +836,7 @@
                 }
             }
         }
-        .smile__girl__boy{
+        .smile__girl__boy {
             .section-four {
                 .section-four-right-part-container {
                     .title {
@@ -823,9 +856,7 @@
                     margin-right: 0;
                     max-width: 42.187rem;
                 }
-                .lappy-girl {
-                    display: none;
-                }
+
                 .real-time-intraction {
                     margin-top: -5.537rem;
                 }
@@ -875,9 +906,6 @@
         }
         .section-seven {
             margin-bottom: 8rem;
-            .line {
-                display: none;
-            }
             .people-saying {
                 margin-bottom: 4.3rem;
                 font-size: 2.5rem;
@@ -912,6 +940,9 @@
                     line-height: 2.125rem;
                     transition: all 0.5s;
                 }
+                .subtitle {
+                    font-size: 1.6rem;
+                }
 
                 .icon__container {
                     .apple-icon {
@@ -920,8 +951,7 @@
                     }
 
                     .google-icon {
-                        width: 1.7rem;
-                        margin-top: 0.23rem;
+                        width: 1.57rem;
                     }
                 }
             }
@@ -931,6 +961,18 @@
             .email-container {
                 width: 100%;
             }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .home-wrapper {
+        .section-seven {
+            .border-card-container{
+                .heading {
+                    font-size: 2.325rem;
+                }
+            } 
         }
     }
 }
