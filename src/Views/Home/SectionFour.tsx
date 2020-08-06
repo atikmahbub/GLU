@@ -22,7 +22,7 @@ const SectionFour: React.FunctionComponent<props> = ({ imageOne, imageTwo, msg, 
                         <Typography className="title">{msg}</Typography>
                         {show && (
                             <>
-                                <Typography className="real-time-intraction">interactive whiteboard</Typography>
+                                <Typography className="real-time-intraction">Interactive whiteboard</Typography>
                                 <img className="board-icon" src={commonImg.whiteBoardSvg} />
                             </>
                         )}

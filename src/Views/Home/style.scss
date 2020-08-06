@@ -7,7 +7,27 @@
         display: flex;
         margin-bottom: 9.375rem;
         .ga-text-container {
+            position: absolute;
+            bottom: -2rem;
+            @include flex(center, space-between, row);
             display: none;
+            width: 31rem;
+            left: 2rem;
+            bottom: -4rem;
+            .title {
+                font-family: 'CircularXXMonoWeb-Regular';
+                font-size: 1.2rem;
+                font-weight: 600;
+                @include makeFontSmoth(1px, $black);
+            }
+            .icon {
+                width: 1.349rem;
+                height: 1.6rem;
+            }
+            .google-icon {
+                width: 1.4rem;
+                margin-top: 0.1rem;
+            }
         }
         .default-clip {
             clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
@@ -82,7 +102,7 @@
                 animation: slideUp 0.4s linear;
 
                 .title {
-                    text-shadow: 0 0 0.064rem $white;
+                    text-shadow: 0 0 0.024rem $white;
                     color: transparent;
                     font-size: 0.9rem;
                     transition: all 0.5s;
@@ -376,18 +396,16 @@
                 border: none;
                 width: 80%;
                 font-size: 2.625rem;
-                transition: all 0.5s;
                 @include makeFontSmoth(0.197rem, $black);
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 3rem;
+                height: 2.4rem;
                 &:focus {
                     outline-color: transparent;
                 }
                 &::placeholder {
                     padding-left: 0;
                     font-size: 2.625rem;
-                    transition: all 0.5s;
                     @include makeFontSmoth(0.147rem, #8b8b8b);
                     font-weight: 500;
                 }
@@ -401,7 +419,7 @@
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 align-self: flex-end;
-                margin-bottom: 0.4rem;
+                line-height: 1.8rem;
                 &:hover {
                     color: $primary;
                 }
@@ -556,32 +574,13 @@
             position: relative;
             .rotating-box {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
+                .bottom-right-container {
+                    display: none;
+                }
             }
-            .bottom-right-container {
-                display: none;
-            }
-            .ga-text-container {
-                display: block;
-                position: absolute;
-                bottom: -2rem;
-                @include flex(center, space-between, row);
-                width: 31rem;
-                left: 2rem;
-                bottom: -4rem;
-                .title {
-                    font-family: 'CircularXXMonoWeb-Regular';
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                    @include makeFontSmoth(1px, $black);
-                }
-                .icon {
-                    width: 1.349rem;
-                    height: 1.6rem;
-                }
-                .google-icon {
-                    width: 1.4rem;
-                    margin-top: 0.1rem;
-                }
+            
+            .ga-text-container{
+                display: flex!important;
             }
         }
         .section-three {
@@ -654,23 +653,47 @@
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
     .home-wrapper {
+        .make__col__reverse{
+            flex-direction: column-reverse;
+        }
         .section-one {
             .section-one-right-part {
                 padding-left: 0;
-                margin-top: 10rem;
+                margin-top: 1rem;
+                .title{
+                    max-width: none;
+                    margin-right: 0;
+                }
+                .sppon-girl{
+                    display: none;
+                }
             }
             .workable-solution {
-                margin-top: 0;
+                margin-top: 10rem;
             }
         }
         .section-three {
             .right-part {
-                margin-top: 10rem;
+                margin-top: 0;
+                .title{
+                    max-width: none;
+                }
             }
         }
         .section-four {
             .section-four-right-part-container {
-                margin-top: 10rem;
+                margin-top: 0;
+                .title{
+                    max-width: none;
+
+                }
+            }
+        }
+        .section-seven{
+            .text-section-container{
+                .title{
+                    max-width: none;
+                }
             }
         }
     }
@@ -795,7 +818,6 @@
                     font-size: 2.5rem;
                     line-height: 1.8rem;
                     color: #8b8b8b;
-                    height: 2.9rem;
                 }
                 .subscribe {
                     font-size: 1.8rem;
