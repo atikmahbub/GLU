@@ -41,12 +41,18 @@ html {
 }
 @media only screen and (min-width:1025px) and (max-width: 1440px) {
     html {
-        font-size: 9.5px;
+        font-size: 13px;
     }
 }
-@media only screen and (min-width:1441px) and (max-width: 2560px) {
+@media only screen and (min-width:1441px) and (max-width: 1920px) {
     html {
         font-size: 16px;
+    }
+}
+
+@media only screen and (min-width:1921px) and (max-width: 3840px) {
+    html {
+        font-size: 22px;
     }
 }
 div.dot-pulse {
