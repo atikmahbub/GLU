@@ -6,7 +6,7 @@
         margin: 4.562rem 0;
     }
     .email-container {
-        @include flex(center, space-between, row);
+        @include flex(center, flex-start, row);
         width: 87%;
         .join-glu {
             font-size: 1.562rem;
@@ -108,14 +108,13 @@
             margin: 0;
             height: 1px;
             background-color: rgba(0, 0, 0, 0.15);
+            margin-bottom: 4rem;
         }
         .email-container {
-            margin-top: 4rem;
             margin-bottom: 2rem;
             .email {
                 width: 42%;
                 margin: 0 0.5rem;
-                margin-top: 1rem;
             }
         }
         .address-padding {

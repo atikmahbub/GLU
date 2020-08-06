@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { emailSubscriber } from '../../Redux/Actions/loginAction';
 
 const SectionSix = () => {
+    const [placeholer, setPlaceholer] = useState<string>('');
+    useEffect(()=>{
+        if(window.screen.width<=425){
+            setPlaceholer("harrison@six.com");
+        }else{
+            setPlaceholer("harrison@madebysix.com");
+        }
+    })
     const [email, setEmail] = useState('');
     const disptach = useDispatch();
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +33,7 @@ const SectionSix = () => {
                     <div className="col-md-6 col-lg-6">
                         <Typography className="email-address">Email Address</Typography>
                         <div className="email-container">
-                            <input className="email" placeholder="harrison@madebysix.com" onChange={handleEmail} />
+                            <input className="email" placeholder={placeholer} onChange={handleEmail} />
                             <Typography className="subscribe" onClick={submitEmail}>Subscribe</Typography>
                         </div>
                         <hr className="email-line" />
