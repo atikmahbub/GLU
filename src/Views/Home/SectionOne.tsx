@@ -14,7 +14,7 @@ const SectionOne = () => {
                 <div className="col-md-6 col-lg-6">
                     <div className="section-one-right-part">
                         <Typography className="title">
-                            Glu is an innovative web based app that bridges the gap between schools, teachers, parents
+                            Glu is an innovative, web based app that bridges the gap between schools, teachers, parents
                             and students. The Glu platform allows for a more collaborative learning experience
                         </Typography>
                         <img className="sppon-girl" src={commonImg.spoongirl} alt="" />
