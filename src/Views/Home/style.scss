@@ -565,6 +565,14 @@
         }
         .section-two {
             padding: 0;
+            .ear-ring-girl {
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block!important;
+                width: 100%;
+                height: 100%;
+            }
             .img-overlay-container {
                 right: 4rem !important;
                 left: 2.1rem !important;
@@ -574,6 +582,9 @@
             position: relative;
             .rotating-box {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
+                .slogan{
+                    width: 23rem;
+                }
                 .bottom-right-container {
                     display: none;
                 }
@@ -661,7 +672,7 @@
                 padding-left: 0;
                 margin-top: 1rem;
                 .title{
-                    max-width: none;
+                    max-width: none!important;
                     margin-right: 0;
                 }
                 .sppon-girl{
@@ -672,11 +683,28 @@
                 margin-top: 10rem;
             }
         }
+        .section-two{
+            .ear-ring-girl {
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .img-overlay-container{
+                max-width: 29.062rem!important;
+                .msg{
+                    font-size: 3rem!important;
+                    line-height: 3rem!important;
+                }
+            }
+        }
         .section-three {
             .right-part {
                 margin-top: 0;
                 .title{
-                    max-width: none;
+                    max-width: none!important;
                 }
             }
         }
@@ -684,7 +712,7 @@
             .section-four-right-part-container {
                 margin-top: 0;
                 .title{
-                    max-width: none;
+                    max-width: none!important;
 
                 }
             }
@@ -692,7 +720,7 @@
         .section-seven{
             .text-section-container{
                 .title{
-                    max-width: none;
+                    max-width: none!important;
                 }
             }
         }
@@ -706,7 +734,7 @@
                 display: none;
             }
             .rotating-box {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
+                // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {
@@ -724,7 +752,13 @@
                     width: 100%;
                 }
             }
-
+            .section-one-right-part{
+                .title{
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
+                    margin-right: 0;
+                }
+            }
             .workable-solution {
                 font-size: 4rem;
                 transition: all 0.5s;
@@ -733,21 +767,22 @@
         }
         .section-two {
             .ear-ring-girl {
-                display: none;
-            }
-            .ear-ring-girl-mobile {
                 display: block;
+            }
+            
+            .ear-ring-girl-mobile {
+                display: none;
                 width: 100%;
             }
             .img-overlay-container {
-                // width: 28rem;
+                max-width: 39.062rem;
                 bottom: 6.9rem;
-                left: 3rem;
-                right: 28rem;
+                left: 49%;
+                right: 0;
                 .msg {
                     font-size: 4rem;
                     transition: all 0.5s;
-                    line-height: 4.3rem;
+                    line-height: 4rem;
                 }
             }
         }
@@ -761,9 +796,19 @@
             .right-part {
                 .title {
                     margin: 0;
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
                     margin-bottom: 7.9rem;
+                }
+            }
+        }
+        .smile__girl__boy{
+            .section-four {
+                .section-four-right-part-container {
+                    .title {
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -771,10 +816,12 @@
             margin-bottom: 5.35rem;
             .section-four-right-part-container {
                 .title {
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
                     margin-bottom: 7.35rem;
                     margin-right: 0;
+                    max-width: 42.187rem;
                 }
                 .lappy-girl {
                     display: none;
@@ -861,7 +908,8 @@
             .text-section-container {
                 .title {
                     margin-right: 0;
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
                 }
 
