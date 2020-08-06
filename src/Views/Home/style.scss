@@ -144,11 +144,11 @@
             transform: translateY(0);
         }
         @keyframes fadeOutSlideDown {
-            0%{
+            0% {
                 opacity: 1;
                 transform: translateY(-3rem);
             }
-            100%{
+            100% {
                 opacity: 0;
                 transform: translateY(0);
             }
@@ -161,7 +161,7 @@
         padding: 0 3.062rem;
         transition: all 0.8s;
         .img-container {
-            margin-right: 9.4rem;
+            margin-right: 8.1rem;
             .spect-boy {
                 width: 100%;
                 object-fit: cover;
@@ -174,6 +174,7 @@
             transition: all 0.8s;
 
             .title {
+                // max-width: 51.187rem;
                 font-size: 2.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
@@ -185,7 +186,6 @@
             .sppon-girl {
                 margin-top: 7rem;
                 width: 100%;
-                // filter: blur(0.068rem);
             }
         }
         .workable-solution {
@@ -221,8 +221,8 @@
         .img-overlay-container {
             position: absolute;
             bottom: 11.187rem;
-            right: 13.25rem;
-            left: 48%;
+            right: 10.25rem;
+            left: 50%;
             .title {
                 @include makeFontSmoth(0.156rem, $white);
                 font-size: 1.562rem;
@@ -250,12 +250,21 @@
         .right-part {
             @include flex(center, center, column);
             .title {
-                font-size: 2.725rem;
+                font-size: 2.625rem;
                 transition: all 0.5s;
                 line-height: 2.725rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
-                margin-right: 7.25rem;
+                margin-right: 3.25rem;
+            }
+        }
+    }
+    .smile__girl__boy {
+        .section-four {
+            .section-four-right-part-container {
+                .title {
+                    margin-right: 3.25rem;
+                }
             }
         }
     }
@@ -278,7 +287,7 @@
                 margin-bottom: 20.437rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
-                margin-right: 7.25rem;
+                margin-right: 4.25rem;
             }
             .real-time-intraction {
                 margin-top: -19.537rem;
@@ -462,7 +471,7 @@
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 margin-bottom: 1rem;
-                margin-right: 7.312rem;
+                margin-right: 4.312rem;
             }
             .subtitle {
                 font-size: 1.937rem;
@@ -632,7 +641,7 @@
         }
         .footer {
             padding: 0 2.1rem;
-            .email-container{
+            .email-container {
                 width: 100%;
             }
         }
@@ -645,17 +654,17 @@
                 padding-left: 0;
                 margin-top: 10rem;
             }
-            .workable-solution{
+            .workable-solution {
                 margin-top: 0;
             }
         }
-        .section-three{
-            .right-part{
+        .section-three {
+            .right-part {
                 margin-top: 10rem;
             }
         }
-        .section-four{
-            .section-four-right-part-container{
+        .section-four {
+            .section-four-right-part-container {
                 margin-top: 10rem;
             }
         }
@@ -848,7 +857,7 @@
         }
         .footer {
             padding: 0 2.1rem;
-            .email-container{
+            .email-container {
                 width: 100%;
             }
         }

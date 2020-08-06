@@ -73,6 +73,7 @@ const Home: React.FunctionComponent = () => {
                 image={commonImg.mobileApple}
                 msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
             />
+            
             <SectionFour
                 imageOne={commonImg.hoddygirl}
                 imageTwo={commonImg.lappygirl}
@@ -80,6 +81,7 @@ const Home: React.FunctionComponent = () => {
                             work in tandem, between schools, teachers, parents and students"
                 show={false}
             />
+          
             <SectionFive />
             <SectionSix />
             <SectionTwoReusable
@@ -92,12 +94,14 @@ const Home: React.FunctionComponent = () => {
                 image={commonImg.menmobileview}
                 msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
             />
+            <div className="smile__girl__boy">
             <SectionFour
                 imageOne={commonImg.smilegirl}
                 imageTwo={commonImg.boy}
                 msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
                 show={true}
             />
+            </div>
             <PeopleSaying />
             <Footer />
         </div>

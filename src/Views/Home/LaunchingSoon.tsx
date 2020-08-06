@@ -5,7 +5,7 @@ const LaunchingSoon: React.FunctionComponent = () => {
     return (
         <div className="launching-soon-container">
             <Typography className="title">Launching Soon</Typography>
-            <Typography className="for">
+            <Typography variant="h1" className="for">
                 For Schools, <br /> Teachers, Parents <br /> and Students
             </Typography>
         </div>
