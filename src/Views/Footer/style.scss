@@ -7,6 +7,7 @@
     }
     .email-container {
         @include flex(center, space-between, row);
+        width: 87%;
         .join-glu {
             font-size: 1.562rem;
             transition: all 0.5s;
@@ -15,9 +16,9 @@
             font-family: 'CircularXXWeb-Book';
         }
         .email {
-            width: 52%;
-            margin-top: 0.8rem;
+            width: 47%;
             border: none;
+            margin: 0 0.5rem;
             height: 2.5rem;
             font-size: 1.562rem;
             @include makeFontSmoth(0.2rem, #8b8b8b);

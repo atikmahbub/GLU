@@ -21,20 +21,20 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
-            animation: rotate 1s;
+            animation: rotate 0.8s;
             animation-delay: 1.5s;
             @include flex(center, center, row);
             .slogan {
                 font-weight: 900;
-                width: 35rem;
+                width: 40rem;
                 transition: all 0.5s;
                 letter-spacing: 1rem;
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
                 transition: all 0.8s;
-                transform: translateY(-1rem);
-                animation: fadein, slideUp 1s;
+                transform: translateY(-2rem);
+                animation: fadein 0.8s;
                 animation-delay: 1.5s;
             }
             @keyframes fadein {
@@ -43,7 +43,7 @@
                     transform: translateY(0);
                 }
                 100% {
-                    transform: translateY(-1rem);
+                    transform: translateY(-2rem);
                     opacity: 1;
                 }
             }
@@ -621,6 +621,9 @@
         }
         .footer {
             padding: 0 2.1rem;
+            .email-container{
+                width: 100%;
+            }
         }
     }
 }
@@ -830,6 +833,12 @@
                         margin-top: 0.23rem;
                     }
                 }
+            }
+        }
+        .footer {
+            padding: 0 2.1rem;
+            .email-container{
+                width: 100%;
             }
         }
     }
