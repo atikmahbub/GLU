@@ -753,9 +753,9 @@
             }
             .section-one-right-part {
                 .title {
-                    font-size: 2.125rem;
-                    line-height: 2.125rem;
-                    margin-right: 0;
+                    // font-size: 2.125rem;
+                    // line-height: 2.125rem;
+                    // margin-right: 0;
                 }
                 .google-icon {
                     width: 1.2rem;
@@ -786,11 +786,11 @@
         .section-two {
             padding: 0;
             max-height: 98vh;
-            .ear-ring-girl {
-                display: none;
-            }
+            // .ear-ring-girl {
+            //     display: none;
+            // }
             .ear-ring-girl-mobile {
-                display: block;
+                display: none;
                 width: 100%;
                 height: auto;
             }
@@ -919,7 +919,7 @@
             .ga-text-container {
                 // display: flex !important;//commented by sani
                 display: inline-block !important; // added by sani
-                width: 100%;
+                min-width: 100%;
                 .icon {
                     display: inline-block !important;
                     margin-right: 0.5rem;
