@@ -37,14 +37,14 @@ const Home: React.FunctionComponent = () => {
     };
     useEffect(() => {
         setTimeout(() => {
-            setShow(true);
-        }, 800);
-        setTimeout(() => {
             setShowOthers(true);
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
         }, 1500);
+        setTimeout(() => {
+            setShow(true);
+        }, 3000);
     }, []);
     return (
         <div className="home-wrapper">
@@ -52,8 +52,12 @@ const Home: React.FunctionComponent = () => {
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
                     <img
-                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers? 'hide' : ''} `}
+                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''} `}
                         src={Icons.logo}
+                    />
+                    <img
+                        src={Icons.maskLong}
+                        className={`white__mask defaultMask ${animationCompelte ? 'hide__mask' : ''}`}
                     />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
@@ -62,48 +66,52 @@ const Home: React.FunctionComponent = () => {
                 </div>
                 <BottomGAtext />
             </div>
-            <SectionOne />
-            <SectionTwoReusable
-                image={commonImg.earringgirl}
-                mobileImg={commonImg.smallhairwomenmobile}
-                title="Qualified teachers"
-                msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
-            />
-            <SectionThree
-                image={commonImg.mobileApple}
-                msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
-            />
-            
-            <SectionFour
-                imageOne={commonImg.hoddygirl}
-                imageTwo={commonImg.lappygirl}
-                msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
+            {show && (
+                <React.Fragment>
+                    <SectionOne />
+                    <SectionTwoReusable
+                        image={commonImg.earringgirl}
+                        mobileImg={commonImg.smallhairwomenmobile}
+                        title="Qualified teachers"
+                        msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
+                    />
+                    <SectionThree
+                        image={commonImg.mobileApple}
+                        msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
+                    />
+
+                    <SectionFour
+                        imageOne={commonImg.hoddygirl}
+                        imageTwo={commonImg.lappygirl}
+                        msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students"
-                show={false}
-            />
-          
-            <SectionFive />
-            <SectionSix />
-            <SectionTwoReusable
-                image={commonImg.women}
-                mobileImg={commonImg.oldwomenmobile}
-                title="Messenger"
-                msg={<>Keep the convo going with the in app messenger</>}
-            />
-            <SectionThree
-                image={commonImg.menmobileview}
-                msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
-            />
-            <div className="smile__girl__boy">
-            <SectionFour
-                imageOne={commonImg.smilegirl}
-                imageTwo={commonImg.boy}
-                msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
-                show={true}
-            />
-            </div>
-            <PeopleSaying />
-            <Footer />
+                        show={false}
+                    />
+
+                    <SectionFive />
+                    <SectionSix />
+                    <SectionTwoReusable
+                        image={commonImg.women}
+                        mobileImg={commonImg.oldwomenmobile}
+                        title="Messenger"
+                        msg={<>Keep the convo going with the in app messenger</>}
+                    />
+                    <SectionThree
+                        image={commonImg.menmobileview}
+                        msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
+                    />
+                    <div className="smile__girl__boy">
+                        <SectionFour
+                            imageOne={commonImg.smilegirl}
+                            imageTwo={commonImg.boy}
+                            msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
+                            show={true}
+                        />
+                    </div>
+                    <PeopleSaying />
+                    <Footer />
+                </React.Fragment>
+            )}
         </div>
     );
 };
