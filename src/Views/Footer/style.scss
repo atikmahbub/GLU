@@ -67,7 +67,7 @@
         }
     }
     .breaker {
-        margin-bottom: 4rem;
+        margin-bottom: 8.5rem;
     }
     .build-by {
         font-size: 1rem;
@@ -104,32 +104,31 @@
 
 //responsive
 @media screen and (max-width: 353px) {
-    .footer{
-        .email-container{
-            .join-glu{
+    .footer {
+        .email-container {
+            .join-glu {
                 font-size: 1.199rem;
             }
-            .email{
+            .email {
                 font-size: 1.199rem;
-                &::placeholder{
-                font-size: 1.189rem;
-
+                &::placeholder {
+                    font-size: 1.189rem;
                 }
             }
-            .subscribe{
+            .subscribe {
                 font-size: 1.199rem;
             }
         }
-        .address-container{
-            .title{
+        .address-container {
+            .title {
                 font-size: 1.199rem;
-                line-height: 1.5rem;;
+                line-height: 1.5rem;
             }
         }
-        .build-by{
+        .build-by {
             font-size: 0.95rem;
         }
-        .glu{
+        .glu {
             font-size: 0.95rem;
         }
     }
@@ -158,15 +157,15 @@
 @media screen and (min-width: 990px) and (max-width: 1309px) {
     .home-wrapper {
         .footer {
-            .email-container{
-                width:100%;
-                .join-glu{
+            .email-container {
+                width: 100%;
+                .join-glu {
                     font-size: 1.4rem;
                 }
-                .email{
+                .email {
                     font-size: 1.4rem;
                 }
-                .subscribe{
+                .subscribe {
                     font-size: 1.4rem;
                 }
             }
