@@ -49,28 +49,38 @@
             // -moz-animation-delay: 1.5s;
             // animation-delay: 1.5s;
             @include flex(center, center, row);
-            .white__mask{
+            .white__mask {
                 position: absolute;
                 width: 200%;
                 transform: rotate(-15deg);
                 animation: rotateMask 1.5s;
+                -webkit-animation: rotateMask 1.5s;
+                -moz-animation: rotateMask 1.5s;
                 animation-delay: 1.5s;
+                -webkit-animation-delay: 1.5s;
+                -moz-animation-delay: 1.5s;
             }
-            .defaultMask{
+            .defaultMask {
                 width: 100%;
                 transform: rotate(0);
+                -webkit-transform: rotate(0);
+                -moz-transform: rotate(0);
             }
-            .white__mask.hide__mask{
+            .white__mask.hide__mask {
                 display: none;
             }
             @keyframes rotateMask {
-                0%{
+                0% {
                     width: 100%;
                     transform: rotate(0);
+                    -webkit-transform: rotate(0);
+                    -moz-transform: rotate(0);
                 }
-                100%{
+                100% {
                     width: 200%;
                     transform: rotate(-15deg);
+                    -webkit-transform: rotate(-15deg);
+                    -moz-transform: rotate(-15deg);
                 }
             }
             .slogan {
@@ -109,6 +119,8 @@
                 margin-top: 1rem;
                 transition: all 0.8s;
                 animation: slideDown 0.4s;
+                -webkit-animation: slideDown 0.4s;
+                -moz-animation: slideDown 0.4s;
                 font-family: 'CircularXXWeb-Book';
                 .title {
                     @include makeFontSmoth(0.186rem, $white);
@@ -154,7 +166,7 @@
                     color: $white;
                 }
                 .google-icon {
-                   // width: 0.7rem; // commented by sani
+                    // width: 0.7rem; // commented by sani
                     width: 0.9rem; // changed by sani
                     margin-top: 0.08rem;
                 }
@@ -191,7 +203,6 @@
             0% {
                 // clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
                 clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
-
             }
             100% {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -657,7 +668,6 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
-               
             }
             .menus-container {
                 padding: 1.125rem 2.5rem;
@@ -760,47 +770,57 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
-                div.white__mask{
+                div.white__mask {
                     position: absolute;
                     width: 500%;
                     transform: rotate(-15deg);
                     animation: rotateMask2 1.5s;
+                    -webkit-animation: rotateMask2 1.5s;
+                    -moz-animation: rotateMask2 1.5s;
                     animation-delay: 1.5s;
+                    -webkit-animation-delay: 1.5s;
+                    -moz-animation-delay: 1.5s;
                 }
-                .defaultMask{
+                .defaultMask {
                     width: 100%;
                     transform: rotate(0);
+                    -webkit-transform:  rotate(0);
+                    -moz-transform: rotate(0);
                 }
-                .white__mask.hide__mask{
+                .white__mask.hide__mask {
                     display: none;
                 }
-            
+
                 @keyframes rotateMask2 {
-                    0%{
+                    0% {
                         width: 100%;
                         transform: rotate(0);
+                        -webkit-transform: rotate(0);
+                        -moz-transform: rotate(0);
                     }
-                    100%{
+                    100% {
                         width: 500%;
                         transform: rotate(-15deg);
+                        -webkit-transform: rotate(-15deg);
+                        -moz-transform: rotate(-15deg);
                     }
                 }
             }
             .ga-text-container {
                 // display: flex !important;//commented by sani
                 display: inline-block !important; // added by sani
-                width:100%;
-                .icon{
+                width: 100%;
+                .icon {
                     display: inline-block !important;
                     margin-right: 0.5rem;
                     margin-top: -0.6rem;
                 }
-                .google-icon{
+                .google-icon {
                     display: inline-block !important;
-                     margin-right: 0.5rem;
-                     margin-top: -0.4rem;
+                    margin-right: 0.5rem;
+                    margin-top: -0.4rem;
                 }
-                .title{
+                .title {
                     display: inline-block !important;
                 }
             }
@@ -974,41 +994,41 @@
                 .title {
                     font-size: 1rem;
                 }
-                .google-icon{
+                .google-icon {
                     width: 1.2rem;
                 }
             }
-            .rotating-box{
-                .scroll__container{
-                   padding: 0rem 2.1rem;
+            .rotating-box {
+                .scroll__container {
+                    padding: 0rem 2.1rem;
                     width: 11.2rem;
                     top: 2.4rem;
-                    .text{
+                    .text {
                         font-size: 1.8rem;
                     }
                 }
-                .launching-soon-container{
+                .launching-soon-container {
                     left: 2.1rem;
                 }
-                .bottom-right-container{ //Added by sani 
-                    .google-icon { 
+                .bottom-right-container {
+                    //Added by sani
+                    .google-icon {
                         width: 1rem;
                     }
                 }
             }
-            .menus-container{
+            .menus-container {
                 padding: 1.125rem 2.5rem;
                 .right {
                     .title {
                         margin-right: -0.4rem;
                     }
                 }
-            }  
-            
+            }
         }
         .section-two {
             .img-overlay-container {
-                max-width: 29rem!important;
+                max-width: 29rem !important;
                 .msg {
                     font-size: 3rem !important;
                     line-height: 3rem !important;
@@ -1016,9 +1036,9 @@
             }
         }
     }
-    .footer{ 
-        .three__piller__container{ 
-            img{
+    .footer {
+        .three__piller__container {
+            img {
                 margin-right: 0.5rem;
             }
         }
