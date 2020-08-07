@@ -1226,6 +1226,15 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {
+        .section-two{
+            .img-overlay-container{
+                max-width: 41.062rem;
+                right: 6.25rem;
+                .msg{
+                    font-size: 4.2rem;
+                }
+            }
+        }
         .section-four {
             .section-four-right-part-container {
                 .title {

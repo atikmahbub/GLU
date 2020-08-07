@@ -21,7 +21,8 @@
             margin: 0 0.5rem;
             height: 2.5rem;
             font-size: 1.562rem;
-            @include makeFontSmoth(0.2rem, #8b8b8b);
+            // @include makeFontSmoth(0.2rem, #8b8b8b);
+            color: #8b8b8b;
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
                 font-size: 1.562rem;
