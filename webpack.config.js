@@ -30,11 +30,14 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                // use: ['style-loader', 'css-loader', 'postcss-loader'],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader','postcss-loader', 'sass-loader'],
+                // use: ['style-loader', 'css-loader','postcss-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+
             },
             {
                 test: /\.(jpg|jpeg|png|woff|woff2|gif|eot|ttf|svg)$/,
@@ -49,13 +52,13 @@ module.exports = {
         }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
         new ErrorOverlayPlugin(),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-              postcss: [
-                autoprefixer(),
-              ]
-            }
-          })
+        // new webpack.LoaderOptionsPlugin({
+        //     options: {
+        //       postcss: [
+        //         autoprefixer(),
+        //       ]
+        //     }
+        //   })
         // new BundleAnalyzerPlugin(),
         // new webpack.optimize.ModuleConcatenationPlugin()
     ],
