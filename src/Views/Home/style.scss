@@ -610,6 +610,24 @@
             }
         }
     }
+    .smile__girl__boy {
+        .section-four {
+            .section-four-right-part-container {
+                .title {
+                    max-width: none;
+                    font-size: 2.4rem;
+                }
+                .real-time-intraction {
+                    display: block;
+                    font-size: 1.8rem;
+                }
+                .board-icon {
+                    display: block;
+                    margin-bottom: 8.4rem;
+                }
+            }
+        }
+    }
 }
 @media screen and (max-width: 425px) {
     .home-wrapper {
@@ -700,10 +718,12 @@
                         font-size: 2.4rem;
                     }
                     .real-time-intraction {
-                        display: none;
+                        display: block;
+                        font-size: 1.8rem;
                     }
                     .board-icon {
-                        display: none;
+                        display: block;
+                        margin-bottom: 8.4rem;
                     }
                     .lappy-girl {
                         display: block;
