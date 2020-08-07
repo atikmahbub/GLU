@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import MadeBy from './MadeBy';
 import { Icons } from '../../Assets/Icons';
 
 const Footer: React.FunctionComponent = () => {
+    const [email, setEmail] = useState('');
+    const [isVerified, setEmailVerify] = useState(false);
+    const [isEmailEnter, setEmailEnter] = useState('');
+
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmailEnter(e.target.value);
+        let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (emailReg.test(e.target.value)) {
+            setEmail(e.target.value);
+            setEmailVerify(true);
+        } else {
+            setEmailVerify(false);
+        }
+    };
+
     return (
         <div className="footer">
             <hr className="line" />
@@ -11,7 +26,19 @@ const Footer: React.FunctionComponent = () => {
                 <div className="col-md-8 col-lg-5 mr-auto">
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
-                        <input type="text" className="email" placeholder="Email Address" />
+                        <input
+                            type="text"
+                            className="email"
+                            placeholder="Email Address"
+                            onChange={handleEmail}
+                            style={
+                                !isEmailEnter
+                                    ? {}
+                                    : isVerified
+                                    ? { borderBottom: '1px solid #2ecc71' }
+                                    : { borderBottom: '1px solid #e74c3c' }
+                            }
+                        />
                         <Typography className="subscribe">Subscribe</Typography>
                     </div>
                 </div>
@@ -24,7 +51,7 @@ const Footer: React.FunctionComponent = () => {
                 </div>
                 <div className="col-md-1 col-lg-2 position-relative">
                     <div className="three__piller__container">
-                        <img src={Icons.threePiller} alt="three piller"/>
+                        <img src={Icons.threePiller} alt="three piller" />
                     </div>
                     {/* <div className="address-container">
                         <Link className="links" to="">
@@ -40,7 +67,7 @@ const Footer: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="breaker"></div>
-            <MadeBy/>
+            <MadeBy />
         </div>
     );
 };
