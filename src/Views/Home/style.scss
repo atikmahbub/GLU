@@ -41,7 +41,11 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
+            -webkit-animation: rotate 1s;
+            -moz-animation: rotate 1s;
             animation: rotate 1s;
+            -webkit-animation-delay: 1.5s;
+            -moz-animation-delay: 1.5s;
             animation-delay: 1.5s;
             @include flex(center, center, row);
             .slogan {
@@ -55,7 +59,11 @@
                 transition: all 0.1s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
+                -webkit-animation: fadein 1s;
+                -moz-animation: fadein 1s;
                 animation-delay: 1.5s;
+                -webkit-animation-delay: 1.5s;
+                -moz-animation-delay: 1.5s;
             }
             @keyframes fadein {
                 0% {
@@ -230,7 +238,7 @@
         }
         .ear-ring-girl-mobile {
             display: none;
-            align-self: center;
+            // align-self: center;
         }
         .ear-ring-girl {
             width: 100%;
