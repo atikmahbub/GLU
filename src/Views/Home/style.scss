@@ -233,6 +233,7 @@
         }
         .ear-ring-girl {
             width: 100%;
+            height: auto;
         }
         .img-overlay-container {
             position: absolute;
@@ -627,6 +628,11 @@
         .section-four{
             .short-hair-girl-container{
                 .short-hair-girl{
+                    display: block;
+                }
+            }
+            .section-four-right-part-container{
+                .lappy-girl{
                     display: none;
                 }
             }
@@ -647,6 +653,11 @@
                         display: none;
                     }
                     .lappy-girl {
+                        display: block;
+                    }
+                }
+                .short-hair-girl-container{
+                    .short-hair-girl{
                         display: none;
                     }
                 }
@@ -745,6 +756,9 @@
         .section-four {
             .section-four-right-part-container {
                 margin-top: 0;
+                .lappy-girl{
+                    display: none;
+                }
                 .title {
                     max-width: none !important;
                 }
