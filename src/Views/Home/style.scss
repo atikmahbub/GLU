@@ -461,10 +461,10 @@
                 width: 80%;
                 font-size: 2.625rem;
                 // @include makeFontSmoth(0.197rem, $black);
-                color: $black;
+                color: #8b8b8b;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 2.8rem;
+                height: 3rem;
                 &:focus {
                     outline-color: transparent;
                 }
