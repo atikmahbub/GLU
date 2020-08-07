@@ -546,6 +546,15 @@
 }
 
 // responsive
+@media screen and (max-width: 425px) { // added by sani
+    .menus-container{
+        .right {
+            .title {
+                margin-right: -0.7rem;
+            }
+        }
+    } 
+}
 @media screen and (max-width: 415px) {
     html {
         font-size: 9px;
@@ -554,6 +563,7 @@
         .holding-container {
             .ga-text-container {
                 max-width: 25rem;
+                left: 2.1rem;
                 .title {
                     font-size: 1rem;
                 }
@@ -561,6 +571,27 @@
                     width: 1.2rem;
                 }
             }
+            .rotating-box{
+                .scroll__container{
+                   padding: 0rem 2.1rem;
+                    width: 11.2rem;
+                    top: 2.4rem;
+                    .text{
+                        font-size: 1.8rem;
+                    }
+                }
+                .launching-soon-container{
+                    left: 2.1rem;
+                }
+            }
+            .menus-container{
+                padding: 1.125rem 2.5rem;
+                .right {
+                    .title {
+                        margin-right: -0.4rem;
+                    }
+                }
+            }  
         }
         .section-two {
             .img-overlay-container {
@@ -569,6 +600,13 @@
                     font-size: 3rem !important;
                     line-height: 3rem !important;
                 }
+            }
+        }
+    }
+    .footer{ 
+        .three__piller__container{ 
+            img{
+                margin-right: 0.5rem;
             }
         }
     }
@@ -617,6 +655,18 @@
                 }
                 .bottom-right-container {
                     display: none;
+                }
+                
+                .scroll__container{
+                   padding: 0rem 2.1rem;
+                    width: 11.2rem;
+                    top: 2.4rem;
+                    .text{
+                        font-size: 1.8rem;
+                    }
+                } 
+                .launching-soon-container{
+                    left: 2.1rem;
                 }
             }
 
