@@ -8,6 +8,9 @@ import googleIconWhite from "./Icons/googleIconWhite.svg";
 import realgoogleIcon from './Icons/realgoogleIcon.svg';
 import logo from "./Icons/logo.svg";
 import googleIconBlack from "./Icons/googleIconBlack.svg";
+import whiteMask from "./Icons/WhiteMask.svg";
+import maskLong from "./Icons/maskLong.svg";
+
 
 export const Icons = {
 Facebook,
@@ -19,5 +22,7 @@ threePiller,
 googleIconWhite,
 realgoogleIcon,
 logo,
-googleIconBlack
+googleIconBlack,
+whiteMask,
+maskLong
 }

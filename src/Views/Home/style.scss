@@ -29,25 +29,50 @@
                 margin-top: 0.1rem;
             }
         }
-        .default-clip {
-            clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
-        }
-        .full-clip {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
+        // .default-clip {
+        //     clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+        // }
+        // .full-clip {
+        //     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        // }
         .rotating-box {
             width: 100%;
             height: 100vh;
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
-            -webkit-animation: rotate 1s;
-            -moz-animation: rotate 1s;
-            animation: rotate 1s;
-            -webkit-animation-delay: 1.5s;
-            -moz-animation-delay: 1.5s;
-            animation-delay: 1.5s;
+            overflow: hidden;
+            // -webkit-animation: rotate 1s;
+            // -moz-animation: rotate 1s;
+            // animation: rotate 1s;
+            // -webkit-animation-delay: 1.5s;
+            // -moz-animation-delay: 1.5s;
+            // animation-delay: 1.5s;
             @include flex(center, center, row);
+            .white__mask{
+                position: absolute;
+                width: 200%;
+                transform: rotate(-15deg);
+                animation: rotateMask 1.5s;
+                animation-delay: 1.5s;
+            }
+            .defaultMask{
+                width: 100%;
+                transform: rotate(0);
+            }
+            .white__mask.hide__mask{
+                display: none;
+            }
+            @keyframes rotateMask {
+                0%{
+                    width: 100%;
+                    transform: rotate(0);
+                }
+                100%{
+                    width: 200%;
+                    transform: rotate(-15deg);
+                }
+            }
             .slogan {
                 font-weight: 900;
                 width: 40rem;
@@ -606,6 +631,7 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
+               
             }
             .menus-container {
                 padding: 1.125rem 2.5rem;
@@ -711,8 +737,32 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
+                div.white__mask{
+                    position: absolute;
+                    width: 500%;
+                    transform: rotate(-15deg);
+                    animation: rotateMask2 1.5s;
+                    animation-delay: 1.5s;
+                }
+                .defaultMask{
+                    width: 100%;
+                    transform: rotate(0);
+                }
+                .white__mask.hide__mask{
+                    display: none;
+                }
+            
+                @keyframes rotateMask2 {
+                    0%{
+                        width: 100%;
+                        transform: rotate(0);
+                    }
+                    100%{
+                        width: 500%;
+                        transform: rotate(-15deg);
+                    }
+                }
             }
-
             .ga-text-container {
                 display: flex !important;
             }
