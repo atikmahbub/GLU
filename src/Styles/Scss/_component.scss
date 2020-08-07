@@ -881,6 +881,7 @@ button.outline-rec {
     .navigation {
         @include flex(center, space-between, row);
         padding: 1.625rem 3.125rem;
+        background-color: #fff;// added by sani
         ul {
             li {
                 display: inline-block;
@@ -896,18 +897,26 @@ button.outline-rec {
                         color: #000;
                         font-weight: 100;
                     }
+                    .link{
+                        font-size: 1.5rem;
+                        color: #000;
+                    }
                 }
             }
         }
         .heading {
             font-family: 'CircularXXWeb-Book';
-            font-size: 2.187rem;
+            // font-size: 2.187rem;// commented by sani
+            font-size: 3rem;// added by sani
             margin-right: 1rem;
+            color: $black; // added by sani
         }
         .icon-button {
             .icon {
-                color: $white;
-                font-size: 1.5rem;
+                // color: $white;//commented by Sani
+                // font-size: 1.5rem;//commented by Sani
+                color: $black;//added by Sani
+                font-size: 2.5rem;
             }
         }
     }
@@ -1284,4 +1293,57 @@ button.outline-button {
 
 .smoth__transition{
     transition: all 0.4s;
+}
+
+/* Styles Added By Sani */
+
+/* Big Menu Style */
+
+.big_menu{
+    background-color: #fff;
+     position: relative;
+    z-index: 2;
+    padding:1rem 4.2rem 4.2rem;
+}
+.big_menu .big_menu_title{
+    color:#5F5F5F;
+    font-size:1.785rem;
+    padding-bottom: 20px;
+    font-family: 'CircularXXWeb-Book';
+}
+.big_menu .big_menu_items{
+    padding-bottom:4rem;
+}
+.big_menu .big_menu_item{
+    color:#000;
+    font-size:1.785rem;
+    list-style-type:none;
+    font-family: 'CircularXXWeb-Book';
+}
+.big_menu .big_menu_see_more_link{
+    font-size:1.428rem;
+    font-family: 'CircularXXWeb-Book';
+    color:#2267FF;
+}
+.big_menu .big_menu_items .big_menu_feature_img{
+   height: 140px;
+   width:175px;
+}
+.big_menu .big_menu_items .big_menu_feature_img_container{
+   padding-bottom: 2rem;
+   padding-top: 5px;
+}
+.big_menu .big_menu_items .big_menu_feature_title{
+  font-size: 3.5rem;
+  font-family: 'CircularXXWeb-Book';
+}
+.big_menu .big_menu_items .big_menu_feature_subtitle{
+  font-size:1.285rem;
+  color: #5F5F5F;
+  font-family: 'CircularXXWeb-Book';
+}
+
+.big_menu .border_left_featured{
+    border-left: 2px solid #ccc;
+    padding-left: 20px;
 }

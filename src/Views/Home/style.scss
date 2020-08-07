@@ -104,7 +104,7 @@
                 .title {
                     text-shadow: 0 0 0.024rem $white;
                     color: transparent;
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                     transition: all 0.5s;
                     font-weight: 100;
                     font-family: 'CircularXXMonoWeb-Regular';
@@ -112,7 +112,7 @@
                 }
                 .apple-icon {
                     margin: 0 0.5rem;
-                    font-size: 1rem;
+                    font-size: 1.4rem;
                     transition: all 0.5s;
                     color: $white;
                 }
@@ -195,7 +195,7 @@
                 font-size: 2.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
-                line-height: 2.625rem;
+                line-height: 3.4rem; //Changed by sani
                 margin-bottom: 10rem;
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
@@ -547,6 +547,15 @@
 }
 
 // responsive
+@media screen and (max-width: 425px) { // added by sani
+    .menus-container{
+        .right {
+            .title {
+                margin-right: -0.7rem;
+            }
+        }
+    } 
+}
 @media screen and (max-width: 415px) {
     html {
         font-size: 9px;
@@ -555,6 +564,7 @@
         .holding-container {
             .ga-text-container {
                 max-width: 25rem;
+                left: 2.1rem;
                 .title {
                     font-size: 1rem;
                 }
@@ -562,6 +572,27 @@
                     width: 1.2rem;
                 }
             }
+            .rotating-box{
+                .scroll__container{
+                   padding: 0rem 2.1rem;
+                    width: 11.2rem;
+                    top: 2.4rem;
+                    .text{
+                        font-size: 1.8rem;
+                    }
+                }
+                .launching-soon-container{
+                    left: 2.1rem;
+                }
+            }
+            .menus-container{
+                padding: 1.125rem 2.5rem;
+                .right {
+                    .title {
+                        margin-right: -0.4rem;
+                    }
+                }
+            }  
         }
         .section-two {
             max-height: 98vh;
@@ -570,6 +601,31 @@
                 .msg {
                     font-size: 3rem !important;
                     line-height: 3rem !important;
+                }
+            }
+        }
+    }
+    .footer{ 
+        .three__piller__container{ 
+            img{
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .smile__girl__boy {
+        .section-four {
+            .section-four-right-part-container {
+                .title {
+                    max-width: none;
+                    font-size: 2.4rem;
+                }
+                .real-time-intraction {
+                    display: block;
+                    font-size: 1.8rem;
+                }
+                .board-icon {
+                    display: block;
+                    margin-bottom: 8.4rem;
                 }
             }
         }
@@ -621,6 +677,18 @@
                 .bottom-right-container {
                     display: none;
                 }
+                
+                .scroll__container{
+                   padding: 0rem 2.1rem;
+                    width: 11.2rem;
+                    top: 2.4rem;
+                    .text{
+                        font-size: 1.8rem;
+                    }
+                } 
+                .launching-soon-container{
+                    left: 2.1rem;
+                }
             }
 
             .ga-text-container {
@@ -653,10 +721,12 @@
                         font-size: 2.4rem;
                     }
                     .real-time-intraction {
-                        display: none;
+                        display: block;
+                        font-size: 1.8rem;
                     }
                     .board-icon {
-                        display: none;
+                        display: block;
+                        margin-bottom: 8.4rem;
                     }
                     .lappy-girl {
                         display: block;
