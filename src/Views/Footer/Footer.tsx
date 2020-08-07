@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import MadeBy from './MadeBy';
 import { Icons } from '../../Assets/Icons';
+import { useDispatch } from 'react-redux';
+import { emailSubscriber } from '../../Redux/Actions/loginAction';
 
 const Footer: React.FunctionComponent = () => {
     const [email, setEmail] = useState('');
     const [isVerified, setEmailVerify] = useState(false);
     const [isEmailEnter, setEmailEnter] = useState('');
-
+    const disptach = useDispatch();
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmailEnter(e.target.value);
         let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -16,6 +18,15 @@ const Footer: React.FunctionComponent = () => {
             setEmailVerify(true);
         } else {
             setEmailVerify(false);
+        }
+    };
+
+    const resetEmail = () => {
+        setEmail('');
+    };
+    const submitEmail = () => {
+        if(isVerified){
+            disptach(emailSubscriber({ email }, resetEmail));
         }
     };
 
@@ -39,7 +50,7 @@ const Footer: React.FunctionComponent = () => {
                                     : { borderBottom: '1px solid #e74c3c' }
                             }
                         />
-                        <Typography className="subscribe">Subscribe</Typography>
+                        <Typography className="subscribe"  onClick={submitEmail}>Subscribe</Typography>
                     </div>
                 </div>
                 <div className="col-md-3 col-lg-4">

@@ -35,7 +35,9 @@ const SectionSix = () => {
         setEmail('');
     };
     const submitEmail = () => {
+        if(isVerified){
         disptach(emailSubscriber({ email }, resetEmail));
+        }
     };
     return (
         <div className="section-six">
