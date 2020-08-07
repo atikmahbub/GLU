@@ -56,17 +56,18 @@
                 animation: rotateMask 1.5s;
                 -webkit-animation: rotateMask 1.5s;
                 -moz-animation: rotateMask 1.5s;
-                animation-delay: 1.5s;
-                -webkit-animation-delay: 1.5s;
-                -moz-animation-delay: 1.5s;
+                // animation-delay: 1.5s;
+                // -webkit-animation-delay: 3s;
+                // -moz-animation-delay: 3s;
             }
             .defaultMask {
+                position: absolute;
                 width: 100%;
                 transform: rotate(0);
                 -webkit-transform: rotate(0);
                 -moz-transform: rotate(0);
             }
-            .white__mask.hide__mask {
+            .hide__mask {
                 display: none;
             }
             @keyframes rotateMask {
@@ -230,6 +231,7 @@
         }
         .slogan.show {
             opacity: 1;
+            transform: translateY(-3rem);
         }
     }
     .section-one {
@@ -458,10 +460,11 @@
                 border: none;
                 width: 80%;
                 font-size: 2.625rem;
-                @include makeFontSmoth(0.197rem, $black);
+                // @include makeFontSmoth(0.197rem, $black);
+                color: $black;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 2.4rem;
+                height: 2.8rem;
                 &:focus {
                     outline-color: transparent;
                 }
@@ -707,6 +710,30 @@
             }
             .rotating-box {
                 // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
+                .white__mask {
+                    width: 200%;
+                    animation: rotateMask 1.5s;
+                    -webkit-animation: rotateMask2 1.5s;
+                    -moz-animation: rotateMask2 1.5s;
+                    // animation-delay: 1.5s;
+                    // -webkit-animation-delay: 3s;
+                    // -moz-animation-delay: 3s;
+                }
+                
+                @keyframes rotateMask2 {
+                    0% {
+                        width: 100%;
+                        transform: rotate(0);
+                        -webkit-transform: rotate(0);
+                        -moz-transform: rotate(0);
+                    }
+                    100% {
+                        width: 500%;
+                        transform: rotate(-15deg);
+                        -webkit-transform: rotate(-15deg);
+                        -moz-transform: rotate(-15deg);
+                    }
+                }
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {
@@ -935,6 +962,7 @@
                 .title{
                     margin-right: 0;
                     font-size: 2.5rem;
+                    margin-bottom: 7.35rem;
                 }
                 .lappy-girl {
                     display: none;
@@ -945,6 +973,9 @@
             .section-four {
                 padding: 0 2.1rem;
                 .section-four-right-part-container {
+                    .shift__mobile{
+                        margin-top: -5rem;
+                    }
                     .title {
                         margin-right: 0;
                         max-width: none;
@@ -1015,6 +1046,9 @@
             .pen-pad-girl{
                 padding-right: 0;
                 margin-bottom: 7.29rem;
+            }
+            .people-saying{
+                margin-bottom: 4.3rem;
             }
         }
         .footer {

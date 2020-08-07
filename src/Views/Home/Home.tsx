@@ -57,7 +57,7 @@ const Home: React.FunctionComponent = () => {
                     />
                     <img
                         src={Icons.maskLong}
-                        className={`white__mask defaultMask ${animationCompelte ? 'hide__mask' : ''}`}
+                        className={`${animationCompelte ?  show? 'hide__mask' : 'white__mask' : 'defaultMask'}`}
                     />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
