@@ -546,7 +546,7 @@
 }
 
 // responsive
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
     html {
         font-size: 9px;
     }
@@ -981,6 +981,13 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {
+        .section-four{
+            .section-four-right-part-container{
+                .title{
+                    margin-right: 3.25rem;
+                }
+            }
+        }
         .section-seven {
             .border-card-container{
                 .heading {
