@@ -30,7 +30,7 @@ const SectionSix = () => {
                         <Typography className="title">Waiting List</Typography>
                         <Typography className="msg">Sign up and join the movement</Typography>
                     </div>
-                    <div className="col-md-6 col-lg-6">
+                    <div style={{paddingLeft: "1.5rem"}} className="col-md-6 col-lg-6">
                         <Typography className="email-address">Email Address</Typography>
                         <div className="email-container">
                             <input className="email" placeholder={placeholer} onChange={handleEmail} />
