@@ -1,22 +1,67 @@
 import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
-const Upcoming: React.FunctionComponent = () => {
+const { greysmallgirl, boywithtablet, animated, whitetshirtgirl } = commonImg;
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+interface props {
+    title: string;
+    images?: string[];
+}
+const Upcoming: React.FunctionComponent<props> = ({ title, images }) => {
+    console.log(images);
     return (
-        <div className="essential__class">
-            <h1 className="essential__class__heading">Essential Classes</h1>
-            <div className="card-1">
+        <div className="upcoming__class">
+            <h1 className="upcoming__class__heading">{title}</h1>
+            <div className="card card-1">
                 <ImageThumbnail
-                    image={commonImg.girlwithlaptop}
-                    title="Biology. Natural selection and evolution"
-                    subtitle="AED200 / 75mins"
+                    image={greysmallgirl}
+                    dateTime={
+                        <div className="time">
+                            <FiberManualRecordIcon className="icon" />
+                            <h2 className="title">24/07/20 - 9.30am</h2>
+                        </div>
+                    }
+                    title="How to structure narrative in fiction English - Sarah Swan"
+                    subtitle="AED200"
                 />
             </div>
-            <div className="card-2">
+            <div className="card card-2">
                 <ImageThumbnail
-                    image={commonImg.bookreadingboy}
-                    title="Biology.  Natural selection and evolution"
-                    subtitle="AED200 / 75mins"
+                    image={boywithtablet}
+                    dateTime={
+                        <div className="time">
+                            <FiberManualRecordIcon className="icon" />
+                            <h2 className="title">24/07/20 - 9.30am</h2>
+                        </div>
+                    }
+                    title="Natural selection and evolution Biology - Jeff Lee"
+                    subtitle="AED200"
+                />
+            </div>
+            <div className="card card-3">
+                <ImageThumbnail
+                    image={animated}
+                    dateTime={
+                        <div className="time">
+                            <FiberManualRecordIcon className="icon" />
+                            <h2 className="title">24/07/20 - 9.30am</h2>
+                        </div>
+                    }
+                    title="Natural selection and evolution Biology - Jeff Lee"
+                    subtitle="AED200"
+                />
+            </div>
+            <div className="card card-4">
+                <ImageThumbnail
+                    image={whitetshirtgirl}
+                    dateTime={
+                        <div className="time">
+                            <FiberManualRecordIcon className="icon" />
+                            <h2 className="title">24/07/20 - 9.30am</h2>
+                        </div>
+                    }
+                    title="Natural selection and evolution Biology - Jeff Lee"
+                    subtitle="AED200"
                 />
             </div>
         </div>

@@ -6,7 +6,8 @@
         margin: 4.562rem 0;
     }
     .email-container {
-        @include flex(center, space-between, row);
+        @include flex(center, flex-start, row);
+        width: 87%;
         .join-glu {
             font-size: 1.562rem;
             transition: all 0.5s;
@@ -15,9 +16,9 @@
             font-family: 'CircularXXWeb-Book';
         }
         .email {
-            width: 52%;
-            margin-top: 0.8rem;
+            width: 47%;
             border: none;
+            margin: 0 0.5rem;
             height: 2.5rem;
             font-size: 1.562rem;
             @include makeFontSmoth(0.2rem, #8b8b8b);
@@ -45,7 +46,7 @@
         }
     }
     .address-padding {
-        padding-left: 8rem;
+        // padding-left: 8rem;
     }
     .address-container {
         .title {
@@ -95,26 +96,56 @@
         right: 1.5rem;
         img {
             width: 1.562rem;
-            filter: blur(0.068rem);
+            // filter: blur(0.068rem);
         }
     }
 }
 
 //responsive
+@media screen and (max-width: 353px) {
+    .footer{
+        .email-container{
+            .join-glu{
+                font-size: 1.199rem;
+            }
+            .email{
+                font-size: 1.199rem;
+                &::placeholder{
+                font-size: 1.189rem;
+
+                }
+            }
+            .subscribe{
+                font-size: 1.199rem;
+            }
+        }
+        .address-container{
+            .title{
+                font-size: 1.199rem;
+                line-height: 1.5rem;;
+            }
+        }
+        .build-by{
+            font-size: 0.95rem;
+        }
+        .glu{
+            font-size: 0.95rem;
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .footer {
         .line {
             margin: 0;
             height: 1px;
             background-color: rgba(0, 0, 0, 0.15);
+            margin-bottom: 4rem;
         }
         .email-container {
-            margin-top: 4rem;
             margin-bottom: 2rem;
             .email {
                 width: 42%;
                 margin: 0 0.5rem;
-                margin-top: 1rem;
             }
         }
         .address-padding {

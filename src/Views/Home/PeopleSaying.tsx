@@ -10,10 +10,10 @@ const PeopleSaying: React.FunctionComponent = () => {
         <div className="section-seven">
             <hr className="line" />
             <div className="row">
-                <div className="col-lg-6">
+                <div className="col-md-4 col-lg-6">
                     <Typography className="people-saying">What people are saying...</Typography>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-md-8 col-lg-6">
                     <div className="row">
                         <div className="col-md-6">
                             <BorderCardContainer
@@ -32,10 +32,10 @@ const PeopleSaying: React.FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="break-section"></div>
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <img className="pen-pad-girl" src={commonImg.penpadgirl} alt="" />
                 </div>
-                <div className="col-lg-6 d-flex align-items-center">
+                <div className="col-md-6 col-lg-6 d-flex align-items-center">
                     <div className="text-section-container">
                         <Typography className="title">
                             Download Glu to open the door to endless learning, with 365 day around the clock access to

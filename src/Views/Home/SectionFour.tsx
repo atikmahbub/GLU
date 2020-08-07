@@ -12,17 +12,17 @@ const SectionFour: React.FunctionComponent<props> = ({ imageOne, imageTwo, msg, 
     return (
         <div className="section-four">
             <div className="row make__col__reverse">
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <div className="short-hair-girl-container">
                         <img className="short-hair-girl" src={imageOne} alt="" />
                     </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-md-6 col-lg-6">
                     <div className="section-four-right-part-container">
                         <Typography className="title">{msg}</Typography>
                         {show && (
                             <>
-                                <Typography className="real-time-intraction">interactive whiteboard</Typography>
+                                <Typography className="real-time-intraction">Interactive whiteboard</Typography>
                                 <img className="board-icon" src={commonImg.whiteBoardSvg} />
                             </>
                         )}

@@ -14,6 +14,7 @@ import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
 import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
+import BottomGAtext from './BottomGAtext';
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -50,30 +51,29 @@ const Home: React.FunctionComponent = () => {
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
-                    <img className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''}`} src={Icons.logo}/>
-
+                    <img
+                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers? 'hide' : ''} `}
+                        src={Icons.logo}
+                    />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
-                    
                 </div>
+                <BottomGAtext />
             </div>
             <SectionOne />
             <SectionTwoReusable
                 image={commonImg.earringgirl}
                 mobileImg={commonImg.smallhairwomenmobile}
                 title="Qualified teachers"
-                msg={
-                    <>
-                        Sign up with Glu  and earn money from the comfort  of your own home
-                    </>
-                }
+                msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
             />
             <SectionThree
                 image={commonImg.mobileApple}
                 msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
             />
+            
             <SectionFour
                 imageOne={commonImg.hoddygirl}
                 imageTwo={commonImg.lappygirl}
@@ -81,30 +81,29 @@ const Home: React.FunctionComponent = () => {
                             work in tandem, between schools, teachers, parents and students"
                 show={false}
             />
+          
             <SectionFive />
             <SectionSix />
             <SectionTwoReusable
                 image={commonImg.women}
                 mobileImg={commonImg.oldwomenmobile}
                 title="Messenger"
-                msg={
-                    <>
-                        Keep the convo  going with the in app  messenger
-                    </>
-                }
+                msg={<>Keep the convo going with the in app messenger</>}
             />
             <SectionThree
                 image={commonImg.menmobileview}
                 msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
             />
+            <div className="smile__girl__boy">
             <SectionFour
                 imageOne={commonImg.smilegirl}
                 imageTwo={commonImg.boy}
                 msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
                 show={true}
             />
+            </div>
             <PeopleSaying />
-            <Footer  />
+            <Footer />
         </div>
     );
 };

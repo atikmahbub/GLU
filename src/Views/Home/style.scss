@@ -6,6 +6,29 @@
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
+        .ga-text-container {
+            position: absolute;
+            bottom: -2rem;
+            @include flex(center, space-between, row);
+            display: none;
+            width: 31rem;
+            left: 2rem;
+            bottom: -4rem;
+            .title {
+                font-family: 'CircularXXMonoWeb-Regular';
+                font-size: 1.2rem;
+                font-weight: 600;
+                @include makeFontSmoth(1px, $black);
+            }
+            .icon {
+                width: 1.349rem;
+                height: 1.6rem;
+            }
+            .google-icon {
+                width: 1.4rem;
+                margin-top: 0.1rem;
+            }
+        }
         .default-clip {
             clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
         }
@@ -23,15 +46,15 @@
             @include flex(center, center, row);
             .slogan {
                 font-weight: 900;
-                width: 35rem;
+                width: 40rem;
                 transition: all 0.5s;
                 letter-spacing: 1rem;
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
-                transition: all 0.8s;
-                transform: translateY(-1rem);
-                animation: fadein, slideUp 1s;
+                transition: all 0.1s;
+                transform: translateY(-3rem);
+                animation: fadein 1s;
                 animation-delay: 1.5s;
             }
             @keyframes fadein {
@@ -40,7 +63,7 @@
                     transform: translateY(0);
                 }
                 100% {
-                    transform: translateY(-1rem);
+                    transform: translateY(-3rem);
                     opacity: 1;
                 }
             }
@@ -48,19 +71,16 @@
                 position: absolute;
                 bottom: 11.125rem;
                 left: 3.062rem;
-                transform: translateY(-1rem);
                 margin-top: 1rem;
-                transition: all 0.3s;
-                animation: slideUp 0.3s;
-                font-family: 'CircularXXWeb-Book';
                 transition: all 0.8s;
+                animation: slideDown 0.4s;
+                font-family: 'CircularXXWeb-Book';
                 .title {
                     @include makeFontSmoth(0.186rem, $white);
                     font-size: 1.562rem;
                     transition: all 0.5s;
                     margin-bottom: 1rem;
                     font-family: 'CircularXXWeb-Book';
-                    transition: all 0.8s;
                 }
                 .for {
                     font-size: 5rem;
@@ -77,12 +97,12 @@
                 bottom: 1.937rem;
                 right: 3.062rem;
                 @include flex(center, center, row);
-                transform: translateY(-1rem);
                 margin-top: -1rem;
                 transition: all 0.3s;
-                animation: slideUp 0.3s;
+                animation: slideUp 0.4s linear;
+
                 .title {
-                    text-shadow: 0 0 0.186rem $white;
+                    text-shadow: 0 0 0.024rem $white;
                     color: transparent;
                     font-size: 1rem;
                     transition: all 0.5s;
@@ -95,12 +115,10 @@
                     font-size: 1.4rem;
                     transition: all 0.5s;
                     color: $white;
-                    filter: blur(0.068rem);
                 }
                 .google-icon {
                     width: 0.7rem;
                     margin-top: 0.08rem;
-                    filter: blur(0.068rem);
                 }
             }
             .scroll__container {
@@ -108,25 +126,24 @@
                 position: absolute;
                 cursor: pointer;
                 padding: 1.125rem 3.062rem;
-                top: 0;
+                top: 1rem;
                 left: 0;
                 width: 12.15rem;
-                transform: translateY(1rem);
+                transform: translateY(0);
                 margin-top: -1rem;
                 transition: all 0.3s;
-                animation: slideDown 0.3s;
+                animation: slideDown 0.4s linear;
                 .text {
                     font-size: 1.562rem;
                     transition: all 0.5s;
                     font-family: 'CircularXXWeb-Book';
                     @include makeFontSmoth(0.156rem, $white);
-                    transition: all 0.8s;
                 }
                 .icon {
                     font-size: 1.737rem;
                     transition: all 0.5s;
-                    @include makeFontSmoth(0.156rem, $white);
-                    color: #ffffff66;
+                    color: $white;
+                    opacity: 0.8;
                 }
             }
         }
@@ -141,7 +158,18 @@
         .slogan.show.hide {
             opacity: 0;
             transition: all 0.5s;
-            animation: fadein, slideDown 1s;
+            animation: fadeOutSlideDown 0.5s;
+            transform: translateY(0);
+        }
+        @keyframes fadeOutSlideDown {
+            0% {
+                opacity: 1;
+                transform: translateY(-3rem);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0);
+            }
         }
         .slogan.show {
             opacity: 1;
@@ -151,12 +179,11 @@
         padding: 0 3.062rem;
         transition: all 0.8s;
         .img-container {
-            margin-right: 9.4rem;
+            margin-right: 8.1rem;
             .spect-boy {
                 width: 100%;
                 object-fit: cover;
                 transition: all 0.8s;
-                filter: blur(0.068rem);
             }
         }
         .section-one-right-part {
@@ -164,11 +191,9 @@
             transition: all 0.8s;
 
             .title {
-                // font-size: 2.625rem;// commented by sani
-                font-size: 3.4rem; // added by sani
-                // @include makeFontSmoth(0.147rem, #1c1c1c); // commented by sani
-                color:#1c1c1c; // added by sani
-                padding-right:2rem;
+                max-width: 51.187rem;
+                font-size: 2.625rem;
+                @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
                 line-height: 3.4rem; //Changed by sani
                 margin-bottom: 10rem;
@@ -178,7 +203,6 @@
             .sppon-girl {
                 margin-top: 7rem;
                 width: 100%;
-                filter: blur(0.068rem);
             }
         }
         .workable-solution {
@@ -197,25 +221,26 @@
         display: flex;
         .opacity-bg {
             width: 100%;
-            align-self: stretch;
+            // align-self: stretch;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, 0.3);
-            filter: blur(0.068rem);
         }
         .ear-ring-girl-mobile {
             display: none;
         }
         .ear-ring-girl {
             width: 100%;
+            height: auto;
         }
         .img-overlay-container {
             position: absolute;
             bottom: 11.187rem;
-            right: 13.25rem;
-            left: 48%;
+            right: 10.25rem;
+            left: 50%;
+            max-width: 49.062rem;
             .title {
                 @include makeFontSmoth(0.156rem, $white);
                 font-size: 1.562rem;
@@ -237,18 +262,28 @@
         .left-part {
             @include flex(center, center, row);
             img {
-                filter: blur(0.068rem);
+                transition: all 0.5s;
             }
         }
         .right-part {
             @include flex(center, center, column);
             .title {
-                font-size: 2.725rem;
+                font-size: 2.625rem;
                 transition: all 0.5s;
                 line-height: 2.725rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
-                margin-right: 7.25rem;
+                margin-right: 3.25rem;
+                max-width: 52.187rem;
+            }
+        }
+    }
+    .smile__girl__boy {
+        .section-four {
+            .section-four-right-part-container {
+                .title {
+                    margin-right: 3.25rem;
+                }
             }
         }
     }
@@ -259,7 +294,6 @@
             margin-right: 8rem;
             .short-hair-girl {
                 width: 100%;
-                filter: blur(0.068rem);
             }
         }
         .section-four-right-part-container {
@@ -271,7 +305,8 @@
                 margin-bottom: 20.437rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
-                margin-right: 7.25rem;
+                margin-right: 4.25rem;
+                max-width: 52.187rem;
             }
             .real-time-intraction {
                 margin-top: -19.537rem;
@@ -284,11 +319,11 @@
             .board-icon {
                 width: 1.875rem;
                 margin-bottom: 10.875rem;
-                filter: blur(0.068rem);
+                transition: all 0.5s;
             }
             .lappy-girl {
                 width: 100%;
-                filter: blur(0.068rem);
+                transition: all 0.5s;
             }
         }
     }
@@ -324,6 +359,7 @@
                     transition: all 0.5s;
                     line-height: 5rem;
                     font-family: 'CircularXXWeb-Book';
+                    transition: all 0.5s;
                     @include makeFontSmoth(0.147rem, #1c1c1c);
                 }
             }
@@ -364,27 +400,27 @@
                 @include makeFontSmoth(0.197rem, $black);
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 3rem;
+                height: 2.4rem;
                 &:focus {
                     outline-color: transparent;
                 }
                 &::placeholder {
                     padding-left: 0;
                     font-size: 2.625rem;
-                    transition: all 0.5s;
-                    @include makeFontSmoth(0.147rem, #8B8B8B);
+                    @include makeFontSmoth(0.147rem, #8b8b8b);
                     font-weight: 500;
                 }
             }
             .subscribe {
                 cursor: pointer;
+                transition: all 0.5s;
                 text-transform: capitalize;
                 font-size: 1.625rem;
                 transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 align-self: flex-end;
-                margin-bottom: 0.4rem;
+                line-height: 1.8rem;
                 &:hover {
                     color: $primary;
                 }
@@ -426,7 +462,7 @@
                 margin-top: 2rem;
                 font-size: 1.562rem;
                 transition: all 0.5s;
-                line-height: 1.562rem;
+                line-height: 1.62rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
             }
@@ -455,7 +491,8 @@
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 margin-bottom: 1rem;
-                margin-right: 7.312rem;
+                margin-right: 4.312rem;
+                max-width: 52.187rem;
             }
             .subtitle {
                 font-size: 1.937rem;
@@ -487,40 +524,150 @@
 
     @keyframes slideDown {
         0% {
-            transform: translateY(0);
+            opacity: 0;
+            transform: translateY(-3rem);
         }
         100% {
-            transform: translateY(1rem);
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
     @keyframes slideUp {
         0% {
-            transform: translateY(0);
+            opacity: 0;
+            bottom: -1.937rem;
         }
         100% {
-            transform: translateY(-1rem);
+            opacity: 1;
+            bottom: 1.937rem;
         }
     }
 }
 
 // responsive
+@media screen and (max-width: 415px) {
+    html {
+        font-size: 9px;
+    }
+    .home-wrapper {
+        .holding-container {
+            .ga-text-container {
+                max-width: 25rem;
+                .title {
+                    font-size: 1rem;
+                }
+                .google-icon{
+                    width: 1.2rem;
+                }
+            }
+        }
+        .section-two {
+            .img-overlay-container {
+                max-width: 29rem!important;
+                .msg {
+                    font-size: 3rem !important;
+                    line-height: 3rem !important;
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 425px) {
     .home-wrapper {
         overflow-x: hidden;
+        .make__col__reverse {
+            flex-direction: column-reverse;
+        }
+        .section-one {
+            padding: 0 2.1rem;
+            .section-one-right-part {
+                padding-left: 0;
+                .title {
+                    margin-right: 0;
+                    font-size: 2.525rem!important;
+                    line-height: 2.525rem!important;
+                }
+                .sppon-girl {
+                    display: none;
+                }
+            }
+        }
         .section-two {
+            padding: 0;
+            .ear-ring-girl {
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block !important;
+                width: 100%;
+                height: auto;
+            }
             .img-overlay-container {
-                right: 4rem !important;
+                right: 1rem !important;
+                left: 2.1rem !important;
             }
         }
         .holding-container {
             position: relative;
             .rotating-box {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    $girlSkettingMobile !important;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
+                .slogan {
+                    width: 23rem;
+                }
+                .bottom-right-container {
+                    display: none;
+                }
+            }
+
+            .ga-text-container {
+                display: flex !important;
+            }
+        }
+        .section-three {
+            padding: 0 2.1rem;
+        }
+        .section-four{
+            padding: 0 2.1rem;
+            .short-hair-girl-container{
+                .short-hair-girl{
+                    display: block;
+                }
+            }
+            .section-four-right-part-container{
+                .lappy-girl{
+                    display: none;
+                }
+            }
+        }
+        .smile__girl__boy {
+            .section-four {
+                padding: 0 2.1rem;
+                .section-four-right-part-container {
+                    .title {
+                        margin-right: 0;
+                        max-width: none;
+                        font-size: 2.4rem;
+                    }
+                    .real-time-intraction {
+                        display: none;
+                    }
+                    .board-icon {
+                        display: none;
+                    }
+                    .lappy-girl {
+                        display: block;
+                    }
+                }
+                .short-hair-girl-container{
+                    .short-hair-girl{
+                        display: none;
+                    }
+                }
             }
         }
         .section-five {
+            padding: 0 2.1rem;
             .subject-list-container {
                 position: relative;
                 ul {
@@ -545,19 +692,104 @@
         }
         .section-six {
             margin-top: 11rem;
+            padding: 0 2.1rem;
+            .email-container {
+                .email {
+                    width: 65%;
+                }
+            }
+        }
+        .section-seven {
+            padding: 0 2.1rem;
+            .text-section-container{
+                .title{
+                    font-size: 2.5rem!important;
+                }
+            }
+        }
+        .footer {
+            padding: 0 2.1rem;
+            .email-container {
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 767px) {
+    .home-wrapper {
+        .make__col__reverse {
+            flex-direction: column-reverse;
+        }
+        .section-one {
+            .section-one-right-part {
+                padding-left: 0;
+                margin-top: 1rem;
+                .title {
+                    max-width: none !important;
+                    margin-right: 0;
+                }
+                .sppon-girl {
+                    display: none;
+                }
+            }
+            .workable-solution {
+                margin-top: 10rem;
+            }
+        }
+        .section-two {
+            .ear-ring-girl {
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            .img-overlay-container {
+                max-width: 29.062rem !important;
+                .msg {
+                    font-size: 3rem !important;
+                    line-height: 3rem !important;
+                }
+            }
+        }
+        .section-three {
+            .right-part {
+                margin-top: 0;
+                .title {
+                    max-width: none !important;
+                }
+            }
+        }
+        .section-four {
+            .section-four-right-part-container {
+                margin-top: 0;
+                .lappy-girl{
+                    display: none;
+                }
+                .title {
+                    max-width: none !important;
+                }
+            }
+        }
+        .section-seven {
+            .text-section-container {
+                .title {
+                    max-width: none !important;
+                }
+            }
         }
     }
 }
 @media screen and (max-width: 768px) {
     .home-wrapper {
-        .make__col__reverse {
-            flex-direction: column-reverse;
-        }
         .holding-container {
             position: relative;
+            .ga-text-container {
+                display: none;
+            }
             .rotating-box {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                    $girlSkettingMobile !important;
+                // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {
@@ -576,8 +808,10 @@
                 }
             }
             .section-one-right-part {
-                .sppon-girl {
-                    display: none;
+                .title {
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
+                    margin-right: 0;
                 }
             }
             .workable-solution {
@@ -588,21 +822,22 @@
         }
         .section-two {
             .ear-ring-girl {
-                display: none;
-            }
-            .ear-ring-girl-mobile {
                 display: block;
+            }
+
+            .ear-ring-girl-mobile {
+                display: none;
                 width: 100%;
             }
             .img-overlay-container {
-                // width: 28rem;
+                max-width: 39.062rem;
                 bottom: 6.9rem;
-                left: 3rem;
-                right: 28rem;
+                left: 49%;
+                right: 0;
                 .msg {
                     font-size: 4rem;
                     transition: all 0.5s;
-                    line-height: 4.3rem;
+                    line-height: 4rem;
                 }
             }
         }
@@ -616,9 +851,19 @@
             .right-part {
                 .title {
                     margin: 0;
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
                     margin-bottom: 7.9rem;
+                }
+            }
+        }
+        .smile__girl__boy {
+            .section-four {
+                .section-four-right-part-container {
+                    .title {
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -626,14 +871,14 @@
             margin-bottom: 5.35rem;
             .section-four-right-part-container {
                 .title {
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
                     margin-bottom: 7.35rem;
                     margin-right: 0;
+                    max-width: 42.187rem;
                 }
-                .lappy-girl {
-                    display: none;
-                }
+
                 .real-time-intraction {
                     margin-top: -5.537rem;
                 }
@@ -673,7 +918,6 @@
                     font-size: 2.5rem;
                     line-height: 1.8rem;
                     color: #8b8b8b;
-                    height: 2.9rem;
                 }
                 .subscribe {
                     font-size: 1.8rem;
@@ -684,9 +928,6 @@
         }
         .section-seven {
             margin-bottom: 8rem;
-            .line {
-                display: none;
-            }
             .people-saying {
                 margin-bottom: 4.3rem;
                 font-size: 2.5rem;
@@ -717,8 +958,12 @@
             .text-section-container {
                 .title {
                     margin-right: 0;
-                    font-size: 2.5rem;
+                    font-size: 2.125rem;
+                    line-height: 2.125rem;
                     transition: all 0.5s;
+                }
+                .subtitle {
+                    font-size: 1.6rem;
                 }
 
                 .icon__container {
@@ -728,11 +973,35 @@
                     }
 
                     .google-icon {
-                        width: 1.7rem;
-                        margin-top: 0.23rem;
+                        width: 1.57rem;
                     }
                 }
             }
+        }
+        .footer {
+            padding: 0 2.1rem;
+            .email-container {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .home-wrapper {
+        .section-four{
+            .section-four-right-part-container{
+                .title{
+                    margin-right: 3.25rem;
+                }
+            }
+        }
+        .section-seven {
+            .border-card-container{
+                .heading {
+                    font-size: 2.325rem;
+                }
+            } 
         }
     }
 }
