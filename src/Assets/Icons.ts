@@ -8,7 +8,7 @@ import googleIconWhite from "./Icons/googleIconWhite.svg";
 import realgoogleIcon from './Icons/realgoogleIcon.svg';
 import logo from "./Icons/logo.svg";
 import googleIconBlack from "./Icons/googleIconBlack.svg";
-import whiteMask from "./Icons/WhiteMask.svg";
+import whiteMask from "./Icons/whiteMask.svg";
 import maskLong from "./Icons/maskLong.svg";
 
 
