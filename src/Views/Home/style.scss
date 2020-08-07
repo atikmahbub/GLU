@@ -112,7 +112,7 @@
                 -webkit-animation: slideUp 0.4s linear;
                 -moz-animation: slideUp 0.4s linear;
                 animation: slideUp 0.4s linear;
-               
+
                 .title {
                     text-shadow: 0 0 0.024rem $white;
                     color: transparent;
@@ -129,7 +129,8 @@
                     color: $white;
                 }
                 .google-icon {
-                    width: 0.7rem;
+                   // width: 0.7rem; // commented by sani
+                    width: 0.9rem; // changed by sani
                     margin-top: 0.08rem;
                 }
             }
@@ -163,7 +164,9 @@
         }
         @keyframes rotate {
             0% {
+                // clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
                 clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+
             }
             100% {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -213,7 +216,7 @@
                 font-size: 2.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
-                line-height: 3.4rem; //Changed by sani
+                line-height: 2.625rem;
                 margin-bottom: 10rem;
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
@@ -248,11 +251,13 @@
         }
         .ear-ring-girl-mobile {
             display: none;
-            // align-self: center;
+            object-fit: cover;
+            // max-height: ;
         }
         .ear-ring-girl {
             width: 100%;
             height: auto;
+            object-fit: cover;
         }
         .img-overlay-container {
             position: absolute;
@@ -567,26 +572,20 @@
 }
 
 // responsive
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .home-wrapper {
-        .section-four{
-            .section-four-right-part-container{
-                .title{
-                    margin-right: 3.25rem;
-                }
-            }
-        }
-        .section-seven {
-            .border-card-container{
-                .heading {
-                    font-size: 2.325rem;
-                }
-            } 
-        }
+@media screen and (max-width: 415px) {
+    html {
+        font-size: 9px;
     }
 }
 @media screen and (max-width: 768px) {
     .home-wrapper {
+        .menus-container {
+            .right {
+                .title {
+                    margin-right: -0.7rem;
+                }
+            }
+        }
         .holding-container {
             position: relative;
             .ga-text-container {
@@ -617,193 +616,30 @@
                     line-height: 2.125rem;
                     margin-right: 0;
                 }
-            }
-            .workable-solution {
-                font-size: 4rem;
-                transition: all 0.5s;
-                line-height: 4rem;
-            }
-        }
-        .section-two {
-            max-height: 98vh;
-            .img-overlay-container {
-                max-width: 39.062rem;
-                bottom: 6.9rem;
-                left: 49%;
-                right: 0;
-                .msg {
-                    font-size: 4rem;
-                    transition: all 0.5s;
-                    line-height: 4rem;
+                .google-icon {
+                    width: 1.2rem;
                 }
             }
-        }
-        .section-three {
-            margin-bottom: 6.85rem;
-            .left-part {
-                img {
-                    width: 25.3rem;
+            .rotating-box {
+                .scroll__container {
+                    padding: 0rem 2.1rem;
+                    width: 11.2rem;
+                    top: 2.4rem;
+                    .text {
+                        font-size: 1.8rem;
+                    }
+                }
+                .launching-soon-container {
+                    left: 2.1rem;
                 }
             }
-            .right-part {
-                .title {
-                    margin: 0;
-                    font-size: 2.125rem;
-                    line-height: 2.125rem;
-                    transition: all 0.5s;
-                    margin-bottom: 7.9rem;
-                }
-            }
-        }
-        .smile__girl__boy {
-            .section-four {
-                .section-four-right-part-container {
+            .menus-container {
+                padding: 1.125rem 2.5rem;
+                .right {
                     .title {
                         margin-right: 0;
                     }
                 }
-            }
-        }
-        .section-four {
-            margin-bottom: 5.35rem;
-            .section-four-right-part-container {
-                .title {
-                    font-size: 2.125rem;
-                    line-height: 2.125rem;
-                    transition: all 0.5s;
-                    margin-bottom: 7.35rem;
-                    margin-right: 0;
-                    max-width: 42.187rem;
-                }
-
-                .real-time-intraction {
-                    margin-top: -5.537rem;
-                }
-                .board-icon {
-                    width: 3rem;
-                }
-            }
-            .short-hair-girl-container {
-                margin-right: 0;
-                .short-hair-girl {
-                    width: 100%;
-                }
-            }
-        }
-        .section-five {
-            padding-top: 0;
-            padding-bottom: 0;
-            .horizontal__line {
-                display: none;
-            }
-            .subject {
-                width: 3rem;
-            }
-        }
-        .section-six {
-            .msg {
-                font-size: 2.5rem;
-                transition: all 0.5s;
-                line-height: 2.5rem;
-                margin-bottom: 2rem;
-            }
-            .email-address {
-                line-height: 2.4rem;
-            }
-            .email-container {
-                .email {
-                    font-size: 2.5rem;
-                    line-height: 1.8rem;
-                    color: #8b8b8b;
-                }
-                .subscribe {
-                    font-size: 1.8rem;
-                    transition: all 0.5s;
-                    line-height: 1.8rem;
-                }
-            }
-        }
-        .section-seven {
-            margin-bottom: 8rem;
-            .people-saying {
-                margin-bottom: 4.3rem;
-                font-size: 2.5rem;
-                transition: all 0.5s;
-            }
-
-            .border-card-container {
-                margin-bottom: 3rem;
-                border-left: 2px solid #cfcfcf70;
-                .heading {
-                    font-size: 2.5rem;
-                    transition: all 0.5s;
-                }
-
-                .title {
-                    font-size: 1.5rem;
-                    transition: all 0.5s;
-                    margin-bottom: 0.3rem;
-                }
-            }
-            .pen-pad-girl {
-                padding-right: 0;
-                margin-bottom: 7.284rem;
-            }
-            .break-section {
-                margin-bottom: 3.937rem;
-            }
-            .text-section-container {
-                .title {
-                    margin-right: 0;
-                    font-size: 2.125rem;
-                    line-height: 2.125rem;
-                    transition: all 0.5s;
-                }
-                .subtitle {
-                    font-size: 1.6rem;
-                }
-
-                .icon__container {
-                    .apple-icon {
-                        font-size: 1.938rem;
-                        transition: all 0.5s;
-                    }
-
-                    .google-icon {
-                        width: 1.57rem;
-                        height: 1.57rem;
-                        
-                    }
-                }
-            }
-        }
-        .footer {
-            padding: 0 2.1rem;
-            .email-container {
-                width: 100%;
-            }
-        }
-    }
-}
-@media screen and (min-width: 426px) and (max-width: 767px) {
-    .home-wrapper {
-        .make__col__reverse {
-            flex-direction: column-reverse;
-        }
-        .section-one {
-            .section-one-right-part {
-                padding-left: 0;
-                margin-top: 1rem;
-                .title {
-                    max-width: none !important;
-                    margin-right: 0;
-                }
-                .sppon-girl {
-                    display: none;
-                }
-            }
-            .workable-solution {
-                margin-top: 10rem;
             }
         }
         .section-two {
@@ -818,30 +654,18 @@
                 height: auto;
             }
             .img-overlay-container {
-                max-width: 29.062rem !important;
+                max-width: 29rem !important;
                 .msg {
                     font-size: 3rem !important;
                     line-height: 3rem !important;
                 }
             }
         }
-        .section-three {
-            .right-part {
-                margin-top: 0;
-                .title {
-                    max-width: none !important;
-                }
-            }
-        }
-        .section-four {
-            .section-four-right-part-container {
-                margin-top: 0;
-                .lappy-girl{
-                    display: none;
-                }
-                .title {
-                    max-width: none !important;
-                }
+    }
+    .footer {
+        .three__piller__container {
+            img {
+                margin-right: 0.5rem;
             }
         }
         .section-seven {
@@ -865,8 +689,8 @@
                 padding-left: 0;
                 .title {
                     margin-right: 0;
-                    font-size: 2.525rem!important;
-                    line-height: 2.525rem!important;
+                    font-size: 2.525rem !important;
+                    line-height: 2.525rem !important;
                 }
                 .sppon-girl {
                     display: none;
@@ -898,22 +722,16 @@
                 .bottom-right-container {
                     display: none;
                 }
-                .menus-container{
-                    .right {
-                        .title {
-                            margin-right: -0.7rem;
-                        }
-                    }
-                } 
-                .scroll__container{
-                   padding: 0rem 2.1rem;
+
+                .scroll__container {
+                    padding: 0rem 2.1rem;
                     width: 11.2rem;
                     top: 2.4rem;
-                    .text{
+                    .text {
                         font-size: 1.8rem;
                     }
-                } 
-                .launching-soon-container{
+                }
+                .launching-soon-container {
                     left: 2.1rem;
                 }
             }
@@ -925,15 +743,15 @@
         .section-three {
             padding: 0 2.1rem;
         }
-        .section-four{
+        .section-four {
             padding: 0 2.1rem;
-            .short-hair-girl-container{
-                .short-hair-girl{
+            .short-hair-girl-container {
+                .short-hair-girl {
                     display: block;
                 }
             }
-            .section-four-right-part-container{
-                .lappy-girl{
+            .section-four-right-part-container {
+                .lappy-girl {
                     display: none;
                 }
             }
@@ -959,8 +777,8 @@
                         display: block;
                     }
                 }
-                .short-hair-girl-container{
-                    .short-hair-girl{
+                .short-hair-girl-container {
+                    .short-hair-girl {
                         display: none;
                     }
                 }
@@ -1003,9 +821,9 @@
         }
         .section-seven {
             padding: 0 2.1rem;
-            .text-section-container{
-                .title{
-                    font-size: 2.5rem!important;
+            .text-section-container {
+                .title {
+                    font-size: 2.5rem !important;
                 }
             }
         }
@@ -1067,7 +885,7 @@
         .section-four {
             .section-four-right-part-container {
                 margin-top: 0;
-                .lappy-girl{
+                .lappy-girl {
                     display: none;
                 }
                 .title {
@@ -1154,5 +972,21 @@
     }
 }
 
-
-
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .home-wrapper {
+        .section-four {
+            .section-four-right-part-container {
+                .title {
+                    margin-right: 3.25rem;
+                }
+            }
+        }
+        .section-seven {
+            .border-card-container {
+                .heading {
+                    font-size: 2.325rem;
+                }
+            }
+        }
+    }
+}
