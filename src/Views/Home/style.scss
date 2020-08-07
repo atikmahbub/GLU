@@ -41,7 +41,11 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
+            -webkit-animation: rotate 1s;
+            -moz-animation: rotate 1s;
             animation: rotate 1s;
+            -webkit-animation-delay: 1.5s;
+            -moz-animation-delay: 1.5s;
             animation-delay: 1.5s;
             @include flex(center, center, row);
             .slogan {
@@ -55,15 +59,21 @@
                 transition: all 0.1s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
+                -webkit-animation: fadein 1s;
+                -moz-animation: fadein 1s;
                 animation-delay: 1.5s;
+                -webkit-animation-delay: 1.5s;
+                -moz-animation-delay: 1.5s;
             }
             @keyframes fadein {
                 0% {
                     opacity: 0;
+                    -webkit-transform: translateY(0);
                     transform: translateY(0);
                 }
                 100% {
                     transform: translateY(-3rem);
+                    -webkit-transform: translateY(-3rem);
                     opacity: 1;
                 }
             }
@@ -99,8 +109,10 @@
                 @include flex(center, center, row);
                 margin-top: -1rem;
                 transition: all 0.3s;
+                -webkit-animation: slideUp 0.4s linear;
+                -moz-animation: slideUp 0.4s linear;
                 animation: slideUp 0.4s linear;
-
+               
                 .title {
                     text-shadow: 0 0 0.024rem $white;
                     color: transparent;
@@ -132,6 +144,8 @@
                 transform: translateY(0);
                 margin-top: -1rem;
                 transition: all 0.3s;
+                -webkit-animation: slideDown 0.4s linear;
+                -moz-animation: slideDown 0.4s linear;
                 animation: slideDown 0.4s linear;
                 .text {
                     font-size: 1.562rem;
@@ -158,16 +172,20 @@
         .slogan.show.hide {
             opacity: 0;
             transition: all 0.5s;
+            -webkit-animation: fadeOutSlideDown 0.5s;
+            -moz-animation: fadeOutSlideDown 0.5s;
             animation: fadeOutSlideDown 0.5s;
             transform: translateY(0);
         }
         @keyframes fadeOutSlideDown {
             0% {
                 opacity: 1;
+                -webkit-transform: translateY(-3rem);
                 transform: translateY(-3rem);
             }
             100% {
                 opacity: 0;
+                -webkit-transform: translateY(0);
                 transform: translateY(0);
             }
         }
@@ -230,6 +248,7 @@
         }
         .ear-ring-girl-mobile {
             display: none;
+            // align-self: center;
         }
         .ear-ring-girl {
             width: 100%;
@@ -525,10 +544,12 @@
     @keyframes slideDown {
         0% {
             opacity: 0;
+            -webkit-transform: translateY(-3rem);
             transform: translateY(-3rem);
         }
         100% {
             opacity: 1;
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
     }
@@ -604,14 +625,7 @@
             }
         }
         .section-two {
-            .ear-ring-girl {
-                display: block;
-            }
-
-            .ear-ring-girl-mobile {
-                display: none;
-                width: 100%;
-            }
+            max-height: 98vh;
             .img-overlay-container {
                 max-width: 39.062rem;
                 bottom: 6.9rem;
@@ -793,6 +807,8 @@
             }
         }
         .section-two {
+            padding: 0;
+            max-height: 98vh;
             .ear-ring-girl {
                 display: none;
             }
@@ -962,6 +978,8 @@
                     position: absolute;
                     width: 291rem;
                     font-size: 4rem;
+                    -webkit-animation: scrollFromRightToLeft linear 15s infinite;
+                    -moz-animation: scrollFromRightToLeft linear 15s infinite;
                     animation: scrollFromRightToLeft linear 15s infinite;
                 }
                 @keyframes scrollFromRightToLeft {
@@ -999,14 +1017,71 @@
         }
     }
 }
-
-
-// @media screen and (max-width: 425px) { // added by sani
-    
-// }
-@media screen and (max-width: 415px) {
-    html {
-        font-size: 9px;
+@media screen and (min-width: 426px) and (max-width: 767px) {
+    .home-wrapper {
+        .make__col__reverse {
+            flex-direction: column-reverse;
+        }
+        .section-one {
+            .section-one-right-part {
+                padding-left: 0;
+                margin-top: 1rem;
+                .title {
+                    max-width: none !important;
+                    margin-right: 0;
+                }
+                .sppon-girl {
+                    display: none;
+                }
+            }
+            .workable-solution {
+                margin-top: 10rem;
+            }
+        }
+        .section-two {
+            max-height: 98vh;
+            .ear-ring-girl {
+                display: none;
+            }
+            .ear-ring-girl-mobile {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            .img-overlay-container {
+                max-width: 29.062rem !important;
+                .msg {
+                    font-size: 3rem !important;
+                    line-height: 3rem !important;
+                }
+            }
+        }
+        .section-three {
+            .right-part {
+                margin-top: 0;
+                .title {
+                    max-width: none !important;
+                }
+            }
+        }
+        .section-four {
+            .section-four-right-part-container {
+                margin-top: 0;
+                .lappy-girl{
+                    display: none;
+                }
+                .title {
+                    max-width: none !important;
+                }
+            }
+        }
+        .section-seven {
+            .text-section-container {
+                .title {
+                    max-width: none !important;
+                }
+            }
+        }
     }
     .home-wrapper {
         .holding-container {

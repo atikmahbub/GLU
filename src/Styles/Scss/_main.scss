@@ -14,6 +14,7 @@ html {
     body {
         font-family: 'Roboto', Helvetica, sans-serif;
         background-color: $white;
+        text-rendering: geometricPrecision;
         &::-webkit-scrollbar {
             display: none;
         }
