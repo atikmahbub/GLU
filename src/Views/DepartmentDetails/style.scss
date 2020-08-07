@@ -11,7 +11,7 @@
         }
         .project-category-cards-wrapper {
             width: 100%;
-            @include flex(center, start, row);
+            @include flex(center, flex-start, row);
             .slide-control-icon {
                 cursor: pointer;
                 &:last-child {
