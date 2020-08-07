@@ -112,7 +112,7 @@
                 -webkit-animation: slideUp 0.4s linear;
                 -moz-animation: slideUp 0.4s linear;
                 animation: slideUp 0.4s linear;
-               
+
                 .title {
                     text-shadow: 0 0 0.024rem $white;
                     color: transparent;
@@ -163,7 +163,9 @@
         }
         @keyframes rotate {
             0% {
+                // clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
                 clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
+
             }
             100% {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -213,7 +215,7 @@
                 font-size: 2.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
-                line-height: 3.4rem; //Changed by sani
+                line-height: 2.625rem;
                 margin-bottom: 10rem;
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
@@ -248,11 +250,13 @@
         }
         .ear-ring-girl-mobile {
             display: none;
-            // align-self: center;
+            object-fit: cover;
+            // max-height: ;
         }
         .ear-ring-girl {
             width: 100%;
             height: auto;
+            object-fit: cover;
         }
         .img-overlay-container {
             position: absolute;
@@ -567,20 +571,18 @@
 }
 
 // responsive
-@media screen and (max-width: 425px) { // added by sani
-    .menus-container{
-        .right {
-            .title {
-                margin-right: -0.7rem;
-            }
-        }
-    } 
-}
 @media screen and (max-width: 415px) {
     html {
         font-size: 9px;
     }
     .home-wrapper {
+        .menus-container {
+            .right {
+                .title {
+                    margin-right: -0.7rem;
+                }
+            }
+        }
         .holding-container {
             .ga-text-container {
                 max-width: 25rem;
@@ -588,36 +590,36 @@
                 .title {
                     font-size: 1rem;
                 }
-                .google-icon{
+                .google-icon {
                     width: 1.2rem;
                 }
             }
-            .rotating-box{
-                .scroll__container{
-                   padding: 0rem 2.1rem;
+            .rotating-box {
+                .scroll__container {
+                    padding: 0rem 2.1rem;
                     width: 11.2rem;
                     top: 2.4rem;
-                    .text{
+                    .text {
                         font-size: 1.8rem;
                     }
                 }
-                .launching-soon-container{
+                .launching-soon-container {
                     left: 2.1rem;
                 }
             }
-            .menus-container{
+            .menus-container {
                 padding: 1.125rem 2.5rem;
                 .right {
                     .title {
                         margin-right: -0.4rem;
                     }
                 }
-            }  
+            }
         }
         .section-two {
             max-height: 98vh;
             .img-overlay-container {
-                max-width: 29rem!important;
+                max-width: 29rem !important;
                 .msg {
                     font-size: 3rem !important;
                     line-height: 3rem !important;
@@ -625,9 +627,9 @@
             }
         }
     }
-    .footer{ 
-        .three__piller__container{ 
-            img{
+    .footer {
+        .three__piller__container {
+            img {
                 margin-right: 0.5rem;
             }
         }
@@ -663,8 +665,8 @@
                 padding-left: 0;
                 .title {
                     margin-right: 0;
-                    font-size: 2.525rem!important;
-                    line-height: 2.525rem!important;
+                    font-size: 2.525rem !important;
+                    line-height: 2.525rem !important;
                 }
                 .sppon-girl {
                     display: none;
@@ -697,16 +699,16 @@
                 .bottom-right-container {
                     display: none;
                 }
-                
-                .scroll__container{
-                   padding: 0rem 2.1rem;
+
+                .scroll__container {
+                    padding: 0rem 2.1rem;
                     width: 11.2rem;
                     top: 2.4rem;
-                    .text{
+                    .text {
                         font-size: 1.8rem;
                     }
-                } 
-                .launching-soon-container{
+                }
+                .launching-soon-container {
                     left: 2.1rem;
                 }
             }
@@ -718,15 +720,15 @@
         .section-three {
             padding: 0 2.1rem;
         }
-        .section-four{
+        .section-four {
             padding: 0 2.1rem;
-            .short-hair-girl-container{
-                .short-hair-girl{
+            .short-hair-girl-container {
+                .short-hair-girl {
                     display: block;
                 }
             }
-            .section-four-right-part-container{
-                .lappy-girl{
+            .section-four-right-part-container {
+                .lappy-girl {
                     display: none;
                 }
             }
@@ -752,8 +754,8 @@
                         display: block;
                     }
                 }
-                .short-hair-girl-container{
-                    .short-hair-girl{
+                .short-hair-girl-container {
+                    .short-hair-girl {
                         display: none;
                     }
                 }
@@ -796,9 +798,9 @@
         }
         .section-seven {
             padding: 0 2.1rem;
-            .text-section-container{
-                .title{
-                    font-size: 2.5rem!important;
+            .text-section-container {
+                .title {
+                    font-size: 2.5rem !important;
                 }
             }
         }
@@ -860,7 +862,7 @@
         .section-four {
             .section-four-right-part-container {
                 margin-top: 0;
-                .lappy-girl{
+                .lappy-girl {
                     display: none;
                 }
                 .title {
@@ -1085,19 +1087,19 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {
-        .section-four{
-            .section-four-right-part-container{
-                .title{
+        .section-four {
+            .section-four-right-part-container {
+                .title {
                     margin-right: 3.25rem;
                 }
             }
         }
         .section-seven {
-            .border-card-container{
+            .border-card-container {
                 .heading {
                     font-size: 2.325rem;
                 }
-            } 
+            }
         }
     }
 }
