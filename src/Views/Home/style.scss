@@ -546,7 +546,7 @@
 }
 
 // responsive
-@media screen and (max-width: 424px) {
+@media screen and (max-width: 415px) {
     html {
         font-size: 9px;
     }
@@ -585,6 +585,8 @@
                 padding-left: 0;
                 .title {
                     margin-right: 0;
+                    font-size: 2.525rem!important;
+                    line-height: 2.525rem!important;
                 }
                 .sppon-girl {
                     display: none;
@@ -626,6 +628,7 @@
             padding: 0 2.1rem;
         }
         .section-four{
+            padding: 0 2.1rem;
             .short-hair-girl-container{
                 .short-hair-girl{
                     display: block;
@@ -698,6 +701,11 @@
         }
         .section-seven {
             padding: 0 2.1rem;
+            .text-section-container{
+                .title{
+                    font-size: 2.5rem!important;
+                }
+            }
         }
         .footer {
             padding: 0 2.1rem;
