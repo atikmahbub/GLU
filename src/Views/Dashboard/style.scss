@@ -20,7 +20,7 @@
     padding: 1rem;
     color: $headingPrimary;
     .status-header {
-        @include flex(center, start, row);
+        @include flex(center, flex-start, row);
         margin-bottom: 1rem;
         .status-icon {
             color: inherit;
