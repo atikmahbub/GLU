@@ -68,10 +68,12 @@
             @keyframes fadein {
                 0% {
                     opacity: 0;
+                    -webkit-transform: translateY(0);
                     transform: translateY(0);
                 }
                 100% {
                     transform: translateY(-3rem);
+                    -webkit-transform: translateY(-3rem);
                     opacity: 1;
                 }
             }
@@ -107,8 +109,10 @@
                 @include flex(center, center, row);
                 margin-top: -1rem;
                 transition: all 0.3s;
+                -webkit-animation: slideUp 0.4s linear;
+                -moz-animation: slideUp 0.4s linear;
                 animation: slideUp 0.4s linear;
-
+               
                 .title {
                     text-shadow: 0 0 0.024rem $white;
                     color: transparent;
@@ -140,6 +144,8 @@
                 transform: translateY(0);
                 margin-top: -1rem;
                 transition: all 0.3s;
+                -webkit-animation: slideDown 0.4s linear;
+                -moz-animation: slideDown 0.4s linear;
                 animation: slideDown 0.4s linear;
                 .text {
                     font-size: 1.562rem;
@@ -166,16 +172,20 @@
         .slogan.show.hide {
             opacity: 0;
             transition: all 0.5s;
+            -webkit-animation: fadeOutSlideDown 0.5s;
+            -moz-animation: fadeOutSlideDown 0.5s;
             animation: fadeOutSlideDown 0.5s;
             transform: translateY(0);
         }
         @keyframes fadeOutSlideDown {
             0% {
                 opacity: 1;
+                -webkit-transform: translateY(-3rem);
                 transform: translateY(-3rem);
             }
             100% {
                 opacity: 0;
+                -webkit-transform: translateY(0);
                 transform: translateY(0);
             }
         }
@@ -534,10 +544,12 @@
     @keyframes slideDown {
         0% {
             opacity: 0;
+            -webkit-transform: translateY(-3rem);
             transform: translateY(-3rem);
         }
         100% {
             opacity: 1;
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
     }
@@ -759,6 +771,8 @@
                     position: absolute;
                     width: 291rem;
                     font-size: 4rem;
+                    -webkit-animation: scrollFromRightToLeft linear 15s infinite;
+                    -moz-animation: scrollFromRightToLeft linear 15s infinite;
                     animation: scrollFromRightToLeft linear 15s infinite;
                 }
                 @keyframes scrollFromRightToLeft {
