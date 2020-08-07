@@ -153,3 +153,22 @@
         }
     }
 }
+
+@media screen and (min-width: 990px) and (max-width: 1309px) {
+    .home-wrapper {
+        .footer {
+            .email-container{
+                width:100%;
+                .join-glu{
+                    font-size: 1.4rem;
+                }
+                .email{
+                    font-size: 1.4rem;
+                }
+                .subscribe{
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
