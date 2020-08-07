@@ -919,7 +919,7 @@
             .ga-text-container {
                 // display: flex !important;//commented by sani
                 display: inline-block !important; // added by sani
-                width: 100%;
+                min-width: 100%;
                 .icon {
                     display: inline-block !important;
                     margin-right: 0.5rem;
