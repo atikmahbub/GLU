@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: ['react-hot-loader/patch', './src/index'],
@@ -29,11 +30,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader', 'postcss-loader'],
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader','postcss-loader', 'sass-loader'],
             },
             {
                 test: /\.(jpg|jpeg|png|woff|woff2|gif|eot|ttf|svg)$/,
@@ -48,6 +49,13 @@ module.exports = {
         }),
         new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
         new ErrorOverlayPlugin(),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+              postcss: [
+                autoprefixer(),
+              ]
+            }
+          })
         // new BundleAnalyzerPlugin(),
         // new webpack.optimize.ModuleConcatenationPlugin()
     ],
