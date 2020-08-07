@@ -38,9 +38,9 @@
 }
 
 @mixin makeFontSmoth($size, $color) {
-    text-shadow: 0 0 0.059rem $color;
+    text-shadow: 0 0 0.029rem $color;
     color: transparent;
-    text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
