@@ -3,14 +3,16 @@ import { Typography } from '@material-ui/core';
 import { ArrowDownward } from '@material-ui/icons';
 
 const ScrollButton = () => {
-    const ele = document.getElementById("root");
-    const height = ele?.offsetHeight;
     const handleScroll = () => {
-        window.scrollTo({
-            top: height,
-            behavior: 'smooth',
-          })
-    }
+        let content: any = document.querySelector('.home-wrapper');
+        let animate = setInterval(() => {
+            window.scrollBy(0, 15);
+            if (content.scrollHeight - (document as any ).scrollingElement.scrollTop === window.innerHeight) {
+                console.log('Cleared');
+                clearInterval(animate);
+            }
+        }, 10);
+    };
     return (
         <div className="scroll__container" onClick={handleScroll}>
             <Typography className="text">Scroll</Typography>
