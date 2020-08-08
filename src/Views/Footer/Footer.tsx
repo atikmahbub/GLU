@@ -34,7 +34,7 @@ const Footer: React.FunctionComponent = () => {
         <div className="footer">
             <hr className="line" />
             <div className="row">
-                <div className="col-md-8 col-lg-5 mr-auto">
+                <div className="col-md-8 col-lg-6">
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
                         <input
