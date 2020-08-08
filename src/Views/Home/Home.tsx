@@ -40,7 +40,7 @@ const Home: React.FunctionComponent = () => {
         setTimeout(() => {
             setShowOthers(true);
             content.style.height = 'auto';
-            content.style.overflow = 'auto';
+            content.style.overflow = 'hidden';
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
