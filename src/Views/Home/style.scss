@@ -6,6 +6,7 @@
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
+        overflow: hidden;
         .ga-text-container {
             position: absolute;
             bottom: -2rem;
@@ -68,6 +69,7 @@
                 -moz-transform: rotate(0);
             }
             .hide__mask {
+                transition: all 0.5s;
                 display: none;
             }
             @keyframes rotateMask {
