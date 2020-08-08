@@ -6,7 +6,7 @@ const ScrollButton = () => {
     const handleScroll = () => {
         let content: any = document.querySelector('.home-wrapper');
         let animate = setInterval(() => {
-            window.scrollBy(0, 15);
+            window.scrollBy(0, 40);
             if (content.scrollHeight - (document as any ).scrollingElement.scrollTop === window.innerHeight) {
                 console.log('Cleared');
                 clearInterval(animate);
