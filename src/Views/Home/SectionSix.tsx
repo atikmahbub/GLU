@@ -60,8 +60,8 @@ const SectionSix = () => {
                             !isEmailEnter
                                 ? {}
                                 : isVerified
-                                ? { border: '1px solid #2ecc71' }
-                                : { border: '1px solid #e74c3c' }
+                                ? { borderColor: '#007AFF' }
+                                : { borderColor: '#cfcfcf' }
                         }
                     />
                 </div>

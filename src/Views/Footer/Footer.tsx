@@ -46,8 +46,8 @@ const Footer: React.FunctionComponent = () => {
                                 !isEmailEnter
                                     ? {}
                                     : isVerified
-                                    ? { borderBottom: '1px solid #2ecc71' }
-                                    : { borderBottom: '1px solid #e74c3c' }
+                                    ? { borderColor: '#007AFF' }
+                                    : { borderColor: '#cfcfcf' }
                             }
                         />
                         <Typography className="subscribe"  onClick={submitEmail}>Subscribe</Typography>
