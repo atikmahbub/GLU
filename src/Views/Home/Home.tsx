@@ -36,8 +36,11 @@ const Home: React.FunctionComponent = () => {
         setMenuShow(!menuShow);
     };
     useEffect(() => {
+        let content: any = document.querySelector('.home-wrapper');
         setTimeout(() => {
             setShowOthers(true);
+            content.style.height = 'auto';
+            content.style.overflow = 'auto';
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
@@ -57,7 +60,7 @@ const Home: React.FunctionComponent = () => {
                     />
                     <img
                         src={Icons.maskLong}
-                        className={`${animationCompelte ?  show? 'hide__mask' : 'white__mask' : 'defaultMask'}`}
+                        className={`${animationCompelte ? (show ? 'hide__mask' : 'white__mask') : 'defaultMask'}`}
                     />
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
@@ -66,7 +69,7 @@ const Home: React.FunctionComponent = () => {
                 </div>
                 <BottomGAtext />
             </div>
-            {show && (
+            {showOthers && (
                 <React.Fragment>
                     <SectionOne />
                     <SectionTwoReusable

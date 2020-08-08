@@ -1,11 +1,14 @@
 .home-wrapper {
     transition: all 0.5s ease;
     position: relative;
+    height: 100vh;
+    overflow: hidden;
     .holding-container {
         position: relative;
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
+        overflow: hidden;
         .ga-text-container {
             position: absolute;
             bottom: -2rem;
@@ -68,6 +71,7 @@
                 -moz-transform: rotate(0);
             }
             .hide__mask {
+                transition: all 0.5s;
                 display: none;
             }
             @keyframes rotateMask {
@@ -445,6 +449,7 @@
         }
         .msg {
             font-size: 2.625rem;
+            line-height: 2.625rem;
             transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
             @include makeFontSmoth(0.147rem, #1c1c1c);
@@ -506,6 +511,7 @@
         }
         .people-saying {
             font-size: 2.625rem;
+            line-height: 2.625rem;
             transition: all 0.5s;
             font-weight: 500;
             color: #000000;
@@ -692,6 +698,11 @@
                     margin-bottom: 8.4rem;
                 }
             }
+        }
+    }
+    .section-six{
+        .msg{
+            margin-bottom: 3rem;
         }
     }
 }
