@@ -20,7 +20,7 @@
             }
             .project-category-selection {
                 width: 100%;
-                @include flex(start, start, row);
+                @include flex(flex-start, flex-start, row);
                 overflow-x: auto;
                 // @include custumScroller;
                 &::-webkit-scrollbar {

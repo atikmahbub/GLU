@@ -11,7 +11,7 @@ const index: React.FunctionComponent = () => {
     useEffect(()=>{
         const element = document.getElementsByTagName('html');
         console.log(element);
-        element[0].style.fontSize="16px!important";
+        element[0].style.fontSize="16px";
     },[])
     return (
         <div className="dashboard-wrapper">
