@@ -125,6 +125,7 @@
     }
     .revenue-content {
         @include disableScroll;
+        padding: 1rem;
         .revenue-week-stat {
             padding: 1rem;
             @include flex(center, space-around, row);
