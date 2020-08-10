@@ -21,8 +21,9 @@
             margin: 0 0.5rem;
             height: 2.5rem;
             font-size: 1.562rem;
-            // @include makeFontSmoth(0.2rem, #8b8b8b);
-            color: #8b8b8b;
+            @include makeFontSmoth(0.197rem, #1c1c1c8c);
+            color: #1c1c1c;
+            cursor: pointer;
             border-bottom: 1px solid $grayPrimary;
             &::placeholder {
                 font-size: 1.562rem;
@@ -31,6 +32,7 @@
             }
             &:focus {
                 outline-color: transparent;
+                outline: none;
             }
         }
         .subscribe {
@@ -137,7 +139,6 @@
     .footer {
         .line {
             margin: 0;
-            height: 1px;
             background-color: rgba(0, 0, 0, 0.15);
             margin-bottom: 4rem;
         }
