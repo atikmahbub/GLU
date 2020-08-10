@@ -54,7 +54,6 @@ export const emailSubscriber = (data: { email: string }, setEmail:Function) => {
             .then((res) => {
                 setEmail();
                 console.log(res);
-                toast.success("Subscription email sent Successfully");
             })
             .catch((err) => {
                 console.log(err);

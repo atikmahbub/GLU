@@ -7,22 +7,26 @@ const style = {
     valid_green: '',
 };
 
-const SectionSix = () => {
+const SectionSix: React.FunctionComponent = () => {
     const [placeholer, setPlaceholer] = useState<string>('');
+    const [buttonText, setButtonText] = useState<string>('Subscribe');
     useEffect(() => {
         if (window.screen.width <= 425) {
             setPlaceholer('harrison@six.com');
         } else {
             setPlaceholer('harrison@madebysix.com');
         }
-    });
-    const [email, setEmail] = useState('');
+    }, []);
+    const [email, setEmail] = useState('harrison@six.com');
     const [isVerified, setEmailVerify] = useState(false);
-    const [isEmailEnter, setEmailEnter] = useState('');
     const disptach = useDispatch();
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmailEnter(e.target.value);
+        if (buttonText === 'Thank You') {
+            setButtonText('Subscribe');
+            setPlaceholer('harrison@madebysix.com');
+        }
+        setEmail(e.target.value);
         let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (emailReg.test(e.target.value)) {
             setEmail(e.target.value);
@@ -33,12 +37,15 @@ const SectionSix = () => {
     };
     const resetEmail = () => {
         setEmail('');
+        setButtonText('Thank You');
+        setPlaceholer("You've successfully subscribed");
     };
     const submitEmail = () => {
-        if(isVerified){
-        disptach(emailSubscriber({ email }, resetEmail));
+        if (isVerified) {
+            disptach(emailSubscriber({ email }, resetEmail));
         }
     };
+    console.log(email, placeholer, buttonText);
     return (
         <div className="section-six">
             <div className="row">
@@ -49,20 +56,14 @@ const SectionSix = () => {
                 <div style={{ paddingLeft: '1.5rem' }} className="col-md-6 col-lg-6">
                     <Typography className="email-address">Email Address</Typography>
                     <div className="email-container">
-                        <input className="email" placeholder={placeholer} onChange={handleEmail} />
+                        <input value={email} className="email" placeholder={placeholer} onChange={handleEmail} />
                         <Typography className="subscribe" onClick={submitEmail}>
-                            Subscribe
+                            {buttonText}
                         </Typography>
                     </div>
                     <hr
                         className="email-line"
-                        style={
-                            !isEmailEnter
-                                ? {}
-                                : isVerified
-                                ? { borderColor: '#007AFF' }
-                                : { borderColor: '#cfcfcf' }
-                        }
+                        style={!isVerified ? {} : isVerified ? { borderColor: '#007AFF' } : { borderColor: '#cfcfcf' }}
                     />
                 </div>
             </div>
