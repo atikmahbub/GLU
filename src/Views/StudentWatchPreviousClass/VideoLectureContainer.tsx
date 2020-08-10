@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
+import VideoPlayerContainer from './VideoPlayerContainer';
 
 const VideoLectureContainer = () => {
     return (
@@ -13,7 +14,8 @@ const VideoLectureContainer = () => {
                 </Typography>
             </div>
             <div className="col-md-10">
-                <ImageThumbnail image={commonImg.smilegirl}/>
+                {/* <ImageThumbnail image={commonImg.smilegirl}/> */}
+                <VideoPlayerContainer/>
             </div>
         </div>
     </div>
