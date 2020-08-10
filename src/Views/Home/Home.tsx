@@ -39,8 +39,8 @@ const Home: React.FunctionComponent = () => {
         let content: any = document.querySelector('.home-wrapper');
         setTimeout(() => {
             setShowOthers(true);
-            content.style.height = 'auto';
-            content.style.overflow = 'hidden';
+            content.style.height = 'none';
+            content.style.overflow = 'auto';
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
@@ -67,7 +67,7 @@ const Home: React.FunctionComponent = () => {
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
                 </div>
-                <BottomGAtext />
+                {showOthers && <BottomGAtext />}
             </div>
             {showOthers && (
                 <React.Fragment>

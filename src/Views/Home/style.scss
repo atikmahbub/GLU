@@ -3,12 +3,12 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
+    @include disableScroll;
     .holding-container {
         position: relative;
         height: 100vh;
         display: flex;
         margin-bottom: 9.375rem;
-        overflow: hidden;
         .ga-text-container {
             position: absolute;
             bottom: -2rem;
@@ -29,7 +29,7 @@
             }
             .google-icon {
                 width: 1.4rem;
-                margin-top: 0.1rem;
+                margin-top: -0.01rem;
             }
         }
         // .default-clip {
@@ -44,7 +44,6 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSketting;
             background-size: cover;
             background-repeat: no-repeat;
-            overflow: hidden;
             // -webkit-animation: rotate 1s;
             // -moz-animation: rotate 1s;
             // animation: rotate 1s;
@@ -156,7 +155,7 @@
                 animation: slideUp 0.4s linear;
 
                 .title {
-                    text-shadow: 0 0 0.024rem $white;
+                    text-shadow: 0 0 0.094rem $white;
                     color: transparent;
                     font-size: 1rem;
                     transition: all 0.5s;
@@ -171,9 +170,8 @@
                     color: $white;
                 }
                 .google-icon {
-                    // width: 0.7rem; // commented by sani
-                    width: 0.9rem; // changed by sani
-                    margin-top: 0.08rem;
+                    width: 0.9rem;
+                    margin-top: 0.25rem;
                 }
             }
             .scroll__container {
@@ -259,7 +257,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
                 line-height: 2.625rem;
-                margin-bottom: 10rem;
+                margin-bottom: 10.625rem;
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
             }
@@ -370,14 +368,14 @@
                 font-size: 2.625rem;
                 transition: all 0.5s;
                 line-height: 2.625rem;
-                margin-bottom: 20.437rem;
+                margin-bottom: 17.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
                 margin-right: 4.25rem;
                 max-width: 52.187rem;
             }
             .real-time-intraction {
-                margin-top: -19.537rem;
+                margin-top: -16.537rem;
                 margin-bottom: 2.687rem;
                 font-size: 1.562rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
@@ -466,18 +464,20 @@
                 border: none;
                 width: 80%;
                 font-size: 2.625rem;
-                // @include makeFontSmoth(0.197rem, $black);
-                color: #8b8b8b;
+                @include makeFontSmoth(0.197rem, #1c1c1c8c);
+                color: #1c1c1c;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
                 height: 3rem;
                 &:focus {
                     outline-color: transparent;
+                    outline: none;
                 }
                 &::placeholder {
                     padding-left: 0;
                     font-size: 2.625rem;
-                    @include makeFontSmoth(0.147rem, #8b8b8b);
+                    @include makeFontSmoth(0.147rem, #1c1c1c);
+                    color: #1c1c1c;
                     font-weight: 500;
                 }
             }
@@ -510,11 +510,11 @@
             margin-bottom: 2.406rem;
         }
         .people-saying {
+            @include makeFontSmoth(0.147rem, #1c1c1c);
             font-size: 2.625rem;
             line-height: 2.625rem;
             transition: all 0.5s;
             font-weight: 500;
-            color: #000000;
             font-family: 'CircularXXWeb-Book';
         }
         .border-card-container {
@@ -701,8 +701,8 @@
             }
         }
     }
-    .section-six{
-        .msg{
+    .section-six {
+        .msg {
             margin-bottom: 3rem;
         }
     }
@@ -799,19 +799,16 @@
         .section-two {
             padding: 0;
             max-height: 98vh;
-            // .ear-ring-girl {
-            //     display: none;
-            // }
             .ear-ring-girl-mobile {
                 display: none;
                 width: 100%;
                 height: auto;
             }
             .img-overlay-container {
-                max-width: 29rem !important;
+                max-width: 32rem !important;
                 .msg {
-                    font-size: 3rem !important;
-                    line-height: 3rem !important;
+                    font-size: 4rem !important;
+                    line-height: 4rem !important;
                 }
             }
         }
@@ -836,6 +833,12 @@
         overflow-x: hidden;
         .make__col__reverse {
             flex-direction: column-reverse;
+        }
+        .holding-container {
+            height: 85vh;
+            .rotating-box {
+                height: 85vh;
+            }
         }
         .section-one {
             padding: 0 2.1rem;
@@ -922,7 +925,7 @@
                         -moz-transform: rotate(0);
                     }
                     100% {
-                        width: 500%;
+                        width: 405%;
                         transform: rotate(-15deg);
                         -webkit-transform: rotate(-15deg);
                         -moz-transform: rotate(-15deg);
@@ -1025,9 +1028,10 @@
                     position: absolute;
                     width: 291rem;
                     font-size: 4rem;
-                    -webkit-animation: scrollFromRightToLeft linear 15s infinite;
-                    -moz-animation: scrollFromRightToLeft linear 15s infinite;
-                    animation: scrollFromRightToLeft linear 15s infinite;
+                    @include makeFontSmoth(0.147rem, #1c1c1c);
+                    -webkit-animation: scrollFromRightToLeft linear 20s infinite;
+                    -moz-animation: scrollFromRightToLeft linear 20s infinite;
+                    animation: scrollFromRightToLeft linear 20s infinite;
                 }
                 @keyframes scrollFromRightToLeft {
                     0% {
@@ -1042,6 +1046,9 @@
         .section-six {
             margin-top: 11rem;
             padding: 0 2.1rem;
+            .msg {
+                margin-bottom: 2.95rem;
+            }
             .email-container {
                 .email {
                     width: 65%;
@@ -1050,13 +1057,19 @@
         }
         .section-seven {
             padding: 0 2.1rem;
-            .border-card-container{
+            .border-card-container {
                 margin-bottom: 3rem;
             }
             .text-section-container {
                 .title {
                     font-size: 2.5rem !important;
                     margin-right: 0;
+                }
+                .apple-icon {
+                    font-size: 2.3rem !important;
+                }
+                .google-icon {
+                    width: 1.8rem !important;
                 }
             }
             .pen-pad-girl {
@@ -1070,7 +1083,7 @@
         .footer {
             padding: 0 2.1rem;
             .email-container {
-                width: 100%!important;
+                width: 100% !important;
             }
         }
     }
@@ -1268,14 +1281,12 @@
     }
 }
 
-
 #container {
     perspective: 30px;
-  }
-  
-  #inner {
+}
+
+#inner {
     transition: transform 0.5s;
     -webkit-transition: transform 0.5s;
     box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
-  }
-  
+}
