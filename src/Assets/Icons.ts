@@ -11,7 +11,6 @@ import googleIconBlack from "./Icons/googleIconBlack.svg";
 import whiteMask from "./Icons/whiteMask.svg";
 import maskLong from "./Icons/maskLong.svg";
 
-
 export const Icons = {
 Facebook,
 Google,
@@ -24,5 +23,5 @@ realgoogleIcon,
 logo,
 googleIconBlack,
 whiteMask,
-maskLong
+maskLong,
 }

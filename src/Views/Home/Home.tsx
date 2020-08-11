@@ -49,8 +49,11 @@ const Home: React.FunctionComponent = () => {
             setShow(true);
         }, 3000);
     }, []);
+    const handleScroll = (e:any) => {
+      
+    }
     return (
-        <div className="home-wrapper">
+        <div  className="home-wrapper" onScroll={handleScroll}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
@@ -114,7 +117,7 @@ const Home: React.FunctionComponent = () => {
                     <PeopleSaying />
                     <Footer />
                 </React.Fragment>
-            )}
+            )} 
         </div>
     );
 };

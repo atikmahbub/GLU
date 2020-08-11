@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import commonImg from '../../Assets/images';
+import DeviceScroll from './DeviceScroll';
 
 interface props{
     image: string;
@@ -13,6 +14,7 @@ const SectionThree: React.FunctionComponent<props> = ({image, msg}) => {
                 <div className="col-md-6 col-lg-6">
                     <div className="left-part">
                         <img src={image} alt="" />
+                        {/* <DeviceScroll/> */}
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-6 d-flex">
