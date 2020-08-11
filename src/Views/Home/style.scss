@@ -518,6 +518,7 @@
                 &:focus {
                     outline-color: transparent;
                     outline: none;
+                    -webkit-appearance: none;
                 }
                 &::placeholder {
                     padding-left: 0;

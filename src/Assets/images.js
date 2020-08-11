@@ -69,8 +69,8 @@ const oldwomenmobile = `${imageEndpoint}v1596608139/gluschool/oldwomenmobile_ymq
 const sketterMobile = `${imageEndpoint}v1596608144/gluschool/sketterMobile_szc98b.png`;
 const smallhairwomenmobile = `${imageEndpoint}v1596608142/gluschool/smallhairwomenmobile_wwc3hp.jpg`;
 import deviceMask from "./img/device.svg";
-import deviceA from "./img/device_Screen_A.jpg";
-import deviceTaskbar from "./img/device_Taskbar.png";
+import deviceA from `${imageEndpoint}v1597145210/gluschool/device_Screen_A_nbxd5d.jpg`;
+import deviceTaskbar from `${imageEndpoint}v1597145205/gluschool/device_Taskbar_ncnrop.png`;
 
 export const commonImg = {
     google,
