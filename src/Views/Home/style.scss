@@ -26,7 +26,7 @@
             }
             .apple-icon {
                 margin-right: 0.338rem;
-                width: 0.832rem;
+                width: 0.892rem;
                 height: 1.6rem;
                 display: inline-block;
             }
@@ -678,6 +678,16 @@
             }
         }
         .holding-container {
+            .ga-text-container {
+                max-width: 25rem;
+                left: 2.1rem;
+                .title {
+                    font-size: 1rem;
+                }
+                .google-icon {
+                    width: 1.2rem;
+                }
+            }
             .rotating-box {
                 .scroll__container {
                     padding: 0rem 2.1rem;
@@ -972,7 +982,7 @@
                 min-width: 100%;
                 .apple-icon {
                     margin-right: 0.338rem;
-                    width: 0.823rem;
+                    width: 0.912rem;
                     height: 1.6rem;
                     display: inline-block;
                 }
