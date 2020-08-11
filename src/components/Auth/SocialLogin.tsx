@@ -5,7 +5,7 @@ const SocialLogin: React.FunctionComponent = () => {
   return (
     <div className="social-login-section">
       <div className="icon-container google-icon">
-        <img src={Icons.Google} />
+        <img src={Icons.google} />
       </div>
       <div className="icon-container">
         <img src={Icons.Facebook} />

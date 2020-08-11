@@ -39,8 +39,7 @@ const Home: React.FunctionComponent = () => {
         let content: any = document.querySelector('.home-wrapper');
         setTimeout(() => {
             setShowOthers(true);
-            content.style.height = 'none';
-            content.style.overflow = 'auto';
+            content.style.cssText = "overflow:unset;height:auto";
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
@@ -49,8 +48,11 @@ const Home: React.FunctionComponent = () => {
             setShow(true);
         }, 3000);
     }, []);
+    const handleScroll = (e:any) => {
+      
+    }
     return (
-        <div className="home-wrapper">
+        <div  className="home-wrapper" onScroll={handleScroll}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
@@ -114,7 +116,7 @@ const Home: React.FunctionComponent = () => {
                     <PeopleSaying />
                     <Footer />
                 </React.Fragment>
-            )}
+            )} 
         </div>
     );
 };

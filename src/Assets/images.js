@@ -68,6 +68,9 @@ const blackshirtgirl = `${imageEndpoint}v1596608127/gluschool/blackshirtgirl_ivc
 const oldwomenmobile = `${imageEndpoint}v1596608139/gluschool/oldwomenmobile_ymqemj.jpg`;
 const sketterMobile = `${imageEndpoint}v1596608144/gluschool/sketterMobile_szc98b.png`;
 const smallhairwomenmobile = `${imageEndpoint}v1596608142/gluschool/smallhairwomenmobile_wwc3hp.jpg`;
+import deviceMask from "./img/device.svg";
+import deviceA from "./img/device_Screen_A.jpg";
+import deviceTaskbar from "./img/device_Taskbar.png";
 
 export const commonImg = {
     google,
@@ -138,7 +141,10 @@ export const commonImg = {
     blackshirtgirl,
     oldwomenmobile,
     sketterMobile,
-    smallhairwomenmobile
+    smallhairwomenmobile,
+    deviceMask,
+    deviceA,
+    deviceTaskbar
 };
 
 export default commonImg;
