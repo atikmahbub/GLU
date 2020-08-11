@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icons } from '../../Assets/Icons';
 import commonImg from '../../Assets/images';
 
 const DeviceScroll: React.FunctionComponent = () => {

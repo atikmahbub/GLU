@@ -17,7 +17,7 @@ const SectionSix: React.FunctionComponent = () => {
             setPlaceholer('harrison@madebysix.com');
         }
     }, []);
-    const [email, setEmail] = useState('harrison@six.com');
+    const [email, setEmail] = useState('');
     const [isVerified, setEmailVerify] = useState(false);
     const disptach = useDispatch();
 

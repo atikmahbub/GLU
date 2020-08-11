@@ -39,8 +39,7 @@ const Home: React.FunctionComponent = () => {
         let content: any = document.querySelector('.home-wrapper');
         setTimeout(() => {
             setShowOthers(true);
-            content.style.height = 'none';
-            content.style.overflow = 'auto';
+            content.style.cssText = "overflow:unset;height:auto";
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);

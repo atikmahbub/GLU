@@ -2,7 +2,7 @@
     transition: all 0.5s ease;
     position: relative;
     height: 100vh;
-    // overflow: hidden;
+    overflow: hidden;
     @include disableScroll;
     .holding-container {
         position: relative;
@@ -22,14 +22,20 @@
                 font-size: 1.2rem;
                 font-weight: 600;
                 @include makeFontSmoth(1px, $black);
+                display: inline-block;
             }
-            .icon {
-                width: 1.349rem;
+            .apple-icon{
+                margin-right: 0.338rem;
+                width: 0.812rem;
                 height: 1.6rem;
+                display: inline-block;
             }
             .google-icon {
-                width: 1.4rem;
-                margin-top: -0.01rem;
+                width: 0.812rem;
+                margin-left: 0.3rem;
+                height: 1.6rem;
+                display: inline-block;
+                margin-right: 0.6rem;
             }
         }
         // .default-clip {
@@ -162,16 +168,15 @@
                     font-weight: 100;
                     font-family: 'CircularXXMonoWeb-Regular';
                     transition: all 0.8s;
+                    margin-right: 1.266rem;
                 }
-                .apple-icon {
-                    margin: 0 0.5rem;
-                    font-size: 1.4rem;
-                    transition: all 0.5s;
-                    color: $white;
+                .apple-icon{
+                    margin-right: 0.638rem;
+                    width: 0.812rem;
                 }
                 .google-icon {
-                    width: 0.9rem;
-                    margin-top: 0.25rem;
+                    width: 0.712rem;
+                    margin-top: 0.062rem;
                 }
             }
             .scroll__container {
@@ -325,6 +330,10 @@
         padding: 0 3rem;
         .left-part {
             @include flex(center, center, row);
+            img {
+                transition: all 0.5s;
+                width: 45%;
+            }
             .device__animation {
                 width: 50%;
                 position: relative;
@@ -867,7 +876,7 @@
 }
 @media screen and (max-width: 425px) {
     .home-wrapper {
-        overflow-x: hidden;
+        overflow-x: hidden!important;
         .make__col__reverse {
             flex-direction: column-reverse;
         }
@@ -973,19 +982,6 @@
                 // display: flex !important;//commented by sani
                 display: inline-block !important; // added by sani
                 min-width: 100%;
-                .icon {
-                    display: inline-block !important;
-                    margin-right: 0.5rem;
-                    margin-top: -0.6rem;
-                }
-                .google-icon {
-                    display: inline-block !important;
-                    margin-right: 0.5rem;
-                    margin-top: -0.4rem;
-                }
-                .title {
-                    display: inline-block !important;
-                }
             }
         }
         .section-three {
@@ -1237,12 +1233,7 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
-                .bottom-right-container {
-                    //Added by sani
-                    .google-icon {
-                        width: 1rem;
-                    }
-                }
+                
             }
             .menus-container {
                 padding: 1.125rem 2.5rem;
