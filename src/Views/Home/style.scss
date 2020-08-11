@@ -26,7 +26,7 @@
             }
             .apple-icon {
                 margin-right: 0.338rem;
-                width: 0.832rem;
+                width: 0.892rem;
                 height: 1.6rem;
                 display: inline-block;
             }
@@ -59,6 +59,7 @@
                 -webkit-animation: rotateMask 1.5s;
                 -moz-animation: rotateMask 1.5s;
                 transition: all 1.5s;
+                -webkit-transition: all 1.5s;
             }
             .defaultMask {
                 position: absolute;
@@ -67,9 +68,11 @@
                 -webkit-transform: rotate(0);
                 -moz-transform: rotate(0);
                 transition: all 1.5s;
+                -webkit-transition: all 1.5s;
             }
             .hide__mask {
                 transition: all 0.5s;
+                -webkit-transition: all 1.5s;
                 display: none;
             }
             @keyframes rotateMask {
@@ -95,6 +98,7 @@
                 opacity: 0;
                 color: $white;
                 transition: all 0.1s;
+                -webkit-transition: all 1.5s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
                 -webkit-animation: fadein 1s;
@@ -678,6 +682,16 @@
             }
         }
         .holding-container {
+            .ga-text-container {
+                max-width: 25rem;
+                left: 2.1rem;
+                .title {
+                    font-size: 1rem;
+                }
+                .google-icon {
+                    width: 1.2rem;
+                }
+            }
             .rotating-box {
                 .scroll__container {
                     padding: 0rem 2.1rem;
@@ -972,7 +986,7 @@
                 min-width: 100%;
                 .apple-icon {
                     margin-right: 0.338rem;
-                    width: 0.832rem;
+                    width: 0.912rem;
                     height: 1.6rem;
                     display: inline-block;
                 }
