@@ -59,6 +59,7 @@
                 -webkit-animation: rotateMask 1.5s;
                 -moz-animation: rotateMask 1.5s;
                 transition: all 1.5s;
+                -webkit-transition: all 1.5s;
             }
             .defaultMask {
                 position: absolute;
@@ -67,9 +68,11 @@
                 -webkit-transform: rotate(0);
                 -moz-transform: rotate(0);
                 transition: all 1.5s;
+                -webkit-transition: all 1.5s;
             }
             .hide__mask {
                 transition: all 0.5s;
+                -webkit-transition: all 1.5s;
                 display: none;
             }
             @keyframes rotateMask {
@@ -95,6 +98,7 @@
                 opacity: 0;
                 color: $white;
                 transition: all 0.1s;
+                -webkit-transition: all 1.5s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
                 -webkit-animation: fadein 1s;
