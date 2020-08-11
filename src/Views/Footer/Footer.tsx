@@ -17,9 +17,9 @@ const Footer: React.FunctionComponent = () => {
             setEmail('');
         }
         setEmailEnter(e.target.value);
+        setEmail(e.target.value);
         let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (emailReg.test(e.target.value)) {
-            setEmail(e.target.value);
             setEmailVerify(true);
         } else {
             setEmailVerify(false);
@@ -44,6 +44,7 @@ const Footer: React.FunctionComponent = () => {
                     <div className="email-container">
                         <Typography className="join-glu">Join the Glu news</Typography>
                         <input
+                            value={email}
                             type="text"
                             className="email"
                             placeholder="Email Address"
