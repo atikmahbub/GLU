@@ -25,6 +25,9 @@
             color: #1c1c1c;
             cursor: pointer;
             border-bottom: 1px solid $grayPrimary;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
             &::placeholder {
                 font-size: 1.562rem;
                 transition: all 0.5s;
@@ -34,6 +37,9 @@
                 outline-color: transparent;
                 outline: 0;
                 outline: none;
+                -webkit-border-radius: 0;
+                border-radius: 0;
+                -webkit-appearance: none;
             }
         }
         .subscribe {
