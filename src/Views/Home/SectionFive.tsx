@@ -9,7 +9,7 @@ const SectionFive = () => {
             <HorizontalLine />
             <div className={`row`}>
                 <div className="col-md-6 col-lg-4 mr-auto">
-                    <div className="make__position__sticky">
+                    <div style={{top: "3rem"}} className="make__position__sticky">
                         <Typography className="learn-title">
                             Learn or teach, we have over 30 subjects to pick from
                         </Typography>
