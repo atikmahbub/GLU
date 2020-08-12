@@ -77,13 +77,13 @@
             }
             @keyframes rotateMask {
                 0% {
-                    width: 100%;
+                    transform: translateZ(100%);
                     transform: rotate(0);
                     -webkit-transform: rotate(0);
                     -moz-transform: rotate(0);
                 }
                 100% {
-                    width: 200%;
+                    transform: translateZ(200%);
                     transform: rotate(-15deg);
                     -webkit-transform: rotate(-15deg);
                     -moz-transform: rotate(-15deg);
@@ -784,13 +784,13 @@
 
                 @keyframes rotateMask2 {
                     0% {
-                        width: 100%;
+                        transform: translateZ(100%);
                         transform: rotate(0);
                         -webkit-transform: rotate(0);
                         -moz-transform: rotate(0);
                     }
                     100% {
-                        width: 500%;
+                        transform: translateZ(500%);
                         transform: rotate(-15deg);
                         -webkit-transform: rotate(-15deg);
                         -moz-transform: rotate(-15deg);
