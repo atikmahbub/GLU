@@ -77,7 +77,9 @@ const Home: React.FunctionComponent = () => {
                     <SectionTwoReusable
                         image={commonImg.girlsideviewcroped}
                         mobileImg={commonImg.bluetopcropgirl}
-                        title="Qualified teachers"
+                        leftTitle="Tutors"
+                        title="Tutors"
+                        desktopTitle="Quality Teaching"
                         msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
                     />
                     <SectionThree
@@ -95,12 +97,16 @@ const Home: React.FunctionComponent = () => {
 
                     <SectionFive />
                     <SectionSix />
+                    <div className="curly__hair__container">
                     <SectionTwoReusable
                         image={commonImg.curlyhair}
                         mobileImg={commonImg.curlygirlcroped}
-                        title="Messenger"
+                        leftTitle="Messages"
+                        desktopTitle="Contact Time"
+                        title="Tutors"
                         msg={<>Keep the convo going with the in app messenger</>}
                     />
+                    </div>
                     <SectionThree
                         image={commonImg.menmobileview}
                         msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"

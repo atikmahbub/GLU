@@ -301,15 +301,27 @@
             height: auto;
             object-fit: cover;
         }
+        .left__title {
+            position: absolute;
+            left: 3.062rem;
+            bottom: 25.3rem;
+            font-size: 5rem;
+            @include makeFontSmoth(0.156rem, $white);
+            font-family: 'CircularXXWeb-Book';
+        }
         .img-overlay-container {
             position: absolute;
             bottom: 11.187rem;
             right: 10.25rem;
             left: 50%;
             max-width: 49.062rem;
+            .mobile-title {
+                display: none;
+            }
             .title {
                 @include makeFontSmoth(0.156rem, $white);
                 font-size: 1.562rem;
+                line-height: 3.5rem;
                 transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
             }
@@ -319,6 +331,13 @@
                 @include makeFontSmoth(0.199rem, $white);
                 font-family: 'CircularXXWeb-Book';
                 line-height: 5rem;
+            }
+        }
+    }
+    .curly__hair__container{
+        .section-two {
+            .left__title{
+                bottom: 19.9rem;
             }
         }
     }
@@ -887,6 +906,7 @@
             height: 85vh;
             .rotating-box {
                 height: 85vh;
+                overflow: hidden;
             }
         }
         .section-one {
@@ -918,14 +938,25 @@
                 width: 100%;
                 height: auto;
             }
+            .left__title{
+                display: none;
+            }
             .img-overlay-container {
                 right: 1rem !important;
                 left: 2.1rem !important;
+                .title.mobile-title{
+                    display: block;
+                }
+                .title{
+                    display: none;
+                }
             }
         }
         .holding-container {
             position: relative;
+            overflow: hidden;
             .rotating-box {
+                overflow: hidden;
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
                 .slogan {
                     width: 23rem;
@@ -1171,6 +1202,10 @@
                 width: 100%;
                 height: auto;
             }
+            .left__title{
+                bottom: 19.5rem;
+                font-size: 3rem;
+            }
             .img-overlay-container {
                 max-width: 33.062rem !important;
                 left: 40%;
@@ -1178,6 +1213,13 @@
                 .msg {
                     font-size: 3rem !important;
                     line-height: 3rem !important;
+                }
+            }
+        }
+        .curly__hair__container{
+            .section-two{
+                .left__title{
+                    bottom: 16.5rem!important;
                 }
             }
         }
