@@ -169,7 +169,7 @@
                 }
                 .apple-icon {
                     margin-right: 0.638rem;
-                    width: 0.812rem;
+                    width: 0.712rem;
                 }
                 .google-icon {
                     width: 0.712rem;
@@ -1072,9 +1072,10 @@
                     display: none;
                 }
                 .scrolling__text {
+                    font-family: 'CircularXXWeb-Book';
                     display: block;
                     position: absolute;
-                    width: 291rem;
+                    width: 309rem;
                     font-size: 4rem;
                     @include makeFontSmoth(0.147rem, #1c1c1c);
                     -webkit-animation: scrollFromRightToLeft linear 20s infinite;
