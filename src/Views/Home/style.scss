@@ -77,13 +77,13 @@
             }
             @keyframes rotateMask {
                 0% {
-                    transform: 100%;
+                    width: 100%;
                     transform: rotate(0);
                     -webkit-transform: rotate(0);
                     -moz-transform: rotate(0);
                 }
                 100% {
-                    transform: 200%;
+                    width: 200%;
                     transform: rotate(-15deg);
                     -webkit-transform: rotate(-15deg);
                     -moz-transform: rotate(-15deg);
@@ -634,7 +634,7 @@
                 max-width: 52.187rem;
             }
             .subtitle {
-                font-size: 1.937rem;
+                font-size: 1.562rem;
                 transition: all 0.5s;
                 font-weight: 500;
                 margin-bottom: 2.625rem;
@@ -791,27 +791,27 @@
             }
             .rotating-box {
                 // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
-                .white__mask {
-                    width: 800%;
-                    animation: rotateMask2 2.5s;
-                    -webkit-animation: rotateMask2 2.5s;
-                    -moz-animation: rotateMask2 2.5s;
-                }
+                // .white__mask {
+                //     width: 800%;
+                //     animation: rotateMask2 2.5s;
+                //     -webkit-animation: rotateMask2 2.5s;
+                //     -moz-animation: rotateMask2 2.5s;
+                // }
 
-                @keyframes rotateMask2 {
-                    0% {
-                        width: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
-                    }
-                    100% {
-                        width: 800%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
-                    }
-                }
+                // @keyframes rotateMask2 {
+                //     0% {
+                //         width: 100%;
+                //         transform: rotate(0);
+                //         -webkit-transform: rotate(0);
+                //         -moz-transform: rotate(0);
+                //     }
+                //     100% {
+                //         width: 800%;
+                //         transform: rotate(-15deg);
+                //         -webkit-transform: rotate(-15deg);
+                //         -moz-transform: rotate(-15deg);
+                //     }
+                // }
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {
@@ -974,41 +974,41 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
-                div.white__mask {
-                    position: absolute;
-                    width: 500%;
-                    transform: rotate(-15deg);
-                    animation: rotateMask2 1.5s;
-                    -webkit-animation: rotateMask2 1.5s;
-                    -moz-animation: rotateMask2 1.5s;
-                    animation-delay: 1.5s;
-                    -webkit-animation-delay: 1.5s;
-                    -moz-animation-delay: 1.5s;
-                }
-                .defaultMask {
-                    width: 100%;
-                    transform: rotate(0);
-                    -webkit-transform: rotate(0);
-                    -moz-transform: rotate(0);
-                }
-                .white__mask.hide__mask {
-                    display: none;
-                }
+                // div.white__mask {
+                //     position: absolute;
+                //     width: 500%;
+                //     transform: rotate(-15deg);
+                //     animation: rotateMask2 1.5s;
+                //     -webkit-animation: rotateMask2 1.5s;
+                //     -moz-animation: rotateMask2 1.5s;
+                //     animation-delay: 1.5s;
+                //     -webkit-animation-delay: 1.5s;
+                //     -moz-animation-delay: 1.5s;
+                // }
+                // .defaultMask {
+                //     width: 100%;
+                //     transform: rotate(0);
+                //     -webkit-transform: rotate(0);
+                //     -moz-transform: rotate(0);
+                // }
+                // .white__mask.hide__mask {
+                //     display: none;
+                // }
 
-                @keyframes rotateMask2 {
-                    0% {
-                        width: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
-                    }
-                    100% {
-                        width: 500%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
-                    }
-                }
+                // @keyframes rotateMask2 {
+                //     0% {
+                //         width: 100%;
+                //         transform: rotate(0);
+                //         -webkit-transform: rotate(0);
+                //         -moz-transform: rotate(0);
+                //     }
+                //     100% {
+                //         width: 500%;
+                //         transform: rotate(-15deg);
+                //         -webkit-transform: rotate(-15deg);
+                //         -moz-transform: rotate(-15deg);
+                //     }
+                // }
             }
             .ga-text-container {
                 display: inline-block !important;
@@ -1278,27 +1278,27 @@
                 }
             }
             .rotating-box {
-                .white__mask {
-                    width: 800%;
-                    animation: rotateMask3 2.5s;
-                    -webkit-animation: rotateMask3 2.5s;
-                    -moz-animation: rotateMask3 2.5s;
-                }
+                // .white__mask {
+                //     width: 800%;
+                //     animation: rotateMask3 2.5s;
+                //     -webkit-animation: rotateMask3 2.5s;
+                //     -moz-animation: rotateMask3 2.5s;
+                // }
 
-                @keyframes rotateMask3 {
-                    0% {
-                        width: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
-                    }
-                    100% {
-                        width: 800%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
-                    }
-                }
+                // @keyframes rotateMask3 {
+                //     0% {
+                //         width: 100%;
+                //         transform: rotate(0);
+                //         -webkit-transform: rotate(0);
+                //         -moz-transform: rotate(0);
+                //     }
+                //     100% {
+                //         width: 800%;
+                //         transform: rotate(-15deg);
+                //         -webkit-transform: rotate(-15deg);
+                //         -moz-transform: rotate(-15deg);
+                //     }
+                // }
                 .scroll__container {
                     padding: 0rem 2.1rem;
                     width: 11.2rem;
@@ -1360,37 +1360,37 @@
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {
         .holding-container {
-            .rotating-box {
-                .white__mask {
-                    position: absolute;
-                    width: 200%;
-                    transform: rotate(-15deg);
-                    animation: rotateMask4 1.5s;
-                    -webkit-animation: rotateMask4 1.5s;
-                    -moz-animation: rotateMask4 1.5s;
-                    transition: all 1.5s;
-                    -webkit-transition: all 1.5s;
-                }
-                .hide__mask {
-                    transition: all 0.5s;
-                    -webkit-transition: all 1.5s;
-                    display: none;
-                }
-                @keyframes rotateMask4 {
-                    0% {
-                        transform: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
-                    }
-                    100% {
-                        transform: 1000%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
-                    }
-                }
-            }
+            // .rotating-box {
+            //     .white__mask {
+            //         position: absolute;
+            //         width: 200%;
+            //         transform: rotate(-15deg);
+            //         animation: rotateMask4 1.5s;
+            //         -webkit-animation: rotateMask4 1.5s;
+            //         -moz-animation: rotateMask4 1.5s;
+            //         transition: all 1.5s;
+            //         -webkit-transition: all 1.5s;
+            //     }
+            //     .hide__mask {
+            //         transition: all 0.5s;
+            //         -webkit-transition: all 1.5s;
+            //         display: none;
+            //     }
+            //     @keyframes rotateMask4 {
+            //         0% {
+            //             transform: 100%;
+            //             transform: rotate(0);
+            //             -webkit-transform: rotate(0);
+            //             -moz-transform: rotate(0);
+            //         }
+            //         100% {
+            //             transform: 1000%;
+            //             transform: rotate(-15deg);
+            //             -webkit-transform: rotate(-15deg);
+            //             -moz-transform: rotate(-15deg);
+            //         }
+            //     }
+            // }
         }
         .section-two {
             .img-overlay-container {
@@ -1429,39 +1429,39 @@
 }
 
 @media (min-aspect-ratio: 1/4) and (max-aspect-ratio: 1/1) {
-.home-wrapper {
-    .holding-container{
-        .rotating-box {
-            .white__mask {
-                position: absolute;
-                width: 950%;
-                transform: rotate(-15deg);
-                animation: rotateMask4 3s;
-                -webkit-animation: rotateMask4 3s;
-                -moz-animation: rotateMask4 3s;
-                transition: all 3s;
-                -webkit-transition: all 3s;
-            }
-            .hide__mask {
-                transition: all 0.5s;
-                -webkit-transition: all 1.5s;
-                display: none;
-            }
-            @keyframes rotateMask4 {
-                0% {
-                    transform: 100%;
-                    transform: rotate(0);
-                    -webkit-transform: rotate(0);
-                    -moz-transform: rotate(0);
-                }
-                100% {
-                    transform: 950%;
+    .home-wrapper {
+        .holding-container {
+            .rotating-box {
+                .white__mask {
+                    position: absolute;
+                    width: 950%;
                     transform: rotate(-15deg);
-                    -webkit-transform: rotate(-15deg);
-                    -moz-transform: rotate(-15deg);
+                    animation: rotateMask4 3s;
+                    -webkit-animation: rotateMask4 3s;
+                    -moz-animation: rotateMask4 3s;
+                    transition: all 3s;
+                    -webkit-transition: all 3s;
+                }
+                .hide__mask {
+                    transition: all 0.5s;
+                    -webkit-transition: all 1.5s;
+                    display: none;
+                }
+                @keyframes rotateMask4 {
+                    0% {
+                        width: 100%;
+                        transform: rotate(0);
+                        -webkit-transform: rotate(0);
+                        -moz-transform: rotate(0);
+                    }
+                    100% {
+                        width: 950%;
+                        transform: rotate(-15deg);
+                        -webkit-transform: rotate(-15deg);
+                        -moz-transform: rotate(-15deg);
+                    }
                 }
             }
         }
     }
-}
 }
