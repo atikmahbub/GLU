@@ -80,7 +80,7 @@ const Home: React.FunctionComponent = () => {
                         leftTitle="Tutors"
                         title="Tutors"
                         desktopTitle="Quality Teaching"
-                        msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
+                        msg={<>Earn money from the comfort of your own home</>}
                     />
                     <SectionThree
                         image={commonImg.mobileApple}
@@ -93,6 +93,7 @@ const Home: React.FunctionComponent = () => {
                         msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students"
                         show={false}
+                        text="Innovative Learning"
                     />
 
                     <SectionFive />
@@ -117,6 +118,7 @@ const Home: React.FunctionComponent = () => {
                             imageTwo={commonImg.boy}
                             msg="Our innovative whiteboard allows for classes with real time interactions between students and teachers, just like in a classroom, but from the comfort of your own space"
                             show={true}
+                            text="Interactive whiteboard"
                         />
                     </div>
                     <PeopleSaying />

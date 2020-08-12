@@ -13,7 +13,7 @@ const SectionFive = () => {
                         <Typography className="learn-title">
                             Learn or teach, we have over 30 subjects to pick from
                         </Typography>
-                        <img className="subject" src={commonImg.subectIconSvg} />
+                        {/* <img className="subject" src={commonImg.subectIconSvg} /> */}
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-6">
