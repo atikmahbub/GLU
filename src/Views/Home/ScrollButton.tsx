@@ -8,7 +8,10 @@ const ScrollButton = () => {
 
         let animate = setInterval(() => {
             window.scrollBy(0, 40);
-            if (content.scrollHeight - (document as any ).scrollingElement.scrollTop === window.innerHeight) {
+            addEventListener('wheel', () => {
+                clearInterval(animate);
+            });
+            if (content.scrollHeight - (document as any).scrollingElement.scrollTop === window.innerHeight) {
                 console.log('Cleared');
                 clearInterval(animate);
             }
@@ -17,9 +20,9 @@ const ScrollButton = () => {
     return (
         <div className="scroll__container" onClick={handleScroll}>
             <Typography className="text">Scroll</Typography>
-            <ArrowDownward className="icon"/>
+            <ArrowDownward className="icon" />
         </div>
     );
-}
+};
 
 export default ScrollButton;
