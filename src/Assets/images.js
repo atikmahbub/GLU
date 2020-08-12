@@ -75,8 +75,8 @@ const girlgreenleaf = `${imageEndpoint}v1597214738/gluschool/girlgreenleaf_hbrrz
 const scaffgirl = `${imageEndpoint}v1597214850/gluschool/scafgirl_a7s3zw.png`;
 const curlyhair = `${imageEndpoint}v1597215044/gluschool/curlyhairspectgirl_qqfv3e.jpg`;
 const girlsideviewcroped = `${imageEndpoint}v1597215308/gluschool/girlsideviewcroped_kkw9qk.jpg`;
-const bluetopcropgirl = `${imageEndpoint}v1597215610/gluschool/bluetopcropgirl_wswzdy.png`;
-const curlygirlcroped = `${imageEndpoint}v1597215616/gluschool/curlycroped_mck1ua.png`
+const bluetopcropgirl = `${imageEndpoint}v1597229095/gluschool/cropedbluetop_p1y2lo.jpg`;
+const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owcgya.jpg`
 export const commonImg = {
     google,
     mobile,

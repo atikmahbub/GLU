@@ -77,13 +77,13 @@
             }
             @keyframes rotateMask {
                 0% {
-                    transform: translateZ(100%);
+                    transform: 100%;
                     transform: rotate(0);
                     -webkit-transform: rotate(0);
                     -moz-transform: rotate(0);
                 }
                 100% {
-                    transform: translateZ(200%);
+                    transform: 200%;
                     transform: rotate(-15deg);
                     -webkit-transform: rotate(-15deg);
                     -moz-transform: rotate(-15deg);
@@ -334,9 +334,9 @@
             }
         }
     }
-    .curly__hair__container{
+    .curly__hair__container {
         .section-two {
-            .left__title{
+            .left__title {
                 bottom: 19.9rem;
             }
         }
@@ -792,24 +792,21 @@
             .rotating-box {
                 // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
                 .white__mask {
-                    width: 200%;
-                    animation: rotateMask 1.5s;
-                    -webkit-animation: rotateMask2 1.5s;
-                    -moz-animation: rotateMask2 1.5s;
-                    // animation-delay: 1.5s;
-                    // -webkit-animation-delay: 3s;
-                    // -moz-animation-delay: 3s;
+                    width: 800%;
+                    animation: rotateMask2 2.5s;
+                    -webkit-animation: rotateMask2 2.5s;
+                    -moz-animation: rotateMask2 2.5s;
                 }
 
                 @keyframes rotateMask2 {
                     0% {
-                        transform: translateZ(100%);
+                        width:100%;
                         transform: rotate(0);
                         -webkit-transform: rotate(0);
                         -moz-transform: rotate(0);
                     }
                     100% {
-                        transform: translateZ(500%);
+                        width: 800%;
                         transform: rotate(-15deg);
                         -webkit-transform: rotate(-15deg);
                         -moz-transform: rotate(-15deg);
@@ -938,16 +935,16 @@
                 width: 100%;
                 height: auto;
             }
-            .left__title{
+            .left__title {
                 display: none;
             }
             .img-overlay-container {
                 right: 1rem !important;
                 left: 2.1rem !important;
-                .title.mobile-title{
+                .title.mobile-title {
                     display: block;
                 }
-                .title{
+                .title {
                     display: none;
                 }
             }
@@ -1005,7 +1002,7 @@
                         -moz-transform: rotate(0);
                     }
                     100% {
-                        width: 405%;
+                        width: 500%;
                         transform: rotate(-15deg);
                         -webkit-transform: rotate(-15deg);
                         -moz-transform: rotate(-15deg);
@@ -1202,7 +1199,7 @@
                 width: 100%;
                 height: auto;
             }
-            .left__title{
+            .left__title {
                 bottom: 19.5rem;
                 font-size: 3rem;
             }
@@ -1216,10 +1213,10 @@
                 }
             }
         }
-        .curly__hair__container{
-            .section-two{
-                .left__title{
-                    bottom: 16.5rem!important;
+        .curly__hair__container {
+            .section-two {
+                .left__title {
+                    bottom: 16.5rem !important;
                 }
             }
         }
@@ -1280,6 +1277,27 @@
                 }
             }
             .rotating-box {
+                .white__mask {
+                    width: 800%;
+                    animation: rotateMask3 2.5s;
+                    -webkit-animation: rotateMask3 2.5s;
+                    -moz-animation: rotateMask3 2.5s;
+                }
+
+                @keyframes rotateMask3 {
+                    0% {
+                        width:100%;
+                        transform: rotate(0);
+                        -webkit-transform: rotate(0);
+                        -moz-transform: rotate(0);
+                    }
+                    100% {
+                        width: 800%;
+                        transform: rotate(-15deg);
+                        -webkit-transform: rotate(-15deg);
+                        -moz-transform: rotate(-15deg);
+                    }
+                }
                 .scroll__container {
                     padding: 0rem 2.1rem;
                     width: 11.2rem;
