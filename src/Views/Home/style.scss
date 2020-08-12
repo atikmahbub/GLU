@@ -169,7 +169,7 @@
                 }
                 .apple-icon {
                     margin-right: 0.638rem;
-                    width: 0.712rem;
+                    width: 0.98rem;
                 }
                 .google-icon {
                     width: 0.712rem;
@@ -258,12 +258,17 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
                 line-height: 2.625rem;
-                margin-bottom: 10.625rem;
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
             }
+            .subtitle{
+                font-size: 1.562rem;
+                @include makeFontSmoth(0.147rem, #1c1c1c);
+                margin-bottom: 10.937rem;
+                margin-top: 0.75rem;
+            }
             .sppon-girl {
-                margin-top: 7rem;
+                margin-top: 4rem;
                 width: 100%;
             }
         }
@@ -430,15 +435,14 @@
                 font-size: 2.625rem;
                 transition: all 0.5s;
                 line-height: 2.625rem;
-                margin-bottom: 17.625rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 font-family: 'CircularXXWeb-Book';
                 margin-right: 4.25rem;
                 max-width: 52.187rem;
             }
             .real-time-intraction {
-                margin-top: -16.537rem;
-                margin-bottom: 2.687rem;
+                margin-top: 0.75rem;
+                margin-bottom:14.937rem;
                 font-size: 1.562rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
@@ -901,6 +905,7 @@
         }
         .holding-container {
             height: 85vh;
+            margin-bottom: 7.4rem;
             .rotating-box {
                 height: 85vh;
                 overflow: hidden;
@@ -915,11 +920,16 @@
                     font-size: 2.525rem !important;
                     line-height: 2.525rem !important;
                 }
+                .subtitle{
+                    margin-bottom: 7.5rem;
+                }
                 .sppon-girl {
                     display: none;
                 }
             }
             .workable-solution {
+                margin-top: 7.208rem;
+                margin-bottom: 6.9rem;
                 font-size: 4rem;
                 line-height: 4rem;
             }
@@ -927,6 +937,7 @@
         .section-two {
             padding: 0;
             max-height: 98vh;
+            margin-bottom: 7.9rem;
             .ear-ring-girl {
                 display: none;
             }
@@ -1037,7 +1048,7 @@
                 }
             }
             .left-part {
-                margin-top: 7.9rem;
+                margin-bottom: 7rem;
                 img {
                     width: 75%;
                 }
@@ -1055,7 +1066,10 @@
                 .title {
                     margin-right: 0;
                     font-size: 2.5rem;
-                    margin-bottom: 7.35rem;
+                }
+                .real-time-intraction{
+                    margin-top: 0.95rem;
+                    margin-bottom: 7.5rem;
                 }
                 .lappy-girl {
                     display: none;
@@ -1065,10 +1079,8 @@
         .smile__girl__boy {
             .section-four {
                 padding: 0 2.1rem;
+                margin-bottom: 7.343rem;
                 .section-four-right-part-container {
-                    .shift__mobile {
-                        margin-top: -5rem;
-                    }
                     .title {
                         margin-right: 0;
                         max-width: none;
@@ -1095,6 +1107,12 @@
         }
         .section-five {
             padding: 0 2.1rem;
+            .horizontal__line{
+                display: none;
+            }
+            .learn-title{
+                margin-bottom: 0.5rem;
+            }
             .subject-list-container {
                 position: relative;
                 ul {
@@ -1123,6 +1141,7 @@
         }
         .section-six {
             margin-top: 11rem;
+            margin-bottom: 8.4rem;
             padding: 0 2.1rem;
             .msg {
                 margin-bottom: 2.95rem;
@@ -1135,6 +1154,12 @@
         }
         .section-seven {
             padding: 0 2.1rem;
+            .break-section{
+                margin-bottom: 5rem;
+            }
+            .line{
+                display: none;
+            }
             .border-card-container {
                 margin-bottom: 3rem;
             }
@@ -1142,6 +1167,9 @@
                 .title {
                     font-size: 2.5rem !important;
                     margin-right: 0;
+                }
+                .subtitle{
+                    font-size: 1.8rem;
                 }
                 .apple-icon {
                     font-size: 2.3rem !important;

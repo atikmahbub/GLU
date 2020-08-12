@@ -112,26 +112,29 @@
 }
 
 //responsive
-@media screen and (max-width: 353px) {
+@media screen and (max-width: 425px) {
     .footer {
         .email-container {
+            flex-wrap: wrap;
             .join-glu {
-                font-size: 1.199rem;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
             }
             .email {
-                font-size: 1.199rem;
+                width: calc(100% - 94px)!important;
+                font-size: 1.8rem;
                 &::placeholder {
-                    font-size: 1.189rem;
+                    font-size: 1.8rem;
                 }
             }
             .subscribe {
-                font-size: 1.199rem;
+                font-size: 1.8rem;
             }
         }
         .address-container {
             .title {
-                font-size: 1.199rem;
-                line-height: 1.5rem;
+                font-size: 1.8rem;
+                line-height: 2rem;
             }
         }
         .build-by {
