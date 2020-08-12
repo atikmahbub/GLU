@@ -75,8 +75,8 @@ const Home: React.FunctionComponent = () => {
                 <React.Fragment>
                     <SectionOne />
                     <SectionTwoReusable
-                        image={commonImg.earringgirl}
-                        mobileImg={commonImg.smallhairwomenmobile}
+                        image={commonImg.girlsideviewcroped}
+                        mobileImg={commonImg.bluetopcropgirl}
                         title="Qualified teachers"
                         msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
                     />
@@ -86,7 +86,7 @@ const Home: React.FunctionComponent = () => {
                     />
 
                     <SectionFour
-                        imageOne={commonImg.hoddygirl}
+                        imageOne={commonImg.scaffgirl}
                         imageTwo={commonImg.lappygirl}
                         msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students"
@@ -96,8 +96,8 @@ const Home: React.FunctionComponent = () => {
                     <SectionFive />
                     <SectionSix />
                     <SectionTwoReusable
-                        image={commonImg.women}
-                        mobileImg={commonImg.oldwomenmobile}
+                        image={commonImg.curlyhair}
+                        mobileImg={commonImg.curlygirlcroped}
                         title="Messenger"
                         msg={<>Keep the convo going with the in app messenger</>}
                     />

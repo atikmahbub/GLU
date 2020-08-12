@@ -17,7 +17,7 @@ const SectionOne = () => {
                             Glu is an innovative, web based app that bridges the gap between schools, teachers, parents
                             and students. The Glu platform allows for a more collaborative learning experience
                         </Typography>
-                        <img className="sppon-girl" src={commonImg.spoongirl} alt="" />
+                        <img className="sppon-girl" src={commonImg.girlgreenleaf} alt="" />
                     </div>
                 </div>
             </div>
