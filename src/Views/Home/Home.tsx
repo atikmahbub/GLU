@@ -75,9 +75,11 @@ const Home: React.FunctionComponent = () => {
                 <React.Fragment>
                     <SectionOne />
                     <SectionTwoReusable
-                        image={commonImg.earringgirl}
-                        mobileImg={commonImg.smallhairwomenmobile}
-                        title="Qualified teachers"
+                        image={commonImg.girlsideviewcroped}
+                        mobileImg={commonImg.bluetopcropgirl}
+                        leftTitle="Tutors"
+                        title="Tutors"
+                        desktopTitle="Quality Teaching"
                         msg={<>Sign up with Glu and earn money from the comfort of your own home</>}
                     />
                     <SectionThree
@@ -86,7 +88,7 @@ const Home: React.FunctionComponent = () => {
                     />
 
                     <SectionFour
-                        imageOne={commonImg.hoddygirl}
+                        imageOne={commonImg.scaffgirl}
                         imageTwo={commonImg.lappygirl}
                         msg="Glu aims to improve the learning outcomes for a student by facilitating interactions, and
                             work in tandem, between schools, teachers, parents and students"
@@ -95,12 +97,16 @@ const Home: React.FunctionComponent = () => {
 
                     <SectionFive />
                     <SectionSix />
+                    <div className="curly__hair__container">
                     <SectionTwoReusable
-                        image={commonImg.women}
-                        mobileImg={commonImg.oldwomenmobile}
-                        title="Messenger"
+                        image={commonImg.curlyhair}
+                        mobileImg={commonImg.curlygirlcroped}
+                        leftTitle="Messages"
+                        desktopTitle="Contact Time"
+                        title="Tutors"
                         msg={<>Keep the convo going with the in app messenger</>}
                     />
+                    </div>
                     <SectionThree
                         image={commonImg.menmobileview}
                         msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"

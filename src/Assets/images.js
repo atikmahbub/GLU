@@ -71,7 +71,12 @@ const smallhairwomenmobile = `${imageEndpoint}v1596608142/gluschool/smallhairwom
 import deviceMask from "./img/device.svg";
 const deviceA = `${imageEndpoint}v1597145210/gluschool/device_Screen_A_nbxd5d.jpg`;
 const deviceTaskbar = `${imageEndpoint}v1597145205/gluschool/device_Taskbar_ncnrop.png`;
-
+const girlgreenleaf = `${imageEndpoint}v1597214738/gluschool/girlgreenleaf_hbrrzk.png`;
+const scaffgirl = `${imageEndpoint}v1597214850/gluschool/scafgirl_a7s3zw.png`;
+const curlyhair = `${imageEndpoint}v1597215044/gluschool/curlyhairspectgirl_qqfv3e.jpg`;
+const girlsideviewcroped = `${imageEndpoint}v1597215308/gluschool/girlsideviewcroped_kkw9qk.jpg`;
+const bluetopcropgirl = `${imageEndpoint}v1597215610/gluschool/bluetopcropgirl_wswzdy.png`;
+const curlygirlcroped = `${imageEndpoint}v1597215616/gluschool/curlycroped_mck1ua.png`
 export const commonImg = {
     google,
     mobile,
@@ -144,7 +149,13 @@ export const commonImg = {
     smallhairwomenmobile,
     deviceMask,
     deviceA,
-    deviceTaskbar
+    deviceTaskbar,
+    girlgreenleaf,
+    scaffgirl,
+    girlsideviewcroped,
+    curlyhair,
+    bluetopcropgirl,
+    curlygirlcroped
 };
 
 export default commonImg;
