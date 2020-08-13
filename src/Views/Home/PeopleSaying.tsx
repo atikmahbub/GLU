@@ -8,8 +8,9 @@ import { Icons } from '../../Assets/Icons';
 const PeopleSaying: React.FunctionComponent = () => {
     return (
         <div className="section-seven">
+            
+            <div className="row bg-gray">
             <hr className="line" />
-            <div className="row">
                 <div className="col-md-4 col-lg-6">
                     <Typography className="people-saying">What people are saying...</Typography>
                 </div>
@@ -31,7 +32,9 @@ const PeopleSaying: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="break-section"></div>
+            </div>
+            <div className="break-section"></div>
+            <div className="row">
                 <div className="col-md-6 col-lg-6">
                     <img className="pen-pad-girl" src={commonImg.penpadgirl} alt="" />
                 </div>
