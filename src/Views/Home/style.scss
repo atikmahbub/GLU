@@ -52,6 +52,7 @@
             background-repeat: no-repeat;
             @include flex(center, center, row);
             .white__mask {
+                width: 100%;
                 position: absolute;
                 transform: scale(2) rotate(-15deg);
                 animation: rotateMask 1.5s ease;
@@ -61,11 +62,11 @@
                 -webkit-transition: all 1.5s ease;
             }
             .defaultMask {
-                position: absolute;
                 width: 100%;
-                transform: rotate(0);
-                -webkit-transform: rotate(0);
-                -moz-transform: rotate(0);
+                position: absolute;
+                transform: scale(1) rotate(0);
+                -webkit-transform: scale(1) rotate(0);
+                -moz-transform: scale(1) rotate(0);
                 transition: all 1.5s;
                 -webkit-transition: all 1.5s;
             }
@@ -1044,6 +1045,7 @@
             .ga-text-container {
                 display: block;
                 bottom: 2rem;
+                left: 2.5rem;
                 position: absolute;
                 .apple-icon {
                     margin-right: 0.338rem;
@@ -1521,7 +1523,6 @@
         .holding-container {
             .rotating-box {
                 .white__mask {
-                    position: absolute;
                     transform: scale(9.5) rotate(-15deg);
                     animation: rotateMask4 3s;
                     -webkit-animation: rotateMask4 3s;
@@ -1529,23 +1530,21 @@
                     transition: all 3s;
                     -webkit-transition: all 3s;
                 }
-                .hide__mask {
-                    transition: all 0.5s;
-                    -webkit-transition: all 1.5s;
-                    display: none;
-                }
+                // .hide__mask {
+                //     transition: all 0.5s;
+                //     -webkit-transition: all 1.5s;
+                //     display: none;
+                // }
                 @keyframes rotateMask4 {
                     0% {
-                        width: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
+                        transform: scale(1) rotate(0);
+                        -webkit-transform: scale(1) rotate(0);
+                        -moz-transform: scale(1) rotate(0);
                     }
                     100% {
-                        width: 950%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
+                        transform: scale(9.5) rotate(-15deg);
+                        -webkit-transform: scale(9.5) rotate(-15deg);
+                        -moz-transform: scale(9.5) rotate(-15deg);
                     }
                 }
             }

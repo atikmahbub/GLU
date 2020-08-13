@@ -72,7 +72,7 @@ const Home: React.FunctionComponent = () => {
                 </div>
                 
             </div>
-            {/* {showOthers && (
+            {showOthers && (
                 <React.Fragment>
                     <SectionOne />
                     <SectionTwoReusable
@@ -125,7 +125,7 @@ const Home: React.FunctionComponent = () => {
                     <PeopleSaying />
                     <Footer />
                 </React.Fragment>
-            )}  */}
+            )} 
         </div>
     );
 };
