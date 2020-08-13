@@ -68,8 +68,9 @@ const Home: React.FunctionComponent = () => {
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
+                    {showOthers && <BottomGAtext />}
                 </div>
-                {showOthers && <BottomGAtext />}
+                
             </div>
             {showOthers && (
                 <React.Fragment>
