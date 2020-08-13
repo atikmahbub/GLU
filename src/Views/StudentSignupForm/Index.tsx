@@ -151,7 +151,7 @@ const Index: React.FunctionComponent = () => {
 
     return (
         <div className="signup__setup">
-            <NavigationMenu />
+            <NavigationMenu showMenuOptions={true} />
             <div className="wrapper">
                 <div className="row">
                     <div className="col-md-6 mb-2">

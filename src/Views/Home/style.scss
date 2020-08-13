@@ -153,10 +153,17 @@
                 @include flex(center, center, row);
                 margin-top: -1rem;
                 transition: all 0.3s;
-                -webkit-animation: slideUp 0.4s linear;
-                -moz-animation: slideUp 0.4s linear;
-                animation: slideUp 0.4s linear;
-
+                -webkit-animation: textFadeIn 0.4s linear;
+                -moz-animation: textFadeIn 0.4s linear;
+                animation: textFadeIn 0.4s linear;
+                @keyframes textFadeIn {
+                    0%{
+                        opacity: 0;
+                    }
+                    100%{
+                        opacity: 1;
+                    }
+                }
                 .title {
                     text-shadow: 0 0 0.034rem $white;
                     color: transparent;
@@ -266,6 +273,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 margin-bottom: 10.937rem;
                 margin-top: 0.75rem;
+                font-family: 'CircularXXWeb-Book';
             }
             .sppon-girl {
                 margin-top: 4rem;
@@ -989,7 +997,6 @@
                 .bottom-right-container {
                     display: none;
                 }
-
                 .scroll__container {
                     padding: 0rem 2.1rem;
                     width: 11.2rem;
