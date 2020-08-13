@@ -80,7 +80,7 @@ const Home: React.FunctionComponent = () => {
                         mobileImg={commonImg.bluetopcropgirl}
                         leftTitle="Tutors"
                         title="Tutors"
-                        desktopTitle="Quality Teaching"
+                        desktopTitle="Qualified Teachers"
                         msg={<>Earn money from the comfort of your own home</>}
                     />
                     <SectionThree
