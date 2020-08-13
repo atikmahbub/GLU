@@ -10,20 +10,20 @@
         display: flex;
         margin-bottom: 9.375rem;
         .ga-text-container {
-            position: absolute;
-            bottom: -2rem;
+            // position: absolute;
+            // bottom: -2rem;
             @include flex(center, space-between, row);
             display: none;
-            width: 31rem;
-            left: 2rem;
-            bottom: -4rem;
-            .title {
-                font-family: 'CircularXXMonoWeb-Regular';
-                font-size: 1.2rem;
-                font-weight: 600;
-                @include makeFontSmoth(1px, $black);
-                display: inline-block;
-            }
+            // width: 31rem;
+            // left: 2rem;
+            // bottom: -4rem;
+            // .title {
+            //     font-family: 'CircularXXMonoWeb-Regular';
+            //     font-size: 1.2rem;
+            //     font-weight: 600;
+            //     @include makeFontSmoth(1px, $black);
+            //     display: inline-block;
+            // }
             .apple-icon {
                 margin-right: 0.338rem;
                 width: 0.892rem;
@@ -575,16 +575,19 @@
         }
     }
     .section-seven {
-        padding: 0 3.062rem;
         margin-bottom: 9.375rem;
         .bg-gray{
             .line {
                 background-color: $grayPrimary;
                 margin-bottom: 2.406rem;
-                width: 100%;
+                width: 96.6%;
+                margin-left: 1.2%;
             }
-            padding: 9.375rem 0;
+            padding: 9.375rem 3.062rem;;
             background-color: #F7F7F7;
+        }
+        .section-seven-padding{
+            padding: 0 3.062rem;
         }
         .people-saying {
             @include makeFontSmoth(0.147rem, #1c1c1c);
@@ -878,8 +881,14 @@
                 width: 100%;
                 height: auto;
             }
+            .left__title{
+                font-size: 4rem !important;
+                line-height: 4rem !important;
+                bottom: 19.8rem!important;
+            }
             .img-overlay-container {
                 max-width: 32rem !important;
+                
                 .msg {
                     font-size: 4rem !important;
                     line-height: 4rem !important;
@@ -915,6 +924,9 @@
                 height: 85vh;
                 overflow: hidden;
             }
+            .bottom-right-container{
+                display: block;
+            }
         }
         .section-one {
             padding: 0 2.1rem;
@@ -942,7 +954,6 @@
         .section-two {
             padding: 0;
             max-height: 98vh;
-            margin-bottom: 7.9rem;
             .ear-ring-girl {
                 display: none;
             }
@@ -1027,25 +1038,27 @@
                 // }
             }
             .ga-text-container {
-                display: inline-block !important;
-                min-width: 100%;
+                display: block;
+                bottom: 2rem;
+                position: absolute;
                 .apple-icon {
                     margin-right: 0.338rem;
-                    width: 0.912rem;
+                    width: 1.349rem;
                     height: 1.6rem;
                     display: inline-block;
                 }
                 .google-icon {
-                    width: 0.812rem;
+                    width: 1.25rem;
                     margin-left: 0.3rem;
-                    height: 1.6rem;
+                    height: 1.2rem;
                     display: inline-block;
                     margin-right: 0.6rem;
                 }
             }
         }
         .section-three {
-            padding: 0 2.1rem;
+            padding:7.9rem 2.1rem;
+            margin-bottom: 7.45rem;
             .right-part {
                 .title {
                     margin-right: 0;
@@ -1146,21 +1159,30 @@
         }
         .section-six {
             margin-top: 11rem;
-            margin-bottom: 8.4rem;
-            padding: 0 2.1rem;
+            margin-bottom: 0;
+            padding: 7.6rem 2.1rem;
+            background-color: #F7F7F7;
             .msg {
                 margin-bottom: 2.95rem;
             }
             .email-container {
                 .email {
                     width: 65%;
+                    background-color: transparent;
                 }
             }
         }
         .section-seven {
             padding: 0 2.1rem;
+            .bg-gray{
+                padding: 0;
+                background-color: $white;
+            }
+            .section-seven-padding{
+                padding: 0;
+            }
             .break-section{
-                margin-bottom: 5rem;
+                margin-bottom: 4rem;
             }
             .line{
                 display: none;
@@ -1228,6 +1250,11 @@
             .ear-ring-girl {
                 display: none;
             }
+            .left__title{
+                font-size: 3rem !important;
+                line-height: 3rem !important;
+                bottom: 17.3rem!important;
+            }
             .ear-ring-girl-mobile {
                 display: block;
                 width: 100%;
@@ -1255,11 +1282,13 @@
             }
         }
         .section-three {
+            padding-bottom: 0;
             .right-part {
                 margin-bottom: 7.5rem !important;
                 .title {
                     max-width: none !important;
                     margin-right: 0 !important;
+                    margin-top: 7.4rem;
                 }
             }
         }
@@ -1282,7 +1311,29 @@
                 margin-right: 0;
             }
         }
+        .section-six{
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 4rem 3.062rem;
+            background-color: #F7F7F7;
+            .msg{
+                margin-bottom: 1.7rem;
+            }
+        }
         .section-seven {
+            .bg-gray{
+                padding-top: 0;
+                padding-bottom: 0;
+                background-color: $white;
+                .line{
+                    display: none;
+                }
+            }
+            .border-card-container{
+                &:nth-of-type(1){
+                    margin-bottom: 2.5rem;
+                }
+            }
             .text-section-container {
                 .title {
                     max-width: none !important;
