@@ -53,13 +53,12 @@
             @include flex(center, center, row);
             .white__mask {
                 position: absolute;
-                width: 200%;
-                transform: rotate(-15deg);
-                animation: rotateMask 1.5s;
-                -webkit-animation: rotateMask 1.5s;
-                -moz-animation: rotateMask 1.5s;
-                transition: all 1.5s;
-                -webkit-transition: all 1.5s;
+                transform: scale(2) rotate(-15deg);
+                animation: rotateMask 1.5s ease;
+                -webkit-animation: rotateMask 1.5s ease;
+                -moz-animation: rotateMask 1.5s ease;
+                transition: all 1.5s ease;
+                -webkit-transition: all 1.5s ease;
             }
             .defaultMask {
                 position: absolute;
@@ -77,16 +76,14 @@
             }
             @keyframes rotateMask {
                 0% {
-                    width: 100%;
-                    transform: rotate(0);
-                    -webkit-transform: rotate(0);
-                    -moz-transform: rotate(0);
+                    transform: scale(1) rotate(0);
+                    -webkit-transform:scale(1) rotate(0);
+                    -moz-transform:scale(1) rotate(0);
                 }
                 100% {
-                    width: 200%;
-                    transform: rotate(-15deg);
-                    -webkit-transform: rotate(-15deg);
-                    -moz-transform: rotate(-15deg);
+                    transform: scale(2) rotate(-15deg);
+                    -webkit-transform:scale(2) rotate(-15deg);
+                    -moz-transform:scale(2) rotate(-15deg);
                 }
             }
             .slogan {
@@ -97,7 +94,7 @@
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
-                transition: all 0.1s;
+                transition: all 1.5s;
                 -webkit-transition: all 1.5s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
@@ -1525,8 +1522,7 @@
             .rotating-box {
                 .white__mask {
                     position: absolute;
-                    width: 950%;
-                    transform: rotate(-15deg);
+                    transform: scale(9.5) rotate(-15deg);
                     animation: rotateMask4 3s;
                     -webkit-animation: rotateMask4 3s;
                     -moz-animation: rotateMask4 3s;
