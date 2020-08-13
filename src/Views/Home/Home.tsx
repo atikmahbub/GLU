@@ -15,6 +15,7 @@ import SlidingMenu from '../../components/SlidingMenu';
 import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
 import BottomGAtext from './BottomGAtext';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -39,7 +40,7 @@ const Home: React.FunctionComponent = () => {
         let content: any = document.querySelector('.home-wrapper');
         setTimeout(() => {
             setShowOthers(true);
-            content.style.cssText = "overflow:unset;height:auto";
+            content.style.cssText = 'overflow:unset;height:auto';
         }, 5000);
         setTimeout(() => {
             setAnimationComplete(true);
@@ -48,11 +49,12 @@ const Home: React.FunctionComponent = () => {
             setShow(true);
         }, 3000);
     }, []);
-    const handleScroll = (e:any) => {
-      
+    const handleScroll = (e: any) => {};
+    const handleDeviceScroll = (isVisible: boolean) => {
+        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
     }
     return (
-        <div  className="home-wrapper" onScroll={handleScroll}>
+        <div className="home-wrapper" onScroll={handleScroll}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
@@ -70,7 +72,6 @@ const Home: React.FunctionComponent = () => {
                     {showOthers && <BottomRight />}
                     {showOthers && <BottomGAtext />}
                 </div>
-                
             </div>
             {showOthers && (
                 <React.Fragment>
@@ -83,10 +84,12 @@ const Home: React.FunctionComponent = () => {
                         desktopTitle="Qualified Teachers"
                         msg={<>Earn money from the comfort of your own home</>}
                     />
-                    <SectionThree
-                        image={commonImg.mobileApple}
-                        msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
-                    />
+                    <VisibilitySensor onChange={handleDeviceScroll}>
+                        <SectionThree
+                            image={commonImg.mobileApple}
+                            msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
+                        />
+                    </VisibilitySensor>
 
                     <SectionFour
                         imageOne={commonImg.scaffgirl}
@@ -100,14 +103,14 @@ const Home: React.FunctionComponent = () => {
                     <SectionFive />
                     <SectionSix />
                     <div className="curly__hair__container">
-                    <SectionTwoReusable
-                        image={commonImg.curlyhair}
-                        mobileImg={commonImg.curlygirlcroped}
-                        leftTitle="Messages"
-                        desktopTitle="Contact Time"
-                        title="Tutors"
-                        msg={<>Keep the convo going with the in app messenger</>}
-                    />
+                        <SectionTwoReusable
+                            image={commonImg.curlyhair}
+                            mobileImg={commonImg.curlygirlcroped}
+                            leftTitle="Messages"
+                            desktopTitle="Contact Time"
+                            title="Tutors"
+                            msg={<>Keep the convo going with the in app messenger</>}
+                        />
                     </div>
                     <SectionThree
                         image={commonImg.menmobileview}
@@ -125,7 +128,7 @@ const Home: React.FunctionComponent = () => {
                     <PeopleSaying />
                     <Footer />
                 </React.Fragment>
-            )} 
+            )}
         </div>
     );
 };
