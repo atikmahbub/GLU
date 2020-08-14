@@ -1,7 +1,8 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
-import './style.css';
+import { Typography } from '@material-ui/core';
+import SmallCard from './SmallCard';
 const Dashboard: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },
@@ -12,21 +13,18 @@ const Dashboard: React.FunctionComponent = () => {
     return (
         <div className="main_container">
             <NavigationMenu menuList={menu} />
-            <div className="container">
-                <div className="row d-flex pt-3 justify-content-start" style={{ fontSize: '2rem' }}>
-                    Dashboard
-                </div>
-                <div className="row  d-flex">
-                    <div className="col-md-6 col-12 mt-5 bg-light">
-                            
-                            <div className="float-right p-1" style={{ fontSize: '1.25rem' }}>
-                                <a href="#" style={{ color: 'blue' }}>
-                                    See upcomming
-                                </a>
-                            </div>
-                            <div style={{ fontSize: '2.5rem' }}>Upcomming Classes</div>
-                            
-                        
+            <div className="main_container_dashboard">
+                <Typography className="main_container_dashboard_title">Dashboard</Typography>
+                <div className="row d-flex pt-3 justify-content-start" style={{ fontSize: '2rem' }}></div>
+                <div className="row">
+                    <div className="col-md-6  bg-white">
+                        <div className="float-right p-1" style={{ fontSize: '1.25rem' }}>
+                            <a href="#" style={{ color: 'blue' }}>
+                                See upcomming
+                            </a>
+                        </div>
+                        <div style={{ fontSize: '2.5rem' }}>Upcomming Classes</div>
+
                         <div className="row pt-5 d-flex justify-content-between">
                             <div className="col-5"></div>
                             <div className="col-7">
@@ -57,9 +55,9 @@ const Dashboard: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6 mt-5 col-12">
+                    <div className="col-md-6 ">
                         <div className="row  d-flex justify-content-around">
-                            <div className="col-5 mh-100 bg-light">
+                            <div className="col-5 mh-100 bg-white">
                                 <div className="row pl-2" style={{ fontSize: '2rem' }}>
                                     My Classes
                                 </div>
@@ -68,7 +66,7 @@ const Dashboard: React.FunctionComponent = () => {
                                     57
                                 </div>
                             </div>
-                            <div className="col-5  bg-light">
+                            <div className="col-5  bg-white">
                                 <div className="row pl-2" style={{ fontSize: '2rem' }}>
                                     Record Class
                                 </div>
@@ -78,7 +76,7 @@ const Dashboard: React.FunctionComponent = () => {
                             </div>
                         </div>
                         <div className="row pt-5 d-flex justify-content-around">
-                            <div className="col-5 mh-100 bg-light">
+                            <div className="col-5 mh-100 bg-white">
                                 <div className="row pl-2" style={{ fontSize: '2rem' }}>
                                     Availablity
                                 </div>
@@ -93,57 +91,31 @@ const Dashboard: React.FunctionComponent = () => {
                 </div>
 
                 {/* Reusable Component  */}
-                <div  className="row  d-flex  ">
-                <div className="col-md-6 mt-5 col-12">
-                        <div className="row  d-flex justify-content-around">
-                            <div className="col-5  bg-light">
-                                <div className="row pl-2" style={{ fontSize: '2rem' }}>
-                                    Statistics
-                                </div>
-                                <div className="row pl-2 pt-5" style={{ fontSize: '1.25rem' }}>
-                                    Average Attendance<br></br>
-                                    7/10 Spaces
-                                </div>
-                            </div>
-                            <div className="col-5  bg-light">
-                                <div className="row pl-2" style={{ fontSize: '2rem' }}>
-                                    Reviews
-                                </div>
-                                <div className="row pl-2 pt-5 " style={{ fontSize: '1.25rem' }}>
-                                    Current Rating <br></br>4/5
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row pt-5 d-flex justify-content-around">
-                            <div className="col-5  bg-light">
-                                <div className="row pl-2" style={{ fontSize: '2rem' }}>
-                                    Whiteboard
-                                </div>
-                                <div className="row pl-2 pt-5" style={{ fontSize: '1.25rem' }}>
-                                Try out what the class 
-                                <br></br>will be like.
-                                </div>
-                            </div>
-                            <div className="col-5 "></div>
+                <div className="row">
+                    <div className="col-md-6 p-0 mt-5">
+                        <div className="card__row">
+                            <SmallCard/>
+                            <SmallCard/>
                         </div>
                     </div>
-                    {/* start */}
-                    <div className="col-md-6 col-12 mt-5 bg-light">
-                        <div className="float-right p-1" style={{ fontSize: '1.25rem' }}>
-                                <a href="#" style={{ color: 'blue' }}>
-                                    See upcomming
-                                </a>
-                            </div>
-                        <div style={{ fontSize: '2.5rem' }}>Thursday 30th <br></br> July 2020</div>
-                        <div className="row pt-5 d-flex justify-content-between">
-                            <div className="col-5" style={{ fontSize: '1.2rem' }}>
-                                Upcomming Classes<br></br>
-                                4
-                            </div>
-                            <div className="col-7" style={{ fontSize: '1.2rem' }}>
-                                Total Spaces<br></br>
-                                37/40
-                            </div>
+                </div>
+                {/* start */}
+                <div className="col-md-6  mt-5 bg-white">
+                    <div className="float-right p-1" style={{ fontSize: '1.25rem' }}>
+                        <a href="#" style={{ color: 'blue' }}>
+                            See upcomming
+                        </a>
+                    </div>
+                    <div style={{ fontSize: '2.5rem' }}>
+                        Thursday 30th <br></br> July 2020
+                    </div>
+                    <div className="row pt-5 d-flex justify-content-between">
+                        <div className="col-5" style={{ fontSize: '1.2rem' }}>
+                            Upcomming Classes<br></br>4
+                        </div>
+                        <div className="col-7" style={{ fontSize: '1.2rem' }}>
+                            Total Spaces<br></br>
+                            37/40
                         </div>
                     </div>
                 </div>
