@@ -10,20 +10,8 @@
         display: flex;
         margin-bottom: 9.375rem;
         .ga-text-container {
-            // position: absolute;
-            // bottom: -2rem;
             @include flex(center, space-between, row);
             display: none;
-            // width: 31rem;
-            // left: 2rem;
-            // bottom: -4rem;
-            // .title {
-            //     font-family: 'CircularXXMonoWeb-Regular';
-            //     font-size: 1.2rem;
-            //     font-weight: 600;
-            //     @include makeFontSmoth(1px, $black);
-            //     display: inline-block;
-            // }
             .apple-icon {
                 margin-right: 0.338rem;
                 width: 0.892rem;
@@ -38,12 +26,6 @@
                 margin-right: 0.6rem;
             }
         }
-        // .default-clip {
-        //     clip-path: polygon(30% 10%, 70% 30%, 62% 90%, 21% 70%);
-        // }
-        // .full-clip {
-        //     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        // }
         .rotating-box {
             width: 100%;
             height: 100vh;
@@ -52,21 +34,21 @@
             background-repeat: no-repeat;
             @include flex(center, center, row);
             .white__mask {
+                width: 100%;
                 position: absolute;
-                width: 200%;
-                transform: rotate(-15deg);
-                animation: rotateMask 1.5s;
-                -webkit-animation: rotateMask 1.5s;
-                -moz-animation: rotateMask 1.5s;
-                transition: all 1.5s;
-                -webkit-transition: all 1.5s;
+                transform: scale(2) rotate(-15deg);
+                animation: rotateMask 1.5s ease;
+                -webkit-animation: rotateMask 1.5s ease;
+                -moz-animation: rotateMask 1.5s ease;
+                transition: all 1.5s ease;
+                -webkit-transition: all 1.5s ease;
             }
             .defaultMask {
-                position: absolute;
                 width: 100%;
-                transform: rotate(0);
-                -webkit-transform: rotate(0);
-                -moz-transform: rotate(0);
+                position: absolute;
+                transform: scale(1) rotate(0);
+                -webkit-transform: scale(1) rotate(0);
+                -moz-transform: scale(1) rotate(0);
                 transition: all 1.5s;
                 -webkit-transition: all 1.5s;
             }
@@ -77,16 +59,14 @@
             }
             @keyframes rotateMask {
                 0% {
-                    width: 100%;
-                    transform: rotate(0);
-                    -webkit-transform: rotate(0);
-                    -moz-transform: rotate(0);
+                    transform: scale(1) rotate(0);
+                    -webkit-transform: scale(1) rotate(0);
+                    -moz-transform: scale(1) rotate(0);
                 }
                 100% {
-                    width: 200%;
-                    transform: rotate(-15deg);
-                    -webkit-transform: rotate(-15deg);
-                    -moz-transform: rotate(-15deg);
+                    transform: scale(2) rotate(-15deg);
+                    -webkit-transform: scale(2) rotate(-15deg);
+                    -moz-transform: scale(2) rotate(-15deg);
                 }
             }
             .slogan {
@@ -97,7 +77,7 @@
                 font-family: 'CircularXXWeb-Book';
                 opacity: 0;
                 color: $white;
-                transition: all 0.1s;
+                transition: all 1.5s;
                 -webkit-transition: all 1.5s;
                 transform: translateY(-3rem);
                 animation: fadein 1s;
@@ -157,10 +137,10 @@
                 -moz-animation: textFadeIn 0.4s linear;
                 animation: textFadeIn 0.4s linear;
                 @keyframes textFadeIn {
-                    0%{
+                    0% {
                         opacity: 0;
                     }
-                    100%{
+                    100% {
                         opacity: 1;
                     }
                 }
@@ -268,7 +248,7 @@
                 margin-right: 2rem;
                 font-family: 'CircularXXWeb-Book';
             }
-            .subtitle{
+            .subtitle {
                 font-size: 1.562rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 margin-bottom: 10.937rem;
@@ -305,7 +285,6 @@
         .ear-ring-girl-mobile {
             display: none;
             object-fit: cover;
-            // max-height: ;
         }
         .ear-ring-girl {
             width: 100%;
@@ -324,7 +303,7 @@
             position: absolute;
             bottom: 11.187rem;
             right: 10.25rem;
-            left: 50%;
+            left: 51%;
             max-width: 49.062rem;
             .mobile-title {
                 display: none;
@@ -356,7 +335,7 @@
         padding-top: 8.5rem;
         margin-bottom: 8.5rem;
         padding: 8.5rem 3rem;
-        background-color: #F7F7F7;
+        background-color: #f7f7f7;
         .left-part {
             @include flex(center, center, row);
             img {
@@ -450,7 +429,7 @@
             }
             .real-time-intraction {
                 margin-top: 0.75rem;
-                margin-bottom:14.937rem;
+                margin-bottom: 14.937rem;
                 font-size: 1.562rem;
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 transition: all 0.5s;
@@ -584,17 +563,17 @@
     }
     .section-seven {
         margin-bottom: 9.375rem;
-        .bg-gray{
+        .bg-gray {
             .line {
                 background-color: $grayPrimary;
                 margin-bottom: 2.406rem;
                 width: 96.6%;
                 margin-left: 1.2%;
             }
-            padding: 9.375rem 3.062rem;;
-            background-color: #F7F7F7;
+            padding: 9.375rem 3.062rem;
+            background-color: #f7f7f7;
         }
-        .section-seven-padding{
+        .section-seven-padding {
             padding: 0 3.062rem;
         }
         .people-saying {
@@ -806,32 +785,14 @@
         }
         .holding-container {
             position: relative;
+            height: 75vh;
+            overflow: hidden;
             .ga-text-container {
                 display: none;
             }
             .rotating-box {
-                // background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), $girlSkettingMobile !important;
-                // .white__mask {
-                //     width: 800%;
-                //     animation: rotateMask2 2.5s;
-                //     -webkit-animation: rotateMask2 2.5s;
-                //     -moz-animation: rotateMask2 2.5s;
-                // }
-
-                // @keyframes rotateMask2 {
-                //     0% {
-                //         width: 100%;
-                //         transform: rotate(0);
-                //         -webkit-transform: rotate(0);
-                //         -moz-transform: rotate(0);
-                //     }
-                //     100% {
-                //         width: 800%;
-                //         transform: rotate(-15deg);
-                //         -webkit-transform: rotate(-15deg);
-                //         -moz-transform: rotate(-15deg);
-                //     }
-                // }
+                height: 75vh;
+                overflow: hidden;
                 .launching-soon-container {
                     bottom: 7rem;
                     .for {
@@ -850,11 +811,6 @@
                 }
             }
             .section-one-right-part {
-                .title {
-                    // font-size: 2.125rem;
-                    // line-height: 2.125rem;
-                    // margin-right: 0;
-                }
                 .google-icon {
                     width: 1.2rem;
                 }
@@ -889,14 +845,14 @@
                 width: 100%;
                 height: auto;
             }
-            .left__title{
+            .left__title {
                 font-size: 4rem !important;
                 line-height: 4rem !important;
-                bottom: 19.8rem!important;
+                bottom: 19.8rem !important;
             }
             .img-overlay-container {
                 max-width: 32rem !important;
-                
+
                 .msg {
                     font-size: 4rem !important;
                     line-height: 4rem !important;
@@ -926,13 +882,13 @@
             flex-direction: column-reverse;
         }
         .holding-container {
-            height: 85vh;
+            height: 75vh;
             margin-bottom: 7.4rem;
             .rotating-box {
-                height: 85vh;
+                height: 75vh;
                 overflow: hidden;
             }
-            .bottom-right-container{
+            .bottom-right-container {
                 display: block;
             }
         }
@@ -945,7 +901,7 @@
                     font-size: 2.525rem !important;
                     line-height: 2.525rem !important;
                 }
-                .subtitle{
+                .subtitle {
                     margin-bottom: 7.5rem;
                 }
                 .sppon-girl {
@@ -1008,45 +964,11 @@
                 .launching-soon-container {
                     left: 2.1rem;
                 }
-                // div.white__mask {
-                //     position: absolute;
-                //     width: 500%;
-                //     transform: rotate(-15deg);
-                //     animation: rotateMask2 1.5s;
-                //     -webkit-animation: rotateMask2 1.5s;
-                //     -moz-animation: rotateMask2 1.5s;
-                //     animation-delay: 1.5s;
-                //     -webkit-animation-delay: 1.5s;
-                //     -moz-animation-delay: 1.5s;
-                // }
-                // .defaultMask {
-                //     width: 100%;
-                //     transform: rotate(0);
-                //     -webkit-transform: rotate(0);
-                //     -moz-transform: rotate(0);
-                // }
-                // .white__mask.hide__mask {
-                //     display: none;
-                // }
-
-                // @keyframes rotateMask2 {
-                //     0% {
-                //         width: 100%;
-                //         transform: rotate(0);
-                //         -webkit-transform: rotate(0);
-                //         -moz-transform: rotate(0);
-                //     }
-                //     100% {
-                //         width: 500%;
-                //         transform: rotate(-15deg);
-                //         -webkit-transform: rotate(-15deg);
-                //         -moz-transform: rotate(-15deg);
-                //     }
-                // }
             }
             .ga-text-container {
                 display: block;
                 bottom: 2rem;
+                left: 2.5rem;
                 position: absolute;
                 .apple-icon {
                     margin-right: 0.338rem;
@@ -1064,7 +986,7 @@
             }
         }
         .section-three {
-            padding:7.9rem 2.1rem;
+            padding: 7.9rem 2.1rem;
             margin-bottom: 7.45rem;
             .right-part {
                 .title {
@@ -1092,7 +1014,7 @@
                     margin-right: 0;
                     font-size: 2.5rem;
                 }
-                .real-time-intraction{
+                .real-time-intraction {
                     margin-top: 0.95rem;
                     margin-bottom: 7.5rem;
                 }
@@ -1132,10 +1054,10 @@
         }
         .section-five {
             padding: 0 2.1rem;
-            .horizontal__line{
+            .horizontal__line {
                 display: none;
             }
-            .learn-title{
+            .learn-title {
                 margin-bottom: 0.5rem;
             }
             .subject-list-container {
@@ -1168,7 +1090,7 @@
             margin-top: 11rem;
             margin-bottom: 0;
             padding: 7.6rem 2.1rem;
-            background-color: #F7F7F7;
+            background-color: #f7f7f7;
             .msg {
                 margin-bottom: 2.95rem;
             }
@@ -1181,17 +1103,17 @@
         }
         .section-seven {
             padding: 0 2.1rem;
-            .bg-gray{
+            .bg-gray {
                 padding: 0;
                 background-color: $white;
             }
-            .section-seven-padding{
+            .section-seven-padding {
                 padding: 0;
             }
-            .break-section{
+            .break-section {
                 margin-bottom: 4rem;
             }
-            .line{
+            .line {
                 display: none;
             }
             .border-card-container {
@@ -1202,7 +1124,7 @@
                     font-size: 2.5rem !important;
                     margin-right: 0;
                 }
-                .subtitle{
+                .subtitle {
                     font-size: 1.8rem;
                 }
                 .apple-icon {
@@ -1257,10 +1179,10 @@
             .ear-ring-girl {
                 display: none;
             }
-            .left__title{
+            .left__title {
                 font-size: 3rem !important;
                 line-height: 3rem !important;
-                bottom: 17.3rem!important;
+                bottom: 17.3rem !important;
             }
             .ear-ring-girl-mobile {
                 display: block;
@@ -1318,26 +1240,26 @@
                 margin-right: 0;
             }
         }
-        .section-six{
+        .section-six {
             margin-top: 0;
             margin-bottom: 0;
             padding: 4rem 3.062rem;
-            background-color: #F7F7F7;
-            .msg{
+            background-color: #f7f7f7;
+            .msg {
                 margin-bottom: 1.7rem;
             }
         }
         .section-seven {
-            .bg-gray{
+            .bg-gray {
                 padding-top: 0;
                 padding-bottom: 0;
                 background-color: $white;
-                .line{
+                .line {
                     display: none;
                 }
             }
-            .border-card-container{
-                &:nth-of-type(1){
+            .border-card-container {
+                &:nth-of-type(1) {
                     margin-bottom: 2.5rem;
                 }
             }
@@ -1369,27 +1291,6 @@
                 }
             }
             .rotating-box {
-                // .white__mask {
-                //     width: 800%;
-                //     animation: rotateMask3 2.5s;
-                //     -webkit-animation: rotateMask3 2.5s;
-                //     -moz-animation: rotateMask3 2.5s;
-                // }
-
-                // @keyframes rotateMask3 {
-                //     0% {
-                //         width: 100%;
-                //         transform: rotate(0);
-                //         -webkit-transform: rotate(0);
-                //         -moz-transform: rotate(0);
-                //     }
-                //     100% {
-                //         width: 800%;
-                //         transform: rotate(-15deg);
-                //         -webkit-transform: rotate(-15deg);
-                //         -moz-transform: rotate(-15deg);
-                //     }
-                // }
                 .scroll__container {
                     padding: 0rem 2.1rem;
                     width: 11.2rem;
@@ -1451,37 +1352,12 @@
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {
         .holding-container {
-            // .rotating-box {
-            //     .white__mask {
-            //         position: absolute;
-            //         width: 200%;
-            //         transform: rotate(-15deg);
-            //         animation: rotateMask4 1.5s;
-            //         -webkit-animation: rotateMask4 1.5s;
-            //         -moz-animation: rotateMask4 1.5s;
-            //         transition: all 1.5s;
-            //         -webkit-transition: all 1.5s;
-            //     }
-            //     .hide__mask {
-            //         transition: all 0.5s;
-            //         -webkit-transition: all 1.5s;
-            //         display: none;
-            //     }
-            //     @keyframes rotateMask4 {
-            //         0% {
-            //             transform: 100%;
-            //             transform: rotate(0);
-            //             -webkit-transform: rotate(0);
-            //             -moz-transform: rotate(0);
-            //         }
-            //         100% {
-            //             transform: 1000%;
-            //             transform: rotate(-15deg);
-            //             -webkit-transform: rotate(-15deg);
-            //             -moz-transform: rotate(-15deg);
-            //         }
-            //     }
-            // }
+            height: 75vh;
+            overflow: hidden;
+            .rotating-box {
+                height: 75vh;
+                overflow: hidden;
+            }
         }
         .section-two {
             .img-overlay-container {
@@ -1524,32 +1400,23 @@
         .holding-container {
             .rotating-box {
                 .white__mask {
-                    position: absolute;
-                    width: 950%;
-                    transform: rotate(-15deg);
+                    transform: scale(9.5) rotate(-15deg);
                     animation: rotateMask4 3s;
                     -webkit-animation: rotateMask4 3s;
                     -moz-animation: rotateMask4 3s;
                     transition: all 3s;
                     -webkit-transition: all 3s;
                 }
-                .hide__mask {
-                    transition: all 0.5s;
-                    -webkit-transition: all 1.5s;
-                    display: none;
-                }
                 @keyframes rotateMask4 {
                     0% {
-                        width: 100%;
-                        transform: rotate(0);
-                        -webkit-transform: rotate(0);
-                        -moz-transform: rotate(0);
+                        transform: scale(1) rotate(0);
+                        -webkit-transform: scale(1) rotate(0);
+                        -moz-transform: scale(1) rotate(0);
                     }
                     100% {
-                        width: 950%;
-                        transform: rotate(-15deg);
-                        -webkit-transform: rotate(-15deg);
-                        -moz-transform: rotate(-15deg);
+                        transform: scale(9.5) rotate(-15deg);
+                        -webkit-transform: scale(9.5) rotate(-15deg);
+                        -moz-transform: scale(9.5) rotate(-15deg);
                     }
                 }
             }
