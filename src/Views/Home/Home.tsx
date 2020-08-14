@@ -33,7 +33,7 @@ const Home: React.FunctionComponent = () => {
     const [animationCompelte, setAnimationComplete] = useState(false);
     const [showOthers, setShowOthers] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
-    const [hideAnimationMobile, setHideAnimationMobile] = useState(false);
+    const [hideAnimationMobile, setHideAnimationMobile] = useState(true);
     const handleMenu = () => {
         setMenuShow(!menuShow);
     };
@@ -53,7 +53,8 @@ const Home: React.FunctionComponent = () => {
             setShowOthers(true);
             setAnimationComplete(true);
             setShow(true);
-            setHideAnimationMobile(true);
+        }else{
+            setHideAnimationMobile(false);
         }
     }, []);
     const handleScroll = (e: any) => {};
