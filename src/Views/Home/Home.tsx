@@ -50,6 +50,7 @@ const Home: React.FunctionComponent = () => {
             setShow(true);
         }, 3000);
         if (window.screen.width <= 767) {
+            content.style.cssText = 'overflow:unset;height:auto';
             setShowOthers(true);
             setAnimationComplete(true);
             setShow(true);
