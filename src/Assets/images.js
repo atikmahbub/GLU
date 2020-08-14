@@ -38,6 +38,7 @@ const readinggirl = `${imageEndpoint}v1596608142/gluschool/readinggirl_w3dsop.jp
 const kidwithpad = `${imageEndpoint}v1596608136/gluschool/kidwithpad_fkmaoz.jpg`;
 const blurgirl = `${imageEndpoint}v1596608129/gluschool/blurgirl_ujc8vt.jpg`;
 const mobileApple = `${imageEndpoint}v1596608138/gluschool/mobileApple_jr7b7c.png`;
+const tutorDashboard=`${imageEndpoint}v1597322212/gluschool/tutorDashboard_plnp4i.jpg`;
 const laptopgirl = `${imageEndpoint}v1596608211/gluschool/lappygirl_g7hjsf.jpg`;
 const hoddygirl = `${imageEndpoint}v1596608134/gluschool/hoddygirl_kci02v.jpg`;
 const menmobileview = `${imageEndpoint}v1596608138/gluschool/menmobileview_bx8kza.png`;
@@ -85,6 +86,7 @@ export const commonImg = {
     photo,
     girlScatter,
     boy,
+    tutorDashboard,
     earringgirl,
     lappygirl,
     penpadgirl,

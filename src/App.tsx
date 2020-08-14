@@ -17,6 +17,7 @@ const ForgotPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/Forg
 const SetNewPassword = React.lazy(() => import('./Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('./Views/Auth/Verification/Verification'));
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
+const TutorDashboard = React.lazy(() => import('./Views/TutorDashboard/Dashboard'));
 const StudentHomePage = React.lazy(() => import('./Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const TutorList = React.lazy(() => import('./Views/TutorList/TutorList'));
@@ -53,6 +54,7 @@ export class App extends React.Component {
                             <Route exact path="/student-individual-subjects" component={StudentIndividualSubjects} />
                             <Route exact path="/student-watch-previous-class" component={StudentWatchPreviousClass} />
                             <Route exact path="/student-tutors" component={TutorList} />
+                            <Route exact path="/tutor-dashboard" component={TutorDashboard} />
                             <Route exact path="/signup" component={Signup} />
                             <Route exact path="/support" component={Support} />
                             <Route exact path="/help-support" component={HelpSupport} />
