@@ -33,6 +33,7 @@ const Home: React.FunctionComponent = () => {
     const [animationCompelte, setAnimationComplete] = useState(false);
     const [showOthers, setShowOthers] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
+    const [hideAnimationMobile, setHideAnimationMobile] = useState(false);
     const handleMenu = () => {
         setMenuShow(!menuShow);
     };
@@ -48,24 +49,36 @@ const Home: React.FunctionComponent = () => {
         setTimeout(() => {
             setShow(true);
         }, 3000);
+        if (window.screen.width <= 767) {
+            setShowOthers(true);
+            setAnimationComplete(true);
+            setShow(true);
+            setHideAnimationMobile(true);
+        }
     }, []);
     const handleScroll = (e: any) => {};
     const handleDeviceScroll = (isVisible: boolean) => {
         console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-    }
+    };
     return (
         <div className="home-wrapper" onScroll={handleScroll}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
-                    <img
-                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''} `}
-                        src={Icons.logo}
-                    />
-                    <img
-                        src={Icons.maskLong}
-                        className={`${animationCompelte ? (show ? 'hide__mask' : 'white__mask') : 'defaultMask'}`}
-                    />
+                    {hideAnimationMobile ? null : (
+                        <>
+                            <img
+                                className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''} `}
+                                src={Icons.logo}
+                            />
+                            <img
+                                src={Icons.maskLong}
+                                className={`${
+                                    animationCompelte ? (show ? 'hide__mask' : 'white__mask') : 'defaultMask'
+                                }`}
+                            />
+                        </>
+                    )}
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
