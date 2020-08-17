@@ -383,6 +383,7 @@
                     img {
                         width: 100%;
                         transition: all 1s linear;
+                        -webkit-transition: all 1s linear;
                     }
                 }
             }
@@ -881,20 +882,21 @@
     .home-wrapper {
         .left-part {
             .device__animation {
-                .device__mask__container {
-                    .taskbar__container {
-                        bottom: 0.5rem !important;
-                        .taskbar {
-                            border-bottom-left-radius: 1.5rem !important;
-                            border-bottom-right-radius: 1.5rem !important;
-                        }
-                    }
-                }
-                .device__container {
-                    top: 0.5rem !important;
-                    bottom: 0.5rem !important;
-                    border-radius: 1.5rem !important;
-                }
+                width: 80%!important;
+                // .device__mask__container {
+                //     .taskbar__container {
+                //         bottom: 1rem !important;
+                //         .taskbar {
+                //             border-bottom-left-radius: 2.5rem !important;
+                //             border-bottom-right-radius: 2.5rem !important;
+                //         }
+                //     }
+                // }
+                // .device__container {
+                //     top: 1rem !important;
+                //     bottom: 1.5rem !important;
+                //     border-radius: 2.5rem !important;
+                // }
             }
         }
     }
