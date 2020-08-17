@@ -15,7 +15,7 @@ const PeopleSaying: React.FunctionComponent = () => {
                 </div>
                 <div className="col-md-8 col-lg-6">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-6 pd-right">
                             <BorderCardContainer
                                 heading="“Best thing for school in years”"
                                 title="Candice Lazare"
