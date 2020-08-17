@@ -11,6 +11,11 @@ const Heading: React.FunctionComponent = () => {
                     I’m Frank, a secondary Student at GEMS school in Dubai. Currently studying Maths, Business Studies
                     and History.
                 </p>
+                <p className="subpara">
+                    Dubai, UAE
+                    <br /> (+971) 4 554 0350 frankhwrd@gmail.com
+                </p>
+                <p className="edit">Edit profile</p>
             </div>
         </>
     );
