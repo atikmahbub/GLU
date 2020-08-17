@@ -273,6 +273,7 @@
     .section-two {
         position: relative;
         display: flex;
+        max-height: 100vh;
         .opacity-bg {
             width: 100%;
             // align-self: stretch;
@@ -545,10 +546,9 @@
             }
             .subscribe {
                 cursor: pointer;
-                transition: all 0.5s;
+                // transition: all 0.5s;
                 text-transform: capitalize;
                 font-size: 1.625rem;
-                transition: all 0.5s;
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 align-self: flex-end;
@@ -566,6 +566,9 @@
     }
     .section-seven {
         margin-bottom: 9.375rem;
+        .align-grid{
+            padding-left: 7.5%;
+        }
         .pd-right{
             .border-card-container {
                 padding-right: 4rem;
@@ -593,7 +596,7 @@
             font-family: 'CircularXXWeb-Book';
         }
         .border-card-container {
-            padding-left: 1rem;
+            padding-left: 2rem;
             border-left: 1px solid $grayPrimary;
             
             .heading {
@@ -848,7 +851,7 @@
         }
         .section-two {
             padding: 0;
-            max-height: 98vh;
+            height: 75vh;
             .ear-ring-girl-mobile {
                 display: none;
                 width: 100%;
@@ -949,7 +952,7 @@
         }
         .section-two {
             padding: 0;
-            max-height: 98vh;
+            max-height: 75vh;
             .ear-ring-girl {
                 display: none;
             }
@@ -1427,6 +1430,7 @@
             }
         }
         .section-two {
+            height: 75vh;
             .img-overlay-container {
                 max-width: 41.062rem;
                 right: 6.25rem;

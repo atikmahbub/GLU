@@ -10,10 +10,10 @@ const PeopleSaying: React.FunctionComponent = () => {
         <div className="section-seven">
             <div className="row bg-gray">
                 <hr className="line" />
-                <div className="col-md-4 col-lg-6">
+                <div className="col-md-4 col-lg-5">
                     <Typography className="people-saying">What people are saying...</Typography>
                 </div>
-                <div className="col-md-8 col-lg-6">
+                <div className="col-md-8 col-lg-7 align-grid">
                     <div className="row">
                         <div className="col-md-6 pd-right">
                             <BorderCardContainer
