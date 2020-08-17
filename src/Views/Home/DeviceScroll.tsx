@@ -16,13 +16,13 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
             window.addEventListener('scroll', () => {
                 console.log(scrollTo, (document as any).scrollingElement.scrollTop)
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
-                    scrollTo -= 10;
+                    scrollTo -= 1;
                 } else {
-                    scrollTo += 10;
+                    scrollTo += 1;
                 }
-                if (scrollTo <= -10) {
-                    if (scrollTo <= -78) {
-                        scrollTo = -78;
+                if (scrollTo <= -1) {
+                    if (scrollTo <= -74) {
+                        scrollTo = -74;
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
                     } else {
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
