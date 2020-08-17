@@ -14,13 +14,13 @@ const DeviceScroll: React.FunctionComponent<props> = ({image}) => {
             window.addEventListener('scroll', () => {
                 console.log(tempScroll, (document as any).scrollingElement.scrollTop);
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
-                    scrollTo -= 5;
+                    scrollTo -= 10;
                 } else {
-                    scrollTo += 5;
+                    scrollTo += 10;
                 }
                 if (scrollTo <= -5) {
-                    if (scrollTo <= -78) {
-                        (device as any).current.style.transform = `translateY(${-78}%)`;
+                    if (scrollTo <= -76) {
+                        (device as any).current.style.transform = `translateY(${-76}%)`;
                     } else {
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
                     }
@@ -32,7 +32,7 @@ const DeviceScroll: React.FunctionComponent<props> = ({image}) => {
         }
     };
     return (
-        <VisibilitySensor onChange={handleDeviceScroll}>
+        <VisibilitySensor partialVisibility={true} onChange={handleDeviceScroll}>
             <div className="device__animation">
                 <div className="device__mask__container">
                     <img src={commonImg.deviceMask} alt="" />
