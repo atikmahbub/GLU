@@ -166,7 +166,7 @@
             .scroll__container {
                 @include flex(center, space-between, row);
                 position: absolute;
-                cursor: pointer;
+                // cursor: pointer;
                 padding: 1.125rem 3.062rem;
                 top: 1rem;
                 left: 0;
@@ -382,8 +382,8 @@
                     overflow: hidden;
                     img {
                         width: 100%;
-                        transition: all 1s linear;
-                        -webkit-transition: all 1s linear;
+                        // transition: all 1s linear;
+                        // -webkit-transition: all 1s linear;
                     }
                 }
             }
