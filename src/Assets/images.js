@@ -9,6 +9,7 @@ const girlScatter = `${imageEndpoint}v1596608132/gluschool/girlScatter_rxende.jp
 const boy = `${imageEndpoint}v1596608131/gluschool/boy_vadfp3.jpg`;
 const earringgirl = `${imageEndpoint}v1596608131/gluschool/earringgirl_rfzq6d.jpg`;
 const lappygirl = `${imageEndpoint}v1596608211/gluschool/lappygirl_g7hjsf.jpg`;
+const ladyProfile=`${imageEndpoint}v1597639066/gluschool/Tutor_Dashboard_profile_cxcimq.jpg`
 const penpadgirl = `${imageEndpoint}v1596608139/gluschool/penpadgirl_hclxwv.jpg`;
 const shorthair = `${imageEndpoint}v1596608140/gluschool/shorthair_bitghu.jpg`;
 const smilegirl = `${imageEndpoint}v1596608142/gluschool/smilegirl_ellmdm.jpg`;
@@ -92,6 +93,7 @@ export const commonImg = {
     lappygirl,
     penpadgirl,
     shorthair,
+    ladyProfile,
     smilegirl,
     spectsboy,
     spoongirl,
