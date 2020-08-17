@@ -14,9 +14,9 @@ const DeviceScroll: React.FunctionComponent<props> = ({image}) => {
             window.addEventListener('scroll', () => {
                 console.log(tempScroll, (document as any).scrollingElement.scrollTop);
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
-                    scrollTo -= 5;
+                    scrollTo -= 10;
                 } else {
-                    scrollTo += 5;
+                    scrollTo += 10;
                 }
                 if (scrollTo <= -5) {
                     if (scrollTo <= -76) {
