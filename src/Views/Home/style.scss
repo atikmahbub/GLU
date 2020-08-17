@@ -566,6 +566,11 @@
     }
     .section-seven {
         margin-bottom: 9.375rem;
+        .pd-right{
+            .border-card-container {
+                padding-right: 4rem;
+            }
+        }
         .bg-gray {
             .line {
                 background-color: $grayPrimary;
@@ -590,6 +595,7 @@
         .border-card-container {
             padding-left: 1rem;
             border-left: 1px solid $grayPrimary;
+            
             .heading {
                 font-weight: 500;
                 font-size: 2.625rem;
@@ -1177,6 +1183,9 @@
     }
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
+    html{
+        font-size: 10px;
+    }
     .home-wrapper {
         .section-one {
             .section-one-right-part {

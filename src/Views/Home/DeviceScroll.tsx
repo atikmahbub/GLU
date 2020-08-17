@@ -2,25 +2,27 @@ import React, { createRef } from 'react';
 import commonImg from '../../Assets/images';
 import VisibilitySensor from 'react-visibility-sensor';
 
-interface props{
-    image?: string
+interface props {
+    image?: string;
 }
-const DeviceScroll: React.FunctionComponent<props> = ({image}) => {
+const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
     const device = createRef<HTMLImageElement>();
     const handleDeviceScroll = (isVisible: boolean) => {
+        console.log(isVisible);
         if (isVisible) {
             let scrollTo = 0;
             let tempScroll = 0;
+
             window.addEventListener('scroll', () => {
-                console.log(tempScroll, (document as any).scrollingElement.scrollTop);
+                console.log(scrollTo, (document as any).scrollingElement.scrollTop)
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
                     scrollTo -= 10;
                 } else {
                     scrollTo += 10;
                 }
-                if (scrollTo <= -5) {
-                    if (scrollTo <= -76) {
-                        (device as any).current.style.transform = `translateY(${-76}%)`;
+                if (scrollTo <= -10) {
+                    if (scrollTo <= -78) {
+                        (device as any).current.style.transform = `translateY(${-78}%)`;
                     } else {
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
                     }
