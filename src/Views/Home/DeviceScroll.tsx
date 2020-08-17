@@ -22,12 +22,14 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
                 }
                 if (scrollTo <= -10) {
                     if (scrollTo <= -78) {
-                        (device as any).current.style.transform = `translateY(${-78}%)`;
+                        scrollTo = -78;
+                        (device as any).current.style.transform = `translateY(${scrollTo}%)`;
                     } else {
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
                     }
                 } else {
-                    (device as any).current.style.transform = `translateY(0px)`;
+                    scrollTo = 0;
+                    (device as any).current.style.transform = `translateY(${scrollTo})`;
                 }
                 tempScroll = (document as any).scrollingElement.scrollTop;
             });
