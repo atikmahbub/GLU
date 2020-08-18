@@ -340,7 +340,6 @@
         .left-part {
             @include flex(center, center, row);
             img {
-                transition: all 0.5s;
                 width: 45%;
             }
             .device__animation {
