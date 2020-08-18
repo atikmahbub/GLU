@@ -77,6 +77,21 @@
                 width: 100%;
             }
         }
+        .education {
+            font-size: 2.625rem;
+            grid-column: 5/9;
+
+            margin: 5.312rem 0;
+        }
+        .semi__box {
+            grid-column: 5/9;
+            .heading {
+                font-size: 1.562rem;
+            }
+            .para {
+                font-size: 2.625rem;
+            }
+        }
     }
     .footer {
         grid-column: 1/9;
