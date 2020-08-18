@@ -79,6 +79,7 @@ const curlyhair = `${imageEndpoint}v1597215044/gluschool/curlyhairspectgirl_qqfv
 const girlsideviewcroped = `${imageEndpoint}v1597215308/gluschool/girlsideviewcroped_kkw9qk.jpg`;
 const bluetopcropgirl = `${imageEndpoint}v1597229095/gluschool/cropedbluetop_p1y2lo.jpg`;
 const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owcgya.jpg`;
+const deviceB = `${imageEndpoint}v1597665653/gluschool/device_Screen_A_nbxd5d_wqnfvz.jpg`;
 
 export const commonImg = {
     google,
@@ -160,7 +161,8 @@ export const commonImg = {
     girlsideviewcroped,
     curlyhair,
     bluetopcropgirl,
-    curlygirlcroped
+    curlygirlcroped,
+    deviceB
 };
 
 export default commonImg;

@@ -156,11 +156,11 @@
                 }
                 .apple-icon {
                     margin-right: 0.638rem;
-                    width: 0.98rem;
+                    height: 1rem;
                 }
                 .google-icon {
-                    width: 0.712rem;
-                    margin-top: 0.062rem;
+                    height: 0.8rem;
+                    margin-bottom: -0.2rem;
                 }
             }
             .scroll__container {
@@ -346,25 +346,27 @@
                 width: 50%;
                 position: relative;
                 @include flex(center, center, row);
+                background-color: #f0f0f0;
+                border-radius: 3rem;
                 .device__mask__container {
                     width: 100%;
                     position: relative;
                     img {
                         width: 100%;
-                        height: 60rem;
+                        max-height: 52.25rem;
                     }
                     .taskbar__container {
                         width: 94%;
                         height: auto;
                         position: absolute;
-                        bottom: 1.5rem;
+                        bottom: 1rem;
                         left: 3%;
                         z-index: 2;
                         .taskbar {
                             border-top-left-radius: 1rem;
                             border-top-right-radius: 1rem;
-                            border-bottom-left-radius: 3rem;
-                            border-bottom-right-radius: 3rem;
+                            border-bottom-left-radius: 2.5rem;
+                            border-bottom-right-radius: 2.5rem;
                             width: 100%;
                             height: auto;
                             box-shadow: 0 0 15px -1px rgba(0, 0, 0, 0.2);
@@ -373,14 +375,15 @@
                 }
                 .device__container {
                     position: absolute;
-                    border-top-left-radius: 2.7rem;
-                    border-top-right-radius: 2.7rem;
-                    top: 1.2rem;
+                    border-radius: 2.5rem;
+                    top: 1rem;
+                    bottom: 1.5rem;
                     width: 94%;
-                    height: 54rem;
                     overflow: hidden;
                     img {
                         width: 100%;
+                        transition: all 1s linear;
+                        -webkit-transition: all 1s linear;
                     }
                 }
             }
@@ -563,6 +566,11 @@
     }
     .section-seven {
         margin-bottom: 9.375rem;
+        .pd-right{
+            .border-card-container {
+                padding-right: 4rem;
+            }
+        }
         .bg-gray {
             .line {
                 background-color: $grayPrimary;
@@ -587,6 +595,7 @@
         .border-card-container {
             padding-left: 1rem;
             border-left: 1px solid $grayPrimary;
+            
             .heading {
                 font-weight: 500;
                 font-size: 2.625rem;
@@ -686,94 +695,94 @@
 }
 
 // responsive
-@media screen and (max-width: 415px) {
-    html {
-        font-size: 9px;
-    }
-    .home-wrapper {
-        overflow-x: hidden;
-        .menus-container {
-            .right {
-                .title {
-                    margin-right: -0.7rem;
-                }
-            }
-        }
-        .holding-container {
-            .ga-text-container {
-                max-width: 25rem;
-                left: 2.1rem;
-                .title {
-                    font-size: 1rem;
-                }
-                .google-icon {
-                    width: 1.2rem;
-                }
-            }
-            .rotating-box {
-                .scroll__container {
-                    padding: 0rem 2.1rem;
-                    width: 11.2rem;
-                    top: 2.4rem;
-                    .text {
-                        font-size: 1.8rem;
-                    }
-                }
-                .launching-soon-container {
-                    left: 2.1rem;
-                }
-            }
-            .menus-container {
-                padding: 1.125rem 2.5rem;
-                .right {
-                    .title {
-                        margin-right: -0.4rem;
-                    }
-                }
-            }
-        }
-        .section-two {
-            max-height: 98vh;
-            .img-overlay-container {
-                max-width: 29rem !important;
-                .msg {
-                    font-size: 3rem !important;
-                    line-height: 3rem !important;
-                }
-            }
-        }
-    }
-    .footer {
-        .three__piller__container {
-            img {
-                margin-right: 0.5rem;
-            }
-        }
-    }
-    .smile__girl__boy {
-        .section-four {
-            .section-four-right-part-container {
-                .title {
-                    max-width: none;
-                    font-size: 2.4rem;
-                }
-                .real-time-intraction {
-                    display: block;
-                    font-size: 1.8rem;
-                }
-                .board-icon {
-                    display: block;
-                    margin-bottom: 8.4rem;
-                }
-            }
-        }
-    }
-    .section-six {
-        .msg {
-            margin-bottom: 3rem;
-        }
-    }
-}
+// @media screen and (max-width: 415px) {
+//     html {
+//         font-size: 9px;
+//     }
+//     .home-wrapper {
+//         overflow-x: hidden;
+//         .menus-container {
+//             .right {
+//                 .title {
+//                     margin-right: -0.7rem;
+//                 }
+//             }
+//         }
+//         .holding-container {
+//             .ga-text-container {
+//                 max-width: 25rem;
+//                 left: 2.1rem;
+//                 .title {
+//                     font-size: 1rem;
+//                 }
+//                 .google-icon {
+//                     width: 1.2rem;
+//                 }
+//             }
+//             .rotating-box {
+//                 .scroll__container {
+//                     padding: 0rem 2.1rem;
+//                     width: 11.2rem;
+//                     top: 2.4rem;
+//                     .text {
+//                         font-size: 1.8rem;
+//                     }
+//                 }
+//                 .launching-soon-container {
+//                     left: 2.1rem;
+//                 }
+//             }
+//             .menus-container {
+//                 padding: 1.125rem 2.5rem;
+//                 .right {
+//                     .title {
+//                         margin-right: -0.4rem;
+//                     }
+//                 }
+//             }
+//         }
+//         .section-two {
+//             max-height: 98vh;
+//             .img-overlay-container {
+//                 max-width: 29rem !important;
+//                 .msg {
+//                     font-size: 3rem !important;
+//                     line-height: 3rem !important;
+//                 }
+//             }
+//         }
+//     }
+//     .footer {
+//         .three__piller__container {
+//             img {
+//                 margin-right: 0.5rem;
+//             }
+//         }
+//     }
+//     .smile__girl__boy {
+//         .section-four {
+//             .section-four-right-part-container {
+//                 .title {
+//                     max-width: none;
+//                     font-size: 2.4rem;
+//                 }
+//                 .real-time-intraction {
+//                     display: block;
+//                     font-size: 1.8rem;
+//                 }
+//                 .board-icon {
+//                     display: block;
+//                     margin-bottom: 8.4rem;
+//                 }
+//             }
+//         }
+//     }
+//     .section-six {
+//         .msg {
+//             margin-bottom: 3rem;
+//         }
+//     }
+// }
 @media screen and (max-width: 768px) {
     .home-wrapper {
         .menus-container {
@@ -877,6 +886,29 @@
 }
 @media screen and (max-width: 425px) {
     .home-wrapper {
+        .left-part {
+            .device__animation {
+                width: 80%!important;
+                // .device__mask__container {
+                //     .taskbar__container {
+                //         bottom: 1rem !important;
+                //         .taskbar {
+                //             border-bottom-left-radius: 2.5rem !important;
+                //             border-bottom-right-radius: 2.5rem !important;
+                //         }
+                //     }
+                // }
+                // .device__container {
+                //     top: 1rem !important;
+                //     bottom: 1.5rem !important;
+                //     border-radius: 2.5rem !important;
+                // }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .home-wrapper {
         overflow-x: hidden !important;
         .make__col__reverse {
             flex-direction: column-reverse;
@@ -971,15 +1003,15 @@
                 left: 2.5rem;
                 position: absolute;
                 .apple-icon {
-                    margin-right: 0.338rem;
-                    width: 1.349rem;
-                    height: 1.5rem;
+                    height: 1.6rem;
+                    width: 1.5rem;
                     display: inline-block;
                 }
                 .google-icon {
-                    width: 1.25rem;
+                    width: 1.4rem;
                     margin-left: 0.3rem;
-                    height: 1.2rem;
+                    height: 1.4rem;
+                    margin-top: 0.2rem;
                     display: inline-block;
                     margin-right: 0.6rem;
                 }
@@ -1097,7 +1129,7 @@
             .email-container {
                 .email {
                     width: 65%;
-                    background-color: transparent;
+                    background-color: #f7f7f7;
                 }
             }
         }
@@ -1151,203 +1183,238 @@
     }
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
-    html {
+    html{
         font-size: 10px;
     }
     .home-wrapper {
-        .make__col__reverse {
-            flex-direction: column-reverse;
-        }
         .section-one {
             .section-one-right-part {
-                padding-left: 0;
-                margin-top: 1rem;
                 .title {
                     max-width: none !important;
-                    margin-right: 0;
-                }
-                .sppon-girl {
-                    display: none;
-                }
-            }
-            .workable-solution {
-                margin-top: 10rem;
-            }
-        }
-        .section-two {
-            max-height: 98vh;
-            .ear-ring-girl {
-                display: none;
-            }
-            .left__title {
-                font-size: 3rem !important;
-                line-height: 3rem !important;
-                bottom: 17.3rem !important;
-            }
-            .ear-ring-girl-mobile {
-                display: block;
-                width: 100%;
-                height: auto;
-            }
-            .left__title {
-                bottom: 19.5rem;
-                font-size: 3rem;
-            }
-            .img-overlay-container {
-                max-width: 33.062rem !important;
-                left: 40%;
-                right: 2.25rem;
-                .msg {
-                    font-size: 3rem !important;
-                    line-height: 3rem !important;
-                }
-            }
-        }
-        .curly__hair__container {
-            .section-two {
-                .left__title {
-                    bottom: 16.5rem !important;
                 }
             }
         }
         .section-three {
-            padding-bottom: 0;
             .right-part {
-                margin-bottom: 7.5rem !important;
                 .title {
-                    max-width: none !important;
-                    margin-right: 0 !important;
-                    margin-top: 7.4rem;
+                    max-width: none;
                 }
             }
         }
-        .section-four {
-            .section-four-right-part-container {
-                margin-top: 0;
-                .lappy-girl {
-                    display: none;
-                }
-                .title {
-                    max-width: none !important;
-                    margin-right: 0 !important;
-                    margin-bottom: 10rem;
-                }
-                .real-time-intraction {
-                    margin-top: -7.537rem;
-                }
-            }
-            .short-hair-girl-container {
-                margin-right: 0;
-            }
-        }
-        .section-six {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding: 4rem 3.062rem;
-            background-color: #f7f7f7;
-            .msg {
-                margin-bottom: 1.7rem;
-            }
-        }
-        .section-seven {
-            .bg-gray {
-                padding-top: 0;
-                padding-bottom: 0;
-                background-color: $white;
-                .line {
-                    display: none;
-                }
-            }
-            .border-card-container {
-                &:nth-of-type(1) {
-                    margin-bottom: 2.5rem;
-                }
-            }
-            .text-section-container {
-                .title {
-                    max-width: none !important;
-                    margin-right: 0;
-                }
-            }
-            .pen-pad-girl {
-                padding-right: 0;
-                margin-bottom: 7.25rem;
-            }
-            .people-saying {
-                margin-bottom: 2rem;
-            }
-        }
-    }
-    .home-wrapper {
-        .holding-container {
-            .ga-text-container {
-                max-width: 25rem;
-                left: 2.1rem;
-                .title {
-                    font-size: 1rem;
-                }
-                .google-icon {
-                    width: 1.2rem;
-                }
-            }
-            .rotating-box {
-                .scroll__container {
-                    padding: 0rem 2.1rem;
-                    width: 11.2rem;
-                    top: 2.4rem;
-                    .text {
-                        font-size: 1.8rem;
-                    }
-                }
-                .launching-soon-container {
-                    left: 2.1rem;
-                }
-            }
-            .menus-container {
-                padding: 1.125rem 2.5rem;
-                .right {
-                    .title {
-                        margin-right: -0.4rem;
-                    }
-                }
-            }
-        }
-        .section-two {
-            .img-overlay-container {
-                max-width: 29rem !important;
-                .msg {
-                    font-size: 3rem !important;
-                    line-height: 3rem !important;
-                }
-            }
-        }
-    }
-    .footer {
-        .three__piller__container {
-            img {
-                margin-right: 0.5rem;
-            }
-        }
-    }
-    .smile__girl__boy {
         .section-four {
             .section-four-right-part-container {
                 .title {
                     max-width: none;
-                    font-size: 2.4rem;
                 }
-                .real-time-intraction {
-                    display: block;
-                    font-size: 1.8rem;
-                }
-                .board-icon {
-                    display: block;
-                    margin-bottom: 8.4rem;
+            }
+        }
+        .section-seven-padding {
+            .text-section-container {
+                .title {
+                    max-width: none;
                 }
             }
         }
     }
 }
+// @media screen and (min-width: 426px) and (max-width: 767px) {
+//     html {
+//         font-size: 10px;
+//     }
+//     .home-wrapper {
+//         .make__col__reverse {
+//             flex-direction: column-reverse;
+//         }
+//         .section-one {
+//             .section-one-right-part {
+//                 padding-left: 0;
+//                 margin-top: 1rem;
+//                 .title {
+//                     max-width: none !important;
+//                     margin-right: 0;
+//                 }
+//                 .sppon-girl {
+//                     display: none;
+//                 }
+//             }
+//             .workable-solution {
+//                 margin-top: 10rem;
+//             }
+//         }
+//         .section-two {
+//             max-height: 98vh;
+//             .ear-ring-girl {
+//                 display: none;
+//             }
+//             .left__title {
+//                 font-size: 3rem !important;
+//                 line-height: 3rem !important;
+//                 bottom: 17.3rem !important;
+//             }
+//             .ear-ring-girl-mobile {
+//                 display: block;
+//                 width: 100%;
+//                 height: auto;
+//             }
+//             .left__title {
+//                 bottom: 19.5rem;
+//                 font-size: 3rem;
+//             }
+//             .img-overlay-container {
+//                 max-width: 33.062rem !important;
+//                 left: 40%;
+//                 right: 2.25rem;
+//                 .msg {
+//                     font-size: 3rem !important;
+//                     line-height: 3rem !important;
+//                 }
+//             }
+//         }
+//         .curly__hair__container {
+//             .section-two {
+//                 .left__title {
+//                     bottom: 16.5rem !important;
+//                 }
+//             }
+//         }
+//         .section-three {
+//             padding-bottom: 0;
+//             .right-part {
+//                 margin-bottom: 7.5rem !important;
+//                 .title {
+//                     max-width: none !important;
+//                     margin-right: 0 !important;
+//                     margin-top: 7.4rem;
+//                 }
+//             }
+//         }
+//         .section-four {
+//             .section-four-right-part-container {
+//                 margin-top: 0;
+//                 .lappy-girl {
+//                     display: none;
+//                 }
+//                 .title {
+//                     max-width: none !important;
+//                     margin-right: 0 !important;
+//                     margin-bottom: 10rem;
+//                 }
+//                 .real-time-intraction {
+//                     margin-top: -7.537rem;
+//                 }
+//             }
+//             .short-hair-girl-container {
+//                 margin-right: 0;
+//             }
+//         }
+//         .section-six {
+//             margin-top: 0;
+//             margin-bottom: 0;
+//             padding: 4rem 3.062rem;
+//             background-color: #f7f7f7;
+//             .msg {
+//                 margin-bottom: 1.7rem;
+//             }
+//         }
+//         .section-seven {
+//             .bg-gray {
+//                 padding-top: 0;
+//                 padding-bottom: 0;
+//                 background-color: $white;
+//                 .line {
+//                     display: none;
+//                 }
+//             }
+//             .border-card-container {
+//                 &:nth-of-type(1) {
+//                     margin-bottom: 2.5rem;
+//                 }
+//             }
+//             .text-section-container {
+//                 .title {
+//                     max-width: none !important;
+//                     margin-right: 0;
+//                 }
+//             }
+//             .pen-pad-girl {
+//                 padding-right: 0;
+//                 margin-bottom: 7.25rem;
+//             }
+//             .people-saying {
+//                 margin-bottom: 2rem;
+//             }
+//         }
+//     }
+//     .home-wrapper {
+//         .holding-container {
+//             .ga-text-container {
+//                 max-width: 25rem;
+//                 left: 2.1rem;
+//                 .title {
+//                     font-size: 1rem;
+//                 }
+//                 .google-icon {
+//                     width: 1.2rem;
+//                 }
+//             }
+//             .rotating-box {
+//                 .scroll__container {
+//                     padding: 0rem 2.1rem;
+//                     width: 11.2rem;
+//                     top: 2.4rem;
+//                     .text {
+//                         font-size: 1.8rem;
+//                     }
+//                 }
+//                 .launching-soon-container {
+//                     left: 2.1rem;
+//                 }
+//             }
+//             .menus-container {
+//                 padding: 1.125rem 2.5rem;
+//                 .right {
+//                     .title {
+//                         margin-right: -0.4rem;
+//                     }
+//                 }
+//             }
+//         }
+//         .section-two {
+//             .img-overlay-container {
+//                 max-width: 29rem !important;
+//                 .msg {
+//                     font-size: 3rem !important;
+//                     line-height: 3rem !important;
+//                 }
+//             }
+//         }
+//     }
+//     .footer {
+//         .three__piller__container {
+//             img {
+//                 margin-right: 0.5rem;
+//             }
+//         }
+//     }
+//     .smile__girl__boy {
+//         .section-four {
+//             .section-four-right-part-container {
+//                 .title {
+//                     max-width: none;
+//                     font-size: 2.4rem;
+//                 }
+//                 .real-time-intraction {
+//                     display: block;
+//                     font-size: 1.8rem;
+//                 }
+//                 .board-icon {
+//                     display: block;
+//                     margin-bottom: 8.4rem;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .home-wrapper {

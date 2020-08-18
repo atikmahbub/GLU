@@ -15,7 +15,7 @@ import SlidingMenu from '../../components/SlidingMenu';
 import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
 import BottomGAtext from './BottomGAtext';
-import VisibilitySensor from 'react-visibility-sensor';
+
 
 const Home: React.FunctionComponent = () => {
     const menuList = [
@@ -33,6 +33,7 @@ const Home: React.FunctionComponent = () => {
     const [animationCompelte, setAnimationComplete] = useState(false);
     const [showOthers, setShowOthers] = useState(false);
     const [menuShow, setMenuShow] = useState(false);
+    const [hideAnimationMobile, setHideAnimationMobile] = useState(true);
     const handleMenu = () => {
         setMenuShow(!menuShow);
     };
@@ -48,24 +49,38 @@ const Home: React.FunctionComponent = () => {
         setTimeout(() => {
             setShow(true);
         }, 3000);
+        if (window.screen.width <= 767) {
+            content.style.cssText = 'overflow:unset;height:auto';
+            setShowOthers(true);
+            setAnimationComplete(true);
+            setShow(true);
+        }else{
+            setHideAnimationMobile(false);
+        }
     }, []);
-    const handleScroll = (e: any) => {};
-    const handleDeviceScroll = (isVisible: boolean) => {
-        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-    }
+    const handleScroll = (e: any) => {
+        console.log(e)
+    };
+   
     return (
-        <div className="home-wrapper" onScroll={handleScroll}>
+        <div className="home-wrapper" onScroll={()=>console.log('sf')}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
-                    <img
-                        className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''} `}
-                        src={Icons.logo}
-                    />
-                    <img
-                        src={Icons.maskLong}
-                        className={`${animationCompelte ? (show ? 'hide__mask' : 'white__mask') : 'defaultMask'}`}
-                    />
+                    {hideAnimationMobile ? null : (
+                        <>
+                            <img
+                                className={`slogan ${animationCompelte ? 'show' : ''} ${showOthers ? 'hide' : ''} `}
+                                src={Icons.logo}
+                            />
+                            <img
+                                src={Icons.maskLong}
+                                className={`${
+                                    animationCompelte ? (show ? 'hide__mask' : 'white__mask') : 'defaultMask'
+                                }`}
+                            />
+                        </>
+                    )}
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
                     {showOthers && <ScrollButton />}
                     {showOthers && <LaunchingSoon />}
@@ -84,12 +99,12 @@ const Home: React.FunctionComponent = () => {
                         desktopTitle="Qualified Teachers"
                         msg={<>Earn money from the comfort of your own home</>}
                     />
-                    <VisibilitySensor onChange={handleDeviceScroll}>
+                   
                         <SectionThree
-                            image={commonImg.mobileApple}
+                            image={commonImg.deviceA}
                             msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
                         />
-                    </VisibilitySensor>
+                   
 
                     <SectionFour
                         imageOne={commonImg.scaffgirl}
@@ -113,7 +128,7 @@ const Home: React.FunctionComponent = () => {
                         />
                     </div>
                     <SectionThree
-                        image={commonImg.menmobileview}
+                        image={commonImg.deviceB}
                         msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
                     />
                     <div className="smile__girl__boy">
