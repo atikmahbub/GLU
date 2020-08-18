@@ -131,6 +131,8 @@
                 bottom: 1.937rem;
                 right: 3.062rem;
                 @include flex(center, center, row);
+                flex-wrap: nowrap;
+                width: auto;
                 margin-top: -1rem;
                 transition: all 0.3s;
                 -webkit-animation: textFadeIn 0.4s linear;
@@ -383,7 +385,7 @@
                     img {
                         width: 100%;
                         border-radius: 2.5rem;
-                        // transition: all 1s linear;
+                        // transition: all 0.05s linear;
                         // -webkit-transition: all 1s linear;
                     }
                 }
@@ -529,6 +531,7 @@
                 height: 3rem;
                 -webkit-border-radius: 0;
                 border-radius: 0;
+                padding-bottom: 0.2rem;
                 -webkit-appearance: none;
                 &:focus {
                     outline-color: transparent;

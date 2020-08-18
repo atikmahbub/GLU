@@ -58,6 +58,25 @@
                 font-family: 'CircularXXSub-RegularSubset';
             }
         }
+
+        .detail__box {
+            grid-column: 5/9;
+
+            margin-top: 5rem;
+
+            .detail__heading {
+                font-size: 2.625rem;
+            }
+            .inputs {
+                width: 45%;
+            }
+            .first {
+                margin-right: 10%;
+            }
+            .inputEmail {
+                width: 100%;
+            }
+        }
     }
     .footer {
         grid-column: 1/9;

@@ -2,11 +2,8 @@ import React from 'react';
 import commonImg from '../../../Assets/images';
 interface props {
     name: string;
-    about?: string;
-    country?: string;
-    contact?: string;
 }
-const Header: React.FunctionComponent<props> = ({ name, about, country, contact }) => {
+const Header: React.FunctionComponent<props> = ({ name }) => {
     return (
         <>
             <div className="heading">
