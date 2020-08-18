@@ -32,6 +32,7 @@ const StudentTutorPreviousClasses = React.lazy(() => import('./Views/StudentTuto
 const studentDashboard = React.lazy(() => import('./Views/StudentDashboard/Index'));
 const studentDetail = React.lazy(() => import('./Views/StudentDashboard/StudentDetail/index'));
 const studentIncompleteDetail = React.lazy(() => import('./Views/StudentDashboard/studentIncompleteDetail/index'));
+const editStudentProfile = React.lazy(() => import('./Views/StudentDashboard/EditStudentProfile/index'));
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -75,6 +76,7 @@ export class App extends React.Component {
                             <Route path="/studentDashboard/" component={studentDashboard} />
                             <Route path="/studentDetail/" component={studentDetail} />
                             <Route path="/studentIncompleteDetail/" component={studentIncompleteDetail} />
+                            <Route path="/editStudentProfile/" component={editStudentProfile} />
                         </Switch>
                     </Suspense>
                 </Router>

@@ -1,0 +1,64 @@
+.dashboard__edit {
+    padding: 0 0.75rem;
+    font-family: 'CircularXXWeb-Book';
+    .dashboard__wrapper {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        .heading {
+            grid-column: 1/5;
+            grid-row: 1/2;
+            h2 {
+                font-size: 2.625rem;
+            }
+        }
+        .profile {
+            font-size: 2.625rem;
+            grid-column: 5/9;
+            grid-row: 1/2;
+        }
+        .profile__image {
+            object-fit: fill;
+            margin-top: 2.461rem;
+            grid-column: 5/6;
+            width: 100%;
+        }
+        .photo__box {
+            grid-column: 6/8;
+            margin-top: 2.461rem;
+            padding-left: 3.125rem;
+
+            .instruction {
+                font-size: 1.562rem;
+            }
+            button {
+                width: 9.375rem;
+                height: 2.5rem;
+                border: 1px solid #ccc;
+                outline: none;
+                background: transparent;
+                font-size: 1.25rem;
+            }
+            .max {
+                margin-left: 1.875rem;
+                font-size: 1rem;
+            }
+        }
+        .bio__box {
+            grid-column: 5/9;
+
+            margin-top: 5.726rem;
+            .bio__heading {
+                font-size: 1.562rem;
+            }
+            .bio__detail {
+                font-size: 2.625rem;
+                color: #8b8b8b;
+                line-height: 2.8rem;
+                font-family: 'CircularXXSub-RegularSubset';
+            }
+        }
+    }
+    .footer {
+        grid-column: 1/9;
+    }
+}
