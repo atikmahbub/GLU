@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
+import MadeBy from '../Footer/MadeBy';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
@@ -21,7 +22,7 @@ const Dashboard: React.FunctionComponent = () => {
             <NavigationMenu menuList={menu} />
             <Typography className="main_container_dashboard_title">Dashboard</Typography>
             <div className="main_container_dashboard">
-                <div className="row">
+                <div className="row set__margin">
                     <div className="col-md-6 p-0">
                         <ReusableLandscape
                             imgSrc={commonImg.tutorDashboard}
@@ -103,62 +104,60 @@ const Dashboard: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-
-                
             </div>
             <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
-                <div className="second_component">
-                    <div className="main_container3">
-                        <div className="row">
-                            <div className="col-md-6 p-0">
-                                <div className="main_container_col11">
-                                    <Typography className="subtext">Your Day</Typography>
-                                    <Typography className="subtext">9:21 am</Typography>
-                                </div>
+            <div className="second_component">
+                <div className="main_container3">
+                    <div className="row">
+                        <div className="col-md-6 p-0">
+                            <div className="main_container_col11">
+                                <Typography className="subtext">Your Day</Typography>
+                                <Typography className="subtext">9:21 am</Typography>
                             </div>
-                            <div className="col-md-6 p-0">
-                                <div className="main_container_col12">
-                                    <div className="main_subcontainer">
-                                        <ResuableTimeline
-                                            date={'29/07/20'}
-                                            time1={'9am-'}
-                                            time2={'10.15am'}
-                                            subject={'Geography.'}
-                                            subheading1={'45min'}
-                                            desc={'Igneous, Sedimentary, '}
-                                            subheading2={'Fully Booked'}
-                                        />
-                                        <hr></hr>
-                                        <ResuableTimeline
-                                            date={'29/07/20'}
-                                            time1={'11am-'}
-                                            time2={'10.15am'}
-                                            subject={'English.'}
-                                            subheading1={'45min'}
-                                            desc={'Organising a'}
-                                            subheading2={'3/5 Spaces'}
-                                        />
-                                        <hr></hr>
-                                        <ResuableTimeline
-                                            date={'29/07/20'}
-                                            time1={'3pm-'}
-                                            time2={'10.15am'}
-                                            subject={'French'}
-                                            subheading1={'45min'}
-                                            desc={'How Does Language.'}
-                                            subheading2={'Fully Booked'}
-                                        />
-                                    </div>
+                        </div>
+                        <div className="col-md-6 p-0">
+                            <div className="main_container_col12">
+                                <div className="main_subcontainer">
+                                    <ResuableTimeline
+                                        date={'29/07/20'}
+                                        time1={'9am-'}
+                                        time2={'10.15am'}
+                                        subject={'Geography.'}
+                                        subheading1={'45min'}
+                                        desc={'Igneous, Sedimentary, '}
+                                        subheading2={'Fully Booked'}
+                                    />
+                                    <hr></hr>
+                                    <ResuableTimeline
+                                        date={'29/07/20'}
+                                        time1={'11am-'}
+                                        time2={'10.15am'}
+                                        subject={'English.'}
+                                        subheading1={'45min'}
+                                        desc={'Organising a'}
+                                        subheading2={'3/5 Spaces'}
+                                    />
+                                    <hr></hr>
+                                    <ResuableTimeline
+                                        date={'29/07/20'}
+                                        time1={'3pm-'}
+                                        time2={'10.15am'}
+                                        subject={'French'}
+                                        subheading1={'45min'}
+                                        desc={'How Does Language.'}
+                                        subheading2={'Fully Booked'}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="main_container_4">
-                    <div className="main_container_4_subcontainer">
-                        <div className="row">{/* Resuable Component Here */}</div>
-                    </div>
+            </div>
+            <div className="main_container_4">
+                <div className="footer">
+                    <MadeBy />
                 </div>
+            </div>
         </div>
     );
 };

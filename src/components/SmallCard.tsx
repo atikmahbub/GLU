@@ -5,7 +5,7 @@ interface props{
     subHeading1:string,
     subHeading2:string
 }
-const SmallCard: React.FunctionComponent = ({mainHeading,subHeading1,subHeading2}) => {
+const SmallCard: React.FunctionComponent<props> = ({mainHeading,subHeading1,subHeading2}) => {
     return (
         <div className="small__card">
             <Typography className="heading">{mainHeading}</Typography>

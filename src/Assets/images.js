@@ -1,4 +1,4 @@
-const imageEndpoint = "https://res.cloudinary.com/ddwbbzuxw/image/upload/";
+const imageEndpoint = 'https://res.cloudinary.com/ddwbbzuxw/image/upload/';
 
 const google = `${imageEndpoint}v1596608133/gluschool/google_m6tark.png`;
 const mobile = `${imageEndpoint}v1596608137/gluschool/mobile-stack_vlmqg1.svg`;
@@ -39,7 +39,7 @@ const readinggirl = `${imageEndpoint}v1596608142/gluschool/readinggirl_w3dsop.jp
 const kidwithpad = `${imageEndpoint}v1596608136/gluschool/kidwithpad_fkmaoz.jpg`;
 const blurgirl = `${imageEndpoint}v1596608129/gluschool/blurgirl_ujc8vt.jpg`;
 const mobileApple = `${imageEndpoint}v1596608138/gluschool/mobileApple_jr7b7c.png`;
-const tutorDashboard=`${imageEndpoint}v1597322212/gluschool/tutorDashboard_plnp4i.jpg`;
+const tutorDashboard = `${imageEndpoint}v1597322212/gluschool/tutorDashboard_plnp4i.jpg`;
 const laptopgirl = `${imageEndpoint}v1596608211/gluschool/lappygirl_g7hjsf.jpg`;
 const hoddygirl = `${imageEndpoint}v1596608134/gluschool/hoddygirl_kci02v.jpg`;
 const menmobileview = `${imageEndpoint}v1596608138/gluschool/menmobileview_bx8kza.png`;
@@ -70,7 +70,7 @@ const blackshirtgirl = `${imageEndpoint}v1596608127/gluschool/blackshirtgirl_ivc
 const oldwomenmobile = `${imageEndpoint}v1596608139/gluschool/oldwomenmobile_ymqemj.jpg`;
 const sketterMobile = `${imageEndpoint}v1596608144/gluschool/sketterMobile_szc98b.png`;
 const smallhairwomenmobile = `${imageEndpoint}v1596608142/gluschool/smallhairwomenmobile_wwc3hp.jpg`;
-import deviceMask from "./img/device.svg";
+import deviceMask from './img/device.svg';
 const deviceA = `${imageEndpoint}v1597145210/gluschool/device_Screen_A_nbxd5d.jpg`;
 const deviceTaskbar = `${imageEndpoint}v1597145205/gluschool/device_Taskbar_ncnrop.png`;
 const girlgreenleaf = `${imageEndpoint}v1597214738/gluschool/girlgreenleaf_hbrrzk.png`;
@@ -79,7 +79,8 @@ const curlyhair = `${imageEndpoint}v1597215044/gluschool/curlyhairspectgirl_qqfv
 const girlsideviewcroped = `${imageEndpoint}v1597215308/gluschool/girlsideviewcroped_kkw9qk.jpg`;
 const bluetopcropgirl = `${imageEndpoint}v1597229095/gluschool/cropedbluetop_p1y2lo.jpg`;
 const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owcgya.jpg`;
-const deviceB = `${imageEndpoint}v1597665653/gluschool/device_Screen_A_nbxd5d_wqnfvz.jpg`;
+const deviceB = `${imageEndpoint}v1597145207/gluschool/device_Screen_B_kyggmp.jpg`;
+const boyCropped = `${imageEndpoint}v1597667918/boyCropped_x0l66k.png`;
 
 export const commonImg = {
     google,
@@ -162,7 +163,8 @@ export const commonImg = {
     curlyhair,
     bluetopcropgirl,
     curlygirlcroped,
-    deviceB
+    deviceB,
+    boyCropped,
 };
 
 export default commonImg;

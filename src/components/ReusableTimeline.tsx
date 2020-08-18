@@ -10,7 +10,7 @@ interface props{
     subheading1:string,
     subheading2:string
 }
-const ReusableTimeline: React.FunctionComponent = ({ date, time1,time2,subject,desc,subheading1,subheading2}) => {
+const ReusableTimeline: React.FunctionComponent<props> = ({ date, time1,time2,subject,desc,subheading1,subheading2}) => {
     return (
         <div>
             <div className="row">
