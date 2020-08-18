@@ -6,14 +6,14 @@ interface props {
     date: string;
     time1: string;
     time2: string;
-    sibject: string;
+    subject: string;
     desc: string;
     title1: string;
     title2: string;
     subheading1: string;
     subheading2: string;
 }
-const ReusableLandscape: React.FunctionComponent = ({ imgSrc,date,time1,time2,subject,desc,title1,title2,subheading1,subheading2 }) => {
+const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,title2,subheading1,subheading2 }) => {
     return (
         <>
             <div className="main_container_dashboard_col1 bg-white">
@@ -28,8 +28,8 @@ const ReusableLandscape: React.FunctionComponent = ({ imgSrc,date,time1,time2,su
                 </div>
                 <div className="row_main">
                     <div className="row">
-                        <div className="col-5"></div>
-                        <div className="col-7">
+                        <div className="col-md-5"></div>
+                        <div className="col-md-7">
                             <div className="card_image">
                                 <img className="img-fluid" src={imgSrc}  alt="" />
                             </div>
