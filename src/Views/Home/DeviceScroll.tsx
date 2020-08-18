@@ -48,7 +48,7 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
         }
     };
     return (
-        <VisibilitySensor onChange={handleDeviceScroll}>
+        <VisibilitySensor partialVisibility={true} onChange={handleDeviceScroll}>
             <div className="device__animation">
                 <div className="device__mask__container">
                     <img src={commonImg.deviceMask} alt="" />
