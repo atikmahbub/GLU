@@ -30,9 +30,9 @@ const TutorDetail = React.lazy(() => import('./Views/TutorDetail/index'));
 const TutorsUpcomingClasses = React.lazy(() => import('./Views/TutorsUpcomingClasses/Index'));
 const StudentTutorPreviousClasses = React.lazy(() => import('./Views/StudentTutorPreviousClasses/Index'));
 const studentDashboard = React.lazy(() => import('./Views/StudentDashboard/Index'));
-const studentDetail = React.lazy(() => import('./Views/StudentDashboard/StudentDetail/index'));
+const studentDetail = React.lazy(() => import('./Views/StudentDashboard/StudentDetail/Index'));
 const studentIncompleteDetail = React.lazy(() => import('./Views/StudentDashboard/StudentIncompleteDetail/Index'));
-const editStudentProfile = React.lazy(() => import('./Views/StudentDashboard/EditStudentProfile/index'));
+const editStudentProfile = React.lazy(() => import('./Views/StudentDashboard/EditStudentProfile/Index'));
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
