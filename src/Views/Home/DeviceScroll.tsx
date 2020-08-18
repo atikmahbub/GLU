@@ -12,31 +12,35 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
         if (isVisible) {
             let scrollTo = 0;
             let tempScroll = 0;
-
+            let tempVal = 0;
             window.addEventListener('scroll', () => {
                 console.log(scrollTo, (document as any).scrollingElement.scrollTop);
+
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
-                    scrollTo -= 2;
+                    tempVal = (tempScroll - (document as any).scrollingElement.scrollTop);
+                    scrollTo -= 5 - tempVal;
                 } else {
-                    scrollTo += 2;
+                    tempVal = (tempScroll - (document as any).scrollingElement.scrollTop);
+                    console.log(tempVal)
+                    scrollTo += 5 + tempVal;
                 }
-                if (scrollTo <= -2) {
-                    if (scrollTo <= -74) {
-                        scrollTo = -74;
-                        (device as any).current.style.transform = `translateY(${scrollTo}%)`;
+                if (scrollTo <= -5) {
+                    if (scrollTo <= -500) {
+                        scrollTo = -500;
+                        (device as any).current.style.transform = `translateY(${scrollTo}px)`;
                     } else {
-                        (device as any).current.style.transform = `translateY(${scrollTo}%)`;
+                        (device as any).current.style.transform = `translateY(${scrollTo}px)`;
                     }
                 } else {
                     scrollTo = 0;
-                    (device as any).current.style.transform = `translateY(${scrollTo})`;
+                    (device as any).current.style.transform = `translateY(${scrollTo}px)`;
                 }
                 tempScroll = (document as any).scrollingElement.scrollTop;
             });
         }
     };
     return (
-        <VisibilitySensor scrollCheck={true} onChange={handleDeviceScroll}>
+        <VisibilitySensor partialVisibility={true} onChange={handleDeviceScroll}>
             <div className="device__animation">
                 <div className="device__mask__container">
                     <img src={commonImg.deviceMask} alt="" />

@@ -58,12 +58,10 @@ const Home: React.FunctionComponent = () => {
             setHideAnimationMobile(false);
         }
     }, []);
-    const handleScroll = (e: any) => {
-        console.log(e)
-    };
+   
    
     return (
-        <div className="home-wrapper" onScroll={()=>console.log('sf')}>
+        <div className="home-wrapper">
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
