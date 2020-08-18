@@ -9,7 +9,7 @@ import ReusableLandscape from '../../components/ReusableLandscape';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import CalendarComponent from '../../components/CalendarComponent';
 import { common } from '@material-ui/core/colors';
-const Dashboard: React.FunctionComponent = () => {
+const PersonalDashboard: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Set Class' },
@@ -19,7 +19,7 @@ const Dashboard: React.FunctionComponent = () => {
     return (
         <div className="main_container">
             <NavigationMenu menuList={menu} />
-            <Typography className="main_container_dashboard_title">Dashboard</Typography>
+            <Typography className="main_container_dashboard_title">Personal <span className="school-color"> Dashboard</span></Typography>
             <div className="main_container_dashboard">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -162,4 +162,4 @@ const Dashboard: React.FunctionComponent = () => {
         </div>
     );
 };
-export default Dashboard;
+export default PersonalDashboard;

@@ -1,11 +1,9 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-
-
 interface props{
-    mainHeading?: string;
-    subHeading1?: string;
-    subHeading2?: string;
+    mainHeading:string,
+    subHeading1:string,
+    subHeading2:string
 }
 const SmallCard: React.FunctionComponent<props> = ({mainHeading,subHeading1,subHeading2}) => {
     return (
