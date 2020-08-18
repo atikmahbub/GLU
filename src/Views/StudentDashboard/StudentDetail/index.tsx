@@ -7,6 +7,7 @@ import DashboardWrapper from '../../../Containers/DashboardWrapper';
 import Heading from './Heading';
 import commonImg from '../../../Assets/images';
 import Education from './Education';
+
 const Index: React.FunctionComponent = () => {
     return (
         <div className="dashboard">
