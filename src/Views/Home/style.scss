@@ -382,6 +382,7 @@
                     overflow: hidden;
                     img {
                         width: 100%;
+                        border-radius: 2.5rem;
                         // transition: all 1s linear;
                         // -webkit-transition: all 1s linear;
                     }
@@ -406,6 +407,7 @@
             .section-four-right-part-container {
                 .title {
                     margin-right: 3.25rem;
+                    
                 }
             }
         }
