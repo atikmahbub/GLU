@@ -20,7 +20,7 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
                 } else {
                     scrollTo += 2;
                 }
-                if (scrollTo <= -1) {
+                if (scrollTo <= -2) {
                     if (scrollTo <= -74) {
                         scrollTo = -74;
                         (device as any).current.style.transform = `translateY(${scrollTo}%)`;
