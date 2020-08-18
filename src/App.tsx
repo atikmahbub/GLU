@@ -31,7 +31,7 @@ const TutorsUpcomingClasses = React.lazy(() => import('./Views/TutorsUpcomingCla
 const StudentTutorPreviousClasses = React.lazy(() => import('./Views/StudentTutorPreviousClasses/Index'));
 const studentDashboard = React.lazy(() => import('./Views/StudentDashboard/Index'));
 const studentDetail = React.lazy(() => import('./Views/StudentDashboard/StudentDetail/index'));
-const studentIncompleteDetail = React.lazy(() => import('./Views/StudentDashboard/studentIncompleteDetail/index'));
+const studentIncompleteDetail = React.lazy(() => import('./Views/StudentDashboard/StudentIncompleteDetail/Index'));
 const editStudentProfile = React.lazy(() => import('./Views/StudentDashboard/EditStudentProfile/index'));
 
 export class App extends React.Component {
