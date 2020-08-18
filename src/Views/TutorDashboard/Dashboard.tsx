@@ -21,7 +21,7 @@ const Dashboard: React.FunctionComponent = () => {
             <NavigationMenu menuList={menu} />
             <Typography className="main_container_dashboard_title">Dashboard</Typography>
             <div className="main_container_dashboard">
-                <div className="row">
+                <div className="row set__margin">
                     <div className="col-md-6 p-0">
                         <ReusableLandscape
                             imgSrc={commonImg.tutorDashboard}

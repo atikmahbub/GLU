@@ -1,9 +1,7 @@
 .main_container {
     background-color: $bodyColor;
-    .school-color{
-       
-            color: #8B8B8B;
-        
+    .school-color {
+        color: #8b8b8b;
     }
     .main_container_dashboard_title {
         font-size: 2.625rem;
@@ -11,12 +9,15 @@
         padding-top: 3.75rem;
     }
     &_dashboard {
+        .set__margin {
+            margin-bottom: 3.125rem;
+        }
         padding: 0 3.125rem;
-        
+
         &_col1 {
             margin-top: 3.125rem;
-            .row_main{
-                padding-left: 2.4375rem;
+            .row_main {
+                padding: 2.4375rem;
             }
             .card_subtitle {
                 float: right;
@@ -30,40 +31,38 @@
                 padding-left: 2.4375rem;
                 line-height: 2.8125rem;
                 letter-spacing: 0rem;
-                &_1{
+                &_1 {
                     font-size: 2.625rem;
                 }
             }
-            .card_image {
-                width:26.125rem;
-                height:20.18rem;
-                padding-top: 4.95rem;
-                padding-right: 7rem;
-            }
+            // .card_image {
+            //     width:26.125rem;
+            //     height:20.18rem;
+            //     padding-top: 4.95rem;
+            //     padding-right: 7rem;
+            // }
             .card_text {
                 padding-top: 4.315rem;
                 .card_text1 {
-                    &_1{
+                    &_1 {
                         line-height: 2.625rem;
                         font-size: 2.625rem;
                     }
-                    
                 }
                 .card_text2 {
-                    &_2{
+                    &_2 {
                         line-height: 2.625rem;
-                        
+
                         font-size: 2.625rem;
                     }
                 }
             }
             .card_subtext {
-                
                 padding-top: 0.5625rem;
                 padding-bottom: 8.5rem;
-                &_1{
+                &_1 {
                     line-height: 1.875rem;
-                    font-size: 1.5625rem ;
+                    font-size: 1.5625rem;
                 }
             }
         }
@@ -73,14 +72,13 @@
                 padding-top: 3.125rem;
             }
         }
-        
+
         @media screen and (min-width: 768px) {
             .main_container_dashboard_col2 {
                 padding-left: 3.125rem;
             }
         }
         .main_container_dashboard_col3 {
-            padding-top: 3.125rem;
             .card_row4 {
                 padding-top: 3.125rem;
             }
@@ -88,39 +86,34 @@
         @media screen and (min-width: 768px) {
             .main_container_dashboard_col4 {
                 margin-left: 3.125rem;
+                padding: 2.468rem;
             }
         }
-        .main_container_dashboard_col4{
-            margin-top: 3.125rem;
-            
+        .main_container_dashboard_col4 {
+            width: 100%;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+            .cardtitle__subtitle__container {
+                @include flex(center, space-between, row);
+                .card_title {
+                    max-width: 31.3rem;
+                    line-height: 5rem;
+                    font-size: 5rem;
+                    letter-spacing: 0rem;
+                }
+                .card_subtitle {
+                    font-size: 1.25rem;
+                    align-self: flex-start;
+                }
+            }
             .card_subtext {
-                
-                padding-top: 10.906rem;
-                padding-bottom: 2.156rem;
-                padding-left: 2.375rem;
-                &_1{
+                .card_subtext_1 {
                     font-size: 1.5625rem !important;
                 }
             }
-            
-            .card_title {
-                max-height: 16.625rem;
-                max-width:31.3rem;
-                line-height: 5rem;
-                padding-top: 0.75rem !important;
-                font-size: 5rem;
-                // padding-right: 12.09rem;
-                padding-left: 2.46rem;
-                letter-spacing: 0rem;
-            }
-            .card_subtitle {
-                float: right;
-                padding-right: 1.6875rem;
-                font-size: 1.25rem;
-                padding-top: 2.06rem;
-            }
         }
-        .main_container_dashboard_col5{
+        .main_container_dashboard_col5 {
             .card_row5 {
                 padding-top: 3.125rem;
             }
@@ -132,7 +125,7 @@
         }
         @media screen and (max-width: 768px) {
             .main_container_dashboard_col5 {
-                padding-left: 15px ;
+                padding-left: 15px;
             }
         }
     }
@@ -152,8 +145,7 @@
             width: calc(50% - 1.562rem);
             flex-direction: column;
             background-color: $white;
-            padding-left: 1.812rem;
-            padding-top: 1.06rem;
+            padding: 1.812rem;
             .heading {
                 font-size: 2.625rem;
                 // line-height: 2.812rem;
@@ -165,12 +157,12 @@
             .title {
                 font-size: 1.562rem;
             }
-            .second_title{
+            .second_title {
                 padding-bottom: 1.4685rem;
             }
         }
     }
-    .main_container2{
+    .main_container2 {
         width: 100vw;
         margin-top: 9.375rem;
         position: relative;
@@ -179,59 +171,57 @@
         // margin-left: -50vw;
         // margin-right: -50vw;
         // min-height: 50.68rem;
-        background-color:#76726E;
-        &_subcontainer{
+        background-color: #76726e;
+        &_subcontainer {
             padding: 0 3.125rem;
-            .main_container_dashboard_col6{
-                
-                .card_text{
+            .main_container_dashboard_col6 {
+                .card_text {
                     font-size: 2.625rem;
                     padding-top: 8.4375rem;
-                    color:$white;
+                    color: $white;
                 }
             }
-            .main_container_dashboard_col7{
-                .image_link{
+            .main_container_dashboard_col7 {
+                .image_link {
                     float: right;
                     padding-top: 9.375rem;
-                    color:$white!important;
+                    color: $white !important;
                 }
-                .img-class{
+                .img-class {
                     padding-top: 9.375rem;
                 }
-               
             }
-            .main_container_dashboard_col8{
+            .main_container_dashboard_col8 {
                 padding-top: 4.5rem;
-                .text{
+                .text {
                     font-size: 5rem;
                     line-height: 5rem;
-                    color:$white;
+                    color: $white;
                 }
             }
-            .main_container_dashboard_col9{
+            .main_container_dashboard_col9 {
                 padding-top: 5.125rem;
-                .text{
+                .text {
                     font-size: 5rem;
-                    color:$white;
+                    color: $white;
                     line-height: 5rem;
                 }
-                .subtext{
-                    color:$white;
+                .subtext {
+                    color: $white;
                     font-size: 1.25rem;
                     padding-top: 5.4rem;
                     padding-bottom: 9.06rem;
                 }
             }
             @media screen and (min-width: 768px) {
-                .main_container_dashboard_col7 ,.main_container_dashboard_col9{
+                .main_container_dashboard_col7,
+                .main_container_dashboard_col9 {
                     padding-left: 3.125rem;
                 }
             }
         }
-        
     }
-    .second_component{
+    .second_component {
         background-color: white;
         padding: 0 3.125rem;
         width: 100vw;
@@ -241,45 +231,41 @@
         // margin-left: -50vw;
         // margin-right: -50vw;
     }
-    .main_container3{
+    .main_container3 {
         padding-top: 10rem;
         background-color: $white;
-        
-            .main_container_col11{
-                @include flex(center, space-between, row);
-                .subtext{
+
+        .main_container_col11 {
+            @include flex(center, space-between, row);
+            .subtext {
+                font-size: 2.625rem;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .main_container_col12 {
+                margin-left: 3.125rem;
+            }
+        }
+        .main_container_col12 {
+            border-left-width: 4px;
+            border-left-color: #f7f7f7;
+            border-style: solid;
+            .main_subcontainer {
+                padding-left: 1.5rem;
+                .text {
+                    line-height: 2.625rem;
                     font-size: 2.625rem;
                 }
-                
-            }
-            @media screen and (min-width: 768px) {
-                .main_container_col12{
-                    margin-left: 3.125rem;
+                .subtext {
+                    padding-top: 0.5625rem;
+                    line-height: 1.5625rem;
+                    font-size: 1.5625rem;
+                    padding-bottom: 1.5rem;
                 }
             }
-            .main_container_col12{
-                border-left-width: 4px;
-                border-left-color: #F7F7F7;
-                border-style: solid;
-                .main_subcontainer{
-                    padding-left: 1.5rem;
-                    .text{
-                        line-height: 2.625rem;
-                        font-size: 2.625rem;
-                    }
-                    .subtext{
-                        padding-top: 0.5625rem;
-                        line-height: 1.5625rem;
-                        font-size: 1.5625rem;
-                        padding-bottom: 1.5rem;
-                    }
-                }
-            }
-            
-        
-        
+        }
     }
-    .main_container_4{
+    .main_container_4 {
         background-color: $white;
         width: 100vw;
         padding-top: 9.375rem;
@@ -289,9 +275,9 @@
         margin-left: -50vw;
         margin-right: -50vw;
         // background-color: $bodyColor;
-        &_subcontainer{
+        &_subcontainer {
             padding: 0 3.125rem;
         }
     }
-
 }
+
