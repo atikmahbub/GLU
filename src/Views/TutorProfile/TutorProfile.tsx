@@ -47,7 +47,7 @@ const TempComp: React.FunctionComponent<props> = () => {
                         </div>
                         <div className="col-md-6 border-coloumn1 p-0">
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-6 pr-0">
                                     <div className="profile_container_1_2_subcontainer1 ">
                                         <Typography className="subtext1">Experience</Typography>
                                         <div className="profile_container_1_2_subcontainer1_row1">
@@ -64,20 +64,22 @@ const TempComp: React.FunctionComponent<props> = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-6 p-0">
                                     <div className="profile_container_1_2_subcontainer2 border-coloumn2">
                                         <Typography className="subtext1">Education</Typography>
                                         <div className="profile_container_1_2_subcontainer2_row2">
-                                            <br></br>
+                                            
                                             <Typography className="subtext3">
                                                 University of Essex Project Management MSc
                                             </Typography>
+                                            <br></br>
                                         </div>
                                         <div className="profile_container_1_2_subcontainer2_row2">
-                                            <br></br>
+                                            
                                             <Typography className="subtext3">
                                                 Westmister University Biomedical Science BSc Honours
                                             </Typography>
+                                            <br></br>
                                         </div>
                                     </div>
                                 </div>
