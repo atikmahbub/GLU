@@ -57,5 +57,5 @@ export const rootRoute = [
     {component:studentDashboard, name: '/studentDashboard'},
     {component:studentDetail, name: '/studentDetail'},
     {component:studentIncompleteDetail, name: '/studentIncompleteDetail'},
-    {component:editStudentProfile, name: '//editStudentProfile'},
+    {component:editStudentProfile, name: '/editStudentProfile'},
 ]
