@@ -108,8 +108,9 @@
         width: 100vw;
         margin-top: 9.375rem;
         position: relative;
-        background-color: #76726e;
+        
         &_subcontainer {
+            background-color: #76726e;
             padding: 0 3.125rem;
             .main_container_dashboard_col6 {
                 .card_text {

@@ -105,7 +105,9 @@ const Dashboard: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
+            <div className="main_container2">
+                <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
+            </div>
             <div className="second_component">
                 <div className="main_container3">
                     <div className="row">

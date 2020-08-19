@@ -24,7 +24,7 @@ const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesT
 const TutorList = React.lazy(() => import('./Views/TutorList/TutorList'));
 const PreviousClasses = React.lazy(() => import('./Views/PreviousClasses/PreviousClasses'));
 const UpcomingClasses = React.lazy(() => import('./Views/UpcomingClasses/Index'));
-const TempComp = React.lazy(() => import('./Views/TempComponent/TempComp'));
+const TutorProfile = React.lazy(() => import('./Views/TutorProfile/TutorProfile'));
 const StudentIndividualSubjects = React.lazy(() => import('./Views/StudentIndividualSubjects/Index'));
 const StudentWatchPreviousClass = React.lazy(() => import('./Views/StudentWatchPreviousClass/Index'));
 const TutorDetail = React.lazy(() => import('./Views/TutorDetail/index'));
@@ -64,7 +64,7 @@ export class App extends React.Component {
                             <Route exact path="/personal-dashboard" component={PersonalDashboard} />
                             <Route exact path="/signup" component={Signup}/>
                             <Route exact path="/support" component={Support} />
-                            <Route exact path="/temp-comp" component={TempComp} />
+                            <Route exact path="/tutor-profile" component={TutorProfile} />
                             <Route exact path="/help-support" component={HelpSupport} />
                             <Route exact path="/forgot-password" component={ForgotPassword} />
                             <Route exact path="/student-forgot-password" component={StudentForgotPassword} />
