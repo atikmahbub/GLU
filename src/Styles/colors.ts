@@ -5,4 +5,5 @@ export const colors = {
     lightGray: '#fafbfe',
     grayPrimary: '#DCE1E3',
     textPrimary: '#54617A',
+    black: '#000',
 };

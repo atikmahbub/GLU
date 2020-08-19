@@ -1,10 +1,8 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { colors } from '../../Styles/colors';
-import { Person } from '@material-ui/icons';
 
 const options = {
     chart: {

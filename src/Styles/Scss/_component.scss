@@ -9,18 +9,19 @@
 
 // dashboard style
 .dashboard-wrapper {
+    font-family: 'CircularXXWeb-Book';
     .dashboard-container {
         @include flex(center, space-between, row);
         .dashboard-sidebar {
-            width: 14rem;
+            width: 17.5rem;
             background-color: $white;
             height: 100vh;
             overflow-y: auto;
             @include disableScroll;
         }
         .dashboard-content {
-            width: calc(100% - 14rem);
-            background-color: $lightGray;
+            width: calc(100% - 17.5rem);
+            background-color: $bodyColor;
             height: 100vh;
             overflow: auto;
             @include disableScroll;
@@ -30,18 +31,35 @@
                 top: 0;
                 z-index: 24;
                 @include borderRadius;
-                @include cardShadow;
                 .header-top {
-                    background-color: $white;
                     width: 100%;
                     padding: 0.7rem 1.5rem;
+                    background-color: $bodyColor;
                     @include flex(center, space-between, row);
                     .school-name-container {
                         @include flex(center, space-between, row);
-                        p {
-                            margin-right: 1rem;
-                            font-weight: 500;
-                            font-size: 1.4rem;
+                        .name__logo__container {
+                            @include flex(center, space-between, row);
+                            .logo__container{
+                                background-color: $white;
+                                width: 3.875rem;
+                                height: 3.875rem;
+                                border-radius: 3.875rem;
+                                margin-right: 1.187rem;
+                            }
+                            .school-name {
+                                margin-right: 1rem;
+                                font-size: 1.875rem;
+                                line-height: 1.875rem;
+                                font-family: inherit;
+                                color: $black;
+                            }
+                            .title {
+                                font-size: 1.25rem;
+                                line-height: 1.875rem;
+                                color: $primary;
+                                font-family: inherit;
+                            }
                         }
                     }
 
@@ -90,7 +108,7 @@
                 }
             }
             .dashboard-main-content {
-                padding: 1.5rem 1.5rem 0 1.5rem;
+                padding: 0.5rem 2.5rem;
             }
         }
     }
@@ -99,17 +117,16 @@
 // sidebar style
 .dashboard-sidebar {
     @include cardShadow;
-    background-color: $primary !important;
+    background-color: $white !important;
     z-index: 2;
+    padding-left: 3.75rem;
+    padding-top: 3.125rem;
     .logo-container {
-        @include flex(center, center, column);
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        background-color: $primary;
+        margin-bottom: 2.629rem;
         .logo {
             font-weight: 900;
-            color: $white;
+            color: $black;
+            font-family: inherit;
         }
         .slogan {
             color: $white;
@@ -118,56 +135,21 @@
     ul {
         width: 100%;
         transition: all 0.3s;
+        list-style: none;
         li {
-            background-color: $primary;
-            button {
-                width: 100%;
-                color: $white;
-                text-transform: capitalize;
-                @include flex(center, flex-start, row);
-                font-weight: 500;
-                padding-left: 2rem;
-                padding-right: 2rem;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-                text-align: left;
-                .MuiSvgIcon-root {
-                    font-size: 1.2rem;
-                    margin-right: 1rem;
-                    color: $white;
-                }
-                .arrows {
-                    font-size: 1rem;
-                    color: $white;
-                    position: absolute;
-                    right: 1rem;
-                }
+            div {
+                cursor: pointer;
+                font-size: 1.562rem;
+                user-select: none;
             }
             ul {
                 list-style: none;
                 li {
-                    background-color: $primary;
-                    button {
-                        font-size: 0.8rem;
-                        padding-left: 4.5rem;
-                        padding-right: 0;
-                        padding-top: 0.3rem;
-                        padding-bottom: 0.3rem;
-                        font-weight: 100;
-                        color: $white;
-                    }
-                    ul {
-                        li {
-                            button {
-                                font-size: 0.7rem;
-                                padding-left: 5.5rem;
-                                padding-right: 0;
-                                padding-top: 0.3rem;
-                                padding-bottom: 0.3rem;
-                                font-weight: 100;
-                                color: $white;
-                            }
-                        }
+                    div {
+                        cursor: pointer;
+                        padding-left: 0.5rem;
+                        font-size: 1rem;
+                        user-select: none;
                     }
                 }
             }
@@ -176,10 +158,7 @@
 }
 
 .card-container {
-    @include cardShadow;
-    @include borderRadius;
     background-color: $white;
-    margin-bottom: 1.5rem;
 }
 
 .blue-gradient {
@@ -633,8 +612,8 @@ button.primary-btn {
     .table-header {
         @include flex(center, space-between, row);
         .heading {
-            font-weight: 500;
-            font-size: 1rem;
+            font-size: 1.875rem;
+            font-family: inherit;
         }
         .icon {
             font-size: 1rem;
@@ -642,10 +621,10 @@ button.primary-btn {
         margin-bottom: 1rem;
     }
     .download-btn {
-        background-color: $primary;
-        color: $white;
+        background-color: $white;
+        color: $primary;
         border-radius: 0.4rem;
-        font-size: 0.65rem;
+        font-size: 1.25rem;
         text-transform: capitalize;
         font-weight: 100;
     }
@@ -881,7 +860,7 @@ button.outline-rec {
     .navigation {
         @include flex(center, space-between, row);
         padding: 1.625rem 3.125rem;
-        background-color: #fff;// added by sani
+        background-color: #fff; // added by sani
         ul {
             li {
                 display: inline-block;
@@ -897,7 +876,7 @@ button.outline-rec {
                         color: #000;
                         font-weight: 100;
                     }
-                    .link{
+                    .link {
                         font-size: 1.5rem;
                         color: #000;
                     }
@@ -907,7 +886,7 @@ button.outline-rec {
         .heading {
             font-family: 'CircularXXWeb-Book';
             // font-size: 2.187rem;// commented by sani
-            font-size: 3rem;// added by sani
+            font-size: 3rem; // added by sani
             margin-right: 1rem;
             color: $black; // added by sani
         }
@@ -915,7 +894,7 @@ button.outline-rec {
             .icon {
                 // color: $white;//commented by Sani
                 // font-size: 1.5rem;//commented by Sani
-                color: $black;//added by Sani
+                color: $black; //added by Sani
                 font-size: 2.5rem;
             }
         }
@@ -1291,7 +1270,7 @@ button.outline-button {
     transition: all 0.4s;
 }
 
-.smoth__transition{
+.smoth__transition {
     transition: all 0.4s;
 }
 
@@ -1299,51 +1278,51 @@ button.outline-button {
 
 /* Big Menu Style */
 
-.big_menu{
+.big_menu {
     background-color: #fff;
-     position: relative;
+    position: relative;
     z-index: 2;
-    padding:1rem 4.2rem 4.2rem;
+    padding: 1rem 4.2rem 4.2rem;
 }
-.big_menu .big_menu_title{
-    color:#5F5F5F;
-    font-size:1.785rem;
+.big_menu .big_menu_title {
+    color: #5f5f5f;
+    font-size: 1.785rem;
     padding-bottom: 20px;
     font-family: 'CircularXXWeb-Book';
 }
-.big_menu .big_menu_items{
-    padding-bottom:4rem;
+.big_menu .big_menu_items {
+    padding-bottom: 4rem;
 }
-.big_menu .big_menu_item{
-    color:#000;
-    font-size:1.785rem;
-    list-style-type:none;
+.big_menu .big_menu_item {
+    color: #000;
+    font-size: 1.785rem;
+    list-style-type: none;
     font-family: 'CircularXXWeb-Book';
 }
-.big_menu .big_menu_see_more_link{
-    font-size:1.428rem;
+.big_menu .big_menu_see_more_link {
+    font-size: 1.428rem;
     font-family: 'CircularXXWeb-Book';
-    color:#2267FF;
+    color: #2267ff;
 }
-.big_menu .big_menu_items .big_menu_feature_img{
-   height: 140px;
-   width:175px;
+.big_menu .big_menu_items .big_menu_feature_img {
+    height: 140px;
+    width: 175px;
 }
-.big_menu .big_menu_items .big_menu_feature_img_container{
-   padding-bottom: 2rem;
-   padding-top: 5px;
+.big_menu .big_menu_items .big_menu_feature_img_container {
+    padding-bottom: 2rem;
+    padding-top: 5px;
 }
-.big_menu .big_menu_items .big_menu_feature_title{
-  font-size: 3.5rem;
-  font-family: 'CircularXXWeb-Book';
+.big_menu .big_menu_items .big_menu_feature_title {
+    font-size: 3.5rem;
+    font-family: 'CircularXXWeb-Book';
 }
-.big_menu .big_menu_items .big_menu_feature_subtitle{
-  font-size:1.285rem;
-  color: #5F5F5F;
-  font-family: 'CircularXXWeb-Book';
+.big_menu .big_menu_items .big_menu_feature_subtitle {
+    font-size: 1.285rem;
+    color: #5f5f5f;
+    font-family: 'CircularXXWeb-Book';
 }
 
-.big_menu .border_left_featured{
+.big_menu .border_left_featured {
     border-left: 2px solid #ccc;
     padding-left: 20px;
 }

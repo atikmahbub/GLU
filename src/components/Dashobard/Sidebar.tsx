@@ -3,6 +3,7 @@ import { Typography, Button } from '@material-ui/core';
 import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
 import { ArrowForwardIos } from '@material-ui/icons';
 import { v4 as uuidv4 } from 'uuid';
+import { colors } from '../../Styles/colors';
 
 export interface sidebarItems {
     menuName: string;
@@ -61,15 +62,13 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
         <div className="dashboard-sidebar">
             <div className="logo-container">
                 <Typography variant="h3" className="logo">
-                    Glu.
+                    Glu
                 </Typography>
-                <div className="bottom-line"></div>
             </div>
             <ul>
                 {sidebarMenu.map((menu: any, index: number) => (
                     <li key={uuidv4()}>
-                        <Button
-                            startIcon={menu.icon}
+                        <div
                             onClick={() => {
                                 !menu.isExpandable &&
                                     routes.push({
@@ -79,17 +78,17 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                 handleSubMenu(index);
                             }}>
                             {menu.menuName}
-                            {handleArrowAngle(menu, 'main')}
-                        </Button>
+                            {/* {handleArrowAngle(menu, 'main')} */}
+                        </div>
                         <ul style={{ display: menu.isOpen ? 'block' : 'none' }}>
                             {menu.menuList.map((submenu: sidebarItems) => (
                                 <li
                                     key={uuidv4()}
                                     style={{
-                                        backgroundColor:
-                                            pathname === `${url}${submenu.routeName}` ? 'rgba(0,0,0,0.23)' : '',
+                                        color:
+                                            pathname === `${url}${submenu.routeName}` ? colors.primary : colors.black,
                                     }}>
-                                    <Button
+                                    <div
                                         onClick={() => {
                                             !submenu.isExpandable &&
                                                 routes.push({
@@ -101,8 +100,8 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                             handleSubSubMenu(index);
                                         }}>
                                         {submenu.menuName}
-                                        {submenu.isExpandable && handleArrowAngle(submenu, 'sub')}
-                                    </Button>
+                                        {/* {submenu.isExpandable && handleArrowAngle(submenu, 'sub')} */}
+                                    </div>
                                     <ul style={{ display: submenu.isOpen ? 'block' : 'none' }}>
                                         {submenu.menuList.map((childSubmenu) => (
                                             <li
@@ -113,7 +112,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                                             ? 'rgba(0,0,0,0.23)'
                                                             : '',
                                                 }}>
-                                                <Button
+                                                <div
                                                     onClick={() =>
                                                         !childSubmenu.isExpandable &&
                                                         routes.push({
@@ -124,7 +123,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                                         })
                                                     }>
                                                     {childSubmenu.menuName}
-                                                </Button>
+                                                </div>
                                             </li>
                                         ))}
                                     </ul>

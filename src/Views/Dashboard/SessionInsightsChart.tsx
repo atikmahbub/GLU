@@ -18,8 +18,8 @@ const options = {
         text: '',
     },
     xAxis: {
-        categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        tickInterval: 0,
+        categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        tickInterval: 0,        
         plotLines: [
             {
                 color: 'red',
@@ -33,6 +33,7 @@ const options = {
     },
     yAxis: {
         categories: [0, 5000, 10000, 15000, 20000],
+        color:colors.black,
         tickInterval: 5000,
         title: {
             text: null,
@@ -60,9 +61,9 @@ const options = {
     },
     series: [
         {
-            data: [0, 16000, 8000, 18000, 13000, 5000, 12000],
+            data: [0, 19000, 8000, 1000, 20000, 22000, 10000],
             color: colors.primary,
-            lineWidth: 3.5,
+            lineWidth: 2,
             showInLegend: false,
             marker: {
                 enabled: false,
@@ -70,18 +71,7 @@ const options = {
                 radius: 5,
                 opacity: 1,
                 lineWidth: 3,
-                lineColor: '#707070',
-                symbol: 'circle',
-            },
-        },
-        {
-            data: [0, 6000, 1000, 7000, 17000, 18000, 2000],
-            color: colors.grayPrimary,
-            lineWidth: 1,
-            showInLegend: false,
-            marker: {
-                enabled: false,
-                fillColor: '#242E42',
+                lineColor: colors.black,
                 symbol: 'circle',
             },
         },
@@ -100,7 +90,7 @@ export const SessionInsightsChart = () => {
                 <Typography className="head-text">Session Insights</Typography>
             </div>
             <div className="revenue-content">
-                <div className="revenue-week-stat">
+                {/* <div className="revenue-week-stat">
                     <div className="col-md-3">
                         <Typography className="sub-text ">Session Taken</Typography>
                         <Typography className="revenue-count">
@@ -113,7 +103,7 @@ export const SessionInsightsChart = () => {
                             <span style={{backgroundColor: colors.grayPrimary}} className="previous bullet-icon"></span>5,320
                         </Typography>
                     </div>
-                </div>
+                </div> */}
                 <div className="revenue-chart">
                     <HighchartsReact highcharts={Highcharts} options={options} />
                 </div>

@@ -15,8 +15,6 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
             let tempScroll = 0;
             let tempVal = 0;
             window.addEventListener('scroll', () => {
-                console.log(scrollTo, (document as any).scrollingElement.scrollTop);
-
                 if (tempScroll < (document as any).scrollingElement.scrollTop) {
                     tempVal = tempScroll - (document as any).scrollingElement.scrollTop;
                     scrollTo -= 5 - tempVal;
@@ -26,12 +24,12 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
                     scrollTo += 5 + tempVal;
                 }
                 if (scrollTo <= -5) {
-                    if (scrollTo <= -500) {
+                    if (scrollTo <= -3000) {
                         if (isFirstView) {
                             scrollTo = 0;
                             isFirstView = false;
                         } else {
-                            scrollTo = -500;
+                            scrollTo = -3000;
                         }
                         (device as any).current.style.transform = `translateY(${scrollTo}px)`;
                     } else {
