@@ -18,10 +18,10 @@ const Header: React.FunctionComponent<props> = ({ name }) => {
             </div>
             <div className="bio__box">
                 <p className="bio__heading">Bio</p>
-                <p className="bio__detail">
+                <textarea className="bio__detail">
                     I’m Frank, a secondary Student at GEMS school in Dubai. Currently studying Maths, Business Studies
                     and History.
-                </p>
+                </textarea>
             </div>
         </>
     );

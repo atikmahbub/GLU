@@ -73,10 +73,10 @@ export class App extends React.Component {
                             <Route exact path="/tutor-detail" component={TutorDetail} />
                             <Route path="/verification" component={verification} />
                             <PrivateRoute path="/dashboard/" component={Dashboard} />
-                            <Route path="/studentDashboard/" component={studentDashboard} />
-                            <Route path="/studentDetail/" component={studentDetail} />
-                            <Route path="/studentIncompleteDetail/" component={studentIncompleteDetail} />
-                            <Route path="/editStudentProfile/" component={editStudentProfile} />
+                            <Route path="/student-dashboard/" component={studentDashboard} />
+                            <Route path="/student-detail/" component={studentDetail} />
+                            <Route path="/student-incomplete-detail/" component={studentIncompleteDetail} />
+                            <Route path="/edit-student-profile/" component={editStudentProfile} />
                         </Switch>
                     </Suspense>
                 </Router>
