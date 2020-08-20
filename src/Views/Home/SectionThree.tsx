@@ -1,20 +1,20 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import commonImg from '../../Assets/images';
 import DeviceScroll from './DeviceScroll';
 
 interface props{
-    image: string;
-    msg:string;
+    image?: string;
+    msg?:string;
+    containerName?:string;
 }
-const SectionThree: React.FunctionComponent<props> = ({image, msg}) => {
+const SectionThree: React.FunctionComponent<props> = ({image, msg, containerName}) => {
     return (
         <div className="section-three">
             <div className="row">
                 <div className="col-md-6 col-lg-6">
                     <div className="left-part">
                         {/* <img src={image} alt="" /> */}
-                        <DeviceScroll image={image}/>
+                        <DeviceScroll image={image} containerName={containerName}/>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-6 d-flex">
