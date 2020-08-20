@@ -19,6 +19,7 @@ const verification = React.lazy(() => import('./Views/Auth/Verification/Verifica
 const Dashboard = React.lazy(() => import('./Views/Dashboard/index'));
 const TutorDashboard = React.lazy(() => import('./Views/TutorDashboard/Dashboard'));
 const PersonalDashboard = React.lazy(() => import('./Views/PersonalSchool/PersonalDashboard'));
+const PersonalDashboard2 = React.lazy(() => import('./Views/PersonalSchool2/PersonalDashboard2'));
 const StudentHomePage = React.lazy(() => import('./Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('./Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const TutorList = React.lazy(() => import('./Views/TutorList/TutorList'));
@@ -62,6 +63,7 @@ export class App extends React.Component {
                             <Route exact path="/student-tutors" component={TutorList} />
                             <Route exact path="/tutor-dashboard" component={TutorDashboard} />
                             <Route exact path="/personal-dashboard" component={PersonalDashboard} />
+                            <Route exact path="/personal-dashboard-2" component={PersonalDashboard2} />
                             <Route exact path="/signup" component={Signup}/>
                             <Route exact path="/support" component={Support} />
                             <Route exact path="/tutor-profile" component={TutorProfile} />

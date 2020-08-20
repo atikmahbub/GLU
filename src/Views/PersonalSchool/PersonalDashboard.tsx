@@ -26,6 +26,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
             <div className="main_container_dashboard">
                 <div className="row set__margin">
                     <div className="col-md-6 p-0">
+                    <div className="main_container_dashboard_col1 bg-white">
                         <ReusableLandscape
                             imgSrc={commonImg.tutorDashboard}
                             title1={'Upcomming'}
@@ -38,6 +39,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             subject={'Geography.'}
                             desc={'Igneous, Sedimentary,'}
                         />
+                        </div>
                     </div>
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
@@ -90,18 +92,13 @@ const PersonalDashboard: React.FunctionComponent = () => {
                         subHeading1={'4'}
                         subHeading2={'37/40'}
                     />
-
-                    <div className="row">
-                        <div className="col-md-6"></div>
-                        <div className="col-md-6 p-0">
-                            <div className="main_container_dashboard_col5">
-                                <div className="card__row card_row5">
-                                    <SmallCard
-                                        mainHeading={'Wallet'}
-                                        subHeading1={'Balance'}
-                                        subHeading2={'AED15,740'}
-                                    />
-                                </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6"></div>
+                    <div className="col-md-6 p-0">
+                        <div className="main_container_dashboard_col5">
+                            <div className="card__row card_row5">
+                                <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED15,740'} />
                             </div>
                         </div>
                     </div>
