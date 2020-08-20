@@ -1,6 +1,18 @@
 .admin-page-container {
     .admin-page {
-        padding: 4rem;
+        padding: 3.75rem;
+        .information__name__container{
+            .title{
+                font-size: 1.562rem;
+                line-height: 1.875rem;
+                font-family: inherit;
+                color: $black;
+                cursor: pointer;
+            }
+            .active{
+                color: $titleGray;
+            }
+        }
         .social-media-container {
             .social-link-container {
                 @include flex(center, flex-start, row);
@@ -32,13 +44,42 @@
             margin-top: 2rem;
             
         }
-    }
-    .school-information-container {
-    }
-    .heading {
-        font-size: 1.2rem;
-        font-weight: 500;
-        color: #403b3b;
-        margin-bottom: 1rem;
+        .school-information-container{
+            .biograpghy__container{
+                width: 100%;
+                margin-bottom: 2rem;
+                .title{
+                    font-size: 1.562rem;
+                    line-height: 1.875rem;
+                    color: $black;
+                    font-family: inherit;
+                    margin-bottom: 0.5rem;
+                }
+                .textbox{
+                    width: 100%;
+                    &:focus{
+                        outline-color: $primary;
+                    }
+                }
+            }
+        }
+        .controller__bottom{
+            .help-support{
+                font-size: 1rem;
+                color: $black;
+                font-family: 'CircularXXMonoWeb-Regular';
+            }
+            .arrow__container{
+                @include flex(center, space-between,row);
+                float: right;
+                cursor: pointer;
+                max-width: 4.5rem;
+                .text{
+                    font-size: 1rem;
+                    color: $black;
+                    font-family: 'CircularXXMonoWeb-Regular';
+                }
+            }
+        }
     }
 }
