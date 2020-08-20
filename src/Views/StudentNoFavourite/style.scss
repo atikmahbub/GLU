@@ -4,7 +4,7 @@
 
     .dashboard__wrapper {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         padding: 2.437rem 3.875rem;
         font-family: 'CircularXXWeb-Book';
         .heading {
@@ -27,5 +27,13 @@
         position: absolute;
         width: 100%;
         bottom: 50px;
+    }
+}
+@media only screen and (max-width: 630px) {
+    .school__nofav {
+        .dashboard__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

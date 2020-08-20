@@ -30,6 +30,7 @@ const studentIncompleteDetail = React.lazy(() => import('../../Views/StudentDash
 const editStudentProfile = React.lazy(() => import('../../Views/StudentDashboard/EditStudentProfile/Index'));
 const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo/Index'));
 const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
+const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
 const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
 
 export const rootRoute = [
@@ -63,5 +64,6 @@ export const rootRoute = [
     { component: editStudentProfile, name: '/edit-student-profile' },
     { component: studentSchoolInfo, name: '/student-school-info' },
     { component: studentNoFavourite, name: '/student-no-favourite' },
+    { component: studentNoPreviousClass, name: '/student-no-previous-class' },
     { component: studentFavourite, name: '/student-favourite' },
 ];
