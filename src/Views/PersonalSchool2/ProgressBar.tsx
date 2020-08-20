@@ -2,16 +2,15 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 
 interface props {
-    
-    time: string;
-  
-    subject: string;
-    classType: string;
-    attendance:string;
-    progress:Number;
-    type:string;
-    typeNumber:string;
-    typeClassroom:string;
+    time?: string;
+
+    subject?: string;
+    classType?: string;
+    attendance?: string;
+    progress?: Number;
+    type?: string;
+    typeNumber?: string;
+    typeClassroom?: string;
 }
 const ProgressBar: React.FunctionComponent<props> = ({
     time,
@@ -20,7 +19,7 @@ const ProgressBar: React.FunctionComponent<props> = ({
     progress,
     type,
     typeNumber,
-    typeClassroom
+    typeClassroom,
 }) => {
     return (
         <>
@@ -33,7 +32,7 @@ const ProgressBar: React.FunctionComponent<props> = ({
             <div className="row">
                 <div className="col-6 p-0">
                     <div className="subtext_container">
-    <Typography className="subtext">{typeClassroom}</Typography>
+                        <Typography className="subtext">{typeClassroom}</Typography>
                         <Typography className="subtext">{classType}</Typography>
                     </div>
                 </div>
@@ -46,7 +45,7 @@ const ProgressBar: React.FunctionComponent<props> = ({
             </div>
             <div className="row w-75">
                 <div className="progress">
-                    <span className="bar" style={{width:`${progress}%`}}></span>
+                    <span className="bar" style={{ width: `${progress}%` }}></span>
                 </div>
             </div>
         </>

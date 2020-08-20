@@ -1,26 +1,33 @@
 .card-status.attandece-card {
     color: $white;
-    background-color: $primary;
-    border-radius: 0.3rem;
+    background-color: $white;
+    margin-bottom: 1.25rem;
     .status-header {
         .status-icon {
             color: $white;
         }
         .status-heading {
-            color: $white;
+            color: $black;
+            font-size: 1.875rem;
         }
     }
     .total-no {
-        color: $white;
+        margin-top: 3.812rem;
+        margin-bottom: 1rem;
+        color: $black;
+        font-size: 3.125rem;
+        font-family: inherit;
+    }
+    .primary__text{
+        color: $primary;
+        font-family: inherit;
     }
 }
 
 .card-status {
-    // @include flex(center, space-between, column);
-    padding: 1rem;
+    padding: 1.875rem;
     color: $headingPrimary;
     .status-header {
-        @include flex(center, flex-start, row);
         margin-bottom: 1rem;
         .status-icon {
             color: inherit;
@@ -28,9 +35,9 @@
             margin-right: 0.4rem;
         }
         .status-heading {
-            color: inherit;
-            font-weight: 200;
-            font-size: 0.9rem;
+            color: $black;
+            font-size: 1.875rem;
+            font-family: inherit;
         }
         .right-icon-box {
             align-self: flex-end;
@@ -46,16 +53,17 @@
         }
     }
     .total-no {
-        font-size: 2rem;
-        color: #7d7d7e;
-        font-weight: 500;
+        font-size: 3.125rem;
+        line-height: 3.125rem;
+        color: $black;
         align-self: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.2rem;
+        margin-top: 2rem;
     }
     .total-status {
-        color: inherit;
-        font-weight: 200;
-        font-size: 0.9rem;
+        color: $black;
+        font-size:1.25rem;
+        margin-bottom: 0.2rem!important;
     }
 }
 
@@ -64,7 +72,6 @@
     position: relative;
     height: 100%;
     @include borderRadius;
-    @include cardShadow;
     .menu-options{
         position: absolute;
         top: 0.6rem;
@@ -116,7 +123,9 @@
             border-bottom: none;
         }
         .head-text {
-            font-size: 1.4rem;
+            font-size: 1.875rem;
+            font-family: inherit;
+            color: $black;
             font-weight: 500;
         }
         .head-dots {
@@ -155,8 +164,6 @@
                 }
             }
         }
-        .revenue-chart {
-        }
     }
 }
 .upcomming-event-container {
@@ -174,30 +181,24 @@
     }
     .event-body {
         .event-chip-card {
-            border: 1px solid $textPrimary;
             border-radius: 0.3rem;
             margin-bottom: 1rem;
             padding: 1rem;
-            @include flex(center, space-between, row);
+            @include flex(center, flex-start, row);
             .circle {
-                width: 3rem;
-                height: 3rem;
-                border-radius: 3rem;
-                background-color: $primary;
-                font-size: 1rem;
-                color: $white;
-                @include flex(center, center, row);
+                font-size: 1.562rem;
+                color: $black;
+                margin-right: 4.937rem;
             }
             .middle {
                 .heading {
-                    color: $textPrimary;
-                    font-size: 0.9rem;
-                    font-weight: 500;
+                    color: $black;
+                    font-size: 1.25rem;
+                    line-height: 1.562rem;
+                    font-family: inherit;
                 }
-                .subheading {
-                    color: $textPrimary;
-                    font-size: 0.7rem;
-                    font-weight: 400;
+                .org{
+                    color: $gray;
                 }
             }
             .right {
@@ -235,11 +236,16 @@
     stroke-dasharray:none;
 }
 
-g.highcharts-axis-labels.highcharts-yaxis-labels text,
+
 g.highcharts-axis-labels.highcharts-xaxis-labels text {
-    fill: rgb(130, 140, 158) !important;
+    fill: $gray !important;
     font-size: 0.9rem !important;
-    font-family: 'Roboto';
+    font-family: 'CircularXXWeb-Book';
+}
+g.highcharts-axis-labels.highcharts-yaxis-labels text{
+    fill: $black !important;
+    font-size: 0.9rem !important;
+    font-family: 'CircularXXWeb-Book';
 }
 
 .arrow {
@@ -260,3 +266,21 @@ g.highcharts-axis-labels.highcharts-xaxis-labels text {
     background-color: red;
 }
 
+.bottom-margin{
+    margin-bottom: 0.325rem;
+}
+.table_margin{
+    margin-top: 0.325rem;
+}
+.equal__padding{
+    padding: 0.625rem;
+}
+.equal__row__padding{
+    padding: 0.325rem;
+}
+.right__part__padding{
+    padding-left: 1.25rem!important;
+}
+.attendance_column{
+    position: sticky;
+}

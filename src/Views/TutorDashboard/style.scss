@@ -218,9 +218,12 @@
             }
         }
     }
-    // .main_container_dashboard_col5 {
-    //     padding: 15px;
-    // }
+    .main_container_dashboard_col5 {
+        .card_row5{
+            padding-top: 3.125rem;
+        }
+        
+    }
 }
 //Media Queries
 @media screen and (min-width: 768px) {
@@ -265,20 +268,21 @@
             width: calc(50% - 1.562rem);
             flex-direction: column;
             background-color: $white;
-            padding: 1.812rem;
+            padding: 1.812rem 1.812rem;
             .heading {
-                font-size: 2.625rem;
+                font-size: 2.2vw;
                 color: $black;
+                line-height: 2.8125rem;
             }
             .first__title {
                 padding-top: 5.593rem;
+                
             }
             .title {
-                font-size: 1.562rem;
+                font-size: 1.5625rem;
+                line-height: 1.875rem;
             }
-            .second_title {
-                padding-bottom: 1.4685rem;
-            }
+            
         }
     }
 }

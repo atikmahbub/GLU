@@ -30,20 +30,20 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                                 <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
                                     mainHeading={'Record Class'}
-                                    subHeading1={'Create and Publish'}
-                                    subHeading2={'7/20 Spaces'}
+                                    subHeading1={'Create and publish'}
+                                    subHeading2={'a new class'}
                                 />
                             </div>
                             <div className="card__row card_row2">
-                                <SmallCard
-                                    mainHeading={'Availablity'}
-                                    subHeading1={'Status'}
-                                    subHeading2={'Limited Availablity'}
+                            <SmallCard
+                                    mainHeading={'Extra Curricular'}
+                                    subHeading1={'Published'}
+                                    subHeading2={'13'}
                                 />
                                 <SmallCard
-                                    mainHeading={'Availablity'}
-                                    subHeading1={'Status'}
-                                    subHeading2={'Limited Availablity'}
+                                    mainHeading={'Whiteboard'}
+                                    subHeading1={'Try out what the class '}
+                                    subHeading2={'be like'}
                                 />
                             </div>
                         </div>
@@ -51,11 +51,11 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col2">
                             <div className="card__row card_row3">
-                                <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard mainHeading={'Availablity'} subHeading1={'Status'} subHeading2={'Limited Availablity'} />
                                 <SmallCard
-                                    mainHeading={'Record Class'}
-                                    subHeading1={'Create and Publish'}
-                                    subHeading2={'7/20 Spaces'}
+                                    mainHeading={'Homework'}
+                                    subHeading1={'Assigned'}
+                                    subHeading2={'17'}
                                 />
                             </div>
                         </div>
@@ -66,11 +66,11 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col3 ">
                             <div className="card__row card_row4">
-                                <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard mainHeading={'Exam Results'} subHeading1={'Marks Due'} subHeading2={'3'} />
                                 <SmallCard
-                                    mainHeading={'Record Class'}
-                                    subHeading1={'Create and Publish'}
-                                    subHeading2={'7/20 Spaces'}
+                                    mainHeading={'Recommendation'}
+                                    subHeading1={'Total'}
+                                    subHeading2={'57'}
                                 />
                             </div>
                         </div>

@@ -5,8 +5,9 @@ import OutlineBtn from '../../components/Button/OutlineBtn';
 import { colors } from '../../Styles/colors';
 import DateSelector from '../../components/DateTimeSelector/DateSelector';
 import { useLocation, useHistory } from 'react-router-dom';
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 import { resetTokenAndLocalStorage } from '../../Utility/API';
+import commonImg from '../../Assets/images';
 
 interface headerProps {
     title: string;
@@ -48,9 +49,9 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
     };
 
     const resetAuth = () => {
-        resetTokenAndLocalStorage()
+        resetTokenAndLocalStorage();
         history.push('/');
-    }
+    };
 
     useEffect(() => {
         setNavigation();
@@ -64,8 +65,15 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
         <div className="dashboard-header">
             <div className="header-top">
                 <div className="school-name-container">
-                    <Typography className="school-name">St. Xavier's Collegiate School</Typography>
-                    <OutlineBtn title="Visit Website" color={colors.primary} />
+                    <div className="name__logo__container">
+                        <div className="logo__container">
+                            <img src={commonImg.schoolLogo} alt=""/>
+                        </div>
+                        <div>
+                        <Typography className="school-name">St. Xavier's Collegiate School</Typography>
+                        <Typography className="title">Visit website</Typography>
+                        </div>
+                    </div>
                 </div>
                 <div className="bages-avatar">
                     <IconButton className="notification-btn">
@@ -74,29 +82,15 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                         </Badge>
                     </IconButton>
                     {/* <div className="user-avatar-sectio"> */}
-                        <Avatar
-                            alt="Remy Sharp"
-                            src="https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg"
-                        />
+                    <Avatar
+                        alt="Remy Sharp"
+                        src="https://www.americanaircraftsales.com/wp-content/uploads/2016/09/no-profile-img.jpg"
+                    />
 
                     {/* </div> */}
                     <IconButton onClick={resetAuth} className="notification-btn mr-0 ml-4">
-                        <PowerSettingsNew/>
+                        <PowerSettingsNew />
                     </IconButton>
-                </div>
-            </div>
-            <div className="header">
-                {icon}
-                <Typography variant="h4" className="heading">
-                    {navArray.map((item, i) => (
-                        <span key={uuidv4()}>
-                            <span>{item}</span>
-                            <span className="splitter"> {i !== navArray.length - 1 ? '>' : null} </span>
-                        </span>
-                    ))}
-                </Typography>
-                <div className="date-container">
-                    <DateSelector style={classes.datePickerStyle} />
                 </div>
             </div>
         </div>
