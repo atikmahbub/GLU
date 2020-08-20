@@ -81,6 +81,7 @@ const bluetopcropgirl = `${imageEndpoint}v1597229095/gluschool/cropedbluetop_p1y
 const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owcgya.jpg`;
 const deviceB = `${imageEndpoint}v1597145207/gluschool/device_Screen_B_kyggmp.jpg`;
 const boyCropped = `${imageEndpoint}v1597667918/boyCropped_x0l66k.png`;
+import schoolLogo from "./img/schoolLogo.png";
 
 export const commonImg = {
     google,
@@ -165,6 +166,7 @@ export const commonImg = {
     curlygirlcroped,
     deviceB,
     boyCropped,
+    schoolLogo
 };
 
 export default commonImg;

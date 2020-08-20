@@ -1,66 +1,38 @@
-import React, { createRef } from 'react';
+import React, { createRef, useEffect } from 'react';
 import commonImg from '../../Assets/images';
-import VisibilitySensor from 'react-visibility-sensor';
 
 interface props {
     image?: string;
+    containerName?: string;
 }
-const DeviceScroll: React.FunctionComponent<props> = ({ image }) => {
+const DeviceScroll: React.FunctionComponent<props> = ({ image, containerName }) => {
     const device = createRef<HTMLImageElement>();
-    const handleDeviceScroll = (isVisible: boolean) => {
-        console.log(isVisible);
-        let isFirstView = true;
-        if (isVisible) {
-            let scrollTo = 0;
-            let tempScroll = 0;
-            let tempVal = 0;
-            window.addEventListener('scroll', () => {
-                console.log(scrollTo, (document as any).scrollingElement.scrollTop);
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const deviceContainer = document.querySelector(`#${containerName}`);
+            const bounding: any = deviceContainer?.getBoundingClientRect();
+            const winwowHeight = window.innerHeight || document.documentElement.clientHeight;
+            if (winwowHeight - bounding.top > 0 && bounding.bottom > 0) {
+                const scrollAt = bounding.top - winwowHeight;
+                (device as any).current.style.cssText = `will-change: transform;
+                transform: translate3d(0px, ${scrollAt}px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                transform-style: preserve-3d;`;
+            }
+        });
+    }, []);
 
-                if (tempScroll < (document as any).scrollingElement.scrollTop) {
-                    tempVal = tempScroll - (document as any).scrollingElement.scrollTop;
-                    scrollTo -= 5 - tempVal;
-                } else {
-                    tempVal = tempScroll - (document as any).scrollingElement.scrollTop;
-                    console.log(tempVal);
-                    scrollTo += 5 + tempVal;
-                }
-                if (scrollTo <= -5) {
-                    if (scrollTo <= -500) {
-                        if (isFirstView) {
-                            scrollTo = 0;
-                            isFirstView = false;
-                        } else {
-                            scrollTo = -500;
-                        }
-                        (device as any).current.style.transform = `translateY(${scrollTo}px)`;
-                    } else {
-                        (device as any).current.style.transform = `translateY(${scrollTo}px)`;
-                    }
-                } else {
-                    scrollTo = 0;
-                    (device as any).current.style.transform = `translateY(${scrollTo}px)`;
-                }
-                tempScroll = (document as any).scrollingElement.scrollTop;
-            });
-        } else {
-            window.removeEventListener('scroll', () => {});
-        }
-    };
     return (
-        <VisibilitySensor partialVisibility={true} onChange={handleDeviceScroll}>
-            <div className="device__animation">
-                <div className="device__mask__container">
-                    <img src={commonImg.deviceMask} alt="" />
-                    <div className="taskbar__container">
-                        <img className="taskbar" src={commonImg.deviceTaskbar} alt="" />
-                    </div>
-                </div>
-                <div className="device__container">
-                    <img id={`device__content`} ref={device} src={image} alt="" />
+        <div id={containerName} className="device__animation">
+            <div className="device__mask__container">
+                <img src={commonImg.deviceMask} alt="" />
+                <div className="taskbar__container">
+                    <img className="taskbar" src={commonImg.deviceTaskbar} alt="" />
                 </div>
             </div>
-        </VisibilitySensor>
+            <div className="device__container">
+                <img ref={device} src={image} alt="" />
+            </div>
+        </div>
     );
 };
 

@@ -81,13 +81,12 @@ th.MuiTableCell-root {
                     padding-left: 1rem;
                 }
             }
-            &:nth-child(even) {
+    
                 td.MuiTableCell-root {
-                    background-color: #e5effb;
+                    background-color: $white;
                     &:first-child{
                         padding-left: 1rem;
                     }
-                }
             }
             &:last-child {
                 td.MuiTableCell-root {
@@ -99,8 +98,8 @@ th.MuiTableCell-root {
             border-bottom: 1px solid #aaacad;
             background-color: #e5effb;
             font-weight: 100;
-            font-size: 0.75rem !important;
-            color: #7d7d7e !important;
+            font-size: 1.125rem !important;
+            color: $black !important;
             padding: 0.5rem 1rem;
         }
         td.MuiTablePagination-root {
@@ -116,7 +115,7 @@ th.MuiTableCell-root {
         background-color: $white;
         color: #7d7d7e;
         font-weight: 600;
-        font-size: 0.9rem !important;
+        font-size: 1.125rem !important;
         span {
             &:hover {
                 color: $darkGray;

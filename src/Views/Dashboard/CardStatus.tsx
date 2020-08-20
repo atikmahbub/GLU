@@ -14,9 +14,6 @@ const CardStatus: React.FunctionComponent<cardStatusProps> = ({ icon, heading, t
             <div className="status-header">
                 {icon}
                 <Typography className="status-heading">{heading}</Typography>
-                <div className="right-icon-box">
-                    <PeopleAlt className="icon"/>
-                </div>
             </div>
             <Typography className="total-no">{total}</Typography>
             <Typography className="total-status">Total No Of {heading}</Typography>

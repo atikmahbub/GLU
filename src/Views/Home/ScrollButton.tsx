@@ -33,7 +33,7 @@ const ScrollButton = () => {
         }, 10);
     };
     return (
-        <div className="scroll__container" >
+        <div className="scroll__container" onClick={handleScroll} >
             <Typography className="text">Scroll</Typography>
             <ArrowDownward className="icon" />
         </div>

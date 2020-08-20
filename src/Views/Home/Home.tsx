@@ -16,7 +16,6 @@ import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
 import BottomGAtext from './BottomGAtext';
 
-
 const Home: React.FunctionComponent = () => {
     const menuList = [
         { link: '', name: 'Accounts' },
@@ -54,14 +53,16 @@ const Home: React.FunctionComponent = () => {
             setShowOthers(true);
             setAnimationComplete(true);
             setShow(true);
-        }else{
+        } else {
             setHideAnimationMobile(false);
         }
     }, []);
-   
-   
+    const handleScroll = () => {
+        console.log('sdgdf');
+    };
+
     return (
-        <div className="home-wrapper">
+        <div className="home-wrapper" onScroll={handleScroll}>
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
@@ -97,12 +98,12 @@ const Home: React.FunctionComponent = () => {
                         desktopTitle="Qualified Teachers"
                         msg={<>Earn money from the comfort of your own home</>}
                     />
-                   
-                        <SectionThree
-                            image={commonImg.deviceA}
-                            msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
-                        />
-                   
+
+                    <SectionThree
+                        containerName="device__animationA"
+                        image={commonImg.deviceA}
+                        msg="By using Glu all concerned parties are able to view and share any relevant educational information as well as the past, present and future study skills of the student"
+                    />
 
                     <SectionFour
                         imageOne={commonImg.scaffgirl}
@@ -126,6 +127,7 @@ const Home: React.FunctionComponent = () => {
                         />
                     </div>
                     <SectionThree
+                        containerName="device__animationB"
                         image={commonImg.deviceB}
                         msg="Our range of qualified and experienced teachers allow for 24/7 access to lessons and live classes, enabling learning in a student’s own time and environment"
                     />

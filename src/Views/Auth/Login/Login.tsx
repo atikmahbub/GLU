@@ -19,7 +19,7 @@ type props = {
 class Login extends React.PureComponent<props> {
     state = {
         // role: 'school',
-        username: 'anil1234',
+        username: 'upk@123',
         password: 'Test@1234',
     };
     handleLoginAs = (value: string) => {
