@@ -2,18 +2,20 @@ import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { TextField, Typography, Button } from '@material-ui/core';
 import LinkContainer from './LinkContainer';
-import { Facebook, LinkedIn, Twitter, YouTube } from '@material-ui/icons';
-import EventCalender from './EventCalender';
+import { Facebook, LinkedIn, Twitter, YouTube, ArrowForward } from '@material-ui/icons';
 import UploadImgFile from '../../components/Button/UploadImgFile';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSchoolAPIcall, updateSchoolAPIcall } from '../../Redux/Actions/schoolAction';
 import Loader from '../../components/Loader';
+import { Link } from 'react-router-dom';
+import SchoolBasicInfo from './SchoolBasicInfo';
+import SchoolContactInfo from './SchoolContactInfo';
 
 const Admin: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const schoolInfo = useSelector((state: any) => state.schoolReducer.schoolData);
     const loader = useSelector((state: any) => state.uiReducer.loader);
-
+    const [activeCom, setActiveComp] = useState<number>(0);
     const [state, setState] = useState({
         school_name: '',
         email: '',
@@ -82,72 +84,37 @@ const Admin: React.FunctionComponent = () => {
         setState(data);
     }, [schoolInfo]);
 
+    const renderComponent = [<SchoolBasicInfo />, <SchoolContactInfo/>];
+    const handleComp = (active: number) => {
+        setActiveComp(active);
+    };
     return (
         <div className="admin-page-container">
             <CardContainer>
                 <div className="admin-page">
                     <div className="row">
                         <div className="col-lg-5 mb-4">
-                            <EventCalender />
+                            <div className="information__name__container">
+                                <Typography
+                                    className={`title ${activeCom === 0 ? 'active' : ''}`}
+                                    onClick={() => handleComp(0)}>
+                                    Basic Information
+                                </Typography>
+                                <Typography
+                                    className={`title ${activeCom === 1 ? 'active' : ''}`}
+                                    onClick={() => handleComp(1)}>
+                                    Contact Details
+                                </Typography>
+                                <Typography
+                                    className={`title ${activeCom === 2 ? 'active' : ''}`}
+                                    onClick={() => handleComp(2)}>
+                                    Social Media
+                                </Typography>
+                            </div>
                         </div>
                         <div className="col-lg-7">
-                            <div className="school-information-container">
-                                <Typography className="heading">School Information</Typography>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <TextField
-                                            value={state.school_name}
-                                            onChange={schoolNameHandler}
-                                            variant="outlined"
-                                            className="custom-input"
-                                            label="School Name"
-                                            fullWidth
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <TextField
-                                            value={state.email}
-                                            onChange={emailHandler}
-                                            variant="outlined"
-                                            className="custom-input"
-                                            label="School Email"
-                                            fullWidth
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <TextField
-                                            value={state.phone_number}
-                                            onChange={phoneHandler}
-                                            variant="outlined"
-                                            type="number"
-                                            className="custom-input"
-                                            label="Telephone Number"
-                                            fullWidth
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <TextField
-                                            value={state.address}
-                                            onChange={addressHandler}
-                                            variant="outlined"
-                                            className="custom-input"
-                                            label="School Address"
-                                            fullWidth
-                                        />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <TextField
-                                            value={state.website}
-                                            onChange={websiteHandler}
-                                            variant="outlined"
-                                            className="custom-input"
-                                            label="School Website"
-                                            fullWidth
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
+                            {renderComponent[activeCom]}
+                            {/* <div className="row">
                                 <div className="col-md-12">
                                     <div className="social-media-container">
                                         <Typography className="heading">Social Media Links</Typography>
@@ -198,7 +165,6 @@ const Admin: React.FunctionComponent = () => {
                                             </div>
                                             <div className="col-md-6">
                                                 <TextField
-                                                    variant="outlined"
                                                     className="custom-input"
                                                     label="Message"
                                                     fullWidth
@@ -211,6 +177,22 @@ const Admin: React.FunctionComponent = () => {
                                             {loader ? <Loader /> : 'Update'}
                                         </Button>
                                     </div>
+                                </div>
+                            </div>
+                        */}
+                        </div>
+                    </div>
+                    <div className="controller__bottom">
+                        <div className="row">
+                            <div className="col-6">
+                                <Typography className="help-support">
+                                    Read our <Link to=""> Help Guide </Link> for support
+                                </Typography>
+                            </div>
+                            <div className="col-6">
+                                <div className="arrow__container">
+                                    <Typography className="text">Save</Typography>
+                                    <ArrowForward className="icon" />
                                 </div>
                             </div>
                         </div>

@@ -21,6 +21,9 @@ html {
         -ms-overflow-style: none;
     }
 }
+html,body{
+    overflow-x: hidden;
+}
 #root{
     position: relative;
 }

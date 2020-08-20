@@ -355,7 +355,6 @@
                     position: relative;
                     img {
                         width: 100%;
-                        max-height: 52.25rem;
                     }
                     .taskbar__container {
                         width: 94%;
@@ -378,6 +377,8 @@
                 .device__container {
                     position: absolute;
                     border-radius: 2.5rem;
+                    -webkit-border-radius: 2.5rem;
+                    -moz-border-radius: 2.5rem;
                     top: 1rem;
                     bottom: 1.5rem;
                     width: 94%;
@@ -385,8 +386,8 @@
                     img {
                         width: 100%;
                         border-radius: 2.5rem;
-                        // transition: all 0.05s linear;
-                        // -webkit-transition: all 1s linear;
+                        -webkit-border-radius: 2.5rem;
+                        -moz-border-radius: 2.5rem;
                     }
                 }
             }
@@ -409,7 +410,6 @@
             .section-four-right-part-container {
                 .title {
                     margin-right: 3.25rem;
-                    
                 }
             }
         }
@@ -570,10 +570,10 @@
     }
     .section-seven {
         margin-bottom: 9.375rem;
-        .align-grid{
+        .align-grid {
             padding-left: 7.5%;
         }
-        .pd-right{
+        .pd-right {
             .border-card-container {
                 padding-right: 4rem;
             }
@@ -602,7 +602,7 @@
         .border-card-container {
             padding-left: 2rem;
             border-left: 1px solid $grayPrimary;
-            
+
             .heading {
                 font-weight: 500;
                 font-size: 2.625rem;
@@ -895,7 +895,7 @@
     .home-wrapper {
         .left-part {
             .device__animation {
-                width: 80%!important;
+                width: 80% !important;
                 // .device__mask__container {
                 //     .taskbar__container {
                 //         bottom: 1rem !important;
@@ -1190,7 +1190,7 @@
     }
 }
 @media screen and (min-width: 426px) and (max-width: 767px) {
-    html{
+    html {
         font-size: 10px;
     }
     .home-wrapper {

@@ -22,26 +22,22 @@ const Dashboard: React.FunctionComponent = () => {
         { username: 'Staff', total: 5 },
     ];
     const eventList = [
-        { eventTime:'10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06',  eventOrg:'jamie lee'},
-        { eventTime:'10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg:'jamie lee' },
-        { eventTime:'10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg:'jamie lee' },
+        { eventTime: '10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg: 'jamie lee' },
+        { eventTime: '10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg: 'jamie lee' },
+        { eventTime: '10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg: 'jamie lee' },
     ];
     return (
         <div className="row">
-            <div className="col-md-8 p-0">
-                <div className="bottom-margin">
-                    <CardContainer>
-                        <GraphContainer />
-                    </CardContainer>
-                </div>
-                <div className="row equal__row__padding">
+            <div className="col-md-8 ">
+                <CardContainer>
+                    <GraphContainer />
+                </CardContainer>
+                <div className="row">
                     {userList.map((item) => (
-                        <div key={uuidv4()} className="col-md-6 p-0">
-                            <div className="equal__padding">
-                                <CardContainer>
-                                    <CardStatus heading={item.username} total={item.total} />
-                                </CardContainer>
-                            </div>
+                        <div key={uuidv4()} className="col-md-6 ">
+                            <CardContainer>
+                                <CardStatus heading={item.username} total={item.total} />
+                            </CardContainer>
                         </div>
                     ))}
                 </div>
@@ -50,7 +46,6 @@ const Dashboard: React.FunctionComponent = () => {
                         <div className="dashboard-table-container">
                             <div className="table-header">
                                 <Typography className="heading">Accounts</Typography>
-                                
                             </div>
                             <CardTable
                                 showToolbar={true}
@@ -81,9 +76,7 @@ const Dashboard: React.FunctionComponent = () => {
                                         title: 'Status',
                                         field: 'status',
                                         render: (rowData: tableProps) => (
-                                            <Typography style={{ fontSize: '1.25rem' }}>
-                                                {rowData.status}
-                                            </Typography>
+                                            <Typography style={{ fontSize: '1.25rem' }}>{rowData.status}</Typography>
                                         ),
                                     },
                                     {
@@ -142,7 +135,7 @@ const Dashboard: React.FunctionComponent = () => {
                     </CardContainer>
                 </div>
             </div>
-            <div className="col-md-4 p-0 position-relative">
+            <div className="col-md-4  position-relative">
                 <div style={{ top: 0 }} className="attendance_column">
                     <CardContainer>
                         <div className="card-status attandece-card">
@@ -166,15 +159,12 @@ const Dashboard: React.FunctionComponent = () => {
                                 {eventList.map((item) => (
                                     <div key={uuidv4()} className="event-chip-card">
                                         <div className="left">
-                                            <div className="circle">
-                                            {item.eventDate}
-                                            </div>
+                                            <div className="circle">{item.eventDate}</div>
                                         </div>
                                         <div className="middle">
-                                        <Typography className="heading">{item.eventTime}</Typography>
+                                            <Typography className="heading">{item.eventTime}</Typography>
                                             <Typography className="heading">{item.eventName}</Typography>
                                             <Typography className="heading org">{item.eventOrg}</Typography>
-
                                         </div>
                                     </div>
                                 ))}
