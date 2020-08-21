@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Home = React.lazy(() => import('../../Views/Home/Home'));
 const Support = React.lazy(() => import('../../Views/Support/Support'));
@@ -31,37 +31,42 @@ const studentDashboard = React.lazy(() => import('../../Views/StudentDashboard/I
 const studentDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentDetail/Index'));
 const studentIncompleteDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentIncompleteDetail/Index'));
 const editStudentProfile = React.lazy(() => import('../../Views/StudentDashboard/EditStudentProfile/Index'));
+const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo/Index'));
+const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
+const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
+const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
 
 export const rootRoute = [
-    {component:Home, name: '/'},
-    {component:Support, name: '/support'},
-    {component:HelpSupport, name: '/help-support'},
-    {component:Login, name: '/admin-login'},
-    {component:StudentLogin, name: '/login'},
-    {component:StudentForgotPassword, name: '/student-forgot-password'},
-    {component:StudentPasswordNew, name: '/student-reset-password'},
-    {component:Signup, name: '/signup'},
-    {component:ShowWelcome, name: '/signup-success'},
-    {component:ForgotPassword, name: '/forgot-password'},
-    {component:SetNewPassword, name: '/reset-password'},
-    {component:verification, name: '/verification'},
-    {component:TutorDashboard, name: '/tutor-dashboard'},
-    {component:TutorProfile, name: '/tutor-profile'},
-    {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
-    {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
-    {component:PersonalDashboard, name: '/personal-dashboard'},
-    {component:StudentHomePage, name: '/student-homepage'},
-    {component:StudentClassesTutors, name: '/student-classes'},
-    {component:TutorList, name: '/student-tutors'},
-    {component:PreviousClasses, name: '/student-previous-classes'},
-    {component:UpcomingClasses, name: '/student-upcoming-classes'},
-    {component:StudentIndividualSubjects, name: '/student-individual-subjects'},
-    {component:StudentWatchPreviousClass, name: '/student-watch-previous-class'},
-    {component:TutorDetail, name: '/tutor-detail'},
-    {component:TutorsUpcomingClasses, name: '/tutor-upcoming-classes'},
-    {component:StudentTutorPreviousClasses, name: '/student-previous-classes'},
-    {component:studentDashboard, name: '/studentDashboard'},
-    {component:studentDetail, name: '/studentDetail'},
-    {component:studentIncompleteDetail, name: '/studentIncompleteDetail'},
-    {component:editStudentProfile, name: '/editStudentProfile'},
-]
+    { component: Home, name: '/' },
+    { component: Support, name: '/support' },
+    { component: HelpSupport, name: '/help-support' },
+    { component: Login, name: '/admin-login' },
+    { component: StudentLogin, name: '/login' },
+    { component: StudentForgotPassword, name: '/student-forgot-password' },
+    { component: StudentPasswordNew, name: '/student-reset-password' },
+    { component: Signup, name: '/signup' },
+    { component: ShowWelcome, name: '/signup-success' },
+    { component: ForgotPassword, name: '/forgot-password' },
+    { component: SetNewPassword, name: '/reset-password' },
+    { component: verification, name: '/verification' },
+    { component: TutorDashboard, name: '/tutor-dashboard' },
+    { component: PersonalDashboard, name: '/personal-dashboard' },
+    { component: StudentHomePage, name: '/student-homepage' },
+    { component: StudentClassesTutors, name: '/student-classes' },
+    { component: TutorList, name: '/student-tutors' },
+    { component: PreviousClasses, name: '/student-previous-classes' },
+    { component: UpcomingClasses, name: '/student-upcoming-classes' },
+    { component: StudentIndividualSubjects, name: '/student-individual-subjects' },
+    { component: StudentWatchPreviousClass, name: '/student-watch-previous-class' },
+    { component: TutorDetail, name: '/tutor-detail' },
+    { component: TutorsUpcomingClasses, name: '/tutor-upcoming-classes' },
+    { component: StudentTutorPreviousClasses, name: '/student-previous-classes' },
+    { component: studentDashboard, name: '/student-dashboard' },
+    { component: studentDetail, name: '/student-detail' },
+    { component: studentIncompleteDetail, name: '/student-incomplete-detail' },
+    { component: editStudentProfile, name: '/edit-student-profile' },
+    { component: studentSchoolInfo, name: '/student-school-info' },
+    { component: studentNoFavourite, name: '/student-no-favourite' },
+    { component: studentNoPreviousClass, name: '/student-no-previous-class' },
+    { component: studentFavourite, name: '/student-favourite' },
+];

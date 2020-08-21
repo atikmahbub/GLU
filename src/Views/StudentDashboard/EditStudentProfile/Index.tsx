@@ -26,6 +26,8 @@ const Index: React.FunctionComponent = () => {
                     sub2=" A-Level"
                     sub3=" Maths, English, ICT"
                 />
+                <SemiBox heading="Previous Education" sub1="GEMS School " sub2="GCSE" sub3="English, Maths, French" />
+                <button className="Addbtn">Add more</button>
             </DashboardWrapper>
             <div className="footer">
                 <MadeBy />
