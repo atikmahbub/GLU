@@ -11,7 +11,7 @@
     }
     &_dashboard {
         padding: 0 3.125rem;
-
+        font-family: inherit;
         &_col1 {
             margin-top: 3.125rem;
             .row_main {
@@ -270,13 +270,12 @@
             background-color: $white;
             padding: 1.812rem 1.812rem;
             .heading {
-                font-size: 2.2vw;
+                font-size: 2.5vw;
                 color: $black;
                 line-height: 2.8125rem;
             }
             .first__title {
                 padding-top: 5.593rem;
-                
             }
             .title {
                 font-size: 1.5625rem;
@@ -292,6 +291,7 @@
     justify-content: space-between;
     display: flex;
     flex-direction: column;
+    font-family: 'CircularXXWeb-Book';
     .cardtitle__subtitle__container {
         @include flex(center, space-between, row);
         .card_title {

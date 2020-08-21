@@ -1,0 +1,93 @@
+.tutor_class_subcontainer{
+    padding: 03.125rem;
+    .text1{
+        font-size:2.625rem ;
+        line-height: 2.8125rem;
+        padding-bottom:  3.125rem ;
+    }
+    &_col1{
+        .text2{
+            
+            font-size:5rem ;
+            line-height: 5rem;
+        }
+    }
+    
+}
+.tutor_class_subcontainer2{
+    padding:3.125rem 3.125rem;
+    margin-top: 5rem;
+}
+.horizontalline{
+    height:1px;
+    background-color: rgba(0,0,0,0.25);
+}
+.reusableDate{
+    padding: 3.125rem 0;
+    
+    
+}
+.setDateTime{
+    .horizontalline{
+        margin-top: 5rem;
+    }
+}
+.setClass{
+    padding-top: 3.125rem;
+    
+}
+.date_time{
+    .text1{
+        font-size:2.625rem ;
+    line-height: 2.8125rem;
+    padding-bottom:  3.125rem ;
+    }
+}
+.class_time{
+    .text1{
+        font-size:2.625rem ;
+        line-height: 2.8125rem;
+        padding-top:  3.125rem;
+    }
+}
+.upload_component{
+    padding-left: 15px;
+    @include flex(start,start,row);
+.upload_button{
+    padding: 0.437rem 2.68rem;
+    margin-right: 1.25rem;
+    border-color: rgba(0,0,0,0.25);
+    border-style: solid;
+    border-width: 1px;
+    .text{
+        font-size: 1.25rem;
+        line-height: 1.5625rem;
+    }
+    
+}
+.subtext{
+     padding: 0.237rem 0;   
+    font-size: 1rem;
+    line-height: 1.875rem;
+}
+}
+@media screen and (min-width: 768px) {
+    .tutor_class_subcontainer{
+        &_col1{
+            padding: 0 3.125rem;
+        }
+    }
+    .setDateTime{
+        padding-left:3.125rem;
+        padding-right: 3.125rem;
+    }
+    .setClass{
+        padding-left:3.125rem;
+        padding-right: 3.125rem;
+    }
+    .border_dateTime{
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgba(0,0,0,0.25);
+    }
+}
