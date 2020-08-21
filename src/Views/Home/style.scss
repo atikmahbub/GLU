@@ -533,7 +533,7 @@
                 line-height: 1;
                 -webkit-border-radius: 0;
                 border-radius: 0;
-                padding-bottom: 0.2rem;
+                // padding-bottom: 0.2rem;
                 -webkit-appearance: none;
                 &:focus {
                     outline-color: transparent;
@@ -1473,7 +1473,7 @@
     box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 }
 
-@media (min-aspect-ratio: 1/4) and (max-aspect-ratio: 1/1) {
+@media (min-aspect-ratio: 1/4) and (max-aspect-ratio: 725/529) {
     .home-wrapper {
         .holding-container {
             .rotating-box {
@@ -1492,9 +1492,9 @@
                         -moz-transform: scale(1) rotate(0);
                     }
                     100% {
-                        transform: scale(9.5) rotate(-15deg);
-                        -webkit-transform: scale(9.5) rotate(-15deg);
-                        -moz-transform: scale(9.5) rotate(-15deg);
+                        transform: scale(9.5) rotate(-35deg);
+                        -webkit-transform: scale(9.5) rotate(-35deg);
+                        -moz-transform: scale(9.5) rotate(-35deg);
                     }
                 }
             }

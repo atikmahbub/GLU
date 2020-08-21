@@ -12,9 +12,9 @@ const SectionSix: React.FunctionComponent = () => {
     const [buttonText, setButtonText] = useState<string>('Subscribe');
     useEffect(() => {
         if (window.screen.width <= 425) {
-            setPlaceholer('harrison@six.com');
+            setPlaceholer('you@gmail.com');
         } else {
-            setPlaceholer('harrison@madebysix.com');
+            setPlaceholer('you@gmail.com');
         }
     }, []);
     const [email, setEmail] = useState('');

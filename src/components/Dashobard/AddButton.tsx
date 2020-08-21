@@ -44,7 +44,7 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
             }
             default: {
                 return (
-                    <Button {...props} startIcon={btnIcon} onClick={trigger} className="rounded-btn">
+                    <Button {...props} endIcon={btnIcon} onClick={trigger} className="rounded-btn">
                         {btnTitle}
                     </Button>
                 );
