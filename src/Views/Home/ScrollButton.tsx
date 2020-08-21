@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { ArrowDownward } from '@material-ui/icons';
+import { Icons } from '../../Assets/Icons';
 
 const ScrollButton = () => {
     const handleScroll = () => {
@@ -33,9 +33,9 @@ const ScrollButton = () => {
         }, 10);
     };
     return (
-        <div className="scroll__container" onClick={handleScroll} >
+        <div className="scroll__container">
             <Typography className="text">Scroll</Typography>
-            <ArrowDownward className="icon" />
+            <img className="arrow_down" src={Icons.arrowDown} />
         </div>
     );
 };
