@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 const SmallCard: React.FunctionComponent = ({imgSrc }) => {
     return (
-        <div className="main_container2">
+        
             <div className="main_container2_subcontainer">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -18,7 +18,6 @@ const SmallCard: React.FunctionComponent = ({imgSrc }) => {
                                     <Typography className="subtext">See</Typography>
                                 </Link>
                             </div>
-
                             <img
                                 src={imgSrc}
                                 className=" img-class img-fluid"
@@ -45,7 +44,7 @@ const SmallCard: React.FunctionComponent = ({imgSrc }) => {
                 </div>
             </div>
             
-        </div>
+        
     );
 };
 

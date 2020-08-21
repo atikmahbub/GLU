@@ -16,7 +16,7 @@ interface props {
 const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,title2,subheading1,subheading2 }) => {
     return (
         <>
-            <div className="main_container_dashboard_col1 bg-white">
+            
                 <div className="card_subtitle">
                     <Link to="" style={{ color: 'blue' }}>
                         See upcomming
@@ -63,7 +63,7 @@ const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,t
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </>
     );
 };

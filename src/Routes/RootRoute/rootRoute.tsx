@@ -13,6 +13,9 @@ const ForgotPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/
 const SetNewPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('../../Views/Auth/Verification/Verification'));
 const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
+const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
+const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
+const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const PersonalDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const StudentHomePage = React.lazy(() => import('../../Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
@@ -43,6 +46,9 @@ export const rootRoute = [
     {component:SetNewPassword, name: '/reset-password'},
     {component:verification, name: '/verification'},
     {component:TutorDashboard, name: '/tutor-dashboard'},
+    {component:TutorProfile, name: '/tutor-profile'},
+    {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
+    {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
     {component:PersonalDashboard, name: '/personal-dashboard'},
     {component:StudentHomePage, name: '/student-homepage'},
     {component:StudentClassesTutors, name: '/student-classes'},
