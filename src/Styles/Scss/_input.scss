@@ -66,15 +66,15 @@
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.3rem;
-        color: $gray;
+        color: $black;
     }
     .MuiInput-underline:before {
-        border-bottom: 1px solid $gray;
+        border-bottom: 1px solid $black;
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.3rem;
-        color: $gray;
+        color: $black;
     }
 }
 
