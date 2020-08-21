@@ -57,7 +57,7 @@
         .school-information-container{
             max-height: 71vh;
             overflow: auto;
-            padding: 0 1rem;
+            padding: 0.4rem 1rem;
             @include disableScroll;
             .lanline_num__container{
                 @include flex(center, space-between, row);
@@ -73,6 +73,7 @@
                     font-size: 1.25rem;
                     line-height: 1.562rem;
                     color: $primary;
+                    font-family: inherit;
                 }
             }
             .phone__container{

@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 interface props {
     name: string;
     about?: string;
     country: string;
     contact: string;
 }
+
 const Heading: React.FunctionComponent<props> = ({ name, about, country, contact }) => {
     return (
         <>
@@ -18,7 +21,9 @@ const Heading: React.FunctionComponent<props> = ({ name, about, country, contact
                     <br />
                     {contact}
                 </p>
-                <p className="edit">Edit profile</p>
+                <Link to="/edit-student-profile" className="edit">
+                    Edit profile
+                </Link>
             </div>
         </>
     );
