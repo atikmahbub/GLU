@@ -10,6 +10,7 @@ import appleBlack from "./Icons/appleBlack.svg";
 import appleWhite from "./Icons/appleWhite.svg";
 import googleBlack from "./Icons/googleWhite.svg";
 import googleWhite from "./Icons/googleBlack.svg";
+import arrowDown from "./Icons/arrowDown.svg";
 
 export const Icons = {
 Facebook,
@@ -23,5 +24,6 @@ maskLong,
 appleBlack,
 appleWhite,
 googleBlack,
-googleWhite
+googleWhite,
+arrowDown
 }

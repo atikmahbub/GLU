@@ -106,23 +106,29 @@
     margin-bottom: 2.406rem!important;
     .MuiFormLabel-root.Mui-focused {
         color: #000;
-        font-size: 1.2rem;
+        font-size: 1.562rem;
         font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputLabel-outlined {
         transform: translate(0, 24px) scale(1);
     }
-    .MuiInputLabel-outlined.MuiInputLabel-shrink {
-        transform: translate(0, -6px) scale(0.75);
+    .MuiInputLabel-shrink {
+        transform: translate(0, -6px) scale(1);
+    }
+    label + .MuiInput-formControl{
+        margin-top: 0.7rem;
+    }
+    .MuiSelect-selectMenu{
+        min-height: auto !important;
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
-        color: $gray;
+        font-size: 1.562rem;
+        color: $black;
     }
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
+        font-size: 1.562rem;
         color: $gray;
     }
 }

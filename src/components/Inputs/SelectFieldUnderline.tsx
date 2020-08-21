@@ -19,7 +19,7 @@ const SelectFieldUnderline: React.FunctionComponent<selectFieldProps> = ({ label
     return (
         <FormControl variant="standard"  className={className} fullWidth>
             <InputLabel id="select-field">{label}</InputLabel>
-            <Select disabled={disabled}  name={name} inputRef={ref}  labelId="select-field" value={value} onChange={handleSelect} label={label}>
+            <Select disabled={disabled}  name={name} inputRef={ref} placeholder="ddf"  labelId="select-field" value={value} onChange={handleSelect} label={label}>
                 {options.map((item) => (
                     <MenuItem key={item} value={item}>
                         {item}

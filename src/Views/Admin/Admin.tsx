@@ -92,8 +92,8 @@ const Admin: React.FunctionComponent = () => {
         <div className="admin-page-container">
             <CardContainer>
                 <div className="admin-page">
-                    <div className="row">
-                        <div className="col-lg-5 mb-4">
+                    <div className="row w-100">
+                        <div className="col-lg-4 mb-4">
                             <div className="information__name__container">
                                 <Typography
                                     className={`title ${activeCom === 0 ? 'active' : ''}`}
@@ -112,7 +112,7 @@ const Admin: React.FunctionComponent = () => {
                                 </Typography>
                             </div>
                         </div>
-                        <div className="col-lg-7">
+                        <div className="col-lg-8">
                             {renderComponent[activeCom]}
                             {/* <div className="row">
                                 <div className="col-md-12">
