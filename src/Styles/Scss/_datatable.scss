@@ -2,30 +2,47 @@
 div.MuiPaper-elevation2 {
     box-shadow: none;
     div{
-        &:nth-child(2){
-            div {
-                div {
-                    @include disableScroll;
-                }
+        div{
+            div{
+                @include disableScroll;
             }
         }
     }
     tr.MuiTableRow-root {
-        &:nth-child(even) {
-            td.MuiTableCell-root {
-                background-color: $grayPrimary;
-            }
-        }
+        // &:nth-child(even) {
+        //     td.MuiTableCell-root {
+        //         background-color: $grayPrimary;
+        //     }
+        // }
         &:last-child {
             td.MuiTableCell-root {
                 border-bottom: none;
             }
+        }
+        td.MuiTableCell-root {
+            font-size: 1.25rem!important;
         }
     }
     td.MuiTableCell-root {
         // border-bottom: 2.5px solid #eff3f9;
         font-weight: 500;
         color: $darkGray !important;
+        .MuiCheckbox-colorSecondary.Mui-checked {
+            color: $primary;
+        }
+    }
+    .MuiTablePagination-toolbar{
+        @include flex(center, space-between, row);
+        border-top: 1px solid $borderColor;
+        .MuiTablePagination-spacer{
+            display: none;
+        }
+        .MuiTablePagination-selectRoot{
+            .MuiSelect-selectMenu{
+                font-size: 1.25rem;
+                font-family: 'CircularXXWeb-Book';
+            }
+        }
     }
     td.MuiTablePagination-root {
         border-bottom: none;
@@ -36,8 +53,21 @@ div.MuiPaper-elevation2 {
 }
 
 th.MuiTableCell-root {
-    background-color: $darkGray;
-    color: $white;
+    background-color: $white;
+    color: $titleGray;
+    font-size: 1.125rem!important;
+    font-family: 'CircularXXWeb-Regular';
+    .MuiCheckbox-root{
+        padding: 0!important;
+    }
+    span{
+        &:hover{
+            color: $primary!important;
+        }
+    }
+    .MuiCheckbox-colorSecondary.Mui-checked {
+        color: $primary;
+    }
     span {
         &:hover {
             color: $white;
@@ -98,7 +128,7 @@ th.MuiTableCell-root {
             border-bottom: 1px solid #aaacad;
             background-color: #e5effb;
             font-weight: 100;
-            font-size: 1.125rem !important;
+            font-size: 1.25rem !important;
             color: $black !important;
             padding: 0.5rem 1rem;
         }

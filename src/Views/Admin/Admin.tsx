@@ -89,6 +89,9 @@ const Admin: React.FunctionComponent = () => {
     const handleComp = (active: number) => {
         setActiveComp(active);
     };
+    const handleNext = () => {
+        setActiveComp(activeCom + 1);
+    };
     return (
         <div className="admin-page-container">
             <CardContainer>
@@ -123,10 +126,12 @@ const Admin: React.FunctionComponent = () => {
                                 </Typography>
                             </div>
                             <div className="col-6">
-                                <div className="arrow__container">
-                                    <Typography className="text">Save</Typography>
-                                    <ArrowForward className="icon" />
-                                </div>
+                                {activeCom <= 1 && (
+                                    <div className="arrow__container" onClick={handleNext}>
+                                        <Typography className="text">Save</Typography>
+                                        <ArrowForward className="icon" />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
