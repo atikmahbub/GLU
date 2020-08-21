@@ -530,7 +530,7 @@
                 color: #1c1c1c;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 3rem;
+                line-height: 1;
                 -webkit-border-radius: 0;
                 border-radius: 0;
                 padding-bottom: 0.2rem;
@@ -547,7 +547,6 @@
                     font-size: 2.625rem;
                     @include makeFontSmoth(0.147rem, #1c1c1c);
                     color: #1c1c1c;
-                    font-weight: 500;
                 }
             }
             .subscribe {
