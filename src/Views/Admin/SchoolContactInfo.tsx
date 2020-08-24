@@ -11,17 +11,17 @@ const SchoolContactInfo: React.FunctionComponent = () => {
                     <Typography className="add_btn">Add new number</Typography>
                 </div>
                 <div className="phone__container">
-                <div className="prefix">
-                    <SelectFieldUnderline
-                        value="UK / +44"
-                        className="custom-adornment-input2"
-                        options={['UK / +44']}
-                        getValue={() => {}}
-                    />
-                </div>
-                <div className="phone__number">
-                    <TextField className="line-input2" fullWidth />
-                </div>
+                    <div className="prefix">
+                        <SelectFieldUnderline
+                            value="UK / +44"
+                            className="custom-adornment-input2"
+                            options={['UK / +44']}
+                            getValue={() => {}}
+                        />
+                    </div>
+                    <div className="phone__number">
+                        <TextField className="line-input2" fullWidth />
+                    </div>
                 </div>
                 <div className="col-md-12">
                     <TextField className="line-input2" label="Email Address" fullWidth />

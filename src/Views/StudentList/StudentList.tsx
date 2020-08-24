@@ -1,6 +1,6 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
@@ -8,6 +8,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { deleteStudentAPIcall } from '../../Redux/Actions/studentAction';
+import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
+import commonImg from '../../Assets/images';
+import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 
 interface colDataType {
     id: number;
@@ -56,7 +59,6 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Students"
                     btnIcon={<Add />}
                     btnTitle="Add Student"
@@ -65,22 +67,75 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
+                    <div className="filter__column__box">
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Year Group"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Form Group"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Subject"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Teacher"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Activity"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                        <div className="column__box">
+                        <SelectFieldUnderline
+                            className="custom-sm-txt-dashbord"
+                            label="Department"
+                            options={[]}
+                            getValue={() => {}}
+                        />
+                        </div>
+                    </div>
+                    <div className="table__container">
                     <CardTable
-                        showToolbar={true}
+                        showToolbar={false}
                         showPagination={true}
+                        selectable={true}
+                        tableHeight="100vh"
                         columns={[
-                            {
-                                width: '23%',
-                                title: 'Profile',
-                                field: 'profile',
-                                render: (rowData: colDataType) => (
-                                    <img src={rowData.profile} style={{ width: 35, height: 35, borderRadius: '50%' }} />
-                                ),
-                            },
                             {
                                 width: '23%',
                                 title: 'Name',
                                 field: 'name',
+                                render: (rowData: colDataType) => (
+                                   <TableUserProfile name={rowData.name} profile={rowData.profile}/>
+                                ),
+                            },
+                            {
+                                width: '23%',
+                                title: 'Student ID',
+                                field: 'studentId',
                             },
                             {
                                 width: '23%',
@@ -92,11 +147,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                 title: 'Form Group',
                                 field: 'formGroup',
                             },
-                            {
-                                width: '23%',
-                                title: 'id',
-                                field: 'id',
-                            },
+                
                             {
                                 width: '23%',
                                 title: 'Action',
@@ -111,8 +162,16 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                 ),
                             },
                         ]}
-                        rowData={students}
+                        rowData={[
+                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
+                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
+                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
+                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
+                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
+                            
+                        ]}
                     />
+                    </div>
                 </div>
             </CardContainer>
         </div>

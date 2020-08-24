@@ -4,7 +4,7 @@ import Twitter from "./Icons/twitter.svg";
 import threePiller from "./Icons/threePiller.svg";
 import realgoogleIcon from './Icons/realgoogleIcon.svg';
 import logo from "./Icons/logo.svg";
-import whiteMask from "./Icons/whiteMask.svg";
+import whiteMask from "./Icons/maskLong.svg";
 import maskLong from "./Icons/maskLong.svg";
 import appleBlack from "./Icons/appleBlack.svg";
 import appleWhite from "./Icons/appleWhite.svg";

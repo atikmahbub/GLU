@@ -36,7 +36,6 @@ const TutorClass: React.FunctionComponent<props> = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="tutor_class_subcontainer2">
                     <div className="row horizontalline"></div>
                     <div className="reusableDate">

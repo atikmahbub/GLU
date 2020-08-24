@@ -349,8 +349,9 @@
                 .device__mask__container {
                     width: 100%;
                     position: relative;
-                    img {
+                    .mask {
                         width: 100%;
+                        opacity: 0;
                     }
                     .taskbar__container {
                         width: 94%;
@@ -530,10 +531,10 @@
                 color: #1c1c1c;
                 font-weight: 500;
                 font-family: 'CircularXXWeb-Book';
-                height: 3rem;
+                line-height: 1;
                 -webkit-border-radius: 0;
                 border-radius: 0;
-                padding-bottom: 0.2rem;
+                // padding-bottom: 0.2rem;
                 -webkit-appearance: none;
                 &:focus {
                     outline-color: transparent;
@@ -547,7 +548,6 @@
                     font-size: 2.625rem;
                     @include makeFontSmoth(0.147rem, #1c1c1c);
                     color: #1c1c1c;
-                    font-weight: 500;
                 }
             }
             .subscribe {
@@ -1441,7 +1441,7 @@
             height: 75vh;
             .img-overlay-container {
                 max-width: 41.062rem;
-                right: 6.25rem;
+                right: 6.25rem!important;
                 .msg {
                     font-size: 4.2rem;
                 }
@@ -1474,7 +1474,7 @@
     box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 }
 
-@media (min-aspect-ratio: 1/4) and (max-aspect-ratio: 1/1) {
+@media (min-aspect-ratio: 1/4) and (max-aspect-ratio: 725/529) {
     .home-wrapper {
         .holding-container {
             .rotating-box {
@@ -1493,9 +1493,9 @@
                         -moz-transform: scale(1) rotate(0);
                     }
                     100% {
-                        transform: scale(9.5) rotate(-15deg);
-                        -webkit-transform: scale(9.5) rotate(-15deg);
-                        -moz-transform: scale(9.5) rotate(-15deg);
+                        transform: scale(9.5) rotate(-35deg);
+                        -webkit-transform: scale(9.5) rotate(-35deg);
+                        -moz-transform: scale(9.5) rotate(-35deg);
                     }
                 }
             }

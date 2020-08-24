@@ -10,6 +10,7 @@ import Loader from '../../components/Loader';
 import { Link } from 'react-router-dom';
 import SchoolBasicInfo from './SchoolBasicInfo';
 import SchoolContactInfo from './SchoolContactInfo';
+import SocialLinks from './SocialLinks';
 
 const Admin: React.FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -84,9 +85,12 @@ const Admin: React.FunctionComponent = () => {
         setState(data);
     }, [schoolInfo]);
 
-    const renderComponent = [<SchoolBasicInfo />, <SchoolContactInfo/>];
+    const renderComponent = [<SchoolBasicInfo />, <SchoolContactInfo />, <SocialLinks />];
     const handleComp = (active: number) => {
         setActiveComp(active);
+    };
+    const handleNext = () => {
+        setActiveComp(activeCom + 1);
     };
     return (
         <div className="admin-page-container">
@@ -112,75 +116,7 @@ const Admin: React.FunctionComponent = () => {
                                 </Typography>
                             </div>
                         </div>
-                        <div className="col-lg-8">
-                            {renderComponent[activeCom]}
-                            {/* <div className="row">
-                                <div className="col-md-12">
-                                    <div className="social-media-container">
-                                        <Typography className="heading">Social Media Links</Typography>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <LinkContainer
-                                                    value={state.fb_link}
-                                                    valueHandler={fbhandler}
-                                                    inputName="Facebook Link"
-                                                    icon={<Facebook className="icon" />}
-                                                />
-                                            </div>
-                                            <div className="col-md-6">
-                                                <LinkContainer
-                                                    value={state.ld_link}
-                                                    valueHandler={linkdinHandler}
-                                                    inputName="Linkedin Link"
-                                                    icon={<LinkedIn className="icon" />}
-                                                />
-                                            </div>
-                                            <div className="col-md-6">
-                                                <LinkContainer
-                                                    value={state.twit_link}
-                                                    valueHandler={twitterHandler}
-                                                    inputName="Twitter Link"
-                                                    icon={<Twitter className="icon" />}
-                                                />
-                                            </div>
-                                            <div className="col-md-6">
-                                                <LinkContainer
-                                                    value={state.yout_link}
-                                                    valueHandler={youtubHandler}
-                                                    inputName="Youtube Link"
-                                                    icon={<YouTube className="icon" />}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="notice-container">
-                                        <Typography className="heading">Update Notices</Typography>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <UploadImgFile
-                                                    btnType="inputBtn"
-                                                    text="Upload File"
-                                                    getFile={() => {}}
-                                                />
-                                            </div>
-                                            <div className="col-md-6">
-                                                <TextField
-                                                    className="custom-input"
-                                                    label="Message"
-                                                    fullWidth
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="button-container">
-                                        <Button disabled={loader} onClick={handleUpdate} className="primary-btn">
-                                            {loader ? <Loader /> : 'Update'}
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                        */}
-                        </div>
+                        <div className="col-lg-8">{renderComponent[activeCom]}</div>
                     </div>
                     <div className="controller__bottom">
                         <div className="row">
@@ -190,10 +126,12 @@ const Admin: React.FunctionComponent = () => {
                                 </Typography>
                             </div>
                             <div className="col-6">
-                                <div className="arrow__container">
-                                    <Typography className="text">Save</Typography>
-                                    <ArrowForward className="icon" />
-                                </div>
+                                {activeCom <= 1 && (
+                                    <div className="arrow__container" onClick={handleNext}>
+                                        <Typography className="text">Save</Typography>
+                                        <ArrowForward className="icon" />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

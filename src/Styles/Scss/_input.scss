@@ -66,15 +66,15 @@
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.3rem;
-        color: $gray;
+        color: $black;
     }
     .MuiInput-underline:before {
-        border-bottom: 1px solid $gray;
+        border-bottom: 1px solid $black;
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.3rem;
-        color: $gray;
+        color: $black;
     }
 }
 
@@ -104,7 +104,7 @@
 }
 
 .custom-adornment-input2 {
-    margin-bottom: 2.406rem!important;
+    margin-bottom: 2.406rem !important;
     .MuiFormLabel-root.Mui-focused {
         color: #000;
         font-size: 1.562rem;
@@ -116,10 +116,10 @@
     .MuiInputLabel-shrink {
         transform: translate(0, -6px) scale(1);
     }
-    label + .MuiInput-formControl{
+    label + .MuiInput-formControl {
         margin-top: 0.7rem;
     }
-    .MuiSelect-selectMenu{
+    .MuiSelect-selectMenu {
         min-height: auto !important;
     }
     .MuiInputLabel-formControl {
@@ -134,8 +134,8 @@
     }
 }
 
-.underline-date-input{
-   .MuiOutlinedInput-notchedOutline {
+.underline-date-input {
+    .MuiOutlinedInput-notchedOutline {
         border: none;
         border-bottom: 1px solid $gray;
         border-radius: 0;
@@ -176,46 +176,60 @@
     }
 }
 
-
-
-.MuiTextField-root.line-input-3 {
-    margin-bottom: 1rem;
-    .MuiOutlinedInput-input {
-        padding: 12.5px 14px !important;
+.custom-sm-txt-dashbord {
+    .MuiFormLabel-root.Mui-focused {
+        color: $black;
+        font-size: 1.2rem;
+        font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputLabel-outlined {
-        z-index: 1;
-        transform: translate(14px, 15px) scale(1);
-        pointer-events: none;
-        font-size: 14px;
-        .MuiInputBase-formControl {
-            &:hover {
-                border-color: red;
-            }
+        transform: translate(0, 24px) scale(1);
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+        transform: translate(0, -6px) scale(0.75);
+    }
+    .MuiInput-formControl.MuiInput-underline {
+        &::before {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
         }
-    }
-    .MuiInputLabel-shrink.MuiInputLabel-root {
-        color: #000;
-        font-size: 1.5625rem;
-        line-height: 1.875rem;
-        font-family: 'CircularXXSub-BookSubset';
-    }
-    .MuiInputBase-input.MuiInput-input {
-        font-family: 'CircularXXSub-BookSubset';
-        font-size: 2.625rem;
-        
-        line-height: 1.875rem;
-        color: $black;
-    }
-    .MuiInput-underline:before {
-        border-bottom: 1px solid $gray;
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
+        font-size: 1.125rem;
         color: $black;
+    }
+    .MuiInputBase-input.MuiInput-input {
+        font-family: 'CircularXXSub-BookSubset';
+        font-size: 1.125rem;
+        color: $bodyColor;
     }
 }
 
-
-
+// custom html input
+.input__with__label {
+    margin-top: 3.125rem;
+    .fieldName {
+        font-size: 1.562rem;
+        color: black;
+        margin-bottom: 1.062rem;
+    }
+    .inputfield {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid $grayPrimary;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-appearance: none;
+        font-size: 1.562rem;
+        color: $titleGray;
+        font-family: inherit;
+        &:focus {
+            outline-color: transparent;
+            outline: 0;
+            outline: none;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+    }
+}

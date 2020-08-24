@@ -33,7 +33,7 @@
                 @include borderRadius;
                 .header-top {
                     width: 100%;
-                    padding: 0.7rem 1.5rem;
+                    padding: 1.5rem;
                     background-color: $bodyColor;
                     @include flex(center, space-between, row);
                     .school-name-container {
@@ -162,22 +162,6 @@
     margin-bottom: 2.2rem;
 }
 
-.blue-gradient {
-    border-radius: 0.3rem;
-    background: linear-gradient(45deg, #667eea, #64b6ff);
-    color: $white;
-}
-.red-gradient {
-    border-radius: 0.3rem;
-    background: linear-gradient(45deg, #ff5858, #fb5895);
-    color: $white;
-}
-.green-gradient {
-    border-radius: 0.3rem;
-    background: linear-gradient(45deg, #27b958, #1eb99d);
-    color: $white;
-}
-
 .primary {
     color: $primary;
 }
@@ -219,22 +203,24 @@
                 color: $darkGray;
             }
             .heading {
-                font-size: 1rem;
-                letter-spacing: 0.01rem;
-                font-weight: 400;
-                margin-left: 1rem;
+                font-size: 1.875rem;
+                color: $black;
+                font-family: inherit;
             }
         }
         .rounded-btn {
-            border-radius: 2rem;
-            background-color: $darkGray;
-            color: $white;
-            font-size: 0.8rem;
+            color: $primary;
+            font-size: 1.875rem;
             text-transform: capitalize;
             font-weight: 100;
             padding: 0.4rem 1rem;
+            font-family: 'CircularXXWeb-Regular';
+            &:hover{
+                background-color: transparent;
+            }
             .MuiSvgIcon-root {
-                color: $white;
+                color: $primary;
+                font-size: 1.875rem;
             }
         }
         .dropdown-container {
@@ -246,36 +232,45 @@
 // table action toolbar
 .action-container {
     width: 3rem;
-    background-color: $darkGray;
-    border-radius: 3rem;
+    background-color: $white;
     padding: 0.2rem;
-    color: $white;
+    color: $gray;
     cursor: pointer;
     @include flex(center, center, row);
     position: relative;
+    
     .action-list {
         position: absolute;
-        bottom: -85px;
+        border: 1px solid $borderColor;
+        bottom: -6.5rem;
         right: 0;
         width: 10rem;
-        max-height: 5.5rem;
-        box-shadow: 0 0 20px -1px rgba(0, 0, 0, 0.5);
-        background-color: $darkGray;
+        max-height: 7rem;
+        // box-shadow: 0 0 20px -1px rgba(0, 0, 0, 0.1);
+        background-color: $white;
         z-index: 3;
-        border-radius: 0.3rem;
         ul {
             list-style: none;
         }
         button {
             @include grayBtn();
-            border-radius: 0.3;
+            background-color: $white;
+            padding: 0.45rem 1rem;
+            color: $titleGray;
+            font-family: 'CircularXXWeb-book';
+            &:hover{
+                color: $black;
+                background-color: $bodyColor;
+                border-radius: 0;
+            }
         }
         .arrow-up {
+            display: none;
             width: 0;
             height: 0;
             border-left: 0.4rem solid transparent;
             border-right: 0.4rem solid transparent;
-            border-bottom: 0.4rem solid $darkGray;
+            border-bottom: 0.4rem solid $white;
             position: absolute;
             top: -0.4rem;
             right: 1rem;
@@ -1326,4 +1321,23 @@ button.outline-button {
 .big_menu .border_left_featured {
     border-left: 2px solid #ccc;
     padding-left: 20px;
+}
+.filter__column__box{
+    background-color: rgba(20, 93, 255, 0.15);
+    @include flex(center, space-between, row);
+    width: 100%;
+    overflow: auto;
+    padding: 0 1.875rem;
+    padding-bottom: 1rem;
+    .column__box{
+        width: 13%;
+    }
+}
+.user_profile_cotainer{
+    @include flex(center, flex-start, row);
+    .name{
+        font-size: 1.25rem;
+        margin-left: 1rem;
+        font-family: 'CircularXXWeb-Book';
+    }
 }
