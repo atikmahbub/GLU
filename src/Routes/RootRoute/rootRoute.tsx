@@ -35,6 +35,7 @@ const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo
 const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
 const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
 const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
+const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 
 export const rootRoute = [
     { component: Home, name: '/' },
@@ -69,4 +70,5 @@ export const rootRoute = [
     { component: studentNoFavourite, name: '/student-no-favourite' },
     { component: studentNoPreviousClass, name: '/student-no-previous-class' },
     { component: studentFavourite, name: '/student-favourite' },
+    { component: studentSearchResult, name: '/student-search' },
 ];
