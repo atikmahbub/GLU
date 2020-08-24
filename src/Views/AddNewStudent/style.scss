@@ -36,3 +36,26 @@
         }
     }
 }
+.multi-step-form-container{
+    padding: 3.437rem;
+    .left_title{
+        font-size: 1.562rem;
+        line-height: 1.875rem;
+        color: $black;
+    }
+    .right_title{
+        font-size: 1.562rem;
+        line-height: 1.875rem;
+        color: $black;
+        
+    }
+    .button-container{
+        margin-top: 1.937rem;
+        @include flex(center, space-between, row);
+        max-width: 16rem;
+        .max-size{
+            font-size: 1rem;
+            font-family: 'CircularXXWeb-Regular';
+        }
+    }
+}

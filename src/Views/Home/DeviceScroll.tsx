@@ -24,7 +24,7 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image, containerName }) 
     return (
         <div id={containerName} className="device__animation">
             <div className="device__mask__container">
-                <img src={commonImg.deviceMask} alt="" />
+                <img className="mask" src={commonImg.deviceMask} alt="" />
                 <div className="taskbar__container">
                     <img className="taskbar" src={commonImg.deviceTaskbar} alt="" />
                 </div>
