@@ -12,9 +12,9 @@ const SectionSix: React.FunctionComponent = () => {
     const [buttonText, setButtonText] = useState<string>('Subscribe');
     useEffect(() => {
         if (window.screen.width <= 425) {
-            setPlaceholer('you@gmail.com');
+            setPlaceholer('Your Email');
         } else {
-            setPlaceholer('you@gmail.com');
+            setPlaceholer('Your Email');
         }
     }, []);
     const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ const SectionSix: React.FunctionComponent = () => {
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (buttonText === 'Thank You') {
             setButtonText('Subscribe');
-            setPlaceholer('harrison@madebysix.com');
+            setPlaceholer('Your Email');
         }
         setEmail(e.target.value);
         let emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

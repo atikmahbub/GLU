@@ -79,7 +79,7 @@
                     .skills {
                         padding: 1.5rem 1.125rem;
                         width: 100%;
-                        @include flex(center, start, row);
+                        @include flex(center, flex-start, row);
                         .skillset {
                             margin-right: 1rem;
                             margin-top: 1rem;
