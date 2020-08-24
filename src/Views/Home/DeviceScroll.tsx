@@ -12,8 +12,6 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image, containerName }) 
             const deviceContainer = document.querySelector(`#${containerName}`);
             const bounding: any = deviceContainer?.getBoundingClientRect();
             const winwowHeight = window.innerHeight || document.documentElement.clientHeight;
-            const a = winwowHeight - bounding.top;
-            console.log(bounding)
             if (winwowHeight - bounding.top >= 400 && bounding.bottom > 0) {
                 let scrollAt = bounding.top - winwowHeight + 400;
                 (device as any).current.style.cssText = `will-change: transform;
