@@ -13,7 +13,6 @@ const SectionThree: React.FunctionComponent<props> = ({image, msg, containerName
             <div className="row">
                 <div className="col-md-6 col-lg-6">
                     <div className="left-part">
-                        {/* <img src={image} alt="" /> */}
                         <DeviceScroll image={image} containerName={containerName}/>
                     </div>
                 </div>

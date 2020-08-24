@@ -349,8 +349,9 @@
                 .device__mask__container {
                     width: 100%;
                     position: relative;
-                    img {
+                    .mask {
                         width: 100%;
+                        opacity: 0;
                     }
                     .taskbar__container {
                         width: 94%;
@@ -1440,7 +1441,7 @@
             height: 75vh;
             .img-overlay-container {
                 max-width: 41.062rem;
-                right: 6.25rem;
+                right: 6.25rem!important;
                 .msg {
                     font-size: 4.2rem;
                 }
