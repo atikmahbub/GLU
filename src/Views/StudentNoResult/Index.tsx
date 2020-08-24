@@ -6,20 +6,17 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { menus } from '../../Helper/menus';
 
 import DashboardWrapper from '../../Containers/DashboardWrapper';
-import CardHolder from '../StudentFavourite/CardHolder';
 
 const Index: React.FunctionComponent = () => {
     return (
-        <div className="school__search">
+        <div className="school__no__result">
             <FixedNavigation>
                 <NavigationMenu menuList={menus} />
             </FixedNavigation>
             <DashboardWrapper>
-                <p className="heading">‘Photosynthesis’</p>
+                <p className="heading">‘Monoclonal antibodies’</p>
 
-                <CardHolder heading="Upcoming Classes" />
-                <CardHolder heading="Previous Classes" />
-                <CardHolder heading="Tutors" />
+                <p className="detail">Sorry, nothing has been found.</p>
             </DashboardWrapper>
             <div className="footer">
                 <MadeBy />
