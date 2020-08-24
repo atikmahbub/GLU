@@ -12,8 +12,8 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image, containerName }) 
             const deviceContainer = document.querySelector(`#${containerName}`);
             const bounding: any = deviceContainer?.getBoundingClientRect();
             const winwowHeight = window.innerHeight || document.documentElement.clientHeight;
-            if (winwowHeight - bounding.top > 0 && bounding.bottom > 0) {
-                const scrollAt = bounding.top - winwowHeight;
+            if (winwowHeight - bounding.top >= 300 && bounding.bottom > 0) {
+                const scrollAt = bounding.top - winwowHeight + 300;
                 (device as any).current.style.cssText = `will-change: transform;
                 transform: translate3d(0px, ${scrollAt}px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
                 transform-style: preserve-3d;`;
