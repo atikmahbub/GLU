@@ -4,7 +4,7 @@ import LaunchingSoon from './LaunchingSoon';
 import BottomRight from './BottomRight';
 import commonImg from '../../Assets/images';
 import SectionOne from './SectionOne';
-import SectionTwoReusable from './SectionTwoReusable';
+import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import SectionThree from './SectionThree';
 import SectionFour from './SectionFour';
 import SectionFive from './SectionFive';

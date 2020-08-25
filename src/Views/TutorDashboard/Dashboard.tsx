@@ -9,7 +9,7 @@ import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import CalendarComponent from '../../components/CalendarComponent';
-import { common } from '@material-ui/core/colors';
+
 const Dashboard: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },

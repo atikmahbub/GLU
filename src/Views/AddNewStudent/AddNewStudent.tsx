@@ -1,15 +1,11 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle } from '@material-ui/icons';
-import { colors } from '../../Styles/colors';
 import { useHistory } from 'react-router-dom';
-import FormContainer from './FormContainer';
-import { Typography, TextField } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
+import SaveController from '../../components/Dashobard/SaveController';
 
 const AddNewStudent: React.FunctionComponent = () => {
     const routes = useHistory();
@@ -62,6 +58,9 @@ const AddNewStudent: React.FunctionComponent = () => {
                                     <InputWithLabel fieldName="Additional field 2" />
                                 </div>
                             </div>
+                        </div>
+                        <div className="col-md-12 mt-5 w-100">
+                        <SaveController handleNext={()=>{}} activeCom={1}/>
                         </div>
                     </div>
                 </div>

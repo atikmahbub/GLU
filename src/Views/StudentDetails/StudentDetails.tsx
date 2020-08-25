@@ -26,13 +26,13 @@ const StudentDetails: React.FunctionComponent = () => {
         timetable: [],
         profile: '',
     });
-    useEffect(()=>{
-        if(routes.hasOwnProperty('state')){
-            if ((routes as any).state.hasOwnProperty('id')) {
-                dispatch(getStudentDetailsAPIcall((routes as any).state.id));
-            }
-        }
-    }, [])
+    // useEffect(()=>{
+    //     if(routes.hasOwnProperty('state')){
+    //         if ((routes as any).state.hasOwnProperty('id')) {
+    //             dispatch(getStudentDetailsAPIcall((routes as any).state.id));
+    //         }
+    //     }
+    // }, [])
     useEffect(() => {
         if (studentInfo) {
             const studentDetls = studentInfo.studentsDetail[0];
@@ -50,6 +50,22 @@ const StudentDetails: React.FunctionComponent = () => {
     }, [studentInfo]);
     return (
         <div className="details-wrapper">
+            <CardContainer>
+                <div className="top_container">
+                    <div className="image_title_cotainer">
+                        <img className="profile" src={commonImg.blueshirtman} alt=""/>
+                        <div className="title_container">
+                            <Typography className="heading">Olivia Preston</Typography>
+                            <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
+                        </div>
+                        
+                    </div>
+                    <div className="button_container">
+                            <Typography className="blue-text">Print</Typography>
+                            <Typography className="blue-text visible">Visit details</Typography>
+                        </div>
+                </div>
+            </CardContainer>
             <CardContainer>
                 <div className="details-container">
                     <div className="row">
