@@ -1,16 +1,15 @@
 import React from 'react';
-import { Dashboard as DashboardIcon } from '@material-ui/icons';
-// import Sidebar from '../../components/Dashobard/Sidebar';
-// import Header from './Header';
-import { Switch, Route } from 'react-router-dom';
-// import { getNavigationMenu } from '../../Routes/SidebarRoutes';
-import { Typography } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
-import ImageOverlay from '../../components/ImageOverlay';
-import commonImg from '../../Assets/images';
-import { parentsRoutes } from '../../Routes/Parents/routes';
+import NavBarReusable from '../../components/NavBarReusable';
+import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
+import NextClass from '../../components/NextClass';
+import FeaturedSubjects from '../../components/FeaturedSubjects';
 
-import {v4 as uuidv4} from "uuid";
+
+import commonImg from '../../Assets/images';
+// import { parentsRoutes } from '../../Routes/Parents/routes';
+// import {v4 as uuidv4} from "uuid";
+
 const index: React.FunctionComponent = () => {
     // useEffect(()=>{
     //     const element = document.getElementsByTagName('html');
@@ -25,16 +24,17 @@ const index: React.FunctionComponent = () => {
     ];
     return (
         <div className="homepage__wrapper">
-            <div className="banner">
-                <NavigationMenu menuList={menu} />
-                <Typography className="large__text">Charlie Ray</Typography>
-                <div className="overy-heading">
-                    <Typography className="small__heading">AED200 / 45mins</Typography>
-                    <Typography className="large__heading">
-                        Maths. <br /> An introduction to <br /> trigonometry
-                    </Typography>
-                </div>
-            </div>
+            <NavBarReusable menuList={menu} />
+            <SectionTwoReusable
+                image={commonImg.smilegirl}
+                mobileImg={commonImg.curlygirlcroped}
+                leftTitle="Charlie Ray"
+                desktopTitle="AED200 / 45mins"
+                title="Tutors"
+                msg={<>Maths.<br />An Introduction to trignometry</>}
+            />
+            <NextClass/>
+            <FeaturedSubjects/>
         </div>
     );
 };
