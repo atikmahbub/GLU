@@ -552,13 +552,12 @@
             }
             .subscribe {
                 cursor: pointer;
-                // transition: all 0.5s;
                 text-transform: capitalize;
                 font-size: 1.625rem;
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 align-self: flex-end;
-                line-height: 1.8rem;
+                line-height: 1.4rem;
                 &:hover {
                     color: $primary;
                 }

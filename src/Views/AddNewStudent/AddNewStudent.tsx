@@ -36,14 +36,30 @@ const AddNewStudent: React.FunctionComponent = () => {
                                 <OutlineButton text="Upload" />
                                 <Typography className="max-size">Max file size 5MB</Typography>
                             </div>
-                            <InputWithLabel fieldName="First Name"/>
-                            <InputWithLabel fieldName="Last Name"/>
+                            <InputWithLabel fieldName="First Name" />
+                            <InputWithLabel fieldName="Last Name" />
                             <div className="row">
                                 <div className="col-lg-7 col-md-12">
-                                <InputWithLabel fieldName="Email"/>
+                                    <InputWithLabel fieldName="Email" />
                                 </div>
                                 <div className="col-lg-5 col-md-12">
                                     <SelectWithLabel fieldName="Gender" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-7 col-md-12">
+                                    <InputWithLabel fieldName="Form Group" />
+                                </div>
+                                <div className="col-lg-5 col-md-12">
+                                    <SelectWithLabel fieldName="Year Group" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <InputWithLabel fieldName="Fathers name" />
+                                    <InputWithLabel fieldName="Mothers name" />
+                                    <InputWithLabel fieldName="Additional field 1" />
+                                    <InputWithLabel fieldName="Additional field 2" />
                                 </div>
                             </div>
                         </div>
