@@ -36,6 +36,9 @@ const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProf
 const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
+const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
+const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
+
 export const rootRoute = [
     { component: Home, name: '/' },
     { component: Support, name: '/support' },
@@ -68,6 +71,8 @@ export const rootRoute = [
     { component: studentNoFavourite, name: '/student-no-favourite' },
     { component: studentNoPreviousClass, name: '/student-no-previous-class' },
     { component: studentFavourite, name: '/student-favourite' },
+    { component: studentSearchResult, name: '/student-search' },
+    { component: studentNoResult, name: '/student-no-result' },
     { component: TutorDashboard, name: '/tutor-dashboard' },
     {component:TutorProfile, name: '/tutor-profile'},
     {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
