@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField,Typography } from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 
-const ReusableSubjectDesc: React.FunctionComponent<props> = React.forwardRef(({clickHandler,changeHandler},ref) => {
+const ReusableSubjectDesc: React.FunctionComponent =() => {
     return (
         <>
             <div className="row">
@@ -41,19 +41,19 @@ const ReusableSubjectDesc: React.FunctionComponent<props> = React.forwardRef(({c
                 <div className="col-md-12 p-0">Resources</div>
 
                 <div className="upload_component">
-                    <div className="upload_button" onClick={clickHandler}>
+                    <div className="upload_button" >
                         <Typography className="text">Upload</Typography>
                     </div>
                     <div>
                         <Typography className="subtext">Max size (500mb)</Typography>
                     </div>
-                    <input type="file" ref={ref} onChange={changeHandler} style={{ display: 'none' }} />
+                    <input type="file" style={{ display: 'none' }} />
                 </div>
                 <div className="col-12 p-0 horizontalline"></div>
             </div>
             
         </>
     );
-});
+};
 
 export default ReusableSubjectDesc;

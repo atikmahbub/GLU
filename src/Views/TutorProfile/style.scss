@@ -100,7 +100,8 @@
 }
 .skills {
     padding: 1.5rem 1.125rem;
-    @include flex(center, start, row);
+    display: flex;
+    justify-content: start;
     font-family: 'CircularXXWeb-Book';
     .skillset {
         font-family: inherit;

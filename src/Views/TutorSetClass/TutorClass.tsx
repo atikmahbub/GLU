@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Typography, TextField } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubjectDesc from './ReusableSubjectDesc';
 import commonImg from '../../Assets/images';
 import ReusableDateTime from './ReusableDateTime';
 import MadeBy from '../Footer/MadeBy';
-const TutorClass: React.FunctionComponent<props> = () => {
+const TutorClass: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const hiddenFileInput = React.useRef(null);
+    // const hiddenFileInput = React.useRef(null);
 
-    const handleClick = (event) => {
-        hiddenFileInput.current.click();
-    };
-    const handleChange = (event) => {
-        const fileUploaded = event.target.files[0];
-        // props.handleFile(fileUploaded);
-    };
+    // const handleClick = (event) => {
+    //     hiddenFileInput.current.click();
+    // };
+    // const handleChange = (event) => {
+    //     const fileUploaded = event.target.files[0];
+    //     // props.handleFile(fileUploaded);
+    // };
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+
     return (
         <div className="tutor_class_container">
             <NavigationMenu menuList={menu} />
@@ -42,7 +43,33 @@ const TutorClass: React.FunctionComponent<props> = () => {
                         <div className="row">
                             <div className="col-md-6 p-0">
                                 <div className="date_time">
-                                    <Typography className="text1">Date and Time</Typography>
+                                    <div className="col-md-12 p-0">
+                                        <div className="row">
+                                            <div className="col-6 ">
+                                                <div className="print_dateTime">
+                                                    <Typography className="text1">Date and Time</Typography>
+                                                </div>
+                                            </div>
+                                            <div className="col-6  ">
+                                                <div className="print_timeline">
+                                                    <ul>
+                                                        <li>
+                                                        <Typography className="text_list">Geography</Typography>
+                                                        <Typography className="text_list">9.00am-10:30am</Typography>
+                                                        </li>
+                                                        <li>
+                                                        <Typography className="text_list">Art</Typography>
+                                                        <Typography className="text_list">11.00am-12:30am</Typography>
+                                                        </li>
+                                                        <li>
+                                                        <Typography className="text_list">Maths</Typography>
+                                                        <Typography className="text_list">1.00pm-2.30pm</Typography>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
@@ -61,9 +88,9 @@ const TutorClass: React.FunctionComponent<props> = () => {
                             <div className="col-md-6 p-0 border_dateTime">
                                 <div className="setClass">
                                     <ReusableSubjectDesc
-                                        clickHandler={handleClick}
-                                        chengeHandler={handleChange}
-                                        ref={hiddenFileInput}
+                                    // clickHandler={handleClick}
+                                    // chengeHandler={handleChange}
+                                    // ref={hiddenFileInput}
                                     />
                                 </div>
                             </div>
@@ -83,13 +110,16 @@ const TutorClass: React.FunctionComponent<props> = () => {
                                         <div className="col-md-12 p-0">
                                             <TextField className="line-input" style={{ width: '85%' }} />
                                         </div>
-
-                                        <div className="row skills">
-                                            {skillArray.map((val, index) => (
-                                                <Typography key={index} className="skillset">
-                                                    {val}
-                                                </Typography>
-                                            ))}
+                                        <div className="col-md-12">
+                                            <div className="skill_container">
+                                                <div className="row choose_weeks">
+                                                    {skillArray.map((val, index) => (
+                                                        <Typography key={index} className="boxes">
+                                                            {val}
+                                                        </Typography>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="col-12 p-0  horizontalline"></div>
                                     </div>
@@ -123,7 +153,7 @@ const TutorClass: React.FunctionComponent<props> = () => {
                                                         </Typography>
                                                     </div>
                                                     <div className="upload_component">
-                                                        <div className="upload_button" onClick={handleClick}>
+                                                        <div className="upload_button">
                                                             <Typography className="text">Upload</Typography>
                                                         </div>
                                                         <div>
@@ -133,8 +163,8 @@ const TutorClass: React.FunctionComponent<props> = () => {
                                                         </div>
                                                         <input
                                                             type="file"
-                                                            ref={hiddenFileInput}
-                                                            onChange={handleChange}
+                                                            // ref={hiddenFileInput}
+                                                            // onChange={handleChange}
                                                             style={{ display: 'none' }}
                                                         />
                                                     </div>
