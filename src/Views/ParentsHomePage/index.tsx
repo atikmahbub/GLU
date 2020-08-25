@@ -4,6 +4,10 @@ import { Dashboard as DashboardIcon } from '@material-ui/icons';
 // import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
 // import { getNavigationMenu } from '../../Routes/SidebarRoutes';
+import { Typography } from '@material-ui/core';
+import NavigationMenu from '../../components/NavigationMenu';
+import ImageOverlay from '../../components/ImageOverlay';
+import commonImg from '../../Assets/images';
 import { parentsRoutes } from '../../Routes/Parents/routes';
 
 import {v4 as uuidv4} from "uuid";
@@ -13,15 +17,23 @@ const index: React.FunctionComponent = () => {
     //     console.log(element);
     //     element[0].style.fontSize="16px";
     // },[])
+    const menu = [
+        { link: '', name: 'Home' },
+        { link: '', name: 'Dashboard' },
+        { link: '', name: 'Subjects' },
+        { link: '', name: 'Messages' },
+    ];
     return (
-        <div className="dashboard-wrapper">
-            <div className="dashboard-main-content">
-                <h1>Parents Home Page</h1>
-                {/* <Switch>
-                     {parentsDashboardRoutes.map((route) => (
-                        <Route exact key={uuidv4()} path={route.pathname} component={route.component} />
-                    ))}
-                </Switch> */}
+        <div className="homepage__wrapper">
+            <div className="banner">
+                <NavigationMenu menuList={menu} />
+                <Typography className="large__text">Charlie Ray</Typography>
+                <div className="overy-heading">
+                    <Typography className="small__heading">AED200 / 45mins</Typography>
+                    <Typography className="large__heading">
+                        Maths. <br /> An introduction to <br /> trigonometry
+                    </Typography>
+                </div>
             </div>
         </div>
     );
