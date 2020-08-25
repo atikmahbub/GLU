@@ -84,24 +84,6 @@
                 }
             }
         }
-        .controller__bottom{
-          width: 100%;
-            .help-support{
-                font-size: 1rem;
-                color: $black;
-                font-family: 'CircularXXMonoWeb-Regular';
-            }
-            .arrow__container{
-                @include flex(center, space-between,row);
-                float: right;
-                cursor: pointer;
-                max-width: 4.5rem;
-                .text{
-                    font-size: 1rem;
-                    color: $black;
-                    font-family: 'CircularXXMonoWeb-Regular';
-                }
-            }
-        }
+       
     }
 }

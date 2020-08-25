@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import SchoolBasicInfo from './SchoolBasicInfo';
 import SchoolContactInfo from './SchoolContactInfo';
 import SocialLinks from './SocialLinks';
+import SaveController from '../../components/Dashobard/SaveController';
 
 const Admin: React.FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -118,23 +119,7 @@ const Admin: React.FunctionComponent = () => {
                         </div>
                         <div className="col-lg-8">{renderComponent[activeCom]}</div>
                     </div>
-                    <div className="controller__bottom">
-                        <div className="row">
-                            <div className="col-6">
-                                <Typography className="help-support">
-                                    Read our <Link to=""> Help Guide </Link> for support
-                                </Typography>
-                            </div>
-                            <div className="col-6">
-                                {activeCom <= 1 && (
-                                    <div className="arrow__container" onClick={handleNext}>
-                                        <Typography className="text">Save</Typography>
-                                        <ArrowForward className="icon" />
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                    <SaveController handleNext={handleNext} activeCom={activeCom}/>
                 </div>
             </CardContainer>
         </div>
