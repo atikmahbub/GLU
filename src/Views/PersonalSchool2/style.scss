@@ -17,9 +17,10 @@
         padding-top: 10rem;
         background-color: $white;
         &_col6{
-            
+            font-family: 'CircularXXWeb-Book';
             @include flex(center, space-between, row);
             .subtext {
+                font-family: inherit;
                 font-size: 2.625rem;
             }
             
@@ -27,14 +28,18 @@
         &_col7{
           
             .main_subcontainer{
+                font-family: 'CircularXXWeb-Book';
                 padding: 0 1.8rem;
                 .text{
+                    font-family: inherit;
                     font-size: 2.625rem;
                     line-height: 2.8125rem;
                 }
                 .subtext_container{
+                    font-family: 'CircularXXWeb-Book';
                     padding: 1.3125rem 0;
                     .subtext{
+                        font-family: inherit;
                         font-size: 1.5625rem;
                         line-height: 1.875rem;
                         

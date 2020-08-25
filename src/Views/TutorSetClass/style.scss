@@ -1,0 +1,166 @@
+.tutor_class_subcontainer {
+    padding: 3.125rem;
+    font-family: 'CircularXXWeb-Book';
+    .text1 {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        padding-bottom: 3.125rem;
+    }
+    &_col1 {
+        font-family: 'CircularXXWeb-Book';
+        .text2 {
+            font-family: inherit;
+            font-size: 5rem;
+            line-height: 5rem;
+        }
+    }
+}
+
+.input_row {
+    @include flex(center, space-between, row);
+    .input_text {
+        width: calc(50% - 1.562rem);
+    }
+}
+.tutor_class_subcontainer2 {
+    margin-top: 10rem;
+}
+.horizontalline {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.reusableDate {
+    padding: 3.125rem 0;
+}
+.addSkill,
+.addCoverImg {
+    padding-top: 3.125rem;
+    font-family: 'CircularXXWeb-Book';
+    .text {
+        font-family: inherit;
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+    }
+    .textCover {
+        font-family: inherit;
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+        padding-bottom: 1.8125rem;
+    }
+}
+.setDateTime,
+.addSkill {
+    .horizontalline {
+        margin-top: 4rem;
+    }
+}
+.setClass {
+    padding-top: 3.125rem;
+    .horizontalline {
+        margin-top: 5rem;
+    }
+}
+.date_time {
+    font-family: 'CircularXXWeb-Book';
+    .text1 {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        padding-bottom: 3.125rem;
+    }
+}
+.class_time {
+    font-family: 'CircularXXWeb-Book';
+    .text1 {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        padding-top: 3.125rem;
+    }
+}
+.publish_container{
+    margin-top: 6.23rem;
+    @include flex(center, start, row);
+    .publish_button{
+        padding: 0.437rem 2.68rem;
+        margin-right: 1.5625rem;
+        border-color: rgba(0, 0, 0, 0.25);
+        border-style: solid;
+        border-width: 1px;
+        .text {
+            font-family: inherit;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+        }
+    }
+    .cancel_button{
+        .text {
+            font-family: inherit;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+        }
+    }
+}
+.upload_component {
+    @include flex(center, start, row);
+    .upload_button {
+        padding: 0.437rem 2.68rem;
+        margin-right: 1.25rem;
+        border-color: rgba(0, 0, 0, 0.25);
+        border-style: solid;
+        border-width: 1px;
+        font-family: 'CircularXXWeb-Book';
+        .text {
+            font-family: inherit;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+        }
+    }
+    .subtext {
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: 1.875rem;
+    }
+}
+
+
+@media screen and (min-width: 767px) {
+    .tutor_class_subcontainer {
+        &_col1 {
+            padding-left:2rem;
+        }
+    }
+    .sub_rows {
+        padding-left: 1.5625rem;
+    }
+    .upload_container {
+        padding-left: 3.125rem;
+    }
+    .setClass,
+    .addSkill,
+    .setDateTime,
+    .addCoverImg {
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+    }
+
+    .border_dateTime {
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgba(0, 0, 0, 0.25);
+    }
+}
+@media screen and (max-width: 767px) {
+    .reusableDate {
+        .setClass,
+        .addSkill,
+        .setDateTime,
+        .addCoverImg {
+            padding: 0 15px;
+        }
+    }
+    .upload_image_container{
+        margin-top: 3.125rem;
+    }
+}

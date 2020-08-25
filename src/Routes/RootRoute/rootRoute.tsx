@@ -12,10 +12,6 @@ const ShowWelcome = React.lazy(() => import('../../Views/StudentSignupForm/ShowW
 const ForgotPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('../../Views/Auth/Verification/Verification'));
-const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
-const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
-const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
-const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const PersonalDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const StudentHomePage = React.lazy(() => import('../../Views/StudentHomepage/Index'));
 const StudentClassesTutors = React.lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
@@ -35,6 +31,13 @@ const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo
 const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
 const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
 const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
+const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
+const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
+const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
+const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
+const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
+const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
+const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
 
 export const rootRoute = [
     { component: Home, name: '/' },
@@ -49,7 +52,6 @@ export const rootRoute = [
     { component: ForgotPassword, name: '/forgot-password' },
     { component: SetNewPassword, name: '/reset-password' },
     { component: verification, name: '/verification' },
-    { component: TutorDashboard, name: '/tutor-dashboard' },
     { component: PersonalDashboard, name: '/personal-dashboard' },
     { component: StudentHomePage, name: '/student-homepage' },
     { component: StudentClassesTutors, name: '/student-classes' },
@@ -69,4 +71,11 @@ export const rootRoute = [
     { component: studentNoFavourite, name: '/student-no-favourite' },
     { component: studentNoPreviousClass, name: '/student-no-previous-class' },
     { component: studentFavourite, name: '/student-favourite' },
+    { component: studentSearchResult, name: '/student-search' },
+    { component: studentNoResult, name: '/student-no-result' },
+    { component: TutorDashboard, name: '/tutor-dashboard' },
+    {component:TutorProfile, name: '/tutor-profile'},
+    {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
+    {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
+    {component:TutorSetClass, name: '/tutor-set-class'},
 ];

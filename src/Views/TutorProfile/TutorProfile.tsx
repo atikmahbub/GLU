@@ -68,14 +68,12 @@ const TempComp: React.FunctionComponent<props> = () => {
                                     <div className="profile_container_1_2_subcontainer2 border-coloumn2">
                                         <Typography className="subtext1">Education</Typography>
                                         <div className="profile_container_1_2_subcontainer2_row2">
-                                            
                                             <Typography className="subtext3">
                                                 University of Essex Project Management MSc
                                             </Typography>
                                             <br></br>
                                         </div>
                                         <div className="profile_container_1_2_subcontainer2_row2">
-                                            
                                             <Typography className="subtext3">
                                                 Westmister University Biomedical Science BSc Honours
                                             </Typography>
