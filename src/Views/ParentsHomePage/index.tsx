@@ -41,9 +41,11 @@ const index: React.FunctionComponent = () => {
                 imageSecondURL={commonImg.vrplayerboy}
                 imageSecondTitle="Maths - Harry Stannard"
             />
-            <ClassesRowWithImages
-                title="Recorded Classes"
-            />
+            <div className="recorded__class">
+                <ClassesRowWithImages
+                    title="Recorded Classes"
+                />
+            </div>
             <SectionTwoReusable
                 image={commonImg.earringgirl}
                 mobileImg={commonImg.curlygirlcroped}

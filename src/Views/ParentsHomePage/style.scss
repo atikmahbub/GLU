@@ -3,6 +3,11 @@
         padding-top: 0px;
         padding-bottom: 0px;
     }
+    .class_container{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
     .menu__type2__container {
         position: absolute;
         z-index: 1;
@@ -64,7 +69,7 @@
             margin-right: 0.625rem;
         }
     }
-    .live__classes{
+    .live__classes, .recorded__class{
         padding-top: 0px;
         margin-top: 0px;
         padding-top: 9.25rem;
