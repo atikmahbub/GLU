@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
+import { useLocation } from 'react-router';
 
 const EmailVerification = () => {
+    const [token, setToken] = useState('');
+    const route = useLocation();
+    useEffect(() => {
+        const getToken = route.search.split('ref=');
+        if (getToken[1]) {
+            setToken(getToken[1]);
+        }
+    });
     return (
         <div className="email_verification_container">
             <div className="logo-container">
