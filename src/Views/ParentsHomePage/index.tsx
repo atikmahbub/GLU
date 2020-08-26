@@ -4,6 +4,9 @@ import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import NextClass from '../../components/NextClass';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import RecordedClasses from './RecordedClasses';
+import FeaturedTutors from '../../components/FeaturedTutors';
+
+import Tutors from './Tutors';
 
 import './style.scss';
 import commonImg from '../../Assets/images';
@@ -37,6 +40,22 @@ const index: React.FunctionComponent = () => {
                     imageSecondTitle="Maths - Harry Stannard"
                     />
             <RecordedClasses/>
+            <SectionTwoReusable
+                image={commonImg.laptopgirl}
+                mobileImg={commonImg.curlygirlcroped}
+                leftTitle="Sarah Frost"
+                desktopTitle="AED200 / 45mins"
+                title="Tutors"
+                msg={<>Maths.<br />An Introduction to trignometry</>}
+            />
+            <RecordedClasses/>
+            <FeaturedTutors 
+                    imageFirstURL={commonImg.chairman}
+                    imageFirstTitle="Languages - Johny Duke"
+                    imageSecondURL={commonImg.vrplayerboy}
+                    imageSecondTitle="Maths - Harry Stannard"
+                    />
+            <Tutors/>
         </div>
     );
 };
