@@ -81,44 +81,5 @@
         padding-top: 6.125rem;
         padding-bottom: 9.062rem;
     }
-    .made__by__footer{
-        padding-left: 50px;
-        padding-right: 50px;
-        .build-by {
-            font-size: 1rem;
-            transition: all 0.5s;
-            font-weight: 500;
-            // @include makeFontSmoth(0.137rem, black);
-            text-shadow: 0 0 0.029rem black;
-            color: transparent;
-            text-rendering: geometricPrecision;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            margin-bottom: 1rem;
-            font-family: 'CircularXXMonoWeb-Regular';
-            span {
-                a {
-                    font-weight: 300;
-                    color: #8b8b8b;
-                }
-            }
-        }
-        .glu {
-            font-size: 1rem;
-            transition: all 0.5s;
-            font-weight: 500;
-            font-family: 'CircularXXMonoWeb-Regular';
-            text-align: right;
-            margin-bottom: 1rem;
-            // @include makeFontSmoth(0.137rem, black);
-            text-shadow: 0 0 0.029rem black;
-            color: transparent;
-            text-rendering: geometricPrecision;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            margin-bottom: 1rem;
-            font-family: 'CircularXXMonoWeb-Regular';
-        }
-    }
 
 }

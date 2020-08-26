@@ -5,11 +5,12 @@ import NextClass from '../../components/NextClass';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';
 import ClassesRowWithImages from '../../components/ClassesRowWithImages';
+import MadeByFooter from '../../components/MadeByFooter';
 
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
-import MadeByFooter from './MadeByFooter';
+// import MadeByFooter from './MadeByFooter';
 
 
 import './style.scss';
@@ -78,9 +79,9 @@ const index: React.FunctionComponent = () => {
                 msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
             />
             <Tutors />
-            <div className="made__by__footer">
+            {/* <div className="made__by__footer"> */}
                  <MadeByFooter/>
-            </div>
+            {/* </div> */}
 
         </div>
     );
