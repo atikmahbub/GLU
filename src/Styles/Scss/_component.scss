@@ -1477,3 +1477,15 @@ button.outline-button {
         color: $black;
     }
 }
+
+// video player style
+.lecture__video__player__container {
+    margin-top: 8.625rem;
+    margin-bottom: 8.625rem;
+    .timing {
+        font-size: 2.625rem;
+        line-height: 2.625rem;
+        color: #000000;
+        font-family: inherit;
+    }
+}
