@@ -1,0 +1,17 @@
+.details-wrapper{
+    .attendace_container_row{
+        padding: 0 3.125rem;;
+    }
+    .calender_title{
+        font-size: 1.875rem;
+        color: $black;
+        padding-top: 1.875rem;
+    }
+    .calender_from{
+        font-size: 1rem;
+        margin-top: 2.187rem;
+        span{
+            color: $primary;
+        }
+    }
+}

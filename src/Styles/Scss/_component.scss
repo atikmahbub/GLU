@@ -1489,3 +1489,19 @@ button.outline-button {
         font-family: inherit;
     }
 }
+
+//student presernt row
+.present_row{
+    @include flex(center, space-between, row);
+    .present_grid{
+        .percent{
+            font-size: 1.875rem;
+            line-height: 3.437rem;
+            color: $black;
+        }
+        .status{
+            font-size: 1.25rem;
+            color: $black;
+        }
+    }
+}

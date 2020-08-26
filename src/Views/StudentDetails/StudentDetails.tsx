@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
 import AttendenceRow from './AttendenceRow';
+import PresentRow from './PresentRow';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -54,7 +55,7 @@ const StudentDetails: React.FunctionComponent = () => {
         <div className="details-wrapper">
             <ProfileTitle/>
             <AttendenceRow/>
-
+            <PresentRow/>
 
 
 

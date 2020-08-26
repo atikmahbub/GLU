@@ -4,6 +4,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { addDays } from 'date-fns';
+import { Typography } from '@material-ui/core';
 const AttendenceRow = () => {
     const [state, setState] = useState([
         {
@@ -17,12 +18,17 @@ const AttendenceRow = () => {
         <div>
             <div className="row row__margin">
                 <div className="col-lg-8 col-md-12 colum__spacing">
-                    <div className="bg-white">
+                    <div className="attendace_container_row bg-white">
                         <div className="row">
-                            <div className="col-md-4"></div>
-                            <div className="col-md-12">
+                            <div className="col-md-4">
+                                <Typography className="calender_title">Calendar</Typography>
+                                <Typography className="calender_from">
+                                    <span>From</span> 15th July To 8th August
+                                </Typography>
+                            </div>
+                            <div className="col-md-8">
                                 <DateRangePicker
-                                    onChange={(item:any) => setState([item.selection])}
+                                    onChange={(item: any) => setState([item.selection])}
                                     showSelectionPreview={true}
                                     moveRangeOnFirstSelection={false}
                                     months={2}
