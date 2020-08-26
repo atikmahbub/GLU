@@ -211,7 +211,7 @@
     .fieldName {
         font-size: 1.562rem;
         color: black;
-        margin-bottom: 1.062rem;
+        margin-bottom: 0.32rem;
     }
     .inputfield {
         width: 100%;
@@ -230,6 +230,18 @@
             -webkit-border-radius: 0;
             border-radius: 0;
             -webkit-appearance: none;
+        }
+    }
+    .select-w-icon{
+        @include flex(center, space-between, row);
+        border-bottom: 1px solid $grayPrimary;
+        .inputfield{
+            border-bottom: none;
+        }
+        .icon-container{
+            .icon{
+                color: #2267FF;
+            }
         }
     }
 }

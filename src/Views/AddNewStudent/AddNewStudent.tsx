@@ -1,15 +1,11 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle } from '@material-ui/icons';
-import { colors } from '../../Styles/colors';
 import { useHistory } from 'react-router-dom';
-import FormContainer from './FormContainer';
-import { Typography, TextField } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
+import SaveController from '../../components/Dashobard/SaveController';
 
 const AddNewStudent: React.FunctionComponent = () => {
     const routes = useHistory();
@@ -36,16 +32,35 @@ const AddNewStudent: React.FunctionComponent = () => {
                                 <OutlineButton text="Upload" />
                                 <Typography className="max-size">Max file size 5MB</Typography>
                             </div>
-                            <InputWithLabel fieldName="First Name"/>
-                            <InputWithLabel fieldName="Last Name"/>
+                            <InputWithLabel fieldName="First Name" />
+                            <InputWithLabel fieldName="Last Name" />
                             <div className="row">
                                 <div className="col-lg-7 col-md-12">
-                                <InputWithLabel fieldName="Email"/>
+                                    <InputWithLabel fieldName="Email" />
                                 </div>
                                 <div className="col-lg-5 col-md-12">
                                     <SelectWithLabel fieldName="Gender" />
                                 </div>
                             </div>
+                            <div className="row">
+                                <div className="col-lg-7 col-md-12">
+                                    <InputWithLabel fieldName="Form Group" />
+                                </div>
+                                <div className="col-lg-5 col-md-12">
+                                    <SelectWithLabel fieldName="Year Group" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <InputWithLabel fieldName="Fathers name" />
+                                    <InputWithLabel fieldName="Mothers name" />
+                                    <InputWithLabel fieldName="Additional field 1" />
+                                    <InputWithLabel fieldName="Additional field 2" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12 mt-5 w-100">
+                        <SaveController handleNext={()=>{}} activeCom={1}/>
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
             width: 47%;
             border: none;
             margin: 0 0.5rem;
-            height: 2.5rem;
+            height: 2.2rem;
             font-size: 1.562rem;
             @include makeFontSmoth(0.197rem, #1c1c1c8c);
             color: #1c1c1c;
@@ -31,6 +31,7 @@
             &::placeholder {
                 font-size: 1.562rem;
                 transition: all 0.5s;
+                padding: 0;
                 @include makeFontSmoth(0.2rem, #8b8b8b);
             }
             &:focus {
@@ -145,6 +146,7 @@
         }
         .glu {
             font-size: 0.95rem;
+            text-align: left;
         }
     }
 }

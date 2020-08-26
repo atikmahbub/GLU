@@ -40,12 +40,15 @@
                         @include flex(center, space-between, row);
                         .name__logo__container {
                             @include flex(center, space-between, row);
-                            .logo__container{
+                            .logo__container {
                                 background-color: $white;
                                 width: 3.875rem;
                                 height: 3.875rem;
                                 border-radius: 3.875rem;
                                 margin-right: 1.187rem;
+                                img {
+                                    width: 100%;
+                                }
                             }
                             .school-name {
                                 margin-right: 1rem;
@@ -159,7 +162,7 @@
 
 .card-container {
     background-color: $white;
-    margin-bottom: 2.2rem;
+    margin-bottom: 0.65rem;
 }
 
 .primary {
@@ -193,7 +196,7 @@
 
 // dashboard main content top button
 .student-header-container {
-    padding: 1rem 1.5rem;
+    padding: 1.875rem;
     .student-header {
         @include flex(center, space-between, row);
         .img-container {
@@ -210,17 +213,15 @@
         }
         .rounded-btn {
             color: $primary;
-            font-size: 1.875rem;
+            font-size: 1.25rem;
             text-transform: capitalize;
             font-weight: 100;
             padding: 0.4rem 1rem;
-            font-family: 'CircularXXWeb-Regular';
-            &:hover{
-                background-color: transparent;
-            }
+            @include flex(center, space-between, row);
+            cursor: pointer;
             .MuiSvgIcon-root {
                 color: $primary;
-                font-size: 1.875rem;
+                font-size: 1.25rem;
             }
         }
         .dropdown-container {
@@ -238,7 +239,7 @@
     cursor: pointer;
     @include flex(center, center, row);
     position: relative;
-    
+
     .action-list {
         position: absolute;
         border: 1px solid $borderColor;
@@ -258,7 +259,7 @@
             padding: 0.45rem 1rem;
             color: $titleGray;
             font-family: 'CircularXXWeb-book';
-            &:hover{
+            &:hover {
                 color: $black;
                 background-color: $bodyColor;
                 border-radius: 0;
@@ -1322,22 +1323,169 @@ button.outline-button {
     border-left: 2px solid #ccc;
     padding-left: 20px;
 }
-.filter__column__box{
+.filter__column__box {
     background-color: rgba(20, 93, 255, 0.15);
     @include flex(center, space-between, row);
     width: 100%;
     overflow: auto;
     padding: 0 1.875rem;
     padding-bottom: 1rem;
-    .column__box{
+    .column__box {
         width: 13%;
     }
 }
-.user_profile_cotainer{
+.user_profile_cotainer {
     @include flex(center, flex-start, row);
-    .name{
+    .name {
         font-size: 1.25rem;
         margin-left: 1rem;
         font-family: 'CircularXXWeb-Book';
+    }
+}
+
+.controller__bottom {
+    width: 100%;
+    .help-support {
+        font-size: 1rem;
+        color: $black;
+        font-family: 'CircularXXMonoWeb-Regular';
+    }
+    .arrow__container {
+        @include flex(center, space-between, row);
+        float: right;
+        cursor: pointer;
+        max-width: 4.5rem;
+        .text {
+            font-size: 1rem;
+            color: $black;
+            font-family: 'CircularXXMonoWeb-Regular';
+        }
+        .icon {
+            font-size: 3rem;
+        }
+    }
+}
+
+.top_container {
+    @include flex(center, space-between, row);
+    padding: 1.562rem;
+    .image_title_cotainer {
+        max-width: 30rem;
+        @include flex(center, flex-start, row);
+        .profile {
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            margin-right: 1.25rem;
+        }
+        .heading {
+            font-size: 1.562rem;
+            line-height: 1.562rem;
+            color: $black;
+        }
+        .title {
+            font-size: 1.125rem;
+        }
+    }
+    .button_container {
+        @include flex(center, space-between, row);
+        max-width: 12rem;
+        float: right;
+        .blue-text {
+            color: $primary;
+            opacity: 0.1;
+            font-size: 1.25rem;
+        }
+        .visible {
+            margin-left: 2.437rem;
+            opacity: 1;
+        }
+    }
+}
+
+//home page image text overlay
+.section-two {
+    position: relative;
+    display: flex;
+    max-height: 100vh;
+    .opacity-bg {
+        width: 100%;
+        // align-self: stretch;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.23);
+    }
+    .ear-ring-girl-mobile {
+        display: none;
+        object-fit: cover;
+    }
+    .ear-ring-girl {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .left__title {
+        position: absolute;
+        left: 3.062rem;
+        bottom: 20.1rem;
+        font-size: 5rem;
+        @include makeFontSmoth(0.156rem, $white);
+        font-family: 'CircularXXWeb-Book';
+    }
+    .img-overlay-container {
+        position: absolute;
+        bottom: 11.187rem;
+        right: 10.25rem;
+        left: 51%;
+        max-width: 49.062rem;
+        .mobile-title {
+            display: none;
+        }
+        .title {
+            @include makeFontSmoth(0.156rem, $white);
+            font-size: 1.562rem;
+            line-height: 3.5rem;
+            transition: all 0.5s;
+            font-family: 'CircularXXWeb-Book';
+        }
+        .msg {
+            font-size: 5rem;
+            transition: all 0.5s;
+            @include makeFontSmoth(0.199rem, $white);
+            font-family: 'CircularXXWeb-Book';
+            line-height: 5rem;
+        }
+    }
+}
+
+.percentage__card{
+    padding: 1.875rem;
+    margin-bottom: 1.25rem;
+    .heading{
+        font-size: 1.875rem;
+        color: $black;
+    }
+    .percent{
+        font-size: 3.125rem;
+        line-height: 3.437rem;
+        color: $black;
+    }
+    .title{
+        font-size: 1.25rem;
+        color: $black;
+    }
+}
+
+// video player style
+.lecture__video__player__container {
+    margin-top: 8.625rem;
+    margin-bottom: 8.625rem;
+    .timing {
+        font-size: 2.625rem;
+        line-height: 2.625rem;
+        color: #000000;
+        font-family: inherit;
     }
 }
