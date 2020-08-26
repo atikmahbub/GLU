@@ -3,7 +3,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import ReusableCoverImage from '../TutorSetClass/ReusableCoverImage';
-import VideoLectureContainer from '../../components/VideoLectureContainer'
+import VideoLectureContainer2 from '../../components/VideoLectureContainer2'
 import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
 const TutorRecord: React.FunctionComponent = () => {
@@ -36,7 +36,7 @@ const TutorRecord: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <VideoLectureContainer/>
+                    <VideoLectureContainer2/>
                 </div>
             </div>
             <div className="tutor_record_container_2">
