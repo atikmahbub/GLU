@@ -20,7 +20,7 @@ const FeaturedTutors: React.FunctionComponent<props>  = ({
         <div className="feature__container">
             <div className="heading__image__container">
                 <div className="heading" >
-                    <HeadingRowContainer title="Featured Subjects" link="see all" />
+                    <HeadingRowContainer title="Featured Tutors" link="see all" />
 
                 </div>
 

@@ -25,8 +25,8 @@ const FeaturedSubjects: React.FunctionComponent<props>  = ({
                 </div>
 
                 <div className="row image__container">
-                    <div className="col-lg-6 image__first__container">
-                        <div className="image__first" >
+                    <div className="col-lg-6 image__large__container">
+                        <div className="image__large" >
                             <img src={imageFirstURL} />
                         </div>
                         <div >
@@ -36,8 +36,8 @@ const FeaturedSubjects: React.FunctionComponent<props>  = ({
                         </div>
 
                     </div>
-                    <div className="col-lg-6 image__second__container">
-                        <div className="image__second" >
+                    <div className="col-lg-6 image__small__container">
+                        <div className="image__small" >
                             <img src={imageSecondURL} />
                         </div>
                         <div >

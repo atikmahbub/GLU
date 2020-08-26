@@ -3,10 +3,11 @@ import NavigationMenu from '../../components/NavigationMenu';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import NextClass from '../../components/NextClass';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
-import RecordedClasses from './RecordedClasses';
 import FeaturedTutors from '../../components/FeaturedTutors';
+import ClassesRowWithImages from '../../components/ClassesRowWithImages';
 
 import Tutors from './Tutors';
+import UpcomingClasses from './UpcomingClasses';
 
 import './style.scss';
 import commonImg from '../../Assets/images';
@@ -21,7 +22,7 @@ const index: React.FunctionComponent = () => {
     return (
         <div className="homepage__wrapper">
             <div className="navigation__menu">
-                <NavigationMenu menuList={menu}/>
+                <NavigationMenu menuList={menu} />
             </div>
 
             <SectionTwoReusable
@@ -32,30 +33,45 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <NextClass/>
-            <FeaturedSubjects 
-                    imageFirstURL={commonImg.chairman}
-                    imageFirstTitle="Languages - Johny Duke"
-                    imageSecondURL={commonImg.vrplayerboy}
-                    imageSecondTitle="Maths - Harry Stannard"
-                    />
-            <RecordedClasses/>
+            <NextClass />
+            <FeaturedSubjects
+                imageFirstURL={commonImg.chairman}
+                imageFirstTitle="Languages - Johny Duke"
+                imageSecondURL={commonImg.vrplayerboy}
+                imageSecondTitle="Maths - Harry Stannard"
+            />
+            <ClassesRowWithImages
+                title="Recorded Classes"
+            />
             <SectionTwoReusable
-                image={commonImg.laptopgirl}
+                image={commonImg.earringgirl}
                 mobileImg={commonImg.curlygirlcroped}
                 leftTitle="Sarah Frost"
                 desktopTitle="AED200 / 45mins"
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <RecordedClasses/>
-            <FeaturedTutors 
-                    imageFirstURL={commonImg.chairman}
-                    imageFirstTitle="Languages - Johny Duke"
-                    imageSecondURL={commonImg.vrplayerboy}
-                    imageSecondTitle="Maths - Harry Stannard"
-                    />
-            <Tutors/>
+            <div className="parent__upcoming__classes__container">
+                <UpcomingClasses />
+            </div>
+            <ClassesRowWithImages
+                title="Live Classes" />
+            <FeaturedTutors
+                imageFirstURL={commonImg.blueshirtman}
+                imageFirstTitle="Languages - Johny Duke"
+                imageSecondURL={commonImg.smillingmanspects}
+                imageSecondTitle="Maths - Harry Stannard"
+            />
+            <SectionTwoReusable
+                image={commonImg.laptopgirl}
+                mobileImg={commonImg.curlygirlcroped}
+                leftTitle="Sarah Frost"
+                desktopTitle="AED200 / 45mins"
+                title="Tutors"
+                msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
+            />
+            <Tutors />
+
         </div>
     );
 };

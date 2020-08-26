@@ -3,10 +3,16 @@ import HeadingRowContainer from '../../components/HeadingRowContainer';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 
-const PreviousClasses: React.FunctionComponent = () => {
+interface props {
+    title: string;
+}
+
+const Classes: React.FunctionComponent<props> = ({
+    title
+}) => {
     return (
         <div className="class_container">
-            <HeadingRowContainer title="Recorded Classes" link="see all" />
+            <HeadingRowContainer title={title} link="see all" />
             <div className="row">
                 <div className="col-md-3">
                     <ImageThumbnail
@@ -41,4 +47,4 @@ const PreviousClasses: React.FunctionComponent = () => {
     );
 };
 
-export default PreviousClasses;
+export default Classes;

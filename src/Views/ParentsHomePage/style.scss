@@ -33,5 +33,42 @@
             }
         }
     }
+    .parent__upcoming__classes__container{
+        background-color: #F7F7F7;
+        height: 890px;
+        // margin-top: 150px;
+        // display: flex;
+        .parent__upcoming__classes{
+            height: 590px;
+            width: 100%;
+            // display: flex;
+            // object-fit: contain;
+            .upcoming__class{
+                padding-top: 9.375rem;
+                .image-thumbnail-container {
+                    .image-thumbnail {
+                        padding-top: 65%;
+                        height: 590px;
+                    }
+                    .img {
+                        width: 80%;
+                        // height: 36.875rem;
+                    }
+                }
+            }
+        // .row{
+        //             margin-top: 150px;
+        //     .span{
+        //         .img{
+        //             height: 590px;
+        //         }
+        //     }
+        //     .img{
+        //         height: 590px;
+        //     }
+
+        // }
+        }
+    }
 
 }
