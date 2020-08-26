@@ -2,29 +2,42 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import { useLocation } from 'react-router';
+import Loader from '../../components/Loader';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import { useSelector, useDispatch } from 'react-redux';
+import { emailVerificationAPIcall } from '../../Redux/Actions/loginAction';
 
 const EmailVerification = () => {
-    const [token, setToken] = useState('');
+    const loader = useSelector((state: rootReducerType) => state.uiReducer.loader);
+    const [show, setShow] = useState(false);
     const route = useLocation();
+    const dispatch = useDispatch();
     useEffect(() => {
         const getToken = route.search.split('ref=');
         if (getToken[1]) {
-            setToken(getToken[1]);
+            setShow(true);
+            dispatch(emailVerificationAPIcall(getToken[1]));
         }
-    });
+    }, []);
     return (
         <div className="email_verification_container">
             <div className="logo-container">
                 <Typography className="logo">Glu</Typography>
             </div>
-            <div className="center_content">
-                <Typography variant="h1" className="heading">
-                    Subscription Verified
-                </Typography>
-                <Typography variant="h1" className="sub-heading">
-                    Your email address has been confirmed.
-                </Typography>
-            </div>
+            {loader ? (
+                <Loader />
+            ) : (
+                show && (
+                    <div className="center_content">
+                        <Typography variant="h1" className="heading">
+                            Subscription Verified
+                        </Typography>
+                        <Typography variant="h1" className="sub-heading">
+                            Your email address has been confirmed.
+                        </Typography>
+                    </div>
+                )
+            )}
             <div className="footer">
                 <MadeBy showTC={true} />
             </div>

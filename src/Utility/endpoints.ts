@@ -13,5 +13,5 @@ export const endponts = {
     sessions: '/session',
     subject: '/schools/subjects',
     timeTable: '/schools/routines',
-    emailSubscribe:'auth/email'
+    emailSubscribe:'auth/email',
 }

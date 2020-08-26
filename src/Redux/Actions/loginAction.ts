@@ -48,11 +48,25 @@ export const authRegisterAPIcall = (data: { username: string; password: string; 
     };
 };
 
-export const emailSubscriber = (data: { email: string }, setEmail:Function) => {
+export const emailSubscriber = (data: { email: string }, setEmail: Function) => {
     return (dispatch: Dispatch<any>) => {
         API.post(endponts.emailSubscribe, data)
             .then((res) => {
                 setEmail();
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+};
+
+export const emailVerificationAPIcall = (token: string) => {
+    return (dispatch: Dispatch<any>) => {
+        dispatch(spinner(true));
+        API.get(`${endponts.emailSubscribe}/${token}`)
+            .then((res) => {
+                dispatch(spinner(false));
                 console.log(res);
             })
             .catch((err) => {
