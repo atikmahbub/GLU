@@ -2,8 +2,6 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
-import { Link } from 'react-router-dom';
-// import "./style.scss";
 
 const NextClass: React.FunctionComponent = () => {
     return (
