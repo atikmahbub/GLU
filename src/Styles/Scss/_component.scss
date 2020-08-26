@@ -162,7 +162,7 @@
 
 .card-container {
     background-color: $white;
-    margin-bottom: 2.2rem;
+    margin-bottom: 0.65rem;
 }
 
 .primary {
@@ -1457,5 +1457,23 @@ button.outline-button {
             font-family: 'CircularXXWeb-Book';
             line-height: 5rem;
         }
+    }
+}
+
+.percentage__card{
+    padding: 1.875rem;
+    margin-bottom: 1.25rem;
+    .heading{
+        font-size: 1.875rem;
+        color: $black;
+    }
+    .percent{
+        font-size: 3.125rem;
+        line-height: 3.437rem;
+        color: $black;
+    }
+    .title{
+        font-size: 1.25rem;
+        color: $black;
     }
 }
