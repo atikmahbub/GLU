@@ -37,7 +37,9 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <NextClass />
+            <div className="next__class">
+                 <NextClass />
+            </div>
             <FeaturedSubjects
                 imageFirstURL={commonImg.chairman}
                 imageFirstTitle="Languages - Johny Duke"
