@@ -36,6 +36,7 @@ const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProf
 const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
+const TutorRecordClass=React.lazy(()=>import('../../Views/TutorRecordClass/TutorRecord'))
 export const rootRoute = [
     { component: Home, name: '/' },
     { component: Support, name: '/support' },
@@ -73,4 +74,5 @@ export const rootRoute = [
     {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
     {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
     {component:TutorSetClass, name: '/tutor-set-class'},
+    {component:TutorRecordClass,name:'/tutor-record-class'}
 ];

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import {Link} from 'react-router-dom'
-const BackgroundTemplate: React.FunctionComponent = ({imgSrc }) => {
+interface props{
+    imgSrc?:any;
+}
+const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
     return (
         
             <div className="main_container2_subcontainer">

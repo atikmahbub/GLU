@@ -4,6 +4,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubjectDesc from './ReusableSubjectDesc';
 import commonImg from '../../Assets/images';
 import ReusableDateTime from './ReusableDateTime';
+import ReusableCoverImage from './ReusableCoverImage';
 import MadeBy from '../Footer/MadeBy';
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
@@ -45,12 +46,12 @@ const TutorClass: React.FunctionComponent = () => {
                                 <div className="date_time">
                                     <div className="col-md-12 p-0">
                                         <div className="row">
-                                            <div className="col-6 ">
+                                            <div className="col-6">
                                                 <div className="print_dateTime">
                                                     <Typography className="text1">Date and Time</Typography>
                                                 </div>
                                             </div>
-                                            <div className="col-6  ">
+                                            <div className="col-6">
                                                 <div className="print_timeline">
                                                     <ul>
                                                         <li>
@@ -134,54 +135,7 @@ const TutorClass: React.FunctionComponent = () => {
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
                                 <div className="addCoverImg">
-                                    <div className="row">
-                                        <div className="col-lg-5 p-0 ">
-                                            <img
-                                                className="img-fluid"
-                                                src={commonImg.tutorDashboard}
-                                                width="301px"
-                                                height="233px"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div className="col-lg-7 p-0 ">
-                                            <div className="upload_container">
-                                                <div className="upload_image_container">
-                                                    <div className="col-md-12 p-0">
-                                                        <Typography className="textCover">
-                                                            Add A Cover Image To Your Class
-                                                        </Typography>
-                                                    </div>
-                                                    <div className="upload_component">
-                                                        <div className="upload_button">
-                                                            <Typography className="text">Upload</Typography>
-                                                        </div>
-                                                        <div>
-                                                            <Typography className="subtext">
-                                                                Max size (500mb)
-                                                            </Typography>
-                                                        </div>
-                                                        <input
-                                                            type="file"
-                                                            // ref={hiddenFileInput}
-                                                            // onChange={handleChange}
-                                                            style={{ display: 'none' }}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="publish_container">
-                                            <div className="publish_button">
-                                                <Typography className="text">Publish</Typography>
-                                            </div>
-                                            <div className="cancel_button">
-                                                <Typography>Cancel</Typography>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ReusableCoverImage imgSrc={commonImg.tutorDashboard}/>
                                 </div>
                             </div>
                         </div>

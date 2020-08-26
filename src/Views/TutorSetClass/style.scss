@@ -16,7 +16,15 @@
         }
     }
 }
-
+.class_time {
+    font-family: 'CircularXXWeb-Book';
+    .text1 {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        padding: 3.125rem 0;
+    }
+}
 .input_row {
     @include flex(center, space-between, row);
     .input_text {
@@ -33,6 +41,7 @@
 .reusableDate {
     padding: 3.125rem 0;
 }
+
 .addSkill,
 .addCoverImg {
     padding-top: 3.125rem;
@@ -84,15 +93,7 @@
         }
     }
 }
-.class_time {
-    font-family: 'CircularXXWeb-Book';
-    .text1 {
-        font-family: inherit;
-        font-size: 2.625rem;
-        line-height: 2.8125rem;
-        padding-top: 3.125rem;
-    }
-}
+
 .week_container {
     font-family: 'CircularXXWeb-Book';
     margin-top: 2.375rem;
@@ -138,6 +139,7 @@
         }
     }
     .cancel_button {
+        padding: 0.437rem 0;
         .text {
             font-family: inherit;
             font-size: 1.25rem;
@@ -195,14 +197,14 @@
     }
 }
 @media screen and (max-width: 767px) {
-    .reusableDate {
+    
         .setClass,
         .addSkill,
         .setDateTime,
         .addCoverImg {
             padding: 0 15px;
         }
-    }
+    
     .upload_image_container {
         margin-top: 3.125rem;
     }
