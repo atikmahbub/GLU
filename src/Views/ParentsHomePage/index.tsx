@@ -9,6 +9,8 @@ import ClassesRowWithImages from '../../components/ClassesRowWithImages';
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
+import MadeByFooter from './MadeByFooter';
+
 
 import './style.scss';
 import commonImg from '../../Assets/images';
@@ -76,6 +78,9 @@ const index: React.FunctionComponent = () => {
                 msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
             />
             <Tutors />
+            <div className="made__by__footer">
+                 <MadeByFooter/>
+            </div>
 
         </div>
     );

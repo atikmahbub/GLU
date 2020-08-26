@@ -1,9 +1,10 @@
-.feature__container {
-    height: 89.312rem;
+.homepage__wrapper .feature__container{
+    // height: 89.312rem;
     background-color: #f7f7f7;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     .heading__image__container {
         padding-top: 9.25rem;
+        padding-bottom: 8.687rem;
         .heading {
             height: 2.687rem;
             text-align: left;
@@ -18,7 +19,7 @@
             .image__large__container {
                 display: flex;
                 flex-direction: column;
-                height: 74.875rem;
+                // height: 74.875rem;
                 .image__large {
                     img {
                         width: 100%;
@@ -30,7 +31,7 @@
             .image__small__container {
                 display: flex;
                 flex-direction: column;
-                height: 74.875rem;
+                // height: 74.875rem;
                 .image__small {
                     img {
                         width: 100%;
@@ -41,7 +42,7 @@
             }
         }
         .title {
-            height: 43px;
+            // height: 43px;
             text-align: left;
             font: normal normal normal 2.625rem/2.812rem CircularXXTrial;
             letter-spacing: 0px;
