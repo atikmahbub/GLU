@@ -1,4 +1,7 @@
 .homepage__wrapper {
+    .section-two .ear-ring-girl {
+        object-position: 50% 15%;
+    }
     .total__upcomming__classes {
         padding-top: 0px;
         padding-bottom: 0px;
@@ -50,6 +53,8 @@
             width: 100%;
             .upcoming__class {
                 padding-top: 9.375rem;
+                padding-left: 0rem;
+                padding-left: 3.062rem;
                 .image-thumbnail-container {
                     .image-thumbnail {
                         padding-top: 65%;
@@ -58,6 +63,32 @@
                     .img {
                         width: 80%;
                     }
+                }
+            }
+            .left .title__subtitle{
+                .title{
+                    font-size: 2.625rem;
+                    width: 11.437rem;
+                    line-height: 2.812rem;
+                }
+                
+                .subtitle{
+                    font-size: 1.562rem;
+                    // width: 26.125rem;
+                    margin-top: 1.062rem;
+                }
+            }
+            .right .title__subtitle{
+                .title{
+                    font-size: 2.625rem;
+                    width: 26.125rem;
+                    line-height: 2.812rem;
+                }
+                
+                .subtitle{
+                    font-size: 1.562rem;
+                    // width: 26.125rem;
+                    margin-top: 1.062rem;
                 }
             }
         }
@@ -75,16 +106,24 @@
         }
     }
     .live__classes, .recorded__class{
-        padding-top: 0px;
-        margin-top: 0px;
+        padding-top: 0rem;
+        margin-top: 0rem;
         padding-top: 9.25rem;
         padding-bottom: 9.062rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        padding-left: 3.062rem;
+        padding-right: 3.062rem;
     }
     .tutors {
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
         padding-top: 6.125rem;
         padding-bottom: 9.062rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        padding-left: 3.062rem;
+        padding-right: 3.062rem;
     }
 
     .justification{

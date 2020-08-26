@@ -1,7 +1,8 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import './style.scss';
 
-const MadeBy = () => {
+const MadeByFooter = () => {
     return (
         <div className="made__by__footer">
             <div className="row" style={{ marginBottom: '2rem' }}>
@@ -25,4 +26,4 @@ const MadeBy = () => {
     );
 };
 
-export default MadeBy;
+export default MadeByFooter;

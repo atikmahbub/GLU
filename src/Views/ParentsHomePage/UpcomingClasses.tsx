@@ -15,11 +15,11 @@ const UpcomingClasses = () => {
                 }
                 titleRight={
                     <>
-                        24/07/20 <br /> 3pm- 4.30pm
+                        English.<br />  How to structure <br /> narrative in fiction <br /> 
                 </>
                 }
                 subtitleLeft="AED200"
-                subtitlteRight="AED200"
+                subtitlteRight="Jeff Lee"
             />
         </div>
 

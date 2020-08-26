@@ -38,7 +38,7 @@ const index: React.FunctionComponent = () => {
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
             <div className="next__class">
-                 <NextClass />
+                <NextClass />
             </div>
             <FeaturedSubjects
                 imageFirstURL={commonImg.chairman}
@@ -63,9 +63,9 @@ const index: React.FunctionComponent = () => {
                 <UpcomingClasses />
             </div>
             <div className="live__classes">
-                <LiveClasses/>
+                <LiveClasses />
             </div>
-            
+
             <FeaturedTutors
                 imageFirstURL={commonImg.blueshirtman}
                 imageFirstTitle="Languages - Johny Duke"
@@ -81,9 +81,7 @@ const index: React.FunctionComponent = () => {
                 msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
             />
             <Tutors />
-            {/* <div className="made__by__footer"> */}
-                 <MadeByFooter/>
-            {/* </div> */}
+            <MadeByFooter />
 
         </div>
     );
