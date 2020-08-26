@@ -1,4 +1,8 @@
-.homepage__wrapper{
+.homepage__wrapper {
+    .total__upcomming__classes {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
     .menu__type2__container {
         position: absolute;
         z-index: 1;
@@ -6,7 +10,7 @@
         background-color: transparent;
         color: white;
         .navigation {
-            background-color: transparent; 
+            background-color: transparent;
             ul {
                 li {
                     a {
@@ -18,13 +22,13 @@
             }
             .heading {
                 font-family: 'CircularXXWeb-Book';
-                font-size: 3rem; 
+                font-size: 3rem;
                 margin-right: 1rem;
-                color: white; 
+                color: white;
             }
             .icon-button {
                 .icon {
-                    color: white; 
+                    color: white;
                     font-size: 2.5rem;
                 }
             }
@@ -33,42 +37,37 @@
             }
         }
     }
-    .parent__upcoming__classes__container{
-        background-color: #F7F7F7;
-        height: 890px;
-        // margin-top: 150px;
-        // display: flex;
-        .parent__upcoming__classes{
-            height: 590px;
+    .parent__upcoming__classes__container {
+        background-color: #f7f7f7;
+        height: 55.625rem;
+        .parent__upcoming__classes {
+            height: 36.875rem;
             width: 100%;
-            // display: flex;
-            // object-fit: contain;
-            .upcoming__class{
+            .upcoming__class {
                 padding-top: 9.375rem;
                 .image-thumbnail-container {
                     .image-thumbnail {
                         padding-top: 65%;
-                        height: 590px;
+                        height: 36.875rem;
                     }
                     .img {
                         width: 80%;
-                        // height: 36.875rem;
                     }
                 }
             }
-        // .row{
-        //             margin-top: 150px;
-        //     .span{
-        //         .img{
-        //             height: 590px;
-        //         }
-        //     }
-        //     .img{
-        //         height: 590px;
-        //     }
-
-        // }
         }
     }
-
+    .first__row{
+        display: flex;
+        align-items: center;
+        .dot{
+            margin-right: 0.625rem;
+        }
+    }
+    .live__classes{
+        padding-top: 0px;
+        margin-top: 0px;
+        padding-top: 9.25rem;
+        padding-bottom: 9.062rem;
+    }
 }

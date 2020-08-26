@@ -8,6 +8,7 @@ import ClassesRowWithImages from '../../components/ClassesRowWithImages';
 
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
+import LiveClasses from './LiveClasses';
 
 import './style.scss';
 import commonImg from '../../Assets/images';
@@ -54,8 +55,10 @@ const index: React.FunctionComponent = () => {
             <div className="parent__upcoming__classes__container">
                 <UpcomingClasses />
             </div>
-            <ClassesRowWithImages
-                title="Live Classes" />
+            <div className="live__classes">
+                <LiveClasses/>
+            </div>
+            
             <FeaturedTutors
                 imageFirstURL={commonImg.blueshirtman}
                 imageFirstTitle="Languages - Johny Duke"
