@@ -81,7 +81,7 @@
 }
 .publish_container{
     margin-top: 6.23rem;
-    @include flex(center, start, row);
+    @include flex(center, flex-start, row);
     .publish_button{
         padding: 0.437rem 2.68rem;
         margin-right: 1.5625rem;
@@ -103,7 +103,7 @@
     }
 }
 .upload_component {
-    @include flex(center, start, row);
+    @include flex(center, flex-start, row);
     .upload_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.25rem;
