@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import NextClass from '../../components/NextClass';
@@ -11,22 +11,34 @@ import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
 // import MadeByFooter from './MadeByFooter';
+import SlidingDrawer from '../../components/SlidingDrawer';
+import SlidingDrawerContent from './SlidingDrawerContent';
 
 
 import './style.scss';
 import commonImg from '../../Assets/images';
 
 const index: React.FunctionComponent = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
     const menu = [
         { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Subjects' },
         { link: '', name: 'Messages' },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    };
     return (
         <div className="homepage__wrapper">
+            <div className="drawer">
+                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                    <SlidingDrawerContent />
+                </SlidingDrawer>
+            </div>
+
             <div className="navigation__menu">
-                <NavigationMenu menuList={menu} />
+                <NavigationMenu menuList={menu} handler={handleDrawer}/>
             </div>
 
             <SectionTwoReusable
