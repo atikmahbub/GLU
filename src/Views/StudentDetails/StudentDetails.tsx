@@ -69,7 +69,7 @@ const StudentDetails: React.FunctionComponent = () => {
 
 
 
-            {/* <CardContainer>
+            <CardContainer>
                 <div className="details-container">
                     <div className="row">
                         <div className="col-md-2">
@@ -163,7 +163,7 @@ const StudentDetails: React.FunctionComponent = () => {
                     </div>
                 </div>
             </CardContainer>
-       */}
+      
         </div>
     );
 };

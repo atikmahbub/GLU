@@ -909,6 +909,7 @@ button.outline-button {
     padding: 0.2rem 1.5rem;
     border-radius: 0;
     color: #000;
+    font-size: 1.25rem;
 }
 
 .radio-button {
@@ -1493,15 +1494,18 @@ button.outline-button {
 //student presernt row
 .present_row{
     @include flex(center, space-between, row);
+    padding: 1.25rem;
     .present_grid{
         .percent{
             font-size: 1.875rem;
             line-height: 3.437rem;
             color: $black;
+            text-align: center;
         }
         .status{
             font-size: 1.25rem;
             color: $black;
+            text-align: center;
         }
     }
 }

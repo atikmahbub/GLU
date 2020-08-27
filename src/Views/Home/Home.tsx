@@ -123,7 +123,7 @@ const Home: React.FunctionComponent = () => {
                             leftTitle="Messages"
                             desktopTitle="Contact Time"
                             title="Tutors"
-                            msg={<>Keep the convo going with the in app messenger</>}
+                            msg={<>Keep the convo going with the in-app messenger</>}
                         />
                     </div>
                     <SectionThree
