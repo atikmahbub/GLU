@@ -9,7 +9,7 @@ import MadeBy from '../Footer/MadeBy';
 //     subHeading1:string,
 //     subHeading2:string
 // }
-const TempComp: React.FunctionComponent<props> = () => {
+const TempComp: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Set Class' },
