@@ -64,7 +64,7 @@ const index: React.FunctionComponent = () => {
                 />
             </div>
             <SectionTwoReusable
-                image={commonImg.earringgirl}
+                image={commonImg.earingGirlWithTab}
                 mobileImg={commonImg.curlygirlcroped}
                 leftTitle="Sarah Frost"
                 desktopTitle="AED200 / 45mins"
@@ -81,7 +81,7 @@ const index: React.FunctionComponent = () => {
             <FeaturedTutors
                 imageFirstURL={commonImg.blueshirtman}
                 imageFirstTitle="Languages - Johny Duke"
-                imageSecondURL={commonImg.smillingmanspects}
+                imageSecondURL={commonImg.blueShirtRedSpecBoy}
                 imageSecondTitle="Maths - Harry Stannard"
             />
             <SectionTwoReusable

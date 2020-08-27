@@ -189,7 +189,7 @@
                 text-align: left;
                 font-size: 2.625rem;
                 line-height: 1.875rem;
-                font-family: "CircularXXWeb-Book";
+                font-family: 'CircularXXWeb-Book';
                 letter-spacing: 0px;
                 color: #000000;
                 opacity: 1;
@@ -223,12 +223,52 @@
             .title {
                 text-align: left;
                 font-size: 2.625rem;
-                line-height: 2.812rem ;
-                font-family: "CircularXXWeb-Book";
+                line-height: 2.812rem;
+                font-family: 'CircularXXWeb-Book';
                 letter-spacing: 0px;
                 color: #000000;
                 opacity: 1;
             }
+        }
+    }
+
+    .made__by__footer {
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        .build-by {
+            font-size: 1rem;
+            transition: all 0.5s;
+            font-weight: 500;
+            // @include makeFontSmoth(0.137rem, black);
+            text-shadow: 0 0 0.029rem black;
+            color: transparent;
+            text-rendering: geometricPrecision;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-bottom: 1rem;
+            font-family: 'CircularXXMonoWeb-Regular';
+            span {
+                a {
+                    font-weight: 300;
+                    color: #8b8b8b;
+                }
+            }
+        }
+        .glu {
+            font-size: 1rem;
+            transition: all 0.5s;
+            font-weight: 500;
+            font-family: 'CircularXXMonoWeb-Regular';
+            text-align: right;
+            margin-bottom: 1rem;
+            // @include makeFontSmoth(0.137rem, black);
+            text-shadow: 0 0 0.029rem black;
+            color: transparent;
+            text-rendering: geometricPrecision;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-bottom: 1rem;
+            font-family: 'CircularXXMonoWeb-Regular';
         }
     }
 }
