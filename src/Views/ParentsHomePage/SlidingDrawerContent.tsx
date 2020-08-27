@@ -11,7 +11,7 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
         <div className="drawer__content">
             <div className="row">
                 <div className="col-md-8 slider-image-container">
-                    <img src={commonImg.boywithdad} alt="" />
+                    <img src={commonImg.boyReadingFromLaptop} alt="" />
                 </div>
             </div>
             <div className="image__bottom__content">
@@ -33,7 +33,7 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                     </Typography>
                 </div>
 
-                {/* <div className="child__purchase__item"> */}
+                <div className="child__purchase__item">
                     <div className="child__purchase">
                         <div className="child">
                             <Typography className="subtitle">Child 1</Typography>
@@ -43,13 +43,13 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                             </Typography>
                         </div>
                         <div className="purchase"><Typography className="subtitle">Purchase</Typography></div>
-                        {/* <div className="purchase"><Typography className="subtitle">AED100</Typography></div> */}
 
                     </div>
-                    {/* <div className="item">
+
+                    <div className="item">
                         <Typography className="subtitle">AED100</Typography>
-                    </div> */}
-                {/* </div> */}
+                    </div>
+                </div>
 
                 <div className="description__container">
                     <Typography className="title">

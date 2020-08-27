@@ -84,7 +84,7 @@ const boyCropped = `${imageEndpoint}v1597667918/boyCropped_x0l66k.png`;
 import schoolLogo from "./img/schoolLogo.png";
 const earingGirlWithTab =`${imageEndpoint}v1598526187/gluschool/earingGirlWithTab_xw5znm.png`;
 const blueShirtRedSpecBoy = `${imageEndpoint}v1598526076/gluschool/blueShirtRedSpecBoy_tmnluu.png`;
-
+const boyReadingFromLaptop = `${imageEndpoint}v1598541499/gluschool/boyRadingFromLaptop_hfjsmh.png`;
 export const commonImg = {
     google,
     mobile,
@@ -170,7 +170,8 @@ export const commonImg = {
     boyCropped,
     schoolLogo,
     earingGirlWithTab,
-    blueShirtRedSpecBoy
+    blueShirtRedSpecBoy,
+    boyReadingFromLaptop
 };
 
 export default commonImg;
