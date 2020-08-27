@@ -74,7 +74,6 @@
                 
                 .subtitle{
                     font-size: 1.562rem;
-                    // width: 26.125rem;
                     margin-top: 1.062rem;
                 }
             }
@@ -87,16 +86,22 @@
                 
                 .subtitle{
                     font-size: 1.562rem;
-                    // width: 26.125rem;
                     margin-top: 1.062rem;
                 }
             }
         }
     }
     .next__class{
-        padding-top: 6.125rem;
-        padding-bottom: 6.187rem;
-        padding-left: 3.062rem;
+        .next__class__card {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 0rem;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+            padding-top: 6.125rem;
+            padding-bottom: 6.187rem;
+            padding-left: 3.062rem;
+        }
     }
     .first__row{
         display: flex;
@@ -108,20 +113,20 @@
     .live__classes, .recorded__class{
         padding-top: 0rem;
         margin-top: 0rem;
-        padding-top: 9.25rem;
-        padding-bottom: 9.062rem;
         padding-left: 0rem;
         padding-right: 0rem;
+        padding-top: 9.25rem;
+        padding-bottom: 9.062rem;
         padding-left: 3.062rem;
         padding-right: 3.062rem;
     }
     .tutors {
         padding-top: 0rem;
         padding-bottom: 0rem;
-        padding-top: 6.125rem;
-        padding-bottom: 9.062rem;
         padding-left: 0rem;
         padding-right: 0rem;
+        padding-top: 6.125rem;
+        padding-bottom: 9.062rem;
         padding-left: 3.062rem;
         padding-right: 3.062rem;
     }
