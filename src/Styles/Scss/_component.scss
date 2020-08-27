@@ -162,7 +162,7 @@
 
 .card-container {
     background-color: $white;
-    margin-bottom: 2.2rem;
+    margin-bottom: 0.65rem;
 }
 
 .primary {
@@ -909,6 +909,7 @@ button.outline-button {
     padding: 0.2rem 1.5rem;
     border-radius: 0;
     color: #000;
+    font-size: 1.25rem;
 }
 
 .radio-button {
@@ -1460,42 +1461,51 @@ button.outline-button {
     }
 }
 
-// //Next Class
-// .next__class__card {
-//     .title {
-//         font-size: 2.625rem;
-//         line-height: 2.812rem;
-//         font-family: 'CircularXXWeb-Book';
-//         color: #000000;
-//     }
-//     .dropdown{
-//         display: flex;
-//         align-items: center;
-//         font-size: 1.562rem;
-//         line-height: 1.875rem;
-//         font-family: 'CircularXXWeb-Book';
-//         letter-spacing: 0px;
-//         color: #5F5F5F;
-//     }
-//     .subtitle {
-//         font-size: 1.562rem;
-//         line-height: 1.875rem;
-//         color: $black;
-//         padding-top: 1.062rem;
-//     }
-//     .next__class__image {
-//         .image-thumbnail-container {
-//             .img {
-//                 padding-bottom: 0rem;
-//                 height: 20rem;
-//                 // height: 70%;
-//             }
-//         }
-//     }
-//     .next__class__date {
-//         .date__time__card {
-//             padding-left: 8.125rem;
-//             width: 10.875rem;
-//         }
-//     }
-// }
+.percentage__card{
+    padding: 1.875rem;
+    margin-bottom: 1.25rem;
+    .heading{
+        font-size: 1.875rem;
+        color: $black;
+    }
+    .percent{
+        font-size: 3.125rem;
+        line-height: 3.437rem;
+        color: $black;
+    }
+    .title{
+        font-size: 1.25rem;
+        color: $black;
+    }
+}
+
+// video player style
+.lecture__video__player__container {
+    margin-top: 8.625rem;
+    margin-bottom: 8.625rem;
+    .timing {
+        font-size: 2.625rem;
+        line-height: 2.625rem;
+        color: #000000;
+        font-family: inherit;
+    }
+}
+
+//student presernt row
+.present_row{
+    @include flex(center, space-between, row);
+    padding: 1.25rem;
+    .present_grid{
+        .percent{
+            font-size: 1.875rem;
+            line-height: 3.437rem;
+            color: $black;
+            text-align: center;
+        }
+        .status{
+            font-size: 1.25rem;
+            color: $black;
+            text-align: center;
+        }
+    }
+}

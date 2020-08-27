@@ -271,4 +271,39 @@
             font-family: 'CircularXXMonoWeb-Regular';
         }
     }
+
+    .drawer__content{
+        .icontext__container{
+            color: #5F5F5F;
+        }
+        .child__purchase{
+            display: flex;
+            align-items: center;
+            width: 18.75rem;
+            border: 1px solid #5F5F5F;
+            font-size: 1.4rem;
+            line-height: 1.562rem;
+            margin-top: 1.906rem;
+            .child{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 9.375rem;
+                height: 2.437rem;
+                padding: 5px;
+                :nth-child(2){
+                    color: #5F5F5F;
+                }
+            }
+            .purchase{
+                padding:0.562rem  2.125rem ;
+                border-left: 1px solid #5F5F5F;
+            }
+
+        }
+    }
+
+    .icontext__container .icon {
+        color: #5F5F5F;
+    }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import './style.scss';
 
 const MadeByFooter = () => {
     return (

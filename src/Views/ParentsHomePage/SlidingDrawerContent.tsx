@@ -3,6 +3,8 @@ import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import IconTextRow from '../../components/IconTextRow';
 import { FavoriteBorder } from '@material-ui/icons';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const SlidingDrawerContent: React.FunctionComponent = () => {
     return (
@@ -13,21 +15,42 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="image__bottom__content">
-                <Typography className="title">How to structure narrative in fiction</Typography>
+                <Typography className="title">Introducing advanced long devision</Typography>
                 <div className="icon__text__container">
-                    <IconTextRow icon={<FavoriteBorder className="icon" />} title="Favorite" />
+                    <div className="favorite">
+                        <IconTextRow  icon={<FavoriteBorder className="icon" />} title="Favorite" />
+                    </div>
+                    <div className="available__slots">
+                        <IconTextRow icon={<PermIdentityIcon className="icon" />} title="6 Available slots" />
+                    </div>
                 </div>
                 <div className="time__teacher__container">
                     <Typography className="heading">
                     19/07/20 <br/> 45mins
                     </Typography>
                     <Typography className="heading">
-                        Maths <br />Esme Stannard
+                        Maths <br />Frankie Smith
                     </Typography>
                 </div>
-                <div className="chip__container">
-                    <Typography className="title">AED250</Typography>
-                </div>
+
+                {/* <div className="child__purchase__item"> */}
+                    <div className="child__purchase">
+                        <div className="child">
+                            <Typography className="subtitle">Child 1</Typography>
+                            <Typography variant="h5">
+                                <ExpandMoreIcon 
+                                    style={{fontSize:"3rem"}} />
+                            </Typography>
+                        </div>
+                        <div className="purchase"><Typography className="subtitle">Purchase</Typography></div>
+                        {/* <div className="purchase"><Typography className="subtitle">AED100</Typography></div> */}
+
+                    </div>
+                    {/* <div className="item">
+                        <Typography className="subtitle">AED100</Typography>
+                    </div> */}
+                {/* </div> */}
+
                 <div className="description__container">
                     <Typography className="title">
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt

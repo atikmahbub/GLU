@@ -39,7 +39,7 @@ const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorCl
 const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
 const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
-
+const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
 
 
 export const rootRoute = [
@@ -82,4 +82,5 @@ export const rootRoute = [
     {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
     {component:TutorSetClass, name: '/tutor-set-class'},
     { component: ParentsHomePage, name: '/parent-homepage' },
+    {component: EmailVerification, name: '/email-verification'}
 ];

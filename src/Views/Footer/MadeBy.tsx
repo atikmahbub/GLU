@@ -1,11 +1,14 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-const MadeBy = () => {
+interface props{
+    showTC?:boolean
+}
+const MadeBy:React.FunctionComponent<props> = ({showTC}) => {
     return (
         // <div>
         <div className="row" style={{ marginBottom: '2rem' }}>
-            <div className="col-9">
+            <div className="col-md-6">
                 <Typography className="build-by">
                     Made by{' '}
                     <span>
@@ -17,8 +20,8 @@ const MadeBy = () => {
                     </span>
                 </Typography>
             </div>
-            <div className="col-3">
-                <Typography className="glu">Glu 2020</Typography>
+            <div className="col-md-6">
+    <Typography className="glu">{showTC && 'T&C’s / Privacy & Cookies'} {showTC && <span>&nbsp;</span>} Glu © 2020</Typography>
             </div>
         </div>
         // </div>

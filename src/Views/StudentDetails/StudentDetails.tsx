@@ -12,6 +12,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
 import { useLocation } from 'react-router-dom';
 import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
+import ProfileTitle from '../../components/Dashobard/ProfileTitle';
+import AttendenceRow from './AttendenceRow';
+import PresentRow from './PresentRow';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -50,22 +53,22 @@ const StudentDetails: React.FunctionComponent = () => {
     }, [studentInfo]);
     return (
         <div className="details-wrapper">
-            <CardContainer>
-                <div className="top_container">
-                    <div className="image_title_cotainer">
-                        <img className="profile" src={commonImg.blueshirtman} alt=""/>
-                        <div className="title_container">
-                            <Typography className="heading">Olivia Preston</Typography>
-                            <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
-                        </div>
-                        
-                    </div>
-                    <div className="button_container">
-                            <Typography className="blue-text">Print</Typography>
-                            <Typography className="blue-text visible">Visit details</Typography>
-                        </div>
-                </div>
-            </CardContainer>
+            <ProfileTitle/>
+            <AttendenceRow/>
+            <PresentRow/>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <CardContainer>
                 <div className="details-container">
                     <div className="row">
@@ -160,6 +163,7 @@ const StudentDetails: React.FunctionComponent = () => {
                     </div>
                 </div>
             </CardContainer>
+      
         </div>
     );
 };

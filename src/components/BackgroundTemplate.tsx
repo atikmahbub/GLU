@@ -1,11 +1,16 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import {Link} from 'react-router-dom'
-const SmallCard: React.FunctionComponent = ({imgSrc }) => {
+interface props{
+    imgSrc?:any;
+}
+const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
     return (
         
             <div className="main_container2_subcontainer">
+                <div className="img_container">
                 <div className="row">
+                    
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col6">
                             <Typography className="card_text">Profile</Typography>
@@ -26,6 +31,7 @@ const SmallCard: React.FunctionComponent = ({imgSrc }) => {
                                 alt=""
                             />
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div className="row">
@@ -48,4 +54,4 @@ const SmallCard: React.FunctionComponent = ({imgSrc }) => {
     );
 };
 
-export default SmallCard;
+export default BackgroundTemplate;

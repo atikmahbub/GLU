@@ -1,5 +1,4 @@
 $width: 60;
-$color: #fff;
 
 .dot-wrapper{
     position: relative;
@@ -19,7 +18,7 @@ $color: #fff;
     height: ($width / 3) - 10px;
     width: ($width / 3) - 10px;
     border-radius: 50%;
-    background-color: $color;
+    background-color: $black;
     position: absolute;
     animation: grow 1s ease-in-out infinite alternate;
 

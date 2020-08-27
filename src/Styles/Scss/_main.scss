@@ -43,7 +43,7 @@ html {
 }
 @media only screen and (min-width:1025px) and (max-width: 1440px) {
     html {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
 @media only screen and (min-width:1441px) and (max-width: 1920px) {
@@ -59,4 +59,12 @@ html {
 }
 div.dot-pulse {
     padding: 1rem;
+}
+
+.colum__spacing{
+    padding: 0.625rem!important;
+}
+.row__margin{
+    margin-left: -6.5px!important;
+    margin-right: -6.5px!important;
 }
