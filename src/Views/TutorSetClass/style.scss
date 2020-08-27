@@ -16,7 +16,15 @@
         }
     }
 }
-
+.class_time {
+    font-family: 'CircularXXWeb-Book';
+    .text1 {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        padding: 3.125rem 0;
+    }
+}
 .input_row {
     @include flex(center, space-between, row);
     .input_text {
@@ -33,6 +41,7 @@
 .reusableDate {
     padding: 3.125rem 0;
 }
+
 .addSkill,
 .addCoverImg {
     padding-top: 3.125rem;
@@ -62,27 +71,62 @@
     }
 }
 .date_time {
-    font-family: 'CircularXXWeb-Book';
-    .text1 {
-        font-family: inherit;
-        font-size: 2.625rem;
-        line-height: 2.8125rem;
-        padding-bottom: 3.125rem;
+   
+    .print_dateTime {
+        font-family: 'CircularXXWeb-Book';
+        .text1 {
+            font-family: inherit;
+            font-size: 2.625rem;
+            line-height: 2.8125rem;
+            padding-bottom: 3.125rem;
+        }
+    }
+    .print_timeline{
+        float: right;
+        font-family: 'CircularXXWeb-Book';
+        padding-right: 5.06rem;
+        .text_list{
+            font-family: inherit;
+            font-size: 1.5625rem;
+            line-height: 1.875rem;
+            
+        }
     }
 }
-.class_time {
+
+.week_container {
     font-family: 'CircularXXWeb-Book';
-    .text1 {
+    margin-top: 2.375rem;
+    .text {
         font-family: inherit;
-        font-size: 2.625rem;
-        line-height: 2.8125rem;
-        padding-top: 3.125rem;
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+        padding-bottom: 0.875rem;
     }
 }
-.publish_container{
+.skill_container {
+    margin-top: 2.3rem;
+}
+.choose_weeks {
+    display: flex;
+    justify-content: start;
+
+    .boxes {
+        font-family: inherit;
+        padding: 0.5rem 0.625rem;
+        border-width: 1px;
+        border-color: #cfcfcf;
+        border-style: solid;
+        margin-top: 0.625rem;
+
+        margin-right: 0.625rem;
+    }
+}
+.publish_container {
     margin-top: 6.23rem;
-    @include flex(center, flex-start, row);
-    .publish_button{
+    display: flex;
+    justify-content: start;
+    .publish_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.5625rem;
         border-color: rgba(0, 0, 0, 0.25);
@@ -94,7 +138,8 @@
             line-height: 1.5625rem;
         }
     }
-    .cancel_button{
+    .cancel_button {
+        padding: 0.437rem 0;
         .text {
             font-family: inherit;
             font-size: 1.25rem;
@@ -103,7 +148,8 @@
     }
 }
 .upload_component {
-    @include flex(center, flex-start, row);
+    display: flex;
+    justify-content: start;
     .upload_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.25rem;
@@ -124,11 +170,10 @@
     }
 }
 
-
 @media screen and (min-width: 767px) {
     .tutor_class_subcontainer {
         &_col1 {
-            padding-left:2rem;
+            padding: 0 3.125rem;
         }
     }
     .sub_rows {
@@ -152,15 +197,15 @@
     }
 }
 @media screen and (max-width: 767px) {
-    .reusableDate {
+    
         .setClass,
         .addSkill,
         .setDateTime,
         .addCoverImg {
             padding: 0 15px;
         }
-    }
-    .upload_image_container{
+    
+    .upload_image_container {
         margin-top: 3.125rem;
     }
 }
