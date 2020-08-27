@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames'
 import { Button, Typography, IconButton, Grid } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Search, Menu } from '@material-ui/icons';
@@ -16,8 +17,10 @@ interface props {
     customClass?: string;
     handler?: () => void;
     showMenuOptions?: boolean;
+    rootClassName?: string;
+    containerClassName?: string
 }
-const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions }) => {
+const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName }) => {
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -65,8 +68,8 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
     }
         };
     return (
-        <div className="menu__type2__container">
-            <div className="navigation">
+        <div className={classNames(rootClassName, 'menu__type2__container')}>
+            <div className={classNames(containerClassName, 'navigation')}>
                 <ul className={customClass}>{getMenuList()}</ul>
                 <Typography className={`heading ${customClass}`}>Glu</Typography>
             </div>
