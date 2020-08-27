@@ -26,4 +26,31 @@
 
         }
     }
+    .exm-pdng{
+        padding-left: 3.125rem;
+        width: 100%;
+        display: flex;
+        .bdr_right{
+            border-right: 1px solid #dadada;
+            padding: 1.875rem 0;
+        }
+        .percent{
+            color: $black;
+            font-size: 1.875rem;
+            line-height: 3.437rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .title{
+            font-size: 1.25rem;
+            color: $black;
+            text-align: center;
+        }
+    }
+    .exam_heading{
+        font-size: 1.875rem;
+        line-height: 3.437rem;
+        font-weight: 500;
+        color: $black;
+    }
 }
