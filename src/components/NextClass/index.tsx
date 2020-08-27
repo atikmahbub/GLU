@@ -11,17 +11,17 @@ const NextClass: React.FunctionComponent = () => {
         <div className="next__class__card">
             <div className="row">
                 <div className="col-lg-2">
-                    <Typography variant="h3" className="title">
+                    <Typography className="title">
                         Next Class
                     </Typography>
                     <div className="dropdown">
-                        <Typography variant="h5" >
+                        <Typography variant="h5">
                             Child 1 
                         </Typography>
-                        <span  className="expand__icon">
+                        <Typography variant="h5">
                             <ExpandMoreIcon 
                                 style={{fontSize:"3rem"}} />
-                        </span>
+                        </Typography>
                     </div>
 
 
