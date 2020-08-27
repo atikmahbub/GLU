@@ -58,3 +58,15 @@
     font-family: 'CircularXXMonoWeb-Regular';
     src: url('CircularXXMonoWeb-Regular.woff') format('woff');
 }
+
+@font-face {
+    font-family: 'CircularXXWeb';
+    src: url('CircularXXWeb-Book.woff2') format('woff2');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'CircularXXWeb';
+    src: url('CircularXXWeb-Regular.woff2') format('woff2');
+    font-weight: 400;
+}

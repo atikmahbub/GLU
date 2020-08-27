@@ -17,7 +17,17 @@ const StudentLogin = () => {
     const handlePass = (value: string)=>{
         setState({...state, password: value});
     }
-    console.log(state)
+    const route = useHistory();
+    const handleSignin =() =>{
+        if(state.email==="student@gmail.com"){
+            route.push('/students/')
+        }else if(state.email==="teacher@gmail.com"){
+
+        }else if(state.email==="parent@gmail.com"){
+
+        }
+    }
+   
     return (
         <div className="credential__container">
             <NavigationMenu/>
@@ -26,7 +36,7 @@ const StudentLogin = () => {
                     <TextField className="line-input mb-5" label="Email Address" value={state.email} onChange={handleEmail} fullWidth />
                     <UnderLineAddornment label="Password" className="custom-adornment-input"  onChange={(value:string)=>handlePass(value)}/>
                     <div className="button-container">
-                    <OutlineButton text="Sign In" />
+                    <OutlineButton text="Sign In" btnClick={handleSignin} />
                     <FormControlLabel color="primary" value="" className="keep__signed radio-button" control={<Radio />} label="Keep me signed in" />
                     </div>
                 </div>
