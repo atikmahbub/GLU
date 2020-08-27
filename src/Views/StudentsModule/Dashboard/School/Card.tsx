@@ -91,8 +91,8 @@ const Card: FC<CardProps> = ({
 
                     {description && value && (
                         <Grid container direction="column">
-                            <Typography>{description}</Typography>
-                            <Typography>{value}</Typography>
+                            <Typography className={classes.text}>{description}</Typography>
+                            <Typography className={classes.text}>{value}</Typography>
                         </Grid>
                     )}
                 </Grid>
