@@ -11,8 +11,8 @@
         width: 100%;
         .stepper__title {
             font-family: 'CircularXXWeb-Book';
-            line-height: 1.7rem;
-            font-size: 1.5rem;
+            line-height: 3.125rem;
+            font-size: 2.625rem;
             color: #000;
         }
         .stepper_marker {
@@ -22,7 +22,8 @@
                 li {
                     font-family: 'CircularXXWeb-Book';
 
-                    font-size: 0.8rem;
+                    font-size: 1.562rem;
+                    line-height: 1.875rem;
                     color: $lightGray;
                 }
                 li.active {
@@ -43,22 +44,27 @@
                 .title {
                     font-size: 0.6rem;
                     font-family: 'CircularXXMonoWeb-Regular';
-                   border-bottom: none;
-                   color: #000;
+                    border-bottom: none;
+                    color: #000;
+                    span {
+                        font-size: 2.625rem;
+                        line-height: 3.125rem;
+                    }
                 }
             }
             fieldset {
                 width: 100%;
                 .MuiFormControlLabel-root {
-                    margin: 0;
+                    margin: 0.3rem;
                 }
             }
             .title {
                 border-bottom: 1px solid $lightGray;
                 .MuiFormControlLabel-label {
                     font-family: 'CircularXXWeb-Book';
-                    font-size: 1.3rem;
-                    color: #000;
+                    font-size: 2.625rem;
+                    line-height: 3.125rem;
+                    color: $black;
 
                     &:hover {
                         color: $primary;
@@ -212,4 +218,8 @@
         bottom: 1rem;
         left: 1rem;
     }
+}
+.MuiTextField-root.line-input.remove_mb{
+    margin-bottom: 0;
+    margin-top: 1.5rem;
 }

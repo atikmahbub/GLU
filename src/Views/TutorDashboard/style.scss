@@ -104,11 +104,7 @@
                 }
             }
         }
-        .main_container_dashboard_col5 {
-            // .card_row5 {
-            //     padding-top: 3.125rem;
-            // }
-        }
+
     }
     
     .menu__type2__container {
@@ -134,18 +130,13 @@
                 .card_text {
                     font-family: inherit;
                     font-size: 2.625rem;
-                    padding-top: 8.4375rem;
                     color: $white;
                 }
             }
             .main_container_dashboard_col7 {
                 .image_link {
                     float: right;
-                    padding-top: 9.375rem;
                     color: $white !important;
-                }
-                .img-class {
-                    padding-top: 9.375rem;
                 }
             }
             .main_container_dashboard_col8 {
@@ -221,6 +212,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    //for mobile view additional
+    .main_container_dashboard_col6{
+        padding: 2rem 0;
+    }
     .card__row {
         
         @include flex(center, space-between, column);
@@ -259,11 +254,17 @@
         }
         
     }
+    .img_container{
+        padding-top: 5rem;
+    }
 }
 //Media Queries
 @media screen and (min-width: 768px) {
     .set__margin {
         margin-bottom: 3.125rem;
+    }
+    .img_container{
+        padding-top: 9.375rem;
     }
     .main_container_dashboard_col3 {
         .card_row4 {

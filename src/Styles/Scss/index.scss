@@ -9,6 +9,7 @@
 @import './calender.scss';
 @import './loader';
 @import './tostAlert';
+@import './rangeCalender';
 @import '../../Views/Auth/Login/style.scss';
 @import '../../Views/Auth/ForgotPassword/style.scss';
 @import '../../Views/Dashboard/style.scss';
@@ -48,9 +49,13 @@
 @import '../../Views/StudentSchoolInfo/style.scss';
 @import '../../Views/StudentNoFavourite/style.scss';
 @import '../../Views/StudentFavourite/style.scss';
-@import '../../Views/studentSearchResult/style.scss';
-@import '../../Views/studentNoResult/style.scss';
+@import '../../Views/StudentSearchResult/style.scss';
+@import '../../Views/StudentNoResult/style.scss';
 @import '../../Views/TutorDashboard/style.scss';
 @import '../../Views/TutorProfile/style.scss';
 @import '../../Views/PersonalSchool2/style.scss';
 @import '../../Views/TutorSetClass/style.scss';
+@import "../../Views/EmailVerification/style.scss";
+@import "../../Views/EmailVerification/style.scss";
+@import "../../Views/StudentDetails/style.scss";
+@import '../../Views/TutorRecordClass/style.scss';

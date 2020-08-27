@@ -12,6 +12,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
 import { useLocation } from 'react-router-dom';
 import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
+import ProfileTitle from '../../components/Dashobard/ProfileTitle';
+import AttendenceRow from './AttendenceRow';
+import PresentRow from './PresentRow';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -26,13 +29,13 @@ const StudentDetails: React.FunctionComponent = () => {
         timetable: [],
         profile: '',
     });
-    useEffect(()=>{
-        if(routes.hasOwnProperty('state')){
-            if ((routes as any).state.hasOwnProperty('id')) {
-                dispatch(getStudentDetailsAPIcall((routes as any).state.id));
-            }
-        }
-    }, [])
+    // useEffect(()=>{
+    //     if(routes.hasOwnProperty('state')){
+    //         if ((routes as any).state.hasOwnProperty('id')) {
+    //             dispatch(getStudentDetailsAPIcall((routes as any).state.id));
+    //         }
+    //     }
+    // }, [])
     useEffect(() => {
         if (studentInfo) {
             const studentDetls = studentInfo.studentsDetail[0];
@@ -50,6 +53,22 @@ const StudentDetails: React.FunctionComponent = () => {
     }, [studentInfo]);
     return (
         <div className="details-wrapper">
+            <ProfileTitle/>
+            <AttendenceRow/>
+            <PresentRow/>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <CardContainer>
                 <div className="details-container">
                     <div className="row">
@@ -144,6 +163,7 @@ const StudentDetails: React.FunctionComponent = () => {
                     </div>
                 </div>
             </CardContainer>
+      
         </div>
     );
 };

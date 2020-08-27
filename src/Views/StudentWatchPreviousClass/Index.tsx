@@ -5,7 +5,7 @@ import FixedNavigation from '../../Containers/FixedNavigation';
 import NavigationMenu from '../../components/NavigationMenu';
 import SpaceWrapper from '../../Containers/SpaceWrapper';
 import VideoDescription from './VideoDescription';
-import VideoLectureContainer from './VideoLectureContainer';
+import VideoLectureContainer from '../../components/VideoLectureContainer';
 import ClassSummery from './ClassSummery';
 import TagContainer from './TagContainer';
 import ResourcesContainer from './ResourcesContainer';

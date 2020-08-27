@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
@@ -8,7 +7,6 @@ import MadeBy from '../Footer/MadeBy';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import ProgressBar from './ProgressBar';
 import CalendarComponent from '../../components/CalendarComponent';
-import { common } from '@material-ui/core/colors';
 const PersonalDashboard2: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },

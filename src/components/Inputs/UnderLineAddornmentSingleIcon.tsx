@@ -25,7 +25,7 @@ const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({classNam
         value && setPassword(value);
       }, [])
     return (
-        <FormControl className={`${className} mb-2`} variant="outlined" fullWidth>
+        <FormControl className={`${className}`} variant="outlined" fullWidth>
         <InputLabel htmlFor="password-input">{label}</InputLabel>
         <Input
           id="password-input"

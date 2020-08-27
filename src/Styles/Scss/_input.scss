@@ -43,7 +43,7 @@
 }
 
 .MuiTextField-root.line-input {
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
     .MuiOutlinedInput-input {
         padding: 12.5px 14px !important;
     }
@@ -51,7 +51,7 @@
         z-index: 1;
         transform: translate(14px, 15px) scale(1);
         pointer-events: none;
-        font-size: 14px;
+        font-size: 1.562rem;
         .MuiInputBase-formControl {
             &:hover {
                 border-color: red;
@@ -59,13 +59,13 @@
         }
     }
     .MuiInputLabel-shrink.MuiInputLabel-root {
-        color: #000;
-        font-size: 1.2rem;
+        color: $black;
+        font-size: 1.562rem;
         font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
+        font-size: 1.562rem;
         color: $black;
     }
     .MuiInput-underline:before {
@@ -73,16 +73,17 @@
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
+        font-size: 1.562rem;
         color: $black;
     }
 }
 
 
 .custom-adornment-input {
+    margin-bottom: 2.5rem;
     .MuiFormLabel-root.Mui-focused {
         color: #000;
-        font-size: 1.2rem;
+        font-size: 1.562rem;
         font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputLabel-outlined {
@@ -93,12 +94,12 @@
     }
     .MuiInputLabel-formControl {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
-        color: $gray;
+        font-size: 1.562rem;
+        color: $black;
     }
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
-        font-size: 1.3rem;
+        font-size: 1.562rem;
         color: $gray;
     }
 }
