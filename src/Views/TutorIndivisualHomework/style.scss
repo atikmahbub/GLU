@@ -1,0 +1,170 @@
+.tutor_indivisual_homework{
+    .leftText{
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+    }
+.container_1{
+    background-color: #F7F7F7;
+    &_1{
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+        padding-top: 3.75rem;
+        padding-bottom: 9.06rem;
+        
+        &_rightcontainer{
+            .rightTitle{
+                font-size: 5rem;
+                line-height: 5rem;
+            }
+            .button_container{
+                display: flex;
+                justify-content: start;
+                margin-top: 5rem;
+                .smallText1{
+                    font-size: 1.25rem;
+                    line-height: 1.875rem;
+                }
+                .smallText2{
+                    font-size: 1.25rem;
+                    line-height: 1.875rem;
+                    margin-left: 1.3125rem;
+                }
+            }
+        }
+       
+    }
+}
+.container_2{
+    padding:5.59rem 3.125rem;
+    .rightContainer_2{
+        .paraText{
+            font-size: 2.625rem;
+            line-height: 3.125rem;
+        }
+    }
+}
+.container_3{
+    padding: 0 3.125rem;
+    &_1{
+        padding-top: 3.125rem;
+        
+    }
+    .borderLine{
+        border-left-color: rgba(0, 0, 0, 0.25);
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+    .resources_text{
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+    }
+    .resources_container,.students_container{
+        .straight_line{
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.25);
+            border-width: 1px;
+            margin-top: 5rem;
+        }
+        
+    }
+    .resources_container_2{
+        padding-left: 3.125rem;
+    }
+    .students_container{
+        padding-top: 3.125rem;
+    }
+    .resources_table_component{
+        margin-top: 1.875rem;
+        
+    }
+    .resources_subtext{
+        color: #5F5F5F;
+        font-size: 1.25rem;
+        line-height: 1.5625rem;
+    }
+    .textArray{
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+    }
+    .mark_or_edit{
+        @include flex(center,space-between,row);
+    }
+    .submissions{
+        margin-top: 1.25rem;
+    }
+    .leftTextPadding{
+        margin-top: 3.125rem;
+    }
+    .complete{
+        margin-top: 5.625rem;
+    }
+    .complete_button{
+        border-color: rgba(0, 0, 0, 0.25);
+        border-width: 1px;
+        border-style: solid;
+        padding: 0.5rem 2rem;
+        .complete_text{
+            font-size: 1.25rem;
+            line-height: 1.875rem;
+        }
+    }
+    .play_section{
+        margin-top: 1.875rem;
+    }
+    .playBar{
+        width: 100%;
+        height: 2px;
+        border-radius: 5px;
+        background-color: #F7F7F7;
+        .playProgress{
+            width: 20%;
+            height: 2px;
+            background-color: black;
+        }
+    }
+    .play_container{
+        margin-top: 1.875rem;
+    }
+    .play_text{
+        @include flex(center,space-between,row);
+    }
+}
+}
+@media screen and (min-width: 767px){
+    .container_1_1{
+        &_rightcontainer{
+            padding:0 3.125rem ;
+        }
+    }
+    .borderLineMain{
+        border-left-color: rgba(0, 0, 0, 0.25);
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+    .students_container{
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+    }
+    .rightContainer_2{
+        padding: 0 3.125rem;
+    }
+    .resources_container{
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+    }
+    
+}
+@media screen and (max-width: 767px){
+    .container_1_1{
+        &_rightcontainer{
+            padding-top:3.125rem;
+        }
+    }
+    .resources_container{
+        padding-top: 3.125rem;
+    }
+    .submissions_dateTime{
+        margin-top: 1rem;
+    }
+    
+}
