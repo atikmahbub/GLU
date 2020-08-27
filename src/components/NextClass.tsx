@@ -1,10 +1,8 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import ImageThumbnail from '../../components/ImageThumbnail';
-import commonImg from '../../Assets/images';
+import ImageThumbnail from './ImageThumbnail';
+import commonImg from '../Assets/images';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-import './style.scss';
 
 const NextClass: React.FunctionComponent = () => {
     return (
@@ -43,11 +41,6 @@ const NextClass: React.FunctionComponent = () => {
                     </Typography>
                     <Typography className="subtitle">Harriet Earl</Typography>
                 </div>
-                {/* <div className="col-lg-1">
-                    <Link to="" className="blue-button">
-                        See
-                    </Link>
-                </div> */}
             </div>
         </div>
     );

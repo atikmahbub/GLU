@@ -1,7 +1,6 @@
 import React from 'react';
-import HeadingRowContainer from '../../components/HeadingRowContainer';
+import HeadingRowContainer from './HeadingRowContainer';
 import { Typography } from '@material-ui/core';
-import './style.scss';
 
 interface props {
     imageFirstURL: string;
