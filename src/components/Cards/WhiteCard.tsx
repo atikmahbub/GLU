@@ -63,7 +63,7 @@ function getTo(to: string | undefined) {
     return to || '/';
 }
 
-const Card: FC<CardProps> = ({
+const WhiteCard: FC<CardProps> = ({
     size,
     title,
     bigTitle,
@@ -81,7 +81,8 @@ const Card: FC<CardProps> = ({
                 <Grid container direction="column" justify="space-between">
                     <Grid container justify="space-between">
                         <Typography
-                            className={classNames(classes.title, titleClassName, { [classes.titleBig]: bigTitle })}>
+                            className={classNames(classes.title, titleClassName, { [classes.titleBig]: bigTitle })}
+                        >
                             {title}
                         </Typography>
                         {titleRightLink && (
@@ -105,4 +106,4 @@ const Card: FC<CardProps> = ({
     );
 };
 
-export default memo(Card);
+export default memo(WhiteCard);

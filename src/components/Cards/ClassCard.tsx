@@ -4,6 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
+    root: {
+        paddingBottom: '5rem',
+    },
     imgContainer: {
         marginBottom: '4.3125rem',
     },
@@ -29,7 +32,7 @@ const useStyles = makeStyles({
 const ClassCard: FC = () => {
     const classes = useStyles();
     return (
-        <Grid container direction="column">
+        <Grid container direction="column" className={classes.root}>
             <Grid container justify="flex-end">
                 <Grid item xs={7} className={classes.imgContainer}>
                     <img
