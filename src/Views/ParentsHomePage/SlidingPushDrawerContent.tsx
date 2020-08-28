@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Close } from '@material-ui/icons';
+import { IconButton, Typography } from '@material-ui/core';
 
 
 const SlidingPushDrawerContent: React.FunctionComponent = () => {
@@ -49,8 +50,13 @@ const SlidingPushDrawerContent: React.FunctionComponent = () => {
                 </div>
 
                 <div className="title__description topped__up">
-                    <div className="first__row__title">
-                        <Typography className="title">Topped Up </Typography>
+                    <div className="topped__up__with__close">
+                        <div className="first__row__title">
+                            <Typography className="title">Topped Up </Typography>
+                        </div>
+                        <IconButton className="close-icon-btn">
+                            <Close className="icon" />
+                        </IconButton>
                     </div>
                     <div className="second__row__description">
                         <Typography className="subtitle">
