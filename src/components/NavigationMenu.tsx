@@ -2,10 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames'
 import { Button, Typography, IconButton, Grid } from '@material-ui/core';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import { v4 as uuidv4 } from 'uuid';
 import { Search, Menu } from '@material-ui/icons';
 import {BigMenu} from './BigMenu'
 import commonImg from '../Assets/images';
+
+const useStyles = makeStyles({
+  button: {
+      '&:hover': {
+          backgroundColor: 'transparent'
+      }
+  }
+})
 
 export interface propsType {
     name: string;
@@ -21,6 +30,7 @@ interface props {
     containerClassName?: string
 }
 const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName }) => {
+    const classes = useStyles()
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -38,7 +48,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                     {menuList.map((item: propsType) => (
                 <li key={uuidv4()}>
                     <Link to={item.link}>
-                        <Button className="link">{item.name}</Button>
+                        <Button disableRipple className={classNames('link', classes.button)}>{item.name}</Button>
                     </Link>
                 </li>
             ))
@@ -50,17 +60,17 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                     <>
             <li>
                 <Link to="/signup">
-                    <Button className="outline-rec">Sign Up</Button>
+                    <Button disableRipple className="outline-rec">Sign Up</Button>
                 </Link>
             </li>
             <li>
                 <Link to="/login">
-                    <Button>Sign In</Button>
+                    <Button disableRipple className={classes.button}>Sign In</Button>
                 </Link>
             </li>
             <li>
                 <Link to="/help-support">
-                    <Button>Help</Button>
+                    <Button disableRipple className={classes.button}>Help</Button>
                 </Link>
             </li>
                     </>
