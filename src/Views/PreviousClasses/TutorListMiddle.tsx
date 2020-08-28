@@ -2,6 +2,7 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
+import { linkTo } from '../../Helper/LinkTo';
 
 const TutorListMiddle: React.FunctionComponent = () => {
     const imageMetaDeta = [
@@ -124,7 +125,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
             <div className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">
-                        <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
+                        <ImageThumbnail linkTo={linkTo.watchPreviousClass} image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
             </div>

@@ -12,13 +12,8 @@ const ShowWelcome = React.lazy(() => import('../../Views/StudentSignupForm/ShowW
 const ForgotPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('../../Views/Auth/Verification/Verification'));
-
-const StudentClassesTutors = React.lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
-
-
 const StudentIndividualSubjects = React.lazy(() => import('../../Views/StudentIndividualSubjects/Index'));
-const StudentWatchPreviousClass = React.lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
-const TutorDetail = React.lazy(() => import('../../Views/TutorDetail/index'));
+
 const TutorsUpcomingClasses = React.lazy(() => import('../../Views/TutorsUpcomingClasses/Index'));
 const StudentTutorPreviousClasses = React.lazy(() => import('../../Views/StudentTutorPreviousClasses/Index'));
 const studentDashboard = React.lazy(() => import('../../Views/StudentDashboard/Index'));
@@ -54,15 +49,11 @@ export const rootRoute = [
     { component: ShowWelcome, name: '/signup-success' },
     { component: ForgotPassword, name: '/forgot-password' },
     { component: SetNewPassword, name: '/reset-password' },
-    { component: verification, name: '/verification' },   
-    { component: StudentClassesTutors, name: '/student-classes' },
-
+    { component: verification, name: '/verification' },  
+    
     { component: StudentIndividualSubjects, name: '/student-individual-subjects' },
-    { component: StudentWatchPreviousClass, name: '/student-watch-previous-class' },
-    { component: TutorDetail, name: '/tutor-detail' },
     { component: TutorsUpcomingClasses, name: '/tutor-upcoming-classes' },
     { component: StudentTutorPreviousClasses, name: '/student-previous-classes' },
-    { component: studentDashboard, name: '/student-dashboard' },
     { component: studentDetail, name: '/student-detail' },
     { component: studentIncompleteDetail, name: '/student-incomplete-detail' },
     { component: editStudentProfile, name: '/edit-student-profile' },

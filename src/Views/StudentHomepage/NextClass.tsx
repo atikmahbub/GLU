@@ -4,7 +4,10 @@ import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { Link } from 'react-router-dom';
 
-const NextClass: React.FunctionComponent = () => {
+interface props{
+    route:string
+}
+const NextClass: React.FunctionComponent<props> = ({route}) => {
     return (
         <div className="next__class__card">
             <div className="row">
@@ -31,7 +34,7 @@ const NextClass: React.FunctionComponent = () => {
                     <Typography className="subtitle">Harriet Earl</Typography>
                 </div>
                 <div className="col-lg-1">
-                    <Link to="" className="blue-button">
+                    <Link to={route} className="blue-button">
                         See
                     </Link>
                 </div>

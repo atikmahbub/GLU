@@ -37,9 +37,9 @@ const Index: React.FunctionComponent = () => {
                     }
                 />
             </div>
-            <NextClass />
+            <NextClass route="/students/classes" />
             <FeatureSubject />
-            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-class" />
+            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-classes" />
             <SectionTwoReusable
                 image={commonImg.earingGirlWithTab}
                 mobileImg={commonImg.curlygirlcroped}
@@ -56,7 +56,7 @@ const Index: React.FunctionComponent = () => {
             />
             <UpcomingClass />
             <CalenderContainer />
-            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-class" />
+            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-classes" />
             <FeatureTutor />
             <SectionTwoReusable
                 image={commonImg.lappygirl}
