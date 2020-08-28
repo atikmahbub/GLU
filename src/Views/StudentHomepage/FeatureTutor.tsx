@@ -7,7 +7,7 @@ import { Typography } from '@material-ui/core';
 const FeatureTutor: React.FunctionComponent = () => {
     return (
         <div className="feature__container">
-            <HeadingRowContainer title="Featured Subjects" link="see all" />
+            <HeadingRowContainer title="Featured Tutors" link="see all" />
             <div className="row">
                 <div className="col-lg-6 mb-3">
                     <div className="vrboy__container">

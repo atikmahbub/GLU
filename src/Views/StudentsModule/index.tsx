@@ -48,7 +48,7 @@ const StudentsModule: FC = () => {
             <Grid container direction="column" className={classes.content}>
                 <Switch>
                     {routes.map((route, index) => (
-                        <Route key={index} {...route} />
+                        <Route exact key={index} {...route} />
                     ))}
                     <Redirect to="/students/" />
                 </Switch>

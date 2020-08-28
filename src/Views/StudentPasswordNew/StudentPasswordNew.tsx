@@ -19,7 +19,7 @@ const StudentPasswordNew = () => {
                         Enter a password that you’ll be able to remember. Make sure it contains one uppercase and one
                         special character.
                     </Typography>
-                    <UnderLineAddornment label="New Password" className="custom-adornment-input" />
+                    <UnderLineAddornment label="New Password" className="custom-adornment-input mb-5" />
                     <TextField className="line-input mb-5" type="password" label="Confirm Password" fullWidth />
                     <div className="button-container">
                         <Button className="outline-button">Reset</Button>
