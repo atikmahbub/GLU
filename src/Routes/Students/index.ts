@@ -1,7 +1,7 @@
 import React from "react";
 const StudentsDashboard = React.lazy(() => import('../../Views/StudentsModule/Dashboard'));
 import { createRouteObj } from '../../Helper/routes';
-import { linkTo } from '../../Helper/LinkTo';
+import { linkTo } from '../../Helper/linkTo';
 const StudentHomePage = React.lazy(() => import('../../Views/StudentHomepage/Index'));
 const PreviousClasses = React.lazy(() => import('../../Views/PreviousClasses/PreviousClasses'));
 const UpcomingClasses = React.lazy(() => import('../../Views/UpcomingClasses/Index'));
