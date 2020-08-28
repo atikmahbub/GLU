@@ -32,10 +32,10 @@ const ReusableUpcommingClasses: React.FunctionComponent<props> = ({
                         <li><FiberManualRecord className="icon"/> {titleClass}</li>
                     </ul>
                     <div className="row">
-                        <div className="col-md-6 mb-2 d-flex">
+                        <div className="col-md-6 mb-2 d-flex left">
                             <TitleSubtitle title={titleLeft} subtitle={subtitleLeft} />
                         </div>
-                        <div className="col-md-6 mb-2 d-flex">
+                        <div className="col-md-6 mb-2 d-flex right">
                             <TitleSubtitle title={titleRight} subtitle={subtitlteRight} />
                         </div>
                     </div>

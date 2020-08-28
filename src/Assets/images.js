@@ -82,7 +82,9 @@ const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owc
 const deviceB = `${imageEndpoint}v1597916618/gluschool/deviceB_ti1src.jpg`;
 const boyCropped = `${imageEndpoint}v1597667918/boyCropped_x0l66k.png`;
 import schoolLogo from "./img/schoolLogo.png";
-
+const earingGirlWithTab =`${imageEndpoint}v1598526187/gluschool/earingGirlWithTab_xw5znm.png`;
+const blueShirtRedSpecBoy = `${imageEndpoint}v1598526076/gluschool/blueShirtRedSpecBoy_tmnluu.png`;
+const boyReadingFromLaptop = `${imageEndpoint}v1598541499/gluschool/boyRadingFromLaptop_hfjsmh.png`;
 export const commonImg = {
     google,
     mobile,
@@ -166,7 +168,10 @@ export const commonImg = {
     curlygirlcroped,
     deviceB,
     boyCropped,
-    schoolLogo
+    schoolLogo,
+    earingGirlWithTab,
+    blueShirtRedSpecBoy,
+    boyReadingFromLaptop
 };
 
 export default commonImg;

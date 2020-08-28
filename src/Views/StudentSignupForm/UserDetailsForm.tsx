@@ -23,7 +23,7 @@ const UserDetailsForm: React.FunctionComponent = () => {
                     <SelectFieldUnderline
                         className="custom-adornment-input"
                         label="Mobile Number"
-                        options={[]}
+                        options={["+91"]}
                         getValue={() => {}}
                     />
                 </div>
