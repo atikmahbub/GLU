@@ -294,6 +294,15 @@
             opacity: 1;
         }
 
+        .drawer__right__Container .button__row {
+            margin-left: -0.75rem!important;
+            padding-top: 1.774rem;
+            position: absolute;
+            p{
+                display: none;
+            }
+        }
+
         // drawer content
         .push__drawer__content .heading {
             font-size: 2.625rem;
@@ -361,6 +370,11 @@
             }
 
         }
+
+        .drawer__right__Container .button__row {
+            margin-left: -1.75rem!important;
+        }
+
     }
 
     // .full_drawer {
