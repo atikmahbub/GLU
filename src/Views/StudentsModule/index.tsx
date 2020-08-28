@@ -36,24 +36,27 @@ const StudentsModule: FC = () => {
     }, []);
 
     return (
-        <Grid container direction="column" className={classes.root}>
-            <NavigationMenu
-                handler={toggleDrawer}
-                menuList={navigations}
-                containerClassName={classes.navigationContainer}
-            />
-            <Drawer open={isDrawer} onClose={toggleDrawer}>
-                <Notifications />
-            </Drawer>
-            <Grid container direction="column" className={classes.content}>
+//         <Grid container direction="column" className={classes.root}>
+//             <NavigationMenu
+//                 handler={toggleDrawer}
+//                 menuList={navigations}
+//                 containerClassName={classes.navigationContainer}
+//             />
+//             <Drawer open={isDrawer} onClose={toggleDrawer}>
+//                 <Notifications />
+//             </Drawer>
+//             <Grid container direction="column" className={classes.content}>
+        // <Grid container direction="column" className={classes.root}>
+        //     <NavigationMenu menuList={navigations} containerClassName={classes.navigationContainer} />
+        //     <Grid container direction="column" className={classes.content}>
                 <Switch>
                     {routes.map((route, index) => (
-                        <Route key={index} {...route} />
+                        <Route exact key={index} {...route} />
                     ))}
                     <Redirect to="/students/" />
                 </Switch>
-            </Grid>
-        </Grid>
+        //     </Grid>
+        // </Grid>
     );
 };
 
