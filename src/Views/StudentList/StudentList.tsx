@@ -65,6 +65,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                     trigger={handleRoutes}
                 />
             </CardContainer>
+            <div className="mr_top_algin">
             <CardContainer>
                 <div className="student-table">
                     <div className="filter__column__box">
@@ -174,6 +175,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                     </div>
                 </div>
             </CardContainer>
+            </div>
         </div>
     );
 };
