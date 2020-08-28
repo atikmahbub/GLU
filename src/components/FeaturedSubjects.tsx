@@ -1,6 +1,8 @@
 import React from 'react';
 import HeadingRowContainer from './HeadingRowContainer';
 import { Typography } from '@material-ui/core';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 interface props {
     imageFirstURL: string;
@@ -9,7 +11,7 @@ interface props {
     imageSecondTitle: string;
 }
 
-const FeaturedSubjects: React.FunctionComponent<props>  = ({
+const FeaturedSubjects: React.FunctionComponent<props> = ({
     imageFirstURL,
     imageFirstTitle,
     imageSecondURL,
@@ -26,7 +28,12 @@ const FeaturedSubjects: React.FunctionComponent<props>  = ({
                 <div className="row image__container">
                     <div className="col-lg-6 image__large__container">
                         <div className="image__large" >
-                            <img src={imageFirstURL} />
+                            <LazyLoadImage
+                                alt=""
+                                width="100%"
+                                effect="blur"
+                                src={imageFirstURL}
+                            />
                         </div>
                         <div >
                             <Typography className="title">
@@ -37,12 +44,17 @@ const FeaturedSubjects: React.FunctionComponent<props>  = ({
                     </div>
                     <div className="col-lg-6 image__small__container">
                         <div className="image__small" >
-                            <img src={imageSecondURL} />
+                            <LazyLoadImage
+                                alt=""
+                                width="100%"
+                                effect="blur"
+                                src={imageSecondURL}
+                            />
                         </div>
                         <div >
                             <Typography className="title">
-                                {imageSecondTitle} 
-                             </Typography>
+                                {imageSecondTitle}
+                            </Typography>
                         </div>
 
                     </div>

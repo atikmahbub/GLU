@@ -13,6 +13,8 @@ import LiveClasses from './LiveClasses';
 // import MadeByFooter from './MadeByFooter';
 import SlidingDrawer from '../../components/SlidingDrawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
+import SlidingPushDrawerContent from './SlidingPushDrawerContent';
+
 
 
 import './style.scss';
@@ -20,6 +22,7 @@ import commonImg from '../../Assets/images';
 
 const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
+    const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
         { name: 'Home', link: '/parent-homepage/' },
         { name: 'Dashboard', link: '/parent-homepage/' },
@@ -29,12 +32,37 @@ const index: React.FunctionComponent = () => {
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
     };
+    const handlePushDrawer = () => {
+        setOpenPushDrawer(!openPushDrawer);
+        let screen = document.getElementById("root")
+        if(screen){
+            if(openPushDrawer === false && screen){
+                screen.style.marginRight = "32.312rem";
+                screen.style.marginLeft = "-32.312rem";
+                screen.style.transition =  "all 0.75s ease";
+
+            }
+            else{
+                screen.style.marginRight = "0px";
+                screen.style.marginLeft = "0px";
+                screen.style.transition =  "all 0.75s ease";
+            }
+        }
+    };
     return (
-        <div className="homepage__wrapper">
+        <div className="homepage__wrapper" >
             <div className="drawer">
                 <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
                     <SlidingDrawerContent />
                 </SlidingDrawer>
+            </div>
+
+            <div className="drawer push__drawer">
+                {/* <div className="push__drawer"> */}
+                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                        <SlidingPushDrawerContent />
+                    </SlidingDrawer>
+                {/* </div> */}
             </div>
 
             <div className="navigation__menu">
@@ -49,7 +77,7 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <div className="next__class">
+            <div className="next__class" onClick={handlePushDrawer}> 
                 <NextClass />
             </div>
             <FeaturedSubjects
