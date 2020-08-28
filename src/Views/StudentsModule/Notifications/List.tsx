@@ -6,7 +6,7 @@ import Card from './Card';
 
 const useStyles = makeStyles({
     root: {
-        marginBottom: '2.375rem'
+        marginBottom: '2.375rem',
     },
     title: {
         fontSize: '2.625rem',
@@ -16,8 +16,8 @@ const useStyles = makeStyles({
 
 type ListProps = {
     title: string;
-    data: object[]
-}
+    data: object[];
+};
 
 const List: FC<ListProps> = ({ title, data }) => {
     const classes = useStyles();
@@ -36,7 +36,7 @@ const List: FC<ListProps> = ({ title, data }) => {
 };
 
 List.defaultProps = {
-    data: []
-}
+    data: [],
+};
 
 export default List;
