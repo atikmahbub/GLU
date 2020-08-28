@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames'
-import { Button, Typography, IconButton, Grid } from '@material-ui/core';
+import { Button, Typography, IconButton } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { v4 as uuidv4 } from 'uuid';
 import { Search, Menu } from '@material-ui/icons';
 import { BigMenu } from './BigMenu';
-import commonImg from '../Assets/images';
 
 const useStyles = makeStyles({
   button: {
