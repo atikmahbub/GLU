@@ -9,6 +9,7 @@ import TotalUpcomingClasses from '../../components/TotalUpcomingClasses';
 import FeatureTutor from './FeatureTutor';
 import Footer from '../Footer/Footer';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
+import Tutors from '../ParentsHomePage/Tutors';
 
 const Index: React.FunctionComponent = () => {
     const menu = [
@@ -38,7 +39,7 @@ const Index: React.FunctionComponent = () => {
             </div>
             <NextClass />
             <FeatureSubject />
-            <TotalUpcomingClasses heading="Previous Classes" />
+            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-class" />
             <SectionTwoReusable
                 image={commonImg.earingGirlWithTab}
                 mobileImg={commonImg.curlygirlcroped}
@@ -55,7 +56,7 @@ const Index: React.FunctionComponent = () => {
             />
             <UpcomingClass />
             <CalenderContainer />
-            <TotalUpcomingClasses heading="Upcoming Classes" />
+            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-class" />
             <FeatureTutor />
             <SectionTwoReusable
                 image={commonImg.lappygirl}
@@ -65,7 +66,7 @@ const Index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>ICT. 13 Upcoming Classes 97 Previous Classes</>}
             />
-            <TotalUpcomingClasses heading="Tutors" />
+            <Tutors route="/students/tutors"/>
             <Footer />
         </div>
     );

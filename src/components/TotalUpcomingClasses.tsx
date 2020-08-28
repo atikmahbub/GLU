@@ -4,12 +4,13 @@ import ImageThumbnail from './ImageThumbnail';
 import commonImg from '../Assets/images';
 
 interface props{
-    heading: string
+    heading: string;
+    route:string;
 }
-const TotalUpcomingClasses: React.FunctionComponent<props> = ({heading}) => {
+const TotalUpcomingClasses: React.FunctionComponent<props> = ({heading, route}) => {
     return (
         <div className="total__upcomming__classes">
-            <HeadingRowContainer title={heading} link="" />
+            <HeadingRowContainer title={heading} link="See all" linkTo={route} />
             <div className="row">
                 <div className="col-md-3">
                     <ImageThumbnail
