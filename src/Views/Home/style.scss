@@ -504,7 +504,7 @@
                 @include makeFontSmoth(0.147rem, #1c1c1c);
                 align-self: flex-end;
                 line-height: 1.4;
-                padding-bottom: 2px;
+                // padding-bottom: 2px;
                 &:hover {
                     color: $primary;
                 }
