@@ -276,19 +276,20 @@
     }
 
     .push__drawer {
+        background-color: rgba(0, 0, 0, 0.5);
         .drawer__right__Container {
             -ms-overflow-style: none;
             position: fixed;
             top: 0;
             right: -50%;
-            width: 27%;
+            // width: 27%;
+            width: 32.312rem;
             height: 100vh;
             overflow: auto;
             background-color: white;
             z-index: 4;
             opacity: 0;
             transition: all 0.75s ease;
-            // border: 1px solid;
         }
 
         .drawer__right__Container.show {
@@ -323,8 +324,8 @@
             padding-top: 9.25rem !important;
             padding-left: 3.125rem !important;
             .title__description {
-                // width: 24.312rem;
-                width: 29.132rem;
+                width: 24.312rem;
+                // width: 29.132rem;
                 margin-top: 3.062rem;
                 .first__row__title {
                     .title {

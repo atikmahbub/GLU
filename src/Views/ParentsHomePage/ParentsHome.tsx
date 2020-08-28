@@ -35,10 +35,6 @@ const index: React.FunctionComponent = () => {
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
         let screen = document.getElementById("root")
-        let drawer = document.getElementsByClassName("drawer__content")
-
-        // let drwaer_container = document.getElementsByClassName("drawer")
-        console.log("=========== the drawer test =======", drawer)
         if(screen){
             if(openPushDrawer === false && screen){
                 screen.style.marginRight = "32.312rem";
@@ -52,11 +48,6 @@ const index: React.FunctionComponent = () => {
                 screen.style.transition =  "all 0.75s ease";
             }
         }
-
-
-        // for (var i=0; i < items.length; i++) {
-        //     items[i].style.display = displayValue;
-        //   }
     };
     return (
         <div className="homepage__wrapper" >
