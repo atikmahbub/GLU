@@ -29,7 +29,7 @@ const StudentLogin = () => {
         );
         setAuthrizationToken();
         if (state.email === 'student@gmail.com') {
-            route.push('/student/');
+            route.push('/students/dashboard');
         } else if (state.email === 'teacher@gmail.com') {
             route.push('/tutor/');
         } else if (state.email === 'parent@gmail.com') {

@@ -8,6 +8,8 @@
         width: 100%;
         .menu__type2__container {
             .navigation {
+                padding-left: 0;
+                padding-right: 0;
                 ul {
                     li {
                         a {
@@ -24,7 +26,6 @@
         }
         .large__text {
             font-size: 3rem;
-            font-family: 'CircularXXWeb-Book';
             color: $white;
             position: absolute;
             left: 5rem;
@@ -37,33 +38,33 @@
             .small__heading {
                 font-size: 0.8rem;
                 color: $white;
-                font-family: 'CircularXXWeb-Book';
             }
             .large__heading {
                 font-size: 2.5rem;
                 line-height: 2.5rem;
                 color: $white;
-                font-family: 'CircularXXWeb-Book';
             }
         }
     }
     .next__class__card {
-        padding: 1rem;
+        padding: 1rem 3.062rem;
         margin-top: 2.5rem;
+        .title__subtitle__card{
+            padding-left: 4rem;
+        }
         .title {
-            font-size: 1.8rem;
-            line-height: 2rem;
-            font-family: 'CircularXXWeb-Book';
+            font-size: 2.625rem;
+            line-height: 2.625rem;
             color: #000000;
         }
         .subtitle {
-            font-size: 0.8rem;
-            color: #000000;
+            font-size:1.562rem;
+            color: $black;
         }
         .blue-button {
             color: $primary;
             float: right;
-            font-size: 100;
+            font-size: 1.25rem;
             text-transform: capitalize;
         }
         .image-thumbnail-container {
@@ -73,20 +74,19 @@
         }
     }
     .feature__container {
-        padding: 1rem;
+        padding: 8.437rem 1rem ;
         .vrboy__container {
             .image-thumbnail {
                 padding-top: 30%;
             }
         }
         .title {
-            color: #000000;
-            font-size: 1.5rem;
-            font-family: 'CircularXXWeb-Book';
+            color: $black;
+            font-size: 2.625rem;
         }
     }
-    .class_container {
-        padding: 1rem;
+    .classes_container {
+        padding: 8.437rem 1rem;
         margin-bottom: 4rem;
     }
     .image__overlay {
@@ -104,14 +104,23 @@
         }
     }
     .calender__container {
-        padding: 1rem;
+        padding: 5rem 3.062rem;
         margin-bottom: 3rem;
+        .horizontal__line{
+            margin-bottom: 2rem;
+        }
+        .calendar_heading{
+            font-size: 2.625rem;
+            line-height: 2.625rem;
+            font-weight: 500;
+        }
         .border-left{
             border-left: 1px solid $lightGray;
         }
     }
-    .total__upcomming__classes {
-        padding: 1rem;
+    div.total__upcomming__classes {
+        padding:  3.062rem;
+        padding-bottom: 9.062rem;
         .dot {
             font-size: 0.5rem;
         }

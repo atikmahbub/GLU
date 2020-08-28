@@ -1,12 +1,15 @@
 import React from 'react';
-import HeadingRowContainer from '../../components/HeadingRowContainer';
-import ImageThumbnail from '../../components/ImageThumbnail';
-import commonImg from '../../Assets/images';
+import HeadingRowContainer from './HeadingRowContainer';
+import ImageThumbnail from './ImageThumbnail';
+import commonImg from '../Assets/images';
 
-const TotalUpcomingClasses: React.FunctionComponent = () => {
+interface props{
+    heading: string
+}
+const TotalUpcomingClasses: React.FunctionComponent<props> = ({heading}) => {
     return (
         <div className="total__upcomming__classes">
-            <HeadingRowContainer title="Upcoming Classes" link="" />
+            <HeadingRowContainer title={heading} link="" />
             <div className="row">
                 <div className="col-md-3">
                     <ImageThumbnail

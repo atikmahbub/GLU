@@ -16,7 +16,7 @@ const NextClass: React.FunctionComponent = () => {
                 <div className="col-lg-3">
                     <ImageThumbnail image={commonImg.running} />
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 text-align-center">
                     <div className="title__subtitle__card">
                         <Typography className="title">
                             19/07/20 <br /> 9am- 10.15am
@@ -24,7 +24,7 @@ const NextClass: React.FunctionComponent = () => {
                         <Typography className="subtitle">75mins</Typography>
                     </div>
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 text-align-center">
                     <Typography className="title">
                         PE. <br /> Creating a running <br /> plan for a 5K race
                     </Typography>

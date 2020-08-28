@@ -1,64 +1,72 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { Typography } from '@material-ui/core';
 import NextClass from './NextClass';
 import FeatureSubject from './FeatureSubject';
-import PreviousClasses from './PreviousClasses';
-import ImageOverlay from '../../components/ImageOverlay';
 import commonImg from '../../Assets/images';
 import UpcomingClass from './UpcomingClass';
 import CalenderContainer from './CalenderContainer';
-import TotalUpcomingClasses from './TotalUpcomingClasses';
+import TotalUpcomingClasses from '../../components/TotalUpcomingClasses';
 import FeatureTutor from './FeatureTutor';
-import Tutors from './Tutors';
 import Footer from '../Footer/Footer';
+import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 
 const Index: React.FunctionComponent = () => {
     const menu = [
-        { link: '', name: 'Home' },
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Subjects' },
-        { link: '', name: 'Messages' },
+        { link: '/students/home', name: 'Home' },
+        { link: '/students/dashboard', name: 'Dashboard' },
+        { link: '/students/subject', name: 'Subjects' },
+        { link: '/students/message', name: 'Messages' },
     ];
     return (
         <div className="homepage__wrapper">
             <div className="banner">
                 <NavigationMenu menuList={menu} />
-                <Typography className="large__text">Charlie Ray</Typography>
-                <div className="overy-heading">
-                    <Typography className="small__heading">AED200 / 45mins</Typography>
-                    <Typography className="large__heading">
-                        Maths. <br /> An introduction to <br /> trigonometry
-                    </Typography>
-                </div>
+                <SectionTwoReusable
+                    image={commonImg.smilegirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Charlie Ray"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={
+                        <>
+                            Maths.
+                            <br />
+                            An Introduction to trignometry
+                        </>
+                    }
+                />
             </div>
             <NextClass />
             <FeatureSubject />
-            <PreviousClasses />
-            <ImageOverlay
-                image={commonImg.earringgirl}
+            <TotalUpcomingClasses heading="Previous Classes" />
+            <SectionTwoReusable
+                image={commonImg.earingGirlWithTab}
+                mobileImg={commonImg.curlygirlcroped}
+                leftTitle="Sarah Frost"
+                desktopTitle="AED200 / 45mins"
+                title="Tutors"
                 msg={
                     <>
-                        Maths. <br /> An introduction to <br /> trigonometry
+                        Maths.
+                        <br />
+                        An Introduction to trignometry
                     </>
                 }
-                title="AED200 / 45mins"
             />
             <UpcomingClass />
             <CalenderContainer />
-            <TotalUpcomingClasses />
+            <TotalUpcomingClasses heading="Upcoming Classes" />
             <FeatureTutor />
-            <ImageOverlay
-                image={commonImg.earringgirl}
-                msg={
-                    <>
-                        ICT. <br /> 13 Upcoming Classes <br /> 97 Previous Classes
-                    </>
-                }
-                title="AED200 / 45mins"
+            <SectionTwoReusable
+                image={commonImg.lappygirl}
+                mobileImg={commonImg.lappygirl}
+                leftTitle="Charlie Ray"
+                desktopTitle="AED200/h"
+                title="Tutors"
+                msg={<>ICT. 13 Upcoming Classes 97 Previous Classes</>}
             />
-            <Tutors />
-            <Footer/>
+            <TotalUpcomingClasses heading="Tutors" />
+            <Footer />
         </div>
     );
 };

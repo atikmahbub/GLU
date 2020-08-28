@@ -9,7 +9,7 @@ const CalenderContainer: React.FunctionComponent = () => {
             <HorizontalLine />
             <div className="row">
                 <div className="col-lg-6">
-                    <Typography>Calender</Typography>
+                    <Typography className="calendar_heading">Calender</Typography>
                 </div>
                 <div className="col-lg-6 border-left">
                     <div className="row">
