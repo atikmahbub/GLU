@@ -1,5 +1,6 @@
 .main_container {
 .title__container{
+    padding-top: 8.25rem;
     .dropdown {
         display: flex;
         align-items: center;
@@ -130,6 +131,43 @@
             padding-right: 0;
         }
     }
+
+    .menu__type2__container {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: transparent;
+        color: black;
+        .navigation {
+            background-color: transparent;
+            ul {
+                li {
+                    a {
+                        button {
+                            color: black;
+                        }
+                    }
+                }
+            }
+            .heading {
+                font-family: 'CircularXXWeb-Book';
+                font-size: 3rem;
+                margin-right: 1rem;
+                color: black;
+            }
+            .icon-button {
+                .icon {
+                    color: black;
+                    font-size: 2.5rem;
+                }
+            }
+            p {
+                color: black;
+            }
+        }
+    }
+
+
     .bg-white {
         background-color: $white;
     }

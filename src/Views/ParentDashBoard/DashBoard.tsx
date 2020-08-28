@@ -13,10 +13,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Dashboard: React.FunctionComponent = () => {
     const menu = [
+        { link: '', name: 'Home' },
         { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
+        { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
-        { link: '', name: 'Shop' },
     ];
     return (
         <div className="main_container">
