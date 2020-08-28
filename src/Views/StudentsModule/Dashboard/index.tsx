@@ -7,6 +7,7 @@ import Personal from './Personal';
 import NavigationMenu from '../../../components/NavigationMenu';
 import Drawer from '../../../components/Drawer';
 import Notifications from '../Notifications';
+import PageFooter from '../../../components/PageFooter';
 
 const useStyles = makeStyles({
     root: {
@@ -54,6 +55,7 @@ const StudentsDashboard: FC = () => {
                     {activeTab === 'personal' && <Personal />}
                 </Grid>
             </Grid>
+            <PageFooter />
         </Grid>
     );
 };

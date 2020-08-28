@@ -4,6 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import ClassesCarousel from './ClassesCarousel';
 import WhiteCard from '../../../../components/Cards/WhiteCard';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
+import Schedule from '../../../../components/Schedule';
 
 const useStyles = makeStyles({
     cardsWrapper: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles({
     profileCardRoot: {
         width: 'calc(100% + (3.125rem * 2))',
         marginLeft: '-3.125rem',
+        marginBottom: '9.375rem'
     },
 });
 
@@ -64,6 +66,7 @@ const Personal: FC = () => {
                 phone="(+971) 4 554 0350"
                 rootClassName={classes.profileCardRoot}
             />
+            <Schedule />
         </Grid>
     );
 };
