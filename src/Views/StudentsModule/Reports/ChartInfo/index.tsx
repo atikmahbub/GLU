@@ -10,7 +10,7 @@ const ChartInfo: FC = () => {
                 2
             </Grid>
         </Grid>
-    )
-}
+    );
+};
 
-export default memo(ChartInfo)
+export default memo(ChartInfo);

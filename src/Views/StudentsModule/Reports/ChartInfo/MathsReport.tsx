@@ -7,7 +7,7 @@ const MathsReport: FC = () => {
         <Grid item xs={6}>
             <Typography variant="h4">Maths Report</Typography>
         </Grid>
-    )
-}
+    );
+};
 
-export default memo(MathsReport)
+export default memo(MathsReport);

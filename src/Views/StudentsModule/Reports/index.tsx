@@ -7,7 +7,7 @@ const Reports: FC = () => {
         <Grid container direction="column">
             <ChartInfo />
         </Grid>
-    )
-}
+    );
+};
 
-export default Reports
+export default Reports;
