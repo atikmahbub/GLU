@@ -243,10 +243,10 @@
     .action-list {
         position: absolute;
         border: 1px solid $borderColor;
-        bottom: -6.5rem;
+        bottom: -9.5rem;
         right: 0;
-        width: 10rem;
-        max-height: 7rem;
+        width: 15rem;
+        height: auto;
         // box-shadow: 0 0 20px -1px rgba(0, 0, 0, 0.1);
         background-color: $white;
         z-index: 3;
@@ -259,6 +259,7 @@
             padding: 0.45rem 1rem;
             color: $titleGray;
             font-family: 'CircularXXWeb-book';
+            font-size: 1.25rem;
             &:hover {
                 color: $black;
                 background-color: $bodyColor;
@@ -447,74 +448,6 @@ button.primary-btn {
             background-color: $headingPrimary;
             margin: 2rem 0;
         }
-        .data-container {
-            .heading {
-                font-size: 1rem;
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
-            .table-data {
-                max-height: 17rem;
-                overflow: auto;
-                @include disableScroll();
-                .table {
-                    width: 100%;
-                    margin: 0;
-                    tr {
-                        th {
-                            background-color: $lightGray;
-                            font-size: 0.8rem;
-                            &:first-child {
-                                padding-left: 2rem;
-                            }
-                            &:last-child {
-                                text-align: right;
-                                padding-right: 2rem;
-                            }
-                        }
-                        td {
-                            font-size: 0.75rem;
-                            &:last-child {
-                                text-align: right;
-                                padding-right: 2rem;
-                            }
-                            &:first-child {
-                                padding-left: 2rem;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .attendance-card {
-            .heading {
-                font-size: 1rem;
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
-            .marker-container {
-                @include flex(center, flex-start, row);
-                .present {
-                    @include flex(center, space-between, row);
-                    .title {
-                        font-size: 0.6rem;
-                    }
-                    .icon {
-                        color: $primary;
-                    }
-                    margin-right: 1rem;
-                }
-                .absent {
-                    @include flex(center, space-between, row);
-                    .title {
-                        font-size: 0.6rem;
-                    }
-                    .icon {
-                        color: #e0e0e0;
-                    }
-                }
-            }
-        }
         .parent-child-container {
             box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
             background-color: $primary;
@@ -541,6 +474,81 @@ button.primary-btn {
                 cursor: pointer;
                 &:hover {
                     border-radius: 0.4rem;
+                }
+            }
+        }
+    }
+    .attendance-card {
+        padding: 1.875rem 3.125rem;
+        width: 100%;
+        .heading {
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+        }
+        .marker-container {
+            .present {
+                @include flex(center, flex-start, row);
+                .title {
+                    font-size:1.25rem;
+                    padding-left: 1rem;
+                    color: $black;
+                }
+                .icon {
+                    color: #145DFF;
+                }
+                margin-right: 1rem;
+            }
+            .absent {
+                @include flex(center, flex-start, row);
+                .title {
+                    font-size:1.25rem;
+                    padding-left: 1rem;
+                    color: $black;
+                }
+                .icon {
+                    color: $titleGray;
+                }
+            }
+        }
+    }
+    .data-container {
+        padding: 1.875rem 2.5rem;
+        width: 100%;
+        .heading {
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+        }
+        .table-data {
+            max-height: 22rem;
+            overflow: auto;
+            @include disableScroll();
+            .table {
+                width: 100%;
+                margin: 0;
+                tr {
+                    th {
+                        font-size: 1.125rem;
+                        color: $titleGray;
+                        width: 30%;
+                        &:first-child {
+                            padding-left: 2rem;
+                        }
+                        &:last-child {
+                            text-align: left;
+                            padding-right: 2rem;
+                        }
+                        border:none;
+                    }
+                    td {
+                        font-size: 1.25rem;
+                        &:last-child {
+                            text-align: left;
+                            padding-right: 2rem;
+                        }
+                        &:first-child {
+                            padding-left: 2rem;
+                        }
+                    }
                 }
             }
         }
@@ -909,6 +917,7 @@ button.outline-button {
     padding: 0.2rem 1.5rem;
     border-radius: 0;
     color: #000;
+    font-size: 1.25rem;
 }
 
 .radio-button {
@@ -1437,7 +1446,7 @@ button.outline-button {
     .img-overlay-container {
         position: absolute;
         bottom: 11.187rem;
-        right: 10.25rem;
+        // right: 10.25rem;
         left: 51%;
         max-width: 49.062rem;
         .mobile-title {
@@ -1460,19 +1469,19 @@ button.outline-button {
     }
 }
 
-.percentage__card{
+.percentage__card {
     padding: 1.875rem;
     margin-bottom: 1.25rem;
-    .heading{
+    .heading {
         font-size: 1.875rem;
         color: $black;
     }
-    .percent{
+    .percent {
         font-size: 3.125rem;
         line-height: 3.437rem;
         color: $black;
     }
-    .title{
+    .title {
         font-size: 1.25rem;
         color: $black;
     }
@@ -1489,3 +1498,23 @@ button.outline-button {
         font-family: inherit;
     }
 }
+
+//student presernt row
+.present_row {
+    @include flex(center, space-between, row);
+    padding: 1.25rem;
+    .present_grid {
+        .percent {
+            font-size: 1.875rem;
+            line-height: 3.437rem;
+            color: $black;
+            text-align: center;
+        }
+        .status {
+            font-size: 1.25rem;
+            color: $black;
+            text-align: center;
+        }
+    }
+}
+// exam chart 

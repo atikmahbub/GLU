@@ -32,7 +32,7 @@ const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavouri
 const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
 const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
 const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
-const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
+// const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
 const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
@@ -77,8 +77,8 @@ export const rootRoute = [
     { component: studentFavourite, name: '/student-favourite' },
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
-    { component: TutorDashboard, name: '/tutor-dashboard' },
-    {component:TutorProfile, name: '/tutor-profile'},
+    // { component: TutorDashboard, name: '/tutor-dashboard' },
+    // {component:TutorProfile, name: '/tutor-profile'},
     {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
     {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
     {component:TutorSetClass, name: '/tutor-set-class'},

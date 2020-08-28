@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
-import SubjectListTable from './SubjectListTable';
 import StudentFeeTable from './StudentFeeTable';
-import GraphChart from './GraphChart';
 import StudentTimeTable from './StudentTimeTable';
 import { studenttimetable } from './tabledata';
 import ExamReportChart from './ExamReportChart';
@@ -14,6 +12,9 @@ import { useLocation } from 'react-router-dom';
 import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
 import AttendenceRow from './AttendenceRow';
+import PresentRow from './PresentRow';
+import SubjectHomeworkRow from './SubjectHomeworkRow';
+import FeeExamResultRow from './FeeExamResultRow';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -54,9 +55,9 @@ const StudentDetails: React.FunctionComponent = () => {
         <div className="details-wrapper">
             <ProfileTitle/>
             <AttendenceRow/>
-
-
-
+            <PresentRow/>
+            <SubjectHomeworkRow/>
+            <FeeExamResultRow/>
 
 
 
@@ -70,28 +71,11 @@ const StudentDetails: React.FunctionComponent = () => {
 
             {/* <CardContainer>
                 <div className="details-container">
-                    <div className="row">
-                        <div className="col-md-2">
-                            <div className="profile-pic">
-                                <img src={details.profile} />
-                            </div>
-                        </div>
-                        <div className="col-md-10">
-                            <div className="information-container">
-                                <Typography className="heading">
-                                    {details.name} <span>{details.class}</span>
-                                </Typography>
-                                <Typography className="title">{details.phoneNumber}</Typography>
-                                <Typography className="title">{details.email}</Typography>
-                                <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
-                            </div>
-                            <div className="divider"></div>
-                        </div>
-                    </div>
+                   
                     <div className="row">
                         <div className="col-md-2"></div>
                         <div className="col-md-5">
-                            <SubjectListTable />
+                            
                         </div>
                         <div className="col-md-5">
                             <div className="data-container">
@@ -108,22 +92,10 @@ const StudentDetails: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-2"></div>
                         <div className="col-md-5">
-                            <GraphChart
-                                marker1="Present"
-                                marker2="Absent"
-                                chartName="Attendance"
-                                available={20}
-                                notavailalbe={4}
-                            />
+                           
                         </div>
                         <div className="col-md-5">
-                            <GraphChart
-                                marker1="Completed"
-                                marker2="Not completed"
-                                chartName="Homework"
-                                available={50}
-                                notavailalbe={20}
-                            />
+                            
                         </div>
                     </div>
 
@@ -161,8 +133,8 @@ const StudentDetails: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-            </CardContainer>
-       */}
+            </CardContainer> */}
+      
         </div>
     );
 };

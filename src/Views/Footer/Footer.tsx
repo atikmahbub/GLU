@@ -47,7 +47,7 @@ const Footer: React.FunctionComponent = () => {
                             value={email}
                             type="text"
                             className="email"
-                            placeholder="you@gmail.com"
+                            placeholder="Your Email"
                             onChange={handleEmail}
                             style={
                                 !isEmailEnter

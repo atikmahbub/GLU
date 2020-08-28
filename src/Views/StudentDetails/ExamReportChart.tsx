@@ -6,7 +6,7 @@ import { colors } from '../../Styles/colors';
 const options = {
     chart: {
         type: 'column',
-        height: 300,
+        height: 200,
         scrollablePlotArea: {
             minWidth: 300,
             scrollPositionX: 1,
@@ -59,9 +59,9 @@ const options = {
     series: [
         {
             data: [800, 900, 990],
-            color: colors.primary,
-            lineWidth: 3.5,
-            pointWidth: 20,
+            color: "#145DFF",
+            lineWidth: 10,
+            pointWidth: 30,
             showInLegend: false,
             marker: {
                 enabled: false,
@@ -69,7 +69,7 @@ const options = {
                 radius: 5,
                 opacity: 1,
                 lineWidth: 3,
-                lineColor: '#707070',
+                lineColor: '#145DFF',
                 symbol: 'circle',
             },
         },

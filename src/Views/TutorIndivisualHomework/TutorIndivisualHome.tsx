@@ -1,10 +1,16 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import ResourcesTableComponent from './ResourcesTableComponent';
-import { Typography } from '@material-ui/core';
+import { Typography,makeStyles } from '@material-ui/core';
 import ReusableSubmissions from './ReusableSubmissions';
 import MadeBy from '../Footer/MadeBy';
+const useStyles=makeStyles({
+    navigationContainer: {
+        backgroundColor: '#F7F7F7 !important'
+    }
+})
 const TutorRecord: React.FunctionComponent = () => {
+   
     const menu = [
         { link: '', name: 'Dashboard' },
         { link: '', name: 'Set Class' },
@@ -17,9 +23,10 @@ const TutorRecord: React.FunctionComponent = () => {
     { name: 'Mia Adams', date : '06/08/20', time : ' 8.14pm', isSubmitted: 'Submitted', isEdit: 'Mark' },
     { name: 'Toby Frost', date : '06/08/20', time : ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' },
     { name: 'Toby Frost', date : '06/08/20', time : ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' }];
+    const classes=useStyles();
     return (
         <div className="tutor_indivisual_homework">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer} />
             <div className="container_1">
                 <div className="container_1_1">
                     <div className="row">

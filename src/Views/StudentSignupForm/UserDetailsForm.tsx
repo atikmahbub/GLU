@@ -9,31 +9,26 @@ const UserDetailsForm: React.FunctionComponent = () => {
         <>
             <div className="row">
                 <div className="col-lg-6">
-                    <TextField className="line-input mb-3" label="First Name" fullWidth />
+                    <TextField className="line-input" label="First Name" fullWidth />
                 </div>
                 <div className="col-lg-6">
-                    <TextField className="line-input mb-3" label="Last Name" fullWidth />
+                    <TextField className="line-input" label="Last Name" fullWidth />
                 </div>
             </div>
             <div className="row">
                 <div className="col-lg-12">
-                    <TextField className="line-input mb-3" label="Email Address" fullWidth />
+                    <TextField className="line-input" label="Email Address" fullWidth />
                 </div>
                 <div className="col-lg-4">
                     <SelectFieldUnderline
-                        className="custom-adornment-input mb-3"
+                        className="custom-adornment-input"
                         label="Mobile Number"
-                        options={[]}
+                        options={["+91"]}
                         getValue={() => {}}
                     />
                 </div>
                 <div className="col-lg-8">
-                    <SelectFieldUnderline
-                        className="custom-adornment-input mb-3"
-                        label=""
-                        options={[]}
-                        getValue={() => {}}
-                    />
+                <TextField className="line-input remove_mb" label="" fullWidth />
                 </div>
                 <div className="col-lg-12">
                     <UnderLineAddornmentSingleIcon
