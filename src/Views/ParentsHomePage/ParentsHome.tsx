@@ -25,7 +25,7 @@ const index: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
         { name: 'Home', link: '/parent-homepage/' },
-        { name: 'Dashboard', link: '/parent-homepage/' },
+        { name: 'Dashboard', link: '/parent/' },
         { name: 'Subject', link: '/parent-homepage/' },
         { name: 'Messages', link: '/parent-homepage/' },
     ];
@@ -58,15 +58,13 @@ const index: React.FunctionComponent = () => {
             </div>
 
             <div className="drawer push__drawer">
-                {/* <div className="push__drawer"> */}
                     <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
                         <SlidingPushDrawerContent />
                     </SlidingDrawer>
-                {/* </div> */}
             </div>
 
             <div className="navigation__menu">
-                <NavigationMenu menuList={navigations} handler={handleDrawer}/>
+                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
             </div>
 
             <SectionTwoReusable

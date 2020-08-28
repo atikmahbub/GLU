@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Button, Typography, IconButton, Grid } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
 import { Search, Menu } from '@material-ui/icons';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 import commonImg from '../Assets/images';
 
@@ -16,11 +17,12 @@ interface props {
     menuList?: propsType[];
     customClass?: string;
     handler?: () => void;
+    handlerNotification?: () => void;
     showMenuOptions?: boolean;
     rootClassName?: string;
     containerClassName?: string
 }
-const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName }) => {
+const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName, handlerNotification }) => {
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -31,10 +33,16 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                         </IconButton>
                     </li>
                     <li>
+                        <IconButton className="icon-button" onClick={handlerNotification}>
+                            <NotificationsNoneIcon className="icon" />
+                        </IconButton>
+                    </li>
+                    <li>
                         <IconButton className="icon-button">
                             <Search className="icon" />
                         </IconButton>
                     </li>
+
                     {menuList.map((item: propsType) => (
                         <li key={uuidv4()}>
                             <Link to={item.link}>

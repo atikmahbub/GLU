@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
@@ -8,18 +8,44 @@ import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
 import CalendarComponent from '../../components/CalendarComponent';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import SlidingDrawer from '../../components/SlidingDrawer';
+
+import SlidingPushDrawerContent from '../../Views/ParentDashBoard';
+
+
 
 
 const Dashboard: React.FunctionComponent = () => {
+    const [openPushDrawer, setOpenPushDrawer] = useState(false);
+
     const menu = [
-        { link: '', name: 'Home' },
-        { link: '', name: 'Dashboard' },
+        { link: '/parent-homepage', name: 'Home' },
+        { link: '/parent', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
     ];
+
+    const handlePushDrawer = () => {
+        setOpenPushDrawer(!openPushDrawer);
+        let screen = document.getElementById("root")
+        if(screen){
+            if(openPushDrawer === false && screen){
+                screen.style.marginRight = "32.312rem";
+                screen.style.marginLeft = "-32.312rem";
+                screen.style.transition =  "all 0.75s ease";
+
+            }
+            else{
+                screen.style.marginRight = "0px";
+                screen.style.marginLeft = "0px";
+                screen.style.transition =  "all 0.75s ease";
+            }
+        }
+    };
+
     return (
         <div className="main_container">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu}/>
             <div className="title__container">
                 <Typography className="main_container_dashboard_title">Dashboard</Typography>
                 <div className="dropdown">
@@ -33,6 +59,11 @@ const Dashboard: React.FunctionComponent = () => {
                 </div>
             </div>
 
+            <div className="drawer push__drawer">
+                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                        <SlidingPushDrawerContent />
+                    </SlidingDrawer>
+            </div>
 
             <div className="main_container_dashboard">
                 <div className="row set__margin">
