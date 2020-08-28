@@ -12,12 +12,10 @@ const ShowWelcome = React.lazy(() => import('../../Views/StudentSignupForm/ShowW
 const ForgotPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/ForgotPassword'));
 const SetNewPassword = React.lazy(() => import('../../Views/Auth/ForgotPassword/SetNewPassword'));
 const verification = React.lazy(() => import('../../Views/Auth/Verification/Verification'));
-const PersonalDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
-const StudentHomePage = React.lazy(() => import('../../Views/StudentHomepage/Index'));
+
 const StudentClassesTutors = React.lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
-const TutorList = React.lazy(() => import('../../Views/TutorList/TutorList'));
-const PreviousClasses = React.lazy(() => import('../../Views/PreviousClasses/PreviousClasses'));
-const UpcomingClasses = React.lazy(() => import('../../Views/UpcomingClasses/Index'));
+
+
 const StudentIndividualSubjects = React.lazy(() => import('../../Views/StudentIndividualSubjects/Index'));
 const StudentWatchPreviousClass = React.lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
 const TutorDetail = React.lazy(() => import('../../Views/TutorDetail/index'));
@@ -56,13 +54,9 @@ export const rootRoute = [
     { component: ShowWelcome, name: '/signup-success' },
     { component: ForgotPassword, name: '/forgot-password' },
     { component: SetNewPassword, name: '/reset-password' },
-    { component: verification, name: '/verification' },
-    { component: PersonalDashboard, name: '/personal-dashboard' },
-    { component: StudentHomePage, name: '/student-homepage' },
+    { component: verification, name: '/verification' },   
     { component: StudentClassesTutors, name: '/student-classes' },
-    { component: TutorList, name: '/student-tutors' },
-    { component: PreviousClasses, name: '/student-previous-classes' },
-    { component: UpcomingClasses, name: '/student-upcoming-classes' },
+
     { component: StudentIndividualSubjects, name: '/student-individual-subjects' },
     { component: StudentWatchPreviousClass, name: '/student-watch-previous-class' },
     { component: TutorDetail, name: '/tutor-detail' },

@@ -52,7 +52,7 @@ const options = {
             fontWeight: 400,
             strokeDasharray: 0,
             width: 0,
-            stroke: 'none'
+            stroke: 'none',
         },
     },
     plotOptions: {

@@ -48,11 +48,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 100vh;
+            background-color: $bodyColor;
+            .left_title{
+                font-size: 2.625rem;
+                line-height: 2.625rem;
+                color: $black;
+            }
             .search-container {
                 .title {
-                    font-size: 2rem;
-                    font-weight: 600;
-                    line-height: 2.5rem;
+                    font-size: 5rem;
+                    // font-weight: 600;
+                    line-height: 5rem;
                 }
             }
             .email-container {
