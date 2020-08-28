@@ -11,8 +11,8 @@ import CalendarComponent from '../../components/CalendarComponent';
 
 const Dashboard: React.FunctionComponent = () => {
     const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
+        { link: '/tutor/', name: 'Dashboard' },
+        { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];

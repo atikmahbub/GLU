@@ -10,8 +10,8 @@ import MadeBy from '../Footer/MadeBy';
 import NewSkillContainer from './NewSkillContainer';
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
+        { link: '/tutor/', name: 'Dashboard' },
+        { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
@@ -30,7 +30,7 @@ const TutorClass: React.FunctionComponent = () => {
         <div className="tutor_class_container">
             <NavigationMenu menuList={menu} />
             <div className="tutor_class_subcontainer">
-                <ReusableBanner />
+                <ReusableBanner heading={"Set Class"} description={"Create and publish a new class ."} />
                 <div className="tutor_class_subcontainer2">
                     <div className="row horizontalline"></div>
                     <div className="reusableDate">
