@@ -6,11 +6,9 @@ import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';
 import ClassesRowWithImages from '../../components/ClassesRowWithImages';
 import MadeByFooter from '../../components/MadeByFooter';
-
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
-// import MadeByFooter from './MadeByFooter';
 import SlidingDrawer from '../../components/SlidingDrawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
@@ -25,7 +23,7 @@ const index: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
         { name: 'Home', link: '/parent-homepage/' },
-        { name: 'Dashboard', link: '/parent/' },
+        { name: 'Dashboard', link: '/login/' },
         { name: 'Subject', link: '/parent-homepage/' },
         { name: 'Messages', link: '/parent-homepage/' },
     ];
