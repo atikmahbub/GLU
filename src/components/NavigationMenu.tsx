@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Button, Typography, IconButton } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Search, Menu } from '@material-ui/icons';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 
 const useStyles = makeStyles({
@@ -23,12 +24,13 @@ interface props {
     menuList?: propsType[];
     customClass?: string;
     handler?: () => void;
+    handlerNotification?: () => void;
     showMenuOptions?: boolean;
     rootClassName?: string;
     containerClassName?: string;
 }
+
 const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName }) => {
-    const classes = useStyles()
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -39,12 +41,17 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                         </IconButton>
                     </li>
                     <li>
+                        <IconButton className="icon-button" onClick={handlerNotification}>
+                            <NotificationsNoneIcon className="icon" />
+                        </IconButton>
+                    </li>
+                    <li>
                         <IconButton className="icon-button">
                             <Search className="icon" />
                         </IconButton>
                     </li>
-                    {menuList.map((item: propsType, index) => (
-                        <li key={index}>
+                    {menuList.map((item: propsType) => (
+                        <li key={uuidv4()}>
                             <Link to={item.link}>
                                 <Button disableRipple className={classNames('link', classes.button)}>{item.name}</Button>
                             </Link>
