@@ -31,7 +31,7 @@ const StudentLogin = () => {
         if (state.email === 'student@gmail.com') {
             route.push('/student/');
         } else if (state.email === 'teacher@gmail.com') {
-            route.push('/teacher/');
+            route.push('/tutor/');
         } else if (state.email === 'parent@gmail.com') {
             route.push('/parent/');
         }
