@@ -41,17 +41,18 @@ const options = {
         gridLineWidth: 0,
     },
     legend: {
-        symbolPadding: 0,
+        align: 'left',
+        itemDistance: 33,
+        symbolPadding: 10,
         symbolWidth: 10,
         symbolRadius: 0,
-        x: -65,
         itemStyle: {
             color: '#000000',
             fontSize: '1.5625rem',
             fontWeight: 400,
             strokeDasharray: 0,
             width: 0,
-            stroke: 'none',
+            stroke: 'none'
         },
     },
     plotOptions: {
