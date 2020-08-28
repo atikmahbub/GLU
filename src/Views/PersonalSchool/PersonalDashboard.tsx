@@ -19,10 +19,10 @@ const PersonalDashboard: React.FunctionComponent = () => {
     ];
     return (
         <div className="main_container">
-            <NavigationMenu menuList={menu} />
+            {/* <NavigationMenu menuList={menu} />
             <Typography className="main_container_dashboard_title">
-                Personal <span className="school-color"> Dashboard</span>
-            </Typography>
+                Personal <span className="school-color"> School</span>
+            </Typography> */}
             <div className="main_container_dashboard">
                 <div className="row set__margin">
                     <div className="col-md-6 p-0">

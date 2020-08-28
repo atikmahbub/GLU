@@ -16,10 +16,10 @@ const PersonalDashboard2: React.FunctionComponent = () => {
     ];
     return (
         <div className="personal_school">
-            <NavigationMenu menuList={menu} />
+            {/* <NavigationMenu menuList={menu} />
             <Typography className="personal_school_dashboard_title">
-                Personal <span className="school-color"> Dashboard</span>
-            </Typography>
+                Personal <span className="school-color"> School</span>
+            </Typography> */}
             <div className="personal_school_container">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -51,6 +51,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                             <div className="card__row card_row3">
                                 <SmallCard mainHeading={'Availablity'} subHeading1={'Status'} subHeading2={'Limited Availablity'} />
                                 <SmallCard
+                                    linkurl={"/tutor/set-homework"}
                                     mainHeading={'Homework'}
                                     subHeading1={'Assigned'}
                                     subHeading2={'17'}

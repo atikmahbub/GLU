@@ -42,11 +42,15 @@ const Dashboard: React.FunctionComponent = () => {
                         <div className="main_container_dashboard_col2">
                             <div className="card__row card_row1">
                                 <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
-                                <SmallCard
+                                
+                                
+                                    <SmallCard
+                                    linkurl={"/tutor/record-class"}
                                     mainHeading={'Record Class'}
                                     subHeading1={'Create and Publish'}
                                     subHeading2={'7/20 Spaces'}
                                 />
+                               
                             </div>
                             <div className="card__row card_row2">
                                 <SmallCard

@@ -1,16 +1,9 @@
 .personal_school{
     background-color: $bodyColor;
     font-family: 'CircularXXWeb-Book';
-    &_dashboard_title{
-        font-size: 2.625rem !important;
-        padding:3.125rem 2rem;
-        font-family: inherit;
-        .school-color {
-            color: #8b8b8b;
-        }
-    }
     &_container{
         padding: 0 3.125rem;
+        margin-top: 3.125rem;
     }
     &_container_2{
         padding: 0 3.125rem;
