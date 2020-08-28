@@ -1,0 +1,41 @@
+.set_homework_container{
+    &_subcontainer1{
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+    }
+    &_subcontainer2{
+        margin-top: 3.125rem;
+        font-family: 'CircularXXWeb-Book';
+        .homeworkText{
+            font-family: inherit;
+            font-size: 2.625rem;
+            line-height: 2.8125rem;
+        }
+        
+        
+    }
+   .homeSubtext{
+       padding-top: 3.125rem;
+   }
+}
+.line_container{
+    padding-top: 2.185rem;
+}
+.banner_container{
+    
+    padding-top: 3.125rem;
+    padding-bottom: 10rem;
+}
+@media screen and (min-width: 767px) {
+    .homework_date_container{
+        padding-left:3.125rem;
+    }
+    .homeworkBorder{
+        border-left-style: solid;
+        border-left-color: rgba(0,0,0,0.25);
+        border-left-width: 1px;
+    }
+}
+@media screen and (max-width: 767px) {
+    
+}

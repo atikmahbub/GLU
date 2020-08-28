@@ -40,8 +40,8 @@ const Tabs: FC<TabsProps> = ({ value, onChange }) => {
 
     return (
         <MuiTabs value={value} onChange={handleChange} className={classes.tabsRoot}>
-            <Tab label="Personal" value="personal" className={classes.tabRoot} />
-            <Tab label="School" value="school" className={classes.tabRoot} />
+            <Tab disableRipple label="Personal" value="personal" className={classes.tabRoot} />
+            <Tab disableRipple label="School" value="school" className={classes.tabRoot} />
         </MuiTabs>
     );
 };

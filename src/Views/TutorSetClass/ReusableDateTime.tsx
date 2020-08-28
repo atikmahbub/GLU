@@ -23,9 +23,10 @@ const ReusableDateTime: React.FunctionComponent = () => {
     };
     return (
         <>
-            <div className="reusableDateandTime">
+            <div className="reusableDateandTime col-md-12">
+                
                 <div className="row">
-                    <div className="col-md-5 p-0">
+                    <div className="col-md-4 p-0">
                         <TextField className="line-input" label="Date" fullWidth value="9:25AM" />
                     </div>
                     <div className="col-md-7 p-0">
@@ -52,9 +53,10 @@ const ReusableDateTime: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
+                
                 </div>
                 <div className="row">
-                    <div className="col-12 p-0">
+                    <div className="col-md-11 col-12 p-0">
                         <SelectFieldUnderline
                             label="Repeat"
                             value={selectValue}

@@ -5,7 +5,9 @@ import ReusableSubjectDesc from './ReusableSubjectDesc';
 import commonImg from '../../Assets/images';
 import ReusableDateTime from './ReusableDateTime';
 import ReusableCoverImage from './ReusableCoverImage';
+import ReusableBanner from '../../components/ReusableBanner';
 import MadeBy from '../Footer/MadeBy';
+import NewSkillContainer from './NewSkillContainer';
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
         { link: '', name: 'Dashboard' },
@@ -28,16 +30,7 @@ const TutorClass: React.FunctionComponent = () => {
         <div className="tutor_class_container">
             <NavigationMenu menuList={menu} />
             <div className="tutor_class_subcontainer">
-                <div className="row">
-                    <div className="col-md-6 p-0">
-                        <Typography className="text1">Set Class</Typography>
-                    </div>
-                    <div className="col-md-6 p-0">
-                        <div className="tutor_class_subcontainer_col1">
-                            <Typography className="text2">Create and publish an upcoming class.</Typography>
-                        </div>
-                    </div>
-                </div>
+                <ReusableBanner />
                 <div className="tutor_class_subcontainer2">
                     <div className="row horizontalline"></div>
                     <div className="reusableDate">
@@ -55,16 +48,20 @@ const TutorClass: React.FunctionComponent = () => {
                                                 <div className="print_timeline">
                                                     <ul>
                                                         <li>
-                                                        <Typography className="text_list">Geography</Typography>
-                                                        <Typography className="text_list">9.00am-10:30am</Typography>
+                                                            <Typography className="text_list">Geography</Typography>
+                                                            <Typography className="text_list">
+                                                                9.00am-10:30am
+                                                            </Typography>
                                                         </li>
                                                         <li>
-                                                        <Typography className="text_list">Art</Typography>
-                                                        <Typography className="text_list">11.00am-12:30am</Typography>
+                                                            <Typography className="text_list">Art</Typography>
+                                                            <Typography className="text_list">
+                                                                11.00am-12:30am
+                                                            </Typography>
                                                         </li>
                                                         <li>
-                                                        <Typography className="text_list">Maths</Typography>
-                                                        <Typography className="text_list">1.00pm-2.30pm</Typography>
+                                                            <Typography className="text_list">Maths</Typography>
+                                                            <Typography className="text_list">1.00pm-2.30pm</Typography>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -82,16 +79,17 @@ const TutorClass: React.FunctionComponent = () => {
 
                         <div className="row">
                             <div className="col-md-6 p-0">
-                                <div className="class_time">
+                                <div className="class_time ">
                                     <Typography className="text1">Class</Typography>
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="setClass">
+                                <div className="setClass ">
                                     <ReusableSubjectDesc
-                                    // clickHandler={handleClick}
-                                    // chengeHandler={handleChange}
-                                    // ref={hiddenFileInput}
+                                        displayStudentInput={true}
+                                        // clickHandler={handleClick}
+                                        // chengeHandler={handleChange}
+                                        // ref={hiddenFileInput}
                                     />
                                 </div>
                             </div>
@@ -103,27 +101,9 @@ const TutorClass: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="addSkill">
-                                    <div className="row">
-                                        <div className="col-md-12 p-0">
-                                            <Typography className="text">Add New</Typography>
-                                        </div>
-                                        <div className="col-md-12 p-0">
-                                            <TextField className="line-input" style={{ width: '85%' }} />
-                                        </div>
-                                        <div className="col-md-12">
-                                            <div className="skill_container">
-                                                <div className="row choose_weeks">
-                                                    {skillArray.map((val, index) => (
-                                                        <Typography key={index} className="boxes">
-                                                            {val}
-                                                        </Typography>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-12 p-0  horizontalline"></div>
-                                    </div>
+                                <div className="addSkill ">
+                                    <NewSkillContainer skillArray={skillArray}/>
+                                    <div className="col-12 p-0  horizontalline"></div>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +114,8 @@ const TutorClass: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="addCoverImg">
-                                    <ReusableCoverImage imgSrc={commonImg.tutorDashboard}/>
+                                <div className="addCoverImg ">
+                                    <ReusableCoverImage imgSrc={commonImg.tutorDashboard} />
                                 </div>
                             </div>
                         </div>

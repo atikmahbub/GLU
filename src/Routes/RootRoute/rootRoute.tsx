@@ -31,15 +31,11 @@ const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo
 const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
 const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
 const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/Index'));
-const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
+// const TutorDashboard = React.lazy(() => import('../../Views/TutorDashboard/Dashboard'));
 // const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProfile'));
-const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
-const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
-const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
-const TutorRecordClass=React.lazy(()=>import('../../Views/TutorRecordClass/TutorRecord'));
-const TutorIndivisualHomework=React.lazy(()=>import('../../Views/TutorIndivisualHomework/TutorIndivisualHome'))
 const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
+const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
 
 
@@ -77,12 +73,5 @@ export const rootRoute = [
     { component: studentFavourite, name: '/student-favourite' },
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
-    // { component: TutorDashboard, name: '/tutor-dashboard' },
-    // {component:TutorProfile, name: '/tutor-profile'},
-    {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
-    {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
-    {component:TutorSetClass, name: '/tutor-set-class'},
-    {component:TutorRecordClass,name:'/tutor-record-class'},
-    {component:TutorIndivisualHomework,name:'/tutor-indivisual-homework'},
     {component: EmailVerification, name: '/email-verification'}
 ];

@@ -4,48 +4,73 @@ import { TextField, FormControlLabel, Radio, Typography } from '@material-ui/cor
 import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
 import { useHistory } from 'react-router';
 import OutlineButton from '../../components/Button/OutlineButton';
+import { setAuthrizationToken } from '../../Utility/API';
 
 const StudentLogin = () => {
-    const [state, setState] = useState({email:'', password:''});
+    const [state, setState] = useState({ email: '', password: '' });
     const routes = useHistory();
     const handleForgot = () => {
         routes.push('/student-forgot-password');
     };
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        setState({...state, email:e.target.value});
-    }
-    const handlePass = (value: string)=>{
-        setState({...state, password: value});
-    }
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, email: e.target.value });
+    };
+    const handlePass = (value: string) => {
+        setState({ ...state, password: value });
+    };
     const route = useHistory();
-    const handleSignin =() =>{
-        if(state.email==="student@gmail.com"){
-            route.push('/students/')
-        }else if(state.email==="teacher@gmail.com"){
-
-        }else if(state.email==="parent@gmail.com"){
-
+    const handleSignin = () => {
+        localStorage.setItem(
+            'auth',
+            JSON.stringify({
+                access_token:
+                    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVwa0AxMjMiLCJ1c2VySWQiOjEzLCJyb2xlIjoiU2Nob29sIiwidXNlclJvbGVJZCI6MSwiaWF0IjoxNTk4NTk1NzM0LCJleHAiOjE1OTk4OTE3MzR9.UgIJ69g1zqMv58tmOy-m_jaNQRyW-0hX3fB-zHoerEg',
+            })
+        );
+        setAuthrizationToken();
+        if (state.email === 'student@gmail.com') {
+            route.push('/student/');
+        } else if (state.email === 'teacher@gmail.com') {
+            route.push('/tutor/');
+        } else if (state.email === 'parent@gmail.com') {
+            route.push('/parent/');
         }
-    }
-   
+    };
+
     return (
         <div className="credential__container">
-            <NavigationMenu/>
+            <NavigationMenu />
             <div className="credential__form__container">
                 <div className="form-container">
-                    <TextField className="line-input mb-5" label="Email Address" value={state.email} onChange={handleEmail} fullWidth />
-                    <UnderLineAddornment label="Password" className="custom-adornment-input"  onChange={(value:string)=>handlePass(value)}/>
+                    <TextField
+                        className="line-input mb-5"
+                        label="Email Address"
+                        value={state.email}
+                        onChange={handleEmail}
+                        fullWidth
+                    />
+                    <UnderLineAddornment
+                        label="Password"
+                        className="custom-adornment-input"
+                        onChange={(value: string) => handlePass(value)}
+                    />
                     <div className="button-container">
-                    <OutlineButton text="Sign In" btnClick={handleSignin} />
-                    <FormControlLabel color="primary" value="" className="keep__signed radio-button" control={<Radio />} label="Keep me signed in" />
+                        <OutlineButton text="Sign In" btnClick={handleSignin} />
+                        <FormControlLabel
+                            color="primary"
+                            value=""
+                            className="keep__signed radio-button"
+                            control={<Radio />}
+                            label="Keep me signed in"
+                        />
                     </div>
                 </div>
-                <Typography className="forgot__password" onClick={handleForgot}>Forgot your password</Typography>
+                <Typography className="forgot__password" onClick={handleForgot}>
+                    Forgot your password?
+                </Typography>
             </div>
         </div>
     );
 };
 
 export default StudentLogin;
-
-
