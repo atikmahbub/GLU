@@ -799,7 +799,7 @@ button.primary-btn {
 
 .image-thumbnail-container {
     .title {
-        margin-top: 0.5rem;
+        margin-top: 1.5rem;
         font-size: 1.562rem;
         line-height: 1.762rem;
         color: #000;
@@ -880,6 +880,7 @@ button.outline-rec {
                         font-size: 1.25rem;
                         color: #000;
                         font-weight: 100;
+                        
                     }
                     .link {
                         font-size: 1.5rem;
@@ -1034,9 +1035,12 @@ button.outline-button {
 
 // upcomming class
 .upcoming__class {
-    padding: 1rem;
+    padding: 9.375rem 3.062rem;
     width: 100%;
+    background-color: $bodyColor;
     .image-thumbnail-container {
+        display: flex;
+        padding-right: 5rem;
         .image-thumbnail {
             padding-top: 65%;
         }

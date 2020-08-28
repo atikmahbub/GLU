@@ -18,7 +18,7 @@ interface props {
     handler?: () => void;
     showMenuOptions?: boolean;
     rootClassName?: string;
-    containerClassName?: string
+    containerClassName?: string;
 }
 const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName }) => {
     const getMenuList = () => {

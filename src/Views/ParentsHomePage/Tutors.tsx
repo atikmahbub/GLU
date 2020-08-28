@@ -4,10 +4,14 @@ import HeadingRowContainer from '../../components/HeadingRowContainer';
 
 import commonImg from '../../Assets/images';
 
-const Tutors = () => {
+interface props{
+    route:string;
+}
+
+const Tutors:React.FunctionComponent<props> = ({route}) => {
     return (
         <div className="tutors">
-            <HeadingRowContainer title="Tutors" link="see all" />
+            <HeadingRowContainer title="Tutors" link="see all" linkTo={route} />
             <div className="row">
                 <div className="col-md-3">
                     <ImageThumbnail
