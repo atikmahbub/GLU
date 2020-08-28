@@ -6,7 +6,6 @@ import MadeBy from '../Footer/MadeBy';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
-import BackgroundTemplate from '../../components/BackgroundTemplate';
 import CalendarComponent from '../../components/CalendarComponent';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -66,13 +65,7 @@ const Dashboard: React.FunctionComponent = () => {
                                     subHeading2={'will be like.'}
                                 />
                             </div>
-                            {/* <div className="card__row card_row2">
-                                <SmallCard
-                                    mainHeading={'Availablity'}
-                                    subHeading1={'Status'}
-                                    subHeading2={'Limited Availablity'}
-                                />
-                            </div> */}
+
                         </div>
                     </div>
                 </div>
@@ -83,15 +76,8 @@ const Dashboard: React.FunctionComponent = () => {
                         <div className="main_container_dashboard_col3">
                             <div className="card__row card_row3">
                                 <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED320'} />
-                                {/* <SmallCard mainHeading={'Reviews'} subHeading1={'Current Rating'} subHeading2={'4/5'} /> */}
                             </div>
-                            {/* <div className="card__row card_row4">
-                                <SmallCard
-                                    mainHeading={'Whiteboard'}
-                                    subHeading1={'Try out what the class will be like'}
-                                    subHeading2={''}
-                                />
-                            </div> */}
+
                         </div>
                     </div>
 
@@ -104,29 +90,12 @@ const Dashboard: React.FunctionComponent = () => {
                         subHeading2={'37/40'}
                     />
                 </div>
-                {/* <div className="row">
-                    <div className="col-md-6"></div>
-                    <div className="col-md-6 p-0">
-                        <div className="main_container_dashboard_col5">
-                            <div className="card__row card_row5">
-                                <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED15,740'} />
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
+
             </div>
-            {/* <div className="main_container2">
-                <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
-            </div> */}
-            {/* <div className="horizontal__line__container">
-                <div className="horizontal__line__parent"> 
-                    <hr/>   
-                </div>
-            </div> */}
+
 
             <div className="second_component">
                 <div className="main_container3">
-                    {/* <hr/> */}
                     <div className="horizontal__line__parent">
                     </div>
                     <div className="row">

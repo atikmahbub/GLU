@@ -1,26 +1,27 @@
 .main_container {
-.title__container{
-    padding-top: 8.25rem;
-    .dropdown {
-        display: flex;
-        align-items: center;
-        font-size: 1.562rem;
-        line-height: 1.875rem;
-        font-family: 'CircularXXWeb-Book';
-        letter-spacing: 0px;
-        color: #5f5f5f;
-        padding-left: 2rem;
-    }
-}
-
-.main_container_dashboard_col1, .main_container_dashboard_col4{
-    .card_subtitle{
-        a{
-            color: #2267FF!important;
+    .title__container {
+        padding-top: 8.25rem;
+        .dropdown {
+            display: flex;
+            align-items: center;
+            font-size: 1.562rem;
+            line-height: 1.875rem;
+            font-family: 'CircularXXWeb-Book';
+            letter-spacing: 0px;
+            color: #5f5f5f;
+            padding-left: 2rem;
         }
     }
-}
-    .wallet__date__container{
+
+    .main_container_dashboard_col1,
+    .main_container_dashboard_col4 {
+        .card_subtitle {
+            a {
+                color: #2267ff !important;
+            }
+        }
+    }
+    .wallet__date__container {
         margin-bottom: 9.375rem;
     }
 
@@ -37,7 +38,7 @@
     }
     &_dashboard {
         padding: 0 3.125rem;
-        
+
         &_col1 {
             font-family: 'CircularXXWeb-Book';
             margin-top: 3.125rem;
@@ -98,7 +99,6 @@
             margin-top: 3.125rem;
         }
         .main_container_dashboard_col4 {
-           
             width: 100%;
             padding: 2.468rem;
             justify-content: space-between;
@@ -129,9 +129,8 @@
                 }
             }
         }
-
     }
-    
+
     .menu__type2__container {
         .navigation {
             padding-left: 0;
@@ -174,65 +173,11 @@
         }
     }
 
-
     .bg-white {
         background-color: $white;
     }
-    // .main_container2 {
-    //     width: 100vw;
-    //     margin-top: 9.375rem;
-    //     position: relative;
-        
-    //     &_subcontainer {
-            
-    //         background-color: #76726e;
-    //         padding: 0 3.125rem;
-    //         .main_container_dashboard_col6 {
-    //             font-family: 'CircularXXWeb-Book';
-    //             .card_text {
-    //                 font-family: inherit;
-    //                 font-size: 2.625rem;
-    //                 color: $white;
-    //             }
-    //         }
-    //         .main_container_dashboard_col7 {
-    //             .image_link {
-    //                 float: right;
-    //                 color: $white !important;
-    //             }
-    //         }
-    //         .main_container_dashboard_col8 {
-    //             font-family: 'CircularXXWeb-Book';
-    //             padding-top: 4.5rem;
-    //             .text {
-    //                 font-family: inherit;
-    //                 font-size: 5rem;
-    //                 line-height: 5rem;
-    //                 color: $white;
-    //             }
-    //         }
-    //         .main_container_dashboard_col9 {
-    //             padding-top: 5.125rem;
-    //             font-family: 'CircularXXWeb-Book';
-    //             .text {
-    //                 font-size: 5rem;
-    //                 color: $white;
-    //                 font-family: inherit;
-    //                 line-height: 5rem;
-    //             }
-    //             .subtext {
-    //                 color: $white;
-    //                 font-family: inherit;
-    //                 font-size: 1.25rem;
-    //                 padding-top: 5.4rem;
-    //                 padding-bottom: 9.06rem;
-    //             }
-    //         }
-    //     }
-    // }
 
-
-    .horizontal__line__parent{
+    .horizontal__line__parent {
         width: 140.062rem;
         height: 0.19rem;
         background-color: #f7f7f7;
@@ -244,7 +189,6 @@
         padding: 0 3.125rem;
         width: 100vw;
         position: relative;
-
     }
     .main_container3 {
         padding-top: 10rem;
@@ -279,20 +223,18 @@
     .main_container_4 {
         background-color: $white;
         width: 100vw;
-        padding-top:9.065rem;
+        padding-top: 9.065rem;
     }
 }
 
 @media screen and (max-width: 768px) {
     //for mobile view additional
-    .main_container_dashboard_col6{
+    .main_container_dashboard_col6 {
         padding: 2rem 0;
     }
     .card__row {
-        
         @include flex(center, space-between, column);
         .small__card {
-            
             width: calc(100%);
             flex-wrap: wrap;
             flex-direction: column;
@@ -320,13 +262,8 @@
             }
         }
     }
-    // .main_container_dashboard_col5 {
-    //     .card_row5{
-    //         padding-top: 3.125rem;
-    //     }
-        
-    // }
-    .img_container{
+
+    .img_container {
         padding-top: 5rem;
     }
 }
@@ -335,27 +272,16 @@
     .set__margin {
         margin-bottom: 3.125rem;
     }
-    .img_container{
+    .img_container {
         padding-top: 9.375rem;
     }
-    // .main_container_dashboard_col3 {
-    //     .card_row4 {
-    //         padding-top: 3.125rem;
-    //     }
-    // }
-    // .main_container_dashboard_col2 {
-    //     margin-left: 3.125rem;
-        
-    //     .card_row2 {
-    //         padding-top: 3.125rem;
-    //     }
-    // }
-    .main_container_col12{
+
+    .main_container_col12 {
         margin-left: 3.125rem;
         border-left-width: 2px;
         border-left-color: #f7f7f7;
         border-style: solid;
-        .main_subcontainer{
+        .main_subcontainer {
             padding-left: 3.125rem;
         }
     }
@@ -363,9 +289,7 @@
         margin-left: 3.125rem;
         padding: 2.468rem;
     }
-    // .main_container_dashboard_col5 {
-    //     padding: 3.125rem;
-    // }
+
     .main_container_dashboard_col7,
     .main_container_dashboard_col9 {
         padding-left: 3.125rem;
@@ -393,7 +317,6 @@
                 font-family: inherit;
                 line-height: 1.875rem;
             }
-            
         }
     }
 }
@@ -403,7 +326,7 @@
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-    
+
     .cardtitle__subtitle__container {
         @include flex(center, space-between, row);
         font-family: 'CircularXXWeb-Book';
@@ -412,7 +335,7 @@
             line-height: 5rem;
             font-size: 5rem;
             letter-spacing: 0rem;
-            font-family:inherit;
+            font-family: inherit;
         }
         .card_subtitle {
             font-size: 1.25rem;
