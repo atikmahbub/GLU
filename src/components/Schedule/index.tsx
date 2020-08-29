@@ -22,13 +22,18 @@ const useStyles = makeStyles({
     },
 });
 
-const Schedule: FC = () => {
+type ScheduleProps = {
+    title: string;
+    time: string;
+}
+
+const Schedule: FC<ScheduleProps> = ({ title, time }) => {
     const classes = useStyles();
     return (
         <Grid container className={classes.root}>
             <Grid container item xs={6} justify="space-between" className={classes.section}>
-                <Typography className={classes.text}>Your Day</Typography>
-                <Typography className={classes.text}>11.15am</Typography>
+                <Typography className={classes.text}>{title}</Typography>
+                <Typography className={classes.text}>{time}</Typography>
             </Grid>
             <Grid container item xs={6} className={classes.section}>
                 <ScheduleCard

@@ -12,10 +12,10 @@ const useStyles = makeStyles({
         minHeight: 250,
         height: 'fit-content',
         '&:first-child': {
-            paddingLeft: 0,
+            paddingLeft: ({ forcePadding }: any) => forcePadding ? '1.5625rem' : 0,
         },
         '&:last-child': {
-            paddingRight: 0,
+            paddingRight: ({ forcePadding }: any) => forcePadding ? '1.5625rem' : 0,
         },
     },
     paper: {
@@ -56,6 +56,7 @@ type CardProps = {
     titleRightLinkTo?: string;
     description?: string;
     value?: string;
+    forcePadding?: boolean;
     content?: ReactNode;
 };
 
@@ -72,9 +73,10 @@ const WhiteCard: FC<CardProps> = ({
     titleRightLinkTo,
     description,
     value,
+    forcePadding,
     content,
 }) => {
-    const classes = useStyles();
+    const classes = useStyles({ forcePadding });
     return (
         <Grid container item xs={size} className={classes.root}>
             <Paper className={classes.paper}>
