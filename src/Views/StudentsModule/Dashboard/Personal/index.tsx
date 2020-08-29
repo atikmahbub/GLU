@@ -39,7 +39,7 @@ const Personal: FC = () => {
                         size={6}
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
-                        titleRightLinkTo="/students/"
+                        titleRightLinkTo="/students/upcoming-classes"
                         content={<ClassesCarousel />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />

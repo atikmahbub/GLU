@@ -713,7 +713,7 @@ button.primary-btn {
     @include disableScroll();
     position: fixed;
     top: 0;
-    right: -50%;
+    // right: -50%;
     width: 65%;
     height: 100vh;
     overflow: auto;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Close } from '@material-ui/icons';
 import { IconButton, Typography } from '@material-ui/core';
+import './style.scss';
 
 
 const SlidingPushDrawerContent: React.FunctionComponent = () => {
