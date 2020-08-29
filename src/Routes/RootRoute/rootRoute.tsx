@@ -30,8 +30,6 @@ const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Ind
 
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
 
-
-
 export const rootRoute = [
     { component: Home, name: '/' },
     { component: Support, name: '/support' },
@@ -59,5 +57,4 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     {component: EmailVerification, name: '/email-verification'},
-
 ];
