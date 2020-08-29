@@ -22,7 +22,7 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
         route.push('/students/tutors');
     };
     return (
-        <div className="student__classes__tutor">
+        <div className="student__classes__tutor classes_page">
             <NavigationMenu menuList={studentMenus} />
             <div className="filter__row__container">
                 <div className="button__container">

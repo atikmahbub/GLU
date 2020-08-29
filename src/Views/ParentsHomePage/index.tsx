@@ -4,13 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import routes from '../../Routes/Parents';
 
 const Index: FC = () => {
-    // const classes = useStyles();
     return (
         <Grid container direction="column">
             <Grid container direction="column">
                 <Switch>
                     {routes.map((route, index) => (
-                        <Route key={index} {...route} />
+                        <Route exact key={index} {...route} />
                     ))}
                     <Redirect to="/parent/homepage" />
                 </Switch>

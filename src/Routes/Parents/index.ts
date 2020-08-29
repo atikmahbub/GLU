@@ -1,13 +1,17 @@
 import { lazy } from 'react';
 
 const ParentsHomePage = lazy(() => import('../../Views/ParentsHomePage/ParentsHome'));
-const ParentDashboard = lazy(() => import('../../Views/ParentDashboard/ParentDashboard'));
-
+const ParentsDashboard = lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
+const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
+const TutorList = lazy(() => import('../../Views/TutorList/TutorList'));
 import { createRouteObj } from '../../Helper/routes';
 
-const routes = [
+export const routes = [
     createRouteObj('/parent/homepage', ParentsHomePage),
-    createRouteObj('/parent/dashboard', ParentDashboard)
+    createRouteObj('/parent/dashboard', ParentsDashboard),
+    createRouteObj('/parent/upcoming-classes', UpcomingClasses),
+    createRouteObj('/parent/tutors', TutorList),
+
 ];
 
 export default routes;
