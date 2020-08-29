@@ -12,8 +12,8 @@
         padding-top: 3.75rem;
     }
     &_dashboard {
-        padding: 0 3.125rem !important;
-        
+        // padding: 0 3.125rem !important;
+        padding: 0 4.0625rem !important;
         &_col1 {
             font-family: 'CircularXXWeb-Book';
             margin-top: 3.125rem;
@@ -122,7 +122,7 @@
         &_subcontainer {
             
             background-color: #76726e;
-            padding: 0 3.125rem;
+            padding: 0 4.0625rem;
             .main_container_dashboard_col6 {
                 font-family: 'CircularXXWeb-Book';
                 .card_text {
@@ -168,7 +168,8 @@
     }
     .second_component {
         background-color: white;
-        padding: 0 3.125rem;
+        // padding: 0 3.125rem;
+        padding: 0 4.0625rem !important;
         width: 100vw;
         position: relative;
     }

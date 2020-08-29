@@ -9,11 +9,10 @@ interface props {
     subject: string;
     desc: string;
     title1: string;
-    title2: string;
     subheading1: string;
     subheading2: string;
 }
-const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,title2,subheading1,subheading2 }) => {
+const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,subheading1,subheading2 }) => {
     return (
         <>
             
