@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import NavigationMenu from '../../components/NavigationMenu';
+import React from 'react';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import SmallCard from '../../components/SmallCard';

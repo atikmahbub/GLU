@@ -11,7 +11,7 @@ import Personal from './Personal';
 import School from './School';
 
 
-const Dashboard: React.FunctionComponent = () => {
+const ParentDashboard: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const [activeTab, setActiveTab] = useState('personal');
@@ -79,4 +79,4 @@ const Dashboard: React.FunctionComponent = () => {
         </div>
     );
 };
-export default Dashboard;
+export default ParentDashboard;
