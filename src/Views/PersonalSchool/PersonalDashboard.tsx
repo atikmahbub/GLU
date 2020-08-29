@@ -9,20 +9,14 @@ import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import CalendarComponent from '../../components/CalendarComponent';
-import { common } from '@material-ui/core/colors';
+
 const PersonalDashboard: React.FunctionComponent = () => {
-    const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
-        { link: '', name: 'Messages' },
-        { link: '', name: 'Shop' },
-    ];
     return (
         <div className="main_container">
-            <NavigationMenu menuList={menu} />
+            {/* <NavigationMenu menuList={menu} />
             <Typography className="main_container_dashboard_title">
-                Personal <span className="school-color"> Dashboard</span>
-            </Typography>
+                Personal <span className="school-color"> School</span>
+            </Typography> */}
             <div className="main_container_dashboard">
                 <div className="row set__margin">
                     <div className="col-md-6 p-0">
@@ -44,8 +38,9 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
                             <div className="card__row card_row1">
-                                <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard linkurl={"/tutor/"} mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
+                                    linkurl={"/tutor/record-class"}
                                     mainHeading={'Record Class'}
                                     subHeading1={'Create and Publish'}
                                     subHeading2={'7/20 Spaces'}
@@ -53,6 +48,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             </div>
                             <div className="card__row card_row2">
                                 <SmallCard
+                                    linkurl={"/tutor/"}
                                     mainHeading={'Availablity'}
                                     subHeading1={'Status'}
                                     subHeading2={'Limited Availablity'}
@@ -68,14 +64,16 @@ const PersonalDashboard: React.FunctionComponent = () => {
                         <div className="main_container_dashboard_col3">
                             <div className="card__row card_row3">
                                 <SmallCard
+                                    linkurl={"/tutor/"}
                                     mainHeading={'Statistics'}
                                     subHeading1={'Average Attendance'}
                                     subHeading2={'7/20 Spaces'}
                                 />
-                                <SmallCard mainHeading={'Reviews'} subHeading1={'Current Rating'} subHeading2={'4/5'} />
+                                <SmallCard linkurl={"/tutor/"} mainHeading={'Reviews'} subHeading1={'Current Rating'} subHeading2={'4/5'} />
                             </div>
                             <div className="card__row card_row4">
                                 <SmallCard
+                                    linkurl={"/tutor/"}
                                     mainHeading={'Whiteboard'}
                                     subHeading1={'Try out what the class will be like'}
                                     subHeading2={''}
@@ -98,15 +96,18 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col5">
                             <div className="card__row card_row5">
-                                <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED15,740'} />
+                                <SmallCard linkurl={"/tutor/"} mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED15,740'} />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
+            
             <div className="second_component">
+            
                 <div className="main_container3">
+                <div className=" row horizontalline"></div>
                     <div className="row">
                         <div className="col-md-6 p-0">
                             <div className="main_container_col11">
@@ -117,6 +118,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                         <div className="col-md-6 p-0">
                             <div className="main_container_col12">
                                 <div className="main_subcontainer">
+                                    <div className="timeline_container1">
                                     <ResuableTimeline
                                         date={'29/07/20'}
                                         time1={'9am-'}
@@ -126,7 +128,9 @@ const PersonalDashboard: React.FunctionComponent = () => {
                                         desc={'Igneous, Sedimentary, '}
                                         subheading2={'Fully Booked'}
                                     />
-                                    <hr></hr>
+                                    </div>
+                                    <div className="horizontalline"></div>
+                                    <div className="timeline_container2">
                                     <ResuableTimeline
                                         date={'29/07/20'}
                                         time1={'11am-'}
@@ -136,7 +140,9 @@ const PersonalDashboard: React.FunctionComponent = () => {
                                         desc={'Organising a'}
                                         subheading2={'3/5 Spaces'}
                                     />
-                                    <hr></hr>
+                                    </div>
+                                    <div className="horizontalline"></div>
+                                    <div className="timeline_container3">
                                     <ResuableTimeline
                                         date={'29/07/20'}
                                         time1={'3pm-'}
@@ -146,6 +152,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                                         desc={'How Does Language.'}
                                         subheading2={'Fully Booked'}
                                     />
+                                    </div>
                                 </div>
                             </div>
                         </div>

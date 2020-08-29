@@ -8,18 +8,8 @@ import BackgroundTemplate from '../../components/BackgroundTemplate';
 import ProgressBar from './ProgressBar';
 import CalendarComponent from '../../components/CalendarComponent';
 const PersonalDashboard2: React.FunctionComponent = () => {
-    const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
-        { link: '', name: 'Messages' },
-        { link: '', name: 'Shop' },
-    ];
     return (
         <div className="personal_school">
-            <NavigationMenu menuList={menu} />
-            <Typography className="personal_school_dashboard_title">
-                Personal <span className="school-color"> Dashboard</span>
-            </Typography>
             <div className="personal_school_container">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -27,18 +17,21 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                             <div className="card__row card_row1">
                                 <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
+                                    linkurl={'/tutor/record-class'}
                                     mainHeading={'Record Class'}
                                     subHeading1={'Create and publish'}
                                     subHeading2={'a new class'}
                                 />
                             </div>
                             <div className="card__row card_row2">
-                            <SmallCard
+                                <SmallCard
+                                    linkurl={'/tutor/'}
                                     mainHeading={'Extra Curricular'}
                                     subHeading1={'Published'}
                                     subHeading2={'13'}
                                 />
                                 <SmallCard
+                                    linkurl={'/tutor/'}
                                     mainHeading={'Whiteboard'}
                                     subHeading1={'Try out what the class '}
                                     subHeading2={'be like'}
@@ -49,8 +42,14 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col2">
                             <div className="card__row card_row3">
-                                <SmallCard mainHeading={'Availablity'} subHeading1={'Status'} subHeading2={'Limited Availablity'} />
                                 <SmallCard
+                                    linkurl={'/tutor/'}
+                                    mainHeading={'Availablity'}
+                                    subHeading1={'Status'}
+                                    subHeading2={'Limited Availablity'}
+                                />
+                                <SmallCard
+                                    linkurl={'/tutor/set-homework'}
                                     mainHeading={'Homework'}
                                     subHeading1={'Assigned'}
                                     subHeading2={'17'}
@@ -64,8 +63,14 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col3 ">
                             <div className="card__row card_row4">
-                                <SmallCard mainHeading={'Exam Results'} subHeading1={'Marks Due'} subHeading2={'3'} />
                                 <SmallCard
+                                    linkurl={'/tutor/'}
+                                    mainHeading={'Exam Results'}
+                                    subHeading1={'Marks Due'}
+                                    subHeading2={'3'}
+                                />
+                                <SmallCard
+                                    linkurl={'/tutor/'}
                                     mainHeading={'Recommendation'}
                                     subHeading1={'Total'}
                                     subHeading2={'57'}
@@ -89,8 +94,14 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col5">
                             <div className="card__row card_row5">
-                                <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
+                                    linkurl={'/tutor/'}
+                                    mainHeading={'My Classes'}
+                                    subHeading1={'Published'}
+                                    subHeading2={'57'}
+                                />
+                                <SmallCard
+                                    linkurl={'/tutor/record-class'}
                                     mainHeading={'Record Class'}
                                     subHeading1={'Create and Publish'}
                                     subHeading2={'7/20 Spaces'}

@@ -1,0 +1,73 @@
+.set_homework_container{
+    &_subcontainer1{
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
+    }
+    &_subcontainer2{
+        margin-top: 3.125rem;
+        font-family: 'CircularXXWeb-Book';
+        .homeworkText{
+            font-family: inherit;
+            font-size: 2.625rem;
+            line-height: 2.8125rem;
+        }
+        
+        
+    }
+   .homeSubtext1{
+    font-family: 'CircularXXWeb-Book';
+       padding-top: 3.125rem;
+   }
+
+}
+.line_container{
+    padding-top: 2.185rem;
+}
+.banner_container{
+    
+    padding-top: 3.125rem;
+    padding-bottom: 10rem;
+}
+.homework_publish_container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: start;
+    .homework_publish_button {
+        padding: 0.437rem 2.68rem;
+        margin-right: 1.5625rem;
+        border-color: rgba(0, 0, 0, 0.25);
+        border-style: solid;
+        border-width: 1px;
+        font-family: 'CircularXXWeb-Book';
+        .text {
+            font-family: inherit;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+        }
+    }
+    .cancel_button {
+        padding: 0.437rem 0;
+        font-family: 'CircularXXWeb-Book';
+        .text {
+            font-family: inherit;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+        }
+    }
+}
+@media screen and (min-width: 767px) {
+    .homework_date_container{
+        padding-left:3.125rem;
+    }
+    .homeworkBorder{
+        border-left-style: solid;
+        border-left-color: rgba(0,0,0,0.25);
+        border-left-width: 1px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .homeSubtext0{
+    font-family: 'CircularXXWeb-Book';
+       padding-bottom: 3.125rem;
+   }
+}
