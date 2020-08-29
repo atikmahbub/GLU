@@ -18,6 +18,7 @@ import SlidingPushDrawerContent from './SlidingPushDrawerContent';
 import './style.scss';
 import commonImg from '../../Assets/images';
 
+
 const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
@@ -33,22 +34,41 @@ const index: React.FunctionComponent = () => {
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
         let screen = document.getElementById("root")
+        console.log("===== push drawer clicked ==========", screen)
+
         if(screen){
             if(openPushDrawer === false && screen){
-                screen.style.marginRight = "32.312rem";
-                screen.style.marginLeft = "-32.312rem";
-                screen.style.transition =  "all 0.75s ease";
+                // screen.style.marginRight = "32.312rem";
+                // screen.style.marginLeft = "-32.312rem";
+                // screen.style.transition =  "all 0.75s ease";
+
+                // screen.style.transform = `translateX(-32.312rem)` 
+                screen.style.transform = `translateX(-32.312rem)` 
+
+                // screen.style.marginLeft = "-32.312rem";
+                // screen.style.transition =  "all 0.75s ease";
+                screen.style.transition =  "all 0.55s ease";
+                // screen.style.transition =  "none";
+
 
             }
             else{
-                screen.style.marginRight = "0px";
-                screen.style.marginLeft = "0px";
+                screen.style.transform = `translateX(0rem)`
+                // screen.style.marginRight = "0px";
+                // screen.style.marginLeft = "0px";
                 screen.style.transition =  "all 0.75s ease";
             }
+
+            // screen.addEventListener("transitionend", function(){
+            //     screen.style.transform = '';
+            // }, false);
         }
+
+
+
     };
     return (
-        <div className="homepage__wrapper" >
+        <div className="homepage__wrapper" id="parent__homepage">
             <div className="drawer">
                 <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
                     <SlidingDrawerContent />

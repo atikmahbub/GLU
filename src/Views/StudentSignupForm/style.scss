@@ -109,23 +109,22 @@
                     border-top: 1px solid $lightGray;
                     padding-top: 1rem;
                     .heading {
-                        font-family: inherit;
-                        font-size: 1.5rem;
+                        font-size: 2.625rem;
+                        line-height: 2.625rem;
                         color: #000;
                     }
                     .button__title__row {
                         @include flex(center, space-between, row);
                         .title {
-                            font-family: inherit;
                             color: #000;
+                            font-size: 1.562rem;
                         }
                         .button-group {
                             @include flex(center, space-between, row);
                             .text-button {
-                                font-family: inherit;
                                 color: $primary;
                                 text-transform: capitalize;
-                                font-size: 0.9rem;
+                                font-size: 1.25rem;
                             }
                         }
                     }
@@ -137,8 +136,7 @@
                 }
                 .text {
                     color: #000;
-                    font-family: inherit;
-                    font-size: 0.8rem;
+                    font-size: 1.562rem;
                 }
                 .text-area {
                     width: 100%;
@@ -147,13 +145,13 @@
                     border-radius: 0.3rem;
                 }
                 .small__heading {
-                    font-size: 1.094rem;
+                    font-size: 1.562rem;
                     color: #000;
                     font-family: 'CircularXXWeb-Book';
                 }
                 .mono__text {
                     font-family: 'CircularXXMonoWeb-Regular';
-                    font-size: 0.75rem;
+                    font-size: 1rem;
                     color: #000000;
                     span {
                         color: $primary;

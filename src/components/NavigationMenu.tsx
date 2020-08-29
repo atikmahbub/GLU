@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames'
-import { Button, Typography, IconButton, Grid } from '@material-ui/core';
-import { v4 as uuidv4 } from 'uuid';
+import { Button, Typography, IconButton } from '@material-ui/core';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Search, Menu } from '@material-ui/icons';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
-import commonImg from '../Assets/images';
+
+const useStyles = makeStyles({
+  button: {
+      '&:hover': {
+          backgroundColor: 'transparent'
+      }
+  }
+})
 
 export interface propsType {
     name: string;
@@ -20,9 +27,10 @@ interface props {
     handlerNotification?: () => void;
     showMenuOptions?: boolean;
     rootClassName?: string;
-    containerClassName?: string
+    containerClassName?: string;
 }
 const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName, handlerNotification }) => {
+    const classes = useStyles()
     const getMenuList = () => {
         if (menuList) {
             return (
@@ -42,11 +50,10 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                             <Search className="icon" />
                         </IconButton>
                     </li>
-
-                    {menuList.map((item: propsType) => (
-                        <li key={uuidv4()}>
+                    {menuList.map((item: propsType, index) => (
+                        <li key={index}>
                             <Link to={item.link}>
-                                <Button className="link">{item.name}</Button>
+                                <Button disableRipple className={classNames('link', classes.button)}>{item.name}</Button>
                             </Link>
                         </li>
                     ))}
@@ -57,17 +64,17 @@ const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, cus
                 <>
                     <li>
                         <Link to="/signup">
-                            <Button className="outline-rec">Sign Up</Button>
+                            <Button disableRipple className="outline-rec">Sign Up</Button>
                         </Link>
                     </li>
                     <li>
                         <Link to="/login">
-                            <Button>Sign In</Button>
+                            <Button disableRipple className={classes.button}>Sign In</Button>
                         </Link>
                     </li>
                     <li>
                         <Link to="/help-support">
-                            <Button>Help</Button>
+                            <Button disableRipple className={classes.button}>Help</Button>
                         </Link>
                     </li>
                 </>
