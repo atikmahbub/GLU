@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     },
     text: {
         fontSize: '1.5625rem',
+        lineHeight: '1.875rem',
         whiteSpace: 'pre-wrap',
     },
 });
