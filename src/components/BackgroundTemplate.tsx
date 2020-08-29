@@ -44,7 +44,7 @@ const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
                         <div className="main_container_dashboard_col9">
                             <Typography className="text">{`Dubai, UAE`}</Typography>
                             <Typography className="text">{`(+971) 4 554 0350`}</Typography>
-                            <Typography className="subtext">Edit Profile</Typography>
+                            <Link to="/tutor/profile"><Typography className="subtext">Edit Profile</Typography></Link>
                         </div>
                     </div>
                 </div>

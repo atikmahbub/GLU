@@ -30,7 +30,7 @@ const StudentLogin = () => {
         setAuthrizationToken();
         if (state.email === 'student@gmail.com') {
             route.push('/students/home');
-        } else if (state.email === 'teacher@gmail.com') {
+        } else if (state.email === 'tutor@gmail.com') {
             route.push('/tutor/');
         } else if (state.email === 'parent@gmail.com') {
             route.push('/parent/');

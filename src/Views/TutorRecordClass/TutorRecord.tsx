@@ -1,22 +1,28 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { Typography, TextField } from '@material-ui/core';
+import { Typography, TextField,makeStyles } from '@material-ui/core';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import ReusableCoverImage from '../TutorSetClass/ReusableCoverImage';
 import VideoLectureContainer2 from '../../components/VideoLectureContainer2'
 import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
+const useStyles=makeStyles({
+    navigationContainer: {
+        backgroundColor: '#F7F7F7 !important'
+    }
+})
 const TutorRecord: React.FunctionComponent = () => {
     const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
+        { link: '/tutor/', name: 'Dashboard' },
+        { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+    const classes=useStyles();
     return (
         <div className="tutor_record_container">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer}  />
             <div className="tutor_record_container_1">
                 <div className="tutor_record_container_1_1">
                     <div className="row">
@@ -66,9 +72,10 @@ const TutorRecord: React.FunctionComponent = () => {
                         </div>
                         <div className="col-md-6 p-0 border_dateTime">
                             <div className="addSkill">
+                                <div className="col-md-12">
                                 <div className="row">
                                     <div className="col-md-12 p-0">
-                                        <Typography className="text">Add New</Typography>
+                                        <Typography className="textCover">Add New</Typography>
                                     </div>
                                     <div className="col-md-12 p-0">
                                         <TextField className="line-input" style={{ width: '85%' }} />
@@ -85,6 +92,7 @@ const TutorRecord: React.FunctionComponent = () => {
                                         </div>
                                     </div>
                                     <div className="col-12 p-0  horizontalline"></div>
+                                </div>
                                 </div>
                             </div>
                         </div>

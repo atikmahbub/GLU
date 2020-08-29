@@ -1,9 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-
 interface props {
     time?: string;
-
     subject?: string;
     classType?: string;
     attendance?: string;

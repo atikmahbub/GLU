@@ -85,7 +85,7 @@ const TotalClasses = () => {
             <div  className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">
-                        <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
+                        <ImageThumbnail linkTo="/students/tutor/details" image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
             </div>

@@ -2,23 +2,29 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useHistory } from 'react-router';
 
 interface props {
     image: string;
     title?: React.ReactNode;
     subtitle?: string;
     dateTime?: React.ReactNode;
+    linkTo?: string;
 }
-const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle, dateTime }) => {
+const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle, dateTime, linkTo }) => {
+    const routes = useHistory();
+    const handleRoute = () => {
+        console.log(linkTo)
+
+        if(linkTo!=='' && linkTo!==undefined){
+            routes.push(linkTo);
+        }
+    };
     return (
         <div className="image-thumbnail-container">
-            <div className="image-thumbnail">
-                <LazyLoadImage
-                    alt=""
-                    width="100%"
-                    effect="blur"
-                    src={image}
-                />
+            <div className="image-thumbnail" onClick={handleRoute}>
+                {/* <LazyLoadImage alt="" width="100%" effect="blur" src={image} /> */}
+                <img className="image" src={image} alt=""/>
             </div>
             {dateTime}
             <Typography className="title">{title}</Typography>

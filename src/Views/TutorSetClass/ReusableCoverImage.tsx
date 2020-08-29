@@ -6,6 +6,7 @@ interface props{
 const ReusableCoverImage: React.FunctionComponent<props> = ({imgSrc}) => {
     return (
         <>
+        <div className="col-md-12">
             <div className="row">
                 <div className="col-md-5 p-0 ">
                     <img className="img-fluid" src={imgSrc} width="301px" height="233px" alt="" />
@@ -37,12 +38,13 @@ const ReusableCoverImage: React.FunctionComponent<props> = ({imgSrc}) => {
             <div className="row">
                 <div className="publish_container">
                     <div className="publish_button">
-                        <Typography className="text">Publish</Typography>
+                        <Typography className="sub_heading">Publish</Typography>
                     </div>
                     <div className="cancel_button">
                         <Typography>Cancel</Typography>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

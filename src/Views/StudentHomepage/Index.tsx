@@ -10,18 +10,14 @@ import FeatureTutor from './FeatureTutor';
 import Footer from '../Footer/Footer';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import Tutors from '../ParentsHomePage/Tutors';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const Index: React.FunctionComponent = () => {
-    const menu = [
-        { link: '/students/home', name: 'Home' },
-        { link: '/students/dashboard', name: 'Dashboard' },
-        { link: '/students/subject', name: 'Subjects' },
-        { link: '/students/message', name: 'Messages' },
-    ];
+    
     return (
         <div className="homepage__wrapper">
             <div className="banner">
-                <NavigationMenu menuList={menu} />
+                <NavigationMenu menuList={studentMenus} />
                 <SectionTwoReusable
                     image={commonImg.smilegirl}
                     mobileImg={commonImg.curlygirlcroped}
@@ -37,9 +33,9 @@ const Index: React.FunctionComponent = () => {
                     }
                 />
             </div>
-            <NextClass />
+            <NextClass route="/students/classes" />
             <FeatureSubject />
-            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-class" />
+            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-classes" />
             <SectionTwoReusable
                 image={commonImg.earingGirlWithTab}
                 mobileImg={commonImg.curlygirlcroped}
@@ -56,7 +52,7 @@ const Index: React.FunctionComponent = () => {
             />
             <UpcomingClass />
             <CalenderContainer />
-            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-class" />
+            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-classes" />
             <FeatureTutor />
             <SectionTwoReusable
                 image={commonImg.lappygirl}

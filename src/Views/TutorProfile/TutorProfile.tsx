@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography,makeStyles } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
@@ -9,16 +9,24 @@ import MadeBy from '../Footer/MadeBy';
 //     subHeading1:string,
 //     subHeading2:string
 // }
+// const useStyles=makeStyles({
+//     navigationContainer: {
+//         backgroundColor: '#76726e !important',
+//         color:'white !important'
+//     }
+// })
 const TempComp: React.FunctionComponent = () => {
     const menu = [
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Set Class' },
+        { link: '/tutor/', name: 'Dashboard' },
+        { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
+    // const classes=useStyles();
     return (
+        
         <div className="profile_container">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu}  />
             <div className="main_container p-0">
                 <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
             </div>

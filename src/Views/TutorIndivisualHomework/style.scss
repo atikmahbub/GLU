@@ -12,19 +12,24 @@
         padding-bottom: 9.06rem;
         
         &_rightcontainer{
+            font-family: 'CircularXXWeb-Book';
             .rightTitle{
+                font-family: inherit;
                 font-size: 5rem;
                 line-height: 5rem;
             }
             .button_container{
                 display: flex;
-                justify-content: start;
+                justify-content: flex-start;
                 margin-top: 5rem;
+                font-family: 'CircularXXWeb-Book';
                 .smallText1{
+                    font-family: inherit;
                     font-size: 1.25rem;
                     line-height: 1.875rem;
                 }
                 .smallText2{
+                    font-family: inherit;
                     font-size: 1.25rem;
                     line-height: 1.875rem;
                     margin-left: 1.3125rem;
@@ -37,7 +42,9 @@
 .container_2{
     padding:5.59rem 3.125rem;
     .rightContainer_2{
+        font-family: 'CircularXXWeb-Book';
         .paraText{
+            font-family: inherit;
             font-size: 2.625rem;
             line-height: 3.125rem;
         }
@@ -45,6 +52,7 @@
 }
 .container_3{
     padding: 0 3.125rem;
+    font-family: 'CircularXXWeb-Book';
     &_1{
         padding-top: 3.125rem;
         
@@ -55,6 +63,7 @@
         border-left-width: 1px;
     }
     .resources_text{
+        font-family: inherit;
         font-size: 1.5625rem;
         line-height: 2.0625rem;
     }
@@ -79,10 +88,12 @@
     }
     .resources_subtext{
         color: #5F5F5F;
+        font-family: inherit;
         font-size: 1.25rem;
         line-height: 1.5625rem;
     }
     .textArray{
+        font-family: inherit;
         font-size: 1.5625rem;
         line-height: 1.875rem;
     }
@@ -103,7 +114,9 @@
         border-width: 1px;
         border-style: solid;
         padding: 0.5rem 2rem;
+        font-family: 'CircularXXWeb-Book';
         .complete_text{
+            font-family: inherit;
             font-size: 1.25rem;
             line-height: 1.875rem;
         }

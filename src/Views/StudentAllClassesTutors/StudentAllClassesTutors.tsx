@@ -9,21 +9,29 @@ import UpcomingClassesPartSec from './UpcomingClassesPartSec';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Footer from '../Footer/Footer';
 import TutorListBottom from './TutorListBottom';
+import { useHistory } from 'react-router';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const StudentAllClassesTutors: React.FunctionComponent = () => {
-    const menu = [
-        { link: '', name: 'Home' },
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Subjects' },
-        { link: '', name: 'Messages' },
-    ];
+   
+    const route = useHistory();
+    const gotoClasses = () => {
+        route.push('/students/classes');
+    };
+    const gotoTutors = () => {
+        route.push('/students/tutors');
+    };
     return (
         <div className="student__classes__tutor">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={studentMenus} />
             <div className="filter__row__container">
                 <div className="button__container">
-                    <Typography className="title active">Classes</Typography>
-                    <Typography className="title">Tutors</Typography>
+                    <Typography className="title active" onClick={gotoClasses}>
+                        Classes
+                    </Typography>
+                    <Typography className="title" onClick={gotoTutors}>
+                        Tutors
+                    </Typography>
                 </div>
                 <div className="sort__container">
                     <ExpandMore className="arrow__downward" />
@@ -44,7 +52,7 @@ const StudentAllClassesTutors: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

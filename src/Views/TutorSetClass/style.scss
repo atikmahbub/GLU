@@ -1,5 +1,7 @@
 .tutor_class_subcontainer {
     padding: 3.125rem;
+}
+.reusable_banner{
     font-family: 'CircularXXWeb-Book';
     .text1 {
         font-family: inherit;
@@ -7,7 +9,7 @@
         line-height: 2.8125rem;
         padding-bottom: 3.125rem;
     }
-    &_col1 {
+    .tutor_class_subcontainer_col1{
         font-family: 'CircularXXWeb-Book';
         .text2 {
             font-family: inherit;
@@ -43,13 +45,17 @@
 }
 
 .addSkill,
-.addCoverImg {
+.addCoverImg ,
+.setClass{
     padding-top: 3.125rem;
     font-family: 'CircularXXWeb-Book';
-    .text {
+    .sub_heading {
         font-family: inherit;
         font-size: 1.5625rem;
         line-height: 1.875rem;
+    }
+    .sub_heading_container{
+        margin-top: 3.125rem;
     }
     .textCover {
         font-family: inherit;
@@ -109,7 +115,7 @@
 }
 .choose_weeks {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 
     .boxes {
         font-family: inherit;
@@ -125,7 +131,7 @@
 .publish_container {
     margin-top: 6.23rem;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     .publish_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.5625rem;
@@ -149,7 +155,7 @@
 }
 .upload_component {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     .upload_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.25rem;
@@ -171,11 +177,11 @@
 }
 
 @media screen and (min-width: 767px) {
-    .tutor_class_subcontainer {
-        &_col1 {
+    
+        .tutor_class_subcontainer_col1 {
             padding: 0 3.125rem;
         }
-    }
+    
     .sub_rows {
         padding-left: 1.5625rem;
     }
@@ -187,7 +193,6 @@
     .setDateTime,
     .addCoverImg {
         padding-left: 3.125rem;
-        padding-right: 3.125rem;
     }
 
     .border_dateTime {
@@ -198,12 +203,11 @@
 }
 @media screen and (max-width: 767px) {
     
-        .setClass,
-        .addSkill,
-        .setDateTime,
-        .addCoverImg {
-            padding: 0 15px;
-        }
+        // .setClass,
+        // .addSkill,
+        // .addCoverImg {
+        //     padding: 0 15px;
+        // }
     
     .upload_image_container {
         margin-top: 3.125rem;
