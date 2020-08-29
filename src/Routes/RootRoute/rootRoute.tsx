@@ -77,7 +77,7 @@ export const rootRoute = [
     {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
     {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
     {component:TutorSetClass, name: '/tutor-set-class'},
-    { component: ParentsHomePage, name: '/parent-homepage' },
+    { component: ParentsHomePage, name: '/parent/homepage' },
     {component:TutorRecordClass,name:'/tutor-record-class'},
     {component:TutorIndivisualHomework,name:'/tutor-indivisual-homework'},
     {component: EmailVerification, name: '/email-verification'}

@@ -23,10 +23,10 @@ const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
-        { name: 'Home', link: '/parent-homepage/' },
-        { name: 'Dashboard', link: '/login/' },
-        { name: 'Subject', link: '/parent-homepage/' },
-        { name: 'Messages', link: '/parent-homepage/' },
+        { name: 'Home', link: '/parent/homepage' },
+        { name: 'Dashboard', link: '/parent/dashboard' },
+        { name: 'Subject', link: '/parent/homepage' },
+        { name: 'Messages', link: '/parent/homepage' },
     ];
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
@@ -37,33 +37,33 @@ const index: React.FunctionComponent = () => {
         console.log("===== push drawer clicked ==========", screen)
 
         //Code for screen left shift
-        if(false){
-            if(openPushDrawer === false && screen){
-                // screen.style.marginRight = "32.312rem";
-                // screen.style.marginLeft = "-32.312rem";
-                // screen.style.transition =  "all 0.75s ease";
+        // if(false){
+        //     if(openPushDrawer === false && screen){
+        //         // screen.style.marginRight = "32.312rem";
+        //         // screen.style.marginLeft = "-32.312rem";
+        //         // screen.style.transition =  "all 0.75s ease";
 
-                // screen.style.transform = `translateX(-32.312rem)` 
-                screen.style.transform = `translateX(-32.312rem)` 
+        //         // screen.style.transform = `translateX(-32.312rem)` 
+        //         screen.style.transform = `translateX(-32.312rem)` 
 
-                // screen.style.marginLeft = "-32.312rem";
-                // screen.style.transition =  "all 0.75s ease";
-                screen.style.transition =  "all 0.55s ease";
-                // screen.style.transition =  "none";
+        //         // screen.style.marginLeft = "-32.312rem";
+        //         // screen.style.transition =  "all 0.75s ease";
+        //         screen.style.transition =  "all 0.55s ease";
+        //         // screen.style.transition =  "none";
 
 
-            }
-            else{
-                screen.style.transform = `translateX(0rem)`
-                // screen.style.marginRight = "0px";
-                // screen.style.marginLeft = "0px";
-                screen.style.transition =  "all 0.75s ease";
-            }
+        //     }
+        //     else{
+        //         screen.style.transform = `translateX(0rem)`
+        //         // screen.style.marginRight = "0px";
+        //         // screen.style.marginLeft = "0px";
+        //         screen.style.transition =  "all 0.75s ease";
+        //     }
 
-            // screen.addEventListener("transitionend", function(){
-            //     screen.style.transform = '';
-            // }, false);
-        }
+        //     // screen.addEventListener("transitionend", function(){
+        //     //     screen.style.transform = '';
+        //     // }, false);
+        // }
 
 
 

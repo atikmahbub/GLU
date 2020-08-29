@@ -12,7 +12,7 @@ const ParentHomePage: FC = () => {
                     {routes.map((route, index) => (
                         <Route key={index} {...route} />
                     ))}
-                    <Redirect to="/parent-homepage/" />
+                    <Redirect to="/parent/homepage" />
                 </Switch>
             </Grid>
         </Grid>

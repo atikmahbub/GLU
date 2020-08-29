@@ -33,7 +33,7 @@ const StudentLogin = () => {
         } else if (state.email === 'teacher@gmail.com') {
             route.push('/tutor/');
         } else if (state.email === 'parent@gmail.com') {
-            route.push('/parent/');
+            route.push('/parent/homepage');
         }
     };
 
