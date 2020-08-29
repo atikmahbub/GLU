@@ -1,6 +1,19 @@
 .main_container {
     .drawer {
         position: absolute;
+        .full_drawer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: -25;
+            transition: all 0.5s;
+        }
+    }
+
+    .school__container{
+        padding: 1.625rem;
     }
 
     .push__drawer {
@@ -16,10 +29,20 @@
             height: 100vh;
             overflow: auto;
             background-color: white;
-            z-index: 4;
+            z-index: -4;
             opacity: 0;
             // transform: translateX(32.312rem)!important;
             transition: all 0.75s ease;
+        }
+
+        .full_drawer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: -25;
+            transition: all 0.5s;
         }
 
         .drawer__right__Container.show {
@@ -125,7 +148,7 @@
 
     .drawer{
         .drawer__right__Container{
-            z-index: 4!important;
+            z-index: -4!important;
         }
     }
 
@@ -172,6 +195,9 @@
 
     .title__container {
         padding-top: 8.25rem;
+        margin-left: 0.625rem;
+        z-index: 100;
+        cursor: pointer;
         .dropdown {
             display: flex;
             align-items: center;
@@ -396,9 +422,12 @@
         }
     }
     .main_container_4 {
-        background-color: $white;
+        background-color: #F7F7F7;
         width: 100vw;
         padding-top: 9.065rem;
+    }
+    .footer{
+        background-color: #F7F7F7;
     }
 }
 

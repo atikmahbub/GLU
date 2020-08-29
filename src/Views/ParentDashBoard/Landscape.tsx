@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import SliderContent from './SliderContent';
+import CarousalContent from './CarousalContent';
 
 
 interface props {
@@ -60,7 +60,7 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
 
             <div className="parent__slider">
                 <Slider {...settings} className={classes.sliderRoot}>
-                    <SliderContent
+                    <CarousalContent
                         imgSrc={imgSrc}
                         date={date}
                         time1={time1}
@@ -70,7 +70,7 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
                         subheading1={subheading1}
                         subheading2={subheading2}
                     />
-                    <SliderContent
+                    <CarousalContent
                         imgSrc={imgSrc}
                         date={date}
                         time1={time1}
@@ -80,7 +80,7 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
                         subheading1={subheading1}
                         subheading2={subheading2}
                     />
-                    <SliderContent
+                    <CarousalContent
                         imgSrc={imgSrc}
                         date={date}
                         time1={time1}
@@ -90,7 +90,7 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
                         subheading1={subheading1}
                         subheading2={subheading2}
                     />
-                    <SliderContent
+                    <CarousalContent
                         imgSrc={imgSrc}
                         date={date}
                         time1={time1}
