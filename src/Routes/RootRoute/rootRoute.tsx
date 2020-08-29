@@ -27,9 +27,8 @@ const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/I
 
 const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
-const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
+
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
-const ParentsDashBoard = React.lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
 
 
 
@@ -60,6 +59,5 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     {component: EmailVerification, name: '/email-verification'},
-    {component: ParentsHomePage, name: '/parent/homepage'},
-    {component: ParentsDashBoard, name: '/parent/dashboard'}
+
 ];
