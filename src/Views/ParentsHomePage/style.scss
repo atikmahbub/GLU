@@ -1,6 +1,15 @@
 .homepage__wrapper {
     .drawer {
         position: absolute;
+        .full_drawer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: 25;
+            transition: all 0.5s;
+        }
     }
     .section-two .ear-ring-girl {
         object-position: 50% 15%;
@@ -275,25 +284,39 @@
         }
     }
 
+
     .push__drawer {
         background-color: rgba(0, 0, 0, 0.5);
         .drawer__right__Container {
             -ms-overflow-style: none;
-            position: fixed;
-            top: 0;
-            right: -50%;
+            position: fixed!important;
+            top: 0!important;
+            // right: -50%;
             // width: 27%;
             width: 32.312rem;
+            // width: 65%;
             height: 100vh;
             overflow: auto;
             background-color: white;
-            z-index: 4;
+            z-index: -4;
             opacity: 0;
+            // transform: translateX(32.312rem)!important;
             transition: all 0.75s ease;
+        }
+
+        .full_drawer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: 15;
+            transition: all 0.5s;
         }
 
         .drawer__right__Container.show {
             right: 0;
+            // right: 50;
             opacity: 1;
         }
 
@@ -389,6 +412,13 @@
             margin-left: -0.75rem!important;
         }
 
+    }
+
+
+    .drawer{
+        .drawer__right__Container{
+            z-index: -4!important;
+        }
     }
 
     .drawer__content {
