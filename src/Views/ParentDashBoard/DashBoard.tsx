@@ -42,22 +42,10 @@ const Dashboard: React.FunctionComponent = () => {
 
     return (
         <div className="main_container">
-            <NavigationMenu menuList={menu} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
+            <NavigationMenu menuList={menu} handler={handleDrawer} handlerNotification={handlePushDrawer} />
             <div className="title__container">
                 <Tabs value={activeTab} onChange={setActiveTab} />
-            </div>
-                        {activeTab === 'school' && 
-                        <div className="school__container">
-                                              <School />
-                        </div>
-      
-                        }
-
-                        {activeTab === 'personal' && 
-                        <Personal />
-                        }
-                {/* <Typography className="main_container_dashboard_title">Dashboard</Typography> */}
-                {/* <div className="dropdown">
+                <div className="dropdown">
                     <Typography variant="h5">
                         Child 1
                         </Typography>
@@ -65,9 +53,18 @@ const Dashboard: React.FunctionComponent = () => {
                         <ExpandMoreIcon
                             style={{ fontSize: "3rem" }} />
                     </Typography>
-                </div> */}
-      
+                </div>
+            </div>
+            {activeTab === 'school' &&
+                <div className="school__container">
+                    <School />
+                </div>
 
+            }
+
+            {activeTab === 'personal' &&
+                <Personal />
+            }
             <div className="drawer" id="menu__drawer">
                 <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
                     <SlidingDrawerContent />
@@ -75,12 +72,10 @@ const Dashboard: React.FunctionComponent = () => {
             </div>
 
             <div className="drawer push__drawer" id="notification__drawer">
-                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
-                        <SlidingPushDrawerContent />
-                    </SlidingDrawer>
+                <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                    <SlidingPushDrawerContent />
+                </SlidingDrawer>
             </div>
-
-           
             <div className="main_container_4">
                 <div className="footer">
                     <MadeBy />

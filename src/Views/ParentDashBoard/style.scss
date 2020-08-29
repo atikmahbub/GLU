@@ -1,15 +1,19 @@
 .main_container {
+    // padding-left: 3.125rem;
+    // padding-right: 3.125rem;
+    // padding: 3.125rem;
     .drawer {
         position: absolute;
-        .full_drawer {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            z-index: -25;
-            transition: all 0.5s;
-        }
+        right: 0!important;
+        // .full_drawer {
+        //     width: 100%;
+        //     background-color: rgba(0, 0, 0, 0.5);
+        //     height: 100vh;
+        //     position: sticky;
+        //     top: 0;
+        //     z-index: -25;
+        //     transition: all 0.5s;
+        // }
     }
 
     .school__container{
@@ -22,28 +26,28 @@
             -ms-overflow-style: none;
             position: fixed!important;
             top: 0!important;
-            right: -50%;
+            right: 0;
             // width: 27%;
             width: 32.312rem;
             // width: 65%;
             height: 100vh;
             overflow: auto;
             background-color: white;
-            z-index: -4;
+            z-index: 4;
             opacity: 0;
             // transform: translateX(32.312rem)!important;
             transition: all 0.75s ease;
         }
 
-        .full_drawer {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            z-index: -25;
-            transition: all 0.5s;
-        }
+        // .full_drawer {
+        //     width: 100%;
+        //     background-color: rgba(0, 0, 0, 0.5);
+        //     height: 100vh;
+        //     position: sticky;
+        //     top: 0;
+        //     z-index: -25;
+        //     transition: all 0.5s;
+        // }
 
         .drawer__right__Container.show {
             right: 0;
@@ -148,7 +152,7 @@
 
     .drawer{
         .drawer__right__Container{
-            z-index: -4!important;
+            z-index: 4!important;
         }
     }
 
@@ -195,8 +199,8 @@
 
     .title__container {
         padding-top: 8.25rem;
-        margin-left: 0.625rem;
         z-index: 100;
+        margin-left: 11px;
         cursor: pointer;
         .dropdown {
             display: flex;
@@ -207,6 +211,8 @@
             letter-spacing: 0px;
             color: #5f5f5f;
             padding-left: 2rem;
+            margin-top: -35px;
+            margin-left: -12px;
         }
     }
 
