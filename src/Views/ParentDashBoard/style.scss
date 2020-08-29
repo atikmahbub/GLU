@@ -21,6 +21,10 @@
             }
         }
     }
+    // .parent__slider{
+    //     background-color: red;
+    //     padding-bottom: '2em';
+    // }
     .wallet__date__container {
         margin-bottom: 9.375rem;
     }
@@ -303,7 +307,7 @@
             padding: 1.812rem 1.812rem;
             font-family: 'CircularXXWeb-Book';
             .heading {
-                font-size: 2.5vw;
+                font-size: 2.5rem;
                 color: $black;
                 font-family: inherit;
                 line-height: 2.8125rem;

@@ -43,6 +43,7 @@ const useStyles = makeStyles({
     },
     text: {
         fontSize: '1.5625rem',
+        whiteSpace: 'pre-wrap',
     },
 });
 
@@ -50,6 +51,7 @@ type CardProps = {
     size: any;
     title: string;
     bigTitle?: boolean;
+    titleClassName?: string;
     titleRightLink?: string;
     titleRightLinkTo?: string;
     description?: string;
@@ -61,10 +63,11 @@ function getTo(to: string | undefined) {
     return to || '/';
 }
 
-const Card: FC<CardProps> = ({
+const WhiteCard: FC<CardProps> = ({
     size,
     title,
     bigTitle,
+    titleClassName,
     titleRightLink,
     titleRightLinkTo,
     description,
@@ -77,7 +80,9 @@ const Card: FC<CardProps> = ({
             <Paper className={classes.paper}>
                 <Grid container direction="column" justify="space-between">
                     <Grid container justify="space-between">
-                        <Typography className={classNames(classes.title, { [classes.titleBig]: bigTitle })}>
+                        <Typography
+                            className={classNames(classes.title, titleClassName, { [classes.titleBig]: bigTitle })}
+                        >
                             {title}
                         </Typography>
                         {titleRightLink && (
@@ -89,7 +94,7 @@ const Card: FC<CardProps> = ({
 
                     {content}
 
-                    {description && value && (
+                    {(description || value) && (
                         <Grid container direction="column">
                             <Typography className={classes.text}>{description}</Typography>
                             <Typography className={classes.text}>{value}</Typography>
@@ -101,4 +106,4 @@ const Card: FC<CardProps> = ({
     );
 };
 
-export default memo(Card);
+export default memo(WhiteCard);

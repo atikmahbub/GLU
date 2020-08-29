@@ -36,7 +36,8 @@ const index: React.FunctionComponent = () => {
         let screen = document.getElementById("root")
         console.log("===== push drawer clicked ==========", screen)
 
-        if(screen){
+        //Code for screen left shift
+        if(false){
             if(openPushDrawer === false && screen){
                 // screen.style.marginRight = "32.312rem";
                 // screen.style.marginLeft = "-32.312rem";

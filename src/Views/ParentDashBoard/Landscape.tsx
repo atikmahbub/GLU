@@ -1,0 +1,110 @@
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import { Link } from 'react-router-dom'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import SliderContent from './SliderContent';
+
+
+interface props {
+    imgSrc: string;
+    date: string;
+    time1: string;
+    time2: string;
+    subject: string;
+    desc: string;
+    title1: string;
+    title2: string;
+    subheading1: string;
+    subheading2: string;
+}
+
+const useStyles = makeStyles({
+    root: {
+        maxWidth: '100%',
+        paddingRight: '5rem',
+        paddingBottom: '2em',
+    },
+    sliderRoot: {
+        width: '100%',
+    },
+});
+
+const settings = {
+    dots: false,
+    infinite: true,
+    arrows: false,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+};
+
+
+const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2, subject, desc, title1, title2, subheading1, subheading2 }) => {
+    const classes = useStyles();
+    return (
+        <>
+
+            <div className="card_subtitle">
+                <Link to="" style={{ color: 'blue' }}>
+                    See upcomming
+                    </Link>
+            </div>
+            <div className="card_title">
+                <Typography className="card_title_1">{title1}</Typography>
+                <Typography className="card_title_1">{title2}</Typography>
+            </div>
+
+            <div className="parent__slider">
+                <Slider {...settings} className={classes.sliderRoot}>
+                    <SliderContent
+                        imgSrc={imgSrc}
+                        date={date}
+                        time1={time1}
+                        time2={time2}
+                        subject={subject}
+                        desc={desc}
+                        subheading1={subheading1}
+                        subheading2={subheading2}
+                    />
+                    <SliderContent
+                        imgSrc={imgSrc}
+                        date={date}
+                        time1={time1}
+                        time2={time2}
+                        subject={subject}
+                        desc={desc}
+                        subheading1={subheading1}
+                        subheading2={subheading2}
+                    />
+                    <SliderContent
+                        imgSrc={imgSrc}
+                        date={date}
+                        time1={time1}
+                        time2={time2}
+                        subject={subject}
+                        desc={desc}
+                        subheading1={subheading1}
+                        subheading2={subheading2}
+                    />
+                    <SliderContent
+                        imgSrc={imgSrc}
+                        date={date}
+                        time1={time1}
+                        time2={time2}
+                        subject={subject}
+                        desc={desc}
+                        subheading1={subheading1}
+                        subheading2={subheading2}
+                    />
+                </Slider>
+            </div>
+
+        </>
+    );
+};
+
+export default Landscape;

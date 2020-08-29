@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import CloseIcon from '@material-ui/icons/Close'
+import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '../../../components/Button/IconButton';
 
 const useStyles = makeStyles({
@@ -11,21 +11,21 @@ const useStyles = makeStyles({
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
         cursor: 'pointer',
         '&:last-child': {
-            borderBottom: 'none'
+            borderBottom: 'none',
         },
         '&:hover': {
             '& $closeBtn': {
-                display: 'block'
-            }
-        }
+                display: 'block',
+            },
+        },
     },
     titleContainer: {
-      position: 'relative'
+        position: 'relative',
     },
     title: {
         fontSize: '1.5625rem',
         lineHeight: '1.875rem',
-        fontWeight: 500
+        fontWeight: 500,
     },
     message: {
         fontSize: '1.5625rem',
@@ -41,8 +41,8 @@ const useStyles = makeStyles({
         padding: 5,
         position: 'absolute',
         right: 0,
-        display: 'none'
-    }
+        display: 'none',
+    },
 });
 
 export type CardProps = {
@@ -50,7 +50,7 @@ export type CardProps = {
     title: string;
     message: string;
     time: string;
-}
+};
 
 const Card: FC<CardProps> = ({ id, title, message, time }) => {
     const classes = useStyles();
