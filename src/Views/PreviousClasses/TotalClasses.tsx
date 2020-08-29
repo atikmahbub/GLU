@@ -2,7 +2,7 @@ import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
-import { linkTo } from '../../Helper/LinkTo';
+import { linkTo } from '../../Helper/linkTo';
 
 const TotalClasses = () => {
     const imageMetaDeta = [

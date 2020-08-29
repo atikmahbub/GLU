@@ -23,7 +23,8 @@ const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle
     return (
         <div className="image-thumbnail-container">
             <div className="image-thumbnail" onClick={handleRoute}>
-                <LazyLoadImage alt="" width="100%" effect="blur" src={image} />
+                {/* <LazyLoadImage alt="" width="100%" effect="blur" src={image} /> */}
+                <img className="image" src={image} alt=""/>
             </div>
             {dateTime}
             <Typography className="title">{title}</Typography>

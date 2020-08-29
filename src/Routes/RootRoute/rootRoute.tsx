@@ -19,7 +19,7 @@ const StudentTutorPreviousClasses = React.lazy(() => import('../../Views/Student
 const studentDashboard = React.lazy(() => import('../../Views/StudentDashboard/Index'));
 const studentDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentDetail/Index'));
 const studentIncompleteDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentIncompleteDetail/Index'));
-const editStudentProfile = React.lazy(() => import('../../Views/StudentDashboard/EditStudentProfile/Index'));
+
 const studentSchoolInfo = React.lazy(() => import('../../Views/StudentSchoolInfo/Index'));
 const studentNoFavourite = React.lazy(() => import('../../Views/StudentNoFavourite/Index'));
 const studentNoPreviousClass = React.lazy(() => import('../../Views/StudentNoPreviousClass/Index'));
@@ -29,13 +29,12 @@ const TutorProfile = React.lazy(() => import('../../Views/TutorProfile/TutorProf
 const PersonalSchoolDashboard = React.lazy(() => import('../../Views/PersonalSchool/PersonalDashboard'));
 const PersonalSchoolDashboard2 = React.lazy(() => import('../../Views/PersonalSchool2/PersonalDashboard2'));
 const TutorSetClass = React.lazy(() => import('../../Views/TutorSetClass/TutorClass'));
-const TutorRecordClass=React.lazy(()=>import('../../Views/TutorRecordClass/TutorRecord'));
-const TutorIndivisualHomework=React.lazy(()=>import('../../Views/TutorIndivisualHomework/TutorIndivisualHome'))
+const TutorRecordClass = React.lazy(() => import('../../Views/TutorRecordClass/TutorRecord'));
+const TutorIndivisualHomework = React.lazy(() => import('../../Views/TutorIndivisualHomework/TutorIndivisualHome'));
 const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
 const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
-
 
 export const rootRoute = [
     { component: Home, name: '/' },
@@ -49,14 +48,14 @@ export const rootRoute = [
     { component: ShowWelcome, name: '/signup-success' },
     { component: ForgotPassword, name: '/forgot-password' },
     { component: SetNewPassword, name: '/reset-password' },
-    { component: verification, name: '/verification' },  
-    
+    { component: verification, name: '/verification' },
+
     { component: StudentIndividualSubjects, name: '/student-individual-subjects' },
     { component: TutorsUpcomingClasses, name: '/tutor-upcoming-classes' },
     { component: StudentTutorPreviousClasses, name: '/student-previous-classes' },
     { component: studentDetail, name: '/student-detail' },
     { component: studentIncompleteDetail, name: '/student-incomplete-detail' },
-    { component: editStudentProfile, name: '/edit-student-profile' },
+    
     { component: studentSchoolInfo, name: '/student-school-info' },
     { component: studentNoFavourite, name: '/student-no-favourite' },
     { component: studentNoPreviousClass, name: '/student-no-previous-class' },
@@ -64,12 +63,12 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     { component: TutorDashboard, name: '/tutor-dashboard' },
-    {component:TutorProfile, name: '/tutor-profile'},
-    {component:PersonalSchoolDashboard, name: '/personal-school-dashboard'},
-    {component:PersonalSchoolDashboard2, name: '/personal-school-dashboard-2'},
-    {component:TutorSetClass, name: '/tutor-set-class'},
+    { component: TutorProfile, name: '/tutor-profile' },
+    { component: PersonalSchoolDashboard, name: '/personal-school-dashboard' },
+    { component: PersonalSchoolDashboard2, name: '/personal-school-dashboard-2' },
+    { component: TutorSetClass, name: '/tutor-set-class' },
     { component: ParentsHomePage, name: '/parent-homepage' },
-    {component:TutorRecordClass,name:'/tutor-record-class'},
-    {component:TutorIndivisualHomework,name:'/tutor-indivisual-homework'},
-    {component: EmailVerification, name: '/email-verification'}
+    { component: TutorRecordClass, name: '/tutor-record-class' },
+    { component: TutorIndivisualHomework, name: '/tutor-indivisual-homework' },
+    { component: EmailVerification, name: '/email-verification' },
 ];

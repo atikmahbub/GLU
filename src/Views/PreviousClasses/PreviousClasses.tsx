@@ -11,15 +11,11 @@ import Footer from '../Footer/Footer';
 import FixedNavigation from '../../Containers/FixedNavigation';
 import SlidingDrawer from '../../components/SlidingDrawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const PreviousClasses: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
-    const menu = [
-        { link: '', name: 'Home' },
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Subjects' },
-        { link: '', name: 'Messages' },
-    ];
+    
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
     };
@@ -29,7 +25,7 @@ const PreviousClasses: React.FunctionComponent = () => {
                 <SlidingDrawerContent />
             </SlidingDrawer>
             <FixedNavigation>
-                <NavigationMenu menuList={menu} handler={handleDrawer} />
+                <NavigationMenu menuList={studentMenus} handler={handleDrawer} />
             </FixedNavigation>
             <div className="spacing">
             <div className="filter__row__container">

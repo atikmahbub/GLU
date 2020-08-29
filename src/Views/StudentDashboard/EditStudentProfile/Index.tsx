@@ -1,20 +1,20 @@
 import React from 'react';
 import FixedNavigation from '../../../Containers/FixedNavigation';
 import NavigationMenu from '../../../components/NavigationMenu';
-import { menus } from '../../../Helper/menus';
+
 import MadeBy from '../../Footer/MadeBy';
 import DashboardWrapper from '../../../Containers/DashboardWrapper';
 import Header from './Header';
 import Detail from './Detail';
 import SemiBox from './SemiBox';
-// import Heading from '../StudentDetail/Heading';
-// import commonImg from '../../../Assets/images';
+import { studentMenus } from '../../../Helper/studentMenus';
+
 
 const Index: React.FunctionComponent = () => {
     return (
         <div className="dashboard__edit">
             <FixedNavigation>
-                <NavigationMenu menuList={menus} />
+                <NavigationMenu menuList={studentMenus} />
             </FixedNavigation>
             <DashboardWrapper>
                 <Header name="Edit Profile" />

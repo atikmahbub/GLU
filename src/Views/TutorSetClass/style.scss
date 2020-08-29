@@ -109,7 +109,7 @@
 }
 .choose_weeks {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 
     .boxes {
         font-family: inherit;
@@ -125,7 +125,7 @@
 .publish_container {
     margin-top: 6.23rem;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     .publish_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.5625rem;
@@ -149,7 +149,7 @@
 }
 .upload_component {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     .upload_button {
         padding: 0.437rem 2.68rem;
         margin-right: 1.25rem;

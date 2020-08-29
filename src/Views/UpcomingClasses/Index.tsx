@@ -12,6 +12,7 @@ import TutorListBottom from '../StudentAllClassesTutors/TutorListBottom';
 import SlidingDrawer from '../../components/SlidingDrawer';
 import FixedNavigation from '../../Containers/FixedNavigation';
 import SlidingDrawerContent from './SlidingDrawerContent';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const Index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -30,7 +31,7 @@ const Index: React.FunctionComponent = () => {
                 <SlidingDrawerContent />
             </SlidingDrawer>
             <FixedNavigation>
-                <NavigationMenu menuList={menu} handler={handleDrawer} />
+                <NavigationMenu menuList={studentMenus} handler={handleDrawer} />
             </FixedNavigation>
             <div className="spacing">
                 <div className="filter__row__container">

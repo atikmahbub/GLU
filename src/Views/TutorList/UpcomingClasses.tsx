@@ -1,7 +1,7 @@
 import React from 'react';
 import commonImg from '../../Assets/images';
 import SmallLargeImage from '../../components/SmallLargeImage';
-import { linkTo } from '../../Helper/LinkTo';
+import { linkTo } from '../../Helper/linkTo';
 
 const UpcomingClasses = () => {
     return (

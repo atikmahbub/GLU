@@ -11,15 +11,11 @@ import TagContainer from './TagContainer';
 import ResourcesContainer from './ResourcesContainer';
 import WatchNext from './WatchNext';
 import MadeBy from '../Footer/MadeBy';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const Index = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
-    const menu = [
-        { link: '', name: 'Home' },
-        { link: '', name: 'Dashboard' },
-        { link: '', name: 'Subjects' },
-        { link: '', name: 'Messages' },
-    ];
+   
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
     };
@@ -29,7 +25,7 @@ const Index = () => {
                 <SlidingDrawerContent />
             </SlidingDrawer>
             <FixedNavigation>
-                <NavigationMenu menuList={menu} handler={handleDrawer} />
+                <NavigationMenu menuList={studentMenus} handler={handleDrawer} />
             </FixedNavigation>
             <SpaceWrapper>
                 <React.Fragment>
