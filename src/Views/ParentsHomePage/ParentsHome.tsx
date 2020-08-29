@@ -137,7 +137,7 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
             />
-            <Tutors />
+            <Tutors route="/parent/tutors" />
             <MadeByFooter />
 
         </div>
