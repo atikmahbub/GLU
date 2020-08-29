@@ -9,7 +9,7 @@ import Landscape from './Landscape';
 import CalendarComponent from '../../components/CalendarComponent';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SlidingDrawer from '../../components/SlidingDrawer';
-import SlidingPushDrawerContent from '../../Views/ParentsHomePage/SlidingPushDrawerContent';
+import SlidingPushDrawerContent from '../../Views/ParentDashBoard';
 
 const Dashboard: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
@@ -23,26 +23,27 @@ const Dashboard: React.FunctionComponent = () => {
 
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
-        // let screen = document.getElementById("root")
-        // if(screen){
-        //     if(openPushDrawer === false && screen){
-        //         screen.style.marginRight = "32.312rem";
-        //         screen.style.marginLeft = "-32.312rem";
-        //         screen.style.transition =  "all 0.75s ease";
-        //     }
-        //     else{
-        //         screen.style.marginRight = "0px";
-        //         screen.style.marginLeft = "0px";
-        //         screen.style.transition =  "all 0.75s ease";
-        //     }
-        // }
+        let screen = document.getElementById("root")
+        if(screen){
+            if(openPushDrawer === false && screen){
+                screen.style.marginRight = "32.312rem";
+                screen.style.marginLeft = "-32.312rem";
+                screen.style.transition =  "all 0.75s ease";
+
+            }
+            else{
+                screen.style.marginRight = "0px";
+                screen.style.marginLeft = "0px";
+                screen.style.transition =  "all 0.75s ease";
+            }
+        }
     };
 
     return (
         <div className="main_container">
-            <NavigationMenu menuList={menu} handlerNotification={handlePushDrawer}/>
+            <NavigationMenu menuList={menu}/>
             <div className="title__container">
-                <Typography className="main_container_dashboard_title">Dashboard</Typography>
+                <Typography className="main_container_dashboard_title">Personal School</Typography>
                 <div className="dropdown">
                     <Typography variant="h5">
                         Child 1

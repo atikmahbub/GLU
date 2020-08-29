@@ -5,6 +5,7 @@ import IconTextRow from '../../components/IconTextRow';
 import { FavoriteBorder } from '@material-ui/icons';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import './style.scss';
 
 const SlidingDrawerContent: React.FunctionComponent = () => {
     return (
