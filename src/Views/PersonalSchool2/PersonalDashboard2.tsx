@@ -13,7 +13,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
             <div className="personal_school_container">
                 <div className="row">
                     <div className="col-md-6 p-0">
-                        <div className="personal_school_container_col1 ">
+                        <div className="personal_school_container_col1">
                             <div className="card__row card_row1">
                                 <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
