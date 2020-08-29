@@ -26,8 +26,7 @@ const Dashboard: React.FunctionComponent = () => {
                     <div className="main_container_dashboard_col1 bg-white">
                         <ReusableLandscape
                             imgSrc={commonImg.tutorDashboard}
-                            title1={'Upcomming'}
-                            title2={'Classes'}
+                            title1={'Upcomming Classes'}
                             date={'29/09/20'}
                             subheading1={'45min'}
                             time1={'9am-'}
