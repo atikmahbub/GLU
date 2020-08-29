@@ -13,18 +13,13 @@ import CalendarComponent from '../../components/CalendarComponent';
 const PersonalDashboard: React.FunctionComponent = () => {
     return (
         <div className="main_container">
-            {/* <NavigationMenu menuList={menu} />
-            <Typography className="main_container_dashboard_title">
-                Personal <span className="school-color"> School</span>
-            </Typography> */}
             <div className="main_container_dashboard">
                 <div className="row set__margin">
                     <div className="col-md-6 p-0">
                     <div className="main_container_dashboard_col1 bg-white">
                         <ReusableLandscape
                             imgSrc={commonImg.tutorDashboard}
-                            title1={'Upcomming'}
-                            title2={'Classes'}
+                            title1={'Upcomming Classes'}
                             date={'29/09/20'}
                             subheading1={'45min'}
                             time1={'9am-'}

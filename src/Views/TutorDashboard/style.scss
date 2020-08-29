@@ -1,6 +1,7 @@
 .main_container {
     background-color: $bodyColor;
     font-family: 'CircularXXWeb-Book';
+    // padding: 0 0.9375rem;
     .school-color {
         color: #8b8b8b;
     }
@@ -11,7 +12,7 @@
         padding-top: 3.75rem;
     }
     &_dashboard {
-        padding: 0 3.125rem;
+        padding: 0 3.125rem !important;
         
         &_col1 {
             font-family: 'CircularXXWeb-Book';
@@ -31,11 +32,8 @@
                 padding-top: 1.9rem;
                 padding-left: 2.4375rem;
                 line-height: 2.8125rem;
-                letter-spacing: 0rem;
-                &_1 {
-                    font-family: inherit;
-                    font-size: 2.625rem;
-                }
+                font-size: 2.625rem;
+                
             }
             .card_text {
                 padding-top: 4.315rem;
@@ -235,10 +233,17 @@
             background-color: $white;
             margin-bottom: 4rem;
             padding: 1.812rem;
+            
+            .heading:hover{
+                text-decoration: none !important;
+                text-decoration-style: none;
+            }
             .heading {
+                
                 font-family: inherit;
                 font-size: 2.625rem;
                 // line-height: 2.812rem;
+                
                 color: $black;
             }
             .first__title {
@@ -288,8 +293,8 @@
     .main_container_col12{
         margin-left: 3.125rem;
         border-left-width: 1px;
-        border-left-color: rgba(0, 0, 0, 0.25);
         border-style: solid;
+        border-left-color: rgba(0, 0, 0, 0.15)!important;
         .main_subcontainer{
             padding-left: 3.125rem;
         }
@@ -313,8 +318,9 @@
             background-color: $white;
             padding: 1.812rem 1.812rem;
             font-family: 'CircularXXWeb-Book';
+            
             .heading {
-                font-size: 2.5vw;
+                font-size: 2.625rem !important;
                 color: $black;
                 font-family: inherit;
                 line-height: 2.8125rem;

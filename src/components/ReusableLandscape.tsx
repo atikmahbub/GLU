@@ -18,13 +18,12 @@ const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,t
         <>
             
                 <div className="card_subtitle">
-                    <Link to="" style={{ color: 'blue' }}>
+                    <Link to="/tutor/upcoming-classes" style={{ color: 'blue',textDecoration:"none" }}>
                         See upcomming
                     </Link>
                 </div>
                 <div className="card_title">
                     <Typography className="card_title_1">{title1}</Typography>
-                    <Typography className="card_title_1">{title2}</Typography>
                 </div>
                 <div className="row_main">
                     <div className="row">
