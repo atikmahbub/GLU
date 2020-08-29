@@ -9,22 +9,20 @@ interface props {
     subject: string;
     desc: string;
     title1: string;
-    title2: string;
     subheading1: string;
     subheading2: string;
 }
-const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,title2,subheading1,subheading2 }) => {
+const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,subheading1,subheading2 }) => {
     return (
         <>
             
                 <div className="card_subtitle">
-                    <Link to="" style={{ color: 'blue' }}>
+                    <Link to="/tutor/upcoming-classes" style={{ color: 'blue',textDecoration:"none" }}>
                         See upcomming
                     </Link>
                 </div>
                 <div className="card_title">
                     <Typography className="card_title_1">{title1}</Typography>
-                    <Typography className="card_title_1">{title2}</Typography>
                 </div>
                 <div className="row_main">
                     <div className="row">

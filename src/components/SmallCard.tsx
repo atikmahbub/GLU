@@ -11,7 +11,7 @@ const SmallCard: React.FunctionComponent<props> = ({mainHeading,subHeading1,subH
     return (
         
         <div className="small__card">
-            <Link to={linkurl}>
+            <Link style={{textDecoration:"none"}} to={linkurl}>
             <Typography className="heading">{mainHeading}</Typography>
             </Link>
             <Typography className="title first__title">{subHeading1}</Typography>
