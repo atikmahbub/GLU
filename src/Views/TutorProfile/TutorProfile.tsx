@@ -26,7 +26,7 @@ const TempComp: React.FunctionComponent = () => {
     return (
         
         <div className="profile_container">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu}  />
             <div className="main_container p-0">
                 <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
             </div>

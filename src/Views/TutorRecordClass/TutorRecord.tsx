@@ -75,7 +75,7 @@ const TutorRecord: React.FunctionComponent = () => {
                                 <div className="col-md-12">
                                 <div className="row">
                                     <div className="col-md-12 p-0">
-                                        <Typography className="text">Add New</Typography>
+                                        <Typography className="textCover">Add New</Typography>
                                     </div>
                                     <div className="col-md-12 p-0">
                                         <TextField className="line-input" style={{ width: '85%' }} />
