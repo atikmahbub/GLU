@@ -29,7 +29,7 @@ const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchRe
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
 const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
-const ParentsDashBoard = React.lazy(() => import('../../Views/ParentDashBoard/DashBoard'));
+const ParentsDashBoard = React.lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
 
 
 
