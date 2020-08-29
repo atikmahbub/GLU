@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { linkTo } from '../../Helper/linkTo';
 
 const useStyles = makeStyles({
     root: {
@@ -101,7 +102,7 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, rootClassName
                     <Typography
                         className={classNames(classes.textSmall, classes.link)}
                         component={Link}
-                        to="/students/"
+                        to={linkTo.studentProfile}
                     >
                         Edit profile
                     </Typography>

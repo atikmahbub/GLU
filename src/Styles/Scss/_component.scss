@@ -831,6 +831,16 @@ button.primary-btn {
         position: relative;
         width: 100%;
         padding-top: 75%;
+        img {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            object-fit: cover;
+            height: 100%;
+        }
     }
     .lazy-load-image-background {
         position: absolute;
@@ -1039,8 +1049,6 @@ button.outline-button {
     width: 100%;
     background-color: $bodyColor;
     .image-thumbnail-container {
-        display: flex;
-        padding-right: 5rem;
         .image-thumbnail {
             padding-top: 65%;
         }
@@ -1094,6 +1102,7 @@ button.outline-button {
             padding-right: 1rem;
             font-size: 2.625rem;
             color: $gray;
+            cursor: pointer;
         }
         .active {
             color: #000000;
@@ -1260,7 +1269,6 @@ button.outline-button {
 // sort dropdown
 .sort__container {
     @include flex(center, space-between, row);
-    width: 2.625rem;
     .icon {
         font-size: 1.106rem;
         color: $black;

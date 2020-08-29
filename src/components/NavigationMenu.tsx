@@ -6,8 +6,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Search, Menu } from '@material-ui/icons';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
-import { v4 as uuidv4 } from 'uuid';
-
+import {v4 as uuidv4} from "uuid";
 
 const useStyles = makeStyles({
   button: {
@@ -31,8 +30,9 @@ interface props {
     rootClassName?: string;
     containerClassName?: string;
 }
+
 const NavigationMenu: React.FunctionComponent<props> = ({ menuList, handler, customClass, showMenuOptions, rootClassName, containerClassName, handlerNotification }) => {
-    const classes = useStyles()
+    const classes = useStyles();
     const getMenuList = () => {
         if (menuList) {
             return (

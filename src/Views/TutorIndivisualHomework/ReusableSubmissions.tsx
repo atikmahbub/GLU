@@ -15,7 +15,7 @@ const ReusableSubmissions: React.FunctionComponent<props> = ({name,isSubmitted,d
                 <div className="row">
                     <div className="col-md-5">
                         <Typography className="leftText ">
-                            {name}<br></br> {isSubmitted}
+                            {name}<br></br>{isSubmitted}
                         </Typography>
                     </div>
                     <div className="col-md-7">

@@ -7,7 +7,7 @@ const Index = () => {
     return (
         <Switch>
             {tutorRoutes.map((route: any) => (
-                <Route exact key={uuidv4()} path={route.pathname} component={route.component} />
+                <Route exact key={uuidv4()} {...route} />
             ))}
         </Switch>
     );
