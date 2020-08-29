@@ -1,6 +1,6 @@
 .main_container {
-    // padding-left: 3.125rem;
-    // padding-right: 3.125rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
     // padding: 3.125rem;
     .drawer {
         position: absolute;
@@ -18,7 +18,7 @@
 
     .school__container{
         padding: 1.625rem;
-        margin-top: 14px;
+        margin-top: 5px;
     }
 
     .push__drawer {
@@ -179,7 +179,7 @@
                     align-items: center;
                     width: 9.375rem;
                     height: 2.437rem;
-                    padding: 5px;
+                    padding: 0.312rem;
                     color: black;
                     :nth-child(2) {
                         color: #5f5f5f;
@@ -201,7 +201,7 @@
     .title__container {
         padding-top: 8.25rem;
         z-index: 100;
-        margin-left: 11px;
+        margin-left: 0.437rem;
         cursor: pointer;
         .dropdown {
             display: flex;
@@ -212,9 +212,14 @@
             letter-spacing: 0px;
             color: #5f5f5f;
             padding-left: 2rem;
-            margin-top: -35px;
-            margin-left: -12px;
+            margin-top: -2.187rem;
+            margin-left: -0.75rem;
         }
+    }
+    .main_container_4{
+        margin-left: -2.125rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
     }
 
     .main_container_dashboard_col1,
@@ -340,10 +345,7 @@
     }
 
     .menu__type2__container {
-        .navigation {
-            padding-left: 0;
-            padding-right: 0;
-        }
+        padding-right: 7.125rem;
     }
 
     .menu__type2__container {
