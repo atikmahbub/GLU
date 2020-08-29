@@ -31,13 +31,13 @@ const navigations = [
 
 const StudentsDashboard: FC = () => {
     const classes = useStyles();
+    const [activeTab, setActiveTab] = useState('school');
     const [isDrawer, setDrawer] = useState(false);
 
     const toggleDrawer = useCallback(() => {
         setDrawer((prevState) => !prevState);
     }, []);
 
-    const [activeTab, setActiveTab] = useState('personal');
     return (
         <Grid container direction="column" className={classes.root}>
             <NavigationMenu
