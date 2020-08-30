@@ -189,7 +189,7 @@
             }
         }
         .main_container_col12 {
-            .main_subcontainer {
+            .main_subcontainer_timeline {
                 font-family: 'CircularXXWeb-Book';
                 .text {
                     font-family: inherit;
@@ -294,11 +294,11 @@
         }
     }
     .main_container_col12{
-        margin-left: 3.125rem;
+        // margin-left: 3.125rem;
         border-left-width: 1px;
         border-style: solid;
         border-left-color: rgba(0, 0, 0, 0.15)!important;
-        .main_subcontainer{
+        .main_subcontainer_timeline{
             padding-left: 3.125rem;
         }
     }
