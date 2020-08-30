@@ -16,7 +16,7 @@ const ParentDashboard: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const [activeTab, setActiveTab] = useState('personal');
 
-    const menu = [
+    const navigations = [
         { link: '/parent/homepage', name: 'Home' },
         { link: 'parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
@@ -36,8 +36,11 @@ const ParentDashboard: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="main_container">
-            <NavigationMenu menuList={menu} handler={handleDrawer} handlerNotification={handlePushDrawer} />
+        <div className="parent_dashboard_container">
+            <div className="navigation__menu">
+                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
+            </div>
+          <div className="main_container">
             <div className="title__container">
                 <Tabs value={activeTab} onChange={setActiveTab} />
                 <div className="dropdown">
@@ -76,6 +79,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                     <MadeBy />
                 </div>
             </div>
+        </div>
         </div>
     );
 };
