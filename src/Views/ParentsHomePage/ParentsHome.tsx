@@ -9,7 +9,7 @@ import MadeByFooter from '../../components/MadeByFooter';
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
-import SlidingDrawer from '../../components/SlidingDrawer';
+import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
 
@@ -69,17 +69,25 @@ const index: React.FunctionComponent = () => {
 
     };
     return (
-        <div className="homepage__wrapper" id="parent__homepage">
+        <div className="homepage__wrapper">
             <div className="drawer">
-                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                <Drawer 
+                    open={openDrawer} 
+                    onClose={handleDrawer}
+                    width="68.875rem"
+                    heading={true}>
                     <SlidingDrawerContent />
-                </SlidingDrawer>
+                </Drawer>
             </div>
 
             <div className="drawer push__drawer">
-                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                    <Drawer 
+                        open={openPushDrawer} 
+                        onClose={handlePushDrawer}
+                        width="32.312rem"
+                        heading={false}>
                         <SlidingPushDrawerContent />
-                    </SlidingDrawer>
+                    </Drawer>
             </div>
 
             <div className="navigation__menu">

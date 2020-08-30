@@ -1529,3 +1529,113 @@ button.outline-button {
         }
     }
 }
+
+//Child and purchase items 
+.child__purchase__item {
+    display: flex;
+    align-items: center;
+    margin-top: 1.906rem;
+    .child__purchase {
+        display: flex;
+        align-items: center;
+        width: 18.75rem;
+        border: 1px solid #5f5f5f;
+        font-size: 1.4rem;
+        line-height: 1.562rem;
+        // margin-top: 1.906rem;
+        .child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 9.375rem;
+            height: 2.437rem;
+            padding: 5px;
+            color: black;
+            :nth-child(2) {
+                color: #5f5f5f;
+            }
+        }
+        .purchase {
+            padding: 0.562rem 2.125rem;
+            border-left: 1px solid #5f5f5f;
+            color: black;
+        }
+    }
+    .item {
+        margin-left: 1.25rem;
+        color: #5f5f5f;
+    }
+}   
+
+
+//Parent Notification
+.push__drawer__content {
+    width: 100%;
+    padding: 0rem !important;
+    margin: 0rem !important;
+    transition: all 0.5s;
+    background: rgba(0, 0, 0, 0);
+    font-size: 2.625rem;
+    .heading{
+        font-size: 2.625rem;
+    }
+    .title__description {
+        width: 24.312rem;
+        margin-top: 3.062rem;
+        .first__row__title {
+            .title {
+                color: black;
+                font-size: 1.562rem;
+            }
+        }
+        .second__row__description {
+            .subtitle {
+                color: #5f5f5f;
+                font-size: 1.562rem;
+            }
+        }
+
+        .third__row__time {
+            margin-top: 0.812rem;
+            .subtitle {
+                color: #5f5f5f;
+                font-size: 1.125rem;
+            }
+        }
+
+        .accept__ignore__container {
+            display: flex;
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            button {
+                width: 9.375rem;
+                margin-right: 0.625rem;
+                border: 1px solid #e2e0e0;
+                background-color: white;
+            }
+        }
+
+        hr {
+            border: 1px solid #e2e0e0;
+        }
+    }
+
+    .message__request, .topped__up, .booking__confirmed {
+        margin-top: 1.906rem;
+    }
+
+    .topped__up{
+        .topped__up__with__close{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .clear__all{
+        font-size: 1rem;
+        font-family: "CircularXX";
+        margin-top: 4.562rem;
+        color: #5f5f5f;
+    }
+
+}
