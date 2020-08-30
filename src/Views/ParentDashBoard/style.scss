@@ -3,10 +3,14 @@
     .main_container_dashboard{
         padding: 0!important;
         margin: 0!important;
+        padding: 3.125rem!important;
         .row{
             padding: 0!important;
             margin: 0!important;
         }
+    }
+    .school__container{
+        padding: 3.125rem!important;
     }
     .main_container_dashboard_col1 {
         font-family: 'CircularXXWeb-Book';
@@ -55,7 +59,7 @@
         .dropdown{
             display: flex;
             align-items: center;
-            padding-top:-2.187rem
+            margin-top:-3.3rem!important;
         }
     }
 
