@@ -15,7 +15,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
             <NavigationMenu menuList={menu} />
             <div className="personal_school_timetable_subcontainer">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 p-0">
                         <div className="school_table_calendar_container">
                         <div className="personal_school_calendarDate row">
                             <div className="col-6 p-0">
