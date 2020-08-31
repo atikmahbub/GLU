@@ -5,17 +5,20 @@ import {v4 as uuidv4} from "uuid";
 interface props {
     color?: string;
     data?: Array<{col1:string, col2:string}>;
+    colHead1?:string;
+    colHead2?:string;
+    tableName?: string;
 }
-const TwoColTable: React.FunctionComponent<props> = ({ color, data }) => {
+const TwoColTable: React.FunctionComponent<props> = ({ color, data, colHead1, colHead2, tableName }) => {
     return (
         <div className="data-container bg-white">
-            <Typography className="heading">Subject Details</Typography>
+            <Typography className="heading">{tableName}</Typography>
             <div className="table-data">
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>Subject</th>
-                            <th>James Arthur</th>
+                            <th>{colHead1}</th>
+                            <th>{colHead2}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -52,7 +52,7 @@ const StudentDetails: React.FunctionComponent = () => {
         }
     }, [studentInfo]);
     return (
-        <div className="details-wrapper">
+        <div className="details-wrapper change_card_pd">
             <ProfileTitle/>
             <AttendenceRow/>
             <PresentRow/>

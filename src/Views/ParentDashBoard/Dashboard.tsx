@@ -23,7 +23,7 @@ const Dashboard: React.FunctionComponent = () => {
 
     const menu = [
         { link: '/parent/homepage', name: 'Home' },
-        { link: 'parent/dashboard', name: 'Dashboard' },
+        { link: '/parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
     ];
