@@ -27,8 +27,8 @@ const Dashboard: React.FunctionComponent = () => {
         { eventTime: '10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg: 'jamie lee' },
     ];
     return (
-        <div className="row">
-            <div className="col-md-8 ">
+        <div className="row row__margin">
+            <div className="col-md-8 colum__spacing">
                 <CardContainer>
                     <GraphContainer />
                 </CardContainer>
@@ -135,7 +135,7 @@ const Dashboard: React.FunctionComponent = () => {
                     </CardContainer>
                 </div>
             </div>
-            <div className="col-md-4  position-relative">
+            <div className="col-md-4 colum__spacing  position-relative">
                 <div style={{ top: 0 }} className="attendance_column">
                     <CardContainer>
                         <div className="card-status attandece-card">

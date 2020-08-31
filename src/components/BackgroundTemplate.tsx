@@ -19,7 +19,7 @@ const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col7">
                             <div className="image_link">
-                                <Link style={{color:'white'}} to="">
+                                <Link style={{color:'white',textDecoration:'none'}} to="/tutor/profile">
                                     <Typography className="subtext">See</Typography>
                                 </Link>
                             </div>
@@ -44,7 +44,7 @@ const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
                         <div className="main_container_dashboard_col9">
                             <Typography className="text">{`Dubai, UAE`}</Typography>
                             <Typography className="text">{`(+971) 4 554 0350`}</Typography>
-                            <Link style={{textDecoration:"none"}} to="/tutor/profile"><Typography className="subtext">Edit Profile</Typography></Link>
+                            <Link style={{textDecoration:"none"}} to=""><Typography className="subtext">Edit Profile</Typography></Link>
                         </div>
                     </div>
                 </div>
