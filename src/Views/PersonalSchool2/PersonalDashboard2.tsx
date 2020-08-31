@@ -95,16 +95,16 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                         <div className="personal_school_container_col5">
                             <div className="card__row card_row5">
                                 <SmallCard
-                                    linkurl={'/tutor/'}
-                                    mainHeading={'My Classes'}
-                                    subHeading1={'Published'}
-                                    subHeading2={'57'}
+                                    linkurl={'/tutor/school-table'}
+                                    mainHeading={'Timetable'}
+                                    subHeading1={'Classes Today'}
+                                    subHeading2={'4'}
                                 />
                                 <SmallCard
-                                    linkurl={'/tutor/record-class'}
-                                    mainHeading={'Record Class'}
-                                    subHeading1={'Create and Publish'}
-                                    subHeading2={'7/20 Spaces'}
+                                    linkurl={'/tutor/'}
+                                    mainHeading={'School Info'}
+                                    subHeading1={'Secondary'}
+                                    subHeading2={'Dubai,UAE'}
                                 />
                             </div>
                         </div>

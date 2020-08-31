@@ -316,16 +316,19 @@
     .card__row {
         @include flex(center, space-between, row);
         .small__card {
-            width: calc(50% - 1.562rem);
+            width: calc(50% - 1.5625rem);
             flex-direction: column;
             background-color: $white;
             padding: 1.812rem 1.812rem;
             font-family: 'CircularXXWeb-Book';
             
             .heading {
+                overflow: hidden;
+                text-overflow: ellipsis;
                 font-size: 2.625rem !important;
                 color: $black;
                 font-family: inherit;
+                // max-height: 56px;
                 line-height: 2.8125rem;
             }
             .first__title {
