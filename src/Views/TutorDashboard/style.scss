@@ -189,7 +189,7 @@
             }
         }
         .main_container_col12 {
-            .main_subcontainer {
+            .main_subcontainer_timeline {
                 font-family: 'CircularXXWeb-Book';
                 .text {
                     font-family: inherit;
@@ -218,7 +218,7 @@
 .timeline_container2,.timeline_container3{
     margin-top: 3.125rem;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     //for mobile view additional
     .main_container_dashboard_col6{
         padding: 2rem 0;
@@ -273,7 +273,7 @@
     }
 }
 //Media Queries
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     .set__margin {
         margin-bottom: 3.125rem;
     }
@@ -285,6 +285,7 @@
             padding-top: 3.125rem;
         }
     }
+    
     .main_container_dashboard_col2 {
         margin-left: 3.125rem;
         
@@ -293,11 +294,11 @@
         }
     }
     .main_container_col12{
-        margin-left: 3.125rem;
+        // margin-left: 3.125rem;
         border-left-width: 1px;
         border-style: solid;
         border-left-color: rgba(0, 0, 0, 0.15)!important;
-        .main_subcontainer{
+        .main_subcontainer_timeline{
             padding-left: 3.125rem;
         }
     }
@@ -315,16 +316,19 @@
     .card__row {
         @include flex(center, space-between, row);
         .small__card {
-            width: calc(50% - 1.562rem);
+            width: calc(50% - 1.5625rem);
             flex-direction: column;
             background-color: $white;
             padding: 1.812rem 1.812rem;
             font-family: 'CircularXXWeb-Book';
             
             .heading {
+                overflow: hidden;
+                text-overflow: ellipsis;
                 font-size: 2.625rem !important;
                 color: $black;
                 font-family: inherit;
+                // max-height: 56px;
                 line-height: 2.8125rem;
             }
             .first__title {

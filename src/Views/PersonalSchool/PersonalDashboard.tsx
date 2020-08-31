@@ -112,7 +112,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                         </div>
                         <div className="col-md-6 p-0">
                             <div className="main_container_col12">
-                                <div className="main_subcontainer">
+                                <div className="main_subcontainer_timeline">
                                     <div className="timeline_container1">
                                     <ResuableTimeline
                                         date={'29/07/20'}
