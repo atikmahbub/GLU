@@ -11,40 +11,40 @@
         padding-bottom: 0px;
         margin-bottom: 0px;
     }
-    // .menu__type2__container {
-    //     position: absolute;
-    //     z-index: 1;
-    //     width: 100%;
-    //     background-color: transparent;
-    //     color: white;
-    //     .navigation {
-    //         background-color: transparent;
-    //         ul {
-    //             li {
-    //                 a {
-    //                     button {
-    //                         color: white;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //         .heading {
-    //             font-family: 'CircularXXWeb-Book';
-    //             font-size: 3rem;
-    //             margin-right: 1rem;
-    //             color: white;
-    //         }
-    //         .icon-button {
-    //             .icon {
-    //                 color: white;
-    //                 font-size: 2.5rem;
-    //             }
-    //         }
-    //         p {
-    //             color: #fff;
-    //         }
-    //     }
-    // }
+    .menu__type2__container {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        .navigation {
+            background-color: transparent;
+            ul {
+                li {
+                    a {
+                        button {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            .heading {
+                font-family: 'CircularXXWeb-Book';
+                font-size: 3rem;
+                margin-right: 1rem;
+                color: white;
+            }
+            .icon-button {
+                .icon {
+                    color: white;
+                    font-size: 2.5rem;
+                }
+            }
+            p {
+                color: #fff;
+            }
+        }
+    }
     .parent__upcoming__classes__container {
         background-color: #f7f7f7;
         height: 55.625rem;

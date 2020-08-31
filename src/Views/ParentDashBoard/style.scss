@@ -58,15 +58,17 @@
         }
     }
     .main_container {
-        .makeStyles-tabRoot-3 {
-            padding-left: 0rem;
-        }
+        // .makeStyles-tabRoot-3 {
+        //     padding-left: 0rem;
+        // }
         .title__container {
-            padding-top: 9.25rem;
+            padding-top: 13.25rem;
+            padding-left: 3.125rem;
             .dropdown {
                 display: flex;
                 align-items: center;
                 margin-top: -3.3rem !important;
+                padding-left: 0.7rem;
             }
         }
     }
