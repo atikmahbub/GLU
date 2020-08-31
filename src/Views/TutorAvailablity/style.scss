@@ -1,6 +1,7 @@
 .tutor_availablity_container{
    .tutor_availablity_subcontainer{
        padding: 0 4.0625rem;
+       font-family: 'CircularXXWeb-Book';
        &_banner{
            padding-top: 3.75rem ;
            padding-bottom: 7.5rem;
@@ -8,7 +9,29 @@
        &_weekly{
             padding-top: 3.125rem;
        }
+       .weeklyText{
+           font-family: inherit;
+           font-size: 2.625rem;
+           line-height: 2.8125rem;
+       }
+       .weeklySubtext{
+           font-family: inherit;
+           font-size: 1.5625rem;
+           line-height: 1.875rem;
+       }
    }
+}
+@media screen and(min-width:767px){
+    .tutor_availablity_subcontainer{
+    .weeklyDays{
+        padding-left: 3.125rem;
+    }
+    .weeklyborderline{
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgba(0, 0, 0, 0.25);
+    }
+    }
 }
 // .dividerlline{
 //     border-color: rgba(0, 0, 0, 0.25);
