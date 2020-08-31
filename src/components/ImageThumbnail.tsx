@@ -16,9 +16,9 @@ const ImageThumbnail: React.FunctionComponent<props> = ({ image, title, subtitle
     const handleRoute = () => {
         console.log(linkTo)
 
-        if(linkTo!=='' && linkTo!==undefined){
+        // if(linkTo!=='' && linkTo!==undefined){
             routes.push(linkTo);
-        }
+        // }
     };
     return (
         <div className="image-thumbnail-container">

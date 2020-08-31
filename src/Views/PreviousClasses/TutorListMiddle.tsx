@@ -125,7 +125,7 @@ const TutorListMiddle: React.FunctionComponent = () => {
             <div className="row">
                 {imageMetaDeta.map((item: any) => (
                     <div key={uuidv4()} className="col-md-3 mb-5">
-                        <ImageThumbnail linkTo={linkTo.watchPreviousClass} image={item.img} title={item.title} subtitle={item.subtitle} />
+                        <ImageThumbnail linkTo="/students/watch-previous-classes" image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
             </div>
