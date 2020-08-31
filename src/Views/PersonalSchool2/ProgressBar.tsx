@@ -21,6 +21,7 @@ const ProgressBar: React.FunctionComponent<props> = ({
 }) => {
     return (
         <>
+        <div className="reusableProgress">
             <div className="row">
                 <Typography className="text">{time}</Typography>
             </div>
@@ -42,10 +43,11 @@ const ProgressBar: React.FunctionComponent<props> = ({
                 </div>
             </div>
             <div className="row w-75">
-                <div className="progress">
+                <div className="progressBar">
                     <span className="bar" style={{ width: `${progress}%` }}></span>
                 </div>
             </div>
+        </div>
         </>
     );
 };

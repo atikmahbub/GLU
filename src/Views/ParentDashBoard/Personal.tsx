@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
-import NavigationMenu from '../../components/NavigationMenu';
+import React from 'react';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
-import MadeBy from '../Footer/MadeBy';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import Landscape from './Landscape';
 import CalendarComponent from '../../components/CalendarComponent';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import SlidingDrawer from '../../components/SlidingDrawer';
-import SlidingPushDrawerContent from '../../Views/ParentsHomePage/SlidingPushDrawerContent';
-import SlidingDrawerContent from '../../Views/ParentsHomePage/SlidingDrawerContent';
-import Tabs from './Tabs';
 
 export default function Personal() {
     return (

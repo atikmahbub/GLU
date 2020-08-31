@@ -6,8 +6,10 @@
 .container_1{
     background-color: #F7F7F7;
     &_1{
-        padding-left: 3.125rem;
-        padding-right: 3.125rem;
+        // padding-left: 3.125rem;
+        // padding-right: 3.125rem;
+        padding-left: 4.0625rem;
+        padding-right: 4.0625rem;
         padding-top: 3.75rem;
         padding-bottom: 9.06rem;
         
@@ -40,7 +42,7 @@
     }
 }
 .container_2{
-    padding:5.59rem 3.125rem;
+    padding:5.59rem 4.0625rem;
     .rightContainer_2{
         font-family: 'CircularXXWeb-Book';
         .paraText{
@@ -51,7 +53,8 @@
     }
 }
 .container_3{
-    padding: 0 3.125rem;
+    // padding: 0 3.125rem;
+    padding:0rem 4.0625rem;
     font-family: 'CircularXXWeb-Book';
     &_1{
         padding-top: 3.125rem;

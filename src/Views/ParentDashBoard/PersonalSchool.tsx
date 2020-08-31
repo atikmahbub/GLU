@@ -9,7 +9,7 @@ import Landscape from './Landscape';
 import CalendarComponent from '../../components/CalendarComponent';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SlidingDrawer from '../../components/SlidingDrawer';
-import SlidingPushDrawerContent from '../../Views/ParentDashBoard';
+import SlidingPushDrawerContent from './Index';
 
 const Dashboard: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
