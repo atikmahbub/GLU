@@ -18,7 +18,7 @@ const routes = [
     createRouteObj('/students/upcoming-classes', UpcomingClasses),
     createRouteObj('/students/tutors', TutorList),
     createRouteObj('/students/classes', StudentClassesTutors),
-    createRouteObj(linkTo.watchPreviousClass, StudentWatchPreviousClass),
+    createRouteObj('/students/watch-previous-classes', StudentWatchPreviousClass),
     createRouteObj(linkTo.tutorDetails, TutorDetail),
     createRouteObj(linkTo.studentProfile, editStudentProfile),
 
