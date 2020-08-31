@@ -46,9 +46,9 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                                     </div>
                                 </div>
                                 {/* {weeklySchedule.map((val: any, index: any) => (
-                                    <div className="row">
+                                    <div className="row" key={index}>
                                         <div className="col-4">
-                                            <Typography className={`${}`}>{val.day}</Typography>
+                                            <Typography className={`${(val.day=="Wednesday"||val.day=="Saturday"||val.day=="Sunday")?"weeklyActive":"weeklyInactive"}`}>{val.day}</Typography>
                                         </div>
                                         <div className="col-4">
                                             <Typography className="weeklySubtext">{val.start}</Typography>
