@@ -116,6 +116,13 @@
         border-style: solid;
     }
 }
+.profile_footer{
+    background-color: white !important;
+    padding-top: 9.06rem;
+    .footer{
+        background-color: white!important;
+    }
+}
 @media screen and (min-width: 768px) {
     .profile_container_1 {
         &_subcontainer  {
@@ -132,13 +139,7 @@
         border-left-color: #cfcfcf;
         border-style: solid;
     }
-    .profile_footer{
-        background-color: white !important;
-        padding-top: 9.06rem;
-        .footer{
-            background-color: white!important;
-        }
-    }
+    
 }
 @media screen and (max-width: 768px) {
     .profile_container_1 {

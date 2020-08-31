@@ -19,5 +19,5 @@ export const tutorRoutes = [
     createRouteObj('/tutor/set-homework', TutorSetHomework),
     createRouteObj('/tutor/upcoming-classes', UpcomingClasses),
     createRouteObj('/tutor/school-table', SchoolTimetable),
-    createRouteObj('/tutor/tutor-availablity',TutorAvailablity)
+    createRouteObj('/tutor/availablity',TutorAvailablity)
 ];
