@@ -162,7 +162,7 @@
 
 .card-container {
     background-color: $white;
-    margin-bottom: 0.65rem;
+    margin-bottom: 1.25rem;
 }
 
 .primary {
@@ -713,8 +713,7 @@ button.primary-btn {
     @include disableScroll();
     position: fixed;
     top: 0;
-    // right: -50%;
-    right: -78rem;
+    right: -50%;
     width: 65%;
     height: 100vh;
     overflow: auto;
@@ -1483,7 +1482,7 @@ button.outline-button {
 }
 
 .percentage__card {
-    padding: 1.875rem;
+    padding: 3.4rem;
     margin-bottom: 1.25rem;
     .heading {
         font-size: 1.875rem;
@@ -1522,6 +1521,7 @@ button.outline-button {
             line-height: 3.437rem;
             color: $black;
             text-align: center;
+            font-weight: 500;
         }
         .status {
             font-size: 1.25rem;

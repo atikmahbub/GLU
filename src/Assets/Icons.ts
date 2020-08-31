@@ -5,7 +5,7 @@ import threePiller from "./Icons/threePiller.svg";
 import realgoogleIcon from './Icons/realgoogleIcon.svg';
 import logo from "./Icons/logo.svg";
 import whiteMask from "./Icons/maskLong.svg";
-import maskLong from "./Icons/hldMask.svg";
+import maskLong from "./Icons/testing.png";
 import appleBlack from "./Icons/appleBlack.svg";
 import appleWhite from "./Icons/appleWhite.svg";
 import googleBlack from "./Icons/googleWhite.svg";

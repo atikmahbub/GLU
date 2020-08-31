@@ -12,7 +12,7 @@ const SubjectHomeworkRow = () => {
     return (
         <div className="row row__margin">
             <div className="col-lg-5 d-flex col-md-12 colum__spacing">
-                <TwoColTable data={data} />
+                <TwoColTable data={data} tableName="Subjects Details" colHead1="Class" colHead2="Teacher" />
             </div>
             <div className="col-lg-7 d-flex col-md-12 colum__spacing">
                 <CircleGraph

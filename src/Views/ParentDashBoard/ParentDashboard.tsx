@@ -3,12 +3,12 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import SlidingPushDrawerContent from '../../Views/ParentsHomePage/SlidingPushDrawerContent';
-import SlidingDrawerContent from '../../Views/ParentsHomePage/SlidingDrawerContent';
+import SlidingDrawer from '../../components/SlidingDrawer';
+import SlidingPushDrawerContent from '../ParentsHomePage/SlidingPushDrawerContent';
+import SlidingDrawerContent from '../ParentsHomePage/SlidingDrawerContent';
 import Tabs from './Tabs';
 import Personal from './Personal';
 import School from './School';
-import Drawer from './Drawer';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -16,9 +16,9 @@ const ParentDashboard: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const [activeTab, setActiveTab] = useState('personal');
 
-    const navigations = [
+    const menu = [
         { link: '/parent/homepage', name: 'Home' },
-        { link: 'parent/dashboard', name: 'Dashboard' },
+        { link: '/parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
     ];
@@ -36,11 +36,8 @@ const ParentDashboard: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="parent_dashboard_container">
-            <div className="navigation__menu">
-                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
-            </div>
-          <div className="main_container">
+        <div className="main_container">
+            <NavigationMenu menuList={menu} handler={handleDrawer} handlerNotification={handlePushDrawer} />
             <div className="title__container">
                 <Tabs value={activeTab} onChange={setActiveTab} />
                 <div className="dropdown">
@@ -63,31 +60,22 @@ const ParentDashboard: React.FunctionComponent = () => {
             {activeTab === 'personal' &&
                 <Personal />
             }
-            <div className="drawer">
-                <Drawer 
-                    open={openDrawer} 
-                    onClose={handleDrawer}
-                    width="68.875rem"
-                    heading={true}>
+            <div className="drawer" id="menu__drawer">
+                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
                     <SlidingDrawerContent />
-                </Drawer>
+                </SlidingDrawer>
             </div>
 
-            <div className="drawer push__drawer">
-                    <Drawer 
-                        open={openPushDrawer} 
-                        onClose={handlePushDrawer}
-                        width="32.312rem"
-                        heading={false}>
-                        <SlidingPushDrawerContent />
-                    </Drawer>
+            <div className="drawer push__drawer" id="notification__drawer">
+                <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                    <SlidingPushDrawerContent />
+                </SlidingDrawer>
             </div>
             <div className="main_container_4">
                 <div className="footer">
                     <MadeBy />
                 </div>
             </div>
-        </div>
         </div>
     );
 };
