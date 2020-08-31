@@ -5,8 +5,8 @@ import Tabs from './Tabs';
 import School from './School';
 import Personal from './Personal';
 import NavigationMenu from '../../../components/NavigationMenu';
-import Drawer from '../../../components/Drawer';
 import Notifications from '../Notifications';
+import DrawerProvider from '../../../Providers/DrawerProvider';
 import PageFooter from '../../../components/PageFooter';
 
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ const navigations = [
 
 const StudentsDashboard: FC = () => {
     const classes = useStyles();
-    const [activeTab, setActiveTab] = useState('school');
+    const [activeTab, setActiveTab] = useState('personal');
     const [isDrawer, setDrawer] = useState(false);
 
     const toggleDrawer = useCallback(() => {
@@ -39,24 +39,23 @@ const StudentsDashboard: FC = () => {
     }, []);
 
     return (
-        <Grid container direction="column" className={classes.root}>
-            <NavigationMenu
-                handler={toggleDrawer}
-                menuList={navigations}
-                containerClassName={classes.navigationContainer}
-            />
-            <Drawer open={isDrawer} onClose={toggleDrawer}>
-                <Notifications />
-            </Drawer>
-            <Grid container direction="column" className={classes.content}>
-                <Grid container direction="column">
-                    <Tabs value={activeTab} onChange={setActiveTab} />
-                    {activeTab === 'school' && <School />}
-                    {activeTab === 'personal' && <Personal />}
+        <DrawerProvider open={isDrawer} onClose={toggleDrawer} drawerContent={<Notifications />}>
+            <Grid container direction="column" className={classes.root}>
+                <NavigationMenu
+                    handlerNotification={toggleDrawer}
+                    menuList={navigations}
+                    containerClassName={classes.navigationContainer}
+                />
+                <Grid container direction="column" className={classes.content}>
+                    <Grid container direction="column">
+                        <Tabs value={activeTab} onChange={setActiveTab} />
+                        {activeTab === 'school' && <School />}
+                        {activeTab === 'personal' && <Personal />}
+                    </Grid>
                 </Grid>
+                <PageFooter />
             </Grid>
-            <PageFooter />
-        </Grid>
+        </DrawerProvider>
     );
 };
 
