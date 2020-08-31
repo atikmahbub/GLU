@@ -157,7 +157,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="personal_footer">
+            <div className="profile_footer">
                 <div className="footer">
                     <MadeBy />
                 </div>

@@ -12,6 +12,7 @@ import CalendarComponent from '../../components/CalendarComponent';
 
 const PersonalDashboard: React.FunctionComponent = () => {
     return (
+        <>
         <div className="main_container">
             <div className="main_container_dashboard">
                 <div className="row set__margin">
@@ -154,12 +155,13 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="main_container_4">
+            <div className="profile_footer">
                 <div className="footer">
                     <MadeBy />
                 </div>
             </div>
         </div>
+        </>
     );
 };
 export default PersonalDashboard;
