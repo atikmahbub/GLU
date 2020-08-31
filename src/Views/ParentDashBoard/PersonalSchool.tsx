@@ -5,22 +5,18 @@ import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
-import ReusableLandscape from '../../components/ReusableLandscape';
+import Landscape from './Landscape';
 import CalendarComponent from '../../components/CalendarComponent';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SlidingDrawer from '../../components/SlidingDrawer';
-
-import SlidingPushDrawerContent from '../../Views/ParentDashBoard';
-
-
-
+import SlidingPushDrawerContent from './Index';
 
 const Dashboard: React.FunctionComponent = () => {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
 
     const menu = [
-        { link: '/parent-homepage', name: 'Home' },
-        { link: '/parent', name: 'Dashboard' },
+        { link: '/parent/homepage', name: 'Home' },
+        { link: 'parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
     ];
@@ -47,7 +43,7 @@ const Dashboard: React.FunctionComponent = () => {
         <div className="main_container">
             <NavigationMenu menuList={menu}/>
             <div className="title__container">
-                <Typography className="main_container_dashboard_title">Dashboard</Typography>
+                <Typography className="main_container_dashboard_title">Personal School</Typography>
                 <div className="dropdown">
                     <Typography variant="h5">
                         Child 1
@@ -69,7 +65,7 @@ const Dashboard: React.FunctionComponent = () => {
                 <div className="row set__margin">
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col1 bg-white">
-                            <ReusableLandscape
+                            <Landscape
                                 imgSrc={commonImg.tutorDashboard}
                                 title1={'Upcomming'}
                                 title2={'Classes'}

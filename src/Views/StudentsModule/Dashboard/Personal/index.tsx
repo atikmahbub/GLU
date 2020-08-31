@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     profileCardRoot: {
         width: 'calc(100% + (3.125rem * 2))',
         marginLeft: '-3.125rem',
-        marginBottom: '9.375rem'
+        marginBottom: '9.375rem',
     },
 });
 
@@ -39,7 +39,7 @@ const Personal: FC = () => {
                         size={6}
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
-                        titleRightLinkTo="/students/"
+                        titleRightLinkTo="/students/upcoming-classes"
                         content={<ClassesCarousel />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />
@@ -66,7 +66,7 @@ const Personal: FC = () => {
                 phone="(+971) 4 554 0350"
                 rootClassName={classes.profileCardRoot}
             />
-            <Schedule />
+            <Schedule title="Your Day" time="11.15am" />
         </Grid>
     );
 };
