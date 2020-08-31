@@ -3,12 +3,12 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import SlidingDrawer from '../../components/SlidingDrawer';
 import SlidingPushDrawerContent from '../../Views/ParentsHomePage/SlidingPushDrawerContent';
 import SlidingDrawerContent from '../../Views/ParentsHomePage/SlidingDrawerContent';
 import Tabs from './Tabs';
 import Personal from './Personal';
 import School from './School';
+import Drawer from './Drawer';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -63,16 +63,24 @@ const ParentDashboard: React.FunctionComponent = () => {
             {activeTab === 'personal' &&
                 <Personal />
             }
-            <div className="drawer" id="menu__drawer">
-                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+            <div className="drawer">
+                <Drawer 
+                    open={openDrawer} 
+                    onClose={handleDrawer}
+                    width="68.875rem"
+                    heading={true}>
                     <SlidingDrawerContent />
-                </SlidingDrawer>
+                </Drawer>
             </div>
 
-            <div className="drawer push__drawer" id="notification__drawer">
-                <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
-                    <SlidingPushDrawerContent />
-                </SlidingDrawer>
+            <div className="drawer push__drawer">
+                    <Drawer 
+                        open={openPushDrawer} 
+                        onClose={handlePushDrawer}
+                        width="32.312rem"
+                        heading={false}>
+                        <SlidingPushDrawerContent />
+                    </Drawer>
             </div>
             <div className="main_container_4">
                 <div className="footer">
