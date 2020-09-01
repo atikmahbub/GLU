@@ -1,6 +1,5 @@
 import React from 'react';
 import TitleRow from './TitleRow';
-import { QueryBuilder, EmojiEvents, PersonPin, People } from '@material-ui/icons';
 
 interface props{
     data: any
@@ -8,9 +7,9 @@ interface props{
 const TileCard: React.FunctionComponent<props> = ({data}) => {
     return (
         <div className="tile-card">
-                <TitleRow icon={<EmojiEvents className="icon" />} title={data.activity} />
-                <TitleRow icon={<QueryBuilder className="icon" />} title={data.time} />
-                <TitleRow icon={<PersonPin className="icon" />} title={data.teacher} />
+                <TitleRow  title={data.activity} />
+                <TitleRow  title={data.time} />
+                <TitleRow  title={data.teacher} />
             </div>
     );
 }

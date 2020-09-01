@@ -1,0 +1,18 @@
+.time__table{
+    padding: 2.5rem;
+    .sub_heading{
+        font-size: 1.875rem;
+        margin-bottom: 1.562rem;
+    }
+    div.MuiPaper-elevation2 {
+        box-shadow: none;
+        div{
+            div{
+                div{
+                    @include disableScroll;
+                    max-height: 50rem;
+                }
+            }
+        }
+    }
+}

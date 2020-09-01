@@ -15,6 +15,8 @@ import AttendenceRow from './AttendenceRow';
 import PresentRow from './PresentRow';
 import SubjectHomeworkRow from './SubjectHomeworkRow';
 import FeeExamResultRow from './FeeExamResultRow';
+import ECArow from './ECArow';
+import TimeTableRow from './TimeTableRow';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -58,8 +60,8 @@ const StudentDetails: React.FunctionComponent = () => {
             <PresentRow/>
             <SubjectHomeworkRow/>
             <FeeExamResultRow/>
-
-
+            <ECArow/>
+            <TimeTableRow/>
 
 
 

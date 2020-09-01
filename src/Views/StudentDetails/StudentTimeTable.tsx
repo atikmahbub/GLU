@@ -2,7 +2,7 @@ import React from 'react';
 import CardTable from '../../components/Table/CardTable';
 import TitleCardContainer from './TitleCardContainer';
 import { Typography } from '@material-ui/core';
-import './routineTable.scss';
+
 
 interface props{
     data: any,
@@ -10,21 +10,52 @@ interface props{
 }
 const StudentTimeTable: React.FunctionComponent<props> = ({data, tableName}) => {
     return (
-        <div className="student-timetable">
-            <Typography className="sub-heading">{tableName}</Typography>
+        <div className="time__table">
+            <Typography className="sub_heading">{tableName}</Typography>
              <CardTable
                         showToolbar={false}
                         showPagination={false}
                         columns={[
                             {
                                 width: '15%',
-                                title: 'Class',
-                                field: 'class',
+                                title: 'Sunday',
+                                field: 'sunday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
+                            },
+                            {
+                                width: '15%',
+                                title: 'Monday',
+                                field: 'monday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
+                            },
+                            {
+                                width: '15%',
+                                title: 'Tuesday',
+                                field: 'tuesday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
+                            },
+                            {
+                                width: '15%',
+                                title: 'Wednesday',
+                                field: 'wednesday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
+                            },
+                            {
+                                width: '15%',
+                                title: 'Thursaday',
+                                field: 'thursaday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
+                            },
+                            {
+                                width: '15%',
+                                title: 'Friday',
+                                field: 'friday',
+                                render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
                             },
                             {
                                 width: '75%',
-                                title: 'Routine',
-                                field: 'routine',
+                                title: 'Saturday',
+                                field: 'saturday',
                                 render: (rowData:any) => <TitleCardContainer data={rowData.routine}/>,
                             },
 

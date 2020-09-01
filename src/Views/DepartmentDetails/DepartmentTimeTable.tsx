@@ -2,7 +2,6 @@ import React from 'react';
 import CardTable from '../../components/Table/CardTable';
 import TitleCardContainer from './TitleCardContainer';
 import { Typography } from '@material-ui/core';
-import './routineTable.scss';
 
 interface props{
     data: any,
