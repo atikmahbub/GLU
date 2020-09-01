@@ -96,7 +96,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                             <div className="card__row card_row5">
                                 <SmallCard
                                     linkurl={'/tutor/school-table'}
-                                    mainHeading={'Timetable'}
+                                    mainHeading={'School Timetable'}
                                     subHeading1={'Classes Today'}
                                     subHeading2={'4'}
                                 />
