@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 });
 
 const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     arrows: false,
     autoplay: true,

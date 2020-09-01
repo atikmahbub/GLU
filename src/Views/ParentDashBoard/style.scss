@@ -10,29 +10,33 @@
         .wallet__date__container {
             padding-top: 3.125rem !important;
         }
-
-        // .MuiTypography-body1 {
-        //     font-size: 1rem;
-        //     font-family: CircularXXWeb;
-        //     font-weight: 400;
-        //     line-height: 1.5;
-        //     font-size: 2.625rem;
-        //     line-height: 2.8125rem;
-        //     white-space: pre-wrap;
-        //     /* margin-bottom: 10px; */
-        // }
     }
     .school__container {
         padding: 3.125rem !important;
+        margin-top: 3.125rem !important;
     }
     .main_container_dashboard_col1 {
         font-family: 'CircularXXWeb-Book';
-        margin-top: 0;
+        margin-top: 3.125rem !important;
+        // @media screen and (min-width: 767px){
+            // .card__row .small__card {
+            //     width: calc(50% - 3.125rem);
+            //     flex-direction: column;
+            //     background-color: #fff;
+            //     padding: 1.812rem 1.812rem;
+            //     font-family: 'CircularXXWeb-Book';
+        // }
     }
     .main_container_dashboard_col2 {
         padding: 0;
         margin: 0;
-        padding-left: 3.125rem !important;
+        // padding-left: 3.125rem !important;
+        padding-top: 3.125rem !important;
+        
+        .card_row1{
+            display: flex;
+            justify-content: space-around;
+        }
     }
     .menu__type2__container {
         position: absolute;
@@ -69,9 +73,6 @@
         }
     }
     .main_container {
-        // .makeStyles-tabRoot-3 {
-        //     padding-left: 0rem;
-        // }
         .title__container {
             padding-top: 13.25rem;
             padding-left: 3.125rem;
@@ -81,6 +82,13 @@
                 margin-top: -3.3rem !important;
                 padding-left: 0.7rem;
             }
+        }
+    }
+
+    .parent__slider{
+        .slick-dots{
+            position: unset;
+            background-color: white;
         }
     }
 }

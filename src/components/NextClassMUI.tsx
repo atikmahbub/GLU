@@ -20,7 +20,8 @@ const useStyles = makeStyles({
     },
     title:{
         fontSize: '2.625rem',
-        lineHeight: '2.812rem'
+        lineHeight: '2.812rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     subTitle:{
         fontSize: '1.562rem',
