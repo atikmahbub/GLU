@@ -126,9 +126,7 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <div className="parent__upcoming__classes__container">
-                <UpcomingClasses />
-            </div>
+            <UpcomingClasses />
             <div className="live__classes">
                 <LiveClasses />
             </div>

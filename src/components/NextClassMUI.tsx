@@ -11,13 +11,12 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const useStyles = makeStyles({
     nextClassContainer:{
         paddingTop: '6.125rem',
-        paddingBottom: '7.187rem',
+        paddingBottom: '8.187rem',
         paddingLeft: '3.125rem',
         paddingRight: '10.437rem',
     },
     titleAndDropdown:{
-        // border: '2px solid grey',
-        marginTop: '0.625rem',
+        marginTop: '1.625rem',
     },
     title:{
         fontSize: '2.625rem',
@@ -29,8 +28,7 @@ const useStyles = makeStyles({
         paddingTop: '0.362rem',
     },
     nextClassimage:{
-        // border: '2px solid grey',
-        marginTop: '0.625rem',
+        marginTop: '1.625rem',
         '& img':{
             height: '20rem', 
         }
@@ -40,14 +38,10 @@ const useStyles = makeStyles({
     },
     dateTime:{
         width: '10.875rem',
-        // paddingLeft: '15.375rem',
-        // border: '2px solid grey',
-        marginTop: '0.625rem',
+        marginTop: '1.625rem',
     },
     subjectTutor:{
-        // paddingLeft: '10.062rem',
-        // border: '2px solid grey',
-        marginTop: '0.625rem',
+        marginTop: '1.625rem',
     },
     dropdown:{
         alignItems: 'center',
@@ -79,19 +73,19 @@ const NextClass:  FC = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item lg={4} sm={6} xs={12} className={classes.nextClassimage}>
+                <Grid item lg={4} sm={4} xs={12} className={classes.nextClassimage}>
                     <LazyLoadImage 
                         alt=""
                         effect="blur"
                         src={commonImg.running} /> 
                 </Grid> 
-                <Grid container item lg={3} sm={6} xs={12} direction="column" className={classes.dateTime}>
+                <Grid container item lg={3} sm={4} xs={12} direction="column" className={classes.dateTime}>
                     <Typography className={classes.title}>
                         19/07/20 <br /> 9am- 10.15am
                     </Typography>
                     <Typography className={classes.subTitle}>75mins</Typography>
                 </Grid>
-                <Grid container item lg={3} xs={12} direction="column"  className={classes.subjectTutor}>
+                <Grid container item lg={3} sm={4} xs={12} direction="column"  className={classes.subjectTutor}>
                     <Typography className={classes.title}>
                         PE. <br /> Creating a running <br /> plan for a 5K race
                     </Typography>
