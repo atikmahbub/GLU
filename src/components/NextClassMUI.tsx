@@ -19,6 +19,10 @@ const useStyles = makeStyles({
         height: '30px',
     },
 
+    titleAndDropdown:{
+        border: '2px solid grey',
+    },
+
     title:{
         fontSize: '2.625rem',
         lineHeight: '2.812rem'
@@ -29,6 +33,7 @@ const useStyles = makeStyles({
         paddingTop: '1.062rem',
     },
     nextClassimage:{
+        border: '2px solid grey',
         '& img':{
             height: '20rem', 
         }
@@ -38,10 +43,12 @@ const useStyles = makeStyles({
     },
     dateTime:{
         width: '10.875rem',
-        paddingLeft: '15.375rem',
+        // paddingLeft: '15.375rem',
+        border: '2px solid grey',
     },
     subjectTutor:{
-        paddingLeft: '10.062rem'
+        // paddingLeft: '10.062rem',
+        border: '2px solid grey',
     },
     dropdown:{
         alignItems: 'center',
@@ -57,10 +64,12 @@ const NextClass:  FC = () => {
     const classes = useStyles();
     return (
         <Grid container xs={12} direction="row" className={classes.nextClassContainer}>
-                <Grid container item xs={2} direction="column"> 
-                    <Typography className={classes.title}>
-                        Next Class
-                    </Typography>
+                <Grid container lg={2} xs={12} direction="column" className={classes.titleAndDropdown}> 
+                    <Grid item>
+                        <Typography className={classes.title}>
+                            Next Class
+                        </Typography>
+                    </Grid>
                     <Grid container className={classes.dropdown}>
                         <Typography variant="h5">
                             Child 1 
@@ -71,19 +80,19 @@ const NextClass:  FC = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item xs={2} className={classes.nextClassimage}>
+                <Grid item lg={4} sm={6} xs={12} className={classes.nextClassimage}>
                     <LazyLoadImage 
                         alt=""
                         effect="blur"
                         src={commonImg.running} /> 
                 </Grid> 
-                <Grid container item xs={3} direction="column" className={classes.dateTime}>
+                <Grid container item lg={3} sm={6} xs={12} direction="column" className={classes.dateTime}>
                     <Typography className={classes.title}>
                         19/07/20 <br /> 9am- 10.15am
                     </Typography>
                     <Typography className={classes.subTitle}>75mins</Typography>
                 </Grid>
-                <Grid container item xs={3} direction="column"  className={classes.subjectTutor}>
+                <Grid container item lg={3} xs={12} direction="column"  className={classes.subjectTutor}>
                     <Typography className={classes.title}>
                         PE. <br /> Creating a running <br /> plan for a 5K race
                     </Typography>
