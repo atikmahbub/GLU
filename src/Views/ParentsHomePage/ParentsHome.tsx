@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import NextClassMUI from '../../components/NextClassMUI';
-import NextClass from '../../components/NextClass';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';
 import ClassesRowWithImages from '../../components/ClassesRowWithImages';
@@ -13,10 +12,7 @@ import LiveClasses from './LiveClasses';
 import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
-
-
-
-import './style.scss';
+// import './style.scss';
 import commonImg from '../../Assets/images';
 
 
@@ -34,40 +30,6 @@ const index: React.FunctionComponent = () => {
     };
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
-        let screen = document.getElementById("root")
-        console.log("===== push drawer clicked ==========", screen)
-
-        //Code for screen left shift
-        // if(false){
-        //     if(openPushDrawer === false && screen){
-        //         // screen.style.marginRight = "32.312rem";
-        //         // screen.style.marginLeft = "-32.312rem";
-        //         // screen.style.transition =  "all 0.75s ease";
-
-        //         // screen.style.transform = `translateX(-32.312rem)` 
-        //         screen.style.transform = `translateX(-32.312rem)` 
-
-        //         // screen.style.marginLeft = "-32.312rem";
-        //         // screen.style.transition =  "all 0.75s ease";
-        //         screen.style.transition =  "all 0.55s ease";
-        //         // screen.style.transition =  "none";
-
-
-        //     }
-        //     else{
-        //         screen.style.transform = `translateX(0rem)`
-        //         // screen.style.marginRight = "0px";
-        //         // screen.style.marginLeft = "0px";
-        //         screen.style.transition =  "all 0.75s ease";
-        //     }
-
-        //     // screen.addEventListener("transitionend", function(){
-        //     //     screen.style.transform = '';
-        //     // }, false);
-        // }
-
-
-
     };
     return (
         <div className="homepage__wrapper">
@@ -103,10 +65,8 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            {/* <div className="next__class">  */}
-                {/* <NextClass /> */}
-                <NextClassMUI/>
-            {/* </div> */}
+
+            <NextClassMUI/>
             <FeaturedSubjects
                 imageFirstURL={commonImg.chairman}
                 imageFirstTitle="Languages - Johny Duke"
