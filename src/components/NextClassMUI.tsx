@@ -11,18 +11,14 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const useStyles = makeStyles({
     nextClassContainer:{
         paddingTop: '6.125rem',
-        paddingBottom: '6.187rem',
+        paddingBottom: '7.187rem',
         paddingLeft: '3.125rem',
         paddingRight: '10.437rem',
     },
-    headingAndImageContainer:{
-        height: '30px',
-    },
-
     titleAndDropdown:{
-        border: '2px solid grey',
+        // border: '2px solid grey',
+        marginTop: '0.625rem',
     },
-
     title:{
         fontSize: '2.625rem',
         lineHeight: '2.812rem'
@@ -30,10 +26,11 @@ const useStyles = makeStyles({
     subTitle:{
         fontSize: '1.562rem',
         lineHeight: '1.875rem',
-        paddingTop: '1.062rem',
+        paddingTop: '0.362rem',
     },
     nextClassimage:{
-        border: '2px solid grey',
+        // border: '2px solid grey',
+        marginTop: '0.625rem',
         '& img':{
             height: '20rem', 
         }
@@ -44,11 +41,13 @@ const useStyles = makeStyles({
     dateTime:{
         width: '10.875rem',
         // paddingLeft: '15.375rem',
-        border: '2px solid grey',
+        // border: '2px solid grey',
+        marginTop: '0.625rem',
     },
     subjectTutor:{
         // paddingLeft: '10.062rem',
-        border: '2px solid grey',
+        // border: '2px solid grey',
+        marginTop: '0.625rem',
     },
     dropdown:{
         alignItems: 'center',
