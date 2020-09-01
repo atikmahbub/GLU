@@ -91,7 +91,9 @@
             }
         }
     }
-    .next__class {
+
+
+    // .next__class {
         .next__class__card {
             padding-top: 0rem;
             padding-bottom: 0rem;
@@ -121,6 +123,7 @@
             }
             .next__class__image {
                 .image-thumbnail-container {
+                    height: 24rem;
                     .img {
                         padding-bottom: 0rem;
                         height: 20rem;
@@ -135,7 +138,8 @@
                 }
             }
         }
-    }
+    // }
+    
     .first__row {
         display: flex;
         align-items: center;

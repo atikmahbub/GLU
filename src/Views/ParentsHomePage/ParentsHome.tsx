@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
+import NextClassMUI from '../../components/NextClassMUI';
 import NextClass from '../../components/NextClass';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';
@@ -102,9 +103,10 @@ const index: React.FunctionComponent = () => {
                 title="Tutors"
                 msg={<>Maths.<br />An Introduction to trignometry</>}
             />
-            <div className="next__class" onClick={handlePushDrawer}> 
-                <NextClass />
-            </div>
+            {/* <div className="next__class">  */}
+                {/* <NextClass /> */}
+                <NextClassMUI/>
+            {/* </div> */}
             <FeaturedSubjects
                 imageFirstURL={commonImg.chairman}
                 imageFirstTitle="Languages - Johny Duke"
