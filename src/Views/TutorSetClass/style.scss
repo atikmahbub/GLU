@@ -43,15 +43,17 @@
 .reusableDate {
     padding: 3.125rem 0;
 }
-
-.addSkill,
+.skill_container{
+    margin-top:3.125rem;
+}
+.outerAddSkill,
 .addCoverImg ,
 .setClass{
     padding-top: 3.125rem;
     font-family: 'CircularXXWeb-Book';
     .sub_heading {
         font-family: inherit;
-        font-size: 1.5625rem;
+        font-size: 1.5625rem !important;
         line-height: 1.875rem;
     }
     .sub_heading_container{
@@ -110,21 +112,22 @@
         padding-bottom: 0.875rem;
     }
 }
-.skill_container {
-    margin-top: 2.3rem;
-}
+// .skill_container {
+//     margin-top: 0rem;
+// }
 .choose_weeks {
     display: flex;
     justify-content: flex-start;
-
+    font-family: 'CircularXXWeb-Book';
     .boxes {
         font-family: inherit;
         padding: 0.5rem 0.625rem;
         border-width: 1px;
+        font-size: 1.25rem;
+        line-height: 1.5625rem;
         border-color: #cfcfcf;
         border-style: solid;
         margin-top: 0.625rem;
-
         margin-right: 0.625rem;
     }
 }

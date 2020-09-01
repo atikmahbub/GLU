@@ -259,8 +259,9 @@
     }
     .MuiInputLabel-shrink.MuiInputLabel-root {
         color: #000;
-        font-size: 1.562rem;
+        font-size: 1.5625rem;
         font-family: 'CircularXXWeb-Book';
+        
     }
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXWeb-Book';
@@ -274,6 +275,6 @@
     .MuiInputLabel-formControl {
         font-family: 'CircularXXWeb-Book';
         font-size: 1.562rem;
-        color: $gray;
+        color: $black;
     }
 }

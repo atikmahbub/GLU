@@ -6,13 +6,14 @@ interface props {
 const NewSkillContainer: React.FunctionComponent<props> = ({ skillArray }) => {
     return (
         <>
+        <div className="addSkill">
             <div className="col-md-12">
                 <div className="row">
-                    <div className="col-md-12 p-0">
+                    {/* <div className="col-md-12 p-0">
                         <Typography className="sub_heading">Add New</Typography>
-                    </div>
+                    </div> */}
                     <div className="col-md-12 p-0">
-                        <TextField className="line-input" style={{ width: '85%' }} />
+                        <TextField className="line-input3" label="Add New" style={{ width: '85%' }} />
                     </div>
                     <div className="col-md-12">
                         <div className="skill_container">
@@ -26,6 +27,7 @@ const NewSkillContainer: React.FunctionComponent<props> = ({ skillArray }) => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

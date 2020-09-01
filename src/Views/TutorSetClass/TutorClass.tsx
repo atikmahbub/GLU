@@ -101,9 +101,11 @@ const TutorClass: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="addSkill ">
-                                    <NewSkillContainer skillArray={skillArray}/>
-                                    <div className="col-12 p-0  horizontalline"></div>
+                                <div className="outerAddSkill">
+                                   
+                                        <NewSkillContainer skillArray={skillArray}/>
+                                        <div className="col-12 p-0  horizontalline"></div>
+                                   
                                 </div>
                             </div>
                         </div>
