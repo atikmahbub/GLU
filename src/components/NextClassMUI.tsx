@@ -1,9 +1,7 @@
-// import React from 'react';
+import React, {FC, ReactNode, memo } from 'react';
 import { Typography } from '@material-ui/core';
-import ImageThumbnail from './ImageThumbnail';
 import commonImg from '../Assets/images';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import React, {FC, ReactNode, memo } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -32,7 +30,7 @@ const useStyles = makeStyles({
     },
     nextClassimage:{
         '& img':{
-            height: '20rem',
+            height: '20rem', 
         }
     },
     dateAndSubjectTutorContainer:{
@@ -40,10 +38,10 @@ const useStyles = makeStyles({
     },
     dateTime:{
         width: '10.875rem',
-        paddingLeft: '10.375rem'
+        paddingLeft: '15.375rem',
     },
     subjectTutor:{
-        paddingLeft: '7.062rem'
+        paddingLeft: '10.062rem'
     },
     dropdown:{
         alignItems: 'center',
@@ -55,19 +53,11 @@ const useStyles = makeStyles({
     },
 });
 
-// type NextClassProps = {
-//     position?: 'left' | 'right' | 'top' | 'bottom';
-//     open: boolean;
-//     onClose: () => void;
-//     width?: number;
-//     children: ReactNode;
-// };
-
 const NextClass:  FC = () => {
     const classes = useStyles();
     return (
         <Grid container xs={12} direction="row" className={classes.nextClassContainer}>
-                <Grid container item xs={3} direction="column"> 
+                <Grid container item xs={2} direction="column"> 
                     <Typography className={classes.title}>
                         Next Class
                     </Typography>
@@ -81,8 +71,10 @@ const NextClass:  FC = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item xs={3} className={classes.nextClassimage}>
-                    <img 
+                <Grid item xs={2} className={classes.nextClassimage}>
+                    <LazyLoadImage 
+                        alt=""
+                        effect="blur"
                         src={commonImg.running} /> 
                 </Grid> 
                 <Grid container item xs={3} direction="column" className={classes.dateTime}>
