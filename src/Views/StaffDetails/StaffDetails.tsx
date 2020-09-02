@@ -3,7 +3,6 @@ import commonImg from '../../Assets/images';
 import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
 import { useLocation } from 'react-router-dom';
-import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
 import AttendenceRow from '../../components/Dashobard/UserDetails/AttendenceRow';
 import PresentRow from '../../components/Dashobard/UserDetails/PresentRow';
@@ -13,7 +12,7 @@ import ECArow from '../../components/Dashobard/UserDetails/ECArow';
 import TimeTableRow from '../../components/Dashobard/UserDetails/TimeTableRow';
 import UserDetailsWrapper from '../../Containers/Dashboard/UserDetailsWrapper';
 
-const StudentDetails: React.FunctionComponent = () => {
+const StaffDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
     const routes = useLocation();
     const dispatch = useDispatch();
@@ -59,7 +58,7 @@ const StudentDetails: React.FunctionComponent = () => {
             <ProfileTitle />
             <AttendenceRow />
             <PresentRow />
-            <SubjectHomeworkRow data={data} tableName="Subjects" colHead1="Class" colHead2="Teacher" />
+            <SubjectHomeworkRow data={data} tableName="Class Groups" colHead1="Class" colHead2="Teacher"/>
             <FeeExamResultRow />
             <ECArow />
             <TimeTableRow />
@@ -67,4 +66,4 @@ const StudentDetails: React.FunctionComponent = () => {
     );
 };
 
-export default StudentDetails;
+export default StaffDetails;

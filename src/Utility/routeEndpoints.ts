@@ -23,5 +23,8 @@ export const routeEndpoints = {
         bulkUpload: '/dashboard/parent/bulk-upload',
         bulkBread: '/dashboard/parent/parent Data Upload',
         parentList: '/dashboard/parents'
+    },
+    staff:{
+        details:'/dashboard/staff-details',
     }
 }

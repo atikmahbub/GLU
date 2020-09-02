@@ -9,8 +9,6 @@ const TitleCardContainer: React.FunctionComponent<props> = ({data}) => {
     return (
         <div className="title-card-container">
             <TileCard data={data}/>
-            <TileCard data={data}/>
-            <TileCard data={data}/>
         </div>
     );
 };
