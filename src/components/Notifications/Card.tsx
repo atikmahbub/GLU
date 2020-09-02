@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '../../../components/Button/IconButton';
+import IconButton from '../Button/IconButton';
 
 const useStyles = makeStyles({
     root: {
