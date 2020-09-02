@@ -103,7 +103,7 @@ const Reports: FC = () => {
                         }
                     />
                     <Grid container justify="flex-end" className={classes.tagsWrapper}>
-                        <Grid xs={6} className={classes.tagsContainer}>
+                        <Grid item xs={6} className={classes.tagsContainer}>
                             <Typography className={classes.tagsTitle}>Recommended Tags</Typography>
                             <Grid container item xs={10}>
                                 {tags.map((tag, index) => {
