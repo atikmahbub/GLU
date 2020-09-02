@@ -5,6 +5,7 @@ import commonImg from '../../Assets/images';
 import TagsContainer from '../../components/TagsContainer';
 import BigBanner from './BigBanner';
 import MadeBy from '../Footer/MadeBy';
+import PlayBanner from '../../components/PlayBanner';
 const useStyles = makeStyles({
     navigationContainer: {
         backgroundColor: '#F7F7F7 !important',
@@ -17,7 +18,9 @@ const TutorClass: React.FunctionComponent = () => {
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const ArrayTags= ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+    const student1Array = ['Toby Frost ', 'Lugain Rfidah', ' Jack Marshall', 'Mia Adams', 'Jen Holden'];
+    const student2Array = ['Ainsley Adams', 'Arthor Smith ', 'Rohan Rai', 'Joshua Lee', 'Shehan Chu'];
+    const ArrayTags = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     const classes = useStyles();
     return (
         <div className="tutor_upcoming_class_container">
@@ -92,7 +95,7 @@ const TutorClass: React.FunctionComponent = () => {
                             <div className="tutor_upcoming_tags_container">
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <TagsContainer heading={"Tags"} tagsArray={ArrayTags}/>
+                                        <TagsContainer heading={'Tags'} tagsArray={ArrayTags} />
                                     </div>
                                 </div>
                             </div>
@@ -100,11 +103,73 @@ const TutorClass: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="profile_footer">
+            <div className="tutor_upcoming_class_subcontainer_4">
+                <div className="horizontalline_new col-12"></div>
+                <div className="container-fluid">
+                    <div className="tutor_upcoming_playbanner">
+                        <PlayBanner
+                            heading={'Resources'}
+                            subHeading1={'Text Books'}
+                            subHeading2={'Audio Clips'}
+                            subText2={'Extract from AQA Algebra'}
+                        />
+                    </div>
+
+                    <div className="student_list_reusable">
+                        <div className="row">
+                            <div className="col-md-6 p-0">
+                                <div className="student_number">
+                                    <Typography className="student_number_text">8/20 Spaces</Typography>
+                                </div>
+                            </div>
+                            <div className="col-md-6 p-0 left_border">
+                                <div className="student_list_reusable_display">
+                                    <div className="row">
+                                        <div className="col-6 p-0 ">
+                                            {student1Array.map((val, index) => (
+                                                <div className="col-12">
+                                                    <Typography key={index} className="student_name_text">
+                                                        {val}
+                                                    </Typography>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="col-6 p-0 students_left_border">
+                                            <div className="right_container">
+                                                <div className="row">
+                                                    <div className="col-12 p-0">
+                                                        {student2Array.map((val, index) => (
+                                                            <div className="col-12">
+                                                                <Typography key={index} className="student_name_text">
+                                                                    {val}
+                                                                </Typography>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="invite_student_button">
+                                        <div className="row">
+                                            <div className="">
+                                                <div className="invite_button">
+                                                    <Typography className="invite_text">Invite</Typography>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="profile_footer">
                 <div className="footer">
                     <MadeBy />
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };
