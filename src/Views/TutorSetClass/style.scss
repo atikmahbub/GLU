@@ -67,11 +67,12 @@
     }
 }
 .setDateTime,
-.addSkill {
+.addSkill,.outerAddSkill {
     .horizontalline {
         margin-top: 4rem;
     }
 }
+
 .setClass {
     padding-top: 3.125rem;
     .horizontalline {
@@ -184,7 +185,12 @@
         .tutor_class_subcontainer_col1 {
             padding: 0 3.125rem;
         }
-    
+        .outerAddSkill{
+            .horizontalline{
+                margin-left:3.125rem;
+                margin-right: 3.125rem;
+            }
+        }
     .sub_rows {
         padding-left: 1.5625rem;
     }

@@ -1,7 +1,8 @@
 import React from 'react';
 import TwoColTable from '../../components/Dashobard/TwoColTable';
-import ExamReportChart from './ExamReportChart';
+import HistogramChart from '../../components/Dashobard/HistogramChart';
 import { Typography } from '@material-ui/core';
+import { useHistory } from 'react-router';
 
 const FeeExamResultRow = () => {
     const data = [
@@ -10,6 +11,12 @@ const FeeExamResultRow = () => {
         { col1: 'March', col2: 'Success' },
         { col1: 'April', col2: 'Success' },
     ];
+    const route = useHistory();
+    const gotoPage = () => {
+        route.push('/dashboard/student-details/exam');
+    };
+    const histogramData = [800, 900, 990];
+    const xAxisData = ['First Term exam', 'Second Term Exam', 'Third Term Exam'];
     return (
         <div className="row row__margin">
             <div className="col-lg-5 d-flex col-md-12 colum__spacing">
@@ -20,7 +27,7 @@ const FeeExamResultRow = () => {
                     <div className="row">
                         <div className="col-md-9 bdr_right">
                             <Typography className="exam_heading">Exam Results</Typography>
-                            <ExamReportChart />
+                            <HistogramChart xAxis={xAxisData} data={histogramData} goto={gotoPage} />
                         </div>
                         <div className="col-md-3 d-flex align-content-center justify-content-center">
                             <div className="align-self-center">

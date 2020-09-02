@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ScheduleCard from './ScheduleCard';
+import ColumnsContainer from '../../Containers/ColumnsContainer';
 
 const useStyles = makeStyles({
     root: {
@@ -25,45 +26,49 @@ const useStyles = makeStyles({
 type ScheduleProps = {
     title: string;
     time: string;
-}
+};
 
 const Schedule: FC<ScheduleProps> = ({ title, time }) => {
     const classes = useStyles();
     return (
-        <Grid container className={classes.root}>
-            <Grid container item xs={6} justify="space-between" className={classes.section}>
-                <Typography className={classes.text}>{title}</Typography>
-                <Typography className={classes.text}>{time}</Typography>
-            </Grid>
-            <Grid container item xs={6} className={classes.section}>
-                <ScheduleCard
-                    title="English"
-                    description="How to structure"
-                    date="29/07/20"
-                    timeStart="9am"
-                    timeEnd="10.15am"
-                    duration="45min"
-                    author="Ray Smith"
-                />
-                <ScheduleCard
-                    title="Biology"
-                    description="Natural selection and"
-                    date="29/07/20"
-                    timeStart="11am"
-                    timeEnd="12.30am"
-                    duration="45min"
-                    author="Steve Max"
-                />
-                <ScheduleCard
-                    title="English."
-                    date="29/07/20"
-                    timeStart="3pm"
-                    timeEnd="4pm"
-                    duration="45min"
-                    author="Frank Hisbury"
-                />
-            </Grid>
-        </Grid>
+        <ColumnsContainer
+            leftContent={
+                <Grid container justify="space-between">
+                    <Typography className={classes.text}>{title}</Typography>
+                    <Typography className={classes.text}>{time}</Typography>
+                </Grid>
+            }
+            rightContent={
+                <Grid container direction="column">
+                    <ScheduleCard
+                        title="English"
+                        description="How to structure"
+                        date="29/07/20"
+                        timeStart="9am"
+                        timeEnd="10.15am"
+                        duration="45min"
+                        author="Ray Smith"
+                    />
+                    <ScheduleCard
+                        title="Biology"
+                        description="Natural selection and"
+                        date="29/07/20"
+                        timeStart="11am"
+                        timeEnd="12.30am"
+                        duration="45min"
+                        author="Steve Max"
+                    />
+                    <ScheduleCard
+                        title="English."
+                        date="29/07/20"
+                        timeStart="3pm"
+                        timeEnd="4pm"
+                        duration="45min"
+                        author="Frank Hisbury"
+                    />
+                </Grid>
+            }
+        />
     );
 };
 

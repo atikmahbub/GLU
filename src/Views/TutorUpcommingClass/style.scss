@@ -1,0 +1,85 @@
+.tutor_upcoming_class_subcontainer_1 {
+    padding: 0 3.125rem;
+    background-color: #f7f7f7;
+    font-family: 'CircularXXWeb-Book';
+    // width: 100%;
+    &_1 {
+        padding-top: 5rem;
+        padding-bottom: 6rem;
+    }
+    &_2 {
+        .tutor_upcoming_editDelete_container {
+            padding-top: 5rem;
+            display: flex;
+            justify-content: flex-start;
+            font-family: 'CircularXXWeb-Book';
+            .edit_text {
+                font-family: inherit;
+                font-size: 1.25rem;
+                line-height: 1.875rem;
+            }
+            .delete_text {
+                font-family: inherit;
+                font-size: 1.25rem;
+                line-height: 1.875rem;
+                margin-left: 1.3125rem;
+            }
+        }
+        padding-bottom: 9rem;
+    }
+
+    .upcomingText {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+    }
+    .upcomingBigText {
+        font-family: inherit;
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+}
+.tutor_upcoming_class_subcontainer_2 {
+    padding-top: 5.28rem;
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+    padding-bottom: 3.656rem;
+}
+.tutor_upcoming_class_subcontainer_3{
+    padding: 5rem 3.125rem;
+}
+.bigBanner_reusable {
+    font-family: 'CircularXXWeb-Book';
+    .bigBanner_Text {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+    }
+    .bigBannerDesc_Text {
+        font-family: inherit;
+        font-size: 2.625rem;
+        line-height: 3.125rem;
+    }
+}
+.tags_container_reusable {
+    font-family: 'CircularXXWeb-Book';
+    .tagText {
+        font-family: inherit;
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .tutor_upcoming_bigBanner,
+    .tutor_upcoming_bigText_container,
+    .tutor_upcoming_image_container,
+    .tutor_upcoming_tags_container {
+        padding-left: 3.125rem;
+    }
+    .left_border {
+        border-left-style: solid;
+        border-left-color: rgba(0, 0, 0, 0.25);
+        border-left-width: 1px;
+    }
+}

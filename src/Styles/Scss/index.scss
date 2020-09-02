@@ -59,7 +59,6 @@
 @import '../../Views/ParentsHomePage/style.scss';
 @import "../../Views/EmailVerification/style.scss";
 @import "../../Views/EmailVerification/style.scss";
-@import "../../Views/StudentDetails/style.scss";
 @import '../../Views/TutorRecordClass/style.scss';
 @import "../../Views/TutorIndivisualHomework/style.scss";
 @import "../../Views/ParentDashBoard/style.scss";
@@ -69,3 +68,6 @@
 @import "../../Views/TutorAvailablity/style.scss";
 @import "../../Views/TutorExams/style.scss";
 @import "../../Views/TutorRecommend/style.scss";
+@import "./timetable";
+@import "./userDetails.scss";
+@import "../../Views/TutorUpcommingClass/style.scss"

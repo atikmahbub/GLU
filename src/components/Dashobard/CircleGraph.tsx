@@ -4,8 +4,6 @@ import VariablePie from 'highcharts/modules/variable-pie';
 import HighchartsReact from 'highcharts-react-official';
 import { FiberManualRecord } from '@material-ui/icons';
 import { Typography } from '@material-ui/core';
-import SelectField from '../Inputs/SelectField';
-import { months } from '../../Helper/months';
 VariablePie(Highcharts);
 
 interface props {
@@ -14,6 +12,7 @@ interface props {
     notavailalbe: number;
     marker1: string;
     marker2: string;
+    goto?: () => void;
 }
 export const CircleGraph: React.FunctionComponent<props> = ({
     chartName,
@@ -21,6 +20,7 @@ export const CircleGraph: React.FunctionComponent<props> = ({
     notavailalbe,
     marker1,
     marker2,
+    goto,
 }) => {
     const options = {
         chart: {
@@ -61,7 +61,6 @@ export const CircleGraph: React.FunctionComponent<props> = ({
                 type: 'variablepie',
                 borderWidth: 0,
                 data: [
-                    
                     {
                         y: notavailalbe,
                         z: 1,
@@ -76,6 +75,9 @@ export const CircleGraph: React.FunctionComponent<props> = ({
                 dataLabels: {
                     enabled: false,
                 },
+                events: {
+                    click: goto,
+                },
             },
         ],
     };
@@ -83,7 +85,9 @@ export const CircleGraph: React.FunctionComponent<props> = ({
         <div className="attendance-card  bg-white">
             <div className="row">
                 <div className="col-md-5 d-flex algin-items-center justify-content-between flex-column">
-                    <Typography className="heading">{chartName} Record</Typography>
+                    <Typography className="heading" onClick={goto}>
+                        {chartName} Record
+                    </Typography>
                     <div className="marker-container">
                         <div className="present">
                             <FiberManualRecord className="icon" />

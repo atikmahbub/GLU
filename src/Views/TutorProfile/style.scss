@@ -1,5 +1,4 @@
 .profile_container {
-    
     .profile_container_1 {
         // padding: 0 3.125rem;
         padding: 0 4.0625rem;
@@ -15,7 +14,7 @@
             font-size: 2.625rem;
             line-height: 2.8125rem;
         }
-        .horizontalline{
+        .horizontalline {
             border-top-width: 1px;
             border-top-color: #cfcfcf;
             border-top-style: solid;
@@ -29,7 +28,7 @@
                 font-size: 2.625rem;
                 line-height: 2.8125rem;
             }
-            
+
             &_subcontainer1 {
                 font-family: 'CircularXXWeb-Book';
                 .subtext1 {
@@ -87,50 +86,53 @@
                     border-top-width: 1px;
                     border-top-color: #cfcfcf;
                     border-style: solid;
-                    font-family: 'CircularXXWeb-Book';
-                    .subtext4 {
-                        font-family: inherit;
-                        font-size: 1.5625rem;
-                        line-height: 2.0625rem;
-                    }
-                    
                 }
             }
         }
     }
 }
-.skills {
-    padding: 1.5rem 1.125rem;
-    display: flex;
-    justify-content: flex-start;
+.reusable_skills_container {
     font-family: 'CircularXXWeb-Book';
-    .skillset {
+    .skillTag_text {
         font-family: inherit;
-        margin-right: 1rem;
-        margin-top: 1rem;
-        padding: 0.9rem;
-        font-size: 1.25rem;
-        line-height: 1.5625rem;
-        border-width: 1px;
-        border-color: #cfcfcf;
-        border-style: solid;
+        font-size: 1.5625rem;
+        line-height: 2.0625rem;
+    }
+    .skills {
+        padding: 1.5rem 1.125rem;
+        display: flex;
+        justify-content: flex-start;
+        font-family: 'CircularXXWeb-Book';
+        .skillset {
+            font-family: inherit;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            padding: 0.9rem;
+            font-size: 1.25rem;
+            line-height: 1.5625rem;
+            border-width: 1px;
+            border-color: #cfcfcf;
+            border-style: solid;
+        }
     }
 }
-.profile_footer{
+.profile_footer {
     background-color: white !important;
     padding-top: 9.06rem;
-    .footer{
-        background-color: white!important;
+    .footer {
+        background-color: white !important;
     }
 }
 @media screen and (min-width: 768px) {
     .profile_container_1 {
-        &_subcontainer  {
+        &_subcontainer {
             padding: 0 3.125rem;
         }
     }
     .profile_container_1_2 {
-        &_subcontainer1 ,&_subcontainer2,&_subcontainer3{
+        &_subcontainer1,
+        &_subcontainer2,
+        &_subcontainer3 {
             padding: 0 3.125rem;
         }
     }
@@ -139,21 +141,19 @@
         border-left-color: #cfcfcf;
         border-style: solid;
     }
-    
 }
 @media screen and (max-width: 768px) {
     .profile_container_1 {
-        &_text1{
+        &_text1 {
             padding-bottom: 2rem;
         }
     }
     .profile_container_1_2 {
-        &_subcontainer2{
+        &_subcontainer2 {
             padding: 0 1.125rem;
         }
-        &_text1{
+        &_text1 {
             padding-bottom: 2rem;
         }
     }
-   
 }

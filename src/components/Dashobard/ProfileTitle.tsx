@@ -3,7 +3,11 @@ import CardContainer from '../../Containers/Cards/CardContainer';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 
-const ProfileTitle = () => {
+interface props {
+    hideBtns?: boolean;
+    detailName?:string;
+}
+const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName }) => {
     return (
         <CardContainer>
             <div className="top_container">
@@ -14,10 +18,14 @@ const ProfileTitle = () => {
                         <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
                     </div>
                 </div>
-                <div className="button_container">
-                    <Typography className="blue-text">Print</Typography>
-                    <Typography className="blue-text visible">Visit details</Typography>
-                </div>
+                {hideBtns ? (
+                    <Typography className="detail_name">{detailName}</Typography>
+                ) : (
+                    <div className="button_container">
+                        <Typography className="blue-text">Print</Typography>
+                        <Typography className="blue-text visible">Visit details</Typography>
+                    </div>
+                )}
             </div>
         </CardContainer>
     );

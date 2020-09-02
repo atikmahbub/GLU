@@ -3,6 +3,7 @@ import { Typography,makeStyles } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
+import TagsContainer from '../../components/TagsContainer'
 import MadeBy from '../Footer/MadeBy';
 // interface props{
 //     mainHeading:string,
@@ -22,6 +23,7 @@ const TempComp: React.FunctionComponent = () => {
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
+    const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     // const classes=useStyles();
     return (
         
@@ -94,20 +96,7 @@ const TempComp: React.FunctionComponent = () => {
                                 <div className="profile_container_1_2_subcontainer3">
                                     <div className="col-md-12">
                                         <div className="profile_container_1_2_subcontainer3_row3">
-                                            <Typography className="subtext4">Skills</Typography>
-
-                                            <div className="row skills">
-                                                <div className="skillset">Maths</div>
-                                                <Typography className="skillset">Computer Science</Typography>
-                                                <div className="skillset">English</div>
-                                                <div className="skillset">ICT</div>
-                                                <div className="skillset">Languages</div>
-                                                <div className="skillset">Maths</div>
-                                                <div className="skillset">Computer Science</div>
-                                                <div className="skillset">English</div>
-                                                <div className="skillset">ICT</div>
-                                                <div className="skillset">Languages</div>
-                                            </div>
+                                        <TagsContainer heading={"Skills"} tagsArray={skillArray}/>
                                         </div>
                                     </div>
                                 </div>

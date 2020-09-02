@@ -489,19 +489,19 @@ button.primary-btn {
             .present {
                 @include flex(center, flex-start, row);
                 .title {
-                    font-size:1.25rem;
+                    font-size: 1.25rem;
                     padding-left: 1rem;
                     color: $black;
                 }
                 .icon {
-                    color: #145DFF;
+                    color: #145dff;
                 }
                 margin-right: 1rem;
             }
             .absent {
                 @include flex(center, flex-start, row);
                 .title {
-                    font-size:1.25rem;
+                    font-size: 1.25rem;
                     padding-left: 1rem;
                     color: $black;
                 }
@@ -530,23 +530,25 @@ button.primary-btn {
                         font-size: 1.125rem;
                         color: $titleGray;
                         width: 30%;
+                        padding-left: 0;
                         &:first-child {
-                            padding-left: 2rem;
+                            // padding-left: 2rem;
                         }
                         &:last-child {
                             text-align: left;
                             padding-right: 2rem;
                         }
-                        border:none;
+                        border: none;
                     }
                     td {
                         font-size: 1.25rem;
+                        padding-left: 0;
                         &:last-child {
                             text-align: left;
                             padding-right: 2rem;
                         }
                         &:first-child {
-                            padding-left: 2rem;
+                            // padding-left: 2rem;
                         }
                     }
                 }
@@ -586,14 +588,12 @@ button.primary-btn {
 }
 .tile-card {
     padding: 0.5rem;
-    width: 10rem;
+    width: 15rem;
     margin-right: 1.5rem;
-    background-color: #636b8e;
-    border-radius: 0.3rem;
+    border: 1px solid $borderColor;
+    padding: 1.25rem;
     cursor: pointer;
-    @include flex(center, center, column);
     .title-row {
-        @include flex(center, center, row);
         margin-bottom: 0.1rem;
         &:last-child {
             margin-bottom: 0;
@@ -603,9 +603,9 @@ button.primary-btn {
             font-size: 0.9rem;
         }
         .title {
-            font-size: 0.8rem;
-            font-weight: 100;
-            color: $white;
+            font-size: 1.25rem;
+            line-height: 1.562rem;
+            color: $black;
             margin-left: 0.4rem;
         }
     }
@@ -890,7 +890,6 @@ button.outline-rec {
                         font-size: 1.25rem;
                         color: #000;
                         font-weight: 100;
-                        
                     }
                     .link {
                         font-size: 1.5rem;
@@ -1390,6 +1389,11 @@ button.outline-button {
 .top_container {
     @include flex(center, space-between, row);
     padding: 1.562rem;
+    .detail_name {
+        color: $black;
+        font-size: 2.625rem;
+        line-height: 3.125rem;
+    }
     .image_title_cotainer {
         max-width: 30rem;
         @include flex(center, flex-start, row);
@@ -1482,8 +1486,10 @@ button.outline-button {
 }
 
 .percentage__card {
-    padding: 3.4rem;
     margin-bottom: 1.25rem;
+    height: 13.4rem;
+    @include flex(flex-start, center, column);
+    padding-left: 2.4rem;
     .heading {
         font-size: 1.875rem;
         color: $black;
@@ -1521,7 +1527,6 @@ button.outline-button {
             line-height: 3.437rem;
             color: $black;
             text-align: center;
-            font-weight: 500;
         }
         .status {
             font-size: 1.25rem;
