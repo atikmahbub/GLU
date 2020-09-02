@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
@@ -19,12 +20,13 @@ const useStyles = makeStyles({
 type ColumnsContainerProps = {
     leftContent: ReactNode;
     rightContent: ReactNode;
+    rootClassName?: string;
 }
 
-const ColumnsContainer: FC<ColumnsContainerProps> = ({ leftContent, rightContent }) => {
+const ColumnsContainer: FC<ColumnsContainerProps> = ({ leftContent, rightContent, rootClassName }) => {
     const classes = useStyles()
     return (
-        <Grid container className={classes.root}>
+        <Grid container className={classNames(classes.root, rootClassName)}>
             <Grid container item xs={6} className={classes.section}>
                 {leftContent}
             </Grid>

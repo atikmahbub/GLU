@@ -7,6 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AddIcon from '@material-ui/icons/Add';
 import TitlePrimary from '../Typographies/TitlePrimary';
+import BarChart from '../Charts/BarChart';
 import { colors } from '../../Styles/colors';
 
 const useStyles = makeStyles({
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
     },
     accordionRoot: {
         width: 'inherit',
+        boxShadow: 'none'
     },
     accordionSummary: {
         width: 'inherit',
@@ -26,7 +28,8 @@ const useStyles = makeStyles({
         }
     },
     accordionDetails: {
-        paddingTop: '1.25rem'
+        paddingTop: '1.25rem',
+        paddingBottom: '5rem'
     },
     detailsTitleContainer: {
         marginBottom: '3.6875rem'
@@ -51,13 +54,21 @@ const useStyles = makeStyles({
     }
 })
 
-const ExamResultCard: FC = () => {
+type ExamResultCardProps = {
+    title: string;
+    date: string;
+    description: string;
+    notesTitle: string;
+    notesText: string;
+}
+
+const ExamResultCard: FC<ExamResultCardProps> = ({ title, date, description, notesTitle, notesText }) => {
     const classes = useStyles()
     return (
         <Grid container className={classes.root}>
             <Accordion square className={classes.accordionRoot}>
                 <AccordionSummary className={classes.accordionSummary}>
-                    <TitlePrimary>Introducing Linear Algebra</TitlePrimary>
+                    <TitlePrimary>{title}</TitlePrimary>
                     <AddIcon />
                 </AccordionSummary>
                 <AccordionDetails className={classes.accordionDetails}>
@@ -65,22 +76,22 @@ const ExamResultCard: FC = () => {
                         <Grid container className={classes.detailsTitleContainer}>
                             <Grid container direction="column" item xs={4}>
                                 <TitlePrimary>Date</TitlePrimary>
-                                <TitlePrimary>19/07/20</TitlePrimary>
+                                <TitlePrimary>{date}</TitlePrimary>
                             </Grid>
                             <Grid container direction="column" item xs={8}>
                                 <TitlePrimary>Tutor</TitlePrimary>
-                                <TitlePrimary>Esme Standard</TitlePrimary>
+                                <TitlePrimary>{description}</TitlePrimary>
                             </Grid>
                         </Grid>
                         <Grid container direction="column">
-                            <Typography className={classes.detailsInfoTitle}>Tutor Notes</Typography>
+                            <Typography className={classes.detailsInfoTitle}>{notesTitle}</Typography>
                             <Typography className={classes.detailsInfoText}>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+                                {notesText}
                             </Typography>
                             <Typography className={classes.readMoreText}>Read more</Typography>
                         </Grid>
                         <Grid>
-
+                            <BarChart chartWidth={410} chartHeight={170} />
                         </Grid>
                     </Grid>
                 </AccordionDetails>

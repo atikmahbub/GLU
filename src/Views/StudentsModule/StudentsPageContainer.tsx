@@ -1,4 +1,5 @@
 import React, { FC, ReactNode, useCallback, useState } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
@@ -26,10 +27,12 @@ const navigations = [
 ];
 
 type StudentsPageContainerProps = {
+    rootClassName?: string;
+    contentClassName?: string;
     children: ReactNode;
 };
 
-const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ children }) => {
+const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ rootClassName, contentClassName, children }) => {
     const classes = useStyles();
     const [isDrawer, setDrawer] = useState(false);
 
@@ -39,13 +42,13 @@ const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ children }) => 
 
     return (
         <DrawerProvider open={isDrawer} onClose={toggleDrawer} drawerContent={<Notifications />}>
-            <Grid container direction="column" className={classes.root}>
+            <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
                 <NavigationMenu
                     handlerNotification={toggleDrawer}
                     menuList={navigations}
                     containerClassName={classes.navigationContainer}
                 />
-                <Grid container direction="column" className={classes.content}>
+                <Grid container direction="column" className={classNames(classes.content, contentClassName)}>
                     {children}
                 </Grid>
             </Grid>
