@@ -16,7 +16,9 @@ const useStyles = makeStyles({
         height: "100vh",
         backgroundColor: "#5E5558",
         fontFamily: 'CircularXXWeb-Book',
+        justifyContent: "flex-start",
         paddingLeft: '3.125rem',
+        position: 'relative',
     },
     title:{
         fontSize: '2.625rem',
@@ -65,6 +67,24 @@ const useStyles = makeStyles({
         marginBottom: '2.125rem',
         marginTop: '8.5rem',
     },
+    image:{
+        position: 'relative',
+        '& img':{
+            position: 'absolute',
+            marginTop: "9.375rem",
+            marginBottom: "5rem",
+            // marginRight: "25rem",
+            height: "34.062rem",
+            width: "33.437rem",
+            // width: "50%",
+            objectFit: "cover",
+            // display: 'block',
+            // maxWidth: "33.437rem",
+            // maxHeight: "34.062rem",
+            // width: 'auto',
+            // height: 'auto',
+        }  
+    },
     subTitle:{
         fontSize: '1.562rem',
         lineHeight: '1.875rem',
@@ -82,8 +102,8 @@ const useStyles = makeStyles({
 const ParentIndividualTutorBanner:  FC = () => {
     const classes = useStyles();
     return (
-        <Grid container xs={12} direction="row" className={classes.container}>
-            <Grid container item xs={6} direction="column" className={classes.left}>
+        <Grid container lg={12} direction="row" className={classes.container}>
+            <Grid container item lg={6} md={6} sm={12} direction="column" className={classes.left}>
                 <Typography className={classes.title}>Tutor</Typography>
                 <Grid container direction="column">
                     <Grid container item direction="column" className={classes.nameRatingContainer}> 
@@ -101,6 +121,12 @@ const ParentIndividualTutorBanner:  FC = () => {
                     </Grid>
                     <Typography className={classes.bottomText}>Primary, Secondary</Typography>
                 </Grid>
+            </Grid>
+            <Grid className={classes.image} lg={6} md={6} sm={12}>
+                <LazyLoadImage 
+                    alt=""
+                    effect="blur"
+                    src={commonImg.twogirl} /> 
             </Grid>
         </Grid>
     );
