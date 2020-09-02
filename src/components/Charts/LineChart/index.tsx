@@ -3,7 +3,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { colors } from '../../../../Styles/colors';
+import { colors } from '../../../Styles/colors';
 import './style.scss';
 
 const useStyles = makeStyles({
@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 const options = {
     chart: {
         className: 'students-dashboard__chart',
+        backgroundColor: 'transparent'
     },
     title: {
         text: '',

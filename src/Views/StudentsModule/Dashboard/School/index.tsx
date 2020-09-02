@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import WhiteCard from '../../../../components/Cards/WhiteCard';
-import LineChart from '../LineChart';
+import LineChart from '../../../../components/Charts/LineChart';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
 import Schedule from '../../../../components/Schedule';
 
@@ -30,7 +30,7 @@ const School: FC = () => {
                         size={6}
                         title={'Class Reports\nMar-Aug'}
                         titleRightLink="See reports"
-                        titleRightLinkTo="/students/"
+                        titleRightLinkTo="/students/reports"
                         content={<LineChart />}
                     />
                     <WhiteCard size={3} title="School Timetable" description="Classes" value="5" />
