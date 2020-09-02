@@ -14,6 +14,7 @@ import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
 // import './style.scss';
 import commonImg from '../../Assets/images';
+import DrawerProvider from '../../Providers/DrawerProvider';
 
 
 const index: React.FunctionComponent = () => {
@@ -32,83 +33,74 @@ const index: React.FunctionComponent = () => {
         setOpenPushDrawer(!openPushDrawer);
     };
     return (
-        <div className="homepage__wrapper">
-            <div className="drawer">
-                <Drawer 
-                    open={openDrawer} 
-                    onClose={handleDrawer}
-                    width="68.875rem"
-                    heading={true}>
-                    <SlidingDrawerContent />
-                </Drawer>
-            </div>
-
-            <div className="drawer push__drawer">
-                    <Drawer 
-                        open={openPushDrawer} 
-                        onClose={handlePushDrawer}
-                        width="32.312rem"
-                        heading={false}>
-                        <SlidingPushDrawerContent />
+        <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
+            <div className="homepage__wrapper">
+                <div className="drawer">
+                    <Drawer
+                        open={openDrawer}
+                        onClose={handleDrawer}
+                        width="68.875rem"
+                        heading={true}>
+                        <SlidingDrawerContent />
                     </Drawer>
-            </div>
+                </div>
+                <div className="navigation__menu">
+                    <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer} />
+                </div>
 
-            <div className="navigation__menu">
-                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
-            </div>
-
-            <SectionTwoReusable
-                image={commonImg.smilegirl}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Charlie Ray"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>Maths.<br />An Introduction to trignometry</>}
-            />
-
-            <NextClassMUI/>
-            <FeaturedSubjects
-                imageFirstURL={commonImg.chairman}
-                imageFirstTitle="Languages - Johny Duke"
-                imageSecondURL={commonImg.vrplayerboy}
-                imageSecondTitle="Maths - Harry Stannard"
-            />
-            <div className="recorded__class">
-                <ClassesRowWithImages
-                    title="Recorded Classes"
+                <SectionTwoReusable
+                    image={commonImg.smilegirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Charlie Ray"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={<>Maths.<br />An Introduction to trignometry</>}
                 />
-            </div>
-            <SectionTwoReusable
-                image={commonImg.earingGirlWithTab}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Sarah Frost"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>Maths.<br />An Introduction to trignometry</>}
-            />
-            <UpcomingClasses />
-            <div className="live__classes">
-                <LiveClasses />
-            </div>
 
-            <FeaturedTutors
-                imageFirstURL={commonImg.blueshirtman}
-                imageFirstTitle="Languages - Johny Duke"
-                imageSecondURL={commonImg.blueShirtRedSpecBoy}
-                imageSecondTitle="Maths - Harry Stannard"
-            />
-            <SectionTwoReusable
-                image={commonImg.laptopgirl}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Sarah Frost"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
-            />
-            <Tutors route="/parent/tutors" />
-            <MadeByFooter />
+                <NextClassMUI />
+                <FeaturedSubjects
+                    imageFirstURL={commonImg.chairman}
+                    imageFirstTitle="Languages - Johny Duke"
+                    imageSecondURL={commonImg.vrplayerboy}
+                    imageSecondTitle="Maths - Harry Stannard"
+                />
+                <div className="recorded__class">
+                    <ClassesRowWithImages
+                        title="Recorded Classes"
+                    />
+                </div>
+                <SectionTwoReusable
+                    image={commonImg.earingGirlWithTab}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Sarah Frost"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={<>Maths.<br />An Introduction to trignometry</>}
+                />
+                <UpcomingClasses />
+                <div className="live__classes">
+                    <LiveClasses />
+                </div>
 
-        </div>
+                <FeaturedTutors
+                    imageFirstURL={commonImg.blueshirtman}
+                    imageFirstTitle="Languages - Johny Duke"
+                    imageSecondURL={commonImg.blueShirtRedSpecBoy}
+                    imageSecondTitle="Maths - Harry Stannard"
+                />
+                <SectionTwoReusable
+                    image={commonImg.laptopgirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Sarah Frost"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
+                />
+                <Tutors route="/parent/tutors" />
+                <MadeByFooter />
+
+            </div>
+        </DrawerProvider>
     );
 };
 

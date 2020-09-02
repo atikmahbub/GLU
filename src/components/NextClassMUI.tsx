@@ -58,7 +58,7 @@ const NextClass:  FC = () => {
     const classes = useStyles();
     return (
         <Grid container xs={12} direction="row" className={classes.nextClassContainer}>
-                <Grid container lg={2} xs={12} direction="column" className={classes.titleAndDropdown}> 
+                <Grid container lg={2} md={12} xs={12} direction="column" className={classes.titleAndDropdown}> 
                     <Grid item>
                         <Typography className={classes.title}>
                             Next Class
@@ -74,19 +74,19 @@ const NextClass:  FC = () => {
                         </Typography>
                     </Grid>
                 </Grid>
-                <Grid item lg={4} sm={4} xs={12} className={classes.nextClassimage}>
+                <Grid item lg={4} md={6} sm={8} xs={12} className={classes.nextClassimage}>
                     <LazyLoadImage 
                         alt=""
                         effect="blur"
                         src={commonImg.running} /> 
                 </Grid> 
-                <Grid container item lg={3} sm={4} xs={12} direction="column" className={classes.dateTime}>
+                <Grid container item lg={3} md={4} sm={4} xs={12} direction="column" className={classes.dateTime}>
                     <Typography className={classes.title}>
                         19/07/20 <br /> 9am- 10.15am
                     </Typography>
                     <Typography className={classes.subTitle}>75mins</Typography>
                 </Grid>
-                <Grid container item lg={3} sm={4} xs={12} direction="column"  className={classes.subjectTutor}>
+                <Grid container item lg={3} md={12} xs={12} direction="column"  className={classes.subjectTutor}>
                     <Typography className={classes.title}>
                         PE. <br /> Creating a running <br /> plan for a 5K race
                     </Typography>

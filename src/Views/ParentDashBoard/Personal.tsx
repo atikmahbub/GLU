@@ -33,7 +33,7 @@ export default function Personal() {
                             <div className="card__row card_row1">
                                 {/* <div className="parent__previous__classes"> */}
                                     <SmallCard
-                                        mainHeading={'Previous Classes'}
+                                        mainHeading={'Previous '}
                                         subHeading1={'Purchased'}
                                         subHeading2={'57'} />
                                 {/* </div> */}

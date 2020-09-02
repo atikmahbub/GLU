@@ -9,9 +9,8 @@ import Tabs from './Tabs';
 import Personal from './Personal';
 import School from './School';
 import Drawer from './Drawer';
-// import Drawer from '../../components/Drawer';
 import DrawerProvider from '../../Providers/DrawerProvider';
-
+import NextClassMUI from '../../components/NextClassMUI';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -27,8 +26,6 @@ const ParentDashboard: React.FunctionComponent = () => {
     ];
 
     const handleDrawer = () => {
-        // const drawer = document.getElementById('menu__drawer');
-        // drawer.style.zIndex = "25";
         setOpenPushDrawer(false);
         setOpenDrawer(!openDrawer);
     };
@@ -37,7 +34,7 @@ const ParentDashboard: React.FunctionComponent = () => {
         setOpenDrawer(false);
         setOpenPushDrawer(!openPushDrawer);
     };
-
+ 
     return (
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
 
@@ -77,16 +74,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                             <SlidingDrawerContent />
                         </Drawer>
                     </div>
-
-                    {/* <div className="drawer push__drawer">
-                    <Drawer 
-                        open={openPushDrawer} 
-                        onClose={handlePushDrawer}
-                        width="32.312rem"
-                        heading={false}>
-                        <SlidingPushDrawerContent />
-                    </Drawer>
-            </div> */}
+                    <NextClassMUI/>
                     <div className="main_container_4">
                         <div className="footer">
                             <MadeBy />

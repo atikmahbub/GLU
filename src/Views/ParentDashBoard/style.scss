@@ -15,29 +15,20 @@
         padding: 3.125rem !important;
         margin-top: 3.125rem !important;
     }
-    .main_container_dashboard_col1 {
-        font-family: 'CircularXXWeb-Book';
-        margin-top: 3.125rem !important;
-        // @media screen and (min-width: 767px){
-            // .card__row .small__card {
-            //     width: calc(50% - 3.125rem);
-            //     flex-direction: column;
-            //     background-color: #fff;
-            //     padding: 1.812rem 1.812rem;
-            //     font-family: 'CircularXXWeb-Book';
-        // }
-    }
-    .main_container_dashboard_col2 {
-        padding: 0;
-        margin: 0;
-        // padding-left: 3.125rem !important;
-        padding-top: 3.125rem !important;
+    // .main_container_dashboard_col1 {
+    //     font-family: 'CircularXXWeb-Book';
+    //     margin-top: 3.125rem !important;
+    // }
+    // .main_container_dashboard_col2 {
+    //     padding: 0;
+    //     margin: 0;
+    //     padding-top: 3.125rem !important;
         
-        .card_row1{
-            display: flex;
-            justify-content: space-around;
-        }
-    }
+    //     .card_row1{
+    //         display: flex;
+    //         justify-content: space-around;
+    //     }
+    // }
     .menu__type2__container {
         position: absolute;
         z-index: 1;
@@ -92,3 +83,65 @@
         }
     }
 }
+
+    .card__row {
+        @include flex(center, space-between, row);
+        .small__card {
+            width: calc(50% - 1.5625rem);
+            flex-direction: column;
+            background-color: $white;
+            padding: 1.812rem 1.812rem;
+            font-family: 'CircularXXWeb-Book';
+            
+            .heading {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 2.625rem !important;
+                color: $black;
+                font-family: inherit;
+                // max-height: 56px;
+                line-height: 2.8125rem;
+            }
+            .first__title {
+                font-family: inherit;
+                padding-top: 5.593rem;
+            }
+            .title {
+                font-size: 1.5625rem;
+                font-family: inherit;
+                line-height: 1.875rem;
+            }
+            
+        }
+
+        .card__row {
+            @include flex(center, space-between, row);
+            .small__card {
+                width: calc(50% - 1.5625rem);
+                flex-direction: column;
+                background-color: $white;
+                padding: 1.812rem 1.812rem;
+                font-family: 'CircularXXWeb-Book';
+                
+                .heading {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: 2.625rem !important;
+                    color: $black;
+                    font-family: inherit;
+                    // max-height: 56px;
+                    line-height: 2.8125rem;
+                }
+                .first__title {
+                    font-family: inherit;
+                    padding-top: 5.593rem;
+                }
+                .title {
+                    font-size: 1.5625rem;
+                    font-family: inherit;
+                    line-height: 1.875rem;
+                }
+                
+            }
+        }
+    }
