@@ -9,6 +9,9 @@ import Tabs from './Tabs';
 import Personal from './Personal';
 import School from './School';
 import Drawer from './Drawer';
+// import Drawer from '../../components/Drawer';
+import DrawerProvider from '../../Providers/DrawerProvider';
+
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -36,44 +39,46 @@ const ParentDashboard: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="parent_dashboard_container">
-            <div className="navigation__menu">
-                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
-            </div>
-          <div className="main_container">
-            <div className="title__container">
-                <Tabs value={activeTab} onChange={setActiveTab} />
-                <div className="dropdown">
-                    <Typography variant="h5">
-                        Child 1
+        <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
+
+            <div className="parent_dashboard_container">
+                <div className="navigation__menu">
+                    <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer} />
+                </div>
+                <div className="main_container">
+                    <div className="title__container">
+                        <Tabs value={activeTab} onChange={setActiveTab} />
+                        <div className="dropdown">
+                            <Typography variant="h5">
+                                Child 1
                         </Typography>
-                    <Typography variant="h5">
-                        <ExpandMoreIcon
-                            style={{ fontSize: "3rem" }} />
-                    </Typography>
-                </div>
-            </div>
-            {activeTab === 'school' &&
-                <div className="school__container">
-                    <School />
-                </div>
+                            <Typography variant="h5">
+                                <ExpandMoreIcon
+                                    style={{ fontSize: "3rem" }} />
+                            </Typography>
+                        </div>
+                    </div>
+                    {activeTab === 'school' &&
+                        <div className="school__container">
+                            <School />
+                        </div>
 
-            }
+                    }
 
-            {activeTab === 'personal' &&
-                <Personal />
-            }
-            <div className="drawer">
-                <Drawer 
-                    open={openDrawer} 
-                    onClose={handleDrawer}
-                    width="68.875rem"
-                    heading={true}>
-                    <SlidingDrawerContent />
-                </Drawer>
-            </div>
+                    {activeTab === 'personal' &&
+                        <Personal />
+                    }
+                    <div className="drawer">
+                        <Drawer
+                            open={openDrawer}
+                            onClose={handleDrawer}
+                            width="68.875rem"
+                            heading={true}>
+                            <SlidingDrawerContent />
+                        </Drawer>
+                    </div>
 
-            <div className="drawer push__drawer">
+                    {/* <div className="drawer push__drawer">
                     <Drawer 
                         open={openPushDrawer} 
                         onClose={handlePushDrawer}
@@ -81,14 +86,16 @@ const ParentDashboard: React.FunctionComponent = () => {
                         heading={false}>
                         <SlidingPushDrawerContent />
                     </Drawer>
-            </div>
-            <div className="main_container_4">
-                <div className="footer">
-                    <MadeBy />
+            </div> */}
+                    <div className="main_container_4">
+                        <div className="footer">
+                            <MadeBy />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
+        </DrawerProvider>
+
     );
 };
 export default ParentDashboard;
