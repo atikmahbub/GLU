@@ -10,8 +10,7 @@ import Personal from './Personal';
 import School from './School';
 import Drawer from './Drawer';
 import DrawerProvider from '../../Providers/DrawerProvider';
-import NextClassMUI from '../../components/NextClassMUI';
-
+import ParentIndividualTutorBanner from '../../components/ParentIndividualTutorBanner';
 
 const ParentDashboard: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -74,7 +73,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                             <SlidingDrawerContent />
                         </Drawer>
                     </div>
-                    <NextClassMUI/>
+                    <ParentIndividualTutorBanner/>
                     <div className="main_container_4">
                         <div className="footer">
                             <MadeBy />
