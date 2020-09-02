@@ -1,6 +1,6 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
+import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface colDataType {
     id: number;
@@ -57,60 +58,17 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Teachers"
                     btnIcon={<Add />}
-                    btnTitle="Add Teacher"
+                    btnTitle="Add New Teacher"
                     trigger={handleRoutes}
                 />
             </CardContainer>
-            <CardContainer>
-                <div className="student-table">
-                    <CardTable
-                        showToolbar={true}
-                        showPagination={true}
-                        columns={[
-                            {
-                                width: '23%',
-                                title: 'Profile',
-                                field: 'profile',
-                                render: (rowData: colDataType) => (
-                                    <img src={rowData.profile} style={{ width: 35, height: 35, borderRadius: '50%' }} />
-                                ),
-                            },
-                            {
-                                width: '23%',
-                                title: 'Name',
-                                field: 'name',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Department',
-                                field: 'department',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Designation',
-                                field: 'designation',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Action',
-                                field: 'action',
-                                render: (rowData: colDataType) => (
-                                    <ActionToolbar
-                                        showDetail={true}
-                                        deleteClick={() => handleDelete(rowData.id)}
-                                        editClick={() => handleEdit(rowData)}
-                                        detailClick={redirectDetails}
-                                    />
-                                ),
-                            },
-                        ]}
-                        rowData={teacherList}
-                    />
-                </div>
-            </CardContainer>
+            <UserTable
+                redirectDetails={() => redirectDetails()}
+                handleEdit={(value: any) => handleEdit(value)}
+                handleDelete={(value: any) => handleDelete(value)}
+            />
         </div>
     );
 };

@@ -33,6 +33,9 @@ import ParentDetails from '../../Views/ParentDetails/ParentDetails';
 import DepartmentDetails from '../../Views/DepartmentDetails/DepartmentDetails';
 import TimeTableBulk from '../../Views/TimeTableBulk/TimeTableBulk';
 import ECAbulk from '../../Views/ECAbulk/ECAbulk';
+import StudentHWdetails from '../../Views/StudentDetails/StudentHomeWork/Index';
+import StudentExamReport from '../../Views/StudentDetails/StudentSubjectDetail/Index';
+import StaffDetails from '../../Views/StaffDetails/StaffDetails';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -70,4 +73,7 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/department-details', component: DepartmentDetails },
     { pathname: '/dashboard/timetable-bulk-upload', component: TimeTableBulk },
     { pathname: '/dashboard/extra-curricular-activities-bulk-upload', component: ECAbulk },
+    { pathname: '/dashboard/student-details/homework', component: StudentHWdetails },
+    { pathname: '/dashboard/student-details/exam', component: StudentExamReport },
+    { pathname: '/dashboard/staff-details', component: StaffDetails },
 ];

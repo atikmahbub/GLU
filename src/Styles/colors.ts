@@ -6,4 +6,6 @@ export const colors = {
     grayPrimary: '#DCE1E3',
     textPrimary: '#54617A',
     black: '#000',
+    darkGray: '#5F5F5F',
+    darkPrimary: '#145DFF',
 };

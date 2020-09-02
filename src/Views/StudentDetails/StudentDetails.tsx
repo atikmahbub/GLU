@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import CardContainer from '../../Containers/Cards/CardContainer';
 import commonImg from '../../Assets/images';
-import { Typography } from '@material-ui/core';
-import StudentFeeTable from './StudentFeeTable';
-import StudentTimeTable from './StudentTimeTable';
-import { studenttimetable } from './tabledata';
-import ExamReportChart from './ExamReportChart';
 import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
 import { useLocation } from 'react-router-dom';
 import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
-import AttendenceRow from './AttendenceRow';
-import PresentRow from './PresentRow';
-import SubjectHomeworkRow from './SubjectHomeworkRow';
+import AttendenceRow from '../../components/Dashobard/UserDetails/AttendenceRow';
+import PresentRow from '../../components/Dashobard/UserDetails/PresentRow';
+import SubjectHomeworkRow from '../../components/Dashobard/UserDetails/SubjectHomeworkRow';
 import FeeExamResultRow from './FeeExamResultRow';
+import ECArow from '../../components/Dashobard/UserDetails/ECArow';
+import TimeTableRow from '../../components/Dashobard/UserDetails/TimeTableRow';
+import UserDetailsWrapper from '../../Containers/Dashboard/UserDetailsWrapper';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
@@ -25,7 +22,7 @@ const StudentDetails: React.FunctionComponent = () => {
         email: '',
         class: '',
         subjects: '',
-        phoneNumber:'',
+        phoneNumber: '',
         timetable: [],
         profile: '',
     });
@@ -51,91 +48,22 @@ const StudentDetails: React.FunctionComponent = () => {
             setDetails(data);
         }
     }, [studentInfo]);
+    const data = [
+        { col1: 'Computer', col2: 'James Arthur' },
+        { col1: 'Biology', col2: 'Morgan Freeman' },
+        { col1: 'Chemistry', col2: 'Jhonny Depp' },
+        { col1: 'Physics', col2: 'Chris Hemsworth' },
+    ];
     return (
-        <div className="details-wrapper change_card_pd">
-            <ProfileTitle/>
-            <AttendenceRow/>
-            <PresentRow/>
-            <SubjectHomeworkRow/>
-            <FeeExamResultRow/>
-
-
-
-
-
-
-
-
-
-
-
-            {/* <CardContainer>
-                <div className="details-container">
-                   
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-5">
-                            
-                        </div>
-                        <div className="col-md-5">
-                            <div className="data-container">
-                                <StudentFeeTable />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-5">
-                           
-                        </div>
-                        <div className="col-md-5">
-                            
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="exam-report-status-container">
-                                <Typography className="sub-heading mb-4">Exam results</Typography>
-                                <ExamReportChart />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <StudentTimeTable tableName="Timetable" data={studenttimetable} />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                </div>
-            </CardContainer> */}
-      
-        </div>
+        <UserDetailsWrapper>
+            <ProfileTitle />
+            <AttendenceRow />
+            <PresentRow />
+            <SubjectHomeworkRow data={data} tableName="Subjects" colHead1="Class" colHead2="Teacher" />
+            <FeeExamResultRow />
+            <ECArow />
+            <TimeTableRow />
+        </UserDetailsWrapper>
     );
 };
 

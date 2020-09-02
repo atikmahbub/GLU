@@ -1,4 +1,5 @@
 import React, { FC, memo } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -20,10 +21,14 @@ const useStyles = makeStyles({
     },
 });
 
-const PageFooter: FC = () => {
+type PageFooterProps = {
+    rootClassName?: string
+}
+
+const PageFooter: FC<PageFooterProps> = ({ rootClassName }) => {
     const classes = useStyles();
     return (
-        <Grid container justify="space-between" className={classes.root}>
+        <Grid container justify="space-between" className={classNames(classes.root, rootClassName)}>
             <Grid item container xs={6}>
                 <Typography className={classes.text}>
                     Made by <span className={classes.textGrey}>Six</span>
