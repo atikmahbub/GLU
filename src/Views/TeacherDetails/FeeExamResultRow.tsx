@@ -15,25 +15,16 @@ const FeeExamResultRow = () => {
     const gotoPage = () => {
         route.push('/dashboard/student-details/exam');
     };
-    const histogramData = [800, 900, 990];
-    const xAxisData = ['First Term exam', 'Second Term Exam', 'Third Term Exam'];
+    const histogramData =  [400,300,800,200,500,700,400,200,900,100];
+    const xAxisData = ['7 Red', '8 Blue', '9 Set 4', '9 Set 4', '8 Blue', '9 Set 4', '7 Set 4', '8 Blue', '9 Set 4', '9 Set 4',];
     return (
         <div className="row row__margin">
-            <div className="col-lg-5 d-flex col-md-12 colum__spacing">
-                <TwoColTable color="#5FB475" data={data} tableName="Fee Details" colHead1="Month" colHead2="Status" />
-            </div>
-            <div className="col-lg-7 d-flex col-md-12 colum__spacing">
+            <div className="d-flex col-md-12 colum__spacing">
                 <div className="bg-white exm-pdng">
                     <div className="row">
-                        <div className="col-md-9 bdr_right">
-                            <Typography className="exam_heading">Exam Results</Typography>
+                        <div className="col-md-12 pr-5">
+                            <Typography className="exam_heading pt-4">Exam Results</Typography>
                             <HistogramChart xAxis={xAxisData} data={histogramData} goto={gotoPage} />
-                        </div>
-                        <div className="col-md-3 d-flex align-content-center justify-content-center">
-                            <div className="align-self-center">
-                                <Typography className="percent">68%</Typography>
-                                <Typography className="title">Year Average</Typography>
-                            </div>
                         </div>
                     </div>
                 </div>

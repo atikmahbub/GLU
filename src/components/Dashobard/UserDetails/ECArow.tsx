@@ -1,5 +1,5 @@
 import React from 'react';
-import TwoColTable from '../../components/Dashobard/TwoColTable';
+import TwoColTable from '../TwoColTable';
 
 const ECArow: React.FunctionComponent = () => {
     const eca = [

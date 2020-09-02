@@ -3,6 +3,7 @@
     .sub_heading{
         font-size: 1.875rem;
         margin-bottom: 1.562rem;
+        font-weight: 500;
     }
     div.MuiPaper-elevation2 {
         box-shadow: none;
@@ -10,9 +11,12 @@
             div{
                 div{
                     @include disableScroll;
-                    max-height: 50rem;
+                    max-height: 50rem!important;
                 }
             }
+        }
+        th.MuiTableCell-root {
+            text-align: center;
         }
     }
 }

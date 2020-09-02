@@ -3,11 +3,12 @@ import { Typography } from '@material-ui/core';
 
 interface props {
     title: string;
+    style?:any;
 }
-const TitleRow: React.FunctionComponent<props> = ({ title }) => {
+const TitleRow: React.FunctionComponent<props> = ({ title, ...props }) => {
     return (
         <div className="title-row">
-            <Typography className="title">{title}</Typography>
+            <Typography {...props} className="title">{title}</Typography>
         </div>
     );
 };

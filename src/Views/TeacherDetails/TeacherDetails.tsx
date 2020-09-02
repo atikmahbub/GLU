@@ -1,109 +1,93 @@
-import React from 'react';
-import CardContainer from '../../Containers/Cards/CardContainer';
+import React, { useEffect, useState } from 'react';
 import commonImg from '../../Assets/images';
-import { Typography } from '@material-ui/core';
-import StudentListTable from './StudentListTable';
-import SubjectListTable from './SubjectListTable';
-import StudentTimeTable from './StudentTimeTable';
-import { studenttimetable, studentECA } from './tabledata';
-import ColumnChart from './ColumnChart';
-import StudentAttendanceChart from './StudentAttendanceChart';
+import { useSelector, useDispatch } from 'react-redux';
+import { studentDetailsProps } from '../../Interfaces/studentModule';
+import { useHistory } from 'react-router-dom';
+import ProfileTitle from '../../components/Dashobard/ProfileTitle';
+import AttendenceRow from '../../components/Dashobard/UserDetails/AttendenceRow';
+import PresentRow from '../../components/Dashobard/UserDetails/PresentRow';
+import UserDetailsWrapper from '../../Containers/Dashboard/UserDetailsWrapper';
+import UserTable from '../../components/Dashobard/Table/UserTable';
+import { routeEndpoints } from '../../Utility/routeEndpoints';
 
-const TeacherDetails: React.FunctionComponent = () => {
+const StudentDetails: React.FunctionComponent = () => {
+    const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
+    const routes = useHistory();
+    const dispatch = useDispatch();
+    const [details, setDetails] = useState<studentDetailsProps>({
+        name: '',
+        email: '',
+        class: '',
+        subjects: '',
+        phoneNumber: '',
+        timetable: [],
+        profile: '',
+    });
+    // useEffect(()=>{
+    //     if(routes.hasOwnProperty('state')){
+    //         if ((routes as any).state.hasOwnProperty('id')) {
+    //             dispatch(getStudentDetailsAPIcall((routes as any).state.id));
+    //         }
+    //     }
+    // }, [])
+    useEffect(() => {
+        if (studentInfo) {
+            const studentDetls = studentInfo.studentsDetail[0];
+            const data = {
+                name: studentDetls.first_name + ' ' + studentDetls.last_name,
+                email: studentDetls.User.email,
+                class: studentDetls.SchoolClassDetail.Class.name + ', ' + studentDetls.SchoolClassDetail.Section.name,
+                subjects: studentDetls.SchoolClassDetail.Subjects,
+                phoneNumber: studentDetls.User.phoneNumber,
+                timetable: studentInfo.routine,
+                profile: commonImg.photo,
+            };
+            setDetails(data);
+        }
+    }, [studentInfo]);
+    const data = [
+        { col1: 'Computer', col2: 'James Arthur' },
+        { col1: 'Biology', col2: 'Morgan Freeman' },
+        { col1: 'Chemistry', col2: 'Jhonny Depp' },
+        { col1: 'Physics', col2: 'Chris Hemsworth' },
+    ];
+    const redirectDetails = () => {
+        routes.push({
+            pathname: routeEndpoints.teacher.details,
+            state: {
+                breadcrumb: routeEndpoints.teacher.details,
+            },
+        });
+    };
+    const handleEdit = (data: any) => {
+        routes.push({
+            pathname: routeEndpoints.teacher.addNewTeacher,
+            state: {
+                breadcrumb: routeEndpoints.teacher.editTeacher,
+                teacherInfo: data,
+            },
+        });
+    };
+    const handleDelete = (deleteId: number) => {};
     return (
-        <div className="details-wrapper">
-            <CardContainer>
-                <div className="details-container">
-                    <div className="row">
-                        <div className="col-md-2">
-                            <div className="profile-pic">
-                                <img src={commonImg.photo} />
-                            </div>
-                        </div>
-                        <div className="col-md-10">
-                            <div className="information-container">
-                                <Typography className="heading">Alex chen</Typography>
-                                <Typography className="title">#89795</Typography>
-                                <Typography className="title">+91 7785844718</Typography>
-                                <Typography className="title">alexchen@gmail.com</Typography>
-                            </div>
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-4">
-                            <StudentListTable />
-                        </div>
-                        <div className="col-md-6">
-                            <div className="data-container">
-                                <SubjectListTable />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <StudentAttendanceChart />
-                        </div>
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <ColumnChart clickHandler={()=>{}} marker1="Completed" marker2="not Completed" chartName="Homework" />
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="exam-report-status-container">
-                                <ColumnChart clickHandler={()=>{}} marker1="Passed" marker2="Failed" chartName="Exam" selectType="exam" />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <StudentTimeTable tableName="Timetable" data={studenttimetable} />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <div className="divider"></div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        <div className="col-md-10">
-                            <StudentTimeTable tableName="Extra curricular activity" data={studentECA} />
-                        </div>
+        <UserDetailsWrapper>
+            <ProfileTitle />
+            <AttendenceRow />
+            <PresentRow />
+            <div className="row row__margin">
+                <div className="col-md-12 colum__spacing">
+                    <div className="p-4 bg-white">
+                    <UserTable
+                        showFilter={false}
+                        redirectDetails={() => redirectDetails()}
+                        handleEdit={(value: any) => handleEdit(value)}
+                        handleDelete={(value: any) => handleDelete(value)}
+                    />
                     </div>
                 </div>
-            </CardContainer>
-        </div>
+            </div>
+        </UserDetailsWrapper>
     );
 };
 
-export default TeacherDetails;
+export default StudentDetails;

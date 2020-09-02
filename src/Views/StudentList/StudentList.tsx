@@ -11,6 +11,7 @@ import { deleteStudentAPIcall } from '../../Redux/Actions/studentAction';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import commonImg from '../../Assets/images';
 import TableUserProfile from '../../components/Dashobard/TableUserProfile';
+import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface colDataType {
     id: number;
@@ -34,12 +35,12 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             },
         });
     };
-    const redirectDetails = (id:number) => {
+    const redirectDetails = (id: number) => {
         routes.push({
             pathname: routeEndpoints.student.details,
             state: {
                 breadcrumb: routeEndpoints.student.breadcrumb,
-                id:id
+                id: id,
             },
         });
     };
@@ -58,122 +59,13 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton
-                    title="Students"
-                    btnIcon={<Add />}
-                    btnTitle="Add Student"
-                    trigger={handleRoutes}
-                />
+                <AddButton title="Students" btnIcon={<Add />} btnTitle="Add Student" trigger={handleRoutes} />
             </CardContainer>
-            <CardContainer>
-                <div className="student-table">
-                    <div className="filter__column__box">
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Year Group"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Form Group"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Subject"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Teacher"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Activity"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                        <div className="column__box">
-                        <SelectFieldUnderline
-                            className="custom-sm-txt-dashbord"
-                            label="Department"
-                            options={[]}
-                            getValue={() => {}}
-                        />
-                        </div>
-                    </div>
-                    <div className="table__container">
-                    <CardTable
-                        showToolbar={false}
-                        showPagination={true}
-                        selectable={true}
-                        tableHeight="100vh"
-                        columns={[
-                            {
-                                width: '23%',
-                                title: 'Name',
-                                field: 'name',
-                                render: (rowData: colDataType) => (
-                                   <TableUserProfile name={rowData.name} profile={rowData.profile}/>
-                                ),
-                            },
-                            {
-                                width: '23%',
-                                title: 'Student ID',
-                                field: 'studentId',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Year Group',
-                                field: 'yearGroup',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Form Group',
-                                field: 'formGroup',
-                            },
-                
-                            {
-                                width: '23%',
-                                title: 'Action',
-                                field: 'action',
-                                render: (rowData: colDataType) => (
-                                    <ActionToolbar
-                                        showDetail={true}
-                                        detailClick={()=>redirectDetails(rowData.id)}
-                                        deleteClick={() => handleDelete(rowData.id)}
-                                        editClick={() => handleEdit(rowData)}
-                                    />
-                                ),
-                            },
-                        ]}
-                        rowData={[
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            
-                        ]}
-                    />
-                    </div>
-                </div>
-            </CardContainer>
+            <UserTable
+                redirectDetails={(value: any) => redirectDetails(value)}
+                handleEdit={(value: any) => handleEdit(value)}
+                handleDelete={(value: any) => handleDelete(value)}
+            />
         </div>
     );
 };

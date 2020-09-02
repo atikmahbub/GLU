@@ -1,7 +1,7 @@
 import React from 'react';
-import CardTable from '../../components/Table/CardTable';
-import TitleCardContainer from './TitleCardContainer';
+import CardTable from '../../Table/CardTable';
 import { Typography } from '@material-ui/core';
+import TitleCardContainer from '../UserDetails/TitleCardContainer';
 
 
 interface props{

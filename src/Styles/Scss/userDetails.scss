@@ -1,12 +1,13 @@
 .details-wrapper{
     .attendace_container_row{
-        padding: 0 3.125rem;;
+        padding: 0 3.125rem;
+        height: 28rem;
+        overflow: auto;
+        @include disableScroll;
     }
-    // .change_card_pd{
         .card-container{
             margin-bottom: 0.65rem!important;
         }
-    // }
     .calender_title{
         font-size: 1.875rem;
         color: $black;

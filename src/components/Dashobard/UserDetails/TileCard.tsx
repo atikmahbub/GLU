@@ -9,7 +9,7 @@ const TileCard: React.FunctionComponent<props> = ({data}) => {
         <div className="tile-card">
                 <TitleRow  title={data.activity} />
                 <TitleRow  title={data.time} />
-                <TitleRow  title={data.teacher} />
+                <TitleRow style={{color:'#5F5F5F'}}  title={data.teacher} />
             </div>
     );
 }

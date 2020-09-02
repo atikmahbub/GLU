@@ -9,7 +9,7 @@ import { parentListTypes } from '../../Interfaces/parentModule';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { useDispatch } from 'react-redux';
 import { deleteParentAPIcall } from '../../Redux/Actions/parentAction';
-
+import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface props {
     parentList: Array<parentListTypes>;
@@ -19,18 +19,18 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
     const dispatch = useDispatch();
     const handleRoutes = () => {
         routes.push({
-            pathname:  routeEndpoints.parent.addNewParent,
+            pathname: routeEndpoints.parent.addNewParent,
             state: {
                 breadcrumb: routeEndpoints.parent.addNewParentBread,
             },
         });
     };
-    const redirectDetails = (id:number) => {
+    const redirectDetails = (id: number) => {
         routes.push({
             pathname: routeEndpoints.parent.details,
             state: {
-                breadcrumb:  routeEndpoints.parent.breadcrumb,
-                id: id
+                breadcrumb: routeEndpoints.parent.breadcrumb,
+                id: id,
             },
         });
     };
@@ -50,60 +50,17 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Parents"
                     btnIcon={<Add />}
-                    btnTitle="Add Parent"
+                    btnTitle="Add New Parent"
                     trigger={handleRoutes}
                 />
             </CardContainer>
-            <CardContainer>
-                <div className="student-table">
-                    <CardTable
-                        showToolbar={true}
-                        showPagination={true}
-                        columns={[
-                            {
-                                width: '23%',
-                                title: 'Profile',
-                                field: 'profile',
-                                render: (rowData: parentListTypes) => (
-                                    <img src={rowData.profile} style={{ width: 35, height: 35, borderRadius: '50%' }} />
-                                ),
-                            },
-                            {
-                                width: '23%',
-                                title: 'Parent ID',
-                                field: 'parentId',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Name',
-                                field: 'name',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Email',
-                                field: 'email',
-                            },
-                            {
-                                width: '23%',
-                                title: 'Options',
-                                field: 'action',
-                                render: (rowData: parentListTypes) => (
-                                    <ActionToolbar
-                                        showDetail={true}
-                                        deleteClick={() => handleDelete(rowData.parentId)}
-                                        editClick={() => handleEdit(rowData)}
-                                        detailClick={()=>redirectDetails(rowData.parentId)}
-                                    />
-                                ),
-                            },
-                        ]}
-                        rowData={parentList}
-                    />
-                </div>
-            </CardContainer>
+            <UserTable
+                redirectDetails={(value: any) => redirectDetails(value)}
+                handleEdit={(value: any) => handleEdit(value)}
+                handleDelete={(value: any) => handleDelete(value)}
+            />
         </div>
     );
 };

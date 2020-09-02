@@ -1,7 +1,7 @@
 import React from 'react';
-import PresentRowContainer from '../../Containers/Dashboard/PresentRowContainer';
-import PresetGridCol from '../../components/Dashobard/PresetGridCol';
-import CardContainer from '../../Containers/Cards/CardContainer';
+import PresentRowContainer from '../../../Containers/Dashboard/PresentRowContainer';
+import PresetGridCol from '../PresetGridCol';
+import CardContainer from '../../../Containers/Cards/CardContainer';
 
 const PresentRow = () => {
     return (
