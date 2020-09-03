@@ -508,7 +508,6 @@
                 font-size: 1.625rem;
                 font-family: 'CircularXXWeb-Book';
                 @include makeFontSmoth(0.147rem, #1c1c1c);
-                align-self: flex-end;
                 line-height: 1.4;
                 // padding-bottom: 2px;
                 &:hover {
