@@ -1,4 +1,4 @@
-import React, {FC, useState, ReactNode, memo } from 'react';
+import React, { FC, useState, ReactNode, memo } from 'react';
 import { Typography } from '@material-ui/core';
 import commonImg from '../Assets/images';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -11,68 +11,87 @@ import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 
 
 const useStyles = makeStyles({
-    container:{
+    container: {
         width: "100vw",
         height: "100vh",
         backgroundColor: "#5E5558",
         fontFamily: 'CircularXXWeb-Book',
-        justifyContent: "flex-start",
-        paddingLeft: '3.125rem',
-        position: 'relative',
+        // justifyContent: "flex-start",
+        // alignSelf: 'flex-start | baseline',
+        // flex-end',
+        // | center | baseline | stretch',
+
+        // paddingLeft: '3.125rem',
+        // position: 'relative',
+        // justifyContent: "space-between",
+        // paddingRight: '18.125rem',
     },
-    title:{
+    titleContainer:{
+        marginTop: "9.25rem",
+    },
+    title: {
         fontSize: '2.625rem',
         lineHeight: '1.875rem',
-        marginTop: "9.25rem",
         color: "white",
+        border: '2px solid red',
     },
-    nameRatingContainer:{
+    nameRatingContainer: {
         justifyContent: 'flex-start',
+        border: '2px solid black',
     },
-    bigNameCountry:{
+    bigNameCountry: {
         fontSize: '7.5rem',
         lineHeight: '7.5rem',
         color: 'white',
     },
-    left:{
+    left: {
         justifyContent: 'space-between',
     },
-    ratingFavoriteContainer:{
+    ratingFavoriteContainer: {
         marginTop: "1.25rem",
         width: "12.5rem",
         justifyContent: 'space-between',
     },
-    ratingContainer:{
+    ratingContainer: {
         width: "3.887rem",
         justifyContent: "space-between",
     },
-    favoriteContainer:{
+    favoriteContainer: {
         width: "6.937rem",
         justifyContent: "space-between",
     },
-    rating:{
+    rating: {
         color: 'white',
         fontSize: '1.25rem',
     },
-    favorite:{
+    favorite: {
         color: 'white',
         fontSize: '1.25rem',
     },
-    icon:{
+    icon: {
         color: "white",
     },
-    bottomText:{
+    bottomText: {
         color: 'white',
         fontSize: '1.562rem',
         marginBottom: '2.125rem',
         marginTop: '8.5rem',
+        border: '2px solid green',
     },
-    image:{
-        position: 'relative',
-        '& img':{
-            position: 'absolute',
-            marginTop: "9.375rem",
-            marginBottom: "5rem",
+    image: {
+        // position: 'relative',
+        border: '2px solid black',
+        height: "34.062rem",
+        marginTop: "9.25rem",
+        // marginTop: "9.375rem",
+        // alignSelf: 'flex-end',
+        // marginTop: "9.25rem",
+        // float: 'right',
+        // paddingTop: "9.25rem",
+        '& img': {
+            // position: 'absolute',
+            // marginTop: "9.375rem",
+            // marginBottom: "5rem",
             // marginRight: "25rem",
             height: "34.062rem",
             width: "33.437rem",
@@ -83,51 +102,68 @@ const useStyles = makeStyles({
             // maxHeight: "34.062rem",
             // width: 'auto',
             // height: 'auto',
-        }  
+        }
     },
-    subTitle:{
+    subTitle: {
         fontSize: '1.562rem',
         lineHeight: '1.875rem',
         paddingTop: '0.362rem',
     },
-    nextClassimage:{
+    nextClassimage: {
         marginTop: '1.625rem',
-        '& img':{
-            height: '20rem', 
+        '& img': {
+            height: '20rem',
         }
     },
+    one:{
+        height: '30px',
+        backgroundColor: 'red',
+    },
+    two:{
+        width: "33.437rem",
+        height: "34.062rem",
+        backgroundColor: "green",
+        alignSelf: 'flex-end',
+    },
+    three:{
+        height: '7.5rem',
+        backgroundColor: "blue",
+    }
 
-}); 
+});
 
-const ParentIndividualTutorBanner:  FC = () => {
+const ParentIndividualTutorBanner: FC = () => {
     const classes = useStyles();
     return (
-        <Grid container lg={12} direction="row" className={classes.container}>
-            <Grid container item lg={6} md={6} sm={12} direction="column" className={classes.left}>
-                <Typography className={classes.title}>Tutor</Typography>
-                <Grid container direction="column">
-                    <Grid container item direction="column" className={classes.nameRatingContainer}> 
-                        <Typography className={classes.bigNameCountry}>Moly Pearce <br/>Dubai, UAE</Typography>
-                        <Grid container item className={classes.ratingFavoriteContainer}>
-                            <Grid container className={classes.ratingContainer}>
-                                <StarBorder className={classes.icon}/>
-                                <Typography className={classes.rating}>5/5</Typography>
-                            </Grid>
-                            <Grid container className={classes.favoriteContainer}>
-                                <FavoriteBorder className={classes.icon}/>
-                                <Typography className={classes.favorite}>Favorite</Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Typography className={classes.bottomText}>Primary, Secondary</Typography>
-                </Grid>
+        <Grid container  className={classes.container}>
+            {/* <Grid item className={classes.one} lg={6}/>
+            <Grid item className={classes.two} lg={6}/>
+            <Grid item className={classes.three} lg={6}/> */}
+            <Grid item lg={6} className={classes.titleContainer}>
+               <Typography className={classes.title}>Tutor</Typography>
             </Grid>
-            <Grid className={classes.image} lg={6} md={6} sm={12}>
-                <LazyLoadImage 
+            <Grid className={classes.image} lg={6}>
+                <LazyLoadImage
                     alt=""
                     effect="blur"
-                    src={commonImg.twogirl} /> 
+                    src={commonImg.twogirl} />
             </Grid>
+            {/* <Grid item lg={6}>
+                <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
+            </Grid> */}
+            
+            {/* <Grid container item className={classes.ratingFavoriteContainer}> */}
+                {/* <Grid container className={classes.ratingContainer} >
+                    <StarBorder className={classes.icon} />
+                    <Typography className={classes.rating}>5/5</Typography>
+                </Grid> */}
+                {/* <Grid container className={classes.favoriteContainer} >
+                    <FavoriteBorder className={classes.icon} />
+                    <Typography className={classes.favorite}>Favorite</Typography>
+                </Grid> */}
+            {/* </Grid> */}
+            {/* <Typography className={classes.bottomText}>Primary, Secondary</Typography>  */}
+
         </Grid>
     );
 };
