@@ -874,6 +874,7 @@ button.outline-rec {
         @include flex(center, space-between, row);
         padding: 1.625rem 3.125rem;
         background-color: #fff; // added by sani
+        // background-color: $bodyColor; // added by vivek
         ul {
             li {
                 display: inline-block;

@@ -9,31 +9,31 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 const useStyles = makeStyles({
     root: {
         width: 'fit-content',
-        height: 40
+        height: 40,
     },
     label: {
         marginBottom: 0,
         marginRight: '0.6875rem',
-        color: '#000'
+        color: '#000',
     },
     inputRoot: {
         minWidth: 150,
         height: 'inherit',
         border: '1px solid rgba(0, 0, 0, 0.25)',
         '&::before': {
-            display: 'none'
+            display: 'none',
         },
         '&::after': {
-            display: 'none'
+            display: 'none',
         },
         '& .MuiSelect-select': {
             padding: '0 0.6875rem',
             '&:focus': {
-                background: 'inherit'
-            }
-        }
-    }
-})
+                background: 'inherit',
+            },
+        },
+    },
+});
 
 type FormControlSelectProps = {
     value: string;
@@ -41,10 +41,10 @@ type FormControlSelectProps = {
     options: object[];
     onChange: () => void;
     rootClassName?: string;
-}
+};
 
 const FormControlSelect: FC<FormControlSelectProps> = ({ value, label, options, onChange, rootClassName }) => {
-    const classes = useStyles()
+    const classes = useStyles();
     return (
         <Grid container className={classNames(classes.root, rootClassName)} alignItems="center">
             {label && <InputLabel className={classes.label}>{label}</InputLabel>}
@@ -56,16 +56,18 @@ const FormControlSelect: FC<FormControlSelectProps> = ({ value, label, options, 
                 onChange={onChange}
             >
                 {options.map(({ label, value }: any, index) => (
-                    <option value={value} key={index}>{label}</option>
+                    <option value={value} key={index}>
+                        {label}
+                    </option>
                 ))}
             </Select>
         </Grid>
-    )
-}
+    );
+};
 
 FormControlSelect.defaultProps = {
     options: [],
-    onChange: () => {}
-}
+    onChange: () => {},
+};
 
-export default memo(FormControlSelect)
+export default memo(FormControlSelect);
