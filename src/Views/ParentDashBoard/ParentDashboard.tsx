@@ -35,7 +35,7 @@ const ParentDashboard: React.FunctionComponent = () => {
     };
 
     return (
-        <NavigationMenu menuList={menu} background="secondary">
+        <NavigationMenu menuList={menu} background="secondary" absolute>
             <div className="main_container">
                 <div className="title__container">
                     <Tabs value={activeTab} onChange={setActiveTab} />

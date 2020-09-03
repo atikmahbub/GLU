@@ -28,9 +28,9 @@ const useStyles = makeStyles({
             backgroundColor: ({ background }: any) => getBackground(background)
         }
     },
-    rootFixed: {
+    rootAbsolute: {
         width: '100%',
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         zIndex: 1
@@ -67,7 +67,7 @@ interface props {
     showMenuOptions?: boolean;
     rootClassName?: string;
     containerClassName?: string;
-    fixed?: boolean;
+    absolute?: boolean;
     colorWhite?: boolean;
     background?: 'primary' | 'secondary' | 'transparent',
     menuDrawerWidth?: number | string;
@@ -81,7 +81,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({
     showMenuOptions,
     rootClassName,
     containerClassName,
-    fixed,
+    absolute,
     colorWhite,
     children,
     background,
@@ -179,7 +179,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({
             <div>
                 <div
                     className={classNames(classes.root, rootClassName, 'menu__type2__container', {
-                        [classes.rootFixed]: fixed,
+                        [classes.rootAbsolute]: absolute,
                         [classes.rootColorWhite]: colorWhite
                     })}
                 >
@@ -196,8 +196,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({
 };
 
 NavigationMenu.defaultProps = {
-    background: 'primary',
-    fixed: true
+    background: 'primary'
 }
 
 export default NavigationMenu;

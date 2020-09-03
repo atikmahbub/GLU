@@ -21,7 +21,7 @@ const Index: React.FunctionComponent = () => {
             MenuDrawerComponent={<SlidingDrawerContent />}
         >
             <div className="student__classes__tutor">
-                <div className="spacing">
+                <div className="spacing no-mt">
                     <div className="filter__row__container">
                         <div className="button__container">
                             <Typography className="title active">Upcoming Classes</Typography>

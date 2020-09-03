@@ -23,7 +23,7 @@ const Index: React.FunctionComponent = () => {
             MenuDrawerComponent={<SlidingDrawerContent />}
         >
             <div className="student__classes__tutor">
-                <div className="spacing">
+                <div className="spacing no-mt">
                     <div className="filter__previous__row__container">
                         <div className="row">
                             <div className="col-md-6 mb-5">

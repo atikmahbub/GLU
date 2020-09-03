@@ -5,7 +5,7 @@ import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
 
 const StudentPasswordNew = () => {
     return (
-        <NavigationMenu>
+        <NavigationMenu absolute>
             <div className="credential__container">
                 <div className="credential__form__container">
                     <div className="form-container">

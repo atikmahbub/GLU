@@ -4,7 +4,7 @@ import WelcomeText from '../../components/WelcomeText';
 
 const ShowWelcome = () => {
     return (
-        <NavigationMenu background="transparent" colorWhite>
+        <NavigationMenu background="transparent" colorWhite absolute>
             <div className="signup__setup welcome__page">
                 <WelcomeText title="Thank You Harrison!" />
             </div>

@@ -22,7 +22,7 @@ const PreviousClasses: React.FunctionComponent = () => {
     ];
 
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} absolute>
             <div className="student__classes__tutor">
                 <div className="banner__holding__container">
                     <div className="large__text">

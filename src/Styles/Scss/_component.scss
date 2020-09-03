@@ -1187,6 +1187,9 @@ button.outline-button {
     .total__classes {
         padding: 0;
     }
+    &.no-mt {
+        margin-top: 0;
+    }
 }
 // sliding drwaer
 .drawer__content {
