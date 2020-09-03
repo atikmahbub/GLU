@@ -12,6 +12,8 @@ import Drawer from './Drawer';
 import DrawerProvider from '../../Providers/DrawerProvider';
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
+import ParentIndividualHomeworkBanner from '../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner';
+
 
 const ParentDashboard: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -76,6 +78,8 @@ const ParentDashboard: React.FunctionComponent = () => {
                     </div>
                     <ParentIndividualTutorBanner/>
                     <LimitedAvailability/>
+
+                    <ParentIndividualHomeworkBanner/>
                     <div className="main_container_4">
                         <div className="footer">
                             <MadeBy />
