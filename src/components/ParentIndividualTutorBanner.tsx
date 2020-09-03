@@ -21,10 +21,10 @@ const useStyles = makeStyles({
         // flex-end',
         // | center | baseline | stretch',
 
-        // paddingLeft: '3.125rem',
+        paddingLeft: '3.125rem',
         // position: 'relative',
         // justifyContent: "space-between",
-        // paddingRight: '18.125rem',
+        paddingRight: '3.125rem',
     },
     titleContainer:{
         marginTop: "9.25rem",
@@ -44,32 +44,35 @@ const useStyles = makeStyles({
         lineHeight: '7.5rem',
         color: 'white',
         border: '2px solid black',
-        marginTop: '-10.875rem',
+        marginTop: '-5.875rem',
     },
     left: {
         justifyContent: 'space-between',
     },
     ratingFavoriteContainer: {
-        marginTop: "-9.75rem",
+        marginTop: "1.25rem",
         width: "12.5rem",
         // justifyContent: 'space-between',
         border: '2px solid black',
+        height: '1.75rem',
     },
     ratingContainer: {
         width: "3.887rem",
-        // justifyContent: "space-between",
+        justifyContent: "space-between",
     },
     favoriteContainer: {
         width: "6.937rem",
-        // justifyContent: "space-between",
+        justifyContent: "space-between",
     },
     rating: {
         color: 'white',
         fontSize: '1.25rem',
+        marginRight: '7rem',
     },
     favorite: {
         color: 'white',
         fontSize: '1.25rem',
+        marginRight: '4rem',
     },
     icon: {
         color: "white",
@@ -78,7 +81,7 @@ const useStyles = makeStyles({
         color: 'white',
         fontSize: '1.562rem',
         marginBottom: '2.125rem',
-        marginTop: '8.5rem',
+        marginTop: '16.5rem',
         border: '2px solid green',
     },
     image: {
@@ -155,17 +158,19 @@ const ParentIndividualTutorBanner: FC = () => {
                 <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
             </Grid>
             
-            <Grid container item className={classes.ratingFavoriteContainer} lg={3}>
-                <Grid container className={classes.ratingContainer} >
+            <Grid container item className={classes.ratingFavoriteContainer} lg={12}>
+                <Grid container className={classes.ratingContainer} lg={1}>
                     <StarBorder className={classes.icon} />
                     <Typography className={classes.rating}>5/5</Typography>
                 </Grid>
-                <Grid container className={classes.favoriteContainer} >
+                <Grid container className={classes.favoriteContainer} lg={1}>
                     <FavoriteBorder className={classes.icon} />
                     <Typography className={classes.favorite}>Favorite</Typography>
                 </Grid>
             </Grid>
-            {/* <Typography className={classes.bottomText}>Primary, Secondary</Typography>  */}
+            <Grid item lg={12}>
+                  <Typography className={classes.bottomText}>Primary, Secondary</Typography> 
+            </Grid>
 
         </Grid>
     );
