@@ -45,11 +45,15 @@ const useStyles = makeStyles((theme) => ({
         height: "90vh",
         marginTop: "9.25rem",
     },
-    left: {
+    limitedAvailabilityContainer:{
+        border: "2px solid red",
+    },
+    limitedAvailabilityText: {
         fontSize: "1.562rem",
         lineHeight: "1.875rem",
-        marginLeft : "-38px"
+        // marginLeft : "-38px"
     },
+
     right: {
         color: "black",
         fontSize: "2.625rem",
@@ -88,17 +92,15 @@ const ParentIndividualTutorBanner: FC = () => {
     return (
         <Grid container className={classes.container}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} className={classes.limitedAvailability}>
-                <Grid item container>
-                    <Grid item lg={1} md={1}>
-                            {/* <Badge color="secondary" variant="dot"/> */}
+                <Grid item lg={6} md={6} sm={12}>
+                    <Grid item container lg={6} md={6}>
+                        <Grid item lg={1} md={1} >
                             <FiberManualRecordIcon className={classes.redDot} />
                         </Grid>
-                        <Grid item lg={3} md={3}>
-                            <Typography className={classes.left}>Limited Availability</Typography>
+                        <Grid item lg={5} md={5} className={classes.limitedAvailabilityContainer}>
+                            <Typography className={classes.limitedAvailabilityText}>Limited Availability</Typography>
                         </Grid>
-                </Grid>
-
+                    </Grid>
                 </Grid>
 
                 <Grid item lg={6}>
@@ -141,8 +143,8 @@ const ParentIndividualTutorBanner: FC = () => {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid container item spacing={2}>
-                            <Grid item lg={6}>
+                        <Grid container item lg={12} spacing={1}>
+                            <Grid item lg={6} md={6} sm={12} xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Start Time</InputLabel>
                                     <Select
@@ -159,7 +161,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={6} md={6} sm={12} xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">End Time</InputLabel>
                                     <Select
