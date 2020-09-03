@@ -8,11 +8,12 @@ import CloseIcon from '@material-ui/icons/Close'
 const useStyles = makeStyles({
     content: {
         width: ({ width }: any) => width,
-        padding: '10rem 3.125rem 1.75rem 3.125rem',
+        padding: '0 3.125rem 1.75rem 3.125rem',
+        minHeight: '-webkit-fit-content',
     },
     buttonContainer: {
-        width: 'inherit',
-        position: 'fixed',
+        width: '100%',
+        position: 'sticky',
         paddingTop: '1.75rem',
         paddingBottom: '3.125rem',
         top: 0,
@@ -43,7 +44,7 @@ const Drawer: FC<DrawerProps> = ({
     const classes = useStyles({ width });
     return (
         <MuiDrawer anchor={position} open={open} variant="temporary">
-            <Grid container direction="column" className={classes.content}>
+            <Grid container direction="column" wrap="nowrap" className={classes.content}>
                 <Grid className={classes.buttonContainer}>
                     <IconButton className={classes.button} onClick={onClose}>
                         <CloseIcon />
