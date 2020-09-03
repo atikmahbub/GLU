@@ -1,26 +1,21 @@
 // data table style
 div.MuiPaper-elevation2 {
     box-shadow: none;
-    div{
-        div{
-            div{
+    div {
+        div {
+            div {
                 @include disableScroll;
             }
         }
     }
     tr.MuiTableRow-root {
-        // &:nth-child(even) {
-        //     td.MuiTableCell-root {
-        //         background-color: $grayPrimary;
-        //     }
-        // }
         &:last-child {
             td.MuiTableCell-root {
                 border-bottom: none;
             }
         }
         td.MuiTableCell-root {
-            font-size: 1.25rem!important;
+            font-size: 1.25rem !important;
         }
     }
     td.MuiTableCell-root {
@@ -31,14 +26,14 @@ div.MuiPaper-elevation2 {
             color: $primary;
         }
     }
-    .MuiTablePagination-toolbar{
+    .MuiTablePagination-toolbar {
         @include flex(center, space-between, row);
         border-top: 1px solid $borderColor;
-        .MuiTablePagination-spacer{
+        .MuiTablePagination-spacer {
             display: none;
         }
-        .MuiTablePagination-selectRoot{
-            .MuiSelect-selectMenu{
+        .MuiTablePagination-selectRoot {
+            .MuiSelect-selectMenu {
                 font-size: 1.25rem;
                 font-family: 'CircularXXWeb-Book';
             }
@@ -50,19 +45,23 @@ div.MuiPaper-elevation2 {
     .card-table-data {
         display: none;
     }
+    .MuiTypography-caption{
+        font-size: 1.25rem;
+        color: $darkGray;
+    }
 }
 
 th.MuiTableCell-root {
     background-color: $white;
     color: $titleGray;
-    font-size: 1.125rem!important;
+    font-size: 1.125rem !important;
     font-family: 'CircularXXWeb-Regular';
-    .MuiCheckbox-root{
-        padding: 0!important;
+    .MuiCheckbox-root {
+        padding: 0 !important;
     }
-    span{
-        &:hover{
-            color: $primary!important;
+    span {
+        &:hover {
+            color: $primary !important;
         }
     }
     .MuiCheckbox-colorSecondary.Mui-checked {
@@ -90,14 +89,13 @@ th.MuiTableCell-root {
     }
 }
 
-
 //overriding style for dashboard table data
 .dashboard-table-container {
     // data table style
     div.MuiPaper-elevation2 {
         box-shadow: none;
-        div{
-            &:nth-child(2){
+        div {
+            &:nth-child(2) {
                 div {
                     div {
                         @include disableScroll;
@@ -107,16 +105,16 @@ th.MuiTableCell-root {
         }
         tr.MuiTableRow-root {
             td.MuiTableCell-root {
-                &:first-child{
+                &:first-child {
                     padding-left: 1rem;
                 }
             }
-    
-                td.MuiTableCell-root {
-                    background-color: $white;
-                    &:first-child{
-                        padding-left: 1rem;
-                    }
+
+            td.MuiTableCell-root {
+                background-color: $white;
+                &:first-child {
+                    padding-left: 1rem;
+                }
             }
             &:last-child {
                 td.MuiTableCell-root {
@@ -160,8 +158,8 @@ th.MuiTableCell-root {
         }
     }
 
-    .search-box-container{
-        .export-btn{
+    .search-box-container {
+        .export-btn {
             background-color: $primary;
             color: $white;
             font-size: 0.8rem;
@@ -170,9 +168,9 @@ th.MuiTableCell-root {
             font-weight: 100;
             text-transform: capitalize;
         }
-        input.search-box{
-            border: 1px solid  $primary;
-            &:focus{
+        input.search-box {
+            border: 1px solid $primary;
+            &:focus {
                 outline-color: $primary;
             }
         }

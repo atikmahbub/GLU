@@ -1,7 +1,7 @@
 .content-wrapper {
     .header-banner {
         display: flex;
-        height: 100vh;
+        height: 70vh;
         .Navigation__Menu__Container {
             background-color: #000;
             .close-icon-btn {
@@ -46,20 +46,34 @@
         .support-header-banner {
             width: 100%;
             display: flex;
-            align-items: center;
+
             justify-content: center;
-            height: 100vh;
+            height: 70vh;
             background-color: $bodyColor;
-            .left_title{
+            .left_title {
                 font-size: 2.625rem;
                 line-height: 2.625rem;
                 color: $black;
+                margin-left: 1.625rem;
+
+                transform: translateY(2.25rem);
             }
             .search-container {
                 .title {
                     font-size: 5rem;
                     // font-weight: 600;
+                    margin-left: 1.625rem;
+
                     line-height: 5rem;
+                    transform: translateY(2.25rem);
+                }
+                .supportBoyImage {
+                    height: 25rem;
+                    background-image: url('https://res.cloudinary.com/ddwbbzuxw/image/upload/v1599028758/supportPageBoy_kn0wdj.png');
+                    background-repeat: no-repeat;
+                    margin-top: 2rem;
+                    margin-left: -4.7rem;
+                    width: 100%;
                 }
             }
             .email-container {
@@ -89,6 +103,33 @@
         }
     }
 
+    .askSomethingInput {
+        height: 25rem;
+        padding: 1.625rem;
+        color: #404040;
+        margin-bottom: 4rem;
+        .left_title {
+            font-size: 2.625rem;
+            line-height: 2.625rem;
+            color: $black;
+        }
+        .rightInputContainer {
+            .commonQuestions {
+                transform: translateY(4rem);
+                ul {
+                    list-style-type: none;
+                    li {
+                        font-size: 1.5rem;
+                        font-weight: 200;
+                        p {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .theme-section {
         padding: 1.5rem;
     }
@@ -98,26 +139,29 @@
             background-color: $grayPrimary;
         }
         .freq {
-            font-weight: 500;
-            font-size: 1.5rem;
+            font-weight: 300;
+            font-size: 2.5rem;
+            margin-top: 1.6rem;
         }
         .accord-container {
             padding-left: 1rem;
             border-left: 1px solid $grayPrimary;
+
             .accord {
                 box-shadow: none;
-                .icon{
+                .icon {
                     color: #000000;
                 }
-                .ques{
-                    font-weight: 500;
-                    font-size: 1rem;
-                    color: #000;
+                .ques {
+                    font-weight: 300;
+                    font-size: 2.6rem;
+                    color: $fontColorDarkGray;
+                    padding: 1rem 0;
                 }
-                .ans{
+                .ans {
                     font-weight: 400;
-                    font-size: 0.8rem;
-                    color: #000;
+                    font-size: 1.8rem;
+                    color: $fontColorLighterGray;
                 }
             }
         }

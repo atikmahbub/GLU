@@ -9,7 +9,7 @@ const girlScatter = `${imageEndpoint}v1596608132/gluschool/girlScatter_rxende.jp
 const boy = `${imageEndpoint}v1596608131/gluschool/boy_vadfp3.jpg`;
 const earringgirl = `${imageEndpoint}v1596608131/gluschool/earringgirl_rfzq6d.jpg`;
 const lappygirl = `${imageEndpoint}v1596608211/gluschool/lappygirl_g7hjsf.jpg`;
-const ladyProfile=`${imageEndpoint}v1597639066/gluschool/Tutor_Dashboard_profile_cxcimq.jpg`
+const ladyProfile = `${imageEndpoint}v1597639066/gluschool/Tutor_Dashboard_profile_cxcimq.jpg`;
 const penpadgirl = `${imageEndpoint}v1596608139/gluschool/penpadgirl_hclxwv.jpg`;
 const shorthair = `${imageEndpoint}v1596608140/gluschool/shorthair_bitghu.jpg`;
 const smilegirl = `${imageEndpoint}v1596608142/gluschool/smilegirl_ellmdm.jpg`;
@@ -81,10 +81,13 @@ const bluetopcropgirl = `${imageEndpoint}v1597229095/gluschool/cropedbluetop_p1y
 const curlygirlcroped = `${imageEndpoint}v1597229086/gluschool/curlyahirgilr_owcgya.jpg`;
 const deviceB = `${imageEndpoint}v1597916618/gluschool/deviceB_ti1src.jpg`;
 const boyCropped = `${imageEndpoint}v1597667918/boyCropped_x0l66k.png`;
-import schoolLogo from "./img/schoolLogo.png";
-const earingGirlWithTab =`${imageEndpoint}v1598605883/gluschool/earingGirlWithTab_t0yn2e.jpg`;
+import schoolLogo from './img/schoolLogo.png';
+const earingGirlWithTab = `${imageEndpoint}v1598605883/gluschool/earingGirlWithTab_t0yn2e.jpg`;
 const blueShirtRedSpecBoy = `${imageEndpoint}v1598526076/gluschool/blueShirtRedSpecBoy_tmnluu.png`;
 const boyReadingFromLaptop = `${imageEndpoint}v1598541499/gluschool/boyRadingFromLaptop_hfjsmh.png`;
+
+const supportPageBoy = `${imageEndpoint}v1599028758/supportPageBoy_kn0wdj.png`;
+
 export const commonImg = {
     google,
     mobile,
@@ -171,7 +174,9 @@ export const commonImg = {
     schoolLogo,
     earingGirlWithTab,
     blueShirtRedSpecBoy,
-    boyReadingFromLaptop
+    boyReadingFromLaptop,
+
+    supportPageBoy,
 };
 
 export default commonImg;

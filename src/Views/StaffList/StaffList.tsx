@@ -6,6 +6,8 @@ import commonImg from '../../Assets/images';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
+import UserTable from '../../components/Dashobard/Table/UserTable';
+import { routeEndpoints } from '../../Utility/routeEndpoints';
 
 interface colDataType {
     profile: string;
@@ -21,97 +23,34 @@ const StaffList: React.FunctionComponent = () => {
             breadcrumb: '/dashboard/staff/Add New Staff'
         }})
     }
+    const redirectDetails = () => {
+        routes.push({
+            pathname: routeEndpoints.staff.details,
+            
+        });
+    };
+    const handleEdit = (data: colDataType) => {
+       
+    };
+    const handleDelete = (deleteId: number) => {
+    
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Staffs"
                     btnIcon={<Add />}
-                    btnTitle="Add staff"
+                    btnTitle="Add New Staff"
                     trigger={handleRoutes}
                 />
             </CardContainer>
-            <CardContainer>
-                <div className="student-table">
-                    <CardTable
-                        showToolbar={true}
-                        showPagination={true}
-                        columns={[
-                            {
-                                width: '23%',
-                                title: 'Profile',
-                                field: 'profile',
-                                render: (rowData: colDataType) => (
-                                    <img src={rowData.profile} style={{ width: 35, height: 35, borderRadius: '50%' }} />
-                                ),
-                            },
-                            {
-                                width: '23%',
-
-                                title: 'Name',
-                                field: 'name',
-                            },
-                            {
-                                width: '23%',
-
-                                title: 'Department',
-                                field: 'department',
-                            },
-                            {
-                                width: '23%',
-
-                                title: 'Designation',
-                                field: 'designation',
-                            },
-                            {
-                                width: '23%',
-
-                                title: 'Action',
-                                field: 'action',
-                                render: () => (<ActionToolbar showDetail={false}/>)
-                            },
-                        ]}
-                        rowData={[
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
-                                action: '',
-                            },
-                            {
-                                profile: commonImg.photo,
-                                name: 'Rebacco Elision',
-                                department: 'English Department',
-                                designation: 'Senior Lecturer',
-                                action: '',
-                            },
-                        ]}
-                    />
-                </div>
-            </CardContainer>
+            <UserTable
+                showFilter={true}
+                redirectDetails={() => redirectDetails()}
+                handleEdit={(value: any) => handleEdit(value)}
+                handleDelete={(value: any) => handleDelete(value)}
+            />
         </div>
     );
 };

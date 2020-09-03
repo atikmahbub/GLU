@@ -1,9 +1,14 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import commonImg from '../../Assets/images';
-import { Typography } from '@material-ui/core';
+import { Typography, Box, Grid } from '@material-ui/core';
+import NormalSelectInput from '../Inputs/NormalSelectInput';
 
-const ProfileTitle = () => {
+interface props {
+    hideBtns?: boolean;
+    detailName?:string;
+}
+const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName }) => {
     return (
         <CardContainer>
             <div className="top_container">
@@ -14,10 +19,15 @@ const ProfileTitle = () => {
                         <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
                     </div>
                 </div>
-                <div className="button_container">
-                    <Typography className="blue-text">Print</Typography>
-                    <Typography className="blue-text visible">Visit details</Typography>
-                </div>
+                {hideBtns ? (
+                    // <Grid container direction="row" justify="space-between" alignItems="center" >
+                    <Typography className="detail_name">{detailName}</Typography>
+                ) : (
+                    <div className="button_container">
+                        <Typography className="blue-text">Print</Typography>
+                        <Typography className="blue-text visible">Visit details</Typography>
+                    </div>
+                )}
             </div>
         </CardContainer>
     );
