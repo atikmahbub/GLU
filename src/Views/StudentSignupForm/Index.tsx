@@ -8,7 +8,6 @@ import Education from './Education';
 import PreviewCard from './PreviewCard';
 import VerifyAccount from './VerifyAccount';
 import VerificationCode from './VerificationCode';
-import { useHistory } from 'react-router';
 import ParentChildren from './ParentChildren';
 import TeacherBio from './TeacherBio';
 import TeacherExperience from './TeacherExperience';
@@ -23,7 +22,6 @@ const Index: React.FunctionComponent = () => {
     const [whoIam, setWhoIam] = useState('');
     const [activeLength, setActiveLength] = useState(0);
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
-    const routes = useHistory();
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
     const handleNext = () => {
@@ -48,8 +46,8 @@ const Index: React.FunctionComponent = () => {
     };
     const goBack = () => {
         setActive((prevState) => prevState - 1);
-    }
-    const renderStepper:any = {
+    };
+    const renderStepper: any = {
         student: <StudentStepper active={active} />,
         parent: <ParentStepper active={active} />,
         teacher: <TeacherStepper active={active} />,
@@ -150,32 +148,33 @@ const Index: React.FunctionComponent = () => {
     }, [whoIam]);
 
     return (
-        <div className="signup__setup">
-            <NavigationMenu showMenuOptions={false} />
-            <div className="wrapper">
-                <div className="row">
-                    <div className="col-md-6 mb-2">
-                        <Typography className="stepper__title">
-                            Step {active + 1}/{activeLength}
-                        </Typography>
-                        <div className="stepper_marker">{renderStepper[whoIam]}</div>
-                    </div>
-                    <div className="col-md-6 mb-2">
-                        <Typography className="stepper__title">Tell us a bit about yourself</Typography>
-                        <Typography className="stepper__title">{renderComponent[active].title}</Typography>
-                        <div className="choose__container">{renderComponent[active].comp}</div>
+        <NavigationMenu showMenuOptions={false}>
+            <div className="signup__setup">
+                <div className="wrapper">
+                    <div className="row">
+                        <div className="col-md-6 mb-2">
+                            <Typography className="stepper__title">
+                                Step {active + 1}/{activeLength}
+                            </Typography>
+                            <div className="stepper_marker">{renderStepper[whoIam]}</div>
+                        </div>
+                        <div className="col-md-6 mb-2">
+                            <Typography className="stepper__title">Tell us a bit about yourself</Typography>
+                            <Typography className="stepper__title">{renderComponent[active].title}</Typography>
+                            <div className="choose__container">{renderComponent[active].comp}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <IconButton className="controller-button back" onClick={handleBack}>
-                <ArrowBack className="icon" />
-            </IconButton>
-            {!hideButtons.farword && (
-                <IconButton className="controller-button" onClick={handleNext}>
-                    <ArrowForward className="icon" />
+                <IconButton className="controller-button back" onClick={handleBack}>
+                    <ArrowBack className="icon" />
                 </IconButton>
-            )}
-        </div>
+                {!hideButtons.farword && (
+                    <IconButton className="controller-button" onClick={handleNext}>
+                        <ArrowForward className="icon" />
+                    </IconButton>
+                )}
+            </div>
+        </NavigationMenu>
     );
 };
 

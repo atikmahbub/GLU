@@ -13,22 +13,23 @@ const Banner: React.FunctionComponent = () => {
         { link: '', name: 'Messages' },
     ];
     return (
-        <div className="banner">
-            <NavigationMenu menuList={menu} customClass="banner__links" />
-            <img src={commonImg.orangetopgirlcrop} className="banner__image" alt="girl" />
-            <div className="banner__heading">
-                <h1 className="banner__heading__text">
-                    Ray Smith <br /> Maths Tutor
-                </h1>
-                <IconTextRow icon={<FavoriteBorderIcon />} title="favourite" />
-            </div>
-            <div className="banner__rating">
-                <h1 className="banner__rating__text">Grade: Primary, Secondary</h1>
-                <div className="banner__rating__icon">
-                    <IconTextRow icon={<StarIcon />} title="5/5" />
+        <NavigationMenu menuList={menu} customClass="banner__links">
+            <div className="banner">
+                <img src={commonImg.orangetopgirlcrop} className="banner__image" alt="girl" />
+                <div className="banner__heading">
+                    <h1 className="banner__heading__text">
+                        Ray Smith <br /> Maths Tutor
+                    </h1>
+                    <IconTextRow icon={<FavoriteBorderIcon />} title="favourite" />
+                </div>
+                <div className="banner__rating">
+                    <h1 className="banner__rating__text">Grade: Primary, Secondary</h1>
+                    <div className="banner__rating__icon">
+                        <IconTextRow icon={<StarIcon />} title="5/5" />
+                    </div>
                 </div>
             </div>
-        </div>
+        </NavigationMenu>
     );
 };
 

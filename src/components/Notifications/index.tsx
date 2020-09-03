@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import List from './List';
 import data from './data';
@@ -13,4 +13,4 @@ const Notifications: FC = () => {
     );
 };
 
-export default Notifications;
+export default memo(Notifications);
