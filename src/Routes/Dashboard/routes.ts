@@ -36,6 +36,8 @@ import ECAbulk from '../../Views/ECAbulk/ECAbulk';
 import StudentHWdetails from '../../Views/StudentDetails/StudentHomeWork/Index';
 import StudentExamReport from '../../Views/StudentDetails/StudentSubjectDetail/Index';
 import StaffDetails from '../../Views/StaffDetails/StaffDetails';
+import MeritsSanction from '../../Views/Merits/Index';
+import AddParentChild from '../../Views/AddNewParent/AddChildren';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -76,4 +78,6 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/student-details/homework', component: StudentHWdetails },
     { pathname: '/dashboard/student-details/exam', component: StudentExamReport },
     { pathname: '/dashboard/staff-details', component: StaffDetails },
+    { pathname: '/dashboard/merits-sanctions', component: MeritsSanction },
+    { pathname: '/dashboard/parent/add-child', component: AddParentChild },
 ];

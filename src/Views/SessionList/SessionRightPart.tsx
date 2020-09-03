@@ -5,6 +5,7 @@ import { FiberManualRecord } from '@material-ui/icons';
 import ViewerOverlay from './ViewerOverlay';
 import SmallImageText from './SmallImageText';
 import ListSession from './ListSession';
+import { useHistory } from 'react-router';
 
 const useStyle = makeStyles(() => ({
     rootParent: {
@@ -52,6 +53,10 @@ const useStyle = makeStyles(() => ({
 }));
 const SessionRightPart = () => {
     const classes = useStyle();
+    const routes = useHistory();
+    const handleRoute = () =>{
+        routes.push('/watch-session')
+    }
     return (
         <Box component="div" className={classes.rootParent}>
             <Typography className={classes.heading}>24th July 2020 Friday</Typography>
@@ -61,6 +66,7 @@ const SessionRightPart = () => {
                 fontSize="1.875rem"
                 titleFontSize="1.25rem"
                 marginTop="4rem"
+                click={handleRoute}
             />
             <ViewerOverlay mt='2rem'/>
             <ListSession />
