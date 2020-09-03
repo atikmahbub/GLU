@@ -7,13 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { ArrowDropDown } from '@material-ui/icons';
 
 const quesAns = [
-    { ques: 'Do i habe to pay for subscription' },
-    { ques: 'Can i create an account for my kid' },
-    { ques: 'Are the classes interactive' },
-    { ques: 'How do i signup to become a tutor' },
-    { ques: 'Can i create an account for my kid' },
-    { ques: 'Are the classes interactive' },
-    { ques: 'How do i signup to become a tutor' },
+    { ques: 'Do I have to pay for subscription?' },
+    { ques: 'Can I create an account for my kid?' },
+    { ques: 'Are the classes interactive?' },
+    { ques: 'How do I signup to become a tutor?' },
+    { ques: 'Can I create an account for my kid?' },
+    { ques: 'Are the classes interactive?' },
+    { ques: 'How do I signup to become a tutor?' },
 ];
 const FreqQuesAccordion: React.FunctionComponent = () => {
     return (

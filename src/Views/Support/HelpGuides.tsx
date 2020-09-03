@@ -86,7 +86,7 @@ const HelpGuides = () => {
                 <hr className="line" />
                 <div className="row">
                     <div className="col-lg-6">
-                        <Typography className="freq">Frequently Asked Questions</Typography>
+                        <Typography className="freq">FAQs</Typography>
                     </div>
                     <div className="col-lg-6">
                         <FreqQuesAccordion />
