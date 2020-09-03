@@ -13,7 +13,7 @@ const TagsContainer: React.FunctionComponent<props> = ({ heading, tagsArray }) =
                 <div className="row skills">
                     {tagsArray.map((val:string,index:any)=>(
                             <Typography key={index} className="skillset">{val}</Typography>
-                    ))}
+                    ))} 
                 </div>
             </div>
         </>

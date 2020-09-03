@@ -84,7 +84,7 @@ const TutorClass: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="setClass ">
+                                <div className="setClass">
                                     <ReusableSubjectDesc
                                         displayStudentInput={true}
                                         // clickHandler={handleClick}

@@ -24,8 +24,8 @@ const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHead
                                                 <div className="col-md-12">
                                                     <Typography className="resources_text">{subHeading1}</Typography>
                                                 </div>
-                                                <ResourcesTableComponent />
-                                                <ResourcesTableComponent />
+                                                <ResourcesTableComponent/>
+                                                <ResourcesTableComponent/>
                                             </div>
                                         </div>
                                         <div className="col-6 p-0 borderLine">

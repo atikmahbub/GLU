@@ -72,6 +72,11 @@
         font-size: 1.5625rem;
         line-height: 2.0625rem;
     }
+    .textArray{
+        font-family: inherit;
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+    }
     
     }
     .resources_container,.students_container{
@@ -84,7 +89,7 @@
         .horizontalline_new{
             margin-top: 5rem;
         }
-        
+    }
     .students_container{
         padding-top: 3.125rem;
     }
@@ -95,11 +100,7 @@
         font-size: 1.25rem;
         line-height: 1.5625rem;
     }
-    .textArray{
-        font-family: inherit;
-        font-size: 1.5625rem;
-        line-height: 1.875rem;
-    }
+   
     .mark_or_edit{
         @include flex(center,space-between,row);
     }
@@ -125,7 +126,7 @@
         }
     }
    
-}
+
 .resources_container_2{
     padding-left: 3.125rem;
 }
