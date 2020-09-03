@@ -29,7 +29,7 @@ type DrawerProps = {
     position?: 'left' | 'right' | 'top' | 'bottom';
     open: boolean;
     onClose: () => void;
-    width?: number;
+    width?: number | string;
     children: ReactNode;
 };
 
@@ -42,7 +42,7 @@ const Drawer: FC<DrawerProps> = ({
 }) => {
     const classes = useStyles({ width });
     return (
-        <MuiDrawer anchor={position} open={open} variant="persistent">
+        <MuiDrawer anchor={position} open={open} variant="temporary">
             <Grid container direction="column" className={classes.content}>
                 <Grid className={classes.buttonContainer}>
                     <IconButton className={classes.button} onClick={onClose}>

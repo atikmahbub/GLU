@@ -20,32 +20,32 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
         { day: 'Sunday', start: '9.25am', end: '11.25am' },
     ];
     return (
-        <div className="tutor_availablity_container">
-            <NavigationMenu menuList={menu} />
-            <div className="tutor_availablity_subcontainer">
-                <div className="tutor_availablity_subcontainer_banner">
-                    <Banner heading={'Availability'} description={'Configure your general availability.'} />
-                </div>
-                <div className="row horizontalline"></div>
-                <div className="tutor_availablity_subcontainer_weekly">
-                    <div className="row">
-                        <div className="col-md-6 p-0">
-                            <Typography className="weeklyText">Weekly Schedule</Typography>
-                        </div>
-                        <div className="col-md-6 p-0 weeklyborderline">
-                            <div className="weeklyDays">
-                                <div className="row">
-                                    <div className="col-4">
-                                        <Typography className="weeklySubtext">Date</Typography>
+        <NavigationMenu menuList={menu}>
+            <div className="tutor_availablity_container">
+                <div className="tutor_availablity_subcontainer">
+                    <div className="tutor_availablity_subcontainer_banner">
+                        <Banner heading={'Availability'} description={'Configure your general availability.'} />
+                    </div>
+                    <div className="row horizontalline"></div>
+                    <div className="tutor_availablity_subcontainer_weekly">
+                        <div className="row">
+                            <div className="col-md-6 p-0">
+                                <Typography className="weeklyText">Weekly Schedule</Typography>
+                            </div>
+                            <div className="col-md-6 p-0 weeklyborderline">
+                                <div className="weeklyDays">
+                                    <div className="row">
+                                        <div className="col-4">
+                                            <Typography className="weeklySubtext">Date</Typography>
+                                        </div>
+                                        <div className="col-4">
+                                            <Typography className="weeklySubtext">Start</Typography>
+                                        </div>
+                                        <div className="col-4">
+                                            <Typography className="weeklySubtext">End</Typography>
+                                        </div>
                                     </div>
-                                    <div className="col-4">
-                                        <Typography className="weeklySubtext">Start</Typography>
-                                    </div>
-                                    <div className="col-4">
-                                        <Typography className="weeklySubtext">End</Typography>
-                                    </div>
-                                </div>
-                                {/* {weeklySchedule.map((val: any, index: any) => (
+                                    {/* {weeklySchedule.map((val: any, index: any) => (
                                     <div className="row">
                                         <div className="col-4">
                                             <Typography className={`${}`}>{val.day}</Typography>
@@ -58,18 +58,19 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                                         </div>
                                     </div>
                                 ))} */}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* <div className="profile_footer">
+                {/* <div className="profile_footer">
                 <div className="footer">
                     <MadeBy />
                 </div>
             </div> */}
-        </div>
+            </div>
+        </NavigationMenu>
     );
 };
 export default PersonalSchoolToggle;

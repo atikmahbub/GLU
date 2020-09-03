@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { ReactNode, useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Button, Typography, IconButton } from '@material-ui/core';
@@ -9,18 +9,31 @@ import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
 
+const getBackground = (background: string) => {
+    switch (background) {
+        case 'primary':
+            return '#fff'
+        case 'secondary':
+            return  '#F7F7F7'
+        case 'transparent':
+            return 'transparent'
+        default:
+            return '#fff'
+    }
+}
+
 const useStyles = makeStyles({
-    rootAbsolute: {
+    root: {
+        '& .navigation': {
+            backgroundColor: ({ background }: any) => getBackground(background)
+        }
+    },
+    rootFixed: {
         width: '100%',
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         zIndex: 1
-    },
-    rootTransparent: {
-        '& .navigation': {
-            backgroundColor: 'transparent',
-        }
     },
     rootColorWhite: {
         '& .navigation ul li a .link': {
@@ -31,6 +44,9 @@ const useStyles = makeStyles({
         },
         '& .navigation .heading': {
             color: '#fff'
+        },
+        '& .navigation ul li a button': {
+            color: "#fff"
         }
     },
     button: {
@@ -48,45 +64,59 @@ export interface propsType {
 interface props {
     menuList?: propsType[];
     customClass?: string;
-    handler?: () => void;
     showMenuOptions?: boolean;
     rootClassName?: string;
     containerClassName?: string;
-    absolute?: boolean;
-    transparent?: boolean;
+    fixed?: boolean;
     colorWhite?: boolean;
+    background?: 'primary' | 'secondary' | 'transparent',
+    menuDrawerWidth?: number | string;
+    menuDrawerAnimation?: boolean;
+    MenuDrawerComponent?: ReactNode;
 }
 
 const NavigationMenu: React.FunctionComponent<props> = ({
     menuList,
-    handler,
     customClass,
     showMenuOptions,
     rootClassName,
     containerClassName,
-    absolute,
-    transparent,
+    fixed,
     colorWhite,
     children,
+    background,
+    menuDrawerWidth,
+    menuDrawerAnimation,
+    MenuDrawerComponent
 }) => {
-    const classes = useStyles();
+    const classes = useStyles({ background });
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
+    const [menuDrawer, setMenuDrawer] = useState(false)
 
-    const toggleNotificationDrawer = useCallback(() => {
-        setNotificationsDrawer((prevState) => !prevState);
-    }, []);
+    const openNotificationDrawer = useCallback(() => {
+        setNotificationsDrawer(true);
+    }, [])
+
+    const openMenuDrawer = useCallback(() => {
+        MenuDrawerComponent && setMenuDrawer(true)
+    }, [MenuDrawerComponent])
+
+    const closeDrawers = useCallback(() => {
+        setNotificationsDrawer(false);
+        setMenuDrawer(false);
+    }, [])
 
     const renderMenuList = useMemo(() => {
         if (menuList) {
             return (
                 <>
                     <li>
-                        <IconButton className="icon-button" onClick={handler}>
+                        <IconButton className="icon-button" onClick={openMenuDrawer}>
                             <Menu className="icon" />
                         </IconButton>
                     </li>
                     <li>
-                        <IconButton className="icon-button" onClick={toggleNotificationDrawer}>
+                        <IconButton className="icon-button" onClick={openNotificationDrawer}>
                             <NotificationsNoneIcon className="icon" />
                         </IconButton>
                     </li>
@@ -132,15 +162,24 @@ const NavigationMenu: React.FunctionComponent<props> = ({
                 </li>
             </>
         );
-    }, [classes, menuList, handler, toggleNotificationDrawer]);
+    }, [classes, menuList, openNotificationDrawer, openMenuDrawer]);
+
+    const drawerOptions = useMemo(() => {
+        return {
+            open: notificationsDrawer || menuDrawer,
+            onClose: closeDrawers,
+            drawerWidth: menuDrawer ? menuDrawerWidth : undefined,
+            animation: menuDrawer ? menuDrawerAnimation : true,
+            drawerContent: menuDrawer ? MenuDrawerComponent :  <Notifications />
+        }
+    }, [notificationsDrawer, menuDrawer, closeDrawers, notificationsDrawer, MenuDrawerComponent, menuDrawerWidth])
 
     return (
-        <DrawerProvider open={notificationsDrawer} onClose={toggleNotificationDrawer} drawerContent={<Notifications />}>
+        <DrawerProvider {...drawerOptions}>
             <div>
                 <div
-                    className={classNames(rootClassName, 'menu__type2__container', {
-                        [classes.rootAbsolute]: absolute,
-                        [classes.rootTransparent]: transparent,
+                    className={classNames(classes.root, rootClassName, 'menu__type2__container', {
+                        [classes.rootFixed]: fixed,
                         [classes.rootColorWhite]: colorWhite
                     })}
                 >
@@ -155,5 +194,10 @@ const NavigationMenu: React.FunctionComponent<props> = ({
         </DrawerProvider>
     );
 };
+
+NavigationMenu.defaultProps = {
+    background: 'primary',
+    fixed: true
+}
 
 export default NavigationMenu;

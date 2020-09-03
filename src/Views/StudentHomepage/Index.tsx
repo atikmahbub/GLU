@@ -15,7 +15,7 @@ import { studentMenus } from '../../Helper/studentMenus';
 const Index: React.FunctionComponent = () => {
     
     return (
-        <NavigationMenu menuList={studentMenus} absolute transparent colorWhite>
+        <NavigationMenu menuList={studentMenus} absolute background="transparent" colorWhite>
             <div className="homepage__wrapper">
                 <div className="banner">
                     <SectionTwoReusable
