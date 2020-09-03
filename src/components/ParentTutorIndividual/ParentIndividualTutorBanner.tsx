@@ -1,13 +1,13 @@
 import React, { FC, useState, ReactNode, memo } from 'react';
 import { Typography } from '@material-ui/core';
-import commonImg from '../Assets/images';
+import commonImg from '../../Assets/images';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import NavigationMenu from './NavigationMenu';
 import { FavoriteBorder, StarBorder } from '@material-ui/icons';
+// import './style.scss';
 
 
 const useStyles = makeStyles({
@@ -143,7 +143,7 @@ const ParentIndividualTutorBanner: FC = () => {
                         effect="blur"
                         src={commonImg.twogirl} />
                 </Grid>
-                <Grid item lg={12} md={12} sm={12}>
+                <Grid item lg={12} md={12} sm={12} className="big__text">
                     <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
                 </Grid>
 

@@ -10,7 +10,7 @@ import Personal from './Personal';
 import School from './School';
 import Drawer from './Drawer';
 import DrawerProvider from '../../Providers/DrawerProvider';
-import ParentIndividualTutorBanner from '../../components/ParentIndividualTutorBanner';
+import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 
 const ParentDashboard: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
