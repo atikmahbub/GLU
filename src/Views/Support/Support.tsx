@@ -3,6 +3,8 @@ import MenuContainer from '../../components/MenuContainer';
 import SlidingMenu from '../../components/SlidingMenu';
 import BannerTop from './BannerTop';
 import HelpGuides from './HelpGuides';
+import NavigationMenuResuable from '../../components/NavigationMenuReusable';
+import AskSomething from './AskSomething';
 
 const Support = () => {
     const menuList = [
@@ -19,15 +21,19 @@ const Support = () => {
     const [menuShow, setMenuShow] = useState(false);
     const handleMenu = () => {
         setMenuShow(!menuShow);
-    }
+    };
     return (
         <div className="content-wrapper">
+            <NavigationMenuResuable />
             <div className="header-banner">
-            <SlidingMenu show={menuShow} handler={()=>handleMenu()} menus={menuList}/>
-            <MenuContainer handleMenu={()=>handleMenu()}/>
-            <BannerTop/>
+                {/* <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
+                <MenuContainer handleMenu={() => handleMenu()} /> */}
+
+                <BannerTop />
             </div>
-            <HelpGuides/>
+            <AskSomething />
+
+            <HelpGuides />
         </div>
     );
 };

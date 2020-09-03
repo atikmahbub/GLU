@@ -10,7 +10,7 @@
 @import './loader';
 @import './tostAlert';
 @import './rangeCalender';
-@import "./highchartStyle";
+@import './highchartStyle';
 @import '../../Views/Auth/Login/style.scss';
 @import '../../Views/Auth/ForgotPassword/style.scss';
 @import '../../Views/Dashboard/style.scss';
@@ -57,15 +57,16 @@
 @import '../../Views/PersonalSchool2/style.scss';
 @import '../../Views/TutorSetClass/style.scss';
 @import '../../Views/ParentsHomePage/style.scss';
-@import "../../Views/EmailVerification/style.scss";
-@import "../../Views/EmailVerification/style.scss";
+@import '../../Views/EmailVerification/style.scss';
+@import '../../Views/EmailVerification/style.scss';
 @import '../../Views/TutorRecordClass/style.scss';
-@import "../../Views/TutorIndivisualHomework/style.scss";
-@import "../../Views/ParentDashBoard/style.scss";
-@import "../../Views/TutorSetHomework/style.scss";
-@import "../../Views/PersonalSchoolMain/style.scss";
-@import "../../Views/SchoolTimeTable/style.scss";
-@import "../../Views/TutorAvailablity/style.scss";
-@import "./timetable";
-@import "./userDetails.scss";
-@import "../../components/ParentTutorIndividual/style.scss";
+@import '../../Views/TutorIndivisualHomework/style.scss';
+@import '../../Views/ParentDashBoard/style.scss';
+@import '../../Views/TutorSetHomework/style.scss';
+@import '../../Views/PersonalSchoolMain/style.scss';
+@import '../../Views/SchoolTimeTable/style.scss';
+@import '../../Views/TutorAvailablity/style.scss';
+@import './timetable';
+@import './userDetails.scss';
+
+@import './searchInputReusable';

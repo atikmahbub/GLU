@@ -161,9 +161,9 @@ const ParentIndividualTutorBanner: FC = () => {
                         <Typography className={classes.favorite}>Primary, Secondary</Typography>
                     </Grid> */}
                 </Grid>
-                {/* <Grid item lg={12} md={12} sm={3}>
+                <Grid item lg={12} md={12} sm={3}>
                     <Typography className={classes.bottomText}>Primary, Secondary</Typography>
-                </Grid> */}
+                </Grid>
             </Grid>
         </Grid>
     );
