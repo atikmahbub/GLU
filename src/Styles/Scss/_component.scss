@@ -543,12 +543,10 @@ button.primary-btn {
                     td {
                         font-size: 1.25rem;
                         padding-left: 0;
+                        cursor: pointer;
                         &:last-child {
                             text-align: left;
                             padding-right: 2rem;
-                        }
-                        &:first-child {
-                            // padding-left: 2rem;
                         }
                     }
                 }

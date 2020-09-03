@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
-import { AccountCircle, Add } from '@material-ui/icons';
-import { colors } from '../../Styles/colors';
-import FormContainer from './FormContainer';
+import {  Add } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface props {
     triggerModal: () => void;
@@ -36,15 +35,18 @@ const SubjectList: React.FunctionComponent<props> = ({ triggerModal, setEditData
         <div className="content-wrapper-student">
             <CardContainer>
                 <AddButton
-                    style={{ backgroundColor: colors.primary }}
-                    icon={<AccountCircle className="icon-circle" />}
-                    title="Subject"
+                    title="Class Groups"
                     btnTitle="Create Class Group"
                     btnIcon={<Add />}
                     trigger={triggerModal}
                 />
             </CardContainer>
-            <FormContainer setEditData={setEditData} subjectList={subjects} onClick={triggerModal} />
+            <UserTable
+                showFilter={true}
+                redirectDetails={(value: any) => {}}
+                handleEdit={(value: any) => {}}
+                handleDelete={(value: any) => {}}
+            />
         </div>
     );
 };

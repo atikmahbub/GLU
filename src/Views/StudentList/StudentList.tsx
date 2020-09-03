@@ -62,6 +62,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                 <AddButton title="Students" btnIcon={<Add />} btnTitle="Add Student" trigger={handleRoutes} />
             </CardContainer>
             <UserTable
+                showFilter={true}
                 redirectDetails={(value: any) => redirectDetails(value)}
                 handleEdit={(value: any) => handleEdit(value)}
                 handleDelete={(value: any) => handleDelete(value)}

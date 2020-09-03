@@ -4,6 +4,7 @@ import { Add, AccountCircle } from '@material-ui/icons';
 import AddButton from '../../components/Dashobard/AddButton';
 import FormContainer from './FormContainer';
 import AddSection from './AddSection';
+import UserTable from '../../components/Dashobard/Table/UserTable';
 
 
 interface props{
@@ -20,15 +21,18 @@ const ClassList: React.FunctionComponent<props> = ({triggerModal, classList}) =>
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Year Group"
                     btnIcon={<Add />}
                     btnTitle="Add Year Group"
                     trigger={triggerModal}
                 />
             </CardContainer>
-            <FormContainer setSection={setEdtiSection} classList={classList} onClick={handleToggler}/>
-            <AddSection sections={editSection} show={toggler} onClick={handleToggler}/>
+            <UserTable
+                showFilter={true}
+                redirectDetails={(value: any) => {}}
+                handleEdit={(value: any) => {}}
+                handleDelete={(value: any) => {}}
+            />
         </div>
     );
 };

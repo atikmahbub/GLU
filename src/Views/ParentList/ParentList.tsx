@@ -49,14 +49,10 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton
-                    title="Parents"
-                    btnIcon={<Add />}
-                    btnTitle="Add New Parent"
-                    trigger={handleRoutes}
-                />
+                <AddButton title="Parents" btnIcon={<Add />} btnTitle="Add New Parent" trigger={handleRoutes} />
             </CardContainer>
             <UserTable
+                showFilter={true}
                 redirectDetails={(value: any) => redirectDetails(value)}
                 handleEdit={(value: any) => handleEdit(value)}
                 handleDelete={(value: any) => handleDelete(value)}
