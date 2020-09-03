@@ -23,7 +23,7 @@ const NavigationMenuReusable: React.FunctionComponent<props> = ({
     handler,
     customClass,
     showMenuOptions,
-    customBackgroundColor,
+    customBackgroundColor, // created by Vivek to add a custom background color.
 }) => {
     const getMenuList = () => {
         if (menuList) {
