@@ -13,6 +13,7 @@ import DrawerProvider from '../../Providers/DrawerProvider';
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import ParentIndividualHomeworkBanner from '../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner';
+import DateAndResources from '../../components/ParentIndividualHomeWork/DateAndResources';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -80,6 +81,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                     <LimitedAvailability/>
 
                     <ParentIndividualHomeworkBanner/>
+                    <DateAndResources/>
                     <div className="main_container_4">
                         <div className="footer">
                             <MadeBy />

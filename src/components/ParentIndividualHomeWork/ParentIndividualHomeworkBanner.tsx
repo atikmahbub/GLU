@@ -3,15 +3,7 @@ import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-// import "./style.scss"
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -37,8 +29,6 @@ const useStyles = makeStyles(() => ({
         fontSize: "5rem",
         lineHeight: "5rem",
     }
-
-
 }));
 
 const ParentIndividualHomeworkBanner: FC = () => {
