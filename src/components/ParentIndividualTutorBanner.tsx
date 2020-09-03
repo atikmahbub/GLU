@@ -43,22 +43,25 @@ const useStyles = makeStyles({
         fontSize: '7.5rem',
         lineHeight: '7.5rem',
         color: 'white',
+        border: '2px solid black',
+        marginTop: '-10.875rem',
     },
     left: {
         justifyContent: 'space-between',
     },
     ratingFavoriteContainer: {
-        marginTop: "1.25rem",
+        marginTop: "-9.75rem",
         width: "12.5rem",
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
+        border: '2px solid black',
     },
     ratingContainer: {
         width: "3.887rem",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
     },
     favoriteContainer: {
         width: "6.937rem",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
     },
     rating: {
         color: 'white',
@@ -148,20 +151,20 @@ const ParentIndividualTutorBanner: FC = () => {
                     effect="blur"
                     src={commonImg.twogirl} />
             </Grid>
-            {/* <Grid item lg={6}>
+            <Grid item lg={12}>
                 <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
-            </Grid> */}
+            </Grid>
             
-            {/* <Grid container item className={classes.ratingFavoriteContainer}> */}
-                {/* <Grid container className={classes.ratingContainer} >
+            <Grid container item className={classes.ratingFavoriteContainer} lg={3}>
+                <Grid container className={classes.ratingContainer} >
                     <StarBorder className={classes.icon} />
                     <Typography className={classes.rating}>5/5</Typography>
-                </Grid> */}
-                {/* <Grid container className={classes.favoriteContainer} >
+                </Grid>
+                <Grid container className={classes.favoriteContainer} >
                     <FavoriteBorder className={classes.icon} />
                     <Typography className={classes.favorite}>Favorite</Typography>
-                </Grid> */}
-            {/* </Grid> */}
+                </Grid>
+            </Grid>
             {/* <Typography className={classes.bottomText}>Primary, Secondary</Typography>  */}
 
         </Grid>
