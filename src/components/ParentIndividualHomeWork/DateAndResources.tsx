@@ -157,7 +157,7 @@ const DateAndResources: FC = () => {
                                     </Grid>
                                 </Grid>
                                 <Grid item className={classes.audioTimeContainer} lg={2}>
-                                        <Typography className={classes.audioTime}>\ 33.21</Typography>
+                                        <Typography className={classes.audioTime}>\33.21</Typography>
                                 </Grid>
                              </Grid>
                         </Grid>

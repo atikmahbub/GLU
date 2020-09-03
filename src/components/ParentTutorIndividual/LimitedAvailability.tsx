@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "9.25rem",
     },
     limitedAvailabilityContainer:{
-        border: "2px solid red",
+        color: "black",
     },
     limitedAvailabilityText: {
         fontSize: "1.562rem",
@@ -60,7 +60,9 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: "2.812rem",
     },
     form: {
-        marginTop: "4.25rem",
+        // marginTop: "4.25rem",
+        marginTop: "0rem",
+
     }
 }));
 
@@ -91,19 +93,19 @@ const ParentIndividualTutorBanner: FC = () => {
 
     return (
         <Grid container className={classes.container}>
-            <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} md={6} sm={12}>
-                    <Grid item container lg={6} md={6}>
-                        <Grid item lg={1} md={1} >
+            <Grid container className={classes.elementsContainer} spacing={4}>
+                <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Grid item container lg={6} md={6} sm={6}>
+                        <Grid item lg={1} md={1} sm={1} xs={1}>
                             <FiberManualRecordIcon className={classes.redDot} />
                         </Grid>
-                        <Grid item lg={5} md={5} className={classes.limitedAvailabilityContainer}>
+                        <Grid item lg={11} md={11} sm={11} xs={10} className={classes.limitedAvailabilityContainer}>
                             <Typography className={classes.limitedAvailabilityText}>Limited Availability</Typography>
                         </Grid>
                     </Grid>
                 </Grid>
 
-                <Grid item lg={6}>
+                <Grid item container lg={6}>
                     <Typography className={classes.right}>
                         I am an American author, life coach, and philanthropist. Known for my infomercials, seminars, and self-help books including the books Unlimited Power and Awaken the Giant Within. In 2015 and 2016 I was listed on the Worth Magazine Power 100 list.
                     </Typography>
@@ -144,7 +146,7 @@ const ParentIndividualTutorBanner: FC = () => {
                             </FormControl>
                         </Grid>
                         <Grid container item lg={12} spacing={1}>
-                            <Grid item lg={6} md={6} sm={12} xs={12}>
+                            <Grid item lg={6} md={6} xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Start Time</InputLabel>
                                     <Select
@@ -161,7 +163,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item lg={6} md={6} sm={12} xs={12}>
+                            <Grid item lg={6} md={6} xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">End Time</InputLabel>
                                     <Select
