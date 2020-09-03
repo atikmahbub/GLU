@@ -44,7 +44,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
-            pathname:  routeEndpoints.teacher.addNewTeacher,
+            pathname: routeEndpoints.teacher.addNewTeacher,
             state: {
                 breadcrumb: routeEndpoints.teacher.editTeacher,
                 teacherInfo: data,
@@ -57,14 +57,10 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton
-                    title="Teachers"
-                    btnIcon={<Add />}
-                    btnTitle="Add New Teacher"
-                    trigger={handleRoutes}
-                />
+                <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} />
             </CardContainer>
             <UserTable
+                showFilter={true}
                 redirectDetails={() => redirectDetails()}
                 handleEdit={(value: any) => handleEdit(value)}
                 handleDelete={(value: any) => handleDelete(value)}
