@@ -13,7 +13,9 @@ const VideoDescription = () => {
             </div>
             <div className="col-md-6">
                 <div className="video__description">
-                    <Typography className="heading">English. How to structure narrative in fiction</Typography>
+                    <Typography className="heading">English.</Typography>
+                    <Typography className="heading">How to structure narrative in fiction</Typography>
+                    
                     <IconTextWrapper>
                         <PlayButton/>
                         <IconTextRow icon={<FavoriteBorder className="icon" />} title="Favourite" />

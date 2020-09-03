@@ -1,6 +1,7 @@
 import React from 'react';
-import { Typography, Button } from '@material-ui/core';
+import { Typography, Button, Box, makeStyles, Grid } from '@material-ui/core';
 import SelectField from '../Inputs/SelectField';
+import { MailOutline } from '@material-ui/icons';
 
 interface AddButtonProps {
     icon?: any;
@@ -14,7 +15,16 @@ interface AddButtonProps {
     bulkbtn?: boolean;
     bulkText?: string;
     bulkTrigger?: () => void;
+    notificationText?: string;
+    notificationIcon?: React.ReactNode;
+    showNotification?: boolean;
 }
+
+const useStyle = makeStyles({
+    buttonContainer: {
+        maxWidth: '26rem',
+    },
+});
 const AddButton: React.FunctionComponent<AddButtonProps> = ({
     icon,
     title,
@@ -26,8 +36,12 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
     bulkbtn,
     bulkText,
     bulkTrigger,
+    notificationText,
+    notificationIcon,
+    showNotification,
     ...props
 }) => {
+    const classes = useStyle();
     const getComponent = () => {
         switch (component) {
             case 'select': {
@@ -40,6 +54,22 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
                             getValue={() => {}}
                         />
                     </div>
+                );
+            }
+            case 'notification': {
+                return (
+                    <Grid container className={classes.buttonContainer} alignItems="center" justify="space-between">
+                        {showNotification && (
+                            <div {...props} onClick={trigger} className="rounded-btn">
+                                {notificationText}
+                                {notificationIcon}
+                            </div>
+                        )}
+                        <div {...props} onClick={trigger} className="rounded-btn">
+                            {btnTitle}
+                            {btnIcon}
+                        </div>
+                    </Grid>
                 );
             }
             default: {
@@ -65,7 +95,8 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
                         startIcon={btnIcon}
                         style={{ marginLeft: 'auto', marginRight: 5 }}
                         onClick={bulkTrigger}
-                        className="rounded-btn">
+                        className="rounded-btn"
+                    >
                         {bulkText}
                     </Button>
                 )}

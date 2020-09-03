@@ -44,12 +44,18 @@ interface props{
     fontSize:any;
     titleFontSize:any;
     marginTop:any;
+    click?:()=>void
 }
-const SmallImageText:React.FC<props> = ({imgwidth, imgHeight, fontSize, titleFontSize, marginTop}) => {
+const SmallImageText:React.FC<props> = ({imgwidth, imgHeight, fontSize, titleFontSize, marginTop, click}) => {
     const classes = useStyle({imgwidth, imgHeight, fontSize, titleFontSize, marginTop});
+    const handleClick = ()=>{
+        if(click!==undefined){
+            click()
+        }
+    }
     return (
         <div>
-            <Grid container className={classes.flexWrap} direction="row" justify="flex-start" alignItems="center">
+            <Grid container className={classes.flexWrap} direction="row" justify="flex-start" alignItems="center" onClick={handleClick}>
                 <img className={classes.mediumImg} src={commonImg.photo} alt="" />
                 <Box component="div">
                     <Typography className={classes.mediumTitle}>
