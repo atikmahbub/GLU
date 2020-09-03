@@ -1,21 +1,16 @@
 import React, { FC, useState, ReactNode, memo } from 'react';
-import { Typography, TextField } from '@material-ui/core';
-import commonImg from '../../Assets/images';
+import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { FavoriteBorder, StarBorder } from '@material-ui/icons';
-// import './style.scss';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import "./style.scss"
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -25,12 +20,16 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    redDot:{
+        color: 'red',
+        width: '20px',
+    },
     inputLabel: {
         fontSize: "1.562rem",
         lineHeight: "1.875rem",
         color: "#000000",
     },
-    selectLabel:{
+    selectLabel: {
         fontSize: "1.562rem",
     },
     container: {
@@ -45,11 +44,11 @@ const useStyles = makeStyles((theme) => ({
     elementsContainer: {
         height: "90vh",
         marginTop: "9.25rem",
-        // border: '2px solid red',
     },
     left: {
         fontSize: "1.562rem",
         lineHeight: "1.875rem",
+        marginLeft : "-38px"
     },
     right: {
         color: "black",
@@ -59,9 +58,6 @@ const useStyles = makeStyles((theme) => ({
     form: {
         marginTop: "4.25rem",
     }
-
-
-
 }));
 
 const ParentIndividualTutorBanner: FC = () => {
@@ -72,28 +68,37 @@ const ParentIndividualTutorBanner: FC = () => {
     const [endTime, setEndTime] = React.useState("");
 
     const handleChangeSubject = (event) => {
-      setSubject(event.target.value);
+        setSubject(event.target.value);
     };
 
     const handleChangeDate = (event) => {
         setDate(event.target.value);
-      };
+    };
 
-    
+
     const handleChangeStartTime = (event) => {
         setStartTime(event.target.value);
     };
 
 
-const handleChangeEndTime = (event) => {
-    setEndTime(event.target.value);
+    const handleChangeEndTime = (event) => {
+        setEndTime(event.target.value);
     };
 
     return (
         <Grid container className={classes.container}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6}>
-                    <Typography className={classes.left}>Limited Availability</Typography>
+                <Grid item lg={6} className={classes.limitedAvailability}>
+                <Grid item container>
+                    <Grid item lg={1} md={1}>
+                            {/* <Badge color="secondary" variant="dot"/> */}
+                            <FiberManualRecordIcon className={classes.redDot} />
+                        </Grid>
+                        <Grid item lg={3} md={3}>
+                            <Typography className={classes.left}>Limited Availability</Typography>
+                        </Grid>
+                </Grid>
+
                 </Grid>
 
                 <Grid item lg={6}>
@@ -108,7 +113,8 @@ const handleChangeEndTime = (event) => {
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     value={subject}
-                                    IconComponent = {ExpandMoreIcon}
+                                    labelStyle={{ color: 'green' }}
+                                    IconComponent={ExpandMoreIcon}
                                     onChange={handleChangeSubject}
                                     fullWidth
                                 >
@@ -141,7 +147,7 @@ const handleChangeEndTime = (event) => {
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Start Time</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
-                                        IconComponent = {ExpandMoreIcon}
+                                        IconComponent={ExpandMoreIcon}
                                         id="demo-simple-select"
                                         value={startTime}
                                         onChange={handleChangeStartTime}
@@ -158,7 +164,7 @@ const handleChangeEndTime = (event) => {
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">End Time</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
-                                        IconComponent = {ExpandMoreIcon}
+                                        IconComponent={ExpandMoreIcon}
                                         id="demo-simple-select"
                                         value={endTime}
                                         onChange={handleChangeEndTime}
@@ -170,6 +176,23 @@ const handleChangeEndTime = (event) => {
                                     </Select>
                                 </FormControl>
                             </Grid>
+                        </Grid>
+                        <Grid>
+                            <div className="child__purchase__item" style={{marginTop: "4.75rem"}}>
+                                <div className="child__purchase">
+                                    <div className="child">
+                                        <Typography className="subtitle">Child 1</Typography>
+                                        <Typography variant="h5">
+                                            <ExpandMoreIcon
+                                                style={{ fontSize: "3rem" }} />
+                                        </Typography>
+                                    </div>
+                                    <div className="purchase"><Typography className="subtitle">Purchase</Typography></div>
+                                </div>
+                                <div className="item">
+                                    <Typography className="subtitle">AED100</Typography>
+                                </div>
+                            </div>
                         </Grid>
                     </Grid>
                 </Grid>
