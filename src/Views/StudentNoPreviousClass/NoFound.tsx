@@ -1,11 +1,8 @@
 import React from 'react';
-
 import MadeBy from '../Footer/MadeBy';
-import FixedNavigation from '../../Containers/FixedNavigation';
 import NavigationMenu from '../../components/NavigationMenu';
-import { menus } from '../../Helper/menus';
-
 import DashboardWrapper from '../../Containers/DashboardWrapper';
+import { menus } from '../../Helper/menus';
 
 interface props {
     topic: string;
@@ -14,21 +11,20 @@ interface props {
 
 const NoFound: React.FunctionComponent<props> = ({ topic, detail }) => {
     return (
-        <div className="school__nofav">
-            <FixedNavigation>
-                <NavigationMenu menuList={menus} />
-            </FixedNavigation>
-            <DashboardWrapper>
-                <p className="heading">{topic}</p>
-                <p className="detail">{detail}</p>
-                <p className="previous">
-                    See <span className="previousBtn">Previous classes</span>
-                </p>
-            </DashboardWrapper>
-            <div className="footer">
-                <MadeBy />
+        <NavigationMenu menuList={menus}>
+            <div className="school__nofav">
+                <DashboardWrapper>
+                    <p className="heading">{topic}</p>
+                    <p className="detail">{detail}</p>
+                    <p className="previous">
+                        See <span className="previousBtn">Previous classes</span>
+                    </p>
+                </DashboardWrapper>
+                <div className="footer">
+                    <MadeBy />
+                </div>
             </div>
-        </div>
+        </NavigationMenu>
     );
 };
 export default NoFound;

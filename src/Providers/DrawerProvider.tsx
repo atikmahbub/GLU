@@ -1,19 +1,23 @@
 import React, { FC, ReactNode } from 'react';
+import isNumber from 'lodash.isnumber';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Drawer from '../components/Drawer';
 
+const formatTranslateValue = (value: number | string) => (isNumber(value) ? value + 'px' : value);
+
 function createTransition(open: boolean, { create, duration }: any): string {
     return create('transform', {
-        duration: open ? duration.leavingScreen : duration.enteringScreen
-    })
+        duration: open ? duration.leavingScreen : duration.enteringScreen,
+    });
 }
 
 const useStyles = makeStyles(({ transitions }) => ({
     content: {
-        transform: ({ open, drawerWidth }: any) => open ? `translateX(-${drawerWidth}px)` : 'none',
-        transition: ({ open }: any) => createTransition(open, transitions)
-    }
-}))
+        transform: ({ open, animation, drawerWidth }: any) =>
+            open && animation ? `translateX(-${formatTranslateValue(drawerWidth)})` : 'none',
+        transition: ({ open }: any) => createTransition(open, transitions),
+    },
+}));
 
 type DrawerProviderProps = {
     open: boolean;
@@ -21,18 +25,30 @@ type DrawerProviderProps = {
     drawerWidth?: number;
     drawerContent: ReactNode;
     children: ReactNode;
-}
+    animation?: boolean;
+};
 
-const DrawerProvider: FC<DrawerProviderProps> = ({ open, onClose, drawerWidth = 500, drawerContent, children }) => {
-    const classes = useStyles({ open, drawerWidth })
+const DrawerProvider: FC<DrawerProviderProps> = ({
+    open,
+    onClose,
+    drawerWidth = 500,
+    drawerContent,
+    animation,
+    children,
+}) => {
+    const classes = useStyles({ open, drawerWidth, animation });
     return (
         <div>
-            <Drawer open={open} onClose={onClose} width={drawerWidth}>{drawerContent}</Drawer>
-            <div className={classes.content}>
-                {children}
-            </div>
+            <Drawer open={open} onClose={onClose} width={drawerWidth}>
+                {drawerContent}
+            </Drawer>
+            <div className={classes.content}>{children}</div>
         </div>
-    )
-}
+    );
+};
 
-export default DrawerProvider
+DrawerProvider.defaultProps = {
+    animation: true,
+};
+
+export default DrawerProvider;

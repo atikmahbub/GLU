@@ -10,7 +10,6 @@ import Tabs from './Tabs';
 import Personal from './Personal';
 import School from './School';
 
-
 const ParentDashboard: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
@@ -36,47 +35,42 @@ const ParentDashboard: React.FunctionComponent = () => {
     };
 
     return (
-        <div className="main_container">
-            <NavigationMenu menuList={menu} handler={handleDrawer} handlerNotification={handlePushDrawer} />
-            <div className="title__container">
-                <Tabs value={activeTab} onChange={setActiveTab} />
-                <div className="dropdown">
-                    <Typography variant="h5">
-                        Child 1
+        <NavigationMenu menuList={menu} background="secondary" absolute>
+            <div className="main_container">
+                <div className="title__container">
+                    <Tabs value={activeTab} onChange={setActiveTab} />
+                    <div className="dropdown">
+                        <Typography variant="h5">Child 1</Typography>
+                        <Typography variant="h5">
+                            <ExpandMoreIcon style={{ fontSize: '3rem' }} />
                         </Typography>
-                    <Typography variant="h5">
-                        <ExpandMoreIcon
-                            style={{ fontSize: "3rem" }} />
-                    </Typography>
+                    </div>
                 </div>
-            </div>
-            {activeTab === 'school' &&
-                <div className="school__container">
-                    <School />
+                {activeTab === 'school' && (
+                    <div className="school__container">
+                        <School />
+                    </div>
+                )}
+
+                {activeTab === 'personal' && <Personal />}
+                <div className="drawer" id="menu__drawer">
+                    <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                        <SlidingDrawerContent />
+                    </SlidingDrawer>
                 </div>
 
-            }
-
-            {activeTab === 'personal' &&
-                <Personal />
-            }
-            <div className="drawer" id="menu__drawer">
-                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
-                    <SlidingDrawerContent />
-                </SlidingDrawer>
-            </div>
-
-            <div className="drawer push__drawer" id="notification__drawer">
-                <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
-                    <SlidingPushDrawerContent />
-                </SlidingDrawer>
-            </div>
-            <div className="main_container_4">
-                <div className="footer">
-                    <MadeBy />
+                <div className="drawer push__drawer" id="notification__drawer">
+                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
+                        <SlidingPushDrawerContent />
+                    </SlidingDrawer>
+                </div>
+                <div className="main_container_4">
+                    <div className="footer">
+                        <MadeBy />
+                    </div>
                 </div>
             </div>
-        </div>
+        </NavigationMenu>
     );
 };
 export default ParentDashboard;

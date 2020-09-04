@@ -37,12 +37,12 @@ const ParentIndividualHomeworkBanner: FC = () => {
     return (
         <Grid container className={classes.container}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item container lg={6}>
+                <Grid item container xs={6}>
                     <Typography className={classes.left}>Mr J Cole</Typography>
                     <PlayCircleFilledIcon style={{ fontSize: "3rem", marginLeft: "1.25rem", color:"#2267FF" }} />
                 </Grid>
 
-                <Grid item container lg={6}>
+                <Grid item container xs={6}>
                     <Typography className={classes.right}>Maths. <br/>  Introducing Advanced Linear Alegbra</Typography>
                 </Grid>
             </Grid>

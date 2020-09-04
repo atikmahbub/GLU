@@ -122,6 +122,12 @@ export const SuperAdminMenu: any[] = [
                 menuList: [],
                 routeName: '/extra-curricular-activities',
             },
+            {
+                menuName: 'Merits/Sanction',
+                isExpandable: false,
+                menuList: [],
+                routeName: '/merits-sanctions',
+            },
         ],
         routeName: '',
     },

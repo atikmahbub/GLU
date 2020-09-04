@@ -3,7 +3,6 @@
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
-  margin-top: 10rem;
 }
 
 .dashboard__wrapper .image__row {

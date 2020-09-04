@@ -16,7 +16,7 @@ const StudentIndividualSubjects = React.lazy(() => import('../../Views/StudentIn
 
 const TutorsUpcomingClasses = React.lazy(() => import('../../Views/TutorsUpcomingClasses/Index'));
 const StudentTutorPreviousClasses = React.lazy(() => import('../../Views/StudentTutorPreviousClasses/Index'));
-const studentDashboard = React.lazy(() => import('../../Views/StudentDashboard/Index'));
+
 const studentDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentDetail/Index'));
 const studentIncompleteDetail = React.lazy(() => import('../../Views/StudentDashboard/StudentIncompleteDetail/Index'));
 
@@ -30,6 +30,8 @@ const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Ind
 const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
 const ParentDashboard = React.lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
+const WatchSession = React.lazy(() => import('../../Views/SessionList/WatchSession'));
+
 
 export const rootRoute = [
     { component: Home, name: '/' },
@@ -59,5 +61,8 @@ export const rootRoute = [
     { component: studentNoResult, name: '/student-no-result' },
     {component: EmailVerification, name: '/email-verification'},
     {component: ParentsHomePage, name: '/parent/homepage'},
-    {component: ParentDashboard, name: '/parent/dashboard'}
+    {component: ParentDashboard, name: '/parent/dashboard'},
+    {component: WatchSession, name: '/watch-session'},
+
+    
 ];

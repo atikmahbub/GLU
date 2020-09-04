@@ -12,10 +12,10 @@ import LiveClasses from './LiveClasses';
 import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
-// import './style.scss';
+
+import './style.scss';
 import commonImg from '../../Assets/images';
 import DrawerProvider from '../../Providers/DrawerProvider';
-
 
 const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
