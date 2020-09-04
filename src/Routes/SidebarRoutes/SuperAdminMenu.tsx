@@ -128,6 +128,12 @@ export const SuperAdminMenu: any[] = [
                 menuList: [],
                 routeName: '/merits-sanctions',
             },
+            {
+                menuName: 'feedback',
+                isExpandable: false,
+                menuList: [],
+                routeName: '/feedback',
+            },
         ],
         routeName: '',
     },

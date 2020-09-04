@@ -1,16 +1,11 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
-import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
-import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { deleteStudentAPIcall } from '../../Redux/Actions/studentAction';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
-import commonImg from '../../Assets/images';
-import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface colDataType {
