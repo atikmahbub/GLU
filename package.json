@@ -82,6 +82,7 @@
         "highcharts": "^8.1.0",
         "highcharts-react-official": "^3.0.0",
         "immutable": "^4.0.0-rc.12",
+        "lodash": "^4.17.20",
         "lodash.isnumber": "^3.0.3",
         "material-table": "^1.49.0",
         "moment": "^2.24.0",

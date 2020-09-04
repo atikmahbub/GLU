@@ -15,6 +15,7 @@ interface props {
     height?: string;
     children?: React.ReactNode;
     rowClick?: () => void;
+    padding?:string;
 }
 const ThreeColTable: React.FunctionComponent<props> = ({
     color,
@@ -29,9 +30,10 @@ const ThreeColTable: React.FunctionComponent<props> = ({
     height,
     children,
     rowClick,
+    padding
 }) => {
     return (
-        <div className="data-container bg-white">
+        <div style={{padding}} className="data-container bg-white">
             <Typography className="heading">{tableName}</Typography>
             <div style={{ maxHeight: height }} className="table-data">
                 <table className="table">
