@@ -15,13 +15,31 @@ import { studentMenus } from '../../Helper/studentMenus';
 const Index: React.FunctionComponent = () => {
     
     return (
-        <div className="homepage__wrapper">
-            <div className="banner">
-                <NavigationMenu menuList={studentMenus} />
+        <NavigationMenu menuList={studentMenus} absolute background="transparent" colorWhite>
+            <div className="homepage__wrapper">
+                <div className="banner">
+                    <SectionTwoReusable
+                        image={commonImg.smilegirl}
+                        mobileImg={commonImg.curlygirlcroped}
+                        leftTitle="Charlie Ray"
+                        desktopTitle="AED200 / 45mins"
+                        title="Tutors"
+                        msg={
+                            <>
+                                Maths.
+                                <br />
+                                An Introduction to trignometry
+                            </>
+                        }
+                    />
+                </div>
+                <NextClass route="/students/classes" />
+                <FeatureSubject />
+                <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-classes" />
                 <SectionTwoReusable
-                    image={commonImg.smilegirl}
+                    image={commonImg.earingGirlWithTab}
                     mobileImg={commonImg.curlygirlcroped}
-                    leftTitle="Charlie Ray"
+                    leftTitle="Sarah Frost"
                     desktopTitle="AED200 / 45mins"
                     title="Tutors"
                     msg={
@@ -32,39 +50,22 @@ const Index: React.FunctionComponent = () => {
                         </>
                     }
                 />
+                <UpcomingClass />
+                <CalenderContainer />
+                <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-classes" />
+                <FeatureTutor />
+                <SectionTwoReusable
+                    image={commonImg.lappygirl}
+                    mobileImg={commonImg.lappygirl}
+                    leftTitle="Charlie Ray"
+                    desktopTitle="AED200/h"
+                    title="Tutors"
+                    msg={<>ICT. 13 Upcoming Classes 97 Previous Classes</>}
+                />
+                <Tutors route="/students/tutors"/>
+                <Footer />
             </div>
-            <NextClass route="/students/classes" />
-            <FeatureSubject />
-            <TotalUpcomingClasses heading="Previous Classes" route="/students/previous-classes" />
-            <SectionTwoReusable
-                image={commonImg.earingGirlWithTab}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Sarah Frost"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={
-                    <>
-                        Maths.
-                        <br />
-                        An Introduction to trignometry
-                    </>
-                }
-            />
-            <UpcomingClass />
-            <CalenderContainer />
-            <TotalUpcomingClasses heading="Upcoming Classes" route="/students/upcoming-classes" />
-            <FeatureTutor />
-            <SectionTwoReusable
-                image={commonImg.lappygirl}
-                mobileImg={commonImg.lappygirl}
-                leftTitle="Charlie Ray"
-                desktopTitle="AED200/h"
-                title="Tutors"
-                msg={<>ICT. 13 Upcoming Classes 97 Previous Classes</>}
-            />
-            <Tutors route="/students/tutors"/>
-            <Footer />
-        </div>
+        </NavigationMenu>
     );
 };
 

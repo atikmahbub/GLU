@@ -1,10 +1,9 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { colors } from '../../Styles/colors';
-import { Person } from '@material-ui/icons';
+
 
 const options = {
     chart: {
@@ -54,7 +53,7 @@ const options = {
             content += `
             <div ><div class="arrow"></div><span class="tooltip-7785">
             <span style="font-weight:900; font-size:1rem;">
-            <span style="color:black; margin-left:5px;"> ${this.y} </span></span></span></div>
+            <span style="color:black; margin-left:5px;"> ${(this as any).y} </span></span></span></div>
             `;
             return content;
         },

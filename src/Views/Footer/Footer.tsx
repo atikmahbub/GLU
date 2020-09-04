@@ -31,7 +31,7 @@ const Footer: React.FunctionComponent = () => {
         setButtonText('Thank You');
     };
     const submitEmail = () => {
-        if(isVerified){
+        if (isVerified) {
             disptach(emailSubscriber({ email }, resetEmail));
         }
     };
@@ -53,11 +53,15 @@ const Footer: React.FunctionComponent = () => {
                                 !isEmailEnter
                                     ? {}
                                     : isVerified
-                                    ? { borderColor: '#007AFF' }
+                                    ? buttonText === 'Thank You'
+                                        ? { borderColor: '#000' }
+                                        : { borderColor: '#007AFF' }
                                     : { borderColor: '#cfcfcf' }
                             }
                         />
-                        <Typography className="subscribe"  onClick={submitEmail}>{buttonText}</Typography>
+                        <Typography className="subscribe" onClick={submitEmail}>
+                            {buttonText}
+                        </Typography>
                     </div>
                 </div>
                 <div className="col-md-3 col-lg-4">

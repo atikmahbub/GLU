@@ -1,7 +1,6 @@
 .dashboard__wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 10rem;
     .image__row {
         grid-column: 3/4;
 

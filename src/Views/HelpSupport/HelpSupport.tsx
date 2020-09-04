@@ -8,15 +8,16 @@ import VideoLectureContainer from '../../components/VideoLectureContainer';
 
 const HelpSupport: React.FunctionComponent = () => {
     return (
-        <div className="help__support__container">
-            <NavigationMenu />
-            <ManageAccount/>
-            <hr className="line" />
-            <Individual/>
-            <VideoLectureContainer/>
-            <ProfileSetting/>
-            <Footer/>
-        </div>
+        <NavigationMenu>
+            <div className="help__support__container">
+                <ManageAccount />
+                <hr className="line" />
+                <Individual />
+                <VideoLectureContainer />
+                <ProfileSetting />
+                <Footer />
+            </div>
+        </NavigationMenu>
     );
 };
 

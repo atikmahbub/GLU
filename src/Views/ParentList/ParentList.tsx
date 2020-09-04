@@ -1,6 +1,6 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle } from '@material-ui/icons';
+import { Add, AccountCircle, MailOutline } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
@@ -49,7 +49,16 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Parents" btnIcon={<Add />} btnTitle="Add New Parent" trigger={handleRoutes} />
+                <AddButton
+                    title="Parents"
+                    component="notification"
+                    btnIcon={<Add />}
+                    notificationIcon={<MailOutline />}
+                    notificationText="Send notification"
+                    showNotification={true}
+                    btnTitle="Add New Parent"
+                    trigger={handleRoutes}
+                />
             </CardContainer>
             <UserTable
                 showFilter={true}

@@ -216,7 +216,6 @@
             font-size: 1.25rem;
             text-transform: capitalize;
             font-weight: 100;
-            padding: 0.4rem 1rem;
             @include flex(center, space-between, row);
             cursor: pointer;
             .MuiSvgIcon-root {
@@ -1189,6 +1188,9 @@ button.outline-button {
     padding: 2.375rem 4rem;
     .total__classes {
         padding: 0;
+    }
+    &.no-mt {
+        margin-top: 0;
     }
 }
 // sliding drwaer

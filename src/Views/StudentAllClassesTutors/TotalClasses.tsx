@@ -1,7 +1,6 @@
 import React from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
-import { v4 as uuidv4 } from 'uuid';
 
 const TotalClasses = () => {
     const imageMetaDeta = [
@@ -144,8 +143,8 @@ const TotalClasses = () => {
     return (
         <div className="total__classes">
             <div  className="row">
-                {imageMetaDeta.map((item: any) => (
-                    <div key={uuidv4()} className="col-md-3 mb-5">
+                {imageMetaDeta.map((item: any, index) => (
+                    <div key={index} className="col-md-3 mb-5">
                         <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
