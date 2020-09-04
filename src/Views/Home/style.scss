@@ -465,6 +465,7 @@
             line-height: 2.625rem;
             transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
+            margin-top:0.4rem;
             @include makeFontSmoth(0.147rem, #1c1c1c);
         }
         .email-address {
