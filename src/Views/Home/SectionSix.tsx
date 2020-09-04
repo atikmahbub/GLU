@@ -45,7 +45,7 @@ const SectionSix: React.FunctionComponent = () => {
             disptach(emailSubscriber({ email }, resetEmail));
         }
     };
-    console.log(email, placeholer, buttonText);
+
     return (
         <div className="section-six">
             <div className="row">
@@ -63,7 +63,15 @@ const SectionSix: React.FunctionComponent = () => {
                     </div>
                     <hr
                         className="email-line"
-                        style={!isVerified ? {} : isVerified ? { borderColor: '#007AFF' } : { borderColor: '#cfcfcf' }}
+                        style={
+                            !isVerified
+                                ? {}
+                                : isVerified
+                                ? buttonText === 'Thank You'
+                                    ? { borderColor: '#000' }
+                                    : { borderColor: '#007AFF' }
+                                : { borderColor: '#cfcfcf' }
+                        }
                     />
                 </div>
             </div>

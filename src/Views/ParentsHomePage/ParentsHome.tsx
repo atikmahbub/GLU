@@ -13,11 +13,8 @@ import SlidingDrawer from '../../components/SlidingDrawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
 
-
-
 import './style.scss';
 import commonImg from '../../Assets/images';
-
 
 const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
@@ -33,8 +30,8 @@ const index: React.FunctionComponent = () => {
     };
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
-        let screen = document.getElementById("root")
-        console.log("===== push drawer clicked ==========", screen)
+        let screen = document.getElementById('root');
+        console.log('===== push drawer clicked ==========', screen);
 
         //Code for screen left shift
         // if(false){
@@ -43,14 +40,13 @@ const index: React.FunctionComponent = () => {
         //         // screen.style.marginLeft = "-32.312rem";
         //         // screen.style.transition =  "all 0.75s ease";
 
-        //         // screen.style.transform = `translateX(-32.312rem)` 
-        //         screen.style.transform = `translateX(-32.312rem)` 
+        //         // screen.style.transform = `translateX(-32.312rem)`
+        //         screen.style.transform = `translateX(-32.312rem)`
 
         //         // screen.style.marginLeft = "-32.312rem";
         //         // screen.style.transition =  "all 0.75s ease";
         //         screen.style.transition =  "all 0.55s ease";
         //         // screen.style.transition =  "none";
-
 
         //     }
         //     else{
@@ -64,83 +60,93 @@ const index: React.FunctionComponent = () => {
         //     //     screen.style.transform = '';
         //     // }, false);
         // }
-
-
-
     };
     return (
-        <div className="homepage__wrapper" id="parent__homepage">
-            <div className="drawer">
-                <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
-                    <SlidingDrawerContent />
-                </SlidingDrawer>
-            </div>
+        <NavigationMenu menuList={navigations} absolute background="transparent" colorWhite>
+            <div className="homepage__wrapper" id="parent__homepage">
+                <div className="drawer">
+                    <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                        <SlidingDrawerContent />
+                    </SlidingDrawer>
+                </div>
 
-            <div className="drawer push__drawer">
+                <div className="drawer push__drawer">
                     <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
                         <SlidingPushDrawerContent />
                     </SlidingDrawer>
-            </div>
+                </div>
 
-            <div className="navigation__menu">
-                <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer}/>
-            </div>
-
-            <SectionTwoReusable
-                image={commonImg.smilegirl}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Charlie Ray"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>Maths.<br />An Introduction to trignometry</>}
-            />
-            <div className="next__class" onClick={handlePushDrawer}> 
-                <NextClass />
-            </div>
-            <FeaturedSubjects
-                imageFirstURL={commonImg.chairman}
-                imageFirstTitle="Languages - Johny Duke"
-                imageSecondURL={commonImg.vrplayerboy}
-                imageSecondTitle="Maths - Harry Stannard"
-            />
-            <div className="recorded__class">
-                <ClassesRowWithImages
-                    title="Recorded Classes"
+                <SectionTwoReusable
+                    image={commonImg.smilegirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Charlie Ray"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={
+                        <>
+                            Maths.
+                            <br />
+                            An Introduction to trignometry
+                        </>
+                    }
                 />
-            </div>
-            <SectionTwoReusable
-                image={commonImg.earingGirlWithTab}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Sarah Frost"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>Maths.<br />An Introduction to trignometry</>}
-            />
-            <div className="parent__upcoming__classes__container">
-                <UpcomingClasses />
-            </div>
-            <div className="live__classes">
-                <LiveClasses />
-            </div>
+                <div className="next__class" onClick={handlePushDrawer}>
+                    <NextClass />
+                </div>
+                <FeaturedSubjects
+                    imageFirstURL={commonImg.chairman}
+                    imageFirstTitle="Languages - Johny Duke"
+                    imageSecondURL={commonImg.vrplayerboy}
+                    imageSecondTitle="Maths - Harry Stannard"
+                />
+                <div className="recorded__class">
+                    <ClassesRowWithImages title="Recorded Classes" />
+                </div>
+                <SectionTwoReusable
+                    image={commonImg.earingGirlWithTab}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Sarah Frost"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={
+                        <>
+                            Maths.
+                            <br />
+                            An Introduction to trignometry
+                        </>
+                    }
+                />
+                <div className="parent__upcoming__classes__container">
+                    <UpcomingClasses />
+                </div>
+                <div className="live__classes">
+                    <LiveClasses />
+                </div>
 
-            <FeaturedTutors
-                imageFirstURL={commonImg.blueshirtman}
-                imageFirstTitle="Languages - Johny Duke"
-                imageSecondURL={commonImg.blueShirtRedSpecBoy}
-                imageSecondTitle="Maths - Harry Stannard"
-            />
-            <SectionTwoReusable
-                image={commonImg.laptopgirl}
-                mobileImg={commonImg.curlygirlcroped}
-                leftTitle="Sarah Frost"
-                desktopTitle="AED200 / 45mins"
-                title="Tutors"
-                msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
-            />
-            <Tutors route="/parent/tutors" />
-            <MadeByFooter />
-
-        </div>
+                <FeaturedTutors
+                    imageFirstURL={commonImg.blueshirtman}
+                    imageFirstTitle="Languages - Johny Duke"
+                    imageSecondURL={commonImg.blueShirtRedSpecBoy}
+                    imageSecondTitle="Maths - Harry Stannard"
+                />
+                <SectionTwoReusable
+                    image={commonImg.laptopgirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Sarah Frost"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={
+                        <>
+                            ICT.
+                            <br />
+                            13 Upcomming Classes <br /> 97 Previous Classes
+                        </>
+                    }
+                />
+                <Tutors route="/parent/tutors" />
+                <MadeByFooter />
+            </div>
+        </NavigationMenu>
     );
 };
 

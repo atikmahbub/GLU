@@ -1,27 +1,23 @@
 import React from 'react';
-
 import MadeBy from '../Footer/MadeBy';
-import FixedNavigation from '../../Containers/FixedNavigation';
 import NavigationMenu from '../../components/NavigationMenu';
-import { menus } from '../../Helper/menus';
-
 import DashboardWrapper from '../../Containers/DashboardWrapper';
+import { menus } from '../../Helper/menus';
 
 const Index: React.FunctionComponent = () => {
     return (
-        <div className="school__no__result">
-            <FixedNavigation>
-                <NavigationMenu menuList={menus} />
-            </FixedNavigation>
-            <DashboardWrapper>
-                <p className="heading">‘Monoclonal antibodies’</p>
+        <NavigationMenu menuList={menus}>
+            <div className="school__no__result">
+                <DashboardWrapper>
+                    <p className="heading">‘Monoclonal antibodies’</p>
 
-                <p className="detail">Sorry, nothing has been found.</p>
-            </DashboardWrapper>
-            <div className="footer">
-                <MadeBy />
+                    <p className="detail">Sorry, nothing has been found.</p>
+                </DashboardWrapper>
+                <div className="footer">
+                    <MadeBy />
+                </div>
             </div>
-        </div>
+        </NavigationMenu>
     );
 };
 export default Index;

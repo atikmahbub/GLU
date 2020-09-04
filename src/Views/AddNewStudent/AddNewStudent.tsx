@@ -6,17 +6,18 @@ import OutlineButton from '../../components/Button/OutlineButton';
 import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
 import SaveController from '../../components/Dashobard/SaveController';
+import UploadMaxSize from '../../components/Button/UploadMaxSize';
 
 const AddNewStudent: React.FunctionComponent = () => {
     const routes = useHistory();
-    const handleRoutes = () => {
-        routes.push({
-            pathname: '/dashboard/student/bulk-upload',
-            state: {
-                breadcrumb: '/dashboard/student/student admission',
-            },
-        });
-    };
+    // const handleRoutes = () => {
+    //     routes.push({
+    //         pathname: '/dashboard/student/bulk-upload',
+    //         state: {
+    //             breadcrumb: '/dashboard/student/student admission',
+    //         },
+    //     });
+    // };
 
     return (
         <div className="content-wrapper-student">
@@ -28,10 +29,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                         </div>
                         <div className="col-md-8 mb-4">
                             <Typography className="right_title">Upload Students Picture</Typography>
-                            <div className="button-container">
-                                <OutlineButton text="Upload" />
-                                <Typography className="max-size">Max file size 5MB</Typography>
-                            </div>
+                            <UploadMaxSize />
                             <InputWithLabel fieldName="First Name" />
                             <InputWithLabel fieldName="Last Name" />
                             <div className="row">
@@ -60,7 +58,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                             </div>
                         </div>
                         <div className="col-md-12 mt-5 w-100">
-                        <SaveController handleNext={()=>{}} activeCom={1}/>
+                            <SaveController handleNext={() => {}} activeCom={1} />
                         </div>
                     </div>
                 </div>

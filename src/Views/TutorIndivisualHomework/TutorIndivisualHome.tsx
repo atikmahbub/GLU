@@ -27,8 +27,8 @@ const TutorRecord: React.FunctionComponent = () => {
     ];
     const classes = useStyles();
     return (
-        <div className="tutor_indivisual_homework">
-            <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer} />
+        <NavigationMenu menuList={menu} background="secondary">
+            <div className="tutor_indivisual_homework">
             <div className="container_1">
                 <div className="container_1_1">
                     <div className="row">
@@ -158,6 +158,7 @@ const TutorRecord: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
+        </NavigationMenu>
     );
 };
 

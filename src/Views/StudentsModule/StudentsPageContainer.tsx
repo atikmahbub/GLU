@@ -1,10 +1,9 @@
-import React, { FC, ReactNode, useCallback, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
-import DrawerProvider from '../../Providers/DrawerProvider';
-import Notifications from './Notifications';
+import { studentMenus } from '../../Helper/studentMenus';
 
 const useStyles = makeStyles({
     root: {
@@ -19,13 +18,6 @@ const useStyles = makeStyles({
     },
 });
 
-const navigations = [
-    { name: 'Home', link: '/students/' },
-    { name: 'Dashboard', link: '/students/dashboard' },
-    { name: 'Subject', link: '/students/' },
-    { name: 'Messages', link: '/students/' },
-];
-
 type StudentsPageContainerProps = {
     rootClassName?: string;
     contentClassName?: string;
@@ -34,25 +26,17 @@ type StudentsPageContainerProps = {
 
 const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ rootClassName, contentClassName, children }) => {
     const classes = useStyles();
-    const [isDrawer, setDrawer] = useState(false);
-
-    const toggleDrawer = useCallback(() => {
-        setDrawer((prevState) => !prevState);
-    }, []);
-
     return (
-        <DrawerProvider open={isDrawer} onClose={toggleDrawer} drawerContent={<Notifications />}>
+        <NavigationMenu
+            menuList={studentMenus}
+            containerClassName={classes.navigationContainer}
+        >
             <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
-                <NavigationMenu
-                    handlerNotification={toggleDrawer}
-                    menuList={navigations}
-                    containerClassName={classes.navigationContainer}
-                />
                 <Grid container direction="column" className={classNames(classes.content, contentClassName)}>
                     {children}
                 </Grid>
             </Grid>
-        </DrawerProvider>
+        </NavigationMenu>
     );
 };
 

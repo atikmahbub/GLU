@@ -27,8 +27,11 @@ const TutorClass: React.FunctionComponent = () => {
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
 
     return (
-        <div className="tutor_class_container">
-            <NavigationMenu menuList={menu} />
+        
+            
+                <NavigationMenu menuList={menu}>
+                <div className="tutor_class_container">
+            
             <div className="tutor_class_subcontainer">
                 <ReusableBanner heading={"Set Class"} description={"Create and publish a new class ."} />
                 <div className="tutor_class_subcontainer2">
@@ -131,6 +134,9 @@ const TutorClass: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
+                </NavigationMenu>
+            
+        
     );
 };
 

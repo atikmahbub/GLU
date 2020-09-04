@@ -1,21 +1,11 @@
 import React from 'react';
-import { Typography,makeStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
-import commonImg from '../../Assets/images';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import TagsContainer from '../../components/TagsContainer'
 import MadeBy from '../Footer/MadeBy';
-// interface props{
-//     mainHeading:string,
-//     subHeading1:string,
-//     subHeading2:string
-// }
-// const useStyles=makeStyles({
-//     navigationContainer: {
-//         backgroundColor: '#76726e !important',
-//         color:'white !important'
-//     }
-// })
+import commonImg from '../../Assets/images';
+
 const TempComp: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -26,9 +16,8 @@ const TempComp: React.FunctionComponent = () => {
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     // const classes=useStyles();
     return (
-        
-        <div className="profile_container">
-            <NavigationMenu menuList={menu}  />
+        <NavigationMenu menuList={menu}>
+            <div className="profile_container">
             <div className="main_container p-0">
                 <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
             </div>
@@ -111,6 +100,7 @@ const TempComp: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
+        </NavigationMenu>
     );
 };
 

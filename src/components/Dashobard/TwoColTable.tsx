@@ -11,7 +11,8 @@ interface props {
     colWidth1?: string;
     colWidth2?: string;
     height?: string;
-    children?: React.ReactNode
+    children?: React.ReactNode;
+    rowClick?:()=>void
 }
 const TwoColTable: React.FunctionComponent<props> = ({
     color,
@@ -22,7 +23,8 @@ const TwoColTable: React.FunctionComponent<props> = ({
     colWidth1,
     colWidth2,
     height,
-    children
+    children,
+    rowClick
 }) => {
     return (
         <div className="data-container bg-white">
@@ -37,9 +39,9 @@ const TwoColTable: React.FunctionComponent<props> = ({
                     </thead>
                     <tbody>
                         {data?.map((item: any) => (
-                            <tr key={uuidv4()}>
-                                <td style={{ width: colWidth2 }}>{item.col1}</td>
-                                <td style={{ color }}>{item.col2}</td>
+                            <tr key={uuidv4()} onClick={rowClick}>
+                                <td style={{ width: colWidth1 }}>{item.col1}</td>
+                                <td style={{ color, width:colWidth2 }}>{item.col2}</td>
                             </tr>
                         ))}
                     </tbody>
