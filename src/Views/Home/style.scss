@@ -339,9 +339,9 @@
                     z-index:10; 
                     img {
                         width: 100%;
-                        border-radius: 2.5rem;
-                        -webkit-border-radius: 2.5rem;
-                        -moz-border-radius: 2.5rem;
+                        border-radius: 2.2rem;
+                        -webkit-border-radius: 2.2rem;
+                        -moz-border-radius: 2.2rem;
                         z-index: -10;
                     }
                 }
@@ -465,6 +465,7 @@
             line-height: 2.625rem;
             transition: all 0.5s;
             font-family: 'CircularXXWeb-Book';
+            margin-top:0.4rem;
             @include makeFontSmoth(0.147rem, #1c1c1c);
         }
         .email-address {
@@ -1378,7 +1379,7 @@
 //     }
 // }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1023px) {
     .home-wrapper {
         .holding-container {
             height: 75vh;

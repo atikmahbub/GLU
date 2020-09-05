@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle } from '@material-ui/icons';
+import { Add } from '@material-ui/icons';
 import AddButton from '../../components/Dashobard/AddButton';
-import FormContainer from './FormContainer';
-import AddSection from './AddSection';
 import UserTable from '../../components/Dashobard/Table/UserTable';
+import { useHistory } from 'react-router';
 
 
 interface props{
-    triggerModal: ()=> void;
     classList?: any[]
 }
-const ClassList: React.FunctionComponent<props> = ({triggerModal, classList}) => {
+const ClassList: React.FunctionComponent<props> = ({classList}) => {
     const [toggler, setToggler] = useState(false);
-    const [editSection, setEdtiSection] = useState();
+    const routes = useHistory();
+
     const handleToggler = () => {
-        setToggler(!toggler);
+        routes.push('/dashboard/add-year-group')
     };
     return (
         <div className="student-wrapper">
@@ -24,7 +23,7 @@ const ClassList: React.FunctionComponent<props> = ({triggerModal, classList}) =>
                     title="Year Group"
                     btnIcon={<Add />}
                     btnTitle="Add Year Group"
-                    trigger={triggerModal}
+                    trigger={handleToggler}
                 />
             </CardContainer>
             <UserTable

@@ -38,6 +38,8 @@ import StudentExamReport from '../../Views/StudentDetails/StudentSubjectDetail/I
 import StaffDetails from '../../Views/StaffDetails/StaffDetails';
 import MeritsSanction from '../../Views/Merits/Index';
 import AddParentChild from '../../Views/AddNewParent/AddChildren';
+import Feedback from '../../Views/Feedback/Index';
+import AddYearGroup from "../../Views/AddYearGroup/Index";
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -80,4 +82,7 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/staff-details', component: StaffDetails },
     { pathname: '/dashboard/merits-sanctions', component: MeritsSanction },
     { pathname: '/dashboard/parent/add-child', component: AddParentChild },
+    { pathname: '/dashboard/feedback', component: Feedback },
+    { pathname: '/dashboard/add-year-group', component: AddYearGroup },
+    
 ];
