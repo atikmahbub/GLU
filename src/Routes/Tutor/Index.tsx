@@ -14,12 +14,13 @@ const TutorExams= React.lazy(() => import('../../Views/TutorExams/TutorExams'));
 const TutorRecommend= React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
 const TutorUpcomingClass =React.lazy(()=>import('../../Views/TutorUpcommingClass/TutorUpcoming'));
 const TutorReview = React.lazy(()=>import('../../Views/TutorReviews/TutorReview'));
+const TutorIndivisualExtraCurricular=React.lazy(()=>import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular'))
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
     createRouteObj('/tutor/profile', TutorProfile),
     createRouteObj('/tutor/set-class', TutorSetClass),
     createRouteObj('/tutor/record-class', TutorRecordClass),
-    createRouteObj('/tutor/indivisual-homework', TutorIndivisualHomework),
+    createRouteObj('/tutor/individual-homework', TutorIndivisualHomework),
     createRouteObj('/tutor/set-homework', TutorSetHomework),
     createRouteObj('/tutor/upcoming-classes', UpcomingClasses),
     createRouteObj('/tutor/school-table', SchoolTimetable),
@@ -28,4 +29,5 @@ export const tutorRoutes = [
     createRouteObj('/tutor/recommend',TutorRecommend),
     createRouteObj('/tutor/upcoming-class',TutorUpcomingClass),
     createRouteObj('/tutor/reviews',TutorReview),
+    createRouteObj('/tutor/individual-extra-curricular',TutorIndivisualExtraCurricular),
 ];

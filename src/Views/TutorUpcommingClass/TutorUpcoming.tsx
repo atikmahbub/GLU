@@ -3,7 +3,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import commonImg from '../../Assets/images';
 import TagsContainer from '../../components/TagsContainer';
-import BigBanner from './BigBanner';
+import BigBanner from '../../components/BigBanner';
 import MadeBy from '../Footer/MadeBy';
 import PlayBanner from '../../components/PlayBanner';
 const useStyles = makeStyles({
@@ -23,8 +23,9 @@ const TutorClass: React.FunctionComponent = () => {
     const ArrayTags = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     const classes = useStyles();
     return (
+        <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer} >
         <div className="tutor_upcoming_class_container">
-            <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer} />
+            
             <div className="tutor_upcoming_class_subcontainer_1">
                 <div className="container-fluid">
                     <div className="tutor_upcoming_class_subcontainer_1_1">
@@ -93,11 +94,9 @@ const TutorClass: React.FunctionComponent = () => {
                         <div className="col-md-6 p-0"></div>
                         <div className="col-md-6 p-0 left_border">
                             <div className="tutor_upcoming_tags_container">
-                                <div className="row">
-                                    <div className="col-md-12">
+                               
                                         <TagsContainer heading={'Tags'} tagsArray={ArrayTags} />
-                                    </div>
-                                </div>
+                                    
                             </div>
                         </div>
                     </div>
@@ -112,6 +111,7 @@ const TutorClass: React.FunctionComponent = () => {
                             subHeading1={'Text Books'}
                             subHeading2={'Audio Clips'}
                             subText2={'Extract from AQA Algebra'}
+                            isDivider={true}
                         />
                     </div>
 
@@ -171,6 +171,7 @@ const TutorClass: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
+        </NavigationMenu>
     );
 };
 

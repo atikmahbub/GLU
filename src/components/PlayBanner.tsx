@@ -7,8 +7,9 @@ interface props{
     subHeading1?:string;
     subHeading2?:string;
     subText2?:string;
+    isDivider?:boolean;
 }
-const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHeading2,subText2}) => {
+const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHeading2,subText2,isDivider}) => {
     return (
         <>
             <div className="reusable_play_banner">
@@ -37,7 +38,7 @@ const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHead
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-12 horizontalline_new"></div>
+                                    {isDivider &&<div className="col-12 horizontalline_new"></div> }
                                 </div>
                             </div>
                         </div>
