@@ -5,7 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import Divider from '@material-ui/core/Divider';
-import CustomizedProgressBars from "./CustomizedProgressBars";
+import Hidden from '@material-ui/core/Hidden';
+import CustomizedProgressBars from "./CustomizedProgressBars"; 
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -23,7 +24,8 @@ const useStyles = makeStyles(() => ({
         color: "black",
     },
     resourcesAndTextContainer:{
-        marginTop: "-6.937rem"
+        // marginTop: "-6.937rem",
+        marginTop: "1.6rem",
     },
     left:{
         fontSize: "2.625rem",
@@ -33,10 +35,19 @@ const useStyles = makeStyles(() => ({
         fontSize: "2.625rem",
         lineHeight: "3.125rem",
     },
-
+    dateContainer:{
+        marginTop: "1rem",
+    },
+    descriptionContainer:{
+        marginTop: "1rem",
+    },
+    leftResourcesContainer:{
+        marginTop: "1.3rem"
+    },
     leftResources:{
         fontSize: "2.625rem",
         lineHeight: "2.812rem",
+       
     },
     rightResources:{
         fontSize: "2.625rem",
@@ -48,6 +59,12 @@ const useStyles = makeStyles(() => ({
     },
     textResourceContainer:{
         marginTop: "1.812rem"
+    },
+    textBookContainer:{
+        marginTop: "1.6rem",
+    },
+    audioClipContainer:{
+        marginTop: "1.6rem",
     },
     resourceHeading:{
         color: "black",
@@ -106,26 +123,28 @@ const DateAndResources: FC = () => {
     return (
         <Grid container className={classes.container}>
             <Grid container className={classes.dateAndTextContainer} lg={12}>
-                <Grid item container lg={6}>
+                <Grid item container className={classes.dateContainer} lg={6}>
                     <Typography className={classes.left}>Due <br/> 11/08/20 <br/>9.30am</Typography>
                 </Grid>
 
-                <Grid item container lg={6}>
+                <Grid item container className={classes.descriptionContainer} lg={6}>
                     <Typography className={classes.right}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</Typography>
                 </Grid>
             </Grid>
-
-            <Divider height="4px" width="98%"/>
-
+            <Hidden only={['xs', 'sm', 'md']}>
+                <Divider width="98%"/>
+            </Hidden>
             <Grid container className={classes.resourcesAndTextContainer} lg={12}>
-                <Grid item container lg={6}>
+                <Grid item container className={classes.leftResourcesContainer} lg={6} xs={12}>
                     <Typography className={classes.leftResources}>Resources</Typography>
                 </Grid>
                 <Grid item container lg={6} className={classes.resourcesInfoContainer}>
-                     <Divider orientation="vertical"/>
+                <Hidden only={['xs', 'sm', 'md']}>
+                        <Divider orientation="vertical"/>
+                </Hidden>
                      <Grid item lg={1}/>
 
-                    <Grid item container direction="column" lg={4} >
+                    <Grid item container  className={classes.textBookContainer} direction="column" lg={4} md={6} sm={6} xs={12}>
                         <Typography className={classes.resourceHeading}>Text books</Typography>
                         <Grid className={classes.textResourceContainer}>
                              <Typography className={classes.resourceHeading}>AQA Algebra</Typography>
@@ -138,10 +157,13 @@ const DateAndResources: FC = () => {
                         </Grid>
 
                     </Grid>
-                    <Divider orientation="vertical"/>
+
+                   <Hidden only={['xs', 'sm', 'md']}>
+                            <Divider orientation="vertical"/>
+                    </Hidden>
                     <Grid item lg={1}/>
 
-                    <Grid item container direction="column" lg={5}>
+                    <Grid item container direction="column" className={classes.audioClipContainer} lg={5} md={6} sm={6} xs={12}>
                     <Typography className={classes.resourceHeading}>Audio Clips</Typography>
                         <Grid className={classes.textResourceContainer}>
                              <Typography className={classes.resourceHeading}>Extract From AQA Algebra</Typography>
@@ -150,13 +172,13 @@ const DateAndResources: FC = () => {
                                  <CustomizedProgressBars value={progress}/>
                              </div>
                              <Grid container direction="row" className={classes.audioInfoContainer} lg={12}>
-                                 <Grid item container className={classes.audioPlayContainer} lg={10}>
+                                 <Grid item container className={classes.audioPlayContainer} lg={10} md={10} sm={10} xs={10}>
                                     <Grid container>
                                         <PlayArrowIcon style={{ fontSize: "2rem", color:"black" }}/>
                                         <Typography className={classes.playText}>Play</Typography>
                                     </Grid>
                                 </Grid>
-                                <Grid item className={classes.audioTimeContainer} lg={2}>
+                                <Grid item className={classes.audioTimeContainer} lg={2} md={2} sm={2} xs={2}>
                                         <Typography className={classes.audioTime}>\33.21</Typography>
                                 </Grid>
                              </Grid>
