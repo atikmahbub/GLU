@@ -95,7 +95,7 @@ const TutorClass: React.FunctionComponent = () => {
                         <div className="col-md-6 p-0 left_border">
                             <div className="tutor_upcoming_tags_container">
                                
-                                        <TagsContainer heading={'Tags'} tagsArray={ArrayTags} />
+                            <TagsContainer heading={'Tags'} tagsArray={ArrayTags} />
                                     
                             </div>
                         </div>

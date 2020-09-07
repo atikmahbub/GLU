@@ -75,8 +75,7 @@ const TutorRecord: React.FunctionComponent = () => {
             </div>
             <div className="resources_play_container_3">
                 <div className="row horizontalline"></div>
-
-                <div className="resources_play_container_3_1">
+                    <div className="resources_play_container_3_1">
                     <PlayBanner
                         heading={"Resources"}
                         subHeading1={"Text Books"}
