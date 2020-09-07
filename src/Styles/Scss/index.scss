@@ -66,7 +66,12 @@
 @import '../../Views/PersonalSchoolMain/style.scss';
 @import '../../Views/SchoolTimeTable/style.scss';
 @import '../../Views/TutorAvailablity/style.scss';
+@import "../../Views/TutorUpcommingClass/style.scss";
+@import "../../Views/TutorReviews/style.scss";
+@import "../../Views/TutorRecommend/style.scss";
 @import './timetable';
 @import './userDetails.scss';
 
 @import './searchInputReusable';
+@import '../../Views/TutorExams/style.scss';
+@import '../../Views/TutorIndivisualExtraCurricular/style.scss'
