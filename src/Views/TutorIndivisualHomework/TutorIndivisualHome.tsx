@@ -82,6 +82,7 @@ const TutorRecord: React.FunctionComponent = () => {
                         subHeading1={"Text Books"}
                         subHeading2={"Audio Clips"}
                         subText2={"Extract from AQA Algebra"}
+                        isDivider={true}
                     />
                     <div className="row">
                         <div className="col-md-6 p-0">
