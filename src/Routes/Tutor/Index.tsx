@@ -9,13 +9,6 @@ const TutorSetHomework = React.lazy(() => import('../../Views/TutorSetHomework/S
 const PersonalSchoolToggle = React.lazy(() => import('../../Views/PersonalSchoolMain/PersonalSchoolToggle'));
 const UpcomingClasses = React.lazy(() => import('../../Views/UpcomingClasses/Index'));
 const SchoolTimetable = React.lazy(() => import('../../Views/SchoolTimeTable/SchoolTimeTable'));
-
-const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
-
-// Added by Vivek
-const TutorReview = React.lazy(() => import('../../Views/TutorReviewPage/TutorReview'));
-
-
 const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 const TutorExams= React.lazy(() => import('../../Views/TutorExams/TutorExams'));
 const TutorRecommend= React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
