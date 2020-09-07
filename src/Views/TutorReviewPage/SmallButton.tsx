@@ -7,6 +7,8 @@ const useStyles = makeStyles({
         display: 'inline',
         fontSize: '1rem',
         padding: '0.3rem 0rem',
+        fontFamily: 'inherit',
+        textTransform: 'capitalize',
     },
     submitBtn: {
         width: '9.375rem',
