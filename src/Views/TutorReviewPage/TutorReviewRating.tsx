@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, makeStyles, Link, TextareaAutosize, Button } from '@material-ui/core';
+import { Grid, Typography, makeStyles, TextareaAutosize, Button } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import SmallButton from './SmallButton';
