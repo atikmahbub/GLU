@@ -16,7 +16,7 @@ const Filter = () => {
         <Grid item xs={12} md={3}>
             <SelectFieldUnderline
                 className="custom-sm-txt-dashbord"
-                label="Year Group"
+                label="Form Group"
                 options={[]}
                 getValue={() => {}}
             />
@@ -24,7 +24,7 @@ const Filter = () => {
         <Grid item xs={12} md={3}>
             <SelectFieldUnderline
                 className="custom-sm-txt-dashbord"
-                label="Year Group"
+                label="Date"
                 options={[]}
                 getValue={() => {}}
             />
@@ -32,7 +32,7 @@ const Filter = () => {
         <Grid item xs={12} md={3}>
             <SelectFieldUnderline
                 className="custom-sm-txt-dashbord"
-                label="Year Group"
+                label="Subject"
                 options={[]}
                 getValue={() => {}}
             />

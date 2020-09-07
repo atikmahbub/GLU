@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { colors } from '../../Styles/colors';
-import InputWithLabel from '../../components/Inputs/InputWithLabel';
-import TextAreaWithLabel from '../../components/Inputs/TextAreaWithLabel';
+import { colors } from '../../../Styles/colors';
+import InputWithLabel from '../../Inputs/InputWithLabel';
+import TextAreaWithLabel from '../../Inputs/TextAreaWithLabel';
 
 const useStyles = makeStyles({
     parent: {},
@@ -27,11 +27,12 @@ const useStyles = makeStyles({
     },
 });
 interface props {
-    heading: string;
-    title: string;
-    date: string;
+    heading?: string;
+    title?: string;
+    date?: string;
+    textArea?: string;
 }
-const LeftHeadRightTextArea: React.FC<props> = ({ heading, title, date }) => {
+const LeftHeadRightTextArea: React.FC<props> = ({ heading, title, date, textArea }) => {
     const classes = useStyles();
     return (
         <Grid container spacing={0} className={classes.parent}>
@@ -42,7 +43,7 @@ const LeftHeadRightTextArea: React.FC<props> = ({ heading, title, date }) => {
             </Grid>
             <Grid xs={12} md={8}>
                 <InputWithLabel fieldName="Teachers name" fieldClass={classes.inputLable} />
-                <TextAreaWithLabel label="Details" rows={5} cols={10} />
+                <TextAreaWithLabel label={textArea} rows={5} cols={10} />
             </Grid>
         </Grid>
     );
