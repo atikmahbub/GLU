@@ -24,10 +24,12 @@ const TempComp: React.FunctionComponent = () => {
             <div className="profile_container_1">
                 {/* Reusable Component From Here */}
                 <div className="row">
-                    <div className="col-md-6 p-0">
+                    <div className="col-md-6 order-md-1 order-2 p-0">
+                        
                         <Typography className="profile_container_1_text1">Limited Availablitiy</Typography>
+                        
                     </div>
-                    <div className="col-md-6 p-0">
+                    <div className="col-md-6 order-md-2 order-1 p-0">
                         <div className="profile_container_1_subcontainer">
                             <Typography className="profile_container_1_text2">
                                 I am an American author, life coach, and philanthropist. Known for my infomercials,
@@ -37,7 +39,7 @@ const TempComp: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row horizontalline"></div>
+                <div className="row profile_horizontalline"></div>
                 <div className="profile_container_1_2">
                     {/* Reusable from here */}
                     <div className="row">
@@ -47,8 +49,10 @@ const TempComp: React.FunctionComponent = () => {
                         <div className="col-md-6 border-coloumn1 p-0">
                             <div className="row">
                                 <div className="col-6 pr-0">
-                                    <div className="profile_container_1_2_subcontainer1 ">
+                                    <div className="profile_container_1_2_subcontainer1">
+                                        
                                         <Typography className="subtext1">Experience</Typography>
+                                        
                                         <div className="profile_container_1_2_subcontainer1_row1">
                                             <Typography className="subtext2">2014-Present</Typography>
                                             <Typography className="subtext3">

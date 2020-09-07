@@ -85,7 +85,9 @@ const TutorRecord: React.FunctionComponent = () => {
                     />
                     <div className="row">
                         <div className="col-md-6 p-0">
-                            <Typography className="leftText leftTextPadding">Students</Typography>
+                            <div className="leftTextPadding">
+                            <Typography className="leftText ">Students</Typography>
+                        </div>
                         </div>
                         <div className="col-md-6 p-0 borderLineMain">
                             <div className="students_container">
@@ -118,7 +120,11 @@ const TutorRecord: React.FunctionComponent = () => {
 
                     <div className="row">
                         <div className="col-md-6 p-0">
-                            <Typography className="leftText leftTextPadding">Hand In</Typography>
+                        <div className="col-md-6 p-0">
+                            <div className="leftTextPadding">
+                            <Typography className="leftText ">Hand In</Typography>
+                        </div>
+                        </div>
                         </div>
                         <div className="col-md-6 p-0 borderLineMain">
                             <div className="students_container">
