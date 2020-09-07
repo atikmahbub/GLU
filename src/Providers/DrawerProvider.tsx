@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import isNumber from 'lodash.isnumber';
+import { isNumber } from 'lodash';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Drawer from '../components/Drawer';
 

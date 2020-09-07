@@ -87,6 +87,7 @@ const blueShirtRedSpecBoy = `${imageEndpoint}v1598526076/gluschool/blueShirtRedS
 const boyReadingFromLaptop = `${imageEndpoint}v1598541499/gluschool/boyRadingFromLaptop_hfjsmh.png`;
 
 const supportPageBoy = `${imageEndpoint}v1599028758/supportPageBoy_kn0wdj.png`;
+const laptopLady = `https://res.cloudinary.com/ddwbbzuxw/image/upload/v1599206397/laptopLadySVG_pf8pz3.png`;
 
 export const commonImg = {
     google,
@@ -177,6 +178,7 @@ export const commonImg = {
     boyReadingFromLaptop,
 
     supportPageBoy,
+    laptopLady,
 };
 
 export default commonImg;
