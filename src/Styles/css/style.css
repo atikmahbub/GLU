@@ -166,3 +166,7 @@ select {
 button:focus{
   outline: none!important;
 }
+
+input::-webkit-input-placeholder {
+  line-height:normal!important;
+}

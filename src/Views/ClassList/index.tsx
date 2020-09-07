@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ClassList from './ClassList';
-import AddClassModal from './AddClassModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallclassAPIcall } from '../../Redux/Actions/classAction';
-import { checkValue } from '../../Helper/checkValue';
+
 
 const index: React.FunctionComponent = () => {
     const dispatch = useDispatch();
@@ -44,8 +43,7 @@ const index: React.FunctionComponent = () => {
     }, [classes]);
     return (
         <div>
-            {toggler ? <AddClassModal handleToggler={handleToggler} /> : null}
-            <ClassList classList={classList} triggerModal={handleToggler} />
+            <ClassList classList={classList}  />
         </div>
     );
 };
