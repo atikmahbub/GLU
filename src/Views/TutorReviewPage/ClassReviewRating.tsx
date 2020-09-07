@@ -65,7 +65,7 @@ const ClassReviewRating = () => {
         <div>
             <Grid container className={classes.mainGrid} justify="space-between">
                 <Grid item className={classes.leftGrid}>
-                    <Typography className={classes.headingSecondary}>Tutor Rating</Typography>
+                    <Typography className={classes.headingSecondary}>Class Rating</Typography>
                     <Typography className={`${classes.headingSecondary} ${classes.recommended}`}>
                         Recommended
                     </Typography>
@@ -78,8 +78,12 @@ const ClassReviewRating = () => {
                     <StarIcon />
                     <StarIcon />
                     <StarIcon />
+                    <StarIcon />
                     <StarBorderIcon />
-                    <StarBorderIcon />
+                    <hr className={classes.topMarg} />
+                    <Typography className={classes.small}>Would you recommend this Class?</Typography>
+                    <SmallButton label="Yes" />
+                    <SmallButton label="No" />
                     <hr className={classes.topMarg} />
                     <Typography className={classes.small}>Would you recommend the Tutor?</Typography>
                     <SmallButton label="Yes" />

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import NavigationMenuReusable from '../../components/NavigationMenuReusable';
 import ReviewHeader from './ReviewHeader';
-import TutorReviewRating from './TutorReviewRating';
+import ClassReviewRating from './ClassReviewRating';
 
 const useStyles = makeStyles({
     footer: {
@@ -18,16 +18,16 @@ const useStyles = makeStyles({
     },
 });
 
-const TutorReview = () => {
+const ClassReview = () => {
     const classes = useStyles();
 
     return (
         <div>
             <NavigationMenuReusable />
             <div className={classes.mainPadding}>
-                <ReviewHeader name="tutor" />
+                <ReviewHeader name="class" />
                 <hr className={classes.topMarg} />
-                <TutorReviewRating />
+                <ClassReviewRating />
             </div>
 
             <div className={`footer ${classes.footer}`}>
@@ -37,4 +37,4 @@ const TutorReview = () => {
     );
 };
 
-export default TutorReview;
+export default ClassReview;
