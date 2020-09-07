@@ -21,8 +21,9 @@ const useStyles = makeStyles({
         zIndex: 1
     },
     button: {
-        position: 'relative',
-        left: -12
+        position: 'absolute',
+        left: ({ position }: any) => position === 'left' ? 'unset' : -12,
+        right: ({ position }: any) => position === 'right' ? 'unset' : -12
     },
 });
 
@@ -41,7 +42,7 @@ const Drawer: FC<DrawerProps> = ({
     onClose,
     children,
 }) => {
-    const classes = useStyles({ width });
+    const classes = useStyles({ width, position });
     return (
         <MuiDrawer anchor={position} open={open} variant="temporary">
             <Grid container direction="column" wrap="nowrap" className={classes.content}>

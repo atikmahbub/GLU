@@ -8,24 +8,12 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
-
-const getBackground = (background: string) => {
-    switch (background) {
-        case 'primary':
-            return '#fff'
-        case 'secondary':
-            return  '#F7F7F7'
-        case 'transparent':
-            return 'transparent'
-        default:
-            return '#fff'
-    }
-}
+import { getColor } from '../Helper/studentModule';
 
 const useStyles = makeStyles({
     root: {
         '& .navigation': {
-            backgroundColor: ({ background }: any) => getBackground(background)
+            backgroundColor: ({ background }: any) => getColor(background)
         }
     },
     rootAbsolute: {
