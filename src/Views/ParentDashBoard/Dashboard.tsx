@@ -77,11 +77,11 @@ const ParentDashboard: React.FunctionComponent = () => {
                             <SlidingDrawerContent />
                         </Drawer>
                     </div>
-                    <ParentIndividualTutorBanner/>
+                    {/* <ParentIndividualTutorBanner/>
                     <LimitedAvailability/>
 
                     <ParentIndividualHomeworkBanner/>
-                    <DateAndResources/>
+                    <DateAndResources/> */}
                     <div className="main_container_4">
                         <div className="footer">
                             <MadeBy />

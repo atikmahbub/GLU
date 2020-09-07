@@ -110,7 +110,7 @@ const ParentIndividualTutorBanner: FC = () => {
                         I am an American author, life coach, and philanthropist. Known for my infomercials, seminars, and self-help books including the books Unlimited Power and Awaken the Giant Within. In 2015 and 2016 I was listed on the Worth Magazine Power 100 list.
                     </Typography>
                     <Grid direction="column" className={classes.form} lg={6} spacing={2}>
-                        <Grid item>
+                        <Grid item xs={12} sm={12} md={6}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Students</InputLabel>
                                 <Select
@@ -128,7 +128,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={12} sm={12} md={6}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Date</InputLabel>
                                 <Select
@@ -145,8 +145,8 @@ const ParentIndividualTutorBanner: FC = () => {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid container item lg={12} spacing={1}>
-                            <Grid item lg={6} md={6} xs={12}>
+                        <Grid container item lg={12} md={12} sm={12} spacing={1}>
+                            <Grid item xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Start Time</InputLabel>
                                     <Select
@@ -163,7 +163,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                     </Select>
                                 </FormControl>
                             </Grid>
-                            <Grid item lg={6} md={6} xs={12}>
+                            <Grid item xs={12}>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel className={classes.inputLabel} id="demo-simple-select-label">End Time</InputLabel>
                                     <Select
@@ -181,7 +181,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                 </FormControl>
                             </Grid>
                         </Grid>
-                        <Grid>
+                        <Grid lg={6} md={6} xs={12}>
                             <div className="child__purchase__item" style={{marginTop: "4.75rem"}}>
                                 <div className="child__purchase">
                                     <div className="child">
