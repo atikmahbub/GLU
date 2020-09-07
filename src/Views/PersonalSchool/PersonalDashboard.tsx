@@ -44,7 +44,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             </div>
                             <div className="card__row card_row2">
                                 <SmallCard
-                                    linkurl={"/tutor/"}
+                                    linkurl={"/tutor/availablity"}
                                     mainHeading={'Availablity'}
                                     subHeading1={'Status'}
                                     subHeading2={'Limited Availablity'}

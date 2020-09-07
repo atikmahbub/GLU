@@ -1,12 +1,17 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { Typography, TextField } from '@material-ui/core';
+import { Typography, TextField, makeStyles } from '@material-ui/core';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import ReusableCoverImage from '../TutorSetClass/ReusableCoverImage';
+import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import VideoLectureContainer2 from '../../components/VideoLectureContainer2';
 import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
-
+const useStyles = makeStyles({
+    navigationContainer: {
+        backgroundColor: '#F7F7F7 !important',
+    },
+});
 const TutorRecord: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -15,8 +20,9 @@ const TutorRecord: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+    const classes = useStyles();
     return (
-        <NavigationMenu menuList={menu} background="secondary">
+        <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer}>
             <div className="tutor_record_container">
                 <div className="tutor_record_container_1">
                     <div className="tutor_record_container_1_1">
@@ -68,29 +74,9 @@ const TutorRecord: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 border_dateTime">
-                                <div className="addSkill">
-                                    <div className="col-md-12">
-                                        <div className="row">
-                                            <div className="col-md-12 p-0">
-                                                <Typography className="textCover">Add New</Typography>
-                                            </div>
-                                            <div className="col-md-12 p-0">
-                                                <TextField className="line-input" style={{ width: '85%' }} />
-                                            </div>
-                                            <div className="col-md-12">
-                                                <div className="skill_container">
-                                                    <div className="row choose_weeks">
-                                                        {skillArray.map((val, index) => (
-                                                            <Typography key={index} className="boxes">
-                                                                {val}
-                                                            </Typography>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-12 p-0  horizontalline"></div>
-                                        </div>
-                                    </div>
+                                <div className="record_skill_container">
+                                    <NewSkillContainer skillArray={skillArray} />
+                                    <div className=" record_horizontalline"></div>
                                 </div>
                             </div>
                         </div>

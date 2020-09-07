@@ -31,6 +31,14 @@
         }
     }
 }
+.record_skill_container{
+    .record_horizontalline{
+        border-top-color: rgba(0, 0, 0, 0.25);
+        border-top-style: solid;
+        border-top-width: 1px;
+        margin-top: 5rem;
+    }
+}
 .recordClass {
     .horizontalline {
         margin-top: 5rem;
@@ -42,6 +50,7 @@
     padding:0rem 4.0625rem;
     
 }
+
 .tutor_record_container_1_1,.record_class_title{
     font-family: 'CircularXXWeb-Book';
         .text{
@@ -56,7 +65,14 @@
         padding: 0 3.125rem ;
     }
     .recordClass{
-        padding: 0 3.125rem ;
+        padding-left:3.125rem ;
+    }
+    .record_skill_container{
+        .record_horizontalline{
+            margin-left: 3.125rem;
+            
+            
+        }
     }
     
 }

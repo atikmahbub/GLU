@@ -246,3 +246,35 @@
         }
     }
 }
+
+
+.MuiTextField-root.line-input3 {
+    // margin-bottom: 2.406rem;
+    .MuiOutlinedInput-input {
+        padding: 12.5px 14px !important;
+    }
+    .MuiInputLabel-shrink {
+        transform: translate(0, -5px) scale(1);
+        transform-origin: top left;
+    }
+    .MuiInputLabel-shrink.MuiInputLabel-root {
+        color: #000;
+        font-size: 1.5625rem;
+        font-family: 'CircularXXWeb-Book';
+        
+    }
+    .MuiInputBase-input.MuiInput-input {
+        font-family: 'CircularXXWeb-Book';
+        font-size: 2.625rem;
+        line-height: 2.8125rem;
+        color: black;
+    }
+    .MuiInput-underline:before {
+        border-bottom: 1px solid $gray;
+    }
+    .MuiInputLabel-formControl {
+        font-family: 'CircularXXWeb-Book';
+        font-size: 1.562rem;
+        color: $black;
+    }
+}
