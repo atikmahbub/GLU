@@ -4,10 +4,10 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
-import Drawer from '../../components/Drawer';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
-import FilterDrawerContent from './FilterDrawerContent';
+import FilterDrawer from './FilterDrawer';
 import useToggle from '../../Hooks/useToggle';
+import { IFilterElement } from './types';
 
 const useStyles = makeStyles({
     filterBtn: {
@@ -29,16 +29,16 @@ const useStyles = makeStyles({
 type CardsGridContainerProps = {
     title: string;
     rootClassName?: string;
+    filters: IFilterElement[];
+    filtersData: IFilterElement[];
 };
 
-const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, children }) => {
+const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, filters, filtersData, children }) => {
     const classes = useStyles();
-    const [filterDrawer, toggleFilterDrawer] = useToggle(true);
+    const [filterDrawer, toggleFilterDrawer] = useToggle(false);
     return (
         <Grid container direction="column" className={rootClassName}>
-            <Drawer position="left" width="44vw" open={filterDrawer} onClose={toggleFilterDrawer}>
-                <FilterDrawerContent />
-            </Drawer>
+            <FilterDrawer open={filterDrawer} onClose={toggleFilterDrawer} filters={filters} data={filtersData} />
             <Grid container className={classes.header}>
                 <Grid container item xs={6}>
                     <TitlePrimary>{title}</TitlePrimary>
@@ -65,5 +65,10 @@ const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, ch
         </Grid>
     );
 };
+
+FilterContainer.defaultProps = {
+    filters: [],
+    filtersData: []
+}
 
 export default FilterContainer;

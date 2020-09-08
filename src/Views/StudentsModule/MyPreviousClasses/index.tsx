@@ -5,7 +5,7 @@ import FilterContainer from '../../../Containers/FilterContainer';
 import PageFooter from '../../../components/PageFooter';
 import ImageCard from '../../../components/Cards/ImageCard';
 import CardsGrid from '../../../Containers/CardsGrid';
-import { cards } from './data';
+import { cards, filters, filtersData } from './data';
 
 const useStyles = makeStyles({
     cardsGridContainerRoot: {
@@ -17,7 +17,12 @@ const MyPreviousClasses: FC = () => {
     const classes = useStyles();
     return (
         <StudentsPageContainer navMenuBackground="primary" background="primary">
-            <FilterContainer title="My Previous Classes" rootClassName={classes.cardsGridContainerRoot}>
+            <FilterContainer
+                title="My Previous Classes"
+                filters={filters}
+                filtersData={filtersData}
+                rootClassName={classes.cardsGridContainerRoot}
+            >
                 <CardsGrid>
                     {cards.map((card, index) => (
                         <ImageCard key={index} {...card} />
