@@ -6,21 +6,19 @@ import ActionToolbar from '../ActionToolbar';
 import commonImg from '../../../Assets/images';
 import TableFilter from './TableFilter';
 
-interface props{
-    redirectDetails:(value:any)=>void;
-    handleDelete:(value:any)=>void;
-    handleEdit:(value:any)=>void;
-    showFilter:boolean;
+interface props {
+    redirectDetails: (value: any) => void;
+    handleDelete: (value: any) => void;
+    handleEdit: (value: any) => void;
+    showFilter: boolean;
 }
-const UserTable: React.FunctionComponent<props> = ({redirectDetails, handleDelete, handleEdit, showFilter}) => {
+const UserTable: React.FunctionComponent<props> = ({ redirectDetails, handleDelete, handleEdit, showFilter }) => {
     return (
         <CardContainer>
-                <div className="student-table">
-                    {
-                        showFilter ?  <TableFilter/> : null
-                    }
-                  
-                    <div className="table__container">
+            <div className="student-table">
+                {showFilter ? <TableFilter /> : null}
+
+                <div className="table__container">
                     <CardTable
                         showToolbar={false}
                         showPagination={true}
@@ -32,7 +30,7 @@ const UserTable: React.FunctionComponent<props> = ({redirectDetails, handleDelet
                                 title: 'Name',
                                 field: 'name',
                                 render: (rowData: any) => (
-                                   <TableUserProfile name={rowData.name} profile={rowData.profile}/>
+                                    <TableUserProfile name={rowData.name} profile={rowData.profile} />
                                 ),
                             },
                             {
@@ -50,7 +48,7 @@ const UserTable: React.FunctionComponent<props> = ({redirectDetails, handleDelet
                                 title: 'Form Group',
                                 field: 'formGroup',
                             },
-                
+
                             {
                                 width: '23%',
                                 title: 'Action',
@@ -58,7 +56,7 @@ const UserTable: React.FunctionComponent<props> = ({redirectDetails, handleDelet
                                 render: (rowData: any) => (
                                     <ActionToolbar
                                         showDetail={true}
-                                        detailClick={()=>redirectDetails(rowData.id)}
+                                        detailClick={() => redirectDetails(rowData.id)}
                                         deleteClick={() => handleDelete(rowData.id)}
                                         editClick={() => handleEdit(rowData)}
                                     />
@@ -66,18 +64,47 @@ const UserTable: React.FunctionComponent<props> = ({redirectDetails, handleDelet
                             },
                         ]}
                         rowData={[
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            {name:"Jenny Smith",profile:commonImg.photo, studentId:"XC9382", yearGroup:"1", formGroup:"A"},
-                            
+                            {
+                                name: 'Jenny Smith',
+                                profile: commonImg.photo,
+                                studentId: 'XC9382',
+                                yearGroup: '1',
+                                formGroup: 'A',
+                            },
+                            {
+                                name: 'Jenny Smith',
+                                profile: commonImg.photo,
+                                studentId: 'XC9382',
+                                yearGroup: '1',
+                                formGroup: 'A',
+                            },
+                            {
+                                name: 'Jenny Smith',
+                                profile: commonImg.photo,
+                                studentId: 'XC9382',
+                                yearGroup: '1',
+                                formGroup: 'A',
+                            },
+                            {
+                                name: 'Jenny Smith',
+                                profile: commonImg.photo,
+                                studentId: 'XC9382',
+                                yearGroup: '1',
+                                formGroup: 'A',
+                            },
+                            {
+                                name: 'Jenny Smith',
+                                profile: commonImg.photo,
+                                studentId: 'XC9382',
+                                yearGroup: '1',
+                                formGroup: 'A',
+                            },
                         ]}
                     />
-                    </div>
                 </div>
-            </CardContainer>
+            </div>
+        </CardContainer>
     );
-}
+};
 
 export default UserTable;

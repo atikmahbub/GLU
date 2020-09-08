@@ -8,14 +8,14 @@ import { rootRoute } from './Routes/RootRoute/rootRoute';
 import { rootRouteInterface } from './Interfaces/rootRouteInterface';
 import { rootPrivateRoute } from './Routes/RootRoute/rootPrivateRoute';
 import { MuiThemeProvider } from '@material-ui/core';
-import {mtuiTheme} from "./Styles/mtuiTheme";
+import theme from "./Styles/theme";
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
     render() {
         return (
             <React.Fragment>
-                <MuiThemeProvider theme={mtuiTheme}>
+                <MuiThemeProvider theme={theme}>
                     <ToastContainer closeButton={this.CloseButton} />
                     <Router>
                         <Suspense fallback={<div>Loading...</div>}>

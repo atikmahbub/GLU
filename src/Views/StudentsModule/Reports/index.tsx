@@ -7,7 +7,7 @@ import ChartInfo from './ChartInfo';
 import WhiteContainer from '../../../Containers/WhiteContainer';
 import TitlePrimary from '../../../components/Typographies/TitlePrimary';
 import ColumnsContainer from '../../../Containers/ColumnsContainer';
-import BottomRecommendedContainer from '../../../Containers/BottomRecommendedContainer';
+import RecommendedContainer from '../../../Containers/RecommendedContainer';
 import FormControlSelect from '../../../components/Form/FormControlSelect';
 import ExamResultCard from '../../../components/Cards/ExamResultCard';
 import Tag from '../../../components/Tag';
@@ -112,7 +112,7 @@ const Reports: FC = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <BottomRecommendedContainer title="Recommended Tutors" data={recommended} />
+                    <RecommendedContainer title="Recommended Tutors" data={recommended} />
                     <PageFooter rootClassName={classes.footerRoot} />
                 </WhiteContainer>
             </Grid>
