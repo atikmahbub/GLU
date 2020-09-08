@@ -110,7 +110,7 @@ const ParentIndividualTutorBanner: FC = () => {
                         I am an American author, life coach, and philanthropist. Known for my infomercials, seminars, and self-help books including the books Unlimited Power and Awaken the Giant Within. In 2015 and 2016 I was listed on the Worth Magazine Power 100 list.
                     </Typography>
                     <Grid item direction="column" className={classes.form} lg={6} spacing={2}>
-                        <Grid item xs={12} sm={12} md={6}>
+                        <Grid item xs={12} sm={12} md={12}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Students</InputLabel>
                                 <Select
@@ -128,7 +128,7 @@ const ParentIndividualTutorBanner: FC = () => {
                                 </Select>
                             </FormControl>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
+                        <Grid item xs={12} sm={12} md={12}>
                             <FormControl className={classes.formControl}>
                                 <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Date</InputLabel>
                                 <Select
