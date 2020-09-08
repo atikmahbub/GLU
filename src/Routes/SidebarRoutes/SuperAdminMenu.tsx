@@ -80,6 +80,12 @@ export const SuperAdminMenu: any[] = [
                 routeName: '/year-group',
             },
             {
+                menuName: 'Form-Group',
+                isExpandable: false,
+                menuList: [],
+                routeName: '/form-group',
+            },
+            {
                 menuName: 'Class Groups',
                 isExpandable: false,
                 menuList: [],

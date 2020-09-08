@@ -176,3 +176,12 @@ th.MuiTableCell-root {
         }
     }
 }
+
+.bold__border_table{
+    div.MuiPaper-elevation2 {
+        th.MuiTableCell-root {
+            border-bottom: 2px solid #d7d7d7;
+            padding-bottom: 0.5rem;
+        }
+    }
+}

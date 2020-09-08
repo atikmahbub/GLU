@@ -78,15 +78,15 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                 handleSubMenu(index);
                             }}>
                             {menu.menuName}
-                            {/* {handleArrowAngle(menu, 'main')} */}
+                            {handleArrowAngle(menu, 'main')}
                         </div>
                         <ul style={{ display: menu.isOpen ? 'block' : 'none' }}>
                             {menu.menuList.map((submenu: sidebarItems) => (
                                 <li
                                     key={uuidv4()}
                                     style={{
-                                        color:
-                                            pathname === `${url}${submenu.routeName}` ? colors.primary : colors.black,
+                                        backgroundColor:
+                                            pathname === `${url}${submenu.routeName}` ? '#f3f7ff' : '#fff',
                                     }}>
                                     <div
                                         onClick={() => {
@@ -100,7 +100,7 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
                                             handleSubSubMenu(index);
                                         }}>
                                         {submenu.menuName}
-                                        {/* {submenu.isExpandable && handleArrowAngle(submenu, 'sub')} */}
+                                        {submenu.isExpandable && handleArrowAngle(submenu, 'sub')}
                                     </div>
                                     <ul style={{ display: submenu.isOpen ? 'block' : 'none' }}>
                                         {submenu.menuList.map((childSubmenu) => (
