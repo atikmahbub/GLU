@@ -212,6 +212,7 @@
     .fieldName {
         font-size: 1.562rem;
         color: black;
+        font-weight: 500;
         margin-bottom: 0.32rem;
     }
     .inputfield {
@@ -224,6 +225,10 @@
         font-size: 1.562rem;
         color: $titleGray;
         font-family: inherit;
+        &::placeholder{
+            color: #5F5F5F4D;
+            font-weight: 500;
+        }
         &:focus {
             outline-color: transparent;
             outline: 0;
