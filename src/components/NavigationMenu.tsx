@@ -10,6 +10,8 @@ import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
 import { getColor } from '../Helper/studentModule';
 
+
+
 const useStyles = makeStyles({
     root: {
         '& .navigation': {
@@ -57,7 +59,7 @@ interface props {
     containerClassName?: string;
     absolute?: boolean;
     colorWhite?: boolean;
-    background?: 'primary' | 'secondary' | 'transparent',
+    background?: 'primary' | 'secondary' | 'transparent'|'brown';
     menuDrawerWidth?: number | string;
     menuDrawerAnimation?: boolean;
     MenuDrawerComponent?: ReactNode;

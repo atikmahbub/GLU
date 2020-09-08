@@ -1,10 +1,27 @@
 import React from 'react';
-import { TextField,Typography } from '@material-ui/core';
+import { TextField,Typography ,TextareaAutosize,makeStyles} from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 interface props{
     displayStudentInput?:boolean;
 }
+const useStyles = makeStyles({
+
+    textareaClass: {
+        backgroundAttachment: 'local',
+        backgroundImage:
+            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 3rem, #ccc 3rem, #ccc 3.0625rem, white 3.0625rem)',
+        lineHeight: '3rem',
+        padding: '0rem 1rem',
+        border: 'none',
+        width: '100%',
+        height: '15.385rem',
+        color: '#505050',
+        fontSize: '1.5rem',
+    }
+});
+
 const ReusableSubjectDesc: React.FunctionComponent<props> =({displayStudentInput}) => {
+    const classes=useStyles();
     return (
         <>
         <div className="col-md-12">
@@ -41,6 +58,7 @@ const ReusableSubjectDesc: React.FunctionComponent<props> =({displayStudentInput
                     <div className="description_container">
                         <Typography className="title">Description</Typography>
                         <textarea rows={5} style={{width:"100%"}} className="textbox" />
+                        {/* <TextareaAutosize rowsMin={6} className={classes.textareaClass} /> */}
                     </div>
                 </div>
                 <div className="col-md-12 p-0">

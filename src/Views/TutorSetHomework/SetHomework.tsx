@@ -5,6 +5,7 @@ import { Typography, TextField } from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
+import AddCancelButton from '../TutorAvailablity/AddCancelButton'
 // import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
 
@@ -73,8 +74,9 @@ const TutorRecord: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 homeworkBorder">
-                                <div className="addSkill">
+                                
                                     <NewSkillContainer skillArray={skillArray} />
+                                    {/* <div className="addSkill">
                                     <div className="col-md-12">
                                         <div className="row">
                                             <div className="homework_publish_container">
@@ -87,6 +89,9 @@ const TutorRecord: React.FunctionComponent = () => {
                                             </div>
                                         </div>
                                     </div>
+                                </div> */}
+                                <div className="publish_cancel_homework">
+                                <AddCancelButton firstButton={"Publish"} secondButton={"Cancel"}/>
                                 </div>
                             </div>
                         </div>

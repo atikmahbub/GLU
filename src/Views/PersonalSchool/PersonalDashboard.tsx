@@ -28,6 +28,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             subheading2={'Fully Booked'}
                             subject={'Geography.'}
                             desc={'Igneous, Sedimentary,'}
+                            linkurl={"/tutor/upcoming-class"}
                         />
                         </div>
                     </div>
@@ -65,7 +66,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                                     subHeading1={'Average Attendance'}
                                     subHeading2={'7/20 Spaces'}
                                 />
-                                <SmallCard linkurl={"/tutor/"} mainHeading={'Reviews'} subHeading1={'Current Rating'} subHeading2={'4/5'} />
+                                <SmallCard linkurl={"/tutor/reviews"} mainHeading={'Reviews'} subHeading1={'Current Rating'} subHeading2={'4/5'} />
                             </div>
                             <div className="card__row card_row4">
                                 <SmallCard
