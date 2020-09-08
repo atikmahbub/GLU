@@ -16,13 +16,6 @@ const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/T
 const ClassReview = React.lazy(() => import('../../Views/TutorReviewPage/ClassReview'));
 const TutorReview = React.lazy(() => import('../../Views/TutorReviewPage/TutorReview'));
 
-<<<<<<< HEAD
-
-const TutorExams= React.lazy(() => import('../../Views/TutorExams/TutorExams'));
-const TutorRecommend= React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
-const TutorUpcomingClass =React.lazy(()=>import('../../Views/TutorUpcommingClass/TutorUpcoming'));
-const TutorIndivisualExtraCurricular=React.lazy(()=>import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular'))
-=======
 // const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 const TutorExams = React.lazy(() => import('../../Views/TutorExams/TutorExams'));
 const TutorRecommend = React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
@@ -31,7 +24,6 @@ const TutorReviews = React.lazy(() => import('../../Views/TutorReviews/TutorRevi
 const TutorIndivisualExtraCurricular = React.lazy(
     () => import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular')
 );
->>>>>>> a9aae66ab276693cb8333781fbf9fa2902b36be6
 
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
