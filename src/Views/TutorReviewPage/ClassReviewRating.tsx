@@ -1,8 +1,9 @@
 import React from 'react';
-import { Grid, Typography, makeStyles, TextareaAutosize, Button, Box } from '@material-ui/core';
+import { Grid, Typography, makeStyles, TextareaAutosize, Button, useMediaQuery } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import SmallButton from './SmallButton';
+import ReusableTextArea from '../../components/ReusableTextArea';
 
 const useStyles = makeStyles({
     footer: {
@@ -60,40 +61,75 @@ const useStyles = makeStyles({
 
 const ClassReviewRating = () => {
     const classes = useStyles();
+    const isSmallScreen = useMediaQuery('(max-width: 768px)');
 
     return (
         <div>
-            <Grid container className={classes.mainGrid} justify="space-between">
-                <Grid item className={classes.leftGrid}>
-                    <Typography className={classes.headingSecondary}>Class Rating</Typography>
-                    <Typography className={`${classes.headingSecondary} ${classes.recommended}`}>
-                        Recommended
-                    </Typography>
-                </Grid>
+            {isSmallScreen ? (
+                <Grid container className={classes.mainGrid} justify="space-between">
+                    <Grid item xs={12}>
+                        <Typography className={classes.headingSecondary}>Class Rating</Typography>
+                        <Typography className={`${classes.headingSecondary} ${classes.recommended}`}>
+                            Recommended
+                        </Typography>
+                    </Grid>
 
-                <Grid item className={classes.rightGrid}>
-                    <Typography className={classes.small}>Feedback</Typography>
-                    <TextareaAutosize rowsMin={6} className={classes.textareaClass} />
-                    <Typography className={classes.small}>Stars</Typography>
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarBorderIcon />
-                    <hr className={classes.topMarg} />
-                    <Typography className={classes.small}>Would you recommend this Class?</Typography>
-                    <SmallButton label="Yes" />
-                    <SmallButton label="No" />
-                    <hr className={classes.topMarg} />
-                    <Typography className={classes.small}>Would you recommend the Tutor?</Typography>
-                    <SmallButton label="Yes" />
-                    <SmallButton label="No" />
-                    <div className={classes.confirm}>
-                        <Button className={classes.submit}>Submit</Button>
-                        <Button className={classes.cancel}>Cancel</Button>
-                    </div>
+                    <Grid item xs={12}>
+                        <Typography className={classes.small}>Feedback</Typography>
+                        <TextareaAutosize className={classes.textareaClass} />
+                        <Typography className={classes.small}>Stars</Typography>
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarBorderIcon />
+                        <hr className={classes.topMarg} />
+                        <Typography className={classes.small}>Would you recommend this Class?</Typography>
+                        <SmallButton label="Yes" />
+                        <SmallButton label="No" />
+                        <hr className={classes.topMarg} />
+                        <Typography className={classes.small}>Would you recommend the Tutor?</Typography>
+                        <SmallButton label="Yes" />
+                        <SmallButton label="No" />
+                        <div className={classes.confirm}>
+                            <Button className={classes.submit}>Submit</Button>
+                            <Button className={classes.cancel}>Cancel</Button>
+                        </div>
+                    </Grid>
                 </Grid>
-            </Grid>
+            ) : (
+                <Grid container className={classes.mainGrid} justify="space-between">
+                    <Grid item className={classes.leftGrid}>
+                        <Typography className={classes.headingSecondary}>Class Rating</Typography>
+                        <Typography className={`${classes.headingSecondary} ${classes.recommended}`}>
+                            Recommended
+                        </Typography>
+                    </Grid>
+
+                    <Grid item className={classes.rightGrid}>
+                        <Typography className={classes.small}>Feedback</Typography>
+                        <TextareaAutosize rowsMin={6} className={classes.textareaClass} />
+                        <Typography className={classes.small}>Stars</Typography>
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarBorderIcon />
+                        <hr className={classes.topMarg} />
+                        <Typography className={classes.small}>Would you recommend this Class?</Typography>
+                        <SmallButton label="Yes" />
+                        <SmallButton label="No" />
+                        <hr className={classes.topMarg} />
+                        <Typography className={classes.small}>Would you recommend the Tutor?</Typography>
+                        <SmallButton label="Yes" />
+                        <SmallButton label="No" />
+                        <div className={classes.confirm}>
+                            <Button className={classes.submit}>Submit</Button>
+                            <Button className={classes.cancel}>Cancel</Button>
+                        </div>
+                    </Grid>
+                </Grid>
+            )}
         </div>
     );
 };
