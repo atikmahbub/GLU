@@ -57,8 +57,8 @@ const useStyles = makeStyles({
 const NextClass:  FC = () => {
     const classes = useStyles();
     return (
-        <Grid container xs={12} direction="row" className={classes.nextClassContainer}>
-                <Grid container lg={2} md={12} xs={12} direction="column" className={classes.titleAndDropdown}> 
+        <Grid container item xs={12} direction="row" className={classes.nextClassContainer}>
+                <Grid item container lg={2} md={12} xs={12} direction="column" className={classes.titleAndDropdown}> 
                     <Grid item>
                         <Typography className={classes.title}>
                             Next Class
