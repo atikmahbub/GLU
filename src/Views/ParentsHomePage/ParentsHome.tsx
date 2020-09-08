@@ -45,7 +45,14 @@ const index: React.FunctionComponent = () => {
                     </Drawer>
                 </div>
                 <div className="navigation__menu">
-                    <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer} />
+                    <NavigationMenu 
+                            menuList={navigations} 
+                            handler={handleDrawer} 
+                            handlerNotification={handlePushDrawer} 
+                            MenuDrawerComponent={<SlidingDrawerContent />} 
+                            menuDrawerWidth="68.875rem"
+                            menuDrawerAnimation={false}
+                            />
                 </div>
 
                 <SectionTwoReusable

@@ -43,7 +43,13 @@ const ParentDashboard: React.FunctionComponent = () => {
 
             <div className="parent_dashboard_container">
                 <div className="navigation__menu">
-                    <NavigationMenu menuList={navigations} handler={handleDrawer} handlerNotification={handlePushDrawer} MenuDrawerComponent={<SlidingDrawerContent />} menuDrawerWidth="68.875rem"/>
+                    <NavigationMenu 
+                        menuList={navigations} 
+                        handler={handleDrawer} 
+                        handlerNotification={handlePushDrawer} 
+                        MenuDrawerComponent={<SlidingDrawerContent />} 
+                        menuDrawerWidth="68.875rem"
+                        menuDrawerAnimation={false}/>
                 </div>
                 <div className="main_container">
                     <div className="title__container">
