@@ -2,11 +2,12 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 
 interface props{
-    showTC?:boolean
+    showTC?:boolean;
+    bgColor?:string;
 }
-const MadeBy:React.FunctionComponent<props> = ({showTC}) => {
+const MadeBy:React.FunctionComponent<props> = ({showTC,bgColor}) => {
     return (
-        // <div>
+        <div className="set-footer-background" style={{backgroundColor:`{${bgColor}}`}}>
         <div className="row" style={{ marginBottom: '2rem' }}>
             <div className="col-md-6">
                 <Typography className="build-by">
@@ -24,7 +25,7 @@ const MadeBy:React.FunctionComponent<props> = ({showTC}) => {
     <Typography className="glu">{showTC && 'T&C’s / Privacy & Cookies'} {showTC && <span>&nbsp;</span>} Glu © 2020</Typography>
             </div>
         </div>
-        // </div>
+        </div>
     );
 };
 

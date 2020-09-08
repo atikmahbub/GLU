@@ -30,6 +30,9 @@
     padding-top: 3.125rem;
     padding-bottom: 10rem;
 }
+.publish_cancel_homework{
+    margin-top: 7rem;
+}
 .homework_publish_container {
     margin-top: 5rem;
     display: flex;
@@ -58,7 +61,7 @@
     }
 }
 @media screen and (min-width: 767px) {
-    .homework_date_container{
+    .publish_cancel_homework,.homework_date_container{
         padding-left:3.125rem;
     }
     .homeworkBorder{

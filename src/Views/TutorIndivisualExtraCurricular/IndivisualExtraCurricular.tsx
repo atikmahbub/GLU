@@ -53,6 +53,15 @@ const ReviewListArray = [
             'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
     },
 ];
+const resourcesArray=[
+    {
+        title:"Hawk: Occupation: Skateboarder",
+        subtitle:"Download"
+    },
+    {title:"Book Of Tricks",
+    subtitle:"Download"
+}
+]
 const IndivisualExtraCurricular: React.FunctionComponent = () => {
     return (
         <div className="tutor_indivisual_extra_curr_main">
@@ -87,8 +96,9 @@ const IndivisualExtraCurricular: React.FunctionComponent = () => {
                             heading={'Resources'}
                             subHeading1={'Text Books'}
                             subHeading2={'Audio Clips'}
-                            subText2={'Extract from AQA Algebra'}
+                            subText2={'Reading from Concrete Wave'}
                             isDivider={false}
+                            resourcesArray={resourcesArray}
                         />
                     </div>
                 </div>

@@ -41,7 +41,7 @@ const ReusableCoverImage: React.FunctionComponent<props> = ({imgSrc}) => {
                         <Typography className="sub_heading">Publish</Typography>
                     </div>
                     <div className="cancel_button">
-                        <Typography>Cancel</Typography>
+                        <Typography className="text">Cancel</Typography>
                     </div>
                 </div>
             </div>

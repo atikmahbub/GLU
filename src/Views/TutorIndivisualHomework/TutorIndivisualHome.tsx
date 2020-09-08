@@ -25,6 +25,16 @@ const TutorRecord: React.FunctionComponent = () => {
         { name: 'Toby Frost', date: '06/08/20', time: ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' },
         { name: 'Toby Frost', date: '06/08/20', time: ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' },
     ];
+    const resourcesArray=[
+        {
+            title:"AQA Algebra",
+            subtitle:"Download"
+        },
+        {
+            title:"Algebra for beginners",
+            subtitle:"Download"
+        }
+    ]
     const classes = useStyles();
     return (
         <NavigationMenu menuList={menu} background="secondary">
@@ -75,18 +85,20 @@ const TutorRecord: React.FunctionComponent = () => {
             </div>
             <div className="resources_play_container_3">
                 <div className="row horizontalline"></div>
-
-                <div className="resources_play_container_3_1">
+                    <div className="resources_play_container_3_1">
                     <PlayBanner
                         heading={"Resources"}
                         subHeading1={"Text Books"}
                         subHeading2={"Audio Clips"}
                         subText2={"Extract from AQA Algebra"}
                         isDivider={true}
+                        resourcesArray={resourcesArray}
                     />
                     <div className="row">
                         <div className="col-md-6 p-0">
-                            <Typography className="leftText leftTextPadding">Students</Typography>
+                            <div className="leftTextPadding">
+                            <Typography className="leftText ">Students</Typography>
+                        </div>
                         </div>
                         <div className="col-md-6 p-0 borderLineMain">
                             <div className="students_container">
@@ -119,7 +131,11 @@ const TutorRecord: React.FunctionComponent = () => {
 
                     <div className="row">
                         <div className="col-md-6 p-0">
-                            <Typography className="leftText leftTextPadding">Hand In</Typography>
+                        <div className="col-md-6 p-0">
+                            <div className="leftTextPadding">
+                            <Typography className="leftText ">Hand In</Typography>
+                        </div>
+                        </div>
                         </div>
                         <div className="col-md-6 p-0 borderLineMain">
                             <div className="students_container">
