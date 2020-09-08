@@ -14,15 +14,17 @@ const useStyles = makeStyles({
     buttonContainer: {
         width: '100%',
         position: 'sticky',
-        paddingTop: '1.75rem',
-        paddingBottom: '3.125rem',
+        height: 145,
         top: 0,
         background: '#fff',
-        zIndex: 1
+        zIndex: 1,
+        paddingTop: '1.4375rem'
     },
     button: {
-        position: 'relative',
-        left: -12
+        position: 'absolute',
+        top: '0.9375rem',
+        left: ({ position }: any) => position === 'left' ? 'unset' : -12,
+        right: ({ position }: any) => position === 'right' ? 'unset' : -12
     },
 });
 
@@ -31,6 +33,7 @@ type DrawerProps = {
     open: boolean;
     onClose: () => void;
     width?: number | string;
+    headerComponent?: ReactNode;
     children: ReactNode;
 };
 
@@ -39,13 +42,15 @@ const Drawer: FC<DrawerProps> = ({
     open = false,
     width = 500,
     onClose,
+    headerComponent,
     children,
 }) => {
-    const classes = useStyles({ width });
+    const classes = useStyles({ width, position });
     return (
         <MuiDrawer anchor={position} open={open} variant="temporary">
             <Grid container direction="column" wrap="nowrap" className={classes.content}>
                 <Grid className={classes.buttonContainer}>
+                    {headerComponent}
                     <IconButton className={classes.button} onClick={onClose}>
                         <CloseIcon />
                     </IconButton>

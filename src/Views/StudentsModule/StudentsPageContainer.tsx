@@ -4,14 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import { studentMenus } from '../../Helper/studentMenus';
+import { getColor } from '../../Helper/studentModule';
 
 const useStyles = makeStyles({
     root: {
-        background: '#F7F7F7',
+        background: ({ background }: any) => getColor(background),
         minHeight: '100vh',
-    },
-    navigationContainer: {
-        backgroundColor: '#F7F7F7 !important',
     },
     content: {
         padding: '3.75rem 3.125rem',
@@ -19,17 +17,26 @@ const useStyles = makeStyles({
 });
 
 type StudentsPageContainerProps = {
+    navMenuBackground?: 'primary' | 'secondary' | 'transparent';
+    background?: 'primary' | 'secondary';
     rootClassName?: string;
     contentClassName?: string;
     children: ReactNode;
+    paddingBottom?: boolean;
 };
 
-const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ rootClassName, contentClassName, children }) => {
-    const classes = useStyles();
+const StudentsPageContainer: FC<StudentsPageContainerProps> = ({
+    navMenuBackground,
+    background,
+    rootClassName,
+    contentClassName,
+    children,
+}) => {
+    const classes = useStyles({ background });
     return (
         <NavigationMenu
             menuList={studentMenus}
-            containerClassName={classes.navigationContainer}
+            background={navMenuBackground}
         >
             <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
                 <Grid container direction="column" className={classNames(classes.content, contentClassName)}>
@@ -39,5 +46,10 @@ const StudentsPageContainer: FC<StudentsPageContainerProps> = ({ rootClassName, 
         </NavigationMenu>
     );
 };
+
+StudentsPageContainer.defaultProps = {
+    navMenuBackground: 'secondary',
+    background: 'secondary'
+}
 
 export default StudentsPageContainer;

@@ -13,6 +13,7 @@ const SchoolTimetable = React.lazy(() => import('../../Views/SchoolTimeTable/Sch
 const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 
 // Added by Vivek
+const ClassReview = React.lazy(() => import('../../Views/TutorReviewPage/ClassReview'));
 const TutorReview = React.lazy(() => import('../../Views/TutorReviewPage/TutorReview'));
 
 
@@ -33,6 +34,7 @@ export const tutorRoutes = [
     createRouteObj('/tutor/upcoming-classes', UpcomingClasses),
     createRouteObj('/tutor/school-table', SchoolTimetable),
     createRouteObj('/tutor/tutor-availablity', TutorAvailablity),
+    createRouteObj('/tutor/class-review', ClassReview),
     createRouteObj('/tutor/tutor-review', TutorReview),
     createRouteObj('/tutor/availablity',TutorAvailablity),
     createRouteObj('/tutor/exams',TutorExams),

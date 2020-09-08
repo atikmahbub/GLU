@@ -5,6 +5,7 @@ import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import classNames from 'classnames';
 import LineDivider from '../../components/Dashobard/LineDivider';
 import ThreeColTable from '../../components/Dashobard/ThreeColTable';
+import ThreeText from '../../components/Dashobard/FormGroup/ThreeText';
 
 const useStyles = makeStyles({
     parent: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
     },
     boldText: {
         fontWeight: 600,
-        paddingRight:'4rem'
+        paddingRight: '4rem',
     },
 });
 const Index = () => {
@@ -49,11 +50,7 @@ const Index = () => {
             </Grid>
             <Grid item xs={12} md={8}>
                 <InputWithLabel fieldName="Title" mt="mt-0" />
-                <Typography className={classNames(classes.title, classes.headYear)}>Head of year</Typography>
-                <Typography className={classNames(classes.title, classes.addedName)}>John Wick</Typography>
-                <Typography className={classNames(classes.title, classes.addedName, classes.addAnother)}>
-                    Add another member
-                </Typography>
+                <ThreeText headTitle="Head of year" title="John Wick" another="Add another member" />
                 <InputWithLabel fieldName="Year Group" />
             </Grid>
             <LineDivider mt="3.75rem" mb="3.75rem" />

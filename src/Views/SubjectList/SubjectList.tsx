@@ -7,10 +7,9 @@ import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import UserTable from '../../components/Dashobard/Table/UserTable';
 
 interface props {
-    triggerModal: () => void;
     setEditData: Function
 }
-const SubjectList: React.FunctionComponent<props> = ({ triggerModal, setEditData }) => {
+const SubjectList: React.FunctionComponent<props> = ({  setEditData }) => {
     const [subjects, setSubjects] = useState([]);
     const subjectList = useSelector((state: rootReducerType) => state.subjectReducer.subjectList);
     console.log(subjectList)
@@ -38,7 +37,7 @@ const SubjectList: React.FunctionComponent<props> = ({ triggerModal, setEditData
                     title="Class Groups"
                     btnTitle="Create Class Group"
                     btnIcon={<Add />}
-                    trigger={triggerModal}
+                    trigger={()=>{}}
                 />
             </CardContainer>
             <UserTable

@@ -23,11 +23,12 @@ const getBackground = (background: string) => {
             return '#fff'
     }
 }
+import { getColor } from '../Helper/studentModule';
 
 const useStyles = makeStyles({
     root: {
         '& .navigation': {
-            backgroundColor: ({ background }: any) => getBackground(background)
+            backgroundColor: ({ background }: any) => getColor(background)
         }
     },
     rootAbsolute: {
