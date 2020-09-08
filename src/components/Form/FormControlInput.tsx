@@ -5,18 +5,20 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
-        width: 'fit-content',
-        position: 'relative'
+        width: '100%',
+        position: 'relative',
     },
     inputRoot: {
-        height: 30,
+        height: 42,
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
         '&.Mui-focused': {
             borderBottom: '1px solid rgba(0, 0, 0, 1)',
         },
         '& .MuiInputBase-input': {
             padding: 0,
-            paddingLeft: ({ icon }: any) => icon ? 25 : 0
+            height: 42,
+            fontSize:'1.125rem',
+            paddingLeft: ({ icon }: any) => (icon ? 25 : 0),
         },
     },
     iconContainer: {
@@ -27,8 +29,8 @@ const useStyles = makeStyles({
             display: 'block',
             width: 'inherit',
             height: 'inherit',
-        }
-    }
+        },
+    },
 });
 
 type FormControlInputProps = {
@@ -54,13 +56,14 @@ const FormControlInput: FC<FormControlInputProps> = ({ id, name, placeholder, va
                 value={value}
                 onChange={onChange}
                 className={classes.inputRoot}
+                fullWidth
             />
         </Grid>
     );
 };
 
 FormControlInput.defaultProps = {
-    onChange: () => {}
-}
+    onChange: () => {},
+};
 
 export default memo(FormControlInput);
