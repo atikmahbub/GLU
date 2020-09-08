@@ -6,6 +6,8 @@ export function getColor(type: string): string {
             return  '#F7F7F7'
         case 'transparent':
             return 'transparent'
+        case 'brown':
+            return '#76726E'
         default:
             return '#fff'
     }

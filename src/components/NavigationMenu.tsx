@@ -8,22 +8,9 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
-
-const getBackground = (background: string) => {
-    switch (background) {
-        case 'primary':
-            return '#fff'
-        case 'secondary':
-            return  '#F7F7F7'
-        case 'transparent':
-            return 'transparent'
-        case 'brown':
-            return '#76726E'
-        default:
-            return '#fff'
-    }
-}
 import { getColor } from '../Helper/studentModule';
+
+
 
 const useStyles = makeStyles({
     root: {
@@ -72,7 +59,7 @@ interface props {
     containerClassName?: string;
     absolute?: boolean;
     colorWhite?: boolean;
-    background?: 'primary' | 'secondary' | 'transparent',
+    background?: 'primary' | 'secondary' | 'transparent'|'brown';
     menuDrawerWidth?: number | string;
     menuDrawerAnimation?: boolean;
     MenuDrawerComponent?: ReactNode;
