@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import MadeBy from '../Footer/MadeBy';
 import TagsContainer from '../../components/TagsContainer';
 import PlayBanner from '../../components/PlayBanner';
+import ActivityBanner from '../../components/ActivityBanner'
 import commonImg from '../../Assets/images';
 const menu = [
     { link: '/tutor/', name: 'Dashboard' },
@@ -16,12 +17,19 @@ const menu = [
 ];
 const student1Array = ['Toby Frost ', 'Lugain Rfidah', ' Jack Marshall', 'Mia Adams', 'Jen Holden'];
 const student2Array = ['Ainsley Adams', 'Arthor Smith ', 'Rohan Rai', 'Joshua Lee', 'Shehan Chu'];
-const ArrayTags = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+const ArrayTags = ['Boxing', 'Training', 'Beginner', 'Entry Level', 'Getting Started', 'Sports', 'Fitness'];
+const resourcesArray=[
+    {
+        title:"Mike Tyson, Undisputed Truth",
+        subtitle:"Download"
+    }
+]
 const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
     return (
         <NavigationMenu menuList={menu} background="secondary">
             <div className="tutor-individual-curricular-2">
-                <div className="reusable_activity_banner">
+                <ActivityBanner heading={"Extra Curricular"} image={commonImg.jumpinggirl} date={"29/07/20"} startTime={"4pm"} endTime={"4.30pm"} activityDesc={"Boxing. Training techniques for begginers"} button1={"Edit"} button2={"Cancel"} />
+                {/* <div className="reusable_activity_banner">
                     <div className="activity_banner">
                         <div className="sec1">
                             <Typography className="activity_text">Extra Curricular</Typography>
@@ -44,7 +52,7 @@ const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="tutor_indivisual_curricular2_container1">
                     <BigBanner
                         heading={'Class Today'}
@@ -74,8 +82,9 @@ const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
                             heading={'Resources'}
                             subHeading1={'Text Books'}
                             subHeading2={'Audio Clips'}
-                            subText2={'Extract from AQA Algebra'}
+                            subText2={'Reading from Concrete Wave'}
                             isDivider={true}
+                            resourcesArray={resourcesArray}
                         />
                     </div>
                 </div>

@@ -25,6 +25,16 @@ const TutorRecord: React.FunctionComponent = () => {
         { name: 'Toby Frost', date: '06/08/20', time: ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' },
         { name: 'Toby Frost', date: '06/08/20', time: ' 7.02pm', isSubmitted: 'Incomplete', isEdit: 'Edit' },
     ];
+    const resourcesArray=[
+        {
+            title:"AQA Algebra",
+            subtitle:"Download"
+        },
+        {
+            title:"Algebra for beginners",
+            subtitle:"Download"
+        }
+    ]
     const classes = useStyles();
     return (
         <NavigationMenu menuList={menu} background="secondary">
@@ -82,6 +92,7 @@ const TutorRecord: React.FunctionComponent = () => {
                         subHeading2={"Audio Clips"}
                         subText2={"Extract from AQA Algebra"}
                         isDivider={true}
+                        resourcesArray={resourcesArray}
                     />
                     <div className="row">
                         <div className="col-md-6 p-0">

@@ -11,8 +11,9 @@ interface props {
     title1: string;
     subheading1: string;
     subheading2: string;
+    linkurl?:string;
 }
-const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,subheading1,subheading2 }) => {
+const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,time2,subject,desc,title1,subheading1,subheading2 ,linkurl}) => {
     return (
         <>
             
@@ -22,7 +23,7 @@ const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,t
                     </Link>
                 </div>
                 <div className="card_title">
-                    <Typography className="card_title_1">{title1}</Typography>
+                   <Link to={linkurl} style={{color:'black',textDecoration:'none'}}> <Typography className="card_title_1">{title1}</Typography></Link>
                 </div>
                 <div className="row_main">
                     <div className="row">

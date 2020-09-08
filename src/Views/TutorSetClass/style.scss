@@ -55,20 +55,22 @@
 .skill_container{
     margin-top:3.125rem;
 }
-.outerAddSkill,
-.addCoverImg ,
-.setClass{
-    padding-top: 3.125rem;
+.sub_heading_container{
+    margin-top: 3.125rem;
+    padding-bottom: 1rem;
     font-family: 'CircularXXWeb-Book';
     .sub_heading {
         font-family: inherit;
         font-size: 1.5625rem !important;
         line-height: 1.875rem;
     }
-    .sub_heading_container{
-        margin-top: 3.125rem;
-        padding-bottom: 1rem;
-    }
+}
+.outerAddSkill,
+.addCoverImg ,
+.setClass{
+    padding-top: 3.125rem;
+    
+    
     .textCover {
         font-family: inherit;
         font-size: 1.5625rem;
@@ -158,6 +160,14 @@
             line-height: 1.5625rem;
         }
     }
+  
+        font-family: 'CircularXXWeb-Book';
+        .sub_heading {
+            font-family: inherit;
+            font-size: 1.5625rem !important;
+            line-height: 1.875rem;
+        }
+    
     .cancel_button {
         padding: 0.437rem 0;
         .text {
