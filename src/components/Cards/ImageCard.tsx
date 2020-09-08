@@ -1,18 +1,22 @@
 import React, { FC, memo } from 'react';
-import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
-    root: {
-        width: 418
+    imgContainer: {
+        width: 'inherit',
+        paddingTop: '77%',
+        marginBottom: '1.3125rem',
+        position: 'relative'
     },
     img: {
-        width: 'inherit',
-        height: 324,
-        marginBottom: '1.3125rem',
-        objectFit: 'cover'
+        objectFit: 'cover',
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0
     },
     title: {
         fontSize: '1.5625rem',
@@ -26,18 +30,20 @@ const useStyles = makeStyles({
     }
 })
 
-type ImageCardProps = {
+export interface IImageCard {
     img: string;
     title: string;
     subTitle: string;
     rootClassName?: string
 }
 
-const ImageCard: FC<ImageCardProps> = ({ img, title, subTitle, rootClassName }) => {
+const ImageCard: FC<IImageCard> = ({ img, title, subTitle, rootClassName }) => {
     const classes = useStyles()
     return (
-        <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
-            <img src={img} alt="preview" className={classes.img} />
+        <Grid container direction="column" className={rootClassName}>
+            <Grid container className={classes.imgContainer}>
+                <img src={img} alt="preview" className={classes.img} />
+            </Grid>
             <Typography className={classes.title}>{title}</Typography>
             <Typography className={classes.subTitle}>{subTitle}</Typography>
         </Grid>
