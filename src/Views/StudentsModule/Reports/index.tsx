@@ -33,6 +33,9 @@ const useStyles = makeStyles({
     selectRoot: {
         marginRight: '7.375rem',
     },
+    selectInputRoot: {
+        width: 150
+    },
     seeAll: {
         fontSize: '1.25rem',
         lineHeight: '1.875rem',
@@ -80,15 +83,21 @@ const Reports: FC = () => {
                                     <FormControlSelect
                                         label="From"
                                         value="july"
+                                        variant="outlined"
+                                        labelPlacement="left"
                                         options={monthsOptions}
                                         onChange={console.log}
                                         rootClassName={classes.selectRoot}
+                                        inputRootClassName={classes.selectInputRoot}
                                     />
                                     <FormControlSelect
                                         label="To"
                                         value="june"
+                                        variant="outlined"
+                                        labelPlacement="left"
                                         options={monthsOptions}
                                         onChange={console.log}
+                                        inputRootClassName={classes.selectInputRoot}
                                     />
                                 </Grid>
                                 <Grid container direction="column">
