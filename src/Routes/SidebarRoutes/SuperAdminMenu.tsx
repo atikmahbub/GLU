@@ -1,10 +1,6 @@
-import React from 'react';
-import { Dashboard as DashboardIcon, AccountBalanceWallet, Settings, AccountCircle, School, HowToReg } from '@material-ui/icons';
-
 export const SuperAdminMenu: any[] = [
     {
         menuName: 'Dashboard',
-        icon: <DashboardIcon />,
         isExpandable: false,
         isOpen: false,
         menuList: [],
@@ -12,7 +8,6 @@ export const SuperAdminMenu: any[] = [
     },
     {
         menuName: 'Admin',
-        icon:<HowToReg />,
         isExpandable: false,
         isOpen: false,
         menuList: [],
@@ -20,7 +15,6 @@ export const SuperAdminMenu: any[] = [
     },
     {
         menuName: 'Users',
-        icon: <AccountCircle />,
         isExpandable: true,
         menuList: [
             {
@@ -64,7 +58,6 @@ export const SuperAdminMenu: any[] = [
     },
     {
         menuName: 'Academic',
-        icon: <School />,
         isExpandable: true,
         menuList: [
             {
@@ -97,37 +90,37 @@ export const SuperAdminMenu: any[] = [
                 menuList: [],
                 routeName: '/departments',
             },
-            {
-                menuName: 'Daily Attendance',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/daily-attendance',
-            },
-            {
-                menuName: 'Event Calender',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/event-calender',
-            },
-            {
-                menuName: 'Timetables',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/timetables',
-            },
+            // {
+            //     menuName: 'Daily Attendance',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/daily-attendance',
+            // },
+            // {
+            //     menuName: 'Event Calender',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/event-calender',
+            // },
+            // {
+            //     menuName: 'Timetables',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/timetables',
+            // },
 
-            {
-                menuName: 'Syllabus',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/syllabus',
-            },
-            {
-                menuName: 'Extra Curricular Activities',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/extra-curricular-activities',
-            },
+            // {
+            //     menuName: 'Syllabus',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/syllabus',
+            // },
+            // {
+            //     menuName: 'Extra Curricular Activities',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/extra-curricular-activities',
+            // },
             {
                 menuName: 'Merits/Sanction',
                 isExpandable: false,
@@ -145,7 +138,6 @@ export const SuperAdminMenu: any[] = [
     },
     {
         menuName: 'Accounts',
-        icon: <AccountBalanceWallet />,
         isExpandable: true,
         routeName: '',
         menuList: [
@@ -174,7 +166,6 @@ export const SuperAdminMenu: any[] = [
     },
     {
         menuName: 'Settings',
-        icon: <Settings />,
         isExpandable: true,
         menuList: [
             {

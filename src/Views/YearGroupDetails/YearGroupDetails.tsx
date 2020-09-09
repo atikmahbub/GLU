@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add, MailOutline } from '@material-ui/icons';
 import AddButton from '../../components/Dashobard/AddButton';
-import UserTable from '../../components/Dashobard/Table/UserTable';
 import { useHistory } from 'react-router';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
@@ -11,23 +10,20 @@ import BorderTableContainer from '../../Containers/Dashboard/BorderTableContaine
 interface props {
     classList?: any[];
 }
-const ClassList: React.FunctionComponent<props> = ({ classList }) => {
+const YearGroupDetails: React.FunctionComponent<props> = ({ classList }) => {
     const routes = useHistory();
 
     const handleToggler = () => {
-        routes.push('/dashboard/add-year-group');
+        routes.push('/dashboard/year-group/add-year-group');
     };
-    const handleRow = () => {
-        routes.push('/dashboard/year-group/details');
-    };
-
     return (
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    title="Year Groups"
+                    title="Year 4"
+                    subtitle="Head: Mr.John Krasinski"
                     btnIcon={<Add />}
-                    btnTitle="Add Year Group"
+                    btnTitle="New Form Group"
                     component="notification"
                     showNotification={true}
                     notificationText="Send notification"
@@ -40,36 +36,28 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                     <CardTable
                         showToolbar={false}
                         showPagination={true}
-                        selectable={true}
-                        rowClick={handleRow}
                         tableHeight="100vh"
                         columns={[
                             {
-                                width: '23%',
-                                title: 'Group',
-                                field: 'group',
+                                width: '60%',
+                                title: 'Form Group',
+                                field: 'formGroup',
                             },
                             {
-                                width: '23%',
+                                width: '15%',
                                 title: 'No.of Children',
                                 field: 'children',
                             },
 
                             {
-                                width: '23%',
-                                title: 'Form Groups',
-                                field: 'formGroup',
+                                width: '20%',
+                                title: 'Teacher',
+                                field: 'teacher',
                             },
                             {
-                                width: '23%',
-                                title: 'Head of Year',
-                                field: 'hoy',
-                            },
-
-                            {
-                                width: '23%',
-                                title: 'Action',
-                                field: 'action',
+                                width: '5%',
+                                title: '',
+                                field: '',
                                 render: (rowData: any) => (
                                     <ActionToolbar
                                     // showDetail={true}
@@ -82,34 +70,29 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                         ]}
                         rowData={[
                             {
-                                group: 'Year 4',
                                 children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
+                                formGroup: 'Year 4 — Red',
+                                teacher: 'Mr.Shehan Abeysinghe',
                             },
                             {
-                                group: 'Year 4',
                                 children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
+                                formGroup: 'Year 4 — Blue',
+                                teacher: 'Mr.Shehan Abeysinghe',
                             },
                             {
-                                group: 'Year 4',
                                 children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
+                                formGroup: 'Year 4 — Yellow',
+                                teacher: 'Mr.Shehan Abeysinghe',
                             },
                             {
-                                group: 'Year 4',
                                 children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
+                                formGroup: 'Year 4 — Gold',
+                                teacher: 'Mr.Shehan Abeysinghe',
                             },
                             {
-                                group: 'Year 4',
                                 children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
+                                formGroup: 'Year 4 — Green',
+                                teacher: 'Mr.Shehan Abeysinghe',
                             },
                         ]}
                     />
@@ -119,4 +102,4 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
     );
 };
 
-export default ClassList;
+export default YearGroupDetails;

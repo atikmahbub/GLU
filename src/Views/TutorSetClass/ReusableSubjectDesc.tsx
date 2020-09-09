@@ -13,7 +13,7 @@ const ReusableSubjectDesc: React.FunctionComponent<props> =({displayStudentInput
                     <SelectFieldUnderline
                         label="Subject"
                         value="English"
-                        className="custom-adornment-input"
+                        className="select-large"
                         options={['English']}
                         getValue={() => {}}
                     />
@@ -23,10 +23,10 @@ const ReusableSubjectDesc: React.FunctionComponent<props> =({displayStudentInput
                     <div className="sub_rows">
                     <div className="input_row">
                         <div className="input_text">
-                        <TextField className="line-input" label="No. Of Students" fullWidth value="25" />
+                        <TextField className="line-input-large" label="No. Of Students" fullWidth value="25" />
                         </div>
                         <div className="input_text">
-                        <TextField className="line-input" label="No. Of Students" fullWidth value="25" />
+                        <TextField className="line-input-large" label="No. Of Students" fullWidth value="25" />
                         </div>
                     </div>
                 </div>}
@@ -35,7 +35,7 @@ const ReusableSubjectDesc: React.FunctionComponent<props> =({displayStudentInput
             </div>
             <div className="row">
                 <div className="col-md-11 p-0">
-                    <TextField className="line-input" label="Title (45 Characters)" fullWidth value=" " />
+                    <TextField className="line-input-large" label="Title (45 Characters)" fullWidth value=" " />
                 </div>
                 <div className="col-md-11 p-0">
                     <div className="description_container">
