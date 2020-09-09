@@ -1,15 +1,9 @@
 import React from 'react';
-import HistogramChart from '../../components/Dashobard/HistogramChart';
 import { Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import HistogramChart from '../HistogramChart';
 
 const FeeExamResultRow = () => {
-    const data = [
-        { col1: 'January', col2: 'Success' },
-        { col1: 'Fabruary', col2: 'Success' },
-        { col1: 'March', col2: 'Success' },
-        { col1: 'April', col2: 'Success' },
-    ];
     const route = useHistory();
     const gotoPage = () => {
         route.push('/dashboard/student-details/exam');

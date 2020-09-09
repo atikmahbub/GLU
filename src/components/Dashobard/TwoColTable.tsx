@@ -1,6 +1,15 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid, makeStyles } from '@material-ui/core';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
+
+const useStyles = makeStyles({
+    link: {
+        fontSize: '1.25rem',
+        lineHeight: '1.562rem',
+        marginBottom: '0.7rem',
+    },
+});
 
 interface props {
     color?: string;
@@ -12,7 +21,9 @@ interface props {
     colWidth2?: string;
     height?: string;
     children?: React.ReactNode;
-    rowClick?:()=>void
+    rowClick?: () => void;
+    showLink?: boolean;
+    linkTo: string;
 }
 const TwoColTable: React.FunctionComponent<props> = ({
     color,
@@ -24,11 +35,21 @@ const TwoColTable: React.FunctionComponent<props> = ({
     colWidth2,
     height,
     children,
-    rowClick
+    rowClick,
+    showLink,
+    linkTo,
 }) => {
+    const classes = useStyles();
     return (
         <div className="data-container bg-white">
-            <Typography className="heading">{tableName}</Typography>
+            <Grid container alignItems="center" justify="space-between">
+                <Typography className="heading">{tableName}</Typography>
+                {showLink && (
+                    <Typography component={Link} to={linkTo} className={classes.link}>
+                        View all
+                    </Typography>
+                )}
+            </Grid>
             <div style={{ maxHeight: height }} className="table-data">
                 <table className="table">
                     <thead>
@@ -41,7 +62,7 @@ const TwoColTable: React.FunctionComponent<props> = ({
                         {data?.map((item: any) => (
                             <tr key={uuidv4()} onClick={rowClick}>
                                 <td style={{ width: colWidth1 }}>{item.col1}</td>
-                                <td style={{ color, width:colWidth2 }}>{item.col2}</td>
+                                <td style={{ color, width: colWidth2 }}>{item.col2}</td>
                             </tr>
                         ))}
                     </tbody>

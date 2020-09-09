@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         border: `1px solid ${colors.lightGray}`,
         padding: '0.2rem',
         width: 'auto',
-        marginLeft: '0.5rem',
+        marginRight: '0.5rem',
         marginBottom: '0.5rem',
     },
     title: {

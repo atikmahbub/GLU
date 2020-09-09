@@ -9,9 +9,9 @@ import LineDivider from './LineDivider';
 import SelectWithLabel from '../Inputs/SelectWithLabel';
 
 const useStyles = makeStyles({
-    parent:{
+    parent: {
         height: '88vh',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     title: {
         fontSize: '1.562rem',
@@ -28,38 +28,37 @@ const Notification = () => {
     const classes = useStyles();
     return (
         <Box className={classes.parent}>
-        <CardContainer>
-            <PdBox>
-                <Grid container spacing={0}>
-                    <Grid item xs={12} md={4}>
-                        <Typography className={classes.title}>New message</Typography>
-                    </Grid>
-                    <Grid item xs={12} md={8}>
-                        <Typography className={classes.title}>Upload Document (Optional)</Typography>
-                        <UploadMaxSize />
-                        <TextAreaWithLabel label="Message" rows={5} />
-                    </Grid>
-                </Grid>
-                <LineDivider mt="2rem" mb="2rem" />
-                <Grid container spacing={0}>
-                    <Grid item xs={12} md={4}></Grid>
-                    <Grid item xs={12} md={8}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} md={5}>
-                                <SelectWithLabel fieldName="Schedule message (Optional)" />
-                            </Grid>
-
-                            <Grid item xs={12} md={5}>
-                                <div className={classes.mt}>
-                                    <SelectWithLabel />
-                                </div>
-                            </Grid>
-                            <Grid item xs={12} md={2}></Grid>
+            <CardContainer>
+                <PdBox>
+                    <Grid container spacing={0}>
+                        <Grid item xs={12} md={4}>
+                            <Typography className={classes.title}>New message</Typography>
+                        </Grid>
+                        <Grid item xs={12} md={8}>
+                            <Typography className={classes.title}>Upload Document (Optional)</Typography>
+                            <UploadMaxSize />
+                            <TextAreaWithLabel label="Message" rows={5} />
                         </Grid>
                     </Grid>
-                </Grid>
-            </PdBox>
-        </CardContainer>
+                    <LineDivider mt="2rem" mb="2rem" />
+                    <Grid container spacing={0}>
+                        <Grid item xs={12} md={4}></Grid>
+                        <Grid item xs={12} md={8}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12} md={5}>
+                                    <SelectWithLabel fieldName="Schedule message (Optional)" />
+                                </Grid>
+                                <Grid item xs={12} md={5}>
+                                    <div className={classes.mt}>
+                                        <SelectWithLabel />
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} md={2}></Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </PdBox>
+            </CardContainer>
         </Box>
     );
 };
