@@ -9,6 +9,7 @@ import UserTable from '../../components/Dashobard/Table/UserTable';
 import { useHistory } from 'react-router';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 import FormControlSelect from '../../components/Form/FormControlSelect';
 import FormControlInput from '../../components/Form/FormControlInput';
 
@@ -32,6 +33,11 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
     const handleToggler = () => {
         routes.push('/dashboard/add-year-group');
     };
+
+    const handleRow = () => {
+        routes.push('/dashboard/year-group/details');
+    };
+
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -47,119 +53,118 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                 />
             </CardContainer>
             <CardContainer>
-                <div className="student-table">
-                    <div className="table__container bold__border_table">
-                        <Grid container justify="space-between" className={classes.inputsContainer}>
-                            <Grid container item xs={6}>
-                                <FormControlSelect
-                                    placeholder="Year Group"
-                                    value=""
-                                    options={[]}
-                                    onChange={() => {}}
-                                    variant="outlined"
-                                    rounded
-                                    rootClassName={classes.inputRoot}
-                                />
-                                <FormControlSelect
-                                    placeholder="Form Group"
-                                    value=""
-                                    options={[]}
-                                    onChange={() => {}}
-                                    variant="outlined"
-                                    rounded
-                                />
-                            </Grid>
-                            <Grid container justify="flex-end" item xs={6}>
-                                <FormControlInput
-                                    id=""
-                                    name=""
-                                    value=""
-                                    placeholder="Search"
-                                    onChange={() => {}}
-                                    variant="outlined"
-                                    rounded
-                                    fullWidth={false}
-                                    icon={<SearchIcon />}
-                                />
-                            </Grid>
+                <BorderTableContainer>
+                    <Grid container justify="space-between" className={classes.inputsContainer}>
+                        <Grid container item xs={6}>
+                            <FormControlSelect
+                                placeholder="Year Group"
+                                value=""
+                                options={[]}
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                                rootClassName={classes.inputRoot}
+                            />
+                            <FormControlSelect
+                                placeholder="Form Group"
+                                value=""
+                                options={[]}
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                            />
                         </Grid>
-                        <CardTable
-                            showToolbar={false}
-                            showPagination={true}
-                            selectable={true}
-                            tableHeight="100vh"
-                            columns={[
-                                {
-                                    width: '23%',
-                                    title: 'Group',
-                                    field: 'group',
-                                },
-                                {
-                                    width: '23%',
-                                    title: 'No.of Children',
-                                    field: 'children',
-                                },
+                        <Grid container justify="flex-end" item xs={6}>
+                            <FormControlInput
+                                id=""
+                                name=""
+                                value=""
+                                placeholder="Search"
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                                fullWidth={false}
+                                icon={<SearchIcon />}
+                            />
+                        </Grid>
+                    </Grid>
+                    <CardTable
+                        showToolbar={false}
+                        showPagination={true}
+                        selectable={true}
+                        rowClick={handleRow}
+                        tableHeight="100vh"
+                        columns={[
+                            {
+                                width: '23%',
+                                title: 'Group',
+                                field: 'group',
+                            },
+                            {
+                                width: '23%',
+                                title: 'No.of Children',
+                                field: 'children',
+                            },
 
-                                {
-                                    width: '23%',
-                                    title: 'Form Groups',
-                                    field: 'formGroup',
-                                },
-                                {
-                                    width: '23%',
-                                    title: 'Head of Year',
-                                    field: 'hoy',
-                                },
+                            {
+                                width: '23%',
+                                title: 'Form Groups',
+                                field: 'formGroup',
+                            },
+                            {
+                                width: '23%',
+                                title: 'Head of Year',
+                                field: 'hoy',
+                            },
 
-                                {
-                                    width: '23%',
-                                    title: 'Action',
-                                    field: 'action',
-                                    render: (rowData: any) => (
-                                        <ActionToolbar
-                                        // showDetail={true}
-                                        // detailClick={() => redirectDetails(rowData.id)}
-                                        // deleteClick={() => handleDelete(rowData.id)}
-                                        // editClick={() => handleEdit(rowData)}
-                                        />
-                                    ),
-                                },
-                            ]}
-                            rowData={[
-                                {
-                                    group: 'Year 4',
-                                    children: '122',
-                                    formGroup: 'A',
-                                    hoy: 'Mr.Shehan Abeysinghe',
-                                },
-                                {
-                                    group: 'Year 4',
-                                    children: '122',
-                                    formGroup: 'A',
-                                    hoy: 'Mr.Shehan Abeysinghe',
-                                },
-                                {
-                                    group: 'Year 4',
-                                    children: '122',
-                                    formGroup: 'A',
-                                    hoy: 'Mr.Shehan Abeysinghe',
-                                },
-                                {
-                                    group: 'Year 4',
-                                    children: '122',
-                                    formGroup: 'A',
-                                    hoy: 'Mr.Shehan Abeysinghe',
-                                },
-                                {
-                                    group: 'Year 4',
-                                    children: '122',
-                                    formGroup: 'A',
-                                    hoy: 'Mr.Shehan Abeysinghe',
-                                },
-                            ]}
-                        />
-                    </div>
-                </div>
+                            {
+                                width: '23%',
+                                title: 'Action',
+                                field: 'action',
+                                render: (rowData: any) => (
+                                    <ActionToolbar
+                                    // showDetail={true}
+                                    // detailClick={() => redirectDetails(rowData.id)}
+                                    // deleteClick={() => handleDelete(rowData.id)}
+                                    // editClick={() => handleEdit(rowData)}
+                                    />
+                                ),
+                            },
+                        ]}
+                        rowData={[
+                            {
+                                group: 'Year 4',
+                                children: '122',
+                                formGroup: 'A',
+                                hoy: 'Mr.Shehan Abeysinghe',
+                            },
+                            {
+                                group: 'Year 4',
+                                children: '122',
+                                formGroup: 'A',
+                                hoy: 'Mr.Shehan Abeysinghe',
+                            },
+                            {
+                                group: 'Year 4',
+                                children: '122',
+                                formGroup: 'A',
+                                hoy: 'Mr.Shehan Abeysinghe',
+                            },
+                            {
+                                group: 'Year 4',
+                                children: '122',
+                                formGroup: 'A',
+                                hoy: 'Mr.Shehan Abeysinghe',
+                            },
+                            {
+                                group: 'Year 4',
+                                children: '122',
+                                formGroup: 'A',
+                                hoy: 'Mr.Shehan Abeysinghe',
+                            },
+                        ]}
+                    />
+                </BorderTableContainer>
             </CardContainer>
         </div>
     );

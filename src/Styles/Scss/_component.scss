@@ -212,7 +212,6 @@
     .student-header {
         @include flex(center, space-between, row);
         .img-container {
-            @include flex(center, space-between, row);
             .icon-circle {
                 font-size: 2rem;
                 color: $darkGray;
@@ -221,6 +220,11 @@
                 font-size: 1.875rem;
                 color: $black;
                 font-family: inherit;
+            }
+            .subtitle {
+                font-size: 1.125rem;
+                line-height: 1.562rem;
+                color: $titleGray;
             }
         }
         .rounded-btn {
