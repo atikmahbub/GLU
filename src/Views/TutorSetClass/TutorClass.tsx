@@ -50,8 +50,10 @@ const TutorClass: React.FunctionComponent = () => {
                                             <div className="col-6">
                                                 <div className="print_timeline">
                                                     <ul>
+                                                    
                                                         <li>
-                                                            <Typography className="text_list">Geography</Typography>
+                                                        
+                                                            <Typography className="text_list"><span>Geography</span></Typography>
                                                             <Typography className="text_list">
                                                                 9.00am-10:30am
                                                             </Typography>

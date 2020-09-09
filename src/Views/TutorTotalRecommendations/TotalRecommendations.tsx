@@ -14,12 +14,12 @@ const TutorClass: React.FunctionComponent = () => {
     return (
         <NavigationMenu menuList={menu}>
             
-                {/* <div className="profile_footer">
+            {/* <div className="profile_footer">
                     <div className="footer">
                         <MadeBy />
                     </div>
                 </div>
-             */}
+            */}
         </NavigationMenu>
     );
 };
