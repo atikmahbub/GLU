@@ -77,7 +77,6 @@
         font-size: 1.5625rem;
         line-height: 1.875rem;
     }
-    
     }
     .resources_container,.students_container{
         .straight_line{
@@ -127,9 +126,7 @@
     }
    
 
-.resources_container_2{
-    padding-left: 3.125rem;
-}
+
 .reusable_play_banner{
     font-family: 'CircularXXWeb-Book';
    .resources_table_component{
@@ -199,14 +196,17 @@
     }
     .students_container{
         padding-left: 3.125rem;
-        padding-right: 3.125rem;
+        // padding-right: 3.125rem;
     }
     .rightContainer_2{
         padding: 0 3.125rem;
     }
+    .resources_container_2{
+        padding-left: 3.125rem;
+    }
     .resources_container{
         padding-left: 3.125rem;
-        padding-right: 3.125rem;
+        // padding-right: 3.125rem;
     }
     
 }
@@ -216,9 +216,22 @@
             padding-top:3.125rem;
         }
     }
-    .resources_container{
-        padding-top: 3.125rem;
+    .reusable_play_banner{
+        .resources_container_2{
+            padding-left: 15px;
+        }
+        .resources_container{
+            padding-top: 3.125rem;
+        }
+        .outer_play_container{
+            margin-top: 3.125rem;
+            margin-left: 15px;
+        }
+        .outer_textbook_container{
+            margin-left: 15px;
+        }
     }
+    
     .submissions_dateTime{
         margin-top: 1rem;
     }

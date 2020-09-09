@@ -44,15 +44,20 @@ const TempComp: React.FunctionComponent = () => {
                     {/* Reusable from here */}
                     <div className="row">
                         <div className="col-md-6 p-0">
+                            <div className="about_tag">
                             <Typography className="profile_container_1_2_text1">About</Typography>
+                            </div>
                         </div>
                         <div className="col-md-6 border-coloumn1 p-0">
                             <div className="row">
                                 <div className="col-6 pr-0">
                                     <div className="profile_container_1_2_subcontainer1">
+                                        <div className="top_sm_border_container">
+                                        <div className="top_sm_border mr-1">
                                         
+                                        </div>
+                                        </div>
                                         <Typography className="subtext1">Experience</Typography>
-                                        
                                         <div className="profile_container_1_2_subcontainer1_row1">
                                             <Typography className="subtext2">2014-Present</Typography>
                                             <Typography className="subtext3">
@@ -68,7 +73,12 @@ const TempComp: React.FunctionComponent = () => {
                                     </div>
                                 </div>
                                 <div className="col-6 p-0">
-                                    <div className="profile_container_1_2_subcontainer2 border-coloumn2">
+                                    <div className="profile_container_1_2_subcontainer2 left_border">
+                                    <div className="top_sm_border_container">
+                                        <div className="top_sm_border mr-1">
+                                        
+                                        </div>
+                                        </div>
                                         <Typography className="subtext1">Education</Typography>
                                         <div className="profile_container_1_2_subcontainer2_row2">
                                             <Typography className="subtext3">
@@ -86,10 +96,12 @@ const TempComp: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="profile_container_1_2_subcontainer3">
+                                <div className="profile_container_1_2_subcontainer3 ">
                                     <div className="col-md-12">
-                                        <div className="profile_container_1_2_subcontainer3_row3">
+                                        <div className="profile_container_1_2_subcontainer3_row3 left_sm_border">
+                                            <div className="small_screen_padding">
                                         <TagsContainer heading={"Skills"} tagsArray={skillArray}/>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

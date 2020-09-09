@@ -100,7 +100,7 @@ const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
                             <div className="col-md-6 p-0 left_border">
                                 <div className="student_list_reusable_display">
                                     <div className="row">
-                                        <div className="col-6 p-0 ">
+                                        <div className="col-6 p-0">
                                             {student1Array.map((val, index) => (
                                                 <div className="col-12">
                                                     <Typography key={index} className="student_name_text">
