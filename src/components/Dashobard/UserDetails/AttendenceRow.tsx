@@ -44,7 +44,12 @@ const AttendenceRow = () => {
                 </div>
                 <div className="col-lg-4 col-md-12 colum__spacing">
                     <PercentCard heading="Attendance" percent={'24%'} title="Year to date" />
-                    <PercentCard style={{marginBottom:0}} heading="Punctuality" percent={'45%'} title="Year to date (On time)" />
+                    <PercentCard
+                        style={{ marginBottom: 0 }}
+                        heading="Punctuality"
+                        percent={'45%'}
+                        title="Year to date (On time)"
+                    />
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ import NormalSelectInput from '../Inputs/NormalSelectInput';
 
 interface props {
     hideBtns?: boolean;
-    detailName?:string;
+    detailName?: string;
 }
 const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName }) => {
     return (
@@ -20,7 +20,6 @@ const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName }) 
                     </div>
                 </div>
                 {hideBtns ? (
-                    // <Grid container direction="row" justify="space-between" alignItems="center" >
                     <Typography className="detail_name">{detailName}</Typography>
                 ) : (
                     <div className="button_container">
