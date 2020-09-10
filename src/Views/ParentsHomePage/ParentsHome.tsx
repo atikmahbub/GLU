@@ -58,7 +58,7 @@ const index: React.FunctionComponent = () => {
                             />
                 </div>
 
-                <SectionTwoReusable
+                <HomeBanner
                     image={commonImg.smilegirl}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Charlie Ray"
@@ -66,20 +66,6 @@ const index: React.FunctionComponent = () => {
                     title="Tutors"
                     msg={<>Maths.<br />An Introduction to trignometry</>}
                 />
-
-                <HomeBanner
-                    image={commonImg.smilegirl}
-                    mobileImg={commonImg.curlygirlcroped}
-                    leftTitle="Charlie Ray"
-                    desktopTitle="AED200 / 45mins"
-                    title="Tutors"
-                    msg={<>Maths T.<br />An Introduction to trignometry</>}
-                />
-
-s
-
-
-
 
                 <NextClassMUI />
                 <FeaturedSubjects
@@ -93,7 +79,7 @@ s
                         title="Recorded Classes"
                     />
                 </div>
-                <SectionTwoReusable
+                <HomeBanner
                     image={commonImg.earingGirlWithTab}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Sarah Frost"
@@ -112,7 +98,7 @@ s
                     imageSecondURL={commonImg.blueShirtRedSpecBoy}
                     imageSecondTitle="Maths - Harry Stannard"
                 />
-                <SectionTwoReusable
+                <HomeBanner
                     image={commonImg.laptopgirl}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Sarah Frost"

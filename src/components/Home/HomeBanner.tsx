@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
         color: 'transparent',
         textRendering: 'geometricPrecision',
         fontFamily: 'CircularXXWeb-Book',
-        border: "2px solid red",
         minWidth: '100px',
         [theme.breakpoints.down('xs')]: {
             bottom: '30.1rem',
@@ -64,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '11.187rem',
         left: '51%',
-        border: "2px solid green",
         [theme.breakpoints.down('xs')]: {
             left: 0,
             bottom: "2rem",
@@ -73,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
           },
           [theme.breakpoints.down('sm')]: {
             width: "38rem",
-            border: "2px solid blue",
           },
           ['@media (max-width:769px)']: { 
             width: "28rem",
@@ -90,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '3.5rem',
         transition: 'all 0.5s',
         fontFamily: 'CircularXXWeb-Book',
-        border:"2px solid red",
         [theme.breakpoints.down('xs')]: {
             fontSize: '1.862rem',
             width: "100%"
