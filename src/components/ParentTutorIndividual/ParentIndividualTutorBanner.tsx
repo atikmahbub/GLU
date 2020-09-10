@@ -47,6 +47,7 @@ const useStyles = makeStyles({
     },
     titleContainer: {
         marginTop: "1rem",
+        // border: "2px solid red",
     },
     title: {
         fontSize: '2.625rem',
@@ -65,7 +66,6 @@ const useStyles = makeStyles({
         // marginTop: '-3.937rem'
     },
     ratingFavoriteContainer: {
-        // border: '2px solid green',
         marginTop: '0.562rem',
     },
     ratingContainer: {
@@ -112,10 +112,10 @@ const ParentIndividualTutorBanner: FC = () => {
         <MuiThemeProvider theme={theme}>
         <Grid container className={classes.brownContainer} spacing={0}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} md={6} sm={6} xs={12} className={classes.titleContainer}>
+                <Grid item lg={6} md={5} sm={5} xs={12} className={classes.titleContainer}>
                     <Typography variant="h1" className={classes.title}>Tutor</Typography>
                 </Grid>
-                <Grid className={classes.image} lg={6} md={6} sm={6} xs={12}>
+                <Grid className={classes.image} lg={6} md={5} sm={4} xs={12}>
                     <LazyLoadImage
                         alt=""
                         effect="blur"
