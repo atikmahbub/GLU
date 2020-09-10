@@ -2,7 +2,7 @@ import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import commonImg from '../../Assets/images'
-import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
 
 const TutorRecord: React.FunctionComponent = () => {
     const menu = [
@@ -21,7 +21,7 @@ const TutorRecord: React.FunctionComponent = () => {
                             <Typography className="tutor_private_text">Frank Howard</Typography></div>
                         <div className="col-6 p-0">
                             <div className="private_tutor_right_container">
-                                <img src={commonImg.boyCropped} className="img-fluid" width="303px" height="393px" alt=""/>
+                                <img src={commonImg.boyCropped}  width="393px" height="393px" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -54,13 +54,13 @@ const TutorRecord: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
+                <div className="commonFooter">
+                    <PageFooter padding={false}/>
+                </div>
             </div>
+            
             </div>
-                {/* <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div> */}
+              
           
         </NavigationMenu>
     );

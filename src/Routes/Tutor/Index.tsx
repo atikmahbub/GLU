@@ -26,6 +26,7 @@ const TutorIndivisualExtraCurricular=React.lazy(()=>import('../../Views/TutorInd
 const TutorIndividualExtraCurricular2=React.lazy(()=>import('../../Views/TutorIndividualExtraCurricular2/TutorIndividualExtraCurricular2'));
 const TutorPrivate=React.lazy(()=>import('../../Views/TutorPrivate/TutorPrivate'));
 const TutorTotalRecommendations =React.lazy(()=>import('../../Views/TutorTotalRecommendations/TotalRecommendations'));
+const TutorMyClasses=React.lazy(()=>import('../../Views/TutorClasses/TutorMyclass'));
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
     createRouteObj('/tutor/profile', TutorProfile),
@@ -46,5 +47,6 @@ export const tutorRoutes = [
     createRouteObj('/tutor/individual-extra-curricular',TutorIndivisualExtraCurricular),
     createRouteObj('/tutor/individual-extra-curricular-edit',TutorIndividualExtraCurricular2),
     createRouteObj('/tutor/tutor-private',TutorPrivate),
-    createRouteObj('/tutor/total-recommendations',TutorTotalRecommendations)
+    createRouteObj('/tutor/total-recommendations',TutorTotalRecommendations),
+    createRouteObj('/tutor/my-classes',TutorMyClasses)
 ];

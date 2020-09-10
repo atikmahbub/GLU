@@ -38,7 +38,7 @@ const PageFooter: FC<PageFooterProps> = ({ padding, rootClassName }) => {
                     Made by <span className={classes.textGrey}>Six</span>
                 </Typography>
                 <Typography className={classes.text}>
-                    Build by <span className={classes.textGrey}>Someone</span>
+                    Build by <a href="https://www.antino.io/"><span className={classes.textGrey}>Antino Labs</span></a>
                 </Typography>
             </Grid>
             <Grid container justify="flex-end" item xs={6}>
