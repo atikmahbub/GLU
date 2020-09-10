@@ -3,6 +3,7 @@ import { Grid, Typography, makeStyles, TextareaAutosize, Button, useMediaQuery }
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import SmallButton from './SmallButton';
+import ReusableTextArea from '../../components/ReusableTextArea';
 
 const useStyles = makeStyles({
     footer: {
@@ -103,7 +104,9 @@ const ClassReviewRating = () => {
 
                     <Grid item className={classes.rightGrid}>
                         <Typography className={classes.small}>Feedback</Typography>
-                        <TextareaAutosize rowsMin={6} className={classes.textareaClass} />
+                        {/* <TextareaAutosize rowsMin={6} className={classes.textareaClass} /> */}
+                        <ReusableTextArea noOfRows={5} />
+
                         <Typography className={classes.small}>Stars</Typography>
                         <StarIcon />
                         <StarIcon />

@@ -15,15 +15,19 @@ const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/T
 // Added by Vivek
 const ClassReview = React.lazy(() => import('../../Views/TutorReviewPage/ClassReview'));
 const TutorReview = React.lazy(() => import('../../Views/TutorReviewPage/TutorReview'));
-
+const TutorEdit = React.lazy(() => import('../../Views/TutorEditPage/TutorEdit'));
 
 // const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
-const TutorExams= React.lazy(() => import('../../Views/TutorExams/TutorExams'));
-const TutorRecommend= React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
-const TutorUpcomingClass =React.lazy(()=>import('../../Views/TutorUpcommingClass/TutorUpcoming'));
-const TutorReviews= React.lazy(()=>import('../../Views/TutorReviews/TutorReview'));
-const TutorIndivisualExtraCurricular=React.lazy(()=>import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular'));
-const TutorIndividualExtraCurricular2=React.lazy(()=>import('../../Views/TutorIndividualExtraCurricular2/TutorIndividualExtraCurricular2'));
+const TutorExams = React.lazy(() => import('../../Views/TutorExams/TutorExams'));
+const TutorRecommend = React.lazy(() => import('../../Views/TutorRecommend/TutorRecommend'));
+const TutorUpcomingClass = React.lazy(() => import('../../Views/TutorUpcommingClass/TutorUpcoming'));
+const TutorReviews = React.lazy(() => import('../../Views/TutorReviews/TutorReview'));
+const TutorIndivisualExtraCurricular = React.lazy(
+    () => import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular')
+);
+const TutorIndividualExtraCurricular2 = React.lazy(
+    () => import('../../Views/TutorIndividualExtraCurricular2/TutorIndividualExtraCurricular2')
+);
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
     createRouteObj('/tutor/profile', TutorProfile),
@@ -36,11 +40,12 @@ export const tutorRoutes = [
     createRouteObj('/tutor/tutor-availablity', TutorAvailablity),
     createRouteObj('/tutor/class-review', ClassReview),
     createRouteObj('/tutor/tutor-review', TutorReview),
-    createRouteObj('/tutor/availablity',TutorAvailablity),
-    createRouteObj('/tutor/exams',TutorExams),
-    createRouteObj('/tutor/recommend',TutorRecommend),
-    createRouteObj('/tutor/upcoming-class',TutorUpcomingClass),
-    createRouteObj('/tutor/reviews',TutorReviews),
-    createRouteObj('/tutor/individual-extra-curricular',TutorIndivisualExtraCurricular),
-    createRouteObj('/tutor/individual-extra-curricular-edit',TutorIndividualExtraCurricular2)
+    createRouteObj('/tutor/availablity', TutorAvailablity),
+    createRouteObj('/tutor/exams', TutorExams),
+    createRouteObj('/tutor/recommend', TutorRecommend),
+    createRouteObj('/tutor/upcoming-class', TutorUpcomingClass),
+    createRouteObj('/tutor/reviews', TutorReviews),
+    createRouteObj('/tutor/individual-extra-curricular', TutorIndivisualExtraCurricular),
+    createRouteObj('/tutor/individual-extra-curricular-edit', TutorIndividualExtraCurricular2),
+    createRouteObj('/tutor/tutor-edit', TutorEdit),
 ];
