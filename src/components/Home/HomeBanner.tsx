@@ -17,15 +17,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         maxHeight: '100vh',
         height: "100vh",
-        [theme.breakpoints.down('sm')]: {
-            backgroundColor: "red",
-          },
-          [theme.breakpoints.down('md')]: {
-            backgroundColor: "green",
-          },
-          [theme.breakpoints.up('lg')]: {
-            backgroundColor: "green",
-          },
     },
     opacityBG:{
         width: '100%',
