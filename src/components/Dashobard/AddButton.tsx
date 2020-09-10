@@ -1,11 +1,11 @@
 import React from 'react';
-import { Typography, Button, Box, makeStyles, Grid } from '@material-ui/core';
+import { Typography, Button, makeStyles, Grid } from '@material-ui/core';
 import SelectField from '../Inputs/SelectField';
-import { MailOutline } from '@material-ui/icons';
 
 interface AddButtonProps {
     icon?: any;
     title?: string;
+    subtitle?: string;
     btnTitle?: string;
     btnIcon?: any;
     trigger?: () => void;
@@ -28,6 +28,7 @@ const useStyle = makeStyles({
 const AddButton: React.FunctionComponent<AddButtonProps> = ({
     icon,
     title,
+    subtitle,
     btnTitle,
     btnIcon,
     trigger,
@@ -86,8 +87,8 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
         <div className="student-header-container">
             <div className="student-header">
                 <div className="img-container">
-                    {icon}
                     <Typography className="heading">{title}</Typography>
+                    <Typography className="subtitle">{subtitle}</Typography>
                 </div>
                 {bulkbtn && (
                     <Button
