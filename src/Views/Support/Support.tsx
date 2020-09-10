@@ -24,7 +24,7 @@ const Support = () => {
     };
     return (
         <div className="content-wrapper">
-            <NavigationMenuResuable />
+            <NavigationMenuResuable customBackgroundColor="customBackgroundColor" />
             <div className="header-banner">
                 {/* <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
                 <MenuContainer handleMenu={() => handleMenu()} /> */}

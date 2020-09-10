@@ -2,8 +2,9 @@ import React, { FC, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import ImageCard from '../components/Cards/ImageCard';
+import ImageCard, { IImageCard } from '../components/Cards/ImageCard';
 import { colors } from '../Styles/colors';
+import CardsGrid from './CardsGrid';
 
 const useStyles = makeStyles({
     root: {
@@ -32,10 +33,10 @@ const useStyles = makeStyles({
 
 type BottomRecommendedContainerProps = {
     title: string;
-    data: object[];
+    data: IImageCard[];
 }
 
-const BottomRecommendedContainer: FC<BottomRecommendedContainerProps> = ({ title, data }) => {
+const RecommendedContainer: FC<BottomRecommendedContainerProps> = ({ title, data }) => {
     const classes = useStyles()
     return (
         <Grid container direction="column" className={classes.root}>
@@ -43,25 +44,23 @@ const BottomRecommendedContainer: FC<BottomRecommendedContainerProps> = ({ title
                 <Typography className={classes.title}>{title}</Typography>
                 <Typography className={classes.seeAll}>See all</Typography>
             </Grid>
-            <Grid container>
-                {data.map(({ img, title, subTitle }: any, index) => {
+            <CardsGrid>
+                {data.map((card, index) => {
                     return (
                         <ImageCard
+                            {...card}
                             key={index}
-                            img={img}
-                            title={title}
-                            subTitle={subTitle}
                             rootClassName={classes.imageContainerRoot}
                         />
                     )
                 })}
-            </Grid>
+            </CardsGrid>
         </Grid>
     )
 }
 
-BottomRecommendedContainer.defaultProps = {
+RecommendedContainer.defaultProps = {
     data: []
 }
 
-export default memo(BottomRecommendedContainer)
+export default memo(RecommendedContainer)

@@ -7,7 +7,7 @@
         font-family: inherit;
         font-size: 2.625rem;
         line-height: 2.8125rem;
-        padding-bottom: 3.125rem;
+        // padding-bottom: 3.125rem;
     }
     .tutor_class_subcontainer_col1{
         font-family: 'CircularXXWeb-Book';
@@ -18,13 +18,22 @@
         }
     }
 }
+.description_container{
+    font-family: 'CircularXXWeb-Book';
+    .title {
+        font-family: inherit;
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+        padding-bottom: 3.125rem;
+    }
+}
 .class_time {
     font-family: 'CircularXXWeb-Book';
     .text1 {
         font-family: inherit;
         font-size: 2.625rem;
         line-height: 2.8125rem;
-        padding: 3.125rem 0;
+        padding-top:3.125rem;
     }
 }
 .input_row {
@@ -46,19 +55,22 @@
 .skill_container{
     margin-top:3.125rem;
 }
-.outerAddSkill,
-.addCoverImg ,
-.setClass{
-    padding-top: 3.125rem;
+.sub_heading_container{
+    margin-top: 3.125rem;
+    padding-bottom: 1rem;
     font-family: 'CircularXXWeb-Book';
     .sub_heading {
         font-family: inherit;
         font-size: 1.5625rem !important;
         line-height: 1.875rem;
     }
-    .sub_heading_container{
-        margin-top: 3.125rem;
-    }
+}
+.outerAddSkill,
+.addCoverImg ,
+.setClass{
+    padding-top: 3.125rem;
+    
+    
     .textCover {
         font-family: inherit;
         font-size: 1.5625rem;
@@ -148,6 +160,14 @@
             line-height: 1.5625rem;
         }
     }
+  
+        font-family: 'CircularXXWeb-Book';
+        .sub_heading {
+            font-family: inherit;
+            font-size: 1.5625rem !important;
+            line-height: 1.875rem;
+        }
+    
     .cancel_button {
         padding: 0.437rem 0;
         .text {

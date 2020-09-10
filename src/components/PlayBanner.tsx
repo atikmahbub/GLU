@@ -8,8 +8,9 @@ interface props{
     subHeading2?:string;
     subText2?:string;
     isDivider?:boolean;
+    resourcesArray?:[]
 }
-const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHeading2,subText2,isDivider}) => {
+const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHeading2,subText2,isDivider,resourcesArray}) => {
     return (
         <>
             <div className="reusable_play_banner">
@@ -25,8 +26,12 @@ const PlayBanner: React.FunctionComponent <props>= ({heading,subHeading1,subHead
                                                 <div className="col-md-12">
                                                     <Typography className="resources_text">{subHeading1}</Typography>
                                                 </div>
-                                                <ResourcesTableComponent/>
-                                                <ResourcesTableComponent/>
+                                                {
+                                                resourcesArray?.map((val,index)=>(
+                                                    <ResourcesTableComponent key={index} title={val.title} subtitle={val.subtitle}/>
+                                                ))}
+                                                
+                                                {/* <ResourcesTableComponent/> */}
                                             </div>
                                         </div>
                                         <div className="col-6 p-0 borderLine">
