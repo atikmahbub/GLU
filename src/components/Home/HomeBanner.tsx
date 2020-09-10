@@ -17,6 +17,15 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         maxHeight: '100vh',
         height: "100vh",
+        [theme.breakpoints.down('sm')]: {
+            backgroundColor: "red",
+          },
+          [theme.breakpoints.down('md')]: {
+            backgroundColor: "green",
+          },
+          [theme.breakpoints.up('lg')]: {
+            backgroundColor: "green",
+          },
     },
     opacityBG:{
         width: '100%',
@@ -45,29 +54,40 @@ const useStyles = makeStyles((theme) => ({
         textShadow: '0 0 0.029rem white',
         color: 'transparent',
         // color: 'black',
-        // textRendering: 'geometricPrecision',
+        textRendering: 'geometricPrecision',
         fontFamily: 'CircularXXWeb-Book',
         border: "2px solid red",
         minWidth: '100px',
-        // wordBreak: "wra"
+        [theme.breakpoints.down('xs')]: {
+            bottom: '30.1rem',
+          },
     },
     imgOverlayContainer:{
         position: 'absolute',
         bottom: '11.187rem',
         // right: 10.25rem,
         left: '51%',
-        maxWidth: '49.062rem',
+        // maxWidth: '43.062rem',
+        // minWidth: "41rem",
         border: "2px solid green",
+        [theme.breakpoints.down('xs')]: {
+            left: 0,
+            bottom: "2rem",
+            paddingLeft: '3.062rem'
+          },
     },
     title:{
         textShadow: '0 0 0.029rem white',
         color: 'transparent',
         // color: 'black',
-        // textRendering: 'geometricPrecision', 
+        textRendering: 'geometricPrecision', 
         fontSize: '1.562rem',
         lineHeight: '3.5rem',
         transition: 'all 0.5s',
         fontFamily: 'CircularXXWeb-Book',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1.862rem',
+          },
     },
     maessage:{
         fontSize: '5rem',
@@ -90,14 +110,14 @@ const HomeBanner: React.FunctionComponent<props> = ({
 }) => {
     const classes = useStyles();
     return (
-        <Grid container className={classes.sectionTwo}>
+        <Grid container className={classes.sectionTwo} xs={12}>
             {/* <div className={classes.opacityBG}></div> */}
             <img className={classes.bannerMobile} src={mobileImg} alt="" />
             <img className={classes.bannnerImage} src={image} alt="" />
-            <Grid container item xs={12} sm={12} md={6} lg={12}>
+            <Grid container item sm={6} md={6} lg={12}>
                    <Typography className={classes.leftTitle}>{leftTitle}</Typography>
             </Grid>
-            <Grid container item className={classes.imgOverlayContainer} xs={12} sm={12} md={6} lg={12}>
+            <Grid container item className={classes.imgOverlayContainer} sm={5} md={5} lg={6}>
                 {/* <Typography className={classes.title}>{title}</Typography> */}
                 <Typography className={classes.title}>{desktopTitle}</Typography>
                 <Typography className={classes.maessage}>{msg}</Typography>
