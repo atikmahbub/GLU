@@ -184,7 +184,6 @@
 //data table search box style
 .search-box-container {
     margin-bottom: 1rem;
-    @include flex(center, space-between, row);
     input.search-box {
         width: 10rem;
         padding: 0.4rem 0.5rem;
@@ -199,7 +198,7 @@
         }
     }
     .filter-container {
-        @include flex(center, space-between, row);
+        @include flex(center, flex-end, row);
     }
     .export-btn {
         @include grayBtn;

@@ -21,6 +21,17 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
     };
     return (
         <div className="search-box-container">
+            <div className="filter-container">
+                {filter}
+                <Button
+                    disableRipple
+                    className="export-btn"
+                    endIcon={<ArrowDownward className="icon" />}
+                    onClick={handleExport}
+                >
+                    Export
+                </Button>
+            </div>
             <input
                 onChange={(e) => {
                     console.log(availabeProps);
@@ -29,15 +40,6 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
                 className="search-box"
                 placeholder="Search here ..."
             />
-            <div className="filter-container">
-                {filter}
-                <Button
-                    className="export-btn"
-                    endIcon={<ArrowDownward style={{ fontSize: '0.9rem' }} />}
-                    onClick={handleExport}>
-                    Export{' '}
-                </Button>
-            </div>
         </div>
         // </div>
     );

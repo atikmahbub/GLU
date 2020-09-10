@@ -46,6 +46,7 @@ import Notification from '../../Views/SendNotification/Index';
 import YearGroupDetail from '../../Views/YearGroupDetails/index';
 import AddNewYearGroup from '../../Views/AddNewYearGroup/Index';
 import AddNewClassGroup from '../../Views/AddNewClassGroup/Index';
+import AddNewDepartment from '../../Views/AddNewDepartments/Index';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -96,4 +97,5 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/year-group/details', component: YearGroupDetail },
     { pathname: '/dashboard/year-group/add-year-group', component: AddNewYearGroup },
     { pathname: '/dashboard/class-group/add-class-group', component: AddNewClassGroup },
+    { pathname: '/dashboard/department/add-new-department', component: AddNewDepartment },
 ];

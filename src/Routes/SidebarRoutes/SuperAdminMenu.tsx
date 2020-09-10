@@ -90,12 +90,12 @@ export const SuperAdminMenu: any[] = [
                 menuList: [],
                 routeName: '/departments',
             },
-            // {
-            //     menuName: 'Daily Attendance',
-            //     isExpandable: false,
-            //     menuList: [],
-            //     routeName: '/daily-attendance',
-            // },
+            {
+                menuName: 'Daily Attendance',
+                isExpandable: false,
+                menuList: [],
+                routeName: '/daily-attendance',
+            },
             // {
             //     menuName: 'Event Calender',
             //     isExpandable: false,
