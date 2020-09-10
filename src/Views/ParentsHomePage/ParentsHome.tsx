@@ -12,6 +12,9 @@ import LiveClasses from './LiveClasses';
 import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
+import HomeBanner from '../../components/Home/HomeBanner';
+
+
 
 import './style.scss';
 import commonImg from '../../Assets/images';
@@ -63,6 +66,20 @@ const index: React.FunctionComponent = () => {
                     title="Tutors"
                     msg={<>Maths.<br />An Introduction to trignometry</>}
                 />
+
+                <HomeBanner
+                    image={commonImg.smilegirl}
+                    mobileImg={commonImg.curlygirlcroped}
+                    leftTitle="Charlie Ray"
+                    desktopTitle="AED200 / 45mins"
+                    title="Tutors"
+                    msg={<>Maths T.<br />An Introduction to trignometry</>}
+                />
+
+s
+
+
+
 
                 <NextClassMUI />
                 <FeaturedSubjects

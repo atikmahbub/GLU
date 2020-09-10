@@ -1,13 +1,35 @@
 import React, { FC, useState, ReactNode, memo } from 'react';
 import { Typography } from '@material-ui/core';
 import commonImg from '../../Assets/images';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 // import './style.scss';
+import { createMuiTheme, responsiveFontSizes, MuiThemeProvider,  ThemeProvider } from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme)
+
+// theme.typography.h4 = {
+//     fontSize: '7.5rem',
+//     lineHeight: '7.5rem',
+//   '@media (max-width:750px)': {
+//     fontSize: '1.5rem',
+//   },
+
+//   '@media (min-width:750px)': {
+//     fontSize: '1rem',
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '2.4rem',
+//   },
+
+//   [theme.breakpoints.up('sm')]: {
+//     fontSize: '2rem',
+//   },
+// };
 
 
 const useStyles = makeStyles({
@@ -22,28 +44,25 @@ const useStyles = makeStyles({
     elementsContainer: {
         height: "90vh",
         marginTop: "9.25rem",
-        // border: '2px solid red',
     },
     titleContainer: {
-        marginTop: "0rem",
+        marginTop: "1rem",
     },
     title: {
         fontSize: '2.625rem',
         lineHeight: '1.875rem',
         color: "white",
-        // border: '2px solid red',
         paddingBottom: '20px',
     },
     nameRatingContainer: {
         justifyContent: 'flex-start',
-        // border: '2px solid black',
     },
     bigNameCountry: {
-        fontSize: '7.5rem',
-        lineHeight: '7.5rem',
+        // fontSize: '7.5rem',
+        // lineHeight: '7.5rem',
+        fontWeight: 400,
         color: 'white',
-        // border: '2px solid black',
-        marginTop: '-3.937rem'
+        // marginTop: '-3.937rem'
     },
     ratingFavoriteContainer: {
         // border: '2px solid green',
@@ -51,11 +70,9 @@ const useStyles = makeStyles({
     },
     ratingContainer: {
         width: "3.887rem",
-        // border: '2px solid red',
     },
     favoriteContainer: {
         width: "6.937rem",
-        // border: '2px solid red',
         marginLeft: '-2.25rem',
     },
     rating: {
@@ -75,13 +92,12 @@ const useStyles = makeStyles({
         color: 'white',
         fontSize: '1.562rem',
         marginBottom: '2.125rem',
-        marginTop: '15.5rem',
-        // border: '2px solid green',
+        marginTop: '10.5rem',
     },
     image: {
-        // border: '2px solid black',
         height: "34.062rem",
-        marginTop: "0rem",
+        marginTop: "1rem",
+        marginBottom: "1rem",
         '& img': {
             height: "34.062rem",
             width: "33.437rem",
@@ -93,10 +109,11 @@ const useStyles = makeStyles({
 const ParentIndividualTutorBanner: FC = () => {
     const classes = useStyles();
     return (
+        <MuiThemeProvider theme={theme}>
         <Grid container className={classes.brownContainer} spacing={0}>
             <Grid container className={classes.elementsContainer}>
                 <Grid item lg={6} md={6} sm={6} xs={12} className={classes.titleContainer}>
-                    <Typography className={classes.title}>Tutor</Typography>
+                    <Typography variant="h1" className={classes.title}>Tutor</Typography>
                 </Grid>
                 <Grid className={classes.image} lg={6} md={6} sm={6} xs={12}>
                     <LazyLoadImage
@@ -105,25 +122,26 @@ const ParentIndividualTutorBanner: FC = () => {
                         src={commonImg.twogirl} />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12} className="big__text">
-                    <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
+                    <Typography variant="h1" className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
                 </Grid>
 
                 <Grid container item className={classes.ratingFavoriteContainer} lg={12} md={12} sm={12} xs={12}>
-                    <Grid container className={classes.ratingContainer} lg={1} md={3} sm={3} xs={3}>
+                    <Grid container className={classes.ratingContainer} lg={1} md={1} sm={2} xs={2}>
                         <StarBorder className={classes.icon} />
-                        <Typography className={classes.rating}>5/5</Typography>
+                        <Typography variant="h3" className={classes.rating}>5/5</Typography>
                     </Grid>
-                    <Grid container className={classes.favoriteContainer} lg={1} md={3} sm={3} xs={3}>
+                    <Grid container className={classes.favoriteContainer} lg={1} md={1} sm={2} xs={2}>
                         <FavoriteBorder className={classes.icon} />
-                        <Typography className={classes.favorite}>Favorite</Typography>
+                        <Typography variant="h3" className={classes.favorite}>Favorite</Typography>
                     </Grid>
                     <Grid item className={classes.favoriteContainer}sm={3}/>
                 </Grid>
                 <Grid item lg={12} md={12} sm={3}>
-                    <Typography className={classes.bottomText}>Primary, Secondary</Typography>
+                    <Typography variant="h3" className={classes.bottomText}>Primary, Secondary</Typography>
                 </Grid>
             </Grid>
         </Grid>
+        </MuiThemeProvider>
     );
 };
 
