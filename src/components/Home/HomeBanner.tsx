@@ -73,8 +73,23 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('xs')]: {
             left: 0,
             bottom: "2rem",
-            paddingLeft: '3.062rem'
+            paddingLeft: '3.062rem',
+            width: "100vw",
           },
+          [theme.breakpoints.down('sm')]: {
+            width: "38rem",
+            border: "2px solid blue",
+          },
+          ['@media (max-width:769px)']: { 
+            // width: '80%'
+            border: "2px solid red",
+            width: "28rem",
+          },
+          ['@media (max-width:600px)']: { 
+            // width: '80%'
+            border: "2px solid yellow",
+            width: "100%",
+          }
     },
     title:{
         textShadow: '0 0 0.029rem white',
@@ -85,8 +100,10 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '3.5rem',
         transition: 'all 0.5s',
         fontFamily: 'CircularXXWeb-Book',
+        border:"2px solid red",
         [theme.breakpoints.down('xs')]: {
             fontSize: '1.862rem',
+            width: "100%"
           },
     },
     maessage:{
@@ -98,6 +115,13 @@ const useStyles = makeStyles((theme) => ({
         // textRendering: 'geometricPrecision',        
         fontFamily: 'CircularXXWeb-Book',
         lineHeight: '5rem',
+        [theme.breakpoints.down('sm')]: {
+            paddingRight: '2rem'
+          },
+        ["@media (max-width: 379px"]:{
+            fontSize:"4rem",
+            lineHeight:"4rem",
+        }
     }
 }));
 const HomeBanner: React.FunctionComponent<props> = ({
@@ -117,7 +141,7 @@ const HomeBanner: React.FunctionComponent<props> = ({
             <Grid container item sm={6} md={6} lg={12}>
                    <Typography className={classes.leftTitle}>{leftTitle}</Typography>
             </Grid>
-            <Grid container item className={classes.imgOverlayContainer} sm={5} md={5} lg={6}>
+            <Grid container item className={classes.imgOverlayContainer} md={5} lg={6}>
                 {/* <Typography className={classes.title}>{title}</Typography> */}
                 <Typography className={classes.title}>{desktopTitle}</Typography>
                 <Typography className={classes.maessage}>{msg}</Typography>
