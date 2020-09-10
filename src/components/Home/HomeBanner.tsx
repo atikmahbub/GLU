@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     },
     opacityBG:{
         width: '100%',
-        // align-self: stretch,
         height: '100%',
         position: 'absolute',
         top: 0,
@@ -53,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '5rem',
         textShadow: '0 0 0.029rem white',
         color: 'transparent',
-        // color: 'black',
         textRendering: 'geometricPrecision',
         fontFamily: 'CircularXXWeb-Book',
         border: "2px solid red",
@@ -65,10 +63,7 @@ const useStyles = makeStyles((theme) => ({
     imgOverlayContainer:{
         position: 'absolute',
         bottom: '11.187rem',
-        // right: 10.25rem,
         left: '51%',
-        // maxWidth: '43.062rem',
-        // minWidth: "41rem",
         border: "2px solid green",
         [theme.breakpoints.down('xs')]: {
             left: 0,
@@ -81,20 +76,15 @@ const useStyles = makeStyles((theme) => ({
             border: "2px solid blue",
           },
           ['@media (max-width:769px)']: { 
-            // width: '80%'
-            border: "2px solid red",
             width: "28rem",
           },
           ['@media (max-width:600px)']: { 
-            // width: '80%'
-            border: "2px solid yellow",
             width: "100%",
           }
     },
     title:{
         textShadow: '0 0 0.029rem white',
         color: 'transparent',
-        // color: 'black',
         textRendering: 'geometricPrecision', 
         fontSize: '1.562rem',
         lineHeight: '3.5rem',
@@ -110,9 +100,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '5rem',
         transition: 'all 0.5s',
         textShadow: '0 0 0.029rem white',
-        color: 'transparent',
-        // color: 'black',
-        // textRendering: 'geometricPrecision',        
+        color: 'transparent',       
         fontFamily: 'CircularXXWeb-Book',
         lineHeight: '5rem',
         [theme.breakpoints.down('sm')]: {
@@ -142,7 +130,6 @@ const HomeBanner: React.FunctionComponent<props> = ({
                    <Typography className={classes.leftTitle}>{leftTitle}</Typography>
             </Grid>
             <Grid container item className={classes.imgOverlayContainer} md={5} lg={6}>
-                {/* <Typography className={classes.title}>{title}</Typography> */}
                 <Typography className={classes.title}>{desktopTitle}</Typography>
                 <Typography className={classes.maessage}>{msg}</Typography>
             </Grid>
