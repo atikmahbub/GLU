@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import NextClassMUI from '../../components/NextClassMUI';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';

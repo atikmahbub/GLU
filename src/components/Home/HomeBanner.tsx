@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '11.187rem',
         left: '51%',
+        width: "43rem",
         [theme.breakpoints.down('xs')]: {
             left: 0,
             bottom: "2rem",
@@ -125,7 +126,7 @@ const HomeBanner: React.FunctionComponent<props> = ({
             <Grid container item sm={6} md={6} lg={12}>
                    <Typography className={classes.leftTitle}>{leftTitle}</Typography>
             </Grid>
-            <Grid container item className={classes.imgOverlayContainer} md={5} lg={6}>
+            <Grid container item className={classes.imgOverlayContainer} lg={6}>
                 <Typography className={classes.title}>{desktopTitle}</Typography>
                 <Typography className={classes.maessage}>{msg}</Typography>
             </Grid>
