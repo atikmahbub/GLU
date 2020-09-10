@@ -183,9 +183,13 @@
     }
     .event-body {
         .event-chip-card {
+            @include flex(center, space-between, row);
             border-radius: 0.3rem;
             margin-bottom: 1rem;
             padding: 1rem;
+            .left{
+                align-self: baseline;
+            }
             .circle {
                 font-size: 1.562rem;
                 color: $black;

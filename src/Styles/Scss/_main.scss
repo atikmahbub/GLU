@@ -14,6 +14,7 @@ html {
         font-family: 'CircularXXWeb-Book';
         background-color: $white;
         text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased !important;
         &::-webkit-scrollbar {
             display: none;
         }
@@ -21,38 +22,38 @@ html {
     }
 }
 
-#root{
+#root {
     position: relative;
 }
 
-@media only screen and (min-width:320px) and (max-width: 425px) {
+@media only screen and (min-width: 320px) and (max-width: 425px) {
     html {
         font-size: 10px;
     }
 }
 
-@media only screen and (min-width:426px)  and (max-width: 768px) {
+@media only screen and (min-width: 426px) and (max-width: 768px) {
     html {
         font-size: 8px;
     }
 }
-@media only screen and (min-width:769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
     html {
         font-size: 8.5px;
     }
 }
-@media only screen and (min-width:1025px) and (max-width: 1440px) {
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
     html {
         font-size: 10px;
     }
 }
-@media only screen and (min-width:1441px) and (max-width: 1920px) {
+@media only screen and (min-width: 1441px) and (max-width: 1920px) {
     html {
         font-size: 16px;
     }
 }
 
-@media only screen and (min-width:1921px) and (max-width: 3840px) {
+@media only screen and (min-width: 1921px) and (max-width: 3840px) {
     html {
         font-size: 18px;
     }
@@ -61,17 +62,17 @@ div.dot-pulse {
     padding: 1rem;
 }
 
-.colum__spacing{
-    padding: 0.625rem!important;
+.colum__spacing {
+    padding: 0.625rem !important;
 }
-.row__margin{
-    margin-left: -6.5px!important;
-    margin-right: -6.5px!important;
+.row__margin {
+    margin-left: -6.5px !important;
+    margin-right: -6.5px !important;
 }
-.mr_top_algin{
+.mr_top_algin {
     padding-top: 0.625rem;
 }
-.drow_mr{
-    margin-left: -9px!important;
-    margin-right: -9px!important;
+.drow_mr {
+    margin-left: -9px !important;
+    margin-right: -9px !important;
 }

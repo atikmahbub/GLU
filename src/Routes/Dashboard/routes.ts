@@ -47,6 +47,11 @@ import YearGroupDetail from '../../Views/YearGroupDetails/index';
 import AddNewYearGroup from '../../Views/AddNewYearGroup/Index';
 import AddNewClassGroup from '../../Views/AddNewClassGroup/Index';
 import AddNewDepartment from '../../Views/AddNewDepartments/Index';
+import TeacherClassGroupDetails from '../../Views/TeacherDetails/ClassGroups/Index';
+import TeacherCGAttendance from '../../Views/TeacherDetails/ClassGroups/Attendance/Index';
+import TeacherCGPerticularAttendance from '../../Views/TeacherDetails/ClassGroups/PerticularAttendace/Index';
+import TeacherCGExamResult from '../../Views/TeacherDetails/ClassGroups/ExamResult/Index';
+import TeacherCGHomework from '../../Views/TeacherDetails/ClassGroups/HomeWork/Index';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: getDashboard() },
@@ -98,4 +103,18 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/year-group/add-year-group', component: AddNewYearGroup },
     { pathname: '/dashboard/class-group/add-class-group', component: AddNewClassGroup },
     { pathname: '/dashboard/department/add-new-department', component: AddNewDepartment },
+    { pathname: '/dashboard/teacher-details/class-group-details', component: TeacherClassGroupDetails },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/attendance/punctuality',
+        component: TeacherCGAttendance,
+    },
+    { pathname: '/dashboard/teacher-details/class-group-details/perticular', component: TeacherCGPerticularAttendance },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/exam-results',
+        component: TeacherCGExamResult,
+    },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/homework',
+        component: TeacherCGHomework,
+    },
 ];
