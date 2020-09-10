@@ -8,7 +8,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
     const [toggleWeeks, setToggleWeeks] = useState(false);
     const [toggleDays, setToggleDays] = useState(false);
     const [selectValue, setValue] = useState('Never');
-    const addSchedule = (value) => {
+    const addSchedule = (value: string) => {
         setValue(value);
         if (value == 'Never') {
             setToggleDays(false);
@@ -24,10 +24,9 @@ const ReusableDateTime: React.FunctionComponent = () => {
     return (
         <>
             <div className="reusableDateandTime col-md-12">
-                
                 <div className="row">
                     <div className="col-md-4 p-0">
-                        <TextField className="line-input" label="Date" fullWidth value="9:25AM" />
+                        <TextField className="line-input-large" label="Date" fullWidth value="9:25AM" />
                     </div>
                     <div className="col-md-7 p-0">
                         <div className="sub_rows">
@@ -36,7 +35,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
                                     <SelectFieldUnderline
                                         label="Start Time"
                                         value="9.25am"
-                                        className="custom-adornment-input"
+                                        className="select-large"
                                         options={['9.25am']}
                                         getValue={() => {}}
                                     />
@@ -45,7 +44,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
                                     <SelectFieldUnderline
                                         label="End Time"
                                         value="9.25am"
-                                        className="custom-adornment-input"
+                                        className="select-large"
                                         options={['9.25am']}
                                         getValue={() => {}}
                                     />
@@ -53,14 +52,13 @@ const ReusableDateTime: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                
                 </div>
                 <div className="row">
                     <div className="col-md-11 col-12 p-0">
                         <SelectFieldUnderline
                             label="Repeat"
                             value={selectValue}
-                            className="custom-adornment-input"
+                            className="select-large"
                             options={['Never', 'Every Week', 'Every 2 Weeks', 'Every Month']}
                             getValue={(value) => addSchedule(value)}
                         />

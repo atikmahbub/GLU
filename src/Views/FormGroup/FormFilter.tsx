@@ -9,6 +9,12 @@ const useStyles = makeStyles(({
         padding: ' 0.5rem 1.875rem',
         backgroundColor: '#f3f7ff',
         paddingBottom: '1.5rem'
+    },
+    inputRoot: {
+        height: 42,
+        '& .MuiInputBase-input': {
+            fontSize: '1.125rem'
+        }
     }
 }))
 
@@ -26,12 +32,14 @@ const FormFilter = () => {
             </Grid>
             <Grid item xs={12} md={2}>
                 <FormControlInput
+                    fullWidth
                     id="search"
                     name="search"
                     placeholder="Search"
                     value=""
                     icon={<Search />}
                     onChange={() => {}}
+                    rootClassName={classes.inputRoot}
                 />
             </Grid>
         </Grid>

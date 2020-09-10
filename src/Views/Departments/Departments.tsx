@@ -1,29 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { Add, AccountCircle } from '@material-ui/icons';
+import { Add, MailOutline } from '@material-ui/icons';
 import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
+import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 
 interface props {
-    triggerModal: () => void;
     editDepartment: Function;
 }
-const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartment }) => {
+const Departments: React.FunctionComponent<props> = ({ editDepartment }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
     const [departments, setDepartments] = useState([]);
     const departmentList = useSelector((state: any) => state.schoolReducer.departmentList);
     const redirectDetails = () => {
-        routes.push({
-            pathname: '/dashboard/department-details',
-            state: {
-                breadcrumb: '/dashboard/department details',
-            },
-        });
+        routes.push('/dashboard/department-details');
     };
     const handleDelete = (id: number) => {
         dispatch(deleteDepartmentAPIcall(id));
@@ -31,6 +26,9 @@ const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartm
     const handleEdit = (data: any) => {
         editDepartment(data);
     };
+    const handleRoute = () => {
+        routes.push('/dashboard/department/add-new-department')
+    }
     useEffect(() => {
         if (departmentList) {
             const data = departmentList.map((item: any) => {
@@ -46,45 +44,96 @@ const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartm
         <div className="student-wrapper">
             <CardContainer>
                 <AddButton
-                    icon={<AccountCircle className="icon-circle" />}
                     title="Departments"
+                    component="notification"
+                    showNotification={true}
+                    notificationIcon={<MailOutline />}
+                    notificationText="Send notification"
                     btnIcon={<Add />}
                     btnTitle="Add department"
-                    trigger={triggerModal}
+                    trigger={handleRoute}
                 />
             </CardContainer>
             <CardContainer>
-                <div className="student-table">
+                <BorderTableContainer>
                     <CardTable
-                        showToolbar={true}
+                        showToolbar={false}
                         showPagination={true}
+                        selectable={true}
+                        tableHeight="100vh"
                         columns={[
                             {
-                                cellStyle: { width: '10%' },
-                                title: 'Id',
-                                field: 'id',
-                            },
-                            {
-                                cellStyle: { width: '80%' },
+                                width: '40%',
                                 title: 'Department',
-                                field: 'name',
+                                field: 'department',
                             },
                             {
-                                title: 'Action',
-                                field: 'action',
+                                width: '15%',
+                                title: 'No.of Students',
+                                field: 'students',
+                            },
+
+                            {
+                                width: '15%',
+                                title: 'No.of Teachers',
+                                field: 'teachers',
+                            },
+                            {
+                                width: '23%',
+                                title: 'Head of Department',
+                                field: 'hod',
+                            },
+                            {
+                                width: '23%',
                                 render: (rowData: any) => (
                                     <ActionToolbar
-                                        deleteClick={() => handleDelete(rowData.id)}
-                                        editClick={() => handleEdit(rowData)}
                                         showDetail={true}
-                                        detailClick={redirectDetails}
+                                        detailClick={() => redirectDetails()}
+                                        // deleteClick={() => handleDelete(rowData.id)}
+                                        // editClick={() => handleEdit(rowData)}
                                     />
                                 ),
                             },
                         ]}
-                        rowData={departments}
+                        rowData={[
+                            {
+                                students: '122',
+                                teachers: 20,
+                                teacher: 'Mr.Shehan Abeysinghe',
+                                department: 'Mathematics',
+                                hod: 'Mr.Shehan Abeysinghe',
+                            },
+                            {
+                                students: '122',
+                                teachers: 10,
+                                teacher: 'Mrs. Angelina Jolie',
+                                department: 'Business Studies',
+                                hod: 'Mrs. Angelina Jolie',
+                            },
+                            {
+                                students: '122',
+                                teachers: 2,
+                                teacher: 'Mr. Robert Stark',
+                                department: 'Science',
+                                hod: 'Mr. Robert Stark',
+                            },
+                            {
+                                students: '122',
+                                teachers: 10,
+                                teacher: 'Mrs. Alexandra Smith',
+                                department: 'Mathematics',
+                                hod: 'Mrs. Alexandra Smith',
+                            },
+                            {
+                                students: '122',
+                                teachers: 11,
+                                teacher: 'Mr.Shehan Abeysinghe',
+                                department: 'Mathematics',
+                                hod: 'Mr.Shehan Abeysinghe',
+                            },
+                        ]}
                     />
-                </div>
+                </BorderTableContainer>
             </CardContainer>
         </div>
     );

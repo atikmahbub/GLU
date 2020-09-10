@@ -1,5 +1,4 @@
 import React from 'react';
-import TwoColTable from '../../components/Dashobard/TwoColTable';
 import HistogramChart from '../../components/Dashobard/HistogramChart';
 import { Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';

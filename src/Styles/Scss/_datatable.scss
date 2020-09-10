@@ -160,13 +160,16 @@ th.MuiTableCell-root {
 
     .search-box-container {
         .export-btn {
-            background-color: $primary;
-            color: $white;
-            font-size: 0.8rem;
+            background-color: transparent;
+            color: $primary;
+            font-size: 1.25rem;
             padding: 0.5rem 0.9rem;
             border-radius: 0.3rem;
             font-weight: 100;
             text-transform: capitalize;
+            .icon{
+                font-size: 1.25rem;
+            }
         }
         input.search-box {
             border: 1px solid $primary;
@@ -182,6 +185,13 @@ th.MuiTableCell-root {
         th.MuiTableCell-root {
             border-bottom: 2px solid #d7d7d7;
             padding-bottom: 0.5rem;
+        }
+        tr.MuiTableRow-root{
+            td.MuiTableCell-root{
+                span.MuiCheckbox-root{
+                    padding: 0;
+                }
+            }
         }
     }
 }

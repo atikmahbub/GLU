@@ -280,3 +280,66 @@
         color: $black;
     }
 }
+
+.MuiTextField-root.line-input-large {
+    margin-bottom: 2.5rem;
+    .MuiOutlinedInput-input {
+        padding: 12.5px 14px !important;
+    }
+    .MuiInputLabel-outlined {
+        z-index: 1;
+        transform: translate(14px, 10px) scale(1);
+        pointer-events: none;
+        font-size: 2.625rem;
+        .MuiInputBase-formControl {
+            &:hover {
+                border-color: red;
+            }
+        }
+    }
+    label + .MuiInput-formControl {
+        margin-top: 0.7rem;
+    }
+    .MuiInputLabel-shrink.MuiInputLabel-root {
+        color: $black;
+        font-size: 1.562rem;
+        font-family: 'CircularXXSub-BookSubset';
+    }
+    .MuiInputBase-input.MuiInput-input {
+        font-family: 'CircularXXSub-BookSubset';
+        font-size: 2.625rem;
+        color: $black;
+    }
+    .MuiInput-underline:before {
+        border-bottom: 1px solid $gray;
+    }
+}
+
+.MuiFormControl-root.select-large {
+    margin-bottom: 2.5rem;
+    .MuiFormLabel-root.Mui-focused {
+        color: #000;
+        font-size: 1.562rem;
+        font-family: 'CircularXXSub-BookSubset';
+    }
+    .MuiInputLabel-outlined {
+        transform: translate(0, 24px) scale(1);
+    }
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+        transform: translate(0, -6px) scale(0.75);
+    }
+    label + .MuiInput-formControl{
+        margin-top: 14px;
+    }
+    .MuiInputLabel-formControl {
+        font-family: 'CircularXXSub-BookSubset';
+        font-size: 1.562rem;
+        color: $black;
+    }
+    .MuiInputBase-input.MuiInput-input {
+        font-family: 'CircularXXSub-BookSubset';
+        font-size: 2.625rem;
+        color: $black;
+        padding-bottom: 0;
+    }
+}

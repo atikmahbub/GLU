@@ -68,6 +68,7 @@ const Index = () => {
                         colHead1="Subjects"
                         colHead2="Completed"
                         height="unset"
+                        linkTo=""
                     >
                         <CompNcomp completed="completed" notCompleted="Incompleted" />
                     </TwoColTable>
