@@ -5,7 +5,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Add, MailOutline } from '@material-ui/icons';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import AddButton from '../../components/Dashobard/AddButton';
-import UserTable from '../../components/Dashobard/Table/UserTable';
 import { useHistory } from 'react-router';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';

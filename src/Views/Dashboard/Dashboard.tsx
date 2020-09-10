@@ -1,11 +1,12 @@
 import React from 'react';
 import { Typography, IconButton, Button } from '@material-ui/core';
-import { ControlPoint, ArrowForwardIos } from '@material-ui/icons';
+import { ControlPoint } from '@material-ui/icons';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import CardStatus from './CardStatus';
 import CardTable from '../../components/Table/CardTable';
 import GraphContainer from './GraphContainer';
 import { v4 as uuidv4 } from 'uuid';
+import { Icons } from '../../Assets/Icons';
 
 interface tableProps {
     student: string;
@@ -29,110 +30,114 @@ const Dashboard: React.FunctionComponent = () => {
     return (
         <div className="row row__margin">
             <div className="col-md-8 colum__spacing">
-                <CardContainer>
+                <CardContainer mb="mb-2">
                     <GraphContainer />
                 </CardContainer>
-                <div className="row">
+                <div className="row drow_mr">
                     {userList.map((item) => (
-                        <div key={uuidv4()} className="col-md-6 ">
-                            <CardContainer>
+                        <div key={uuidv4()} className="col-md-6 colum__spacing">
+                            <div className="bg-white">
                                 <CardStatus heading={item.username} total={item.total} />
-                            </CardContainer>
+                            </div>
                         </div>
                     ))}
                 </div>
-                <div className="table_margin">
-                    <CardContainer>
-                        <div className="dashboard-table-container">
-                            <div className="table-header">
-                                <Typography className="heading">Accounts</Typography>
+                <div className="row drow_mr">
+                    <div className="col-md-12 colum__spacing">
+                        <CardContainer>
+                            <div className="dashboard-table-container">
+                                <div className="table-header">
+                                    <Typography className="heading">Accounts</Typography>
+                                </div>
+                                <CardTable
+                                    showToolbar={true}
+                                    showPagination={true}
+                                    columns={[
+                                        {
+                                            width: '23%',
+                                            title: 'Student',
+                                            field: 'student',
+                                        },
+                                        {
+                                            width: '23%',
+                                            title: 'Class',
+                                            field: 'class',
+                                        },
+                                        {
+                                            width: '23%',
+                                            title: 'Invoice',
+                                            field: 'invoice',
+                                        },
+                                        {
+                                            width: '23%',
+                                            title: 'Amount',
+                                            field: 'amount',
+                                        },
+                                        {
+                                            width: '23%',
+                                            title: 'Status',
+                                            field: 'status',
+                                            render: (rowData: tableProps) => (
+                                                <Typography style={{ fontSize: '1.25rem' }}>
+                                                    {rowData.status}
+                                                </Typography>
+                                            ),
+                                        },
+                                        {
+                                            width: '23%',
+                                            title: 'Action',
+                                            field: 'action',
+                                            render: () => <Button className="download-btn">Download</Button>,
+                                        },
+                                    ]}
+                                    rowData={[
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                        {
+                                            student: 'Ashish Gupta',
+                                            class: 'IV',
+                                            invoice: 'BXHD42H78G',
+                                            amount: 'AED 1200',
+                                            status: 'Sucess',
+                                        },
+                                    ]}
+                                />
                             </div>
-                            <CardTable
-                                showToolbar={true}
-                                showPagination={true}
-                                columns={[
-                                    {
-                                        width: '23%',
-                                        title: 'Student',
-                                        field: 'student',
-                                    },
-                                    {
-                                        width: '23%',
-                                        title: 'Class',
-                                        field: 'class',
-                                    },
-                                    {
-                                        width: '23%',
-                                        title: 'Invoice',
-                                        field: 'invoice',
-                                    },
-                                    {
-                                        width: '23%',
-                                        title: 'Amount',
-                                        field: 'amount',
-                                    },
-                                    {
-                                        width: '23%',
-                                        title: 'Status',
-                                        field: 'status',
-                                        render: (rowData: tableProps) => (
-                                            <Typography style={{ fontSize: '1.25rem' }}>{rowData.status}</Typography>
-                                        ),
-                                    },
-                                    {
-                                        width: '23%',
-                                        title: 'Action',
-                                        field: 'action',
-                                        render: () => <Button className="download-btn">Download</Button>,
-                                    },
-                                ]}
-                                rowData={[
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                    {
-                                        student: 'Ashish Gupta',
-                                        class: 'IV',
-                                        invoice: 'BXHD42H78G',
-                                        amount: 'AED 1200',
-                                        status: 'Sucess',
-                                    },
-                                ]}
-                            />
-                        </div>
-                    </CardContainer>
+                        </CardContainer>
+                    </div>
                 </div>
             </div>
             <div className="col-md-4 colum__spacing  position-relative">
@@ -143,8 +148,8 @@ const Dashboard: React.FunctionComponent = () => {
                                 <Typography className="status-heading">Today's Attendence</Typography>
                             </div>
                             <Typography className="total-no">189</Typography>
-                            <Typography className="total-status mb-3">STUDENTS ARE ATTENDING TODAY</Typography>
-                            <Typography className="primary__text">Go To Attendance</Typography>
+                            <Typography className="total-status mb-3">Students are attending today</Typography>
+                            <Typography className="primary__text">Go to attendance</Typography>
                         </div>
                     </CardContainer>
                     <CardContainer>
@@ -152,7 +157,7 @@ const Dashboard: React.FunctionComponent = () => {
                             <div className="event-header">
                                 <Typography className="heading">Upcoming Events</Typography>
                                 <IconButton>
-                                    <ControlPoint className="icon" />
+                                    <img src={Icons.calendar} width={22} height={18} />
                                 </IconButton>
                             </div>
                             <div className="event-body">

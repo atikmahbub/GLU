@@ -35,12 +35,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
         });
     };
     const redirectDetails = () => {
-        routes.push({
-            pathname: routeEndpoints.teacher.details,
-            state: {
-                breadcrumb: routeEndpoints.teacher.details,
-            },
-        });
+        routes.push('/dashboard/teacher-details/class-group-details');
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
