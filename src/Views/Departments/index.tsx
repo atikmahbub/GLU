@@ -57,7 +57,7 @@ const index: React.FunctionComponent = () => {
                     </div>
                 </ModalBox>
             ) : null}
-            <Departments editDepartment={setEditDepartment} triggerModal={handleToggler} />
+            <Departments editDepartment={setEditDepartment}/>
         </div>
     );
 };
