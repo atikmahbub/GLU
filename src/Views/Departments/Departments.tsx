@@ -10,10 +10,9 @@ import { deleteDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 
 interface props {
-    triggerModal: () => void;
     editDepartment: Function;
 }
-const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartment }) => {
+const Departments: React.FunctionComponent<props> = ({ editDepartment }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
     const [departments, setDepartments] = useState([]);
@@ -27,6 +26,9 @@ const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartm
     const handleEdit = (data: any) => {
         editDepartment(data);
     };
+    const handleRoute = () => {
+        routes.push('/dashboard/department/add-new-department')
+    }
     useEffect(() => {
         if (departmentList) {
             const data = departmentList.map((item: any) => {
@@ -49,7 +51,7 @@ const Departments: React.FunctionComponent<props> = ({ triggerModal, editDepartm
                     notificationText="Send notification"
                     btnIcon={<Add />}
                     btnTitle="Add department"
-                    trigger={triggerModal}
+                    trigger={handleRoute}
                 />
             </CardContainer>
             <CardContainer>

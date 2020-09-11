@@ -168,5 +168,14 @@ button:focus{
 }
 
 input::-webkit-input-placeholder {
+  color: #5F5F5F;
+}
+
+::placeholder {
+  color: #5F5F5F !important;
+  opacity: 1 !important;
+}
+
+input::-webkit-input-placeholder {
   line-height:normal!important;
 }

@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Button, TextField, Typography, Checkbox, TablePagination } from '@material-ui/core';
-import { ArrowDownward } from '@material-ui/icons';
+import { ArrowDownward, Search } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { CsvBuilder } from 'filefy';
 import OutlineBtn from '../Button/OutlineBtn';
 import { colors } from '../../Styles/colors';
+import FormControlInput from '../Form/FormControlInput';
 
 const SearchBoxFilterExport = ({ availabeProps, filter }) => {
     const [showFilter, setShowFilter] = useState(false);
+    const [search, setSearch] = useState('');
     const handleFilter = () => {
         setShowFilter(!showFilter);
+    };
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+        availabeProps.onSearchChanged(e.target.value);
     };
     const handleExport = () => {
         const headColumn = Object.keys(availabeProps.renderData[0]);
@@ -21,25 +27,28 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
     };
     return (
         <div className="search-box-container">
-            <input
-                onChange={(e) => {
-                    console.log(availabeProps);
-                    availabeProps.onSearchChanged(e.target.value);
-                }}
-                className="search-box"
-                placeholder="Search here ..."
-            />
             <div className="filter-container">
                 {filter}
                 <Button
+                    disableRipple
                     className="export-btn"
-                    endIcon={<ArrowDownward style={{ fontSize: '0.9rem' }} />}
-                    onClick={handleExport}>
-                    Export{' '}
+                    endIcon={<ArrowDownward className="icon" />}
+                    onClick={handleExport}
+                >
+                    Export
                 </Button>
             </div>
+            <FormControlInput
+                id=""
+                name=""
+                value={search}
+                placeholder="Search"
+                onChange={handleSearch}
+                variant="outlined"
+                fullWidth={true}
+                icon={<Search />}
+            />
         </div>
-        // </div>
     );
 };
 
