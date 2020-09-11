@@ -71,7 +71,6 @@ type FormControlInputProps = {
     rootClassName?: string;
     inputRootClassName?: string;
 };
-
 const FormControlInput: FC<FormControlInputProps> = ({
     id,
     name,
