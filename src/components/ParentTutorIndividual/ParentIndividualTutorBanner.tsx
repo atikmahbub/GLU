@@ -49,6 +49,12 @@ const useStyles = makeStyles({
         color: 'white',
         marginTop: '-8.937rem',
         border: "2px solid red",
+        ["@media (max-width: 1122px)"]:{
+            fontSize: '5.5rem',
+        },
+        ["@media (max-width: 767px)"]:{
+            fontSize: '5.5rem',
+        },
         ["@media (max-width: 414px)"]:{
             marginTop: "41px",
             fontSize: "35px",
@@ -113,6 +119,16 @@ const useStyles = makeStyles({
             width: "33.437rem",
             objectFit: "cover",
         },
+        ["@media (max-width: 767px)"]:{
+            height: "228px",
+            width: "228px",
+            marginLeft: "65px",
+            '& img': {
+                height: "228px",
+                width: "228px",
+                objectFit: "cover",
+            },
+        },
         ['@media (max-width:414px)']: { 
             height: "228px",
             width: "228px",
@@ -159,11 +175,11 @@ const ParentIndividualTutorBanner: FC = () => {
                 </Grid>
                 <Hidden only={['xs']}>
                     <Grid container item className={classes.ratingFavoriteContainer} lg={12} md={12} sm={12} xs={12}>
-                        <Grid container className={classes.ratingContainer} lg={1} md={1} >
+                        <Grid container className={classes.ratingContainer} lg={1} sm={1} >
                             <StarBorder className={classes.icon} />
                             <Typography variant="h3" className={classes.rating}>5/5</Typography>
                         </Grid>
-                        <Grid container className={classes.favoriteContainer} lg={1} md={1}  >
+                        <Grid container className={classes.favoriteContainer} lg={1} sm={1}  >
                             <FavoriteBorder className={classes.icon} />
                             <Typography variant="h3" className={classes.favorite}>Favorite</Typography>
                         </Grid>
