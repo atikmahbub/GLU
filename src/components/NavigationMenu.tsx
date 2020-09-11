@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useMemo, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Button, Typography, IconButton } from '@material-ui/core';
@@ -8,50 +8,56 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
+import TopDrawerMenu from './TopDrawerMenu';
 import { getColor } from '../Helper/studentModule';
+import useToggle from '../Hooks/useToggle';
 
-
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ transitions }) => ({
     root: {
         '& .navigation': {
-            backgroundColor: ({ background }: any) => getColor(background)
-        }
+            backgroundColor: ({ background, topMenuDrawer }: any) => (topMenuDrawer ? '#fff' : getColor(background)),
+            transition: ({ topMenuDrawer }: any) =>
+                !topMenuDrawer ? transitions.create(['background-color'], { duration: 400, }) : 'none',
+        },
     },
     rootAbsolute: {
         width: '100%',
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: 1
+        zIndex: 1299,
+    },
+    container: {
+        position: 'relative',
+        zIndex: 1299,
     },
     rootColorWhite: {
         '& .navigation ul li a .link': {
-            color: '#fff'
+            color: '#fff',
         },
         '& .navigation .icon-button .icon': {
-            color: '#fff'
+            color: '#fff',
         },
         '& .navigation .heading': {
-            color: '#fff'
+            color: '#fff',
         },
         '& .navigation ul li a button': {
-            color: "#fff"
-        }
+            color: '#fff',
+        },
     },
     button: {
         '&:hover': {
             backgroundColor: 'transparent',
         },
     },
-});
+}));
 
 export interface propsType {
     name: string;
     link: string;
 }
 
-interface props {
+interface INavigationMenu {
     menuList?: propsType[];
     customClass?: string;
     showMenuOptions?: boolean;
@@ -59,13 +65,14 @@ interface props {
     containerClassName?: string;
     absolute?: boolean;
     colorWhite?: boolean;
-    background?: 'primary' | 'secondary' | 'transparent'|'brown';
+    background?: 'primary' | 'secondary' | 'transparent' | 'brown';
     menuDrawerWidth?: number | string;
     menuDrawerAnimation?: boolean;
     MenuDrawerComponent?: ReactNode;
+    TopDrawerMenuComponent?: ReactNode;
 }
 
-const NavigationMenu: React.FunctionComponent<props> = ({
+const NavigationMenu: FC<INavigationMenu> = ({
     menuList,
     customClass,
     showMenuOptions,
@@ -77,24 +84,32 @@ const NavigationMenu: React.FunctionComponent<props> = ({
     background,
     menuDrawerWidth,
     menuDrawerAnimation,
-    MenuDrawerComponent
+    MenuDrawerComponent,
+    TopDrawerMenuComponent,
 }) => {
-    const classes = useStyles({ background });
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
-    const [menuDrawer, setMenuDrawer] = useState(false)
+    const [menuDrawer, setMenuDrawer] = useState(false);
+    const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const classes = useStyles({ background, topMenuDrawer });
 
     const openNotificationDrawer = useCallback(() => {
         setNotificationsDrawer(true);
-    }, [])
+    }, []);
 
     const openMenuDrawer = useCallback(() => {
-        MenuDrawerComponent && setMenuDrawer(true)
-    }, [MenuDrawerComponent])
+        if (TopDrawerMenuComponent) {
+            return toggleTopMenuDrawer();
+        }
+        if (MenuDrawerComponent) {
+            setMenuDrawer(true);
+        }
+    }, [MenuDrawerComponent, TopDrawerMenuComponent]);
 
     const closeDrawers = useCallback(() => {
         setNotificationsDrawer(false);
         setMenuDrawer(false);
-    }, [])
+    }, []);
 
     const renderMenuList = useMemo(() => {
         if (menuList) {
@@ -160,24 +175,30 @@ const NavigationMenu: React.FunctionComponent<props> = ({
             onClose: closeDrawers,
             drawerWidth: menuDrawer ? menuDrawerWidth : undefined,
             animation: menuDrawer ? menuDrawerAnimation : true,
-            drawerContent: menuDrawer ? MenuDrawerComponent :  <Notifications />
-        }
-    }, [notificationsDrawer, menuDrawer, closeDrawers, notificationsDrawer, MenuDrawerComponent, menuDrawerWidth])
+            drawerContent: menuDrawer ? MenuDrawerComponent : <Notifications />,
+        };
+    }, [notificationsDrawer, menuDrawer, closeDrawers, notificationsDrawer, MenuDrawerComponent, menuDrawerWidth]);
 
     return (
         <DrawerProvider {...drawerOptions}>
             <div>
                 <div
+                    ref={containerRef}
                     className={classNames(classes.root, rootClassName, 'menu__type2__container', {
                         [classes.rootAbsolute]: absolute,
-                        [classes.rootColorWhite]: colorWhite
+                        [classes.rootColorWhite]: colorWhite && !topMenuDrawer,
                     })}
                 >
-                    <div className={classNames(containerClassName, 'navigation')}>
+                    <div className={classNames(classes.container, containerClassName, 'navigation')}>
                         <ul className={customClass}>{renderMenuList}</ul>
-                        <Typography className={`heading ${customClass}`}>Glu</Typography>
+                        <Typography className={classNames('heading', customClass)}>Glu</Typography>
                     </div>
                     {showMenuOptions && <BigMenu />}
+                    {TopDrawerMenuComponent && (
+                        <TopDrawerMenu open={topMenuDrawer} onClose={closeDrawers} containerRef={containerRef}>
+                            {TopDrawerMenuComponent}
+                        </TopDrawerMenu>
+                    )}
                 </div>
                 <div>{children}</div>
             </div>
@@ -186,7 +207,7 @@ const NavigationMenu: React.FunctionComponent<props> = ({
 };
 
 NavigationMenu.defaultProps = {
-    background: 'primary'
-}
+    background: 'primary',
+};
 
 export default NavigationMenu;
