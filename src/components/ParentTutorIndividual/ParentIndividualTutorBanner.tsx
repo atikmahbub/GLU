@@ -55,7 +55,7 @@ const useStyles = makeStyles({
         ["@media (max-width: 767px)"]:{
             fontSize: '5.5rem',
         },
-        ["@media (max-width: 414px)"]:{
+        ["@media (max-width:600px)"]:{
             marginTop: "41px",
             fontSize: "35px",
             lineHeight: "35px",
@@ -129,7 +129,7 @@ const useStyles = makeStyles({
                 objectFit: "cover",
             },
         },
-        ['@media (max-width:414px)']: { 
+        ['@media (max-width:600px)']: { 
             height: "228px",
             width: "228px",
             marginLeft: "65px",
@@ -138,6 +138,9 @@ const useStyles = makeStyles({
                 width: "228px",
                 objectFit: "cover",
             },
+        },
+        ['@media (max-width:959px) and (min-width:768px)']: { 
+            marginLeft: "50px",
         }
 
     },
@@ -161,7 +164,7 @@ const ParentIndividualTutorBanner: FC = () => {
         // <MuiThemeProvider theme={theme}>
         <Grid container className={classes.brownContainer} spacing={0}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} md={5} sm={5} className={classes.titleContainer}>
+                <Grid item lg={6} md={5} sm={4} className={classes.titleContainer}>
                     <Typography variant="h1" className={classes.title}>Tutor</Typography>
                 </Grid>
                 <Grid className={classes.image} lg={6} md={5} sm={4}>
