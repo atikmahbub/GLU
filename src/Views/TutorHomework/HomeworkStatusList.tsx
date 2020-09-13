@@ -1,14 +1,17 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import CheckCircleOutlineSharpIcon from '@material-ui/icons/CheckCircleOutlineSharp';
 import { Link } from 'react-router-dom';
 interface props {
     date?:string;
     subject?:string;
     subjectDesc?:string;
     desc?:string;
+    DueOrComplete?:string;
     submissions?:string;
+    isSubmitted?:boolean;
 }
-const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjectDesc,desc,submissions}) => {
+const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjectDesc,desc,submissions,isSubmitted,DueOrComplete}) => {
     return (
         <>
             <div className="reusable_homework_main">
@@ -18,7 +21,7 @@ const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjec
                 </div>
                 <div className="homework_main_subtitle">
                     <div className="homework_main_subtitle_1">
-                        <Typography className="tutor_homework_main_smtext">Due</Typography>
+                        <Typography className="tutor_homework_main_smtext">{DueOrComplete}</Typography>
                         <Typography className="tutor_homework_main_smtext">{date}</Typography>
                     </div>
                     <div className="homework_main_subtitle_2">
@@ -31,6 +34,13 @@ const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjec
                         {desc}
                     </Typography>
                 </div>
+                {isSubmitted&&
+                <div className="homework_main_submitted">
+                
+                <Typography className="tutor_homework_main_xxstext"><span className="tickcircleicon"><CheckCircleOutlineSharpIcon/></span>Submitted</Typography>
+            </div>
+            }
+                
             </div>
         </>
     );

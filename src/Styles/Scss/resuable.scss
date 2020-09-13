@@ -105,6 +105,19 @@
 .commonFooter{
     padding-top: 9.0625rem;
 }
+.reusable_smallbutton{
+    font-family: 'CircularXXWeb-Book';
+    padding: 0.5rem 2.875rem;
+    border-style: solid;
+    border-color:rgba(0, 0, 0, 0.25);
+    border-width: 1px;
+    width: fit-content;
+    .small_button_text{
+        font-family: inherit;
+        font-size: 1.25rem;
+        line-height: 1.5625rem;
+    }
+}
 @media only screen and(min-width:768px){
     .reusable_private_tutor_banner{
         .private_tutor_right_container,.private_tutor_right_container_2{
