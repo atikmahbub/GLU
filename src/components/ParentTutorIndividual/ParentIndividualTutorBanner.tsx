@@ -8,8 +8,23 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 // import './style.scss';
 import Hidden from '@material-ui/core/Hidden';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+
+const theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm:600,
+        md: 1450,
+        lg: 1920,
+        xl: 2250,
+      },
+    },
+  })
+
+
+const useStyles = makeStyles(() => ({
     brownContainer: {
         width: "100vw",
         // height: "100vh",
@@ -42,6 +57,12 @@ const useStyles = makeStyles({
         color: 'white',
         marginTop: '-8.937rem',
         border: "2px solid red",
+        [theme.breakpoints.down('sm')]: {
+            fontSize:'9.5rem',
+            marginTop: '1.063rem',
+            lineHeight: '9.5rem',
+            border: "2px solid yellow",
+        },
     },
     ratingFavoriteContainer: {
         marginTop: '-0.438rem',
@@ -69,20 +90,29 @@ const useStyles = makeStyles({
     bottomText: {
         color: 'white',
         fontSize: '1.562rem',
-        marginBottom: '2.125rem',
+        // marginBottom: '2.125rem',
         marginTop: '10.5rem',
     },
-    image: {
+    imageTutor: {
         height: "34.062rem",
         marginTop: "1rem",
         marginBottom: "1rem",
         border: "2px solid green",
+        [theme.breakpoints.down('sm')]: {
+            border: "2px solid yellow",
+            width: '51.437rem',
+            height: '48.062rem',
+        },
         '& img': {
             height: "34.062rem",
             width: "33.437rem",
             objectFit: "cover",
+            [theme.breakpoints.down('sm')]: {
+                width: '51.437rem',
+                height: '48.062rem',
+                border: "2px solid red",
+            },
         },
-
     },
     smallScreenBottomText:{
         border: "2px solid",
@@ -90,39 +120,39 @@ const useStyles = makeStyles({
         alignItems: "center",
         marginTop: "-54px",
     }
-});
+}));
 
 const ParentIndividualTutorBanner: FC = () => {
     const classes = useStyles();
     return (
         // <MuiThemeProvider theme={theme}>
-        <Grid container className={classes.brownContainer} spacing={0}>
+        <Grid container className={classes.brownContainer}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} className={classes.titleContainer}>
-                    <Typography variant="h1" className={classes.title}>Tutor</Typography>
+                <Grid item lg={6} sm={12} className={classes.titleContainer}>
+                    <Typography className={classes.title}>Tutor</Typography>
                 </Grid>
-                <Grid className={classes.image} lg={6} >
+                <Grid item className={classes.imageTutor} lg={6} sm={12} >
                     <LazyLoadImage
                         alt=""
                         effect="blur"
                         src={commonImg.twogirl} />
                 </Grid>
-                <Grid item lg={12} className="big__text">
-                    <Typography variant="h1" className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
+                <Grid item lg={12} sm={12}>
+                    <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
                 </Grid>
                     <Grid container item className={classes.ratingFavoriteContainer} lg={12}>
                         <Grid container className={classes.ratingContainer}>
                             <StarBorder className={classes.icon} />
-                            <Typography variant="h3" className={classes.rating}>5/5</Typography>
+                            <Typography  className={classes.rating}>5/5</Typography>
                         </Grid>
                         <Grid container className={classes.favoriteContainer} >
                             <FavoriteBorder className={classes.icon} />
-                            <Typography variant="h3" className={classes.favorite}>Favorite</Typography>
+                            <Typography  className={classes.favorite}>Favorite</Typography>
                         </Grid>
-                        <Grid item className={classes.favoriteContainer}sm={3}/>
+                        {/* <Grid item className={classes.favoriteContainer}/> */}
                     </Grid>
                     <Grid item lg={12}>
-                        <Typography variant="h3" className={classes.bottomText}>Primary, Secondary</Typography>
+                        <Typography  className={classes.bottomText}>Primary, Secondary</Typography>
                     </Grid>
             </Grid>
         </Grid>
