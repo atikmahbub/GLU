@@ -8,6 +8,7 @@ import ReusableCoverImage from './ReusableCoverImage';
 import ReusableBanner from '../../components/ReusableBanner';
 import MadeBy from '../Footer/MadeBy';
 import NewSkillContainer from './NewSkillContainer';
+import PageFooter from '../../components/PageFooter'
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -130,11 +131,10 @@ const TutorClass: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
+            
         </div>
                 </NavigationMenu>
             

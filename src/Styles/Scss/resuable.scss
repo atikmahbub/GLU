@@ -104,6 +104,14 @@
 }
 .commonFooter{
     padding-top: 9.0625rem;
+
+}
+.commonGreyFooter{
+
+}
+.commonWhiteFooter{
+    background-color: white;
+    padding-top: 9.0625rem;
 }
 .reusable_smallbutton{
     font-family: 'CircularXXWeb-Book';
@@ -118,7 +126,7 @@
         line-height: 1.5625rem;
     }
 }
-@media only screen and(min-width:768px){
+@media only screen and(min-width:767px){
     .reusable_private_tutor_banner{
         .private_tutor_right_container,.private_tutor_right_container_2{
             padding-left: 3.125rem;
@@ -151,7 +159,7 @@
     border-left-width: 1px;
 }
 }
-@media only screen and(max-width:768px){
+@media only screen and(max-width:767px){
     .reusable_private_tutor_banner{
         .private_tutor_container_2{
             .text1{

@@ -5,6 +5,7 @@ import commonImg from '../../Assets/images';
 import TagsContainer from '../../components/TagsContainer';
 import BigBanner from '../../components/BigBanner';
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
 import PlayBanner from '../../components/PlayBanner';
 import ActivityBanner from '../../components/ActivityBanner'
 const useStyles = makeStyles({
@@ -175,11 +176,9 @@ const TutorClass: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

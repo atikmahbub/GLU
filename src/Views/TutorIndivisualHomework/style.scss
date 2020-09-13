@@ -1,5 +1,7 @@
 .tutor_indivisual_homework{
+    font-family: 'CircularXXWeb-Book';
     .leftText{
+        font-family: inherit;
         font-size: 2.625rem;
         line-height: 2.8125rem;
     }
@@ -138,6 +140,7 @@
         border-left-width: 1px;
     }
     .leftText{
+        font-family: inherit;
         font-size: 2.625rem;
         line-height: 2.8125rem;
     }
@@ -174,8 +177,16 @@
     .play_container{
         margin-top: 1.875rem;
     }
-    .play_text{
-        @include flex(center,space-between,row);
+    .play_text_container{
+        display: flex;
+        justify-content: space-between;
+        font-family: 'CircularXXWeb-Book';
+        .play_text{
+            font-family: inherit;
+            font-size: 1.5625rem;
+            line-height:1.8125rem;
+           
+        }
     }
     .reusable_resources_text{
         font-family: inherit;

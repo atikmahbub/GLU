@@ -3,6 +3,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import Banner from '../../components/ReusableBanner';
 import AddCancelButton from './AddCancelButton';
+import PageFooter from '../../components/PageFooter'
 import MadeBy from '../Footer/MadeBy';
 const PersonalSchoolToggle: React.FunctionComponent = () => {
     const menu = [
@@ -22,8 +23,9 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
     ];
     const daysOffArray = ['03/08/20', '25/08/20'];
     return (
+        <NavigationMenu menuList={menu}>
         <div className="tutor_availablity_container">
-            <NavigationMenu menuList={menu}>
+            
                 <div className="tutor_availablity_subcontainer">
                     <div className="tutor_availablity_subcontainer_banner">
                         <Banner heading={'Availability'} description={'Configure your general availability.'} />
@@ -171,14 +173,14 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                         </div>
                     </div>
 
-                    <div className="profile_footer">
-                        <div className="footer">
-                            <MadeBy />
-                        </div>
-                    </div>
+                    
                 </div>
-            </NavigationMenu>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
+            
         </div>
+        </NavigationMenu>
     );
 };
 export default PersonalSchoolToggle;

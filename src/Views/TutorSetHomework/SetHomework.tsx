@@ -6,6 +6,7 @@ import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import AddCancelButton from '../TutorAvailablity/AddCancelButton';
+import PageFooter from '../../components/PageFooter'
 // import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
 
@@ -97,11 +98,9 @@ const TutorRecord: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

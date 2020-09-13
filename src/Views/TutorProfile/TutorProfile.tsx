@@ -4,6 +4,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import TagsContainer from '../../components/TagsContainer'
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter'
 import commonImg from '../../Assets/images';
 
 const TempComp: React.FunctionComponent = () => {
@@ -110,10 +111,8 @@ const TempComp: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
         </div>
         </NavigationMenu>
