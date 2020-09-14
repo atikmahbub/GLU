@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     inputRoot: {
         flexGrow: 1,
         width: 250,
-        height: 44,
+        height: '2.75rem',
         '& .MuiInputBase-input': {
             padding: 0,
             height: '100%',
@@ -71,7 +71,6 @@ type FormControlInputProps = {
     rootClassName?: string;
     inputRootClassName?: string;
 };
-
 const FormControlInput: FC<FormControlInputProps> = ({
     id,
     name,

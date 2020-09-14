@@ -8,7 +8,7 @@ import { Typography } from '@material-ui/core';
 //     time?:string;
 //     isEdit?:string;
 // }
-const ExtraCurricularBanner: React.FunctionComponent<> = () => {
+const ExtraCurricularBanner:  React.FunctionComponent = () => {
     return (
         <>
             <div className="tutor_indivisual_extra_curr_container1">
@@ -57,8 +57,6 @@ const ExtraCurricularBanner: React.FunctionComponent<> = () => {
                             </div>
                         </div>
                     </div>
-         
-            
         </>
     );
 };

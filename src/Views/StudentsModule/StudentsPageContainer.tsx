@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
+import TopDrawerMenuContent from '../../Containers/Menus/TopDrawerMenuContent';
 import { studentMenus } from '../../Helper/studentMenus';
 import { getColor } from '../../Helper/studentModule';
 
@@ -37,6 +38,7 @@ const StudentsPageContainer: FC<StudentsPageContainerProps> = ({
         <NavigationMenu
             menuList={studentMenus}
             background={navMenuBackground}
+            TopDrawerMenuComponent={<TopDrawerMenuContent />}
         >
             <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
                 <Grid container direction="column" className={classNames(classes.content, contentClassName)}>

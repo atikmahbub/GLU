@@ -8,6 +8,7 @@ import ReusableCoverImage from './ReusableCoverImage';
 import ReusableBanner from '../../components/ReusableBanner';
 import MadeBy from '../Footer/MadeBy';
 import NewSkillContainer from './NewSkillContainer';
+import PageFooter from '../../components/PageFooter'
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -50,8 +51,10 @@ const TutorClass: React.FunctionComponent = () => {
                                             <div className="col-6">
                                                 <div className="print_timeline">
                                                     <ul>
+                                                    
                                                         <li>
-                                                            <Typography className="text_list">Geography</Typography>
+                                                        
+                                                            <Typography className="text_list"><span>Geography</span></Typography>
                                                             <Typography className="text_list">
                                                                 9.00am-10:30am
                                                             </Typography>
@@ -107,7 +110,7 @@ const TutorClass: React.FunctionComponent = () => {
                                 <div className="outerAddSkill">
                                    
                                         <NewSkillContainer skillArray={skillArray}/>
-                                        <div className="col-md-12  horizontalline"></div>
+                                        <div className="  horizontalline"></div>
                                    
                                 </div>
                                 
@@ -128,11 +131,10 @@ const TutorClass: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
+            
         </div>
                 </NavigationMenu>
             

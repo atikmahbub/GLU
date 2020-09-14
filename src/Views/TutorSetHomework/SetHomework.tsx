@@ -5,7 +5,8 @@ import { Typography, TextField } from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import ReusableSubjectDesc from '../TutorSetClass/ReusableSubjectDesc';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
-import AddCancelButton from '../TutorAvailablity/AddCancelButton'
+import AddCancelButton from '../TutorAvailablity/AddCancelButton';
+import PageFooter from '../../components/PageFooter'
 // import commonImg from '../../Assets/images';
 import MadeBy from '../Footer/MadeBy';
 
@@ -36,13 +37,18 @@ const TutorRecord: React.FunctionComponent = () => {
                                 <div className="homework_date_container">
                                     <div className="row">
                                         <div className="col-4">
-                                            <TextField className="line-input" label="Date" fullWidth value="9:25AM" />
+                                            <TextField
+                                                className="line-input-large"
+                                                label="Date"
+                                                fullWidth
+                                                value="9:25AM"
+                                            />
                                         </div>
                                         <div className="col-3">
                                             <SelectFieldUnderline
                                                 label="End Time"
                                                 value="9.25am"
-                                                className="custom-adornment-input"
+                                                className="select-large"
                                                 options={['9.25am']}
                                                 getValue={() => {}}
                                             />
@@ -74,34 +80,27 @@ const TutorRecord: React.FunctionComponent = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 homeworkBorder">
-                                
+                                <div className="set_homework_skill_container">
                                     <NewSkillContainer skillArray={skillArray} />
-                                    {/* <div className="addSkill">
-                                    <div className="col-md-12">
-                                        <div className="row">
-                                            <div className="homework_publish_container">
-                                                <div className="homework_publish_button">
-                                                    <Typography className="sub_heading">Publish</Typography>
-                                                </div>
-                                                <div className="cancel_button">
-                                                    <Typography>Cancel</Typography>
-                                                </div>
-                                            </div>
+                                </div>
+                        
+                                <div className="set_homework_publish_container">
+                                    <div className="publish_cancel_buttons">
+                                        <div className="p_button">
+                                            <Typography className="text">Publish</Typography>
+                                        </div>
+                                        <div className="c_button">
+                                            <Typography className="text">Cancel</Typography>
                                         </div>
                                     </div>
-                                </div> */}
-                                <div className="publish_cancel_homework">
-                                <AddCancelButton firstButton={"Publish"} secondButton={"Cancel"}/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

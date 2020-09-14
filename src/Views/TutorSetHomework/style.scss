@@ -20,10 +20,14 @@
     font-family: 'CircularXXWeb-Book';
        padding-top: 3.125rem;
    }
+   .set_homework_skill_container{
+       padding-top: 3.125rem;
+   }
+
 
 }
 .line_container{
-    padding-top: 2.185rem;
+    padding-top: 3rem;
 }
 .banner_container{
     
@@ -61,7 +65,7 @@
     }
 }
 @media screen and (min-width: 767px) {
-    .publish_cancel_homework,.homework_date_container{
+    .set_homework_publish_container,.publish_cancel_homework,.homework_date_container{
         padding-left:3.125rem;
     }
     .homeworkBorder{

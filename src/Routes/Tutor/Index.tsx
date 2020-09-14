@@ -15,7 +15,9 @@ const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/T
 // Added by Vivek
 const ClassReview = React.lazy(() => import('../../Views/TutorReviewPage/ClassReview'));
 const TutorReview = React.lazy(() => import('../../Views/TutorReviewPage/TutorReview'));
-
+const TutorEdit = React.lazy(() => import('../../Views/TutorEditPage/TutorEdit'));
+const TutorUpcomingClasses = React.lazy(() => import('../../Views/TutorUpcomingClass/Index'));
+const TutorExtraCurr = React.lazy(() => import('../../Views/TutorExtraCurr/Index'));
 
 // const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 const TutorExams= React.lazy(() => import('../../Views/TutorExams/TutorExams'));
@@ -24,6 +26,10 @@ const TutorUpcomingClass =React.lazy(()=>import('../../Views/TutorUpcommingClass
 const TutorReviews= React.lazy(()=>import('../../Views/TutorReviews/TutorReview'));
 const TutorIndivisualExtraCurricular=React.lazy(()=>import('../../Views/TutorIndivisualExtraCurricular/IndivisualExtraCurricular'));
 const TutorIndividualExtraCurricular2=React.lazy(()=>import('../../Views/TutorIndividualExtraCurricular2/TutorIndividualExtraCurricular2'));
+const TutorPrivate=React.lazy(()=>import('../../Views/TutorPrivate/TutorPrivate'));
+const TutorTotalRecommendations =React.lazy(()=>import('../../Views/TutorTotalRecommendations/TotalRecommendations'));
+const TutorMyClasses=React.lazy(()=>import('../../Views/TutorClasses/TutorMyclass'));
+const TutorHomework=React.lazy(()=>import('../../Views/TutorHomework/TutorHomework'));
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
     createRouteObj('/tutor/profile', TutorProfile),
@@ -34,7 +40,7 @@ export const tutorRoutes = [
     createRouteObj('/tutor/upcoming-classes', UpcomingClasses),
     createRouteObj('/tutor/school-table', SchoolTimetable),
     createRouteObj('/tutor/tutor-availablity', TutorAvailablity),
-    createRouteObj('/tutor/class-review', ClassReview),
+    createRouteObj('/tutor/class-review',ClassReview),
     createRouteObj('/tutor/tutor-review', TutorReview),
     createRouteObj('/tutor/availablity',TutorAvailablity),
     createRouteObj('/tutor/exams',TutorExams),
@@ -42,5 +48,12 @@ export const tutorRoutes = [
     createRouteObj('/tutor/upcoming-class',TutorUpcomingClass),
     createRouteObj('/tutor/reviews',TutorReviews),
     createRouteObj('/tutor/individual-extra-curricular',TutorIndivisualExtraCurricular),
-    createRouteObj('/tutor/individual-extra-curricular-edit',TutorIndividualExtraCurricular2)
+    createRouteObj('/tutor/individual-extra-curricular-edit',TutorIndividualExtraCurricular2),
+    createRouteObj('/tutor/tutor-private',TutorPrivate),
+    createRouteObj('/tutor/total-recommendations',TutorTotalRecommendations),
+    createRouteObj('/tutor/my-classes',TutorMyClasses),
+    createRouteObj('/tutor/homework',TutorHomework),
+    createRouteObj('/tutor/tutor-edit', TutorEdit),
+    createRouteObj('/tutor/tutor-upcoming-classes', TutorUpcomingClasses),
+    createRouteObj('/tutor/extra-curriculam', TutorExtraCurr)
 ];

@@ -10,7 +10,7 @@ import { Dispatch } from 'react';
 export const getSchoolAPIcall = () => {
     return (dispatch: any) => {
         dispatch(spinner(true));
-        API.get(endponts.school)
+        API.get(endponts.schoolProfile)
             .then((res) => {
                 console.log(res);
                 dispatch(schoolInfo(res.data.data));
@@ -25,7 +25,7 @@ export const getSchoolAPIcall = () => {
 export const updateSchoolAPIcall = (data: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
-        API.put(endponts.school, data)
+        API.put(endponts.schoolProfile, data)
             .then(() => {
                 dispatch(spinner(false));
                 toast.success('School Information Updated Successfully.');

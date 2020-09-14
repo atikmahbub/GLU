@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
-import NavigationMenuReusable from '../../components/NavigationMenuReusable';
+import NavigationMenu from '../../components/NavigationMenu';
 import ReviewHeader from './ReviewHeader';
 import ClassReviewRating from './ClassReviewRating';
 
@@ -19,11 +19,16 @@ const useStyles = makeStyles({
 });
 
 const ClassReview = () => {
+    const menu = [
+        { link: '/tutor/', name: 'Dashboard' },
+        { link: '/tutor/set-class', name: 'Set Class' },
+        { link: '', name: 'Messages' },
+        { link: '', name: 'Shop' },
+    ];
     const classes = useStyles();
 
     return (
-        <div>
-            <NavigationMenuReusable />
+        <NavigationMenu menuList={menu}>
             <div className={classes.mainPadding}>
                 <ReviewHeader name="class" />
                 <hr className={classes.topMarg} />
@@ -33,7 +38,7 @@ const ClassReview = () => {
             <div className={`footer ${classes.footer}`}>
                 <MadeBy />
             </div>
-        </div>
+        </NavigationMenu>
     );
 };
 

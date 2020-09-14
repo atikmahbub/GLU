@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import { isNumber } from 'lodash';
+import isNumber from 'lodash.isnumber';
+import { DrawerProps } from '@material-ui/core/Drawer';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Drawer from '../components/Drawer';
 
@@ -19,27 +20,30 @@ const useStyles = makeStyles(({ transitions }) => ({
     },
 }));
 
-type DrawerProviderProps = {
+interface IDrawerProvider extends DrawerProps {
     open: boolean;
     onClose: () => void;
     drawerWidth?: number;
     drawerContent: ReactNode;
+    drawerPosition?: 'left' | 'right' | 'top' | 'bottom';
     children: ReactNode;
     animation?: boolean;
-};
+}
 
-const DrawerProvider: FC<DrawerProviderProps> = ({
+const DrawerProvider: FC<IDrawerProvider> = ({
     open,
     onClose,
     drawerWidth = 500,
     drawerContent,
+    drawerPosition,
     animation,
     children,
+    ...props
 }) => {
     const classes = useStyles({ open, drawerWidth, animation });
     return (
         <div>
-            <Drawer open={open} onClose={onClose} width={drawerWidth}>
+            <Drawer open={open} onClose={onClose} width={drawerWidth} position={drawerPosition} {...props}>
                 {drawerContent}
             </Drawer>
             <div className={classes.content}>{children}</div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import PersonalDashboard from '../PersonalSchool/PersonalDashboard';
@@ -11,20 +11,28 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const [toggle, setToggle] = useState('isPersonal');
+    // useEffect(() => {
+    //     const currentState=localStorage.getItem('toggleState')!=null?localStorage.getItem('toggleState'):'';
+    //     setToggle(currentState?currentState:'isPersonal')
+    // }, [])
+    const clickHandler=(clickState)=>{
+        localStorage.setItem('toggleState',clickState);
+        setToggle(clickState);
+    }
+    const [toggle, setToggle] = useState(localStorage.getItem('toggleState')==null?"isPersonal":localStorage.getItem('toggleState'));
     return (
         <NavigationMenu menuList={menu} background="secondary">
             <div className="personal_school">
                 <div className="personal-school-main">
                     <Typography
-                        onClick={() => setToggle('isPersonal')}
+                        onClick={()=>clickHandler("isPersonal")}
                         style={{ color: toggle == 'isPersonal' ? 'black' : '#8b8b8b' }}
                         className="mainHeading1"
                     >
                         Personal
                     </Typography>
                     <Typography
-                        onClick={() => setToggle('isSchool')}
+                        onClick={()=>clickHandler("isSchool")}
                         style={{ color: toggle == 'isSchool' ? 'black' : '#8b8b8b' }}
                         className="mainHeading2"
                     >

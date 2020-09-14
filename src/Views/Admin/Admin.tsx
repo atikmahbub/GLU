@@ -1,66 +1,84 @@
 import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
-import { TextField, Typography, Button } from '@material-ui/core';
-import LinkContainer from './LinkContainer';
-import { Facebook, LinkedIn, Twitter, YouTube, ArrowForward } from '@material-ui/icons';
-import UploadImgFile from '../../components/Button/UploadImgFile';
+import { Typography } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSchoolAPIcall, updateSchoolAPIcall } from '../../Redux/Actions/schoolAction';
-import Loader from '../../components/Loader';
-import { Link } from 'react-router-dom';
+
 import SchoolBasicInfo from './SchoolBasicInfo';
 import SchoolContactInfo from './SchoolContactInfo';
 import SocialLinks from './SocialLinks';
 import SaveController from '../../components/Dashobard/SaveController';
 
+export const adminContext = React.createContext({});
+const AdminProvider = adminContext.Provider;
+
 const Admin: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const schoolInfo = useSelector((state: any) => state.schoolReducer.schoolData);
-    const loader = useSelector((state: any) => state.uiReducer.loader);
     const [activeCom, setActiveComp] = useState<number>(0);
     const [state, setState] = useState({
-        school_name: '',
+        schoolName: '',
         email: '',
-        phone_number: '',
-        address: '',
+        phoneNumber: '',
+        location: '',
+        bio: '',
         website: '',
-        fb_link: '',
-        inst_link: '',
-        twit_link: '',
-        yout_link: '',
-        ld_link: '',
+        facebookUrl: '',
+        instagramUrl: '',
+        twitterUrl: '',
     });
     const schoolNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, school_name: e.target.value });
+        setState({ ...state, schoolName: e.target.value });
     };
     const emailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, email: e.target.value });
     };
     const phoneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, phone_number: e.target.value });
+        setState({ ...state, phoneNumber: e.target.value });
     };
     const addressHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, address: e.target.value });
+        setState({ ...state, location: e.target.value });
     };
     const websiteHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, website: e.target.value });
     };
     const fbhandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, fb_link: e.target.value });
+        setState({ ...state, facebookUrl: e.target.value });
     };
 
-    const linkdinHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, ld_link: e.target.value });
-    };
     const twitterHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, twit_link: e.target.value });
+        setState({ ...state, twitterUrl: e.target.value });
     };
-    const youtubHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, yout_link: e.target.value });
+    const instaHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, instagramUrl: e.target.value });
+    };
+    const bioHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, bio: e.target.value });
     };
 
-    const handleUpdate = () => {
-        dispatch(updateSchoolAPIcall(state));
+    const step1Submit = () => {
+        const data = {
+            schoolName: state.schoolName,
+            location: state.location,
+            bio: state.bio,
+        };
+        dispatch(updateSchoolAPIcall(data));
+    };
+    const step2Submit = () => {
+        const data = {
+            phoneNumber: state.phoneNumber,
+            email: state.email,
+            website: state.website,
+        };
+        dispatch(updateSchoolAPIcall(data));
+    };
+    const step3Submit = () => {
+        const data = {
+            facebookUrl: state.facebookUrl,
+            instagramUrl: state.instagramUrl,
+            twitterUrl: state.twitterUrl,
+        };
+        dispatch(updateSchoolAPIcall(data));
     };
 
     useEffect(() => {
@@ -70,16 +88,15 @@ const Admin: React.FunctionComponent = () => {
         let data = { ...state };
         if (schoolInfo) {
             data = {
-                school_name: schoolInfo.school_name,
-                email: schoolInfo.email,
-                phone_number: schoolInfo.phone_number,
-                address: schoolInfo.address,
+                schoolName: schoolInfo.schoolName,
+                email: schoolInfo.User.email,
+                bio: schoolInfo.bio,
+                phoneNumber: schoolInfo.phoneNumber,
+                location: schoolInfo.location,
                 website: schoolInfo.website,
-                fb_link: schoolInfo.fb_link,
-                inst_link: schoolInfo.inst_link,
-                twit_link: schoolInfo.twit_link,
-                yout_link: schoolInfo.twit_link,
-                ld_link: schoolInfo.twit_link,
+                facebookUrl: schoolInfo.facebookUrl,
+                instagramUrl: schoolInfo.instagramUrl,
+                twitterUrl: schoolInfo.twitterUrl,
             };
         }
 
@@ -92,35 +109,77 @@ const Admin: React.FunctionComponent = () => {
     };
     const handleNext = () => {
         setActiveComp(activeCom + 1);
+        if (activeCom === 0) {
+            step1Submit();
+        } else if (activeCom === 1) {
+            step2Submit();
+        } else if (activeCom === 2) {
+            step3Submit();
+        }
     };
+
     return (
         <div className="admin-page-container">
             <CardContainer>
-                <div className="admin-page">
-                    <div className="row w-100">
-                        <div className="col-lg-4 mb-4">
-                            <div className="information__name__container">
-                                <Typography
-                                    className={`title ${activeCom === 0 ? 'active' : ''}`}
-                                    onClick={() => handleComp(0)}>
-                                    Basic Information
-                                </Typography>
-                                <Typography
-                                    className={`title ${activeCom === 1 ? 'active' : ''}`}
-                                    onClick={() => handleComp(1)}>
-                                    Contact Details
-                                </Typography>
-                                <Typography
-                                    className={`title ${activeCom === 2 ? 'active' : ''}`}
-                                    onClick={() => handleComp(2)}>
-                                    Social Media
-                                </Typography>
+                <AdminProvider
+                    value={{
+                        schoolName: schoolNameHandler,
+                        address: addressHandler,
+                        bio: bioHandler,
+                        phone: phoneHandler,
+                        email: emailHandler,
+                        website: websiteHandler,
+                        facebook: fbhandler,
+                        instagram: instaHandler,
+                        twitter: twitterHandler,
+                        basicInfo: {
+                            schoolName: state.schoolName,
+                            address: state.location,
+                            bio: state.bio,
+                        },
+                        contactInfo: {
+                            phone: state.phoneNumber,
+                            email: state.email,
+                            website: state.website,
+                        },
+                        socialLinks: {
+                            facebook: state.facebookUrl,
+                            twitter: state.twitterUrl,
+                            instagram: state.instagramUrl,
+                        },
+                    }}
+                >
+                    <div className="admin-page">
+                        <div className="row w-100">
+                            <div className="col-lg-4 mb-4">
+                                <div className="information__name__container">
+                                    <Typography
+                                        className={`title ${activeCom === 0 ? 'active' : ''}`}
+                                        onClick={() => handleComp(0)}
+                                    >
+                                        Basic Information
+                                    </Typography>
+                                    <Typography
+                                        className={`title ${activeCom === 1 ? 'active' : ''}`}
+                                        onClick={() => handleComp(1)}
+                                    >
+                                        Contact Details
+                                    </Typography>
+                                    <Typography
+                                        className={`title ${activeCom === 2 ? 'active' : ''}`}
+                                        onClick={() => handleComp(2)}
+                                    >
+                                        Social Media
+                                    </Typography>
+                                </div>
+                            </div>
+                            <div className="col-lg-8">
+                                {activeCom < 3 ? renderComponent[activeCom] : renderComponent[activeCom - 1]}
                             </div>
                         </div>
-                        <div className="col-lg-8">{renderComponent[activeCom]}</div>
+                        <SaveController handleNext={handleNext} visibleAt={2} activeCom={activeCom} />
                     </div>
-                    <SaveController handleNext={handleNext} activeCom={activeCom}/>
-                </div>
+                </AdminProvider>
             </CardContainer>
         </div>
     );

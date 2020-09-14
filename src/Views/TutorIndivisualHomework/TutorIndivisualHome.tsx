@@ -4,6 +4,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 import ReusableSubmissions from './ReusableSubmissions';
 import PlayContainer from '../../components/PlayContainer';
 import PlayBanner from '../../components/PlayBanner';
+import PageFooter from '../../components/PageFooter';
 import MadeBy from '../Footer/MadeBy';
 const useStyles = makeStyles({
     navigationContainer: {
@@ -84,7 +85,7 @@ const TutorRecord: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="resources_play_container_3">
-                <div className="row horizontalline"></div>
+                <div className="row horizontalline_md"></div>
                     <div className="resources_play_container_3_1">
                     <PlayBanner
                         heading={"Resources"}
@@ -112,7 +113,7 @@ const TutorRecord: React.FunctionComponent = () => {
                                             ))}
                                         </div>
                                     </div>
-                                    <div className="col-6 p-0 borderLine">
+                                    <div className="col-6 p-0 left_md_border">
                                         <div className="resources_container_2">
                                             <div className="row">
                                                 {student2Array.map((val, index) => (
@@ -124,7 +125,7 @@ const TutorRecord: React.FunctionComponent = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-12 straight_line"></div>
+                                <div className="horizontalline_new"></div>
                             </div>
                         </div>
                     </div>
@@ -169,10 +170,8 @@ const TutorRecord: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
         </div>
         </NavigationMenu>

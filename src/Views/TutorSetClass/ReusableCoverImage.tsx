@@ -36,11 +36,11 @@ const ReusableCoverImage: React.FunctionComponent<props> = ({imgSrc}) => {
                 </div>
             </div>
             <div className="row">
-                <div className="publish_container">
-                    <div className="publish_button">
-                        <Typography className="sub_heading">Publish</Typography>
+                <div className="publish_cancel_buttons">
+                    <div className="p_button">
+                        <Typography className="text">Publish</Typography>
                     </div>
-                    <div className="cancel_button">
+                    <div className="c_button">
                         <Typography className="text">Cancel</Typography>
                     </div>
                 </div>

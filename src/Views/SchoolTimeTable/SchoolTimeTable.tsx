@@ -1,6 +1,7 @@
 import React from 'react';
 import ProgressBar from '../PersonalSchool2/ProgressBar';
 import NavigationMenu from '../../components/NavigationMenu';
+import PageFooter from '../../components/PageFooter';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 const PersonalSchoolToggle: React.FunctionComponent = () => {
@@ -171,11 +172,9 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                     </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

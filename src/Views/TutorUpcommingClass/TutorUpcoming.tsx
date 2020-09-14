@@ -5,6 +5,7 @@ import commonImg from '../../Assets/images';
 import TagsContainer from '../../components/TagsContainer';
 import BigBanner from '../../components/BigBanner';
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
 import PlayBanner from '../../components/PlayBanner';
 import ActivityBanner from '../../components/ActivityBanner'
 const useStyles = makeStyles({
@@ -100,7 +101,7 @@ const TutorClass: React.FunctionComponent = () => {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-6 p-0"></div>
-                            <div className="col-md-6 p-0 left_border">
+                            <div className="col-md-6 p-0 left_tags_border">
                                 <div className="tutor_upcoming_tags_container">
                                     <TagsContainer heading={'Tags'} tagsArray={ArrayTags} />
                                 </div>
@@ -175,11 +176,9 @@ const TutorClass: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

@@ -11,11 +11,17 @@ import Footer from '../Footer/Footer';
 import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
 import Tutors from '../ParentsHomePage/Tutors';
 import { studentMenus } from '../../Helper/studentMenus';
+import TopDrawerMenuContent from '../../Containers/Menus/TopDrawerMenuContent';
 
 const Index: React.FunctionComponent = () => {
-    
     return (
-        <NavigationMenu menuList={studentMenus} absolute background="transparent" colorWhite>
+        <NavigationMenu
+            menuList={studentMenus}
+            absolute
+            background="transparent"
+            colorWhite
+            TopDrawerMenuComponent={<TopDrawerMenuContent />}
+        >
             <div className="homepage__wrapper">
                 <div className="banner">
                     <SectionTwoReusable
@@ -62,7 +68,7 @@ const Index: React.FunctionComponent = () => {
                     title="Tutors"
                     msg={<>ICT. 13 Upcoming Classes 97 Previous Classes</>}
                 />
-                <Tutors route="/students/tutors"/>
+                <Tutors route="/students/tutors" />
                 <Footer />
             </div>
         </NavigationMenu>
