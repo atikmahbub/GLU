@@ -1,24 +1,35 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import MadeBy from '../Footer/MadeBy';
 import NavigationMenu from '../../components/NavigationMenu';
-import ReviewHeader from './ReviewHeader';
-import ClassReviewRating from './ClassReviewRating';
+import { makeStyles } from '@material-ui/core';
+import LeftGrid from './LeftGrid';
+import RightGrid from './RightGrid';
+import MadeBy from '../Footer/MadeBy';
 
 const useStyles = makeStyles({
     footer: {
         marginTop: '5rem',
+        position: 'absolute',
+        top: '213rem',
     },
     mainPadding: {
-        padding: '3.0625rem',
+        padding: '3.125rem',
+
+        '&::after': {
+            content: '',
+            clear: 'both',
+            display: 'table',
+        },
     },
     topMarg: {
         marginTop: '10rem',
         marginBottom: '3rem',
     },
+    mainGrid: {
+        position: 'relative',
+    },
 });
 
-const ClassReview = () => {
+const TutorEdit = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -30,11 +41,9 @@ const ClassReview = () => {
     return (
         <NavigationMenu menuList={menu}>
             <div className={classes.mainPadding}>
-                <ReviewHeader name="class" />
-                <hr className={classes.topMarg} />
-                <ClassReviewRating />
+                <LeftGrid />
+                <RightGrid />
             </div>
-
             <div className={`footer ${classes.footer}`}>
                 <MadeBy />
             </div>
@@ -42,4 +51,4 @@ const ClassReview = () => {
     );
 };
 
-export default ClassReview;
+export default TutorEdit;

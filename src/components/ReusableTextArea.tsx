@@ -3,20 +3,30 @@ import { makeStyles, TextareaAutosize } from '@material-ui/core';
 
 interface props {
     noOfRows: number;
+    width?: string;
 }
 
 const useStyles = makeStyles({
     textareaClass: {
         backgroundAttachment: 'local',
         backgroundImage:
-            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 3rem, #ccc 3rem, #ccc 3.0625rem, white 3.0625rem)',
+            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 49px, #ccc 51px, #ccc 49px, white 51px)',
         lineHeight: '3rem',
-        padding: '0rem 1rem',
         border: 'none',
-        width: '90%',
-        height: '15.385rem',
-        color: '#505050',
-        fontSize: '1.5rem',
+        width: '100%',
+        height: '14rem',
+        color: 'inherit',
+
+        fontSize: '2.625rem',
+        '&:hover': {
+            border: 'none',
+            cursor: 'text',
+        },
+        '&:focus': {
+            border: 'none',
+            outline: 'none',
+        },
+        font: 'normal normal normal 42px/62px CircularXXWeb;',
     },
 });
 
