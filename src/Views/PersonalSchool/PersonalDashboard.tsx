@@ -29,14 +29,14 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             subheading2={'Fully Booked'}
                             subject={'Geography.'}
                             desc={'Igneous, Sedimentary,'}
-                            linkurl={"/tutor/upcoming-class"}
+                            linkurl={"/tutor/tutor-upcoming-classes"}
                         />
                         </div>
                     </div>
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
                             <div className="card__row card_row1">
-                                <SmallCard linkurl={"/tutor/"} mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard linkurl={"/tutor/my-classes"} mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
                                     linkurl={"/tutor/record-class"}
                                     mainHeading={'Record Class'}

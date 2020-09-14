@@ -58,6 +58,9 @@ const useStyles = makeStyles({
         marginBottom: '5.3125rem',
     },
     bioText: {
+        fontSize:'1.5625rem',
+        lineHeight:'1.8125rem',
+        fontFamily: 'CircularXXWeb-Book',
         marginBottom: '1rem',
     },
     pad: {

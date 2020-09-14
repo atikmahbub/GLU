@@ -16,7 +16,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col1">
                             <div className="card__row card_row1">
-                                <SmallCard mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard  linkurl={'/tutor/my-classes'} mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
                                 <SmallCard
                                     linkurl={'/tutor/record-class'}
                                     mainHeading={'Record Class'}
@@ -26,7 +26,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                             </div>
                             <div className="card__row card_row2">
                                 <SmallCard
-                                    linkurl={'/tutor/individual-extra-curricular'}
+                                    linkurl={'/tutor/extra-curriculam'}
                                     mainHeading={'Extra Curricular'}
                                     subHeading1={'Published'}
                                     subHeading2={'13'}
@@ -50,7 +50,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                                     subHeading2={'Limited Availablity'}
                                 />
                                 <SmallCard
-                                    linkurl={'/tutor/individual-homework'}
+                                    linkurl={'/tutor/homework'}
                                     mainHeading={'Homework'}
                                     subHeading1={'Assigned'}
                                     subHeading2={'17'}
@@ -71,8 +71,8 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                                     subHeading2={'3'}
                                 />
                                 <SmallCard
-                                    linkurl={'/tutor/recommend'}
-                                    mainHeading={'Recommendation'}
+                                    linkurl={'/tutor/total-recommendations'}
+                                    mainHeading={'Recommendations'}
                                     subHeading1={'Total'}
                                     subHeading2={'57'}
                                 />

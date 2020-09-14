@@ -13,7 +13,7 @@ const NewSkillContainer: React.FunctionComponent<props> = ({ skillArray }) => {
                         <Typography className="sub_heading">Add New</Typography>
                     </div> */}
                     <div className="col-md-12 p-0">
-                        <TextField className="line-input-large" label="Add New" style={{ width: '85%' }} fullWidth value=" " />
+                        <TextField className="line-input-large" label="Add New" style={{ width: '85%' }} fullWidth focused={true} />
                     </div>
                     <div className="col-md-12">
                         <div className="skill_container">

@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     textareaClass: {
         backgroundAttachment: 'local',
         backgroundImage:
-            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 49px, #ccc 51px, #ccc 49px, white 51px)',
+            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 48px, #ccc 51px, #ccc 48px, white 51px)',
         lineHeight: '3rem',
         border: 'none',
         width: '100%',

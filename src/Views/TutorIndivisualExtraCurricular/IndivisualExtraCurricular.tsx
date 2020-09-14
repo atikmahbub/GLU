@@ -144,13 +144,11 @@ const IndivisualExtraCurricular: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <PageFooter padding={false}/>
+                    <div className="commonGreyFooter">
+                    <PageFooter padding={false} />
+                    </div>
                 </div>
-                {/* <div className="grey_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
-            </div> */}
+                
             
             </NavigationMenu>
         </div>

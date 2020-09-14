@@ -282,7 +282,8 @@
 }
 
 .MuiTextField-root.line-input-large {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.56rem;
+
     .MuiFormLabel-root.Mui-focused {
         color: #000;
         font-size: 1.562rem;
@@ -290,20 +291,34 @@
         font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputLabel-outlined {
+        
         transform: translate(0, 24px) scale(1);
     }
-    .MuiInputLabel-outlined.MuiInputLabel-shrink {
-        transform: translate(0, -6px) scale(0.75);
+    .MuiInputLabel-shrink {
+        transform: translate(0, 20px) scale(1);
     }
+    .MuiInputLabel-shrink.MuiInputLabel-root {
+        // top: -17px;
+        color: #000;
+        font-family: 'CircularXXWeb-Book';
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+        
+        
+    }
+   
     label + .MuiInput-formControl{
         margin-top: 1.21875rem;
     }
+   
     .MuiInputLabel-formControl {
+        top: -25px;
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.562rem;
         line-height: 1.875rem;
         color: $black;
     }
+    
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 2.625rem;
@@ -314,7 +329,7 @@
 }
 
 .MuiFormControl-root.select-large {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.56rem;
     .MuiFormLabel-root.Mui-focused {
         color: #000;
         font-size: 1.562rem;
@@ -322,20 +337,34 @@
         font-family: 'CircularXXSub-BookSubset';
     }
     .MuiInputLabel-outlined {
+        
         transform: translate(0, 24px) scale(1);
     }
-    .MuiInputLabel-outlined.MuiInputLabel-shrink {
-        transform: translate(0, -6px) scale(0.75);
+    .MuiInputLabel-shrink {
+        transform: translate(0, 20px) scale(1);
     }
+    .MuiInputLabel-shrink.MuiInputLabel-root {
+        // top: -17px;
+        color: #000;
+        font-family: 'CircularXXWeb-Book';
+        font-size: 1.5625rem;
+        line-height: 1.875rem;
+        
+        
+    }
+   
     label + .MuiInput-formControl{
         margin-top: 1.21875rem;
     }
+   
     .MuiInputLabel-formControl {
+        top: -25px;
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.562rem;
         line-height: 1.875rem;
         color: $black;
     }
+    
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 2.625rem;
