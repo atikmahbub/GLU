@@ -7,7 +7,7 @@ const useStyles = makeStyles({
         width: '55.375rem',
     },
     detailsText: {
-        fontSize: '2.265rem',
+        fontSize: '2.625rem',
     },
     labelText: {
         display: 'inline-block',

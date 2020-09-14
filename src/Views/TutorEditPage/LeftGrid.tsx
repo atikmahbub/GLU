@@ -4,7 +4,7 @@ import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
     headerText: {
-        fontSize: '2.265rem',
+        fontSize: '2.625rem',
     },
     leftGrid: {
         // float: 'left',

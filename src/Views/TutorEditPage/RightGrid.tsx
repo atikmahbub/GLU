@@ -9,7 +9,7 @@ import Skills from './Skills';
 
 const useStyles = makeStyles({
     headerText: {
-        fontSize: '2.265rem',
+        fontSize: '2.625rem',
     },
     rightGrid: {
         // float: 'left',

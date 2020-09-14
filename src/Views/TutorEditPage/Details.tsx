@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         marginBottom: '5.3125rem',
     },
     detailsText: {
-        fontSize: '2.265rem',
+        fontSize: '2.625rem',
     },
     name: {},
     firstName: {
