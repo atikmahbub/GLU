@@ -2,15 +2,15 @@ import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { STUDENT_INFO, STUDENT_DETAILS } from '../ActionTypes/studentTypes';
 import { handleError } from './errorHandler';
-import { addNewStudent } from '../Interfaces/student';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { invitationAPIcall } from './InvitationAction';
 
 export const getallStudentAPIcall = () => {
     return (dispatch: any) => {
-        API.get(endponts.student)
+        API.get(endponts.getAllStudents)
             .then((res) => {
+                console.log(res.data.data);
                 dispatch(studentInfo(res.data.data));
             })
             .catch((err) => {
@@ -26,7 +26,7 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: addNewStudent, history:any) => {
+export const addNewStudentAPIcall = (data: any, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)
@@ -34,7 +34,7 @@ export const addNewStudentAPIcall = (data: addNewStudent, history:any) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
                 const ides = res.data.data.map((item: any) => {
-                    return item.userData.id;
+                    return item.userId;
                 });
                 ides.map((id: number) => {
                     dispatch(invitationAPIcall({ invitee_id: id, for_role: 'student' }));
@@ -80,11 +80,11 @@ export const editStudentAPIcall = (data: any, editId: number, history: any) => {
     };
 };
 
-export const getStudentDetailsAPIcall = (id:number) => {
+export const getStudentDetailsAPIcall = (id: number) => {
     return (dispatch: any) => {
         API.get(`${endponts.student}/${id}`)
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
                 dispatch(studentDetailAPIres(res.data.data));
             })
             .catch((err) => {
@@ -93,9 +93,9 @@ export const getStudentDetailsAPIcall = (id:number) => {
     };
 };
 
-export const studentDetailAPIres = (data:any) => {
+export const studentDetailAPIres = (data: any) => {
     return {
         type: STUDENT_DETAILS,
-        payload: data
-    }
-}
+        payload: data,
+    };
+};
