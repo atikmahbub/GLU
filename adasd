@@ -1,0 +1,515 @@
+[33mcommit 1ac7e17212afb10f564b935d9fa80a5a13a0fce3[m[33m ([m[1;36mHEAD -> [m[1;32mdevs/gv/cms[m[33m, [m[1;31morigin/devs/gv/cms[m[33m)[m
+Author: unknown <gyanendra@antino.io>
+Date:   Mon Sep 14 18:49:27 2020 +0530
+
+    comment all the routes except homepage
+
+[33mcommit 2252e62146d9a1f60803265204aaff9c83686daa[m
+Author: unknown <gyanendra@antino.io>
+Date:   Mon Sep 14 18:40:42 2020 +0530
+
+    implemented the student API
+
+[33mcommit 67faf04c913dfd9d77b7477f2ab46d330be1d7f3[m
+Author: unknown <gyanendra@antino.io>
+Date:   Mon Sep 14 10:04:41 2020 +0530
+
+    impleted the API in the admin page
+
+[33mcommit d1a491b7fe86d77da49571dbd92b00a822376de9[m[33m ([m[1;31morigin/svgIssue[m[33m, [m[1;32msvgIssue[m[33m)[m
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 10 18:12:09 2020 +0530
+
+    made the teacher details pages
+
+[33mcommit ad625b3fcfe2af3e7705bc99deb8aa5afd823111[m
+Merge: 01b91fa bb4a9eb
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 10 11:26:52 2020 +0530
+
+    Merge branch 'master' of github.com:gyanv2/GLU-Frontend into svgIssue
+
+[33mcommit 01b91faedd7d4b65c3aee68a32d1a35d35aa6278[m
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 10 11:26:42 2020 +0530
+
+    changed the dashboard icon and change the account table export button
+
+[33mcommit bb4a9eb661fbd500cc7d1a826792907d006988f6[m
+Merge: e7306b0 fb5b39f
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 10 11:00:06 2020 +0530
+
+    Merge pull request #211 from antinolabs/devs/andriy/students-module
+    
+    update FormContol components, add new variants;
+
+[33mcommit fb5b39f2ab2a78ff44e9cbbc258b89d3864124f4[m
+Merge: 8cb0200 e7306b0
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Wed Sep 9 15:27:52 2020 +0300
+
+    Merge branch 'master' into devs/andriy/students-module
+    
+    # Conflicts:
+    #       src/Views/ClassList/ClassList.tsx
+
+[33mcommit 8cb0200775e1d9a0b86789fd56570fb772ec12cc[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Wed Sep 9 15:22:22 2020 +0300
+
+    update FormContol components, add new variants;
+
+[33mcommit e7306b0d9d1d48bc89389ee5c61e9009a2c8a9ce[m
+Merge: 99e0adb 7a4f3db
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Wed Sep 9 16:42:51 2020 +0530
+
+    Merge pull request #210 from antinolabs/svgIssue
+    
+    made department pages and fix the input text size of the set tutor class
+
+[33mcommit 7a4f3db5419ebd93b33565ed7a58216499aff300[m
+Author: unknown <gyanendra@antino.io>
+Date:   Wed Sep 9 16:39:56 2020 +0530
+
+    made department pages and fix the input text size of the set tutor class
+
+[33mcommit 99e0adbfcc533bfdf0407583bc6f9de15dd0c355[m
+Merge: a9aae66 0c41f8d
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Tue Sep 8 16:06:19 2020 +0530
+
+    Merge pull request #209 from antinolabs/devs/mridul/myApp
+    
+    Devs/mridul/my app
+
+[33mcommit 0c41f8d2b775f77c361a33a1f7f3a51c2b0add3c[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Tue Sep 8 14:14:46 2020 +0530
+
+    bug fixes
+
+[33mcommit 6f5517ab50119cb2793c04964223d3b32080b3ae[m
+Merge: 68cc7ba a9aae66
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Tue Sep 8 14:05:18 2020 +0530
+
+    bug fixes
+
+[33mcommit 68cc7baf4d409d5e38f612e349bf66a0d44c429e[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Tue Sep 8 13:55:35 2020 +0530
+
+    bug fixes
+
+[33mcommit a9aae66ab276693cb8333781fbf9fa2902b36be6[m
+Merge: e53ff3c 996d847
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Tue Sep 8 13:47:21 2020 +0530
+
+    Merge pull request #206 from antinolabs/vivek
+    
+    completed tutor-review and class-review
+
+[33mcommit e53ff3c769e77e882b885d6a552bdae4aec502b3[m
+Merge: 816c987 a601e1e
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Tue Sep 8 13:46:39 2020 +0530
+
+    Merge pull request #207 from antinolabs/devs/andriy/students-module
+    
+    My Previous Classes page, new reusable component
+
+[33mcommit 816c9873b968377003fbb10d51f1518f2048507f[m
+Merge: 541a09d 16a74f8
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Tue Sep 8 13:45:16 2020 +0530
+
+    Merge pull request #208 from antinolabs/svgIssue
+    
+    made the notitication page, form page, year group page and add new te…
+
+[33mcommit 16a74f83e07d7ef3105b00f33b02172bd6c59ca3[m
+Author: unknown <gyanendra@antino.io>
+Date:   Tue Sep 8 13:42:58 2020 +0530
+
+    made the notitication page, form page, year group page and add new teacher page
+
+[33mcommit a601e1ee09dafe4a9353c2c7f0693667696feaf4[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Tue Sep 8 03:28:50 2020 +0300
+
+    refactor, create interfaces, finish FilterContainer
+
+[33mcommit 098d4aec2a5d56398dbf8561917373b4a2f85509[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Mon Sep 7 21:44:55 2020 +0300
+
+    implement reusable containers and containers: FilterContainer, CardsGrid etc
+
+[33mcommit a3f1638f61c45fb02cfe470d5ff5c05a3b4e5c71[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Mon Sep 7 21:03:38 2020 +0530
+
+    bug fixes
+
+[33mcommit 996d847c3d75d24244d2efd14ac60b9b6cec94a2[m
+Merge: 54d8b63 541a09d
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Mon Sep 7 17:41:11 2020 +0530
+
+    resolved conflicts and minor design changes
+
+[33mcommit 8a4684bd74296caf3cc45028e067aff876e0ab9e[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Mon Sep 7 16:31:56 2020 +0530
+
+    made ui for tutor indivisual curricularn edit page
+
+[33mcommit 54d8b631f63f39ec15f386209bf2cd6852986f33[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Mon Sep 7 13:00:31 2020 +0530
+
+    completed tutor-review and class-review
+
+[33mcommit 541a09dc9de3ecc68d67566800ace5087f4be4da[m
+Merge: 22eac3a b59f61a
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Mon Sep 7 12:58:05 2020 +0530
+
+    Merge pull request #205 from antinolabs/devs/andriy/students-module
+    
+    remove imports
+
+[33mcommit b59f61aff8ee28d2d5d97b23744ec5d680a7f2fb[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Mon Sep 7 10:14:06 2020 +0300
+
+    remove imports
+
+[33mcommit 22eac3a03dbbc7d1b97d28ecec387a7d18f83a4e[m
+Merge: 1381451 b34ce5d
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Mon Sep 7 10:54:17 2020 +0530
+
+    Merge pull request #203 from antinolabs/vivek
+    
+    Vivek added the school info and support page redesigns
+
+[33mcommit b34ce5d58808c5698540a91f7f36efcab85170f7[m
+Merge: 37c6b81 1381451
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Mon Sep 7 10:53:04 2020 +0530
+
+    Merge branch 'master' into vivek
+
+[33mcommit 138145125de21f26f8cf4909541e263c647de3b9[m
+Merge: 5d45ad4 46bd1f5
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Mon Sep 7 10:52:03 2020 +0530
+
+    Merge pull request #204 from antinolabs/svgIssue
+    
+    Svg issue
+
+[33mcommit 46bd1f5c1edc124d590729bc45b6e1a677a88136[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Mon Sep 7 10:36:22 2020 +0530
+
+    made ui for tutor indivisual curricular new
+
+[33mcommit 420eef92e8c5ffe3a379be1facd89d6e384ba49a[m
+Merge: 90a509b 5d45ad4
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Mon Sep 7 10:33:37 2020 +0530
+
+    Merge branch 'master' of https://github.com/antinolabs/glu-frontend into devs/mridul/myApp
+
+[33mcommit 37c6b81fb613c0a9b536237a468f2b93711050cf[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Mon Sep 7 09:57:42 2020 +0530
+
+    text input area reusable component
+
+[33mcommit d1ebeec3d58eec132785b26a3d854fa0d4ed4e35[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Sun Sep 6 22:50:41 2020 +0530
+
+    completed designing tutor review page
+
+[33mcommit 90a509be661ee48afa93058b5fc03e980bb655e3[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Sat Sep 5 17:10:44 2020 +0530
+
+    made ui for tutor indivisual curricular
+
+[33mcommit c090620a3c21d62c29d9898f013b3286796bf9dc[m
+Merge: ca006d0 5d45ad4
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Sat Sep 5 14:39:28 2020 +0530
+
+    Merge branch 'master' of github.com:antinolabs/glu-frontend into vivek
+
+[33mcommit ca006d035cf6efa7500bcd97232d53e7858788f4[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Sat Sep 5 14:39:03 2020 +0530
+
+    completed school info page
+
+[33mcommit 5d45ad404cddc024f6e6f291ac9b3a4ca2838ed3[m
+Merge: 64e8696 7751ac7
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Fri Sep 4 18:39:59 2020 +0530
+
+    Merge pull request #202 from antinolabs/svgIssue
+    
+    align the waiting list text
+
+[33mcommit 7751ac79d37b056e11c65eca71902c3f589a0631[m
+Author: unknown <gyanendra@antino.io>
+Date:   Fri Sep 4 18:38:41 2020 +0530
+
+    align the waiting list text
+
+[33mcommit 0a63673d79e1fa2f107b5cf4413aab3afbd35bfc[m
+Merge: 48e66a5 6169597
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Fri Sep 4 17:30:05 2020 +0530
+
+    made ui for tutor review modified
+
+[33mcommit 64e86964825291bff34bc8a77b867516301788a3[m
+Merge: 378e190 3f6ede9
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Fri Sep 4 16:41:44 2020 +0530
+
+    Merge pull request #201 from antinolabs/svgIssue
+    
+    set full height for the tablet animation 1024 width
+
+[33mcommit 3f6ede97bb7dbb17573c7745066ee59b7a414384[m
+Author: unknown <gyanendra@antino.io>
+Date:   Fri Sep 4 16:30:53 2020 +0530
+
+    set full height for the tablet animation 1024 width
+
+[33mcommit 378e190565591ea698a13ef88c6d61ca2a18b8b4[m
+Merge: b9a999d 6d1b706
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Fri Sep 4 16:07:15 2020 +0530
+
+    Merge pull request #200 from antinolabs/svgIssue
+    
+    made the feedback school cms page and fix the image cutting of the mo…
+
+[33mcommit b9a999dd79a8fc3983a48843f9cb28802a5f6732[m
+Merge: 6169597 587d346
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Fri Sep 4 16:04:32 2020 +0530
+
+    Merge pull request #199 from antinolabs/devs/andriy/safari-placeholder-alignment
+    
+    fix safari placeholder alignment
+
+[33mcommit 587d346d5aef96286a83e01d5b03fdac006bc13e[m[33m ([m[1;31morigin/devs/andriy/safari-placeholder-alignment[m[33m)[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Fri Sep 4 13:30:48 2020 +0300
+
+    fix safari placeholder alignment
+
+[33mcommit 6d1b7062872661c273ca600e1f075c5c1ae418f3[m
+Author: unknown <gyanendra@antino.io>
+Date:   Fri Sep 4 15:55:23 2020 +0530
+
+    made the feedback school cms page and fix the image cutting of the mobile device
+
+[33mcommit 39d907a75c4b4f09bb3d0660b45ce078c74ab94d[m
+Merge: 1e8d91a 6169597
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Fri Sep 4 11:12:59 2020 +0530
+
+    Merge branch 'master' of github.com:antinolabs/glu-frontend into vivek
+
+[33mcommit 1e8d91a290f15b7a22222ff5f1fc9c3ef0fecdfc[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Fri Sep 4 11:12:41 2020 +0530
+
+    minor design changes
+
+[33mcommit 48e66a5c8e85015afc89399e060b7a4039738b03[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Fri Sep 4 00:51:43 2020 +0530
+
+    made ui for tutor reviews
+
+[33mcommit 61695975dd545e0cb5f533634411403a89437785[m
+Merge: 7e5bff3 7ef63c7
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 3 18:47:37 2020 +0530
+
+    Merge pull request #197 from antinolabs/devs/andriy/students-dashboard
+    
+    Refactor Navigation Menu
+
+[33mcommit 7e5bff32855d9377ac1f85f656273efc2f17cb36[m
+Merge: ec03434 670a7a3
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 3 18:47:23 2020 +0530
+
+    Merge pull request #198 from antinolabs/svgIssue
+    
+    change the color blue line and made the parent module
+
+[33mcommit 670a7a35190290f28115e696c824e130fc893680[m
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 3 18:45:20 2020 +0530
+
+    change the color blue line and made the parent module
+
+[33mcommit 7ef63c7a978e2211e9648fa8a42dc683f4700118[m[33m ([m[1;31morigin/devs/andriy/students-dashboard[m[33m)[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 13:20:05 2020 +0300
+
+    fix safari drawer styles issues
+
+[33mcommit 9970bb2f9c4f4bba0e0eade87240cbe53816b4c6[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 12:33:46 2020 +0300
+
+    add missing navigation menu props
+
+[33mcommit 052a18cdc9a0122b1606b178b30ca8cf567a7e83[m
+Merge: 98681bb 72c2079
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 11:23:36 2020 +0300
+
+    Merge branch 'master' into devs/andriy/students-dashboard
+
+[33mcommit ec03434b7ed3c711bcce24084d04f37e58bc9f74[m
+Merge: 72c2079 bbe63f3
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 3 13:38:13 2020 +0530
+
+    Merge pull request #196 from antinolabs/fix-subscribe-alignment
+    
+    fix subscribe alignment
+
+[33mcommit bbe63f38d7cfec8a47a236340c737246297db6b9[m[33m ([m[1;31morigin/fix-subscribe-alignment[m[33m)[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 11:05:30 2020 +0300
+
+    fix alignment issue
+
+[33mcommit 8c0860fca498f666175d9bd43489ad13f668361f[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 10:42:24 2020 +0300
+
+    fix subscribe alignment
+
+[33mcommit 98681bbae636d1e248365f48b4080c2434c786fc[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Thu Sep 3 10:28:35 2020 +0300
+
+    refactor NavigationMenu in all components in the app
+
+[33mcommit a1fafba4ac705611ade5c6a70767b1ab50471a32[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Thu Sep 3 11:15:27 2020 +0530
+
+    code comment
+
+[33mcommit ac6eb0bb142c1bf10abc73f3544325f907176a2d[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Thu Sep 3 11:07:35 2020 +0530
+
+    design fixes
+
+[33mcommit 72c2079b95ed28b0d0967618165c6ec71c583209[m
+Merge: d3c6990 e71d26d
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 3 10:26:44 2020 +0530
+
+    Merge pull request #195 from antinolabs/svgIssue
+    
+    Svg issue
+
+[33mcommit e71d26d2c83a6a02838bfc0eb4164b2a07d6d760[m
+Merge: 17f185a d3c6990
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 3 10:23:52 2020 +0530
+
+    Merge branch 'master' of github.com:gyanv2/GLU-Frontend into svgIssue
+
+[33mcommit 17f185acbfb8e0b070b79428826e93082250b967[m
+Author: unknown <gyanendra@antino.io>
+Date:   Thu Sep 3 10:22:32 2020 +0530
+
+    made the session page
+
+[33mcommit d3c6990e8c304ee8efe492d09872766ef43fddb0[m
+Merge: abfdcae 9722088
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Thu Sep 3 10:22:18 2020 +0530
+
+    Merge pull request #194 from antinolabs/vivek
+    
+    redesigned support page components and create a new reusable search i…
+
+[33mcommit 9722088c53836fb754875db86d6a9b10bd7af254[m
+Author: vivekregmi <vivek.r@antino.io>
+Date:   Thu Sep 3 09:04:48 2020 +0530
+
+    redesigned support page components and create a new reusable search input container component
+
+[33mcommit 784518b0a3ebf7f519a653e19cea4822be841f50[m
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Wed Sep 2 21:12:04 2020 +0530
+
+    made ui for tutor upcomingclass
+
+[33mcommit abfdcae3ef9526ac0f1594b9bd599ec71feb5bb9[m[33m ([m[1;31morigin/featureSupport[m[33m)[m
+Merge: f70d168 2d55d60
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Wed Sep 2 18:07:24 2020 +0530
+
+    Merge pull request #193 from antinolabs/devs/andriy/students-dashboard
+    
+    implement form control input
+
+[33mcommit 340f435b94b79fcf954715151465fb15987b3f68[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Wed Sep 2 15:15:23 2020 +0300
+
+    move notifications drawer to navigation menu; refactor navigation menu;
+
+[33mcommit 0bffb7637c1bf625c8f46bfb544d95ebcef364ea[m
+Merge: c5bd579 f70d168
+Author: mridulk <mridulkh0302@gmail.com>
+Date:   Wed Sep 2 17:10:25 2020 +0530
+
+    made ui for tutor upcoming
+
+[33mcommit 2d55d6033d4f6ab152db26459f9eb735850970ce[m
+Author: Andriy Halushka <andrushagalushka@gmail.com>
+Date:   Wed Sep 2 13:26:35 2020 +0300
+
+    implement form control input
+
+[33mcommit f70d168bde15e9a1a5bea000fb7c24055b30f864[m
+Merge: 6ad4d32 54d124d
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Wed Sep 2 10:29:02 2020 +0530
+
+    Merge pull request #192 from antinolabs/svgIssue
+    
+    Svg issue
+
+[33mcommit 6ad4d32a89f595ec1ec3f2b301b0938c3776c025[m
+Merge: a542dc7 d189d9d
+Author: gyanv2 <64201530+gyanv2@users.noreply.github.com>
+Date:   Wed Sep 2 10:27:40 2020 +0530
+
+    Merge pull request #191 from antinolabs/devs/andriy/students-dashboard
+    
+    Students Reports page
