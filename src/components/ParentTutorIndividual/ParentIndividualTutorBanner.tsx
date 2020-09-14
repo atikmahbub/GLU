@@ -11,20 +11,20 @@ import Hidden from '@material-ui/core/Hidden';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
-const theme = createMuiTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm:600,
-        md: 1450,
-        lg: 1920,
-        xl: 2250,
-      },
-    },
-  })
+// const theme = createMuiTheme({
+//     breakpoints: {
+//       values: {
+//         xs: 0,
+//         sm:600,
+//         md: 1450,
+//         lg: 1920,
+//         xl: 2250,
+//       },
+//     },
+//   })
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     brownContainer: {
         width: "100vw",
         // height: "100vh",
@@ -45,7 +45,12 @@ const useStyles = makeStyles(() => ({
         lineHeight: '1.875rem',
         color: "white",
         paddingBottom: '20px',
-        border: '2px solid'
+        border: '2px solid',
+        [theme.breakpoints.down('lg')]: {
+            fontSize: '4.625rem',
+            lineHeight: '4.875rem',
+        }
+
     },
     nameRatingContainer: {
         justifyContent: 'flex-start',
@@ -57,41 +62,63 @@ const useStyles = makeStyles(() => ({
         color: 'white',
         marginTop: '-8.937rem',
         border: "2px solid red",
-        [theme.breakpoints.down('sm')]: {
-            fontSize:'9.5rem',
-            marginTop: '1.063rem',
-            lineHeight: '9.5rem',
-            border: "2px solid yellow",
+        [theme.breakpoints.down('lg')]: {
+            lineHeight: '8.5rem',
+            marginTop: '-4.937rem',
         },
     },
     ratingFavoriteContainer: {
         marginTop: '-0.438rem',
         border: "2px solid green",
+        [theme.breakpoints.down('lg')]:{
+            marginTop: '-2.438rem',
+        }
     },
     ratingContainer: {
         width: "103px",
+        [theme.breakpoints.down('lg')]:{
+            width: '158px',
+        }
     },
     favoriteContainer: {
         width: "137px",
         border: "2px solid blue",
+        [theme.breakpoints.down('lg')]:{
+            width: "232px",
+        }
     },
     rating: {
         color: 'white',
         fontSize: '1.25rem',
+        [theme.breakpoints.down('lg')]:{
+            fontSize: '3.25rem',
+        }
     },
     favorite: {
         color: 'white',
         fontSize: '1.25rem',
+        [theme.breakpoints.down('lg')]:{
+            fontSize: '3.25rem',
+        }
     },
     icon: {
         color: "white",
-        marginRight: '1.2rem'
+        marginRight: '1.2rem',
+        [theme.breakpoints.down('lg')]:{
+            width: '4rem',
+            height: '5rem',
+            marginRight: '2.2rem',
+        }
+
     },
     bottomText: {
         color: 'white',
         fontSize: '1.562rem',
         // marginBottom: '2.125rem',
         marginTop: '10.5rem',
+        [theme.breakpoints.down('lg')]:{
+            marginTop: '24.5rem'
+        }
     },
     imageTutor: {
         height: "34.062rem",
@@ -99,19 +126,28 @@ const useStyles = makeStyles(() => ({
         marginBottom: "1rem",
         border: "2px solid green",
         [theme.breakpoints.down('sm')]: {
-            border: "2px solid yellow",
-            width: '51.437rem',
-            height: '48.062rem',
+            marginTop: '11rem',
+            width: '43.437rem',
+            height: '46.062rem',
+
         },
         '& img': {
             height: "34.062rem",
             width: "33.437rem",
             objectFit: "cover",
-            [theme.breakpoints.down('sm')]: {
+            [theme.breakpoints.down(1450)]: {
                 width: '51.437rem',
                 height: '48.062rem',
                 border: "2px solid red",
             },
+            [theme.breakpoints.down('lg')]:{
+                width: '44.437rem',
+                height: '54.062rem',
+            },
+            [theme.breakpoints.down('sm')]:{
+                width: '43.437rem',
+                height: '46.062rem',
+            }
         },
     },
     smallScreenBottomText:{
@@ -128,10 +164,10 @@ const ParentIndividualTutorBanner: FC = () => {
         // <MuiThemeProvider theme={theme}>
         <Grid container className={classes.brownContainer}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} sm={12} className={classes.titleContainer}>
+                <Grid item lg={6} md={6} sm={4}className={classes.titleContainer}>
                     <Typography className={classes.title}>Tutor</Typography>
                 </Grid>
-                <Grid item className={classes.imageTutor} lg={6} sm={12} >
+                <Grid item className={classes.imageTutor} lg={6} md={6} sm={8}>
                     <LazyLoadImage
                         alt=""
                         effect="blur"
