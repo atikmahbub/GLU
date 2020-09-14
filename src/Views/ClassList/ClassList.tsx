@@ -33,7 +33,7 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
         routes.push('/dashboard/add-year-group');
     };
 
-    const handleRow = () => {
+    const redirectDetails = (id:number) => {
         routes.push('/dashboard/year-group/details');
     };
 
@@ -91,7 +91,6 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                         showToolbar={false}
                         showPagination={true}
                         selectable={true}
-                        rowClick={handleRow}
                         tableHeight="100vh"
                         columns={[
                             {
@@ -122,8 +121,8 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                                 field: 'action',
                                 render: (rowData: any) => (
                                     <ActionToolbar
-                                    // showDetail={true}
-                                    // detailClick={() => redirectDetails(rowData.id)}
+                                    showDetail={true}
+                                    detailClick={() => redirectDetails(rowData.id)}
                                     // deleteClick={() => handleDelete(rowData.id)}
                                     // editClick={() => handleEdit(rowData)}
                                     />

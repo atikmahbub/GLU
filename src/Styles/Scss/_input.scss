@@ -346,3 +346,7 @@
         padding-bottom: 0;
     }
 }
+
+.MuiCheckbox-colorSecondary.Mui-checked{
+    color: $primary!important;
+}

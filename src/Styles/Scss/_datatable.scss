@@ -19,11 +19,19 @@ div.MuiPaper-elevation2 {
         }
     }
     td.MuiTableCell-root {
-        // border-bottom: 2.5px solid #eff3f9;
+        // padding-left: 0;
+        // padding-right: 0;
         font-weight: 500;
         color: $darkGray !important;
         .MuiCheckbox-colorSecondary.Mui-checked {
             color: $primary;
+        }
+    }
+    tr.MuiTableRow-root{
+        td.MuiTableCell-root{
+            span.MuiCheckbox-root{
+                padding: 0;
+            }
         }
     }
     .MuiTablePagination-toolbar {
@@ -45,7 +53,7 @@ div.MuiPaper-elevation2 {
     .card-table-data {
         display: none;
     }
-    .MuiTypography-caption{
+    .MuiTypography-caption {
         font-size: 1.25rem;
         color: $darkGray;
     }
@@ -167,7 +175,7 @@ th.MuiTableCell-root {
             border-radius: 0.3rem;
             font-weight: 100;
             text-transform: capitalize;
-            .icon{
+            .icon {
                 font-size: 1.25rem;
             }
         }
@@ -180,15 +188,15 @@ th.MuiTableCell-root {
     }
 }
 
-.bold__border_table{
+.bold__border_table {
     div.MuiPaper-elevation2 {
         th.MuiTableCell-root {
             border-bottom: 2px solid #d7d7d7;
             padding-bottom: 0.5rem;
         }
-        tr.MuiTableRow-root{
-            td.MuiTableCell-root{
-                span.MuiCheckbox-root{
+        tr.MuiTableRow-root {
+            td.MuiTableCell-root {
+                span.MuiCheckbox-root {
                     padding: 0;
                 }
             }
