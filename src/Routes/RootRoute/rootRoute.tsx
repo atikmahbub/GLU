@@ -59,7 +59,5 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     {component: EmailVerification, name: '/email-verification'},
-    {component: WatchSession, name: '/watch-session'},
-
-    
+    {component: WatchSession, name: '/watch-session'},    
 ];

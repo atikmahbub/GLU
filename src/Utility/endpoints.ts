@@ -2,7 +2,8 @@ export const endponts = {
     login: 'auth/login',
     school: 'schools/school',
     schoolProfile: 'school/profile',
-    student:'schools/students',
+    student:'school/student',
+    getAllStudents: 'school/students',
     teacher: 'schools/teachers',
     parent: 'schools/guardians',
     class: 'schools/classes',
@@ -15,4 +16,6 @@ export const endponts = {
     subject: '/schools/subjects',
     timeTable: '/schools/routines',
     emailSubscribe:'auth/email',
+    fileUpload: '/file-upload/signed-url/',
+    uploadFileName:'/file-upload/uploads'
 }

@@ -3,12 +3,12 @@ import { Typography } from '@material-ui/core';
 import { ArrowForward } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-interface props{
-    handleNext: ()=> void;
+interface props {
+    handleNext: () => void;
     activeCom: number;
-    visibleAt: number
+    visibleAt: number;
 }
-const SaveController: React.FunctionComponent<props> = ({handleNext, activeCom, visibleAt}) => {
+const SaveController: React.FunctionComponent<props> = ({ handleNext, activeCom, visibleAt }) => {
     return (
         <div className="controller__bottom">
             <div className="row">

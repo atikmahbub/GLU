@@ -7,6 +7,7 @@ export interface rootReducerType {
     parentReducer: parentReducerType;
     classReducer: classReducerType;
     subjectReducer: subjectReducerType;
+    fileUploadReducer: FileUploadReducerType;
 }
 
 export interface authReducerType {
@@ -38,4 +39,8 @@ export interface classReducerType {
 
 export interface subjectReducerType {
     subjectList: any
+}
+
+export interface FileUploadReducerType {
+    fileData: any
 }
