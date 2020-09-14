@@ -9,6 +9,7 @@ import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 // import './style.scss';
 import Hidden from '@material-ui/core/Hidden';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import TestImage from "./test.jpg"
 
 
 // const theme = createMuiTheme({
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('lg')]: {
             fontSize: '4.625rem',
             lineHeight: '4.875rem',
-        }
+        },
 
     },
     nameRatingContainer: {
@@ -64,7 +65,10 @@ const useStyles = makeStyles((theme) => ({
         border: "2px solid red",
         [theme.breakpoints.down('lg')]: {
             lineHeight: '8.5rem',
-            marginTop: '-4.937rem',
+            marginTop: '-2.937rem',
+        },
+        [theme.breakpoints.up('sm')]: {
+            marginTop: '9.063rem',
         },
     },
     ratingFavoriteContainer: {
@@ -72,34 +76,34 @@ const useStyles = makeStyles((theme) => ({
         border: "2px solid green",
         [theme.breakpoints.down('lg')]:{
             marginTop: '-2.438rem',
-        }
+        },
     },
     ratingContainer: {
         width: "103px",
         [theme.breakpoints.down('lg')]:{
             width: '158px',
-        }
+        },
     },
     favoriteContainer: {
         width: "137px",
         border: "2px solid blue",
         [theme.breakpoints.down('lg')]:{
             width: "232px",
-        }
+        },
     },
     rating: {
         color: 'white',
         fontSize: '1.25rem',
         [theme.breakpoints.down('lg')]:{
             fontSize: '3.25rem',
-        }
+        },
     },
     favorite: {
         color: 'white',
         fontSize: '1.25rem',
         [theme.breakpoints.down('lg')]:{
             fontSize: '3.25rem',
-        }
+        },
     },
     icon: {
         color: "white",
@@ -108,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
             width: '4rem',
             height: '5rem',
             marginRight: '2.2rem',
-        }
+        },
 
     },
     bottomText: {
@@ -117,8 +121,11 @@ const useStyles = makeStyles((theme) => ({
         // marginBottom: '2.125rem',
         marginTop: '10.5rem',
         [theme.breakpoints.down('lg')]:{
-            marginTop: '24.5rem'
-        }
+            marginTop: '24.5rem',
+        },
+        [theme.breakpoints.down('sm')]:{
+            fontSize: '16.5rem',
+        },
     },
     imageTutor: {
         height: "34.062rem",
@@ -126,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "1rem",
         border: "2px solid green",
         [theme.breakpoints.down('sm')]: {
-            marginTop: '11rem',
+            marginTop: '5rem',
             width: '43.437rem',
             height: '46.062rem',
 
@@ -145,11 +152,13 @@ const useStyles = makeStyles((theme) => ({
                 height: '54.062rem',
             },
             [theme.breakpoints.down('sm')]:{
-                width: '43.437rem',
-                height: '46.062rem',
-            }
+                width: '100%',
+                height: '43.062rem',
+                maxWidth: '531px',
+
         },
     },
+},
     smallScreenBottomText:{
         border: "2px solid",
         display: "flex",
@@ -164,17 +173,17 @@ const ParentIndividualTutorBanner: FC = () => {
         // <MuiThemeProvider theme={theme}>
         <Grid container className={classes.brownContainer}>
             <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} md={6} sm={4}className={classes.titleContainer}>
-                    <Typography className={classes.title}>Tutor</Typography>
+                <Grid item lg={6} md={6} sm={12}className={classes.titleContainer}>
+                    <Typography className={classes.title}>Title</Typography>
                 </Grid>
-                <Grid item className={classes.imageTutor} lg={6} md={6} sm={8}>
+                <Grid item className={classes.imageTutor} lg={6} md={6} sm={12}>
                     <LazyLoadImage
                         alt=""
                         effect="blur"
-                        src={commonImg.twogirl} />
+                        src={TestImage} />
                 </Grid>
                 <Grid item lg={12} sm={12}>
-                    <Typography className={classes.bigNameCountry}>Moly Pearce <br />Dubai, UAE</Typography>
+                    <Typography className={classes.bigNameCountry}>Web Developer <br />React, Redux</Typography>
                 </Grid>
                     <Grid container item className={classes.ratingFavoriteContainer} lg={12}>
                         <Grid container className={classes.ratingContainer}>
@@ -183,12 +192,12 @@ const ParentIndividualTutorBanner: FC = () => {
                         </Grid>
                         <Grid container className={classes.favoriteContainer} >
                             <FavoriteBorder className={classes.icon} />
-                            <Typography  className={classes.favorite}>Favorite</Typography>
+                            <Typography  className={classes.favorite}>Styled</Typography>
                         </Grid>
                         {/* <Grid item className={classes.favoriteContainer}/> */}
                     </Grid>
                     <Grid item lg={12}>
-                        <Typography  className={classes.bottomText}>Primary, Secondary</Typography>
+                        <Typography  className={classes.bottomText}>Basic, Advance</Typography>
                     </Grid>
             </Grid>
         </Grid>
