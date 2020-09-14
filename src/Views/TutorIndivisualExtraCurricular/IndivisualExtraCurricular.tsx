@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom'
 import MadeBy from '../Footer/MadeBy';
 import TagsContainer from '../../components/TagsContainer';
 import ReviewRatingList from './ReviewRatingList';
+import PageFooter from '../../components/PageFooter'
 import PlayBanner from '../../components/PlayBanner';
 const menu = [
     { link: '/tutor/', name: 'Dashboard' },
@@ -143,12 +144,14 @@ const IndivisualExtraCurricular: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
+                    <PageFooter padding={false}/>
                 </div>
                 {/* <div className="grey_footer">
                 <div className="footer">
                     <MadeBy />
                 </div>
             </div> */}
+            
             </NavigationMenu>
         </div>
     );

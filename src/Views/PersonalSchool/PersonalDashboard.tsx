@@ -5,6 +5,7 @@ import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import SmallCard from '../../components/SmallCard';
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter'
 import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
@@ -156,10 +157,8 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
         </div>
         </>

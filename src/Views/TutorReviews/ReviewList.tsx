@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Typography } from '@material-ui/core';
 import AddCancelButton from '../TutorAvailablity/AddCancelButton';
+
 interface props {
     type?: string;
     typeName?: string;

@@ -49,7 +49,7 @@ const TutorRecommend: React.FunctionComponent = () => {
                                     <SelectFieldUnderline
                                         label="Subject"
                                         value="English"
-                                        className="custom-adornment-input"
+                                        className="select-large"
                                         options={['English']}
                                         getValue={() => {}}
                                     />
@@ -58,7 +58,7 @@ const TutorRecommend: React.FunctionComponent = () => {
                                     <SelectFieldUnderline
                                         label="Subject"
                                         value="English"
-                                        className="custom-adornment-input"
+                                        className="select-large"
                                         options={['English']}
                                         getValue={() => {}}
                                     />

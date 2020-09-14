@@ -6,6 +6,7 @@ import SmallCard from '../../components/SmallCard';
 import MadeBy from '../Footer/MadeBy';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import ProgressBar from './ProgressBar';
+import PageFooter from '../../components/PageFooter'
 import CalendarComponent from '../../components/CalendarComponent';
 const PersonalDashboard2: React.FunctionComponent = () => {
     return (
@@ -157,10 +158,8 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
         </div>
     );

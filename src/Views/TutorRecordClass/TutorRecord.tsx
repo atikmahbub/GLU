@@ -6,6 +6,7 @@ import ReusableCoverImage from '../TutorSetClass/ReusableCoverImage';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import VideoLectureContainer2 from '../../components/VideoLectureContainer2';
 import commonImg from '../../Assets/images';
+import PageFooter from '../../components/PageFooter'
 import MadeBy from '../Footer/MadeBy';
 const useStyles = makeStyles({
     navigationContainer: {
@@ -95,11 +96,9 @@ const TutorRecord: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </div>
         </NavigationMenu>
     );

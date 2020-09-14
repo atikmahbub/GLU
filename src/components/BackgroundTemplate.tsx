@@ -11,12 +11,12 @@ const BackgroundTemplate: React.FunctionComponent <props>= ({imgSrc }) => {
                 <div className="img_container">
                 <div className="row">
                     
-                    <div className="col-md-6 p-0">
+                    <div className="col-6 p-0">
                         <div className="main_container_dashboard_col6">
                             <Typography className="card_text">Profile</Typography>
                         </div>
                     </div>
-                    <div className="col-md-6 p-0">
+                    <div className="col-6 p-0">
                         <div className="main_container_dashboard_col7">
                             <div className="image_link">
                                 <Link style={{color:'white',textDecoration:'none'}} to="/tutor/profile">
