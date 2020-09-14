@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 
     headerText: {
         fontSize: '2.265rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 
