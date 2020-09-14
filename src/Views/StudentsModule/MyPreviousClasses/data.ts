@@ -1,9 +1,5 @@
 export const filters = [
     {
-        label: 'All',
-        value: 'all',
-    },
-    {
         label: 'Upcoming Classes',
         value: 'upcoming',
     },
@@ -16,67 +12,83 @@ export const filters = [
 export const filtersData = [
     {
         label: 'Boxing',
-        value: 'previous',
+        value: 'boxing',
+        type: 'previous',
     },
     {
         label: 'Running',
-        value: 'previous',
+        value: 'running',
+        type: 'previous',
     },
     {
         label: 'Skateboarding',
-        value: 'previous',
+        value: 'skateboarding',
+        type: 'previous',
     },
     {
         label: 'Drumming',
-        value: 'previous',
+        value: 'drumming',
+        type: 'previous',
     },
     {
         label: 'Piano',
-        value: 'upcoming',
+        value: 'piano',
+        type: 'upcoming',
     },
     {
         label: 'Guitar',
-        value: 'upcoming',
+        value: 'guitar',
+        type: 'upcoming',
     },
     {
         label: 'Coding',
-        value: 'upcoming',
+        value: 'coding',
+        type: 'upcoming',
     },
     {
         label: 'Pottery',
-        value: 'upcoming',
+        value: 'pottery',
+        type: 'upcoming',
     },
     {
         label: 'Football',
-        value: 'upcoming',
+        value: 'football',
+        type: 'upcoming',
     },
     {
         label: 'Rugby',
-        value: 'upcoming',
+        value: 'rugby',
+        type: 'upcoming',
     },
     {
         label: 'Golf',
-        value: 'upcoming',
+        value: 'golf',
+        type: 'upcoming',
     },
     {
         label: 'Mechanics',
-        value: 'upcoming',
+        value: 'mechanics',
+        type: 'upcoming',
     },
     {
         label: 'Space',
-        value: 'upcoming',
+        value: 'space',
+        type: 'upcoming',
     },
     {
         label: 'Astronomy',
-        value: 'upcoming',
+        value: 'astronomy',
+        type: 'upcoming',
     },
     {
         label: 'Poetry',
-        value: 'upcoming',
+        value: 'poetry',
+        type: 'upcoming',
     },
     {
         label: 'Debating',
-        value: 'upcoming',
+        value: 'debating',
+        type: 'upcoming',
     },
 ];
 
@@ -84,71 +96,71 @@ export const cards = [
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'Olivia Preston Maths, Chemistry, English +more',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'Duke Preston Maths, Science, Languages',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'Debby Stone Maths, Chemistry, English +more',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg',
         title: 'James Mucklow Maths, Business Studies, PE',
-        subTitle: 'AED200/h'
+        subTitle: 'AED200/h',
     },
-]
+];

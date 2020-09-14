@@ -1,14 +1,14 @@
 export function getColor(type: string): string {
     switch (type) {
         case 'primary':
-            return '#fff'
+            return '#fff';
         case 'secondary':
-            return  '#F7F7F7'
+            return '#F7F7F7';
         case 'transparent':
-            return 'transparent'
+            return 'transparent';
         case 'brown':
-            return '#76726E'
+            return '#76726E';
         default:
-            return '#fff'
+            return '#fff';
     }
 }

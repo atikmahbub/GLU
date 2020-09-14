@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 
 interface props{
     handleNext: ()=> void;
-    activeCom: number
+    activeCom: number;
+    visibleAt: number
 }
-const SaveController: React.FunctionComponent<props> = ({handleNext, activeCom}) => {
+const SaveController: React.FunctionComponent<props> = ({handleNext, activeCom, visibleAt}) => {
     return (
         <div className="controller__bottom">
             <div className="row">
@@ -17,7 +18,7 @@ const SaveController: React.FunctionComponent<props> = ({handleNext, activeCom})
                     </Typography>
                 </div>
                 <div className="col-6">
-                    {activeCom <= 1 && (
+                    {activeCom <= visibleAt && (
                         <div className="arrow__container" onClick={handleNext}>
                             <Typography className="text">Save</Typography>
                             <ArrowForward className="icon" />

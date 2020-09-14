@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReviewList from './ReviewList';
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
 import { monthsOptions } from '../../Helper/options';
 import FormControlSelect from '../../components/Form/FormControlSelect';
 const useStyles = makeStyles({
@@ -251,11 +252,9 @@ const TutorClass: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
             </NavigationMenu>
         </>
     );

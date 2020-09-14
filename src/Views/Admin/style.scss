@@ -5,7 +5,7 @@
     .admin-page {
         position: relative;
         padding: 3.562rem 3.75rem;
-        height: calc(100vh - 6.2rem);
+        height: calc(100vh - 8rem);
         overflow: hidden;
         @include disableScroll;
         @include flex(center, space-between, column);
@@ -78,6 +78,8 @@
                 }
                 .textbox{
                     width: 100%;
+                    font-size: 1.562rem;
+                    color: $titleGray;
                     &:focus{
                         outline-color: $primary;
                     }

@@ -3,6 +3,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import PageFooter from '../../components/PageFooter';
 import commonImg from '../../Assets/images';
+import StarRateSharpIcon from '@material-ui/icons/StarRateSharp';
 const TutorMyClass: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -140,7 +141,7 @@ const TutorMyClass: React.FunctionComponent = () => {
                     <div className="grid_classes_layout">
                         {imageMetaDeta.map(({img,title,subtitle},index)=>(
                                 <div className="sec">
-                                <img src={img} height="293px" width="100%" className="" alt="" />
+                                <img src={img} height="324px" width="100%" className="" alt="" />
     
                                 <div className="img_caption">
                                     <Typography className="tutor_myclasses_smalltext">
@@ -150,17 +151,8 @@ const TutorMyClass: React.FunctionComponent = () => {
                                 <div className="star_rating">
                                     
                 
-                                        <svg
-                                            width="1.2em"
-                                            height="1.2em"
-                                            viewBox="0 0 16 16"
-                                            className="bi bi-star-fill"
-                                            fill="currentColor"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                        </svg>
-                                        <Typography className="tutor_myclasses_xstext">{subtitle}</Typography>
+                                        <StarRateSharpIcon/>
+                                        <Typography className="tutor_myclasses_xstext star_pos">{subtitle}</Typography>
                                     
                              
                                 </div>

@@ -57,6 +57,11 @@
                 display:flex;
                 justify-content: flex-start;
                 padding-top: 0.5rem;
+                .star_pos{
+                    position: relative;
+                    top: -1px;
+                    left:-1px;
+                }
             }
         }
 
