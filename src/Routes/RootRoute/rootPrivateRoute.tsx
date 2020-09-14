@@ -5,8 +5,8 @@ const TutorModule = lazy(() => import('../../Views/TutorDashboard/Index'));
 const ParentDashBoard = lazy(() => import('../../Views/ParentDashBoard/Index'));
 
 export const rootPrivateRoute = [
-    { component: Dashboard, name:'/dashboard/' },
-    { component: StudentsModule, name: '/students/' },
-    { component: TutorModule, name: '/tutor/' },
-    { component: ParentDashBoard, name: '/parent/' },
+    // { component: Dashboard, name:'/dashboard/' },
+    // { component: StudentsModule, name: '/students/' },
+    // { component: TutorModule, name: '/tutor/' },
+    // { component: ParentDashBoard, name: '/parent/' },
 ]

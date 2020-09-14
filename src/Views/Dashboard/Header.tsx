@@ -36,31 +36,31 @@ const useStyles = makeStyles({
 });
 const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
     const history = useHistory();
-    const [navArray, setNavArray] = useState<String[]>([]);
-    const classes = useStyles();
+    // const [navArray, setNavArray] = useState<String[]>([]);
+    // const classes = useStyles();
     const routes = useLocation();
-    const navigation = routes.state;
-    const setNavigation = () => {
-        if (routes.state) {
-            setNavArray((navigation as locationProps).breadcrumb.replace('/', '').split('/'));
-        } else {
-            const navigation = routes.pathname.replace('/', '').split('/');
-            setNavArray(navigation);
-        }
-    };
+    // const navigation = routes.state;
+    // const setNavigation = () => {
+    //     if (routes.state) {
+    //         setNavArray((navigation as locationProps).breadcrumb.replace('/', '').split('/'));
+    //     } else {
+    //         const navigation = routes.pathname.replace('/', '').split('/');
+    //         setNavArray(navigation);
+    //     }
+    // };
 
     const resetAuth = () => {
         resetTokenAndLocalStorage();
         history.push('/');
     };
 
-    useEffect(() => {
-        setNavigation();
-    }, []);
+    // useEffect(() => {
+    //     setNavigation();
+    // }, []);
 
-    useEffect(() => {
-        setNavigation();
-    }, [routes]);
+    // useEffect(() => {
+    //     setNavigation();
+    // }, [routes]);
 
     return (
         <div className="dashboard-header">
