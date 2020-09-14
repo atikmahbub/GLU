@@ -8,7 +8,7 @@ import UploadMaxSize from '../../components/Button/UploadMaxSize';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import { addNewStudentAPIcall } from '../../Redux/Actions/studentAction';
+import { addNewStudentAPIcall, editStudentAPIcall } from '../../Redux/Actions/studentAction';
 import { useHistory, useLocation } from 'react-router';
 import { checkValue } from '../../Helper/checkValue';
 
@@ -77,6 +77,7 @@ const AddNewStudent: React.FunctionComponent = () => {
             ],
         };
         if (editMode) {
+            // dispatch(editStudentAPIcall(data, routes));
         } else {
             dispatch(addNewStudentAPIcall(data, routes));
         }
