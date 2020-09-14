@@ -250,7 +250,7 @@
 // table action toolbar
 .action-container {
     width: 3rem;
-    background-color: $white;
+    background-color: transparent;
     padding: 0.2rem;
     color: $gray;
     cursor: pointer;
@@ -1366,7 +1366,7 @@ button.outline-button {
     padding-left: 20px;
 }
 .filter__column__box {
-    background-color: rgba(20, 93, 255, 0.15);
+    background-color: #f3f7ff;
     @include flex(center, space-between, row);
     width: 100%;
     overflow: auto;

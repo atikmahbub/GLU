@@ -1,6 +1,7 @@
 export const endponts = {
     login: 'auth/login',
     school: 'schools/school',
+    schoolProfile: 'school/profile',
     student:'schools/students',
     teacher: 'schools/teachers',
     parent: 'schools/guardians',

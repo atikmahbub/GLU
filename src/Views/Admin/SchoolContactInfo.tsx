@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TextField, Typography } from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
+import { adminContext } from './Admin';
 
 const SchoolContactInfo: React.FunctionComponent = () => {
+    const context = useContext<any>(adminContext);
+
     return (
         <div className="school-information-container">
             <div className="row">
@@ -13,21 +16,38 @@ const SchoolContactInfo: React.FunctionComponent = () => {
                 <div className="phone__container">
                     <div className="prefix">
                         <SelectFieldUnderline
-                            value="UK / +44"
+                            value={'+91'}
                             className="custom-adornment-input2"
-                            options={['UK / +44']}
+                            options={['+91', '+44']}
                             getValue={() => {}}
                         />
                     </div>
                     <div className="phone__number">
-                        <TextField className="line-input2" fullWidth />
+                        <TextField
+                            className="line-input2"
+                            value={context.contactInfo.phone}
+                            onChange={context.phone}
+                            fullWidth
+                        />
                     </div>
                 </div>
                 <div className="col-md-12">
-                    <TextField className="line-input2" label="Email Address" fullWidth />
+                    <TextField
+                        className="line-input2"
+                        label="Email Address"
+                        value={context.contactInfo.email}
+                        onChange={context.email}
+                        fullWidth
+                    />
                 </div>
                 <div className="col-md-12">
-                    <TextField className="line-input2" label="Website" fullWidth />
+                    <TextField
+                        className="line-input2"
+                        label="Website"
+                        value={context.contactInfo.website}
+                        onChange={context.website}
+                        fullWidth
+                    />
                 </div>
             </div>
         </div>
