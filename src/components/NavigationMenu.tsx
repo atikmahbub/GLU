@@ -1,7 +1,8 @@
 import React, { FC, ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Button, Typography, IconButton } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { Button, Typography } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Search, Menu } from '@material-ui/icons';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
@@ -9,17 +10,13 @@ import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
 import TopDrawerMenu from './TopDrawerMenu';
+import IconButton from './Button/IconButton';
+import ButtonPrimary from './Button/ButtonPrimary';
 import { getColor } from '../Helper/studentModule';
 import useToggle from '../Hooks/useToggle';
 
 const useStyles = makeStyles(({ transitions }) => ({
-    root: {
-        '& .navigation': {
-            backgroundColor: ({ background, topMenuDrawer }: any) => (topMenuDrawer ? '#fff' : getColor(background)),
-            transition: ({ topMenuDrawer }: any) =>
-                !topMenuDrawer ? transitions.create(['background-color'], { duration: 400, }) : 'none',
-        },
-    },
+    root: {},
     rootAbsolute: {
         width: '100%',
         position: 'absolute',
@@ -30,6 +27,22 @@ const useStyles = makeStyles(({ transitions }) => ({
     container: {
         position: 'relative',
         zIndex: 1299,
+        backgroundColor: ({ background, topMenuDrawer }: any) => (topMenuDrawer ? '#fff' : getColor(background)),
+        transition: ({ topMenuDrawer }: any) =>
+            !topMenuDrawer ? transitions.create(['background-color'], { duration: 400 }) : 'none',
+        padding: 'calc(1.6875rem - 12px) 3.125rem',
+    },
+    list: {
+        display: 'flex',
+        alignItems: 'center',
+        listStyle: 'none',
+        marginBottom: 0,
+    },
+    listItem: {
+        marginRight: '1.875rem',
+        '&:last-child': {
+            marginRight: 0,
+        },
     },
     rootColorWhite: {
         '& .navigation ul li a .link': {
@@ -46,9 +59,17 @@ const useStyles = makeStyles(({ transitions }) => ({
         },
     },
     button: {
+        fontSize: '1.25rem',
+        lineHeight: '1.5625rem',
         '&:hover': {
             backgroundColor: 'transparent',
         },
+    },
+    iconButtonLast: {
+        marginRight: '0.625rem'
+    },
+    logo: {
+        fontSize: '2.1875rem',
     },
 }));
 
@@ -116,27 +137,25 @@ const NavigationMenu: FC<INavigationMenu> = ({
             return (
                 <>
                     <li>
-                        <IconButton className="icon-button" onClick={openMenuDrawer}>
+                        <IconButton onClick={openMenuDrawer}>
                             <Menu className="icon" />
                         </IconButton>
                     </li>
                     <li>
-                        <IconButton className="icon-button" onClick={openNotificationDrawer}>
+                        <IconButton onClick={openNotificationDrawer}>
                             <NotificationsNoneIcon className="icon" />
                         </IconButton>
                     </li>
                     <li>
-                        <IconButton className="icon-button">
+                        <IconButton className={classes.iconButtonLast}>
                             <Search className="icon" />
                         </IconButton>
                     </li>
-                    {menuList.map((item: propsType, index) => (
-                        <li key={index}>
-                            <Link to={item.link}>
-                                <Button disableRipple className={classNames('link', classes.button)}>
-                                    {item.name}
-                                </Button>
-                            </Link>
+                    {menuList.map(({ link, name }: propsType, index) => (
+                        <li key={index} className={classes.listItem}>
+                            <ButtonPrimary className={classes.button} component={Link} to={link}>
+                                {name}
+                            </ButtonPrimary>
                         </li>
                     ))}
                 </>
@@ -184,15 +203,20 @@ const NavigationMenu: FC<INavigationMenu> = ({
             <div>
                 <div
                     ref={containerRef}
-                    className={classNames(classes.root, rootClassName, 'menu__type2__container', {
+                    className={classNames(classes.root, rootClassName, {
                         [classes.rootAbsolute]: absolute,
                         [classes.rootColorWhite]: colorWhite && !topMenuDrawer,
                     })}
                 >
-                    <div className={classNames(classes.container, containerClassName, 'navigation')}>
-                        <ul className={customClass}>{renderMenuList}</ul>
-                        <Typography className={classNames('heading', customClass)}>Glu</Typography>
-                    </div>
+                    <Grid
+                        container
+                        justify="space-between"
+                        alignItems="center"
+                        className={classNames(classes.container, containerClassName)}
+                    >
+                        <ul className={classNames(classes.list, customClass)}>{renderMenuList}</ul>
+                        <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
+                    </Grid>
                     {showMenuOptions && <BigMenu />}
                     {TopDrawerMenuComponent && (
                         <TopDrawerMenu open={topMenuDrawer} onClose={closeDrawers} containerRef={containerRef}>
