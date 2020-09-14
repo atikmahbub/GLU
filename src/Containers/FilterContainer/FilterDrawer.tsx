@@ -4,7 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import { Tabs, Tab } from '../../components/Tabs';
 import Drawer from '../../components/Drawer';
-import { IFilterElement } from './types';
+import { FilterValue, IFilterDataElement, IFilterElement } from './types';
 
 const useStyles = makeStyles({
     buttonFilterType: {
@@ -25,19 +25,32 @@ interface IFilterDrawer {
     open: boolean;
     onClose: () => void;
     filters: IFilterElement[];
-    data: IFilterElement[];
+    data: IFilterDataElement[];
+    onChange: (item: IFilterDataElement) => void;
 }
 
-const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data }) => {
-    const classes = useStyles();
-    const [activeFilter, setActiveFilter] = useState('all');
+const initialFilter: IFilterElement[] = [
+    {
+        value: null,
+        label: 'All',
+    },
+];
 
-    const handleActiveFilterChange = (_: any, value: string) => {
+const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data, onChange }) => {
+    const classes = useStyles();
+    const [activeFilter, setActiveFilter] = useState<FilterValue>(null);
+
+    const handleActiveFilterChange = (_: any, value: FilterValue) => {
         setActiveFilter(value);
     };
 
+    const handleChange = (item: IFilterDataElement) => {
+        onChange(item)
+        onClose()
+    }
+
     const filteredData =
-        activeFilter === 'all' ? data : data.filter(({ value }: IFilterElement) => value === activeFilter);
+        activeFilter ? data.filter(({ type }: IFilterDataElement) => type === activeFilter) : data;
 
     return (
         <Drawer
@@ -48,7 +61,7 @@ const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data }) => {
             headerComponent={
                 <Grid container>
                     <Tabs value={activeFilter} onChange={handleActiveFilterChange}>
-                        {filters.map(({ label, value }: IFilterElement, index) => (
+                        {[...initialFilter, ...filters].map(({ label, value }: IFilterElement, index) => (
                             <Tab key={index} value={value} label={label} className={classes.tabRoot} />
                         ))}
                     </Tabs>
@@ -57,9 +70,13 @@ const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data }) => {
         >
             <Grid container direction="column">
                 <Grid container direction="column">
-                    {filteredData.map(({ label }: IFilterElement, index) => (
-                        <ButtonPrimary key={index} className={classes.buttonFilterType}>
-                            {label}
+                    {filteredData.map((item: IFilterDataElement, index) => (
+                        <ButtonPrimary
+                            key={index}
+                            onClick={() => handleChange(item)}
+                            className={classes.buttonFilterType}
+                        >
+                            {item.label}
                         </ButtonPrimary>
                     ))}
                 </Grid>

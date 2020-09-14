@@ -32,7 +32,7 @@ const useStyles = makeStyles({
     inputRoot: {
         flexGrow: 1,
         width: 250,
-        height: 44,
+        height: '2.75rem',
         cursor: 'default',
         '&::before': {
             display: 'none',
@@ -51,6 +51,9 @@ const useStyles = makeStyles({
         '&.Mui-focused': {
             borderColor: '#000',
         },
+        '& .MuiSelect-icon': {
+            top: 'unset'
+        }
     },
     inputRootUnderlined: {
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
