@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import PageFooter from '../../components/PageFooter';
+import {Link} from 'react-router-dom';
 import commonImg from '../../Assets/images';
 import StarRateSharpIcon from '@material-ui/icons/StarRateSharp';
 const TutorMyClass: React.FunctionComponent = () => {
@@ -135,13 +136,13 @@ const TutorMyClass: React.FunctionComponent = () => {
                             <Typography className="tutor_myclasses_text">My Classes</Typography>
                         </div>
                         <div className="record_button">
-                            <Typography className="tutor_myclasses_extrasmalltext">Record Class</Typography>
+                          <Link to="/tutor/record-class" style={{textDecoration:'none',color:'black'}} ><Typography className="tutor_myclasses_extrasmalltext">Record Class </Typography></Link> 
                         </div>
                     </div>
                     <div className="grid_classes_layout">
                         {imageMetaDeta.map(({img,title,subtitle},index)=>(
                                 <div className="sec">
-                                <img src={img} height="290px" width="100%" className="" alt="" />
+                                <img src={img} height="290px" width="100%" alt="" />
     
                                 <div className="img_caption">
                                     <Typography className="tutor_myclasses_smalltext">
