@@ -45,8 +45,13 @@
     padding-right: 3.125rem;
     padding-bottom: 3.656rem;
 }
-.tutor_upcoming_class_subcontainer_3,.tutor_upcoming_class_subcontainer_4{
+.tutor_upcoming_class_subcontainer_3{
     padding: 5rem 3.125rem;
+}
+.tutor_upcoming_class_subcontainer_4{
+    padding-left:3.125rem;
+    padding-right: 3.125rem;
+    padding-top: 5rem;
 }
 .tutor_upcoming_playbanner{
     padding-top: 3.125rem;
@@ -106,11 +111,7 @@
         border-left-width: 1px;   
     }
 }
-.horizontalline_new{
-    border-top-color: rgba(0, 0, 0, 0.25);
-    border-top-style: solid;
-    border-top-width: 1px;
-}
+
 .invite_student_button{
     padding-top: 5.84375rem;
     display: block;
@@ -128,6 +129,7 @@
         }
     }
 }
+
 @media screen and (min-width: 767px) {
     .tutor_upcoming_bigBanner,
     .tutor_upcoming_bigText_container,
@@ -144,7 +146,7 @@
        
         .student_list_reusable_display{
             padding-left:3.125rem;
-            padding-right:3.125rem;
+            // padding-right:3.125rem;
         }
         .student_number{
             padding-top: 3.125rem;
@@ -152,4 +154,9 @@
         
     }
 
+}
+@media screen and(max-width:767px){
+    .tutor_upcoming_tags_container {
+        padding-left: 15px;
+    }
 }

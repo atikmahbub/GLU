@@ -1,14 +1,53 @@
 import React from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
+import {Grid, Typography, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReviewList from './ReviewList';
 import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
+import { monthsOptions } from '../../Helper/options';
+import FormControlSelect from '../../components/Form/FormControlSelect';
 const useStyles = makeStyles({
-    navigationContainer: {
-        backgroundColor: '#F7F7F7 !important',
+    pageContainerContent: {
+        paddingBottom: 0
     },
+    whiteContainerRoot: {
+        width: 'calc(100% + (3.125rem * 2))',
+        position: 'relative',
+        left: '-3.125rem',
+        paddingTop: '6.25rem',
+        padding: '6.25rem 3.125rem 0 3.125rem',
+    },
+    controlsContainer: {
+      marginBottom: '5rem'
+    },
+    selectRoot: {
+        marginRight: '7.375rem',
+    },
+    selectInputRoot: {
+        width: 150
+    },
+    columnsContainerRoot: {
+        marginBottom: '5.3125rem'
+    },
+    tagsContainer: {
+        borderLeft: '1px solid rgba(0, 0, 0, 0.25)',
+        padding: '0 1.5625rem'
+    },
+    tagsWrapper: {
+        marginBottom: '8rem'
+    },
+    tagsTitle: {
+        fontSize: '1.5625rem',
+        lineHeight: '2.0625rem',
+        marginBottom: '1.5rem'
+    },
+    footerRoot: {
+        paddingLeft: 0,
+        paddingRight: 0
+    }
 });
+
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
@@ -57,7 +96,7 @@ const TutorClass: React.FunctionComponent = () => {
     ];
     return (
         <>
-            <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer}>
+            <NavigationMenu menuList={menu} background="secondary">
                 <div className="tutor_review_main_container">
                     <div className="tutor_review_banner">
                         <div className="container-fluid">
@@ -148,30 +187,28 @@ const TutorClass: React.FunctionComponent = () => {
                                     </div>
                                     <div className="col-md-6 p-0 left_border">
                                         <div className="tutor_review_right_subcontainer_1">
-                                            <div className="row">
-                                                <div className="col-4">
-                                                    <form action="">
-                                                        <label className="tutor_review_extrasmalltext">From</label>
-                                                        <select name="cars" id="cars">
-                                                            <option value="volvo">Volvo</option>
-                                                            <option value="saab">Saab</option>
-
-                                                            <option value="mercedes">Mercedes</option>
-                                                            <option value="audi">Audi</option>
-                                                        </select>
-                                                    </form>
-                                                </div>
-                                                <div className="col-4">
-                                                    <form action="">
-                                                        <label className="tutor_review_extrasmalltext">To</label>
-                                                        <select name="cars" id="cars">
-                                                            <option value="volvo">Volvo</option>
-                                                            <option value="saab">Saab</option>
-                                                            <option value="mercedes">Mercedes</option>
-                                                            <option value="audi">Audi</option>
-                                                        </select>
-                                                    </form>
-                                                </div>
+                            <div className="show_formselect ">
+                                            
+                                    <FormControlSelect
+                                        label="From"
+                                        value="july"
+                                        variant="outlined"
+                                        labelPlacement="left"
+                                        options={monthsOptions}
+                                        onChange={console.log}
+                                        rootClassName={classes.selectRoot}
+                                        inputRootClassName={classes.selectInputRoot}
+                                    />
+                                    <FormControlSelect
+                                        label="To"
+                                        value="june"
+                                        variant="outlined"
+                                        labelPlacement="left"
+                                        options={monthsOptions}
+                                        onChange={console.log}
+                                        inputRootClassName={classes.selectInputRoot}
+                                    />
+                               
                                             </div>
                                             <div className="horizontalline_new"></div>
                                         </div>
@@ -197,18 +234,17 @@ const TutorClass: React.FunctionComponent = () => {
                                                         rating={val.rating}
                                                         review={val.review}
                                                     />
-                                                       {index!==ReviewListArray.length-1&&
-                                                    <div className="horizontalline_new"></div>
-                                                       }
+                                                    {index !== ReviewListArray.length - 1 && (
+                                                        <div className="horizontalline_new"></div>
+                                                    )}
                                                 </div>
                                             ))}
-                                         
-                                                <div className="see_all_reviews">
-                                                    <Link to="/">
-                                                        <Typography className="see_text">See All</Typography>
-                                                    </Link>
-                                                </div>
-                                            
+
+                                            <div className="see_all_reviews">
+                                                <Link to="/">
+                                                    <Typography className="see_text">See All</Typography>
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,10 +252,8 @@ const TutorClass: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
+                <div className="commonWhiteFooter">
+                <PageFooter/>
             </div>
             </NavigationMenu>
         </>
