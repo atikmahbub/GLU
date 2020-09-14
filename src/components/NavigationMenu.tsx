@@ -2,10 +2,8 @@ import React, { FC, ReactNode, useCallback, useMemo, useRef, useState } from 're
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
-import { Button, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { Search, Menu } from '@material-ui/icons';
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
 import Notifications from './Notifications';
@@ -16,7 +14,12 @@ import { getColor } from '../Helper/studentModule';
 import useToggle from '../Hooks/useToggle';
 
 const useStyles = makeStyles(({ transitions }) => ({
-    root: {},
+    root: {
+        color: '#000',
+    },
+    rootColorWhite: {
+        color: '#fff',
+    },
     rootAbsolute: {
         width: '100%',
         position: 'absolute',
@@ -44,29 +47,21 @@ const useStyles = makeStyles(({ transitions }) => ({
             marginRight: 0,
         },
     },
-    rootColorWhite: {
-        '& .navigation ul li a .link': {
-            color: '#fff',
-        },
-        '& .navigation .icon-button .icon': {
-            color: '#fff',
-        },
-        '& .navigation .heading': {
-            color: '#fff',
-        },
-        '& .navigation ul li a button': {
-            color: '#fff',
-        },
-    },
     button: {
         fontSize: '1.25rem',
         lineHeight: '1.5625rem',
+        color: 'inherit',
         '&:hover': {
+            color: 'inherit',
             backgroundColor: 'transparent',
         },
     },
+    iconButton: {
+        color: 'inherit',
+        fontSize: '1.25rem',
+    },
     iconButtonLast: {
-        marginRight: '0.625rem'
+        marginRight: '0.625rem',
     },
     logo: {
         fontSize: '2.1875rem',
@@ -137,18 +132,18 @@ const NavigationMenu: FC<INavigationMenu> = ({
             return (
                 <>
                     <li>
-                        <IconButton onClick={openMenuDrawer}>
-                            <Menu className="icon" />
+                        <IconButton className={classes.iconButton} onClick={openMenuDrawer}>
+                            <i className="icon-Burger_Nav" />
                         </IconButton>
                     </li>
                     <li>
-                        <IconButton onClick={openNotificationDrawer}>
-                            <NotificationsNoneIcon className="icon" />
+                        <IconButton className={classes.iconButton} onClick={openNotificationDrawer}>
+                            <i className="icon-Notifications_Nav" />
                         </IconButton>
                     </li>
                     <li>
-                        <IconButton className={classes.iconButtonLast}>
-                            <Search className="icon" />
+                        <IconButton className={classNames(classes.iconButton, classes.iconButtonLast)}>
+                            <i className="icon-Search_Nav" />
                         </IconButton>
                     </li>
                     {menuList.map(({ link, name }: propsType, index) => (
@@ -163,26 +158,20 @@ const NavigationMenu: FC<INavigationMenu> = ({
         }
         return (
             <>
-                <li>
-                    <Link to="/signup">
-                        <Button disableRipple className="outline-rec">
-                            Sign Up
-                        </Button>
-                    </Link>
+                <li className={classes.listItem}>
+                    <ButtonPrimary variant="outlined" className={classes.button} component={Link} to="/signup">
+                        Sign Up
+                    </ButtonPrimary>
                 </li>
-                <li>
-                    <Link to="/login">
-                        <Button disableRipple className={classes.button}>
-                            Sign In
-                        </Button>
-                    </Link>
+                <li className={classes.listItem}>
+                    <ButtonPrimary className={classes.button} component={Link} to="/login">
+                        Sign In
+                    </ButtonPrimary>
                 </li>
-                <li>
-                    <Link to="/help-support">
-                        <Button disableRipple className={classes.button}>
-                            Help
-                        </Button>
-                    </Link>
+                <li className={classes.listItem}>
+                    <ButtonPrimary className={classes.button} component={Link} to="/help-support">
+                        Help
+                    </ButtonPrimary>
                 </li>
             </>
         );

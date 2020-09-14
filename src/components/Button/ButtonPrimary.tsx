@@ -15,8 +15,12 @@ const useStyles = makeStyles({
         color: '#000',
         '&:hover': {
             background: 'unset',
-            color: '#000'
+            color: '#000',
         },
+    },
+    outlined: {
+        borderRadius: 0,
+        padding: '0.3125rem 1.5625rem'
     },
 });
 
@@ -25,7 +29,12 @@ interface IButtonPrimary extends ButtonProps, BaseProps<any> {}
 const ButtonPrimary: FC<IButtonPrimary> = ({ className, children, ...props }) => {
     const classes = useStyles();
     return (
-        <Button disableRipple className={classNames(classes.root, className)} {...props}>
+        <Button
+            disableRipple
+            className={classNames(classes.root, className)}
+            classes={{ outlined: classes.outlined }}
+            {...props}
+        >
             {children}
         </Button>
     );
