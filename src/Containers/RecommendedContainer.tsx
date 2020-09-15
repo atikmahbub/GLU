@@ -1,11 +1,10 @@
 import React, { FC, memo } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ImageCard from '../components/Cards/ImageCard';
-import { colors } from '../Styles/colors';
+import SeeAll from '../components/Typographies/SeeAll';
 import CardsGrid from './CardsGrid';
 import { ImageCardElement } from '../components/Cards/types';
 
@@ -22,12 +21,6 @@ const useStyles = makeStyles({
         lineHeight: '1.875rem',
         fontWeight: ({ titleBold }: any) => (titleBold ? 500 : 400),
     },
-    seeAll: {
-        fontSize: '1.25rem',
-        lineHeight: '1.875rem',
-        color: colors.primary,
-        cursor: 'pointer',
-    },
     imageContainerRoot: {
         marginRight: '3.125rem',
         '&:last-child': {
@@ -38,7 +31,7 @@ const useStyles = makeStyles({
 
 interface IBottomRecommendedContainer {
     title: string;
-    titleBold: boolean;
+    titleBold?: boolean;
     data: ImageCardElement[];
     padding?: boolean;
     link: string;
@@ -58,9 +51,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
         <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <Typography className={classes.title}>{title}</Typography>
-                <Typography className={classes.seeAll} component={Link} to={link}>
-                    See all
-                </Typography>
+                <SeeAll to={link} />
             </Grid>
             <CardsGrid>
                 {data.map((card, index) => (

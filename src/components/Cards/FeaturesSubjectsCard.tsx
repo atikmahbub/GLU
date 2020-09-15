@@ -5,6 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import SeeAll from '../Typographies/SeeAll';
 import CardsGrid from '../../Containers/CardsGrid';
 import ImageCard from './ImageCard';
+import { FeaturedSubjectCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -20,7 +21,9 @@ const useStyles = makeStyles({
     },
 });
 
-const FeaturedSubjectsCard: FC = () => {
+interface IFeaturedSubjectsCard extends FeaturedSubjectCardElement {}
+
+const FeaturedSubjectsCard: FC<IFeaturedSubjectsCard> = ({ imgBig, imgBigTitle, imgSmall, imgSmallTitle }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column" className={classes.root}>
@@ -32,14 +35,14 @@ const FeaturedSubjectsCard: FC = () => {
                 <ImageCard
                     bigTitle
                     imgAspectRatio="112%"
-                    title="Business Studies"
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607716/chairwithman_p09ojq.jpg"
+                    title={imgBigTitle}
+                    img={imgBig}
                 />
                 <ImageCard
                     bigTitle
                     imgAspectRatio="69%"
-                    title="Computer Science"
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/vrplayerboy_fyrdco.jpg"
+                    title={imgSmallTitle}
+                    img={imgSmall}
                 />
             </CardsGrid>
         </Grid>

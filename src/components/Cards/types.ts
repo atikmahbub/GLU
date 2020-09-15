@@ -2,6 +2,8 @@ export interface ImageCardElement {
     img: string;
     title: string;
     subTitle?: string;
+    date?: string;
+    time?: string;
 }
 
 export interface BannerCardElement {
@@ -12,13 +14,26 @@ export interface BannerCardElement {
     time: string;
 }
 
-export interface NextClassCardElement {
-    img: string;
+export interface DateTimeCardElement {
     date: string;
-    startDate: string;
-    endDate: string;
+    startTime: string;
+    endTime: string;
+}
+
+export interface DateSubjectCardElement extends DateTimeCardElement {
     subject: string;
     description: string;
-    time: string;
+    subTitle: string;
     name: string;
+}
+
+export interface NextClassCardElement extends DateSubjectCardElement {
+    img: string;
+}
+
+export interface FeaturedSubjectCardElement {
+    imgBig: string;
+    imgBigTitle: string;
+    imgSmall: string;
+    imgSmallTitle: string;
 }
