@@ -18,7 +18,7 @@ const ReusableLandscape: React.FunctionComponent<props> = ({ imgSrc,date,time1,t
         <>
             
                 <div className="card_subtitle">
-                    <Link to="/tutor/upcoming-classes" style={{ color: 'blue',textDecoration:"none" }}>
+                    <Link to="" style={{ color: 'blue',textDecoration:"none" }}>
                         See upcomming
                     </Link>
                 </div>

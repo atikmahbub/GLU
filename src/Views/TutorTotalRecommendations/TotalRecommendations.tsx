@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
+import {Link} from 'react-router-dom'
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
 import MadeBy from '../Footer/MadeBy';
@@ -106,7 +107,7 @@ const TutorClass: React.FunctionComponent = () => {
                                     </div>
                                 </div>
                                 <div className="create_button" >
-                                    <Typography className="total_recommend_smalltext">Create</Typography>
+                                   <Link to="/tutor/recommend" style={{textDecoration:'none',color:'black'}}><Typography className="total_recommend_smalltext">Create</Typography></Link> 
                                 </div>
                             </div>
                         </div>
