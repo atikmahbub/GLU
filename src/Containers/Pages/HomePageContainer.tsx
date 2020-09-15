@@ -4,11 +4,20 @@ import NavigationMenu from '../../components/NavigationMenu';
 import TopDrawerMenuContent from '../Menus/TopDrawerMenuContent';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
 import NextClassCard from '../../components/Cards/NextClassCard';
-import FeaturedSubjectsCard from '../../components/Cards/FeaturesSubjectsCard';
+import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
 import RecommendedContainer from '../RecommendedContainer';
-import { createMenuList } from '../../Helper/menus';
-import { bannerCards, bannerCards2, recommendedCards, recommendedCards2 } from '../../data/homepage';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
+import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
+import { createMenuList } from '../../Helper/menus';
+import {
+    bannerCards,
+    bannerCards2,
+    bannerCards3,
+    recommendedCards,
+    recommendedCards2,
+    tutorCards,
+} from '../../data/homepage';
+import PageFooter from '../../components/PageFooter';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -59,6 +68,21 @@ const HomePageContainer: FC = () => {
                 data={recommendedCards2}
                 rootClassName={classes.recommendedRoot}
             />
+            <FeaturedTutorsCard
+                imgSmallTitle="Maths - Harry Stannard"
+                imgSmall="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg"
+                imgBigTitle="Languages - Johny Duke"
+                imgBig="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/smillingmanspects_qewo8x.jpg"
+            />
+            <BannerCarousel cards={bannerCards3} />
+            <RecommendedContainer
+                padding
+                title="Tutors"
+                link="/"
+                data={tutorCards}
+                rootClassName={classes.recommendedRoot}
+            />
+            <PageFooter />
         </NavigationMenu>
     );
 };

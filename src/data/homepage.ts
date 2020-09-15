@@ -62,6 +62,37 @@ export const bannerCards2 = [
     }
 ]
 
+export const bannerCards3 = [
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
+        name: 'Charlie Ray',
+        subject: 'Maths.',
+        description: 'An introduction to trigonometry',
+        time: 'AED200 / 45mins'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607717/maggie_ikqrfi.jpg',
+        name: 'Charlie Ray 1',
+        subject: 'Maths.',
+        description: 'An introduction to trigonometry',
+        time: 'AED200 / 45mins'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg',
+        name: 'Charlie Ray 2',
+        subject: 'Maths.',
+        description: 'An introduction to trigonometry',
+        time: 'AED200 / 45mins'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg',
+        name: 'Charlie Ray 3',
+        subject: 'Maths.',
+        description: 'An introduction to trigonometry',
+        time: 'AED200 / 45mins'
+    }
+]
+
 export const recommendedCards: ImageCardElement[] = [
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/bookredinggirl_yhpgid.jpg',
@@ -113,5 +144,28 @@ export const recommendedCards2: ImageCardElement[] = [
         subTitle: 'AED200 / 45mins',
         date: '24/07/20',
         time: '9.30am'
+    }
+]
+
+export const tutorCards: ImageCardElement[] = [
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607722/orangetopgirl_vwy6cq.jpg',
+        title: 'Olivia Preston Biology, Chemistry, English +more',
+        subTitle: 'AED200 / 45mins',
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607719/brownhairman_i2jgph.jpg',
+        title: 'Olivia Preston Science, Languages',
+        subTitle: 'AED200 / 45mins',
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/katoracutting_ulrxqq.jpg',
+        title: 'Olivia Preston Biology, Chemistry, English +more',
+        subTitle: 'AED200 / 45mins',
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg',
+        title: 'Olivia Preston Biology, Chemistry, English +more',
+        subTitle: 'AED200 / 45mins',
     }
 ]
