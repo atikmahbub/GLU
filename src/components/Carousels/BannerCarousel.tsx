@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import classNames from 'classnames';
 import Slider from 'react-slick';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -94,4 +94,4 @@ BannerCarousel.defaultProps = {
     cards: []
 }
 
-export default BannerCarousel;
+export default memo(BannerCarousel);
