@@ -4,6 +4,7 @@ import { createMenuList } from '../../Helper/menus';
 import TopDrawerMenuContent from '../Menus/TopDrawerMenuContent';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
 import NextClassCard from '../../components/Cards/NextClassCard';
+import FeaturedSubjectsCard from '../../components/Cards/FeaturesSubjectsCard';
 import { bannerCards } from '../../data/homepage';
 
 const HomePageContainer: FC = () => {
@@ -26,6 +27,7 @@ const HomePageContainer: FC = () => {
                 time="75mins"
                 name="Harriet Earl"
             />
+            <FeaturedSubjectsCard />
         </NavigationMenu>
     );
 };

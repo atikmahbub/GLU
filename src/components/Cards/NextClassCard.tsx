@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
-import TextBlue from '../Typographies/TextBlue';
+import SeeAll from '../Typographies/SeeAll';
 import { NextClassCardElement } from './types';
 
 const useStyles = makeStyles({
@@ -75,7 +75,7 @@ const NextClassCard: FC<INextClassCard> = ({ img, date, startDate, endDate, subj
                 </Grid>
             </Grid>
             <Grid container justify="flex-end" item xs={1}>
-                <TextBlue>See</TextBlue>
+                <SeeAll short to="/" />
             </Grid>
         </Grid>
     );

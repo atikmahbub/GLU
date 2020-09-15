@@ -1,7 +1,7 @@
 export interface ImageCardElement {
     img: string;
     title: string;
-    subTitle: string;
+    subTitle?: string;
 }
 
 export interface BannerCardElement {

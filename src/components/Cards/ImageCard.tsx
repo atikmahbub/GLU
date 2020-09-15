@@ -8,7 +8,7 @@ import { ImageCardElement } from './types';
 const useStyles = makeStyles({
     imgContainer: {
         width: 'inherit',
-        paddingTop: '77%',
+        paddingTop: ({ imgAspectRatio }: any) => imgAspectRatio,
         marginBottom: '1.3125rem',
         position: 'relative',
     },
@@ -40,11 +40,12 @@ const useStyles = makeStyles({
 
 export interface IImageCard extends ImageCardElement {
     bigTitle?: boolean;
+    imgAspectRatio?: string;
     rootClassName?: string;
 }
 
-const ImageCard: FC<IImageCard> = ({ img, title, subTitle, bigTitle, rootClassName }) => {
-    const classes = useStyles();
+const ImageCard: FC<IImageCard> = ({ img, imgAspectRatio, title, subTitle, bigTitle, rootClassName }) => {
+    const classes = useStyles({ imgAspectRatio });
     return (
         <Grid container direction="column" className={rootClassName}>
             <Grid container className={classes.imgContainer}>
@@ -61,5 +62,9 @@ const ImageCard: FC<IImageCard> = ({ img, title, subTitle, bigTitle, rootClassNa
         </Grid>
     );
 };
+
+ImageCard.defaultProps = {
+    imgAspectRatio: '77%'
+}
 
 export default memo(ImageCard);
