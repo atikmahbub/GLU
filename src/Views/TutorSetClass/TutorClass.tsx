@@ -131,7 +131,7 @@ const TutorClass: React.FunctionComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="commonWhiteFooter">
+            <div className="commonFooter">
                 <PageFooter/>
             </div>
             

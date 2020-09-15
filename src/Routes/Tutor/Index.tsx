@@ -19,6 +19,7 @@ const TutorEdit = React.lazy(() => import('../../Views/TutorEditPage/TutorEdit')
 const TutorUpcomingClasses = React.lazy(() => import('../../Views/TutorUpcomingClass/Index'));
 const TutorExtraCurr = React.lazy(() => import('../../Views/TutorExtraCurr/Index'));
 const TutorCalender = React.lazy(() => import('../../Views/TutorCalender/index'));
+const StudentHomework = React.lazy(() => import('../../Views/StudentHomework/StudentHomework'));
 
 // const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 const TutorExams = React.lazy(() => import('../../Views/TutorExams/TutorExams'));
@@ -64,4 +65,5 @@ export const tutorRoutes = [
     createRouteObj('/tutor/tutor-upcoming-classes', TutorUpcomingClasses),
     createRouteObj('/tutor/extra-curriculam', TutorExtraCurr),
     createRouteObj('/tutor/tutor-calender', TutorCalender),
+    createRouteObj('/tutor/mark-student-homework', StudentHomework),
 ];

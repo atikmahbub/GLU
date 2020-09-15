@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
     head: {
         padding: '0 3.125rem',
-        paddingTop: '1rem',
+        paddingTop: '3.75rem',
         backgroundColor: '#F7F7F7',
         paddingBottom: '9.06rem',
         fontFamily: 'CircularXXWeb-Book',

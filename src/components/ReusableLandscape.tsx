@@ -28,7 +28,7 @@ const ReusableLandscape: React.FunctionComponent<props> = ({
     return (
         <>
             <div className="card_subtitle">
-                <Link to="/tutor/upcoming-classes" style={{ color: 'blue', textDecoration: 'none' }}>
+                <Link to="" style={{ color: 'blue', textDecoration: 'none' }}>
                     See upcomming
                 </Link>
             </div>

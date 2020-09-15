@@ -76,7 +76,7 @@ const UpcomingClasses = () => {
                     </div>
                     Upcoming Classes
                 </Typography>
-                <Link to={'/tutor/my-classes'}>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={'/tutor/my-classes'}>
                     <div className={classes.upload}>Set class</div>
                 </Link>
             </div>

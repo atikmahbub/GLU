@@ -3,8 +3,7 @@ import { Typography } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import ExtraCurricularBanner from './ExtraCurricularBanner';
 import BigBanner from '../../components/BigBanner';
-import {Link} from 'react-router-dom'
-import MadeBy from '../Footer/MadeBy';
+import {Link} from 'react-router-dom';
 import TagsContainer from '../../components/TagsContainer';
 import ReviewRatingList from './ReviewRatingList';
 import PageFooter from '../../components/PageFooter'
@@ -144,13 +143,11 @@ const IndivisualExtraCurricular: React.FunctionComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <PageFooter padding={false}/>
+                    <div className="commonGreyFooter">
+                    <PageFooter padding={false} />
+                    </div>
                 </div>
-                {/* <div className="grey_footer">
-                <div className="footer">
-                    <MadeBy />
-                </div>
-            </div> */}
+                
             
             </NavigationMenu>
         </div>
