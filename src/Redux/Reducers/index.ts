@@ -7,6 +7,7 @@ import { teacherReducer } from './teacherReducer';
 import { parentReducer } from './parentReducer';
 import { classReducer } from './classReducer';
 import { subjectReducer } from './subjectReducer';
+import { fileUploadReducer } from './fileUploadReducer';
 
 export const rootReducer = combineReducers({
     authReducer,
@@ -17,4 +18,5 @@ export const rootReducer = combineReducers({
     parentReducer,
     classReducer,
     subjectReducer,
+    fileUploadReducer,
 });

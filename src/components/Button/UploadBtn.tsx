@@ -48,7 +48,7 @@ const UploadBtn: React.FunctionComponent<props> = ({ text, getFile, btnType }) =
     return (
         <>
             <input
-               accept=".csv"
+                accept=".csv"
                 style={{ display: 'none' }}
                 id="contained-button-file"
                 // multiple
