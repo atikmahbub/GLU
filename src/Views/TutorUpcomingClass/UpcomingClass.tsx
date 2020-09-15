@@ -9,6 +9,7 @@ const useStyles = makeStyles({
         display: 'inline-block',
         lineHeight: 1,
         marginBottom: '2.46875rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 
     dateBox: {
@@ -20,9 +21,10 @@ const useStyles = makeStyles({
         height: '100%',
         marginTop: '0.5625rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     headerTextBox: {
-        marginRight: '110px',
+        marginRight: '6.875rem',
     },
     mainBox: {
         marginTop: '6.875rem',
@@ -40,6 +42,7 @@ const useStyles = makeStyles({
         marginTop: '1.53125rem',
         boxSizing: 'border-box',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
 
     ////
@@ -51,8 +54,8 @@ const useStyles = makeStyles({
     },
 
     image: {
-        width: '417px',
-        height: '320.22px',
+        width: '26.0625rem',
+        height: '20rem',
     },
 
     ////

@@ -24,6 +24,7 @@ const useStyles = makeStyles({
         lineHeight: '1.875rem',
         marginBottom: '0.5rem',
         whiteSpace: 'pre-wrap',
+        width: 'fit-content'
     },
     titleBig: {
         fontSize: '2.625rem',
