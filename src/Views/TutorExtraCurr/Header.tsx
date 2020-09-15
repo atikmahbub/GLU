@@ -8,7 +8,8 @@ const useStyles = makeStyles({
         fontSize: '2.625rem',
         display: 'inline-block',
         lineHeight: 1,
-        height: '9.125rem',
+        marginBottom: '2.4375rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     dateBox: {
         marginRight: '9.8125rem',
@@ -18,6 +19,7 @@ const useStyles = makeStyles({
         height: '2.0625rem',
         marginTop: '0.5625rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     headerTextBox: {
         marginRight: '9.1875rem',
@@ -39,6 +41,7 @@ const useStyles = makeStyles({
         marginTop: '.53125rem',
         boxSizing: 'border-box',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
 
     mainBox: {
@@ -51,11 +54,13 @@ const useStyles = makeStyles({
         font: 'normal normal normal 25px/30px CircularXXWeb-Book;',
         marginTop: '1.3125rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     rating: {
         color: '#5F5F5F',
         fontSize: '1.3125rem',
         marginTop: '0.5rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     boxDiv: {
         display: 'flex',

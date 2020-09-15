@@ -12,8 +12,9 @@ const useStyles = makeStyles({
     },
     headingSecondary: {
         fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
-    small: { fontSize: '1.5625rem' },
+    small: { fontSize: '1.5625rem', fontFamily: 'CircularXXWeb-Book' },
     textareaClass: {
         backgroundAttachment: 'local',
         backgroundImage:
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
         height: '15.385rem',
         color: '#505050',
         fontSize: '1.5rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     topMarg: {
         marginTop: '5rem',
@@ -39,6 +41,7 @@ const useStyles = makeStyles({
         width: '9.375rem',
         border: '1.2px solid #A8A8A8',
         marginRight: '0.5rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     cancel: {
         color: 'gray',

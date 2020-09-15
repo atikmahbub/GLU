@@ -14,6 +14,7 @@ const useStyles = makeStyles({
         paddingTop: '1rem',
         backgroundColor: '#F7F7F7',
         paddingBottom: '9.06rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     body: {
         padding: '0 3.125rem',
@@ -48,7 +49,9 @@ const TutorExtraCurr = () => {
                     <UpcomingClass />
                 </div>
 
-                <PageFooter />
+                <div className="commonFooter">
+                    <PageFooter />
+                </div>
             </NavigationMenu>
         </div>
     );

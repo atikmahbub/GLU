@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     body2: {
         backgroundColor: '#F7F7F7',
         padding: '0 3.125rem',
+        marginTop: '149px',
     },
 
     headerText: {
