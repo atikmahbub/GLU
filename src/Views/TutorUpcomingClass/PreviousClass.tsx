@@ -5,43 +5,46 @@ import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles({
     imageBox: {
-        marginBottom: '50px',
+        marginBottom: '3.125rem',
         display: 'inline',
-        width: '418px',
+        width: '26.125rem',
     },
     headerText: {
         fontSize: '2.625rem',
         display: 'inline-block',
         lineHeight: 1,
-        marginBottom: '30px',
-        marginTop: '84px',
+        marginBottom: '1.875rem',
+        marginTop: '5.25rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     upload: {
         fontSize: '1.25rem',
         width: '9.375rem',
         height: '2.5rem',
         paddingTop: '4.1px',
-        paddingBottom: '8.99px',
-        marginBottom: '30px',
-        marginTop: '84px',
+        paddingBottom: '0.5625rem',
+        marginBottom: '1.875rem',
+        marginTop: '5.25rem',
         boxSizing: 'border-box',
         display: 'inline-block',
         textAlign: 'right',
+        fontFamily: 'CircularXXWeb-Book',
     },
     mainBox: {
         display: 'flex',
         justifyContent: 'space-between',
     },
     textBox: {
-        fontSize: '25px',
+        fontSize: '1.5625rem',
         width: 'inherit',
-        font: 'normal normal normal 25px/30px CircularXXWeb-Book;',
+        fontFamily: 'CircularXXWeb-Book',
+
         marginTop: '21px',
     },
     rating: {
         color: '#5F5F5F',
-        fontSize: '18px',
-        marginTop: '8px',
+        fontSize: '1.3125rem',
+        marginTop: '0.5rem',
     },
 });
 
