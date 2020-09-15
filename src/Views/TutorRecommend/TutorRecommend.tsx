@@ -1,6 +1,6 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { Typography } from '@material-ui/core';
+import { Typography,TextField } from '@material-ui/core';
 import ReusableBanner from '../../components/ReusableBanner';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
@@ -55,13 +55,7 @@ const TutorRecommend: React.FunctionComponent = () => {
                                     />
                                 </div>
                                 <div className="col-6">
-                                    <SelectFieldUnderline
-                                        label="Subject"
-                                        value="English"
-                                        className="select-large"
-                                        options={['English']}
-                                        getValue={() => {}}
-                                    />
+                                <TextField className="line-input-large" label="Class" fullWidth />
                                 </div>
                             </div>
                             <div className="recommendCancel_container">

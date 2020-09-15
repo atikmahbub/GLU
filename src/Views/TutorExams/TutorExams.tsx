@@ -46,7 +46,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
     ]
     return (
         <div className="tutor_exams_container ">
-            <NavigationMenu menuList={menu} />
+            <NavigationMenu menuList={menu}/>
             <div className="tutor_exams_subcontainer">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -55,7 +55,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                                 <Typography className="examsText">Exams</Typography>
                             </div>
                             <div className="col-6">
-                                <Typography className="examsText">Filters</Typography>
+                                <Typography className="examsText">Filters<span style={{position:'relative',fontSize:'1.7rem',marginLeft:'0.625rem',top:'-2px'}} ><i className="icon-Plus"></i></span></Typography>
                             </div>
                         </div>
                         <div className="show_tutor_resNumber">

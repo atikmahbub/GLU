@@ -39,7 +39,7 @@ const LiveClass = () => {
         <div className={classes.imgBox}>
             <img src={image.maggie} alt="preview" className={classes.img} />
             <div style={{ width: '100%' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '133px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '130px' }}>
                     <Typography className={classes.headText}>
                         <span style={{ marginRight: '4px' }}>
                             <FiberManualRecordIcon />
