@@ -76,6 +76,7 @@ const index: React.FunctionComponent = () => {
                 <div className="recorded__class">
                     <ClassesRowWithImages
                         title="Recorded Classes"
+                        linkTo="/parent/recorded-classes"
                     />
                 </div>
                 <HomeBanner
