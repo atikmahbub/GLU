@@ -37,3 +37,7 @@ export interface FeaturedCardElement {
     imgSmall: string;
     imgSmallTitle: string;
 }
+
+export interface UpcomingClassCardElement extends DateSubjectCardElement {
+    img: string;
+}

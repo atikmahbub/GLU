@@ -1,11 +1,12 @@
 import React, { FC, memo } from 'react';
 import classNames from 'classnames';
-import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import AspectRatioImgCard from './AspectRationImgCard';
+import Grid from '@material-ui/core/Grid';
 import TitlePrimary from '../Typographies/TitlePrimary';
+import AspectRatioImgCard from './AspectRationImgCard';
 import DateSubjectCard from './DateSubjectCard';
 import IconCircle from '../Icons/IconCircle';
+import { UpcomingClassCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -25,13 +26,24 @@ const useStyles = makeStyles({
     },
 });
 
-const UpcomingClassCard: FC = () => {
+interface IUpcomingClassCard extends UpcomingClassCardElement {}
+
+const UpcomingClassCard: FC<IUpcomingClassCard> = ({
+    img,
+    date,
+    startTime,
+    endTime,
+    description,
+    name,
+    subject,
+    subTitle,
+}) => {
     const classes = useStyles();
     return (
         <Grid container className={classes.root}>
             <Grid container item xs={5}>
                 <AspectRatioImgCard
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg"
+                    img={img}
                     ratio="76%"
                 />
             </Grid>
@@ -46,13 +58,13 @@ const UpcomingClassCard: FC = () => {
                     <Grid container>
                         <Grid container item xs={10}>
                             <DateSubjectCard
-                                date="24/07/20"
-                                startTime="3pm"
-                                endTime="4.30pm"
-                                subject="English."
-                                description="How to structure"
-                                name="Jeff Lee"
-                                subTitle="AED200"
+                                date={date}
+                                startTime={startTime}
+                                endTime={endTime}
+                                subject={subject}
+                                description={description}
+                                name={name}
+                                subTitle={subTitle}
                             />
                         </Grid>
                         <Grid container justify="flex-end" item xs={2}>

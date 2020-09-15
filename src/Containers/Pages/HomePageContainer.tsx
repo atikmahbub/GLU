@@ -8,16 +8,17 @@ import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
 import RecommendedContainer from '../RecommendedContainer';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
+import CalendarDateSubjectsCard from '../../components/Cards/CalendarDateSubjectsCard';
+import PageFooter from '../../components/PageFooter';
 import { createMenuList } from '../../Helper/menus';
 import {
     bannerCards,
     bannerCards2,
-    bannerCards3,
+    bannerCards3, calendarSubjectsCards,
     recommendedCards,
     recommendedCards2,
     tutorCards,
 } from '../../data/homepage';
-import PageFooter from '../../components/PageFooter';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -60,7 +61,17 @@ const HomePageContainer: FC = () => {
                 rootClassName={classes.recommendedRoot}
             />
             <BannerCarousel cards={bannerCards2} />
-            <UpcomingClassCard />
+            <UpcomingClassCard
+                img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg"
+                date="24/07/20"
+                startTime="3pm"
+                endTime="4.30pm"
+                subject="English."
+                description="How to structure"
+                name="Jeff Lee"
+                subTitle="AED200"
+            />
+            <CalendarDateSubjectsCard date="July 2020" cards={calendarSubjectsCards} paddingBottom={false} />
             <RecommendedContainer
                 padding
                 title="Upcoming Classes"
