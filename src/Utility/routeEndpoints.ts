@@ -1,5 +1,5 @@
 export const routeEndpoints = {
-    dashboard:'/dashboard',
+    dashboard:'/dashboard/',
     student:{
         details:'/dashboard/student-details',
         breadcrumb: '/dashboard/student details',

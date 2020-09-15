@@ -24,7 +24,7 @@ export const fileUploadData = (data: any) => {
     };
 };
 
-export const uploadProfileAmznUrl = (url: string,  image: File) => {
+export const uploadProfileAmznUrl = (url: string, image: File) => {
     return (dispatch: Dispatch<any>) => {
         let data = new FormData();
 
@@ -44,10 +44,14 @@ export const uploadProfileAmznUrl = (url: string,  image: File) => {
     };
 };
 
-export const uploadProfileFileName = (file: string) => {
+export const uploadProfileFileName = (file: string, token: string) => {
     const data = { fileName: file };
     return () => {
-        API.put(`${endponts.uploadFileName}`, data)
+        API.put(`${endponts.uploadFileName}`, data, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
             .then((res) => {
                 console.log(res);
             })

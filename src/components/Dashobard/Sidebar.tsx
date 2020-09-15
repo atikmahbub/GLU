@@ -25,7 +25,7 @@ interface sidebarProps {
 }
 const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
     const routes = useHistory();
-    const { url } = useRouteMatch();
+    const url = '/dashboard'
     const { pathname } = useLocation();
     const [sidebarMenu, setSidebarMenu] = useState(NavigationMenu);
 

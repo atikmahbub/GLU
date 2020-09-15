@@ -18,8 +18,16 @@ export const userLoginAPIcall = (data: loginAuth, history: any) => {
                 toast.success('Successfully LoggedIn!', { autoClose: 2000 });
                 dispatch(userLogin(res.data.data));
                 dispatch(spinner(false));
-                history.push(routeEndpoints.dashboard);
                 setAuthrizationToken();
+                if (res.data.data.role === 'School') {
+                    history.push('/dashboard/');
+                } else if (res.data.data.role === 'Teacher') {
+                    history.push('/tutor/');
+                } else if (res.data.data.role === 'Guardian') {
+                    history.push('/parent/home');
+                } else if (res.data.data.role === 'Student') {
+                    history.push('/students/home');
+                }
             })
             .catch((err: any) => {
                 handleError(dispatch, err);
