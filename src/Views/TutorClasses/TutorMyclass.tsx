@@ -142,7 +142,7 @@ const TutorMyClass: React.FunctionComponent = () => {
                     <div className="grid_classes_layout">
                         {imageMetaDeta.map(({img,title,subtitle},index)=>(
                                 <div className="sec">
-                                <img src={img} height="290px" width="100%" alt="" />
+                                <img src={img} height="324px" width="100%" alt="" />
     
                                 <div className="img_caption">
                                     <Typography className="tutor_myclasses_smalltext">
