@@ -13,8 +13,8 @@ const useStyles = makeStyles({
     },
     head: {
         padding: '0 3.125rem',
-        paddingTop: '1rem',
         backgroundColor: '#F7F7F7',
+        paddingTop: '3.75rem',
     },
     body1: {
         padding: '0 3.125rem',
@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     body2: {
         backgroundColor: '#F7F7F7',
         padding: '0 3.125rem',
+        marginTop: '149px',
     },
 
     headerText: {

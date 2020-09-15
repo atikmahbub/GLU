@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import image from '../../Assets/images';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     headerText: {
@@ -39,7 +40,9 @@ const Header = () => {
                 <Typography className={classes.headerText}>Next</Typography>
             </div>
             <div className={classes.imageBox}>
-                <img src={image.tutorDashboard} alt="sedimentary rocks" width="535px" height="411px" />
+                <Link to="/tutor/upcoming-class">
+                    <img src={image.tutorDashboard} alt="sedimentary rocks" width="535px" height="411px" />
+                </Link>
             </div>
             <div className={classes.dateBox}>
                 <Typography className={classes.headerText}>
