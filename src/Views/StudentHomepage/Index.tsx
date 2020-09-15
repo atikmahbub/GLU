@@ -3,7 +3,7 @@ import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 
 const Index: React.FunctionComponent = () => {
     return (
-        <HomePageContainer  />
+        <HomePageContainer userType="students" />
     );
 };
 

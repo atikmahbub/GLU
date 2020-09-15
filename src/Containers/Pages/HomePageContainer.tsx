@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import TopDrawerMenuContent from '../Menus/TopDrawerMenuContent';
@@ -10,6 +10,7 @@ import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
 import CalendarDateSubjectsCard from '../../components/Cards/CalendarDateSubjectsCard';
 import PageFooter from '../../components/PageFooter';
+import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
 import {
     bannerCards,
@@ -26,14 +27,20 @@ const useStyles = makeStyles({
     },
 });
 
-const HomePageContainer: FC = () => {
+interface IHomePageContainer {
+    userType: UserTypes;
+}
+
+const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
     const classes = useStyles();
+    const menuList = useMemo(() => createMenuList(userType), [userType])
+
     return (
         <NavigationMenu
             absolute
             colorWhite
+            menuList={menuList}
             background="transparent"
-            menuList={createMenuList('students')}
             TopDrawerMenuComponent={<TopDrawerMenuContent />}
         >
             <BannerCarousel cards={bannerCards} />
@@ -56,7 +63,7 @@ const HomePageContainer: FC = () => {
             <RecommendedContainer
                 padding
                 title="Previous Classes"
-                link="/"
+                link={`/${userType}/previous-classes`}
                 data={recommendedCards}
                 rootClassName={classes.recommendedRoot}
             />
@@ -75,7 +82,7 @@ const HomePageContainer: FC = () => {
             <RecommendedContainer
                 padding
                 title="Upcoming Classes"
-                link="/"
+                link={`/${userType}/upcoming-classes`}
                 data={recommendedCards2}
                 rootClassName={classes.recommendedRoot}
             />
@@ -89,7 +96,7 @@ const HomePageContainer: FC = () => {
             <RecommendedContainer
                 padding
                 title="Tutors"
-                link="/"
+                link={`/${userType}/tutors`}
                 data={tutorCards}
                 rootClassName={classes.recommendedRoot}
             />
