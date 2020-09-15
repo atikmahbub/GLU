@@ -5,6 +5,7 @@ import { handleError } from './errorHandler';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { invitationAPIcall } from './InvitationAction';
+import { uploadProfileFileName } from './FileUploadAction';
 
 export const getallStudentAPIcall = () => {
     return (dispatch: any) => {
@@ -26,13 +27,14 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: any, history: any) => {
+export const addNewStudentAPIcall = (data: any, fileName:string, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
+                dispatch(uploadProfileFileName(fileName));
                 const ides = res.data.data.map((item: any) => {
                     return item.userId;
                 });
