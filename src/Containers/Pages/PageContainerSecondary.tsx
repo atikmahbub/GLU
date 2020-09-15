@@ -17,16 +17,16 @@ const useStyles = makeStyles({
     },
 });
 
-type StudentsPageContainerProps = {
+interface IPageContainerSecondary {
     navMenuBackground?: 'primary' | 'secondary' | 'transparent';
     background?: 'primary' | 'secondary';
     rootClassName?: string;
     contentClassName?: string;
     children: ReactNode;
     paddingBottom?: boolean;
-};
+}
 
-const StudentsPageContainer: FC<StudentsPageContainerProps> = ({
+const PageContainerSecondary: FC<IPageContainerSecondary> = ({
     navMenuBackground,
     background,
     rootClassName,
@@ -49,9 +49,9 @@ const StudentsPageContainer: FC<StudentsPageContainerProps> = ({
     );
 };
 
-StudentsPageContainer.defaultProps = {
+PageContainerSecondary.defaultProps = {
     navMenuBackground: 'secondary',
-    background: 'secondary'
-}
+    background: 'secondary',
+};
 
 export default StudentsPageContainer;

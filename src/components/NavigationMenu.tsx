@@ -10,8 +10,8 @@ import Notifications from './Notifications';
 import TopDrawerMenu from './TopDrawerMenu';
 import IconButton from './Button/IconButton';
 import ButtonPrimary from './Button/ButtonPrimary';
-import { getColor } from '../Helper/studentModule';
 import useToggle from '../Hooks/useToggle';
+import { getColor } from '../Helper/styles';
 
 const useStyles = makeStyles(({ transitions }) => ({
     root: {
