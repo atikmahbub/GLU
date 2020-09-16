@@ -85,7 +85,7 @@ const TutorHomework: React.FunctionComponent = () => {
                                         </div>
                                     </div>
                                     <div className="create_button">
-                                        <ReusableSmallButton heading={"Create"}/>
+                                        <ReusableSmallButton linkurl={"/tutor/set-homework"} heading={"Create"}/>
                                     </div>
                     
                                 </div>
@@ -106,6 +106,7 @@ const TutorHomework: React.FunctionComponent = () => {
                                                     date={val.date}
                                                     desc={val.desc}
                                                     subjectDesc={val.subjectDesc}
+                                                    linkurl={'/tutor/individual-homework'}
                                                     isSubmitted={val.isSubmitted}
                                                     DueOrComplete={val.DueOrComplete}
                                                 />

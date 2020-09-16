@@ -57,12 +57,10 @@ const Home: React.FunctionComponent = () => {
             setHideAnimationMobile(false);
         }
     }, []);
-    const handleScroll = () => {
-        console.log('sdgdf');
-    };
+
 
     return (
-        <div className="home-wrapper" onScroll={handleScroll}>
+        <div className="home-wrapper" >
             <SlidingMenu show={menuShow} handler={() => handleMenu()} menus={menuList} />
             <div className="holding-container">
                 <div className={`rotating-box default-clip ${animationCompelte ? 'full-clip' : ''}`}>
@@ -81,7 +79,7 @@ const Home: React.FunctionComponent = () => {
                         </>
                     )}
                     {showOthers && <MenuContainer handleMenu={() => handleMenu()} />}
-                    {showOthers && <ScrollButton />}
+                    {/* {showOthers && <ScrollButton />} */}
                     {showOthers && <LaunchingSoon />}
                     {showOthers && <BottomRight />}
                     {showOthers && <BottomGAtext />}

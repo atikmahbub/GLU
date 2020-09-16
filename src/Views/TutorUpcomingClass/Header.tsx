@@ -1,29 +1,32 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import image from '../../Assets/images';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
         display: 'inline-block',
         lineHeight: 1,
-        height: '146px',
+        height: '9.125rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     dateBox: {
-        marginRight: '157px',
+        marginRight: '9.8125rem',
     },
     medText: {
         fontSize: '1.5625rem',
-        height: '33px',
-        marginTop: '9px',
+        height: '2.0625rem',
+        marginTop: '0.5625rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     headerTextBox: {
-        marginRight: '147px',
+        marginRight: '9.1875rem',
     },
     imageBox: {
-        marginRight: '157px',
-        marginBottom: '100px',
+        marginRight: '9.8125rem',
+        marginBottom: '6.25rem',
         display: 'inline',
     },
 });
@@ -37,7 +40,9 @@ const Header = () => {
                 <Typography className={classes.headerText}>Next</Typography>
             </div>
             <div className={classes.imageBox}>
-                <img src={image.tutorDashboard} alt="sedimentary rocks" width="535px" height="411px" />
+                <Link to="/tutor/upcoming-class">
+                    <img src={image.tutorDashboard} alt="sedimentary rocks" width="535px" height="411px" />
+                </Link>
             </div>
             <div className={classes.dateBox}>
                 <Typography className={classes.headerText}>
@@ -51,11 +56,13 @@ const Header = () => {
                 <span className={classes.medText}>45 mins</span>
             </div>
             <div>
-                <Typography className={classes.headerText}>
-                    Geography
-                    <br />
-                    Ignetious Sedimentary
-                </Typography>
+                <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                    <Typography className={classes.headerText}>
+                        Geography
+                        <br />
+                        Ignetious Sedimentary
+                    </Typography>
+                </Link>
                 <br />
 
                 <div className={classes.medText}>Fully Booked</div>

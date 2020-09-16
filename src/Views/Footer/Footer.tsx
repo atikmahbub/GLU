@@ -4,6 +4,7 @@ import MadeBy from './MadeBy';
 import { Icons } from '../../Assets/Icons';
 import { useDispatch } from 'react-redux';
 import { emailSubscriber } from '../../Redux/Actions/loginAction';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FunctionComponent = () => {
     const [email, setEmail] = useState('');
@@ -64,18 +65,18 @@ const Footer: React.FunctionComponent = () => {
                         </Typography>
                     </div>
                 </div>
-                <div className="col-md-3 col-lg-4">
+                <div className="col-md-2 col-lg-3">
                     <div className="address-container address-padding">
                         <Typography className="title">Contact</Typography>
                         <Typography className="title">info@glulearning.com</Typography>
                         <Typography className="title">+971 4 554 0350</Typography>
                     </div>
                 </div>
-                <div className="col-md-1 col-lg-2 position-relative">
+                <div className="col-md-2 col-lg-3 position-relative">
                     <div className="three__piller__container">
                         <img src={Icons.threePiller} alt="three piller" />
                     </div>
-                    {/* <div className="address-container">
+                    <div className="address-container">
                         <Link className="links" to="">
                             Insagram
                         </Link>
@@ -85,7 +86,7 @@ const Footer: React.FunctionComponent = () => {
                         <Link className="links" to="">
                             Twitter
                         </Link>
-                    </div> */}
+                    </div>
                 </div>
             </div>
             <div className="breaker"></div>

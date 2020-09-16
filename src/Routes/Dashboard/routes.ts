@@ -1,3 +1,4 @@
+import Dashboard from '../../Views/Dashboard/Dashboard';
 import StudentList from '../../Views/StudentList/Index';
 import AddNewStudent from '../../Views/AddNewStudent/AddNewStudent';
 import AddNewTeacher from '../../Views/AddNewTeacher/Index';
@@ -22,7 +23,6 @@ import AddStudentBulk from '../../Views/AddStudentBulk/AddStudentBulk';
 import AddParentBulk from '../../Views/AddParentBulk/AddParentBulk';
 import AddTeacherBulk from '../../Views/AddTeacherBulk/AddTeacherBulk';
 import AddStaffBulk from '../../Views/AddStaffBulk/AddStaffBulk';
-import { getDashboard } from './getDashboard';
 import TeacherProfile from '../../Views/TeacherProfile/TeacherProfile';
 import Admin from '../../Views/Admin/Admin';
 import AddNewEvent from '../../Views/AddNewEvent/AddNewEvent';
@@ -54,7 +54,7 @@ import TeacherCGExamResult from '../../Views/TeacherDetails/ClassGroups/ExamResu
 import TeacherCGHomework from '../../Views/TeacherDetails/ClassGroups/HomeWork/Index';
 
 export const dashboardRoutes = [
-    { pathname: '/dashboard', component: getDashboard() },
+    { pathname: '/dashboard', component: Dashboard },
     { pathname: '/dashboard/students', component: StudentList },
     { pathname: '/dashboard/student/add-new-student', component: AddNewStudent },
     { pathname: '/dashboard/teacher/add-new-teacher', component: AddNewTeacher },

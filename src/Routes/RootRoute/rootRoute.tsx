@@ -65,4 +65,5 @@ export const rootRoute = [
     {component: WatchSession, name: '/watch-session'},
 
     
+    {component: WatchSession, name: '/watch-session'},    
 ];

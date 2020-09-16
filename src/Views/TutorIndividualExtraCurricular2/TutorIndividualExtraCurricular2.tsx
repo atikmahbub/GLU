@@ -139,12 +139,10 @@ const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
                         </div>
                     </div>
                     </div>
-                    </div>
-            </div>
-            <div className="profile_footer">
-                <div className="footer">
-                    <MadeBy />
                 </div>
+            </div>
+            <div className="commonFooter">
+                <PageFooter/>
             </div>
         </NavigationMenu>
     );

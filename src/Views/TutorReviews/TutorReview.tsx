@@ -208,7 +208,6 @@ const TutorClass: React.FunctionComponent = () => {
                                         onChange={console.log}
                                         inputRootClassName={classes.selectInputRoot}
                                     />
-                               
                                             </div>
                                             <div className="horizontalline_new"></div>
                                         </div>
@@ -252,7 +251,7 @@ const TutorClass: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="commonWhiteFooter">
+                <div className="commonFooter">
                 <PageFooter/>
             </div>
             </NavigationMenu>

@@ -4,33 +4,38 @@ import OutlineButton from '../../components/Button/OutlineButton';
 
 interface props {
     title: string;
-    heading1: string;
-    heading2: string;
-    heading3: string;
-    handler: ()=> void;
+    handler: () => void;
+    data: any;
+    handleEdit: (edit: number) => void;
+    handleDelete: (delId: number) => void;
 }
-const PreviewCard: React.FunctionComponent<props> = ({ title, heading1, heading2, heading3, handler }) => {
+const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit, handleDelete }) => {
     return (
         <div className="info__container">
-            <div className="preview">
-                <div className="button__title__row">
-                    <Typography className="title">{title}</Typography>
-                    <div className="button-group">
-                        <Button className="text-button">Edit</Button>
-                        <Button className="text-button">Delete</Button>
+            {data.map((item: any, i: number) => (
+                <div className="preview">
+                    <div className="button__title__row">
+                        <Typography className="title">
+                            {title} {i + 1}
+                        </Typography>
+                        <div className="button-group">
+                            <Button className="text-button" onClick={()=>handleEdit(i)}>Edit</Button>
+                            <Button className="text-button" onClick={()=>handleDelete(i)}>Delete</Button>
+                        </div>
                     </div>
+                    <Typography variant="h5" className="heading">
+                        {item.schoolName}
+                    </Typography>
+                    <Typography variant="h5" className="heading">
+                        {item.qualification}
+                    </Typography>
+                    <Typography variant="h5" className="heading">
+                        {item.course}
+                    </Typography>
                 </div>
-                <Typography variant="h5" className="heading">
-                    {heading1}
-                </Typography>
-                <Typography variant="h5" className="heading">
-                    {heading2}
-                </Typography>
-                <Typography variant="h5" className="heading">
-                    {heading3}
-                </Typography>
-                <div className="mb-4"></div>
-                <OutlineButton text="Add More" btnClick={()=>handler()} />
+            ))}
+            <div className="my-4">
+                <OutlineButton text="Add More" btnClick={() => handler()} />
             </div>
         </div>
     );

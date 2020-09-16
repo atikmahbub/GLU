@@ -61,6 +61,7 @@ const TutorRecord: React.FunctionComponent = () => {
                             <div className="col-md-6 p-0 border_dateTime">
                                 <div className="recordClass">
                                     <ReusableSubjectDesc
+                                    displayStudentInput={false}
                                     // clickHandler={handleClick}
                                     // chengeHandler={handleChange}
                                     // ref={hiddenFileInput}

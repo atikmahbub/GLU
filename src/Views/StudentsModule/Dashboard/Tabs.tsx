@@ -11,10 +11,10 @@ const useStyles = makeStyles({
         },
     },
     tabRoot: {
-        padding: '0 0.625rem',
+        padding: 0,
         width: 'max-content',
         minWidth: 'max-content',
-        marginRight: '0.625rem',
+        marginRight: '1.5625rem',
         fontSize: '2.625rem',
         textTransform: 'capitalize',
         fontWeight: 400,

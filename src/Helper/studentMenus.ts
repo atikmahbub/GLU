@@ -1,4 +1,4 @@
-import { menuTypes } from '../Interfaces/menuTypes';
+import {menuTypes } from '../Interfaces/menuTypes';
 
 export const studentMenus: menuTypes[] = [
     { link: '/students/home', name: 'Home' },

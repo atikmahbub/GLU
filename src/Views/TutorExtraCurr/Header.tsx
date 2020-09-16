@@ -2,13 +2,15 @@ import React from 'react';
 import { makeStyles, Typography, Grid } from '@material-ui/core';
 import image from '../../Assets/images';
 import StarIcon from '@material-ui/icons/Star';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
         display: 'inline-block',
         lineHeight: 1,
-        height: '9.125rem',
+        marginBottom: '2.4375rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     dateBox: {
         marginRight: '9.8125rem',
@@ -18,6 +20,7 @@ const useStyles = makeStyles({
         height: '2.0625rem',
         marginTop: '0.5625rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     headerTextBox: {
         marginRight: '9.1875rem',
@@ -39,6 +42,7 @@ const useStyles = makeStyles({
         marginTop: '.53125rem',
         boxSizing: 'border-box',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
 
     mainBox: {
@@ -51,11 +55,13 @@ const useStyles = makeStyles({
         font: 'normal normal normal 25px/30px CircularXXWeb-Book;',
         marginTop: '1.3125rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     rating: {
         color: '#5F5F5F',
         fontSize: '1.3125rem',
         marginTop: '0.5rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     boxDiv: {
         display: 'flex',
@@ -121,7 +127,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />
@@ -135,7 +146,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />
@@ -149,7 +165,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />
@@ -163,7 +184,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />
@@ -177,7 +203,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />
@@ -191,7 +222,12 @@ const Header = () => {
                     <div className={classes.imageBox}>
                         <img src={image.girlScatter} alt="sedimentary rocks" className={classes.image} />
                         <div className={classes.textBox}>
-                            <div>First look at French for beginners Language</div>
+                            <Link
+                                to="/tutor/individual-extra-curricular"
+                                style={{ textDecoration: 'none', color: 'black' }}
+                            >
+                                <div>First look at French for beginners Language</div>
+                            </Link>
                             <div className={classes.rating}>
                                 <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
                                     <StarIcon fontSize="small" />

@@ -8,19 +8,23 @@ const useStyles = makeStyles({
     details: {
         width: '55.375rem',
         marginBottom: '5.3125rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     detailsText: {
         fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     name: {},
     firstName: {
         width: '48%',
         display: 'inline-block',
         marginRight: '4%',
+        fontFamily: 'CircularXXWeb-Book',
     },
     lastName: {
         width: '48%',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     inputBox: {
         width: '100%',
@@ -29,6 +33,8 @@ const useStyles = makeStyles({
         fontSize: '2.625rem',
         font: 'normal normal normal 42px/30px CircularXXWeb',
         letterSpacing: '0px',
+        fontFamily: 'CircularXXWeb-Book',
+
         height: '3.19rem',
 
         '&:focus': {
@@ -48,10 +54,12 @@ const useStyles = makeStyles({
         fontSize: '1.5625rem',
         font: 'normal normal normal 25px/30px CircularXXSub-RegularSubset',
         marginBottom: '0',
+        fontFamily: 'CircularXXWeb-Book',
     },
     email: {
         marginTop: '2.5625rem',
         width: '100%',
+        fontFamily: 'CircularXXWeb-Book',
     },
     mobile: {
         marginTop: '2.5625rem',
@@ -70,10 +78,10 @@ const useStyles = makeStyles({
         border: 'none',
         borderBottom: '1px solid rgba(0,0,0, 0.25 )',
         fontSize: '2.625rem',
-        font: 'normal normal normal 42px/30px CircularXXWeb',
         letterSpacing: '0px',
         height: '3.19rem',
         backgroundColor: 'transparent',
+        fontFamily: 'CircularXXWeb-Book',
 
         '&:focus': {
             border: 'none',
@@ -93,6 +101,7 @@ const useStyles = makeStyles({
     password: {
         marginTop: '2.5625rem',
         position: 'relative',
+        fontFamily: 'CircularXXWeb-Book',
     },
     iconBox: {
         position: 'absolute',
@@ -103,9 +112,11 @@ const useStyles = makeStyles({
         position: 'absolute',
         display: 'inline-block',
         transform: 'translate(-1.5rem, -0.7rem)',
+        fontFamily: 'CircularXXWeb-Book',
     },
     reset: {
         transform: 'translate(-1.5rem, -1.5rem)',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 
