@@ -1,9 +1,7 @@
 import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
-import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
-import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTeacherAPIcall } from '../../Redux/Actions/teacherAction';

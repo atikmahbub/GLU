@@ -43,7 +43,7 @@ const Filters = () => {
                     fullWidth={true}
                     placeholder="Search"
                     value=""
-                    icon={<Search />}
+                    icon={<i className="icon-Search_Nav" />}
                     onChange={() => {}}
                 />
             </div>

@@ -54,8 +54,8 @@ const TableFilter = () => {
                     getValue={() => {}}
                 />
             </div>
-            <div className="column__box">
-                <FormControlInput name="" id="" fullWidth={true} placeholder="Search" value="" icon={<Search/>} onChange={() => {}} />
+            <div style={{paddingTop: '1.3rem'}} className="column__box">
+                <FormControlInput name="" id="" fullWidth={true} placeholder="Search" value="" icon={<i className="icon-Search_Nav"/>} onChange={() => {}} />
             </div>
         </div>
     );

@@ -34,7 +34,7 @@ const ParentForm: React.FC = () => {
             </Grid>
             <Grid item xs={12} md={8}>
                 <Typography className={classes.title}>Upload Parent Picture (Optional)</Typography>
-                <UploadMaxSize />
+                <UploadMaxSize onClick={()=>{}} />
                 <InputWithLabel fieldName="First Name" />
                 <InputWithLabel fieldName="Last Name" />
                 <Grid container spacing={2}>
@@ -42,7 +42,7 @@ const ParentForm: React.FC = () => {
                         <InputWithLabel fieldName="Email" />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <SelectWithLabel fieldName="Title" />
+                        <SelectWithLabel options={[]} fieldName="Title" />
                     </Grid>
                 </Grid>
                 <InputWithLabel fieldName="Mobile number" />
@@ -52,7 +52,7 @@ const ParentForm: React.FC = () => {
                 </Grid>
             </Grid>
             <Box component="div" className={classes.helpCon}>
-                <SaveController handleNext={() => {}} activeCom={1} />
+                <SaveController handleNext={() => {}} activeCom={1} visibleAt={1} />
             </Box>
         </Grid>
     );

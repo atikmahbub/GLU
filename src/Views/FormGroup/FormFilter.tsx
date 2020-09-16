@@ -37,7 +37,7 @@ const FormFilter = () => {
                     name="search"
                     placeholder="Search"
                     value=""
-                    icon={<Search />}
+                    icon={<i className="icon-Search_Nav" />}
                     onChange={() => {}}
                     rootClassName={classes.inputRoot}
                 />
