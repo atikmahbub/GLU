@@ -109,7 +109,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
     const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
-    const [leftMenuDrawer, setLeftMenuDrawer] = useState(true);
+    const [leftMenuDrawer, setLeftMenuDrawer] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const classes = useStyles({ background, topMenuDrawer });
 
