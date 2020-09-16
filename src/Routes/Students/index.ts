@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { createRouteObj } from '../../Helper/routes';
 import { linkTo } from '../../Helper/linkTo';
+const Tutors = lazy(() => import('../../Views/StudentsModule/Tutors'));
 const LiveClasses = lazy(() => import('../../Views/StudentsModule/LiveClasses'));
 const RecordedClasses = lazy(() => import('../../Views/StudentsModule/RecordedClasses'));
 const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
@@ -8,7 +9,6 @@ const StudentsDashboard = lazy(() => import('../../Views/StudentsModule/Dashboar
 const StudentHomePage = lazy(() => import('../../Views/StudentHomepage/Index'));
 const PreviousClasses = lazy(() => import('../../Views/PreviousClasses/PreviousClasses'));
 const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
-const TutorList = lazy(() => import('../../Views/TutorList/TutorList'));
 const StudentClassesTutors = lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const StudentWatchPreviousClass = lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
 const TutorDetail = lazy(() => import('../../Views/TutorDetail/index'));
@@ -23,10 +23,10 @@ const routes = [
     createRouteObj('/students/reports', Reports),
     createRouteObj('/students/previous-classes', PreviousClasses),
     createRouteObj('/students/upcoming-classes', UpcomingClasses),
-    createRouteObj('/students/tutors', TutorList),
     createRouteObj('/students/classes', StudentClassesTutors),
     createRouteObj('/students/live-classes', LiveClasses),
     createRouteObj('/students/recorded-classes', RecordedClasses),
+    createRouteObj('/students/tutors', Tutors),
     createRouteObj('/students/watch-previous-classes', StudentWatchPreviousClass),
     createRouteObj(linkTo.tutorDetails, TutorDetail),
     createRouteObj(linkTo.studentProfile, editStudentProfile),

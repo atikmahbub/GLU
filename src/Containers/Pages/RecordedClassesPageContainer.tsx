@@ -12,9 +12,10 @@ import PageFooter from '../../components/PageFooter';
 
 interface IRecordedClassesPageContainer {
     userType: UserTypes;
+    title?: string;
 }
 
-const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userType }) => {
+const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userType, title }) => {
     const menuList = useMemo(() => createMenuList(userType), [userType])
 
     return (
@@ -22,7 +23,7 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding title="Recorded Classes" filters={filters} filtersData={filtersData}>
+            <FilterContainer padding title={title || 'Recorded Classes'} filters={filters} filtersData={filtersData}>
                 <CardsGrid>
                     {cards2.map((card, index) => (
                         <ImageCard key={index} {...card} />
