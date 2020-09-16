@@ -19,7 +19,7 @@ const TutorRecord: React.FunctionComponent = () => {
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
             <div className="set_homework_container ">
                 <div className="set_homework_container_subcontainer1">
                     <div className="banner_container">

@@ -29,7 +29,7 @@ const TutorReview = () => {
     const classes = useStyles();
 
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
             <div className={classes.mainPadding}>
                 <ReviewHeader name="tutor" />
                 <hr className={classes.topMarg} />

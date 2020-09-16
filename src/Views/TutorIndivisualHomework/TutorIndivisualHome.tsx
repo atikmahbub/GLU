@@ -38,7 +38,7 @@ const TutorRecord: React.FunctionComponent = () => {
     ]
     const classes = useStyles();
     return (
-        <NavigationMenu menuList={menu} background="secondary">
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="tutor_indivisual_homework">
             <div className="container_1">
                 <div className="container_1_1">

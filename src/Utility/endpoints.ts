@@ -21,5 +21,5 @@ export const endponts = {
     register: '/auth/register',
     studentEdu: '/student/qualification',
     registerPhone: '/user/phone/',
-    getSkill:'teacher/skill',
+    getSkill:'/teacher/skill',
 };

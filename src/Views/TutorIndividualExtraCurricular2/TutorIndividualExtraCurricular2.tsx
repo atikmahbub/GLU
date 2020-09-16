@@ -26,7 +26,7 @@ const resourcesArray=[
 ]
 const TutorIndividualExtraCurricular2: React.FunctionComponent = () => {
     return (
-        <NavigationMenu menuList={menu} background="secondary">
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="tutor-individual-curricular-2">
                 <ActivityBanner heading={"Extra Curricular"} image={commonImg.jumpinggirl} date={"29/07/20"} startTime={"4pm"} endTime={"4.30pm"} activityDesc={"Boxing. Training techniques for begginers"} button1={"Edit"} button2={"Cancel"} />
                 {/* <div className="reusable_activity_banner">

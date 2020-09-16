@@ -12,7 +12,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
             <div className="personal_school_timetable">
                 <div className="personal_school_timetable_subcontainer">
                     <div className="container-fluid">

@@ -25,7 +25,7 @@ const TempComp: React.FunctionComponent = ({teacherSkill}) => {
     
     // const classes=useStyles();
     return (
-        <NavigationMenu menuList={menu} colorWhite={true} background="brown">
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} colorWhite={true} background={"brown"}>
             <div className="profile_container">
             <div className="main_container p-0">
                 <BackgroundTemplate imgSrc={commonImg.ladyProfile} />

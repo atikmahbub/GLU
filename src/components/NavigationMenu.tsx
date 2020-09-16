@@ -67,6 +67,11 @@ const useStyles = makeStyles(({ transitions }) => ({
     logo: {
         fontSize: '2.1875rem',
     },
+    tutorIcons: {
+        color: 'inherit',
+        fontSize: '1.25rem',
+        marginRight: '0.525rem',
+    },
 }));
 
 export interface propsType {
@@ -87,6 +92,9 @@ interface INavigationMenu {
     menuDrawerAnimation?: boolean;
     MenuDrawerComponent?: ReactNode;
     TopDrawerMenuComponent?: ReactNode;
+    showBurgerNav?: string;
+    reverseButtons?: string;
+    tutorOptions?: string;
 }
 
 const NavigationMenu: FC<INavigationMenu> = ({
@@ -103,17 +111,19 @@ const NavigationMenu: FC<INavigationMenu> = ({
     menuDrawerAnimation,
     MenuDrawerComponent,
     TopDrawerMenuComponent,
+    reverseButtons,
+    showBurgerNav,
+    tutorOptions,
 }) => {
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
     const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const classes = useStyles({ background, topMenuDrawer });
-
+    // const [displayBurgerNav,setBurgerNav]=useState(showBurgerNav?showBurgerNav:true);
     const openNotificationDrawer = useCallback(() => {
         setNotificationsDrawer(true);
     }, []);
-
     const openMenuDrawer = useCallback(() => {
         if (TopDrawerMenuComponent) {
             return toggleTopMenuDrawer();
@@ -132,21 +142,45 @@ const NavigationMenu: FC<INavigationMenu> = ({
         if (menuList) {
             return (
                 <>
-                    <li>
-                        <IconButton className={classes.iconButton} onClick={openMenuDrawer}>
-                            <i className="icon-Burger_Nav" />
-                        </IconButton>
-                    </li>
-                    <li>
-                        <IconButton className={classes.iconButton} onClick={openNotificationDrawer}>
-                            <i className="icon-Notifications_Nav" />
-                        </IconButton>
-                    </li>
-                    <li>
-                        <IconButton className={classNames(classes.iconButton, classes.iconButtonLast)}>
-                            <i className="icon-Search_Nav" />
-                        </IconButton>
-                    </li>
+                    {showBurgerNav == 'hide'
+                        ? false
+                        : true && (
+                              <li>
+                                  <IconButton className={classes.iconButton} onClick={openMenuDrawer}>
+                                      <i className="icon-Burger_Nav" />
+                                  </IconButton>
+                              </li>
+                          )}
+                    {reverseButtons == 'yes' ? (
+                        <>
+                            <li>
+                                <IconButton className={classes.iconButton}>
+                                    <i className="icon-Search_Nav" />
+                                </IconButton>
+                            </li>
+                            <li>
+                                <IconButton
+                                    className={classNames(classes.iconButton, classes.iconButtonLast)}
+                                    onClick={openNotificationDrawer}
+                                >
+                                    <i className="icon-Notifications_Nav" />
+                                </IconButton>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <IconButton className={classes.iconButton} onClick={openNotificationDrawer}>
+                                    <i className="icon-Notifications_Nav" />
+                                </IconButton>
+                            </li>
+                            <li>
+                                <IconButton className={classNames(classes.iconButton, classes.iconButtonLast)}>
+                                    <i className="icon-Search_Nav" />
+                                </IconButton>
+                            </li>
+                        </>
+                    )}
                     {menuList.map(({ link, name }: propsType, index) => (
                         <li key={index} className={classes.listItem}>
                             <ButtonPrimary className={classes.button} component={Link} to={link}>
@@ -205,7 +239,18 @@ const NavigationMenu: FC<INavigationMenu> = ({
                         className={classNames(classes.container, containerClassName)}
                     >
                         <ul className={classNames(classes.list, customClass)}>{renderMenuList}</ul>
-                        <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
+
+                        {tutorOptions == 'show' ? (
+                            <>
+                                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                    <Typography style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'black',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'2.8rem',paddingTop:'1rem'}}>Rakesh</Typography>
+                                    <Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'#5F5F5F',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography>
+                                    <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
+                                </div>
+                            </>
+                        ) : (
+                            <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
+                        )}
                     </Grid>
                     {showMenuOptions && <BigMenu />}
                     {TopDrawerMenuComponent && (

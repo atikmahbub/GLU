@@ -32,7 +32,7 @@ const TutorClass: React.FunctionComponent = () => {
     ];
     const classes = useStyles();
     return (
-        <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="tutor_upcoming_class_container">
             <ActivityBanner heading={"Upcoming Classes"} image={commonImg.tutorDashboard} date={"29/07/20"} startTime={"9am"} endTime={"10.15am"} activityDesc={"Geography. Igneous, Sedimentary, and Metamorphic rocks"} button1={"Edit"} button2={"Delete"} />
                 {/* <div className="tutor_upcoming_class_subcontainer_1">

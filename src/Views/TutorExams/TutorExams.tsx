@@ -46,8 +46,9 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
         },
     ];
     return (
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
         <div className="tutor_exams_container ">
-            <NavigationMenu menuList={menu} />
+            
             <div className="tutor_exams_subcontainer">
                 <div className="row">
                     <div className="col-md-6 p-0">
@@ -118,6 +119,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
                 <PageFooter padding={true} />
             </div>
         </div>
+        </NavigationMenu>
     );
 };
 export default PersonalSchoolToggle;

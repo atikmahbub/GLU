@@ -23,7 +23,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
     ];
     const daysOffArray = ['03/08/20', '25/08/20'];
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
         <div className="tutor_availablity_container">
             
                 <div className="tutor_availablity_subcontainer">
