@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
+import { registerContext } from './Index';
 
 interface props {
     title: string;
     handler: () => void;
     data: any;
     handleEdit: (edit: number) => void;
-    handleDelete: (delId: number) => void;
 }
-const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit, handleDelete }) => {
+const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit }) => {
+    const context = useContext(registerContext);
+    const deleteHanlder = (i: number) => {
+        const data = { ...context.state };
+        data.student.education.splice(i, 1);
+        context.setState(data);
+    };
     return (
         <div className="info__container">
             {data.map((item: any, i: number) => (
@@ -19,8 +25,12 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, han
                             {title} {i + 1}
                         </Typography>
                         <div className="button-group">
-                            <Button className="text-button" onClick={()=>handleEdit(i)}>Edit</Button>
-                            <Button className="text-button" onClick={()=>handleDelete(i)}>Delete</Button>
+                            <Button className="text-button" onClick={() => handleEdit(i)}>
+                                Edit
+                            </Button>
+                            <Button className="text-button" onClick={() => deleteHanlder(i)}>
+                                Delete
+                            </Button>
                         </div>
                     </div>
                     <Typography variant="h5" className="heading">
