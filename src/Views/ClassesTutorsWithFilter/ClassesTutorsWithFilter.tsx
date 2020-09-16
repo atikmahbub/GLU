@@ -10,7 +10,7 @@ import OutlineButton from '../../components/Button/OutlineButton';
 import Footer from '../Footer/Footer';
 import TutorListBottom from './TutorListBottom';
 import { useHistory } from 'react-router';
-import { studentMenus } from '../../Helper/studentMenus';
+import { parentMenus } from '../../Helper/parentMenus';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -26,14 +26,14 @@ const useStyles = makeStyles((theme) => ({
 const ClassesTutorsWithFilter: React.FunctionComponent = () => {
     const route = useHistory();
     const gotoClasses = () => {
-        route.push('/students/classes');
+        route.push('/parent/classes');
     };
     const gotoTutors = () => {
-        route.push('/students/tutors');
+        route.push('/parent/classes');
     };
     const classes = useStyles();
     return (
-        <NavigationMenu menuList={studentMenus}>
+        <NavigationMenu menuList={parentMenus}>
             <div className="student__classes__tutor classes_page">
                 <div className="filter__row__container">
                     <div className="button__container">
