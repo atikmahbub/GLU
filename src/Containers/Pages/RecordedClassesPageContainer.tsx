@@ -22,7 +22,7 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding title="Recorded Classes" filters={filters} filtersData={filtersData}>
+            <FilterContainer padding sort={false} title="Recorded Classes" filters={filters} filtersData={filtersData}>
                 <CardsGrid>
                     {cards2.map((card, index) => (
                         <ImageCard key={index} {...card} />

@@ -39,6 +39,7 @@ type CardsGridContainerProps = {
     padding?: boolean;
     filters: IFilterElement[];
     filtersData: IFilterDataElement[];
+    sort?: boolean;
 };
 
 const FilterContainer: FC<CardsGridContainerProps> = ({
@@ -47,6 +48,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
     padding,
     filters,
     filtersData,
+    sort,
     children,
 }) => {
     const classes = useStyles({ padding });
@@ -82,10 +84,12 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
                         Filter
                         {getFilterText(activeFilter)}
                     </ButtonPrimary>
-                    <ButtonPrimary className={classes.sortBtn}>
-                        <ExpandMoreIcon />
-                        Sort
-                    </ButtonPrimary>
+                    {sort && (
+                        <ButtonPrimary className={classes.sortBtn}>
+                            <ExpandMoreIcon />
+                            Sort
+                        </ButtonPrimary>
+                    )}
                 </Grid>
             </Grid>
             <Grid container>{children}</Grid>
@@ -96,6 +100,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
 FilterContainer.defaultProps = {
     filters: [],
     filtersData: [],
+    sort: true
 };
 
 export default FilterContainer;

@@ -23,7 +23,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding title="Live Classes" filters={filters} filtersData={filtersData}>
+            <FilterContainer padding sort={false} title="Live Classes" filters={filters} filtersData={filtersData}>
                 <CardsGrid>
                     {cards2.map((card, index) => (
                         <ImageCard key={index} {...card} />
