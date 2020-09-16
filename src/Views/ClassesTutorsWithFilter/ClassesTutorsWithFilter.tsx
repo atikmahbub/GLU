@@ -17,6 +17,7 @@ import UpcomingClassCardParent from '../../components/Cards/UpcomingClassCardPar
 import Women from "../../Assets/images";
 import Tabs from './Tabs';
 import Classes from './Classes';
+import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 
 const useStyles = makeStyles((theme) => ({
     filterContainer: {
@@ -43,7 +44,7 @@ const ClassesTutorsWithFilter: React.FunctionComponent = () => {
     }
     
     return (
-        <NavigationMenu menuList={parentMenus}>
+        <NavigationMenu menuList={parentMenus} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
             <div className="student__classes__tutor classes_page">
                 <div className="filter__row__container">
                     <div className="button__container">

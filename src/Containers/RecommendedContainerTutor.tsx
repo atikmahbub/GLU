@@ -57,7 +57,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
             </Grid>
             <CardsGrid>
                 {data.map((card, index) => (
-                    <Link to="/parent/tutors/tutor"> 
+                    <Link to="/parent/tutors/tutor" style={{textDecoration: "none", color:"black"}}> 
                          <ImageCard {...card} key={index} rootClassName={classes.imageContainerRoot} />
                     </Link>
                 ))}

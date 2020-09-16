@@ -6,6 +6,8 @@ import NextClassCard from '../../components/Cards/NextClassCard';
 import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
 import RecommendedContainer from '../RecommendedContainer';
 import RecommendedContainerTutor from '../RecommendedContainerTutor';
+// import RecommendedContainerClasses from '../RecommendedContainerClasses';
+
 
 import UpcomingClassCardParent from '../../components/Cards/UpcomingClassCardParent';
 import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';

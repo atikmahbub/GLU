@@ -14,6 +14,7 @@ import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import ParentIndividualHomeworkBanner from '../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner';
 import DateAndResources from '../../components/ParentIndividualHomeWork/DateAndResources';
+import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -38,11 +39,20 @@ const ParentDashboard: React.FunctionComponent = () => {
         setOpenPushDrawer(!openPushDrawer);
     };
  
+    const menu = [
+        { link: '/parent/home', name: 'Home' },
+        { link: '/parent/dashboard', name: 'Dashboard' },
+        { link: '', name: 'Subject' },
+        { link: '', name: 'Messages' },
+    ]; 
+  
     return (
+        <NavigationMenu absolute background="transparent" menuList={menu}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
+
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
 
             <div className="parent_dashboard_container">
-                <div className="navigation__menu">
+                {/* <div className="navigation__menu">
                     <NavigationMenu 
                         menuList={navigations} 
                         handler={handleDrawer} 
@@ -50,7 +60,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                         MenuDrawerComponent={<SlidingDrawerContent />} 
                         menuDrawerWidth="68.875rem"
                         menuDrawerAnimation={false}/>
-                </div>
+                </div> */}
                 <div className="main_container">
                     <div className="title__container">
                         <Tabs value={activeTab} onChange={setActiveTab} />
@@ -96,6 +106,7 @@ const ParentDashboard: React.FunctionComponent = () => {
                 </div>
             </div>
         </DrawerProvider>
+    </NavigationMenu>
 
     );
 };
