@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     },
     detailsText: {
         fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     labelText: {
         display: 'inline-block',
@@ -15,16 +16,19 @@ const useStyles = makeStyles({
         fontSize: '1.5625rem',
         font: 'normal normal normal 25px/30px CircularXXSub-RegularSubset',
         marginBottom: '0',
+        fontFamily: 'CircularXXWeb-Book',
     },
     btnContainer: {
         display: 'inline-block',
         transform: 'translateX(40rem)',
+        fontFamily: 'CircularXXWeb-Book',
     },
     infoText: {
         fontSize: '2.265rem',
         width: '23.81rem',
         lineHeight: 1,
         marginTop: '0.5625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     hr: {
         marginTop: '2.5rem',
@@ -41,6 +45,7 @@ const useStyles = makeStyles({
         boxSizing: 'border-box',
         display: 'inline-block',
         marginBottom: '6.0625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 

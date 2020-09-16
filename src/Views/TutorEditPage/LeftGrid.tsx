@@ -5,6 +5,7 @@ import SmallTextButton from './SmallTextButton';
 const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     leftGrid: {
         // float: 'left',
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
     confirm: {
         marginTop: '50.5625rem',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     upload: {
         fontSize: '1.25rem',
@@ -28,6 +30,7 @@ const useStyles = makeStyles({
         boxSizing: 'border-box',
         display: 'inline-block',
         marginRight: '1.875rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 

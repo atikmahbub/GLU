@@ -22,7 +22,10 @@ const StudentHomeworkHeader = () => {
         <div>
             <Grid container className={classes.mainGrid} spacing={6}>
                 <Grid item xs={12} md={6} className={classes.leftGrid}>
-                    Joshua Lee
+                    Joshua Lee{' '}
+                    <span style={{ marginLeft: '2rem', width: '30px', height: '30px', fontSize: '30px' }}>
+                        <i className="icon-Message"></i>
+                    </span>
                 </Grid>
                 <Grid item xs={12} md={6} className={classes.rightGrid}>
                     Maths. <br />

@@ -32,8 +32,9 @@ const useStyles = makeStyles({
     },
     addPhotoText: {
         fontSize: '1.5625rem',
-        width: '19.9379rem',
+        width: '100%',
         height: '33px',
+        fontFamily: 'CircularXXWeb-Book',
     },
     upload: {
         fontSize: '1.25rem',
@@ -46,22 +47,26 @@ const useStyles = makeStyles({
         marginTop: '1.53125rem',
         boxSizing: 'border-box',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
     smallText: {
         display: 'inline-block',
         marginLeft: '1.875rem',
         transform: 'translateY(-0.1rem)',
+        fontFamily: 'CircularXXWeb-Book',
     },
     bio: {
         marginTop: '5.726875rem',
         width: '55.375rem',
         marginBottom: '5.3125rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     bioText: {
-        fontSize:'1.5625rem',
-        lineHeight:'1.8125rem',
+        fontSize: '1.5625rem',
+        lineHeight: '1.8125rem',
         fontFamily: 'CircularXXWeb-Book',
         marginBottom: '1rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     pad: {
         paddingRight: '3.1875rem',

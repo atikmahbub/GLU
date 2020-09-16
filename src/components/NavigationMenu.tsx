@@ -34,6 +34,7 @@ const useStyles = makeStyles(({ transitions }) => ({
         transition: ({ topMenuDrawer }: any) =>
             !topMenuDrawer ? transitions.create(['background-color'], { duration: 400 }) : 'none',
         padding: 'calc(1.6875rem - 12px) 3.125rem',
+        paddingLeft: 'calc(3.125rem - 12px)',
     },
     list: {
         display: 'flex',

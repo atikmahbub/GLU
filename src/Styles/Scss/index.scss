@@ -6,7 +6,7 @@
 @import './authCard.scss';
 @import './component.scss';
 @import './datatable.scss';
-@import './calender.scss';
+
 @import './loader';
 @import './tostAlert';
 @import './rangeCalender';
@@ -65,9 +65,9 @@
 @import '../../Views/PersonalSchoolMain/style.scss';
 @import '../../Views/SchoolTimeTable/style.scss';
 @import '../../Views/TutorAvailablity/style.scss';
-@import "../../Views/TutorUpcommingClass/style.scss";
-@import "../../Views/TutorReviews/style.scss";
-@import "../../Views/TutorRecommend/style.scss";
+@import '../../Views/TutorUpcommingClass/style.scss';
+@import '../../Views/TutorReviews/style.scss';
+@import '../../Views/TutorRecommend/style.scss';
 @import './timetable';
 @import './userDetails.scss';
 
@@ -79,3 +79,5 @@
 @import '../../Views/TutorTotalRecommendations/style.scss';
 @import '../../Views/TutorClasses/style.scss';
 @import '../../Views/TutorHomework/style.scss';
+
+@import '../../Views//TutorCalender/styles.scss';
