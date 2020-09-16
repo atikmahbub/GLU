@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     },
     btnContainer: {
         display: 'inline-block',
-        transform: 'translateX(39.5rem)',
+        transform: 'translateX(40.5rem)',
     },
     infoText: {
         fontSize: '2.265rem',

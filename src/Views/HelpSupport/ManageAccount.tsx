@@ -16,7 +16,7 @@ const ManageAccount = () => {
                         How to manage <br /> your accont
                     </Typography>
                     <div className="link__container">
-                        <Link className="icon" />
+                        <i className="icon-Copy_Link"></i>
                         <Typography className="title">Copy link</Typography>
                     </div>
                 </div>
