@@ -5,7 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import TopDrawerMenuContent from '../../Containers/Menus/TopDrawerMenuContent';
 import { studentMenus } from '../../Helper/studentMenus';
-import { getColor } from '../../Helper/studentModule';
+import { getColor } from '../../Helper/styles';
 
 const useStyles = makeStyles({
     root: {
