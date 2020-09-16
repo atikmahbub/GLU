@@ -14,7 +14,7 @@ function createMenuListItem(name: string, link: string): menuListItem {
 export function createLeftDrawerMenuList(userType: string): menuListItem[] {
     return [
         createMenuListItem('Live Classes',  `/${userType}/live-classes`),
-        createMenuListItem('Recorded Classes', `/${userType}/recorder-classes`),
+        createMenuListItem('Recorded Classes', `/${userType}/recorded-classes`),
         createMenuListItem('Tutors', `/${userType}/tutors`),
         createMenuListItem('Shop', `/${userType}/shop`)
     ]
