@@ -14,34 +14,15 @@ import { createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme)
 
-// theme.typography.h4 = {
-//     fontSize: '7.5rem',
-//     lineHeight: '7.5rem',
-//   '@media (max-width:750px)': {
-//     fontSize: '1.5rem',
-//   },
-
-//   '@media (min-width:750px)': {
-//     fontSize: '1rem',
-//   },
-//   [theme.breakpoints.up('md')]: {
-//     fontSize: '2.4rem',
-//   },
-
-//   [theme.breakpoints.up('sm')]: {
-//     fontSize: '2rem',
-//   },
-// };
-
-
 const useStyles = makeStyles({
     body: {
         position: 'relative',
         backgroundColor: '#5E5558',
         minWidth: '100%',
         // minHeight: '1000px',
-        border: '2px solid black',
+        border: '2px solid #5E5558',
         fontFamily: 'CircularXXWeb-Book',
+        paddingBottom: "50px",
     },
     imageGridContainer: {
         [theme.breakpoints.down('sm')]: {
@@ -51,10 +32,11 @@ const useStyles = makeStyles({
     imageContainer: {
         padding: 0,
         marginTop: '14vh',
+        marginLeft: '25px',
         float: 'left',
         width: '33.437rem',
         height: '34.062rem',
-        border: "2px solid red",
+        // border: "2px solid red",
         [theme.breakpoints.down('sm')]: {
             marginTop: '10px',
             width: '70vw'
@@ -69,23 +51,26 @@ const useStyles = makeStyles({
         marginLeft: '20px',
         marginTop: '14vh',
         color: 'white',
-        fontSize: '3vh',
+        fontSize: '2.625rem',
         minWidth: '100%'
     },
     titleColumn: {
         maxHeight: "200px",
     },
     secondHeader: {
-        marginTop: '-18vh',
+        marginTop: '-10vh',
         marginLeft: '20px',
-        lineHeight: '6vw',
-        fontSize: '6vw',
         color: 'white',
         width: '100%',
         fontFamily: 'CircularXXWeb-Book',
         [theme.breakpoints.down('sm')]: {
             marginTop: '20px',
         },
+    },
+    bigTitle: {
+        fontFamily: 'CircularXXWeb-Book',
+        fontSize: "7.5rem",
+        lineHeight: "7.5rem",
     },
     gridContainer1: {
         width: '100%',
@@ -100,29 +85,39 @@ const useStyles = makeStyles({
         display: 'flex',
     },
     favoriteBox: {
-        marginLeft: '20px',
-        display: 'flex'
+        marginLeft: "7px",
+        display: 'flex',
+    },
+    favoriteText: {
+        fontSize: '1.25rem',
     },
     basicAdvance: {
+        display: "flex",
+        alignItems: "center",
+        // width: "287px",
         padding: 0,
         color: 'white',
         position: 'absolute',
         bottom: '5px',
         left: '20px',
-    }
+        fontSize: "1.562rem",
+        marginTop: '146px',
+    },
+    rating: {
+        fontSize: "1.562rem",
+        marginLeft: "10px",
+    },
+    primarySecondaryText: {
+        fontSize: "1.562rem",
+        marginLeft: "32px",
+    },
 });
 
 const ParentIndividualTutorBanner: FC = () => {
     const classes = useStyles();
     const [height, setHeight] = useState(1000);
-    // const [width, setWidth] = useState('100%'); // Keeping for the future use.
-
     const updateWindowDimensions = () => {
         let height = window.innerHeight;
-        /* Can be used later
-    s    if(window.innerWidth < 600) {
-          height = 1100;
-        } */
         setHeight(height);
         //   setWidth(window.innerWidth);
     }
@@ -152,26 +147,21 @@ const ParentIndividualTutorBanner: FC = () => {
                         </Grid>
                     </Grid>
                     <div className={classes.secondHeader} >
-                        <div >
-                            Moly Pearce
-                    </div>
-                        <div >
-                            Dubai, UAE
-                    </div>
+
+                        <Typography className={classes.bigTitle}>Moly Pearce <br /> Dubai, UAE</Typography>
                         <div className={classes.iconBox}>
-                            <div className={classes.starBox}>
-                                <StarBorder />
-                                <Typography style={{ marginLeft: '7px' }} >5/5</Typography>
-                            </div>
+
                             <div className={classes.favoriteBox}>
                                 <FavoriteBorder />
-                                <Typography style={{ marginLeft: '7px' }} >Favorite</Typography>
+                                <Typography style={{ marginLeft: '7px' }} className={classes.favoriteText}>Favorite</Typography>
                             </div>
                         </div>
                     </div>
                     <div className={classes.basicAdvance}>
-                        Primary, Secondary
-                </div>
+                        <StarBorder />
+                        <Typography className={classes.rating}>5/5 </Typography>
+                        <Typography className={classes.primarySecondaryText}>Primary, Secondary </Typography>
+                    </div>
                 </div>
             </React.Fragment>
         </MuiThemeProvider>

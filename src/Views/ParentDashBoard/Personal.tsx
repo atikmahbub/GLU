@@ -51,7 +51,7 @@ export default function Personal() {
                     </div>
                 </div>
 
-                <ParentIndividualTutorBanner/>
+                {/* <ParentIndividualTutorBanner/> */}
 
                 {/* Reusable Component  */}
                 <div className="row wallet__date__container">
