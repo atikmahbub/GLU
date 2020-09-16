@@ -18,6 +18,7 @@ export const routes = [
     createRouteObj('/parent/tutors', TutorList),
     createRouteObj('/parent/tutors/tutor', ParentTutor),
     createRouteObj('/parent/recorded-classes', ClassesTutorsWithFilter),
+    createRouteObj('/parent/classes', ClassesTutorsWithFilter),
     createRouteObj('/parent/previous-classes', ParentPreviousClasses)
 
 ];
