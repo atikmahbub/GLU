@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
+import SlidingDrawerContent from './SlidingDrawerContent';
+import Drawer from './Drawer';
 
 const TotalClasses = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
+
     const imageMetaDeta = [
         {
             title: (
@@ -140,12 +144,22 @@ const TotalClasses = () => {
 
         },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    };
     return (
         <div className="total__classes">
             <div  className="row">
                 {imageMetaDeta.map((item: any, index) => (
                     <div key={index} className="col-md-3 mb-5">
                         <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
+                        {/* <Drawer
+                            open={openDrawer}
+                            onClose={handleDrawer}
+                            width="68.875rem"
+                            heading={true}>
+                            <SlidingDrawerContent />
+                        </Drawer> */}
                     </div>
                 ))}
             </div>
