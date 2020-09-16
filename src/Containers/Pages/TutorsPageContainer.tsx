@@ -21,7 +21,7 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding title="Tutors" filters={filters} filtersData={filtersData}>
+            <FilterContainer padding sort={false} title="Tutors" filters={filters} filtersData={filtersData}>
                 <CardsGrid>
                     {cards3.map((card, index) => (
                         <ImageCard key={index} {...card} />

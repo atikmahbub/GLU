@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, IconButton, makeStyles } from '@material-ui/core';
-import {  PowerSettingsNew } from '@material-ui/icons';
+import { PowerSettingsNew } from '@material-ui/icons';
 import { useLocation, useHistory } from 'react-router-dom';
 import { resetTokenAndLocalStorage } from '../../Utility/API';
 import commonImg from '../../Assets/images';
@@ -70,10 +70,9 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                     </div>
                 </div>
                 <div className="bages-avatar">
-                  
-                    <img src={Icons.user} width={20} height={22} />
+                    <img src={Icons.user} width={20} height={22} alt="" />
                     <IconButton onClick={resetAuth} className="notification-btn mr-0 ml-4">
-                        <PowerSettingsNew />
+                        <img src={Icons.exit} width={20} height={22} alt="" />
                     </IconButton>
                 </div>
             </div>

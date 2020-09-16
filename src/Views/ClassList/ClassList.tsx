@@ -83,7 +83,7 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                                 variant="outlined"
                                 rounded
                                 fullWidth={false}
-                                icon={<SearchIcon />}
+                                icon={<i className="icon-Search_Nav" />}
                             />
                         </Grid>
                     </Grid>
