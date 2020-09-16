@@ -32,7 +32,7 @@ const Index = () => {
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <Typography className={classes.heading}>Teachers Information</Typography>
-                        <UploadMaxSize />
+                        <UploadMaxSize onClick={()=>{}} />
                         <InputWithLabel fieldName="First Name" />
                         <InputWithLabel fieldName="Last Name" />
                         <Grid container spacing={2}>
@@ -40,15 +40,15 @@ const Index = () => {
                                 <InputWithLabel fieldName="Email" placeholder="sample@gmail.com" />
                             </Grid>
                             <Grid item xs={12} md={4}>
-                                <SelectWithLabel fieldName="Mobile number" />
+                                <SelectWithLabel options={[]} fieldName="Mobile number" />
                             </Grid>
                         </Grid>
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={8}>
-                                <SelectWithLabel fieldName="Form Group" />
+                                <SelectWithLabel options={[]} fieldName="Form Group" />
                             </Grid>
                             <Grid item xs={12} md={4}>
-                                <SelectWithLabel fieldName="Designation" />
+                                <SelectWithLabel options={[]} fieldName="Designation" />
                             </Grid>
                         </Grid>
                         <ChipAdder fieldName="Departments" />
@@ -57,7 +57,7 @@ const Index = () => {
                         <ChipAdder fieldName="Additional field 1" />
                     </Grid>
                 </Grid>
-                <SaveController activeCom={1} handleNext={() => {}} />
+                <SaveController activeCom={0} visibleAt={1} handleNext={() => {}} />
             </PdBox>
         </CardContainer>
     );

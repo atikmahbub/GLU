@@ -65,7 +65,7 @@ const PermissionList: React.FunctionComponent = () => {
                             id=""
                             name=""
                             value=""
-                            icon={<Search />}
+                            icon={<i className="icon-Search_Nav" />}
                             fullWidth={true}
                             placeholder="Search"
                             onChange={() => {}}

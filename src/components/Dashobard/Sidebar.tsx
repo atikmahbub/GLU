@@ -44,13 +44,14 @@ const Sidebar: React.FunctionComponent<sidebarProps> = ({ NavigationMenu }) => {
     const handleArrowAngle = (menu: any, type: string): React.ReactNode => {
         if (menu.isExpandable) {
             return (
-                <ArrowForwardIos
+                <i
+                className="icon-Right"
                     style={{
                         transform: menu.isOpen ? 'rotate(90deg)' : 'rotate(0)',
                         transition: 'All 0.2s',
                         fontSize: type === 'main' ? 15 : 10,
                     }}
-                    className="arrows"
+                    
                 />
             );
         } else {

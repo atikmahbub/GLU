@@ -27,7 +27,7 @@ const StaffList: React.FunctionComponent = () => {
             },
         });
     };
-    const redirectDetails = (id:number) => {
+    const redirectDetails = (id: number) => {
         routes.push({
             pathname: routeEndpoints.staff.details,
         });
@@ -37,7 +37,7 @@ const StaffList: React.FunctionComponent = () => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Staffs" btnIcon={<Add />} btnTitle="Add New Staff" trigger={handleRoutes} />
+                <AddButton title="Staffs" btnIcon={<Add />} btnTitle="Add New Staff" />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -79,10 +79,10 @@ const StaffList: React.FunctionComponent = () => {
                                     field: 'action',
                                     render: (rowData: any) => (
                                         <ActionToolbar
-                                        showDetail={true}
-                                        detailClick={() => redirectDetails(rowData.id)}
-                                        deleteClick={() => handleDelete(rowData.id)}
-                                        editClick={() => handleEdit(rowData)}
+                                            showDetail={true}
+                                            detailClick={() => redirectDetails(rowData.id)}
+                                            deleteClick={() => handleDelete(rowData.id)}
+                                            editClick={() => handleEdit(rowData)}
                                         />
                                     ),
                                 },

@@ -55,7 +55,7 @@ const CardTable = ({
                 tableLayout:'auto'
             }}
             icons={{
-                Search: () => <Search />,
+                Search: () => <i className="icon-Search_Nav" />,
                 ResetSearch: () => <Clear style={{ fontSize: 15 }} />,
                 Export: () => <CloudDownloadOutlined />,
             }}

@@ -36,7 +36,7 @@ const NavigationMenuReusable: React.FunctionComponent<props> = ({
                     </li>
                     <li>
                         <IconButton className="icon-button">
-                            <Search className="icon" />
+                        <i className="icon-Search_Nav" />
                         </IconButton>
                     </li>
                     {menuList.map((item: propsType) => (
