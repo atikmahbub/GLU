@@ -5,7 +5,7 @@ import FilterContainer from '../../../Containers/FilterContainer';
 import PageFooter from '../../../components/PageFooter';
 import ImageCard from '../../../components/Cards/ImageCard';
 import CardsGrid from '../../../Containers/CardsGrid';
-import { cards, filters, filtersData } from './data';
+import { cards, filters, filtersData } from '../../../data/filters';
 
 const useStyles = makeStyles({
     cardsGridContainerRoot: {

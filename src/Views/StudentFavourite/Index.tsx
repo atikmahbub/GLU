@@ -4,10 +4,11 @@ import NavigationMenu from '../../components/NavigationMenu';
 import { menus } from '../../Helper/menus';
 import DashboardWrapper from '../../Containers/DashboardWrapper';
 import CardHolder from './CardHolder';
+import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 
 const Index: React.FunctionComponent = () => {
     return (
-        <NavigationMenu menuList={menus}>
+        <NavigationMenu menuList={menus} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="students" />}>
             <div className="school__fav">
                 <DashboardWrapper>
                     <p className="heading">Favourites</p>

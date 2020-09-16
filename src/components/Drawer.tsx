@@ -11,6 +11,7 @@ const useStyles = makeStyles({
         width: ({ width, position }: any) => position === 'top' ? '100%' : width,
         padding: '0 3.125rem 1.75rem 3.125rem',
         minHeight: '-webkit-fit-content',
+        height: ({ fullHeight }: any) => fullHeight ? '100%' : 'fit-content'
     },
     buttonContainer: {
         width: '100%',
@@ -38,6 +39,7 @@ export interface IDrawer extends DrawerProps {
     contentClassName?: string;
     rootClassName?: string;
     header?: boolean;
+    fullHeight?: boolean;
     children: ReactNode;
 }
 
@@ -50,10 +52,11 @@ const Drawer: FC<IDrawer> = ({
     headerComponent,
     contentClassName,
     rootClassName,
+    fullHeight,
     children,
     ...props
 }) => {
-    const classes = useStyles({ width, position });
+    const classes = useStyles({ width, position, fullHeight });
     return (
         <MuiDrawer anchor={position} open={open} variant="temporary" className={rootClassName} {...props}>
             <Grid container direction="column" wrap="nowrap" className={classNames(classes.content, contentClassName)}>
