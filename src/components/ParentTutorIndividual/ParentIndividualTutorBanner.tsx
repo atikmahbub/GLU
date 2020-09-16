@@ -49,18 +49,20 @@ const useStyles = makeStyles({
         },
     },
     imageContainer: {
+        padding: 0,
         marginTop: '14vh',
         float: 'left',
-        width: '28vw',
-        height: '50vh',
+        width: '33.437rem',
+        height: '34.062rem',
+        border: "2px solid red",
         [theme.breakpoints.down('sm')]: {
             marginTop: '10px',
             width: '70vw'
         },
     },
     image: {
-        width: '100%',
-        height: '100%',
+        width: '33.437rem',
+        height: '34.062rem',
         objectFit: 'cover',
     },
     title: {
