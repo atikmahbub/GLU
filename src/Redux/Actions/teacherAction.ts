@@ -1,9 +1,10 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST, TEACHER_DETAILS } from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
+import { dispatch } from '../Store/Store';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -58,7 +59,15 @@ export const editTeacherAPIcall = (data: any, editId: number, history: any) => {
             });
     };
 };
-
+export const getTeacherSkills=()=>{
+    return(dispatch:any)=>{
+        API.get(endponts.getSkill).then((res)=>{
+            dispatch(getSkillAction(res.data.Skills))
+        }).catch((err)=>{
+            handleError(dispatch, err);
+        })
+    }
+}
 export const deleteTeacherAPIcall = (deleteId: number) => {
     return (dispatch: any) => {
         API.delete(`${endponts.teacher}/${deleteId}`)
@@ -72,7 +81,12 @@ export const deleteTeacherAPIcall = (deleteId: number) => {
             });
     };
 };
-
+export const getSkillAction=(data:any)=>{
+    return {
+        type:GET_TEACHER_SKILLS,
+        payload:data
+    }
+}
 
 export const getTeacherDetailsAPIcall = (id:number) => {
     return (dispatch: any) => {

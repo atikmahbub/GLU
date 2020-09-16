@@ -2,7 +2,7 @@ import { BannerCardElement, DateSubjectCardElement, ImageCardElement } from '../
 
 export const bannerCards: BannerCardElement[] = [
     {
-        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607732/typinggirl_gn2k2n.jpg',
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607725/smilegirl_stfagl.jpg',
         name: 'Charlie Ray',
         subject: 'Maths.',
         description: 'An introduction to trigonometry',

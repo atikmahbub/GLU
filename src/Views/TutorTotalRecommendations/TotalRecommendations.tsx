@@ -3,6 +3,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
+import PageFooter from '../../components/PageFooter';
 import MadeBy from '../Footer/MadeBy';
 const TutorClass: React.FunctionComponent = () => {
     const menu = [
@@ -106,16 +107,18 @@ const TutorClass: React.FunctionComponent = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <Link to="/tutor/recommend" style={{textDecoration:'none',color:'black'}}>
                                 <div className="create_button" >
-                                   <Link to="/tutor/recommend" style={{textDecoration:'none',color:'black'}}><Typography className="total_recommend_smalltext">Create</Typography></Link> 
+                                   <Typography className="total_recommend_smalltext">Create</Typography>
                                 </div>
+                                </Link> 
                             </div>
                         </div>
                         <div className="col-md-6 p-0 left_border">
                             <div className="total_recommend_container_2">
                                 <div className="big_text">
                                     <Typography className="total_recommend_bigtext">
-                                        Total Recommended<br></br> 57
+                                        Total Recommended<br></br>57
                                     </Typography>
                                 </div>
                                 <div className="total_recommend_list_container">
@@ -167,11 +170,9 @@ const TutorClass: React.FunctionComponent = () => {
                     </div>                   
                 </div>
             </div>
-            <div className="profile_footer">
-                    <div className="footer">
-                        <MadeBy />
-                    </div>
-                </div>
+            <div className="commonWhiteFooter">
+                <PageFooter/>
+            </div>
            
         </NavigationMenu>
     );

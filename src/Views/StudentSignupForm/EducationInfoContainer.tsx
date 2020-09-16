@@ -5,14 +5,17 @@ import { registerContext } from './Index';
 
 const EducationInfoContainer = () => {
     const context = useContext(registerContext);
-    const length = context.student.education.length;
+    let length = context.student.education.length - 1;
+    if(context.editMode){
+        length = context.currentActive;
+    }
     return (
         <div className="row">
             <div className="col-lg-12">
                 <TextField
                     className="line-input mb-3"
                     label="School/College"
-                    value={context.student.education[length - 1].schoolName}
+                    value={context.student.education[length].schoolName}
                     onChange={context.studentHandler.schoolName}
                     fullWidth
                 />
@@ -21,7 +24,7 @@ const EducationInfoContainer = () => {
                 <TextField
                     className="line-input mb-3"
                     label="Qualification"
-                    value={context.student.education[length - 1].qualification}
+                    value={context.student.education[length].qualification}
                     onChange={context.studentHandler.qualification}
                     fullWidth
                 />
@@ -30,19 +33,19 @@ const EducationInfoContainer = () => {
                 <TextField
                     className="line-input mb-3"
                     label="Field of Study"
-                    value={context.student.education[length - 1].course}
+                    value={context.student.education[length].course}
                     onChange={context.studentHandler.course}
                     fullWidth
                 />
             </div>
             <div className="col-lg-6">
                 <DateSelector
-                    value={context.student.education[length - 1].from}
+                    value={context.student.education[length].from}
                     handler={context.studentHandler.from}
                 />
             </div>
             <div className="col-lg-6">
-                <DateSelector value={context.student.education[length - 1].to} handler={context.studentHandler.to} />
+                <DateSelector value={context.student.education[length].to} handler={context.studentHandler.to} />
             </div>
         </div>
     );

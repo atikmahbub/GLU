@@ -11,12 +11,14 @@ const DeviceScroll: React.FunctionComponent<props> = ({ image, containerName }) 
         window.addEventListener('scroll', () => {
             const deviceContainer = document.querySelector(`#${containerName}`);
             const bounding: any = deviceContainer?.getBoundingClientRect();
-            const winwowHeight = window.innerHeight || document.documentElement.clientHeight;
-            if (winwowHeight - bounding.top >= 400 && bounding.bottom > 0) {
-                let scrollAt = bounding.top - winwowHeight + 400;
-                (device as any).current.style.cssText = `will-change: transform;
+            if (bounding !== null && bounding !== undefined) {
+                const winwowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (winwowHeight - bounding.top >= 400 && bounding.bottom > 0) {
+                    let scrollAt = bounding.top - winwowHeight + 400;
+                    (device as any).current.style.cssText = `will-change: transform;
                 transform: translate3d(0px, ${scrollAt}px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
                 transform-style: preserve-3d;`;
+                }
             }
         });
     }, []);

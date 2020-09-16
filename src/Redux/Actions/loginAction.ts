@@ -34,7 +34,7 @@ export const userLoginAPIcall = (data: loginAuth, history: any) => {
     };
 };
 
-export const userLogin = (data: loginData): appAction => {
+export const userLogin = (data: any): appAction => {
     return {
         type: USER_LOGIN,
         payload: data,

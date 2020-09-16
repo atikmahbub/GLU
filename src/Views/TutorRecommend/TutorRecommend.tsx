@@ -5,6 +5,7 @@ import ReusableBanner from '../../components/ReusableBanner';
 import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import AddCancelButton from '../TutorAvailablity/AddCancelButton'
+import PageFooter from '../../components/PageFooter';
 import MadeBy from '../Footer/MadeBy';
 const TutorRecommend: React.FunctionComponent = () => {
     const menu = [
@@ -67,11 +68,9 @@ const TutorRecommend: React.FunctionComponent = () => {
                 </div>
             </div>
         </div>
-        <div className="profile_footer">
-            <div className="footer">
-                <MadeBy />
+        <div className="commonFooter">
+                <PageFooter/>
             </div>
-        </div>
     </div>
     </NavigationMenu>
     );
