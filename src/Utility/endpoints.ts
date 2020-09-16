@@ -20,5 +20,6 @@ export const endponts = {
     uploadFileName: '/file-upload/uploads',
     register: '/auth/register',
     studentEdu: '/student/qualification',
-    registerPhone: '/user/phone/'
+    registerPhone: '/user/phone/',
+    verifyOtp: '/user/verify/phone/'
 };
