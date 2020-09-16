@@ -26,7 +26,9 @@ const useStyles = makeStyles({
     },
 });
 
-interface IUpcomingClassCard extends UpcomingClassCardElement {}
+interface IUpcomingClassCard extends UpcomingClassCardElement {
+    addButton?: boolean;
+}
 
 const UpcomingClassCard: FC<IUpcomingClassCard> = ({
     img,
@@ -37,15 +39,13 @@ const UpcomingClassCard: FC<IUpcomingClassCard> = ({
     name,
     subject,
     subTitle,
+    addButton,
 }) => {
     const classes = useStyles();
     return (
         <Grid container className={classes.root}>
             <Grid container item xs={5}>
-                <AspectRatioImgCard
-                    img={img}
-                    ratio="76%"
-                />
+                <AspectRatioImgCard img={img} ratio="76%" />
             </Grid>
             <Grid container item xs={7} className={classes.content}>
                 <Grid container direction="column" justify="space-between">
@@ -68,13 +68,17 @@ const UpcomingClassCard: FC<IUpcomingClassCard> = ({
                             />
                         </Grid>
                         <Grid container justify="flex-end" item xs={2}>
-                            <i className={classNames('icon-Add', classes.iconAdd)} />
+                            {addButton && <i className={classNames('icon-Add', classes.iconAdd)} />}
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
     );
+};
+
+UpcomingClassCard.defaultProps = {
+    addButton: true,
 };
 
 export default memo(UpcomingClassCard);

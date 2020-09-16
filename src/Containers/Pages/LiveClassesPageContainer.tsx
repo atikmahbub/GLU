@@ -40,6 +40,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
                 description="How to structure narrative in fiction."
                 name="Jeff Lee"
                 subTitle="AED200"
+                addButton={false}
             />
             <CardsGridContainer>
                 <CardsGrid>
@@ -57,6 +58,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
                 description="How to structure narrative in fiction."
                 name="Jeff Lee"
                 subTitle="AED200"
+                addButton={false}
             />
             <CardsGridContainer>
                 <CardsGrid>
