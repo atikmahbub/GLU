@@ -38,9 +38,9 @@ const UpcomingClass = () => {
         <div className={classes.imgBox}>
             <img src={image.maggie} alt="preview" className={classes.img} />
             <div style={{ width: '100%' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '21px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '19px' }}>
                     <Typography className={classes.headText}>
-                        <span style={{ marginRight: '4px' }}>
+                        <span style={{ marginRight: '6px' }}>
                             <FiberManualRecordIcon />
                         </span>
                         9.00-11.30am

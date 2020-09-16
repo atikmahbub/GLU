@@ -10,13 +10,14 @@ interface props {
     DueOrComplete?:string;
     submissions?:string;
     isSubmitted?:boolean;
+    linkurl?:string;
 }
-const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjectDesc,desc,submissions,isSubmitted,DueOrComplete}) => {
+const HomeworkStatusList: React.FunctionComponent<props> = ({date,subject,subjectDesc,desc,submissions,isSubmitted,DueOrComplete,linkurl}) => {
     return (
         <>
             <div className="reusable_homework_main">
                 <div className="homework_main_title">
-                    <Typography className="tutor_homework_main_text">{subject}</Typography>
+                   <Link to={linkurl} style={{textDecoration:'none',color:'black'}}> <Typography className="tutor_homework_main_text">{subject}</Typography></Link>
                     <Typography className="tutor_homework_main_text">{subjectDesc}</Typography>
                 </div>
                 <div className="homework_main_subtitle">

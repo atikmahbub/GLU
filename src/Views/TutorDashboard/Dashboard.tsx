@@ -34,6 +34,7 @@ const Dashboard: React.FunctionComponent = () => {
                                     subheading2={'Fully Booked'}
                                     subject={'Geography.'}
                                     desc={'Igneous, Sedimentary,'}
+                                    linkurl={'/tutor/tutor-upcoming-classes'}
                                 />
                             </div>
                         </div>

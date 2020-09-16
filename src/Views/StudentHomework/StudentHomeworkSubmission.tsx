@@ -20,25 +20,30 @@ const useStyles = makeStyles({
     },
     commonText: {
         fontSize: '1.5625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     bigText: {
         fontSize: '2.625rem',
         lineHeight: 1,
+        fontFamily: 'CircularXXWeb-Book',
     },
     commonTextSub: {
         fontSize: '1.5625rem',
         lineHeight: 1,
         marginTop: '1.6rem',
         width: '80%',
+        fontFamily: 'CircularXXWeb-Book',
     },
     smallText: {
         fontSize: '1.25rem',
         marginTop: '1.8rem',
         color: '#5F5F5F',
+        fontFamily: 'CircularXXWeb-Book',
     },
     smallText2: {
         fontSize: '1.25rem',
         color: '#5F5F5F',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 

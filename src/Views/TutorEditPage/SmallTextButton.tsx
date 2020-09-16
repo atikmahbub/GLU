@@ -6,6 +6,7 @@ const useStyles = makeStyles({
         fontSize: '20px',
         color: '#5F5F5F',
         display: 'inline-block',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 

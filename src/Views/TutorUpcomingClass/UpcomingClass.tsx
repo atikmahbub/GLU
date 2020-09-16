@@ -2,6 +2,7 @@ import React from 'react';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { makeStyles, Typography } from '@material-ui/core';
 import image from '../../Assets/images';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     headerText: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles({
 
     imageBox: {
         marginRight: '9.8125rem',
-        marginBottom: '3.125rem',
+
         display: 'inline',
     },
 
@@ -70,12 +71,14 @@ const UpcomingClasses = () => {
 
             <div className={classes.mainBox}>
                 <Typography className={classes.headerText}>
-                    <div style={{ transform: 'translateY(-5px)', display: 'inline-block' }}>
+                    <div style={{ transform: 'translate(-4px,-5px)', display: 'inline-block' }}>
                         <FiberManualRecordIcon />
                     </div>
                     Upcoming Classes
                 </Typography>
-                <div className={classes.upload}>Set class</div>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={'/tutor/set-class'}>
+                    <div className={classes.upload}>Set class</div>
+                </Link>
             </div>
             <hr style={{ marginBottom: '51px' }} />
             <div style={{ display: 'flex' }}>
@@ -99,17 +102,19 @@ const UpcomingClasses = () => {
                     <span className={classes.medText}>45 mins</span>
                 </div>
                 <div className={classes.dateBox2}>
-                    <Typography className={classes.headerText}>
-                        Language.
-                        <br />
-                        First look at French for beginners
-                    </Typography>
+                    <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                        <Typography className={classes.headerText}>
+                            Language.
+                            <br />
+                            First look at French for beginners
+                        </Typography>
+                    </Link>
                     <br />
 
                     <div className={classes.medText}>Fully Booked</div>
                 </div>
             </div>
-            <hr style={{ marginLeft: '351px', marginTop: '0', marginBottom: '51px' }} />
+            <hr style={{ marginLeft: '351px', marginTop: '50px', marginBottom: '51px' }} />
             <div>
                 <div style={{ display: 'flex', marginLeft: '351px' }}>
                     <div className={classes.imageBox}>
@@ -127,11 +132,13 @@ const UpcomingClasses = () => {
                         <span className={classes.medText}>45 mins</span>
                     </div>
                     <div className={classes.dateBox2}>
-                        <Typography className={classes.headerText}>
-                            Language.
-                            <br />
-                            First look at French for beginners
-                        </Typography>
+                        <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                            <Typography className={classes.headerText}>
+                                Language.
+                                <br />
+                                First look at French for beginners
+                            </Typography>
+                        </Link>
                         <br />
 
                         <div className={classes.medText}>Fully Booked</div>
@@ -139,7 +146,7 @@ const UpcomingClasses = () => {
                 </div>
             </div>
 
-            <hr style={{ marginBottom: '51px' }} />
+            <hr style={{ marginBottom: '51px', marginTop: '51px' }} />
             <div style={{ display: 'flex' }}>
                 <div className={classes.headerTextBox}>
                     <Typography className={classes.headerText} style={{ width: '241px' }}>
@@ -161,20 +168,22 @@ const UpcomingClasses = () => {
                     <span className={classes.medText}>45 mins</span>
                 </div>
                 <div className={classes.dateBox2}>
-                    <Typography className={classes.headerText}>
-                        Language.
-                        <br />
-                        First look at French for beginners
-                    </Typography>
+                    <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                        <Typography className={classes.headerText}>
+                            Language.
+                            <br />
+                            First look at French for beginners
+                        </Typography>
+                    </Link>
                     <br />
 
                     <div className={classes.medText}>Fully Booked</div>
                 </div>
             </div>
-            <hr style={{ marginLeft: '351px', marginTop: '0', marginBottom: '51px' }} />
+            <hr style={{ marginLeft: '351px', marginTop: '51px', marginBottom: '51px' }} />
             <div>
                 <div style={{ display: 'flex', marginLeft: '351px' }}>
-                    <div className={classes.imageBox} style={{ marginBottom: '150px' }}>
+                    <div className={classes.imageBox}>
                         <img src={image.girlwithlaptop} alt="sedimentary rocks" className={classes.image} />
                     </div>
                     <div className={classes.dateBox}>
@@ -189,11 +198,13 @@ const UpcomingClasses = () => {
                         <span className={classes.medText}>45 mins</span>
                     </div>
                     <div className={classes.dateBox2}>
-                        <Typography className={classes.headerText}>
-                            Language.
-                            <br />
-                            First look at French for beginners
-                        </Typography>
+                        <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                            <Typography className={classes.headerText}>
+                                Language.
+                                <br />
+                                First look at French for beginners
+                            </Typography>
+                        </Link>
                         <br />
 
                         <div className={classes.medText}>Fully Booked</div>

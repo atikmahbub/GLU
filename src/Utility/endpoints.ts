@@ -21,5 +21,6 @@ export const endponts = {
     register: '/auth/register',
     studentEdu: '/student/qualification',
     registerPhone: '/user/phone/',
-    verifyOtp: '/user/verify/phone/'
+    verifyOtp: '/user/verify/phone/',
+    getSkill:'teacher/skill',
 };

@@ -20,7 +20,7 @@ const ActivityBanner: React.FunctionComponent<props> = ({heading,image,date,star
                             <Typography className="activity_text">{heading}</Typography>
                         </div>
                         <div className="sec2">
-                            <img src={image} height="393px" width="393px" className="img-fluid" />
+                            <img src={image} height="393px" width="535px" className="img-fluid" />
                         </div>
                         <div className="sec3">
                             <Typography className="activity_text">{date}</Typography>
