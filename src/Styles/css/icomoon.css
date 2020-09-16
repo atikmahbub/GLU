@@ -26,6 +26,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Exit:before {
+    content: '\e94d';
+}
 .icon-Add:before {
     content: '\e900';
     color: #2267ff;
