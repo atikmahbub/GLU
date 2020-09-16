@@ -1,5 +1,5 @@
 import { API, setAuthrizationToken } from '../../Utility/API';
-import { loginAuth, loginData } from '../Interfaces/auth';
+import { loginAuth } from '../Interfaces/auth';
 import { endponts } from '../../Utility/endpoints';
 import { USER_LOGIN } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
