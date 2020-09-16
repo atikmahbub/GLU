@@ -33,12 +33,7 @@ const SessionList: React.FunctionComponent<props> = ({ triggerModal, availableSe
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton
-                    title="Session"
-                    btnIcon={<Add />}
-                    btnTitle="Add New Session"
-                    trigger={handleRoutes}
-                />
+                <AddButton title="Session" />
             </CardContainer>
             <CardContainer>
                 <div className="bg-white">
