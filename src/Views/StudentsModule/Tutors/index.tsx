@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import RecordedClassesPageContainer from '../../../Containers/Pages/RecordedClassesPageContainer';
+import TutorsPageContainer from '../../../Containers/Pages/TutorsPageContainer';
 
 const Tutors: FC = () => {
     return (
-        <RecordedClassesPageContainer userType="students" title="Tutors" />
+        <TutorsPageContainer userType="students" />
     )
 }
 

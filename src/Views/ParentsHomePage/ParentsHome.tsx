@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import SectionTwoReusable from '../../components/Home/SectionTwoReusable';
-import NextClass from '../../components/NextClass';
+import NextClassMUI from '../../components/NextClassMUI';
 import FeaturedSubjects from '../../components/FeaturedSubjects';
 import FeaturedTutors from '../../components/FeaturedTutors';
 import ClassesRowWithImages from '../../components/ClassesRowWithImages';
@@ -9,90 +8,68 @@ import MadeByFooter from '../../components/MadeByFooter';
 import Tutors from './Tutors';
 import UpcomingClasses from './UpcomingClasses';
 import LiveClasses from './LiveClasses';
-import SlidingDrawer from '../../components/SlidingDrawer';
+import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
+import HomeBanner from '../../components/Home/HomeBanner';
+import BannerCarousel from '../../components/Carousels/BannerCarousel';
+import {
+    bannerCards,
+} from '../../data/homepage';
+
 
 import './style.scss';
 import commonImg from '../../Assets/images';
+import DrawerProvider from '../../Providers/DrawerProvider';
 
 const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
-        { name: 'Home', link: '/parent/homepage' },
+        { name: 'Home', link: '/parent/home' },
         { name: 'Dashboard', link: '/parent/dashboard' },
-        { name: 'Subject', link: '/parent/homepage' },
-        { name: 'Messages', link: '/parent/homepage' },
+        { name: 'Subject', link: '/parent/home' },
+        { name: 'Messages', link: '/parent/home' },
     ];
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
     };
     const handlePushDrawer = () => {
         setOpenPushDrawer(!openPushDrawer);
-        let screen = document.getElementById('root');
-        console.log('===== push drawer clicked ==========', screen);
-
-        //Code for screen left shift
-        // if(false){
-        //     if(openPushDrawer === false && screen){
-        //         // screen.style.marginRight = "32.312rem";
-        //         // screen.style.marginLeft = "-32.312rem";
-        //         // screen.style.transition =  "all 0.75s ease";
-
-        //         // screen.style.transform = `translateX(-32.312rem)`
-        //         screen.style.transform = `translateX(-32.312rem)`
-
-        //         // screen.style.marginLeft = "-32.312rem";
-        //         // screen.style.transition =  "all 0.75s ease";
-        //         screen.style.transition =  "all 0.55s ease";
-        //         // screen.style.transition =  "none";
-
-        //     }
-        //     else{
-        //         screen.style.transform = `translateX(0rem)`
-        //         // screen.style.marginRight = "0px";
-        //         // screen.style.marginLeft = "0px";
-        //         screen.style.transition =  "all 0.75s ease";
-        //     }
-
-        //     // screen.addEventListener("transitionend", function(){
-        //     //     screen.style.transform = '';
-        //     // }, false);
-        // }
     };
     return (
-        <NavigationMenu menuList={navigations} absolute background="transparent" colorWhite>
-            <div className="homepage__wrapper" id="parent__homepage">
+        <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
+            <div className="homepage__wrapper">
                 <div className="drawer">
-                    <SlidingDrawer title="Upcoming Class" show={openDrawer} handler={handleDrawer}>
+                    <Drawer
+                        open={openDrawer}
+                        onClose={handleDrawer}
+                        width="68.875rem"
+                        heading={true}>
                         <SlidingDrawerContent />
-                    </SlidingDrawer>
+                    </Drawer>
                 </div>
-
-                <div className="drawer push__drawer">
-                    <SlidingDrawer title="Upcoming Class" show={openPushDrawer} handler={handlePushDrawer}>
-                        <SlidingPushDrawerContent />
-                    </SlidingDrawer>
+                <div className="navigation__menu">
+                    <NavigationMenu 
+                            menuList={navigations} 
+                            handler={handleDrawer} 
+                            handlerNotification={handlePushDrawer} 
+                            MenuDrawerComponent={<SlidingDrawerContent />} 
+                            menuDrawerWidth="68.875rem"
+                            menuDrawerAnimation={false}
+                            />
                 </div>
-
-                <SectionTwoReusable
+                {/* <BannerCarousel cards={bannerCards} /> */}
+                <HomeBanner
                     image={commonImg.smilegirl}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Charlie Ray"
                     desktopTitle="AED200 / 45mins"
                     title="Tutors"
-                    msg={
-                        <>
-                            Maths.
-                            <br />
-                            An Introduction to trignometry
-                        </>
-                    }
+                    msg={<>Maths.<br />An Introduction to trignometry</>}
                 />
-                <div className="next__class" onClick={handlePushDrawer}>
-                    <NextClass />
-                </div>
+
+                <NextClassMUI />
                 <FeaturedSubjects
                     imageFirstURL={commonImg.chairman}
                     imageFirstTitle="Languages - Johny Duke"
@@ -100,25 +77,20 @@ const index: React.FunctionComponent = () => {
                     imageSecondTitle="Maths - Harry Stannard"
                 />
                 <div className="recorded__class">
-                    <ClassesRowWithImages title="Recorded Classes" />
+                    <ClassesRowWithImages
+                        title="Recorded Classes"
+                        linkTo="/parent/recorded-classes"
+                    />
                 </div>
-                <SectionTwoReusable
+                <HomeBanner
                     image={commonImg.earingGirlWithTab}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Sarah Frost"
                     desktopTitle="AED200 / 45mins"
                     title="Tutors"
-                    msg={
-                        <>
-                            Maths.
-                            <br />
-                            An Introduction to trignometry
-                        </>
-                    }
+                    msg={<>Maths.<br />An Introduction to trignometry</>}
                 />
-                <div className="parent__upcoming__classes__container">
-                    <UpcomingClasses />
-                </div>
+                <UpcomingClasses />
                 <div className="live__classes">
                     <LiveClasses />
                 </div>
@@ -129,24 +101,19 @@ const index: React.FunctionComponent = () => {
                     imageSecondURL={commonImg.blueShirtRedSpecBoy}
                     imageSecondTitle="Maths - Harry Stannard"
                 />
-                <SectionTwoReusable
+                <HomeBanner
                     image={commonImg.laptopgirl}
                     mobileImg={commonImg.curlygirlcroped}
                     leftTitle="Sarah Frost"
                     desktopTitle="AED200 / 45mins"
                     title="Tutors"
-                    msg={
-                        <>
-                            ICT.
-                            <br />
-                            13 Upcomming Classes <br /> 97 Previous Classes
-                        </>
-                    }
+                    msg={<>ICT.<br />13 Upcomming Classes <br /> 97 Previous Classes</>}
                 />
                 <Tutors route="/parent/tutors" />
                 <MadeByFooter />
+
             </div>
-        </NavigationMenu>
+        </DrawerProvider>
     );
 };
 

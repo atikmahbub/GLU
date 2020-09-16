@@ -152,21 +152,25 @@ export const tutorCards: ImageCardElement[] = [
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607722/orangetopgirl_vwy6cq.jpg',
         title: 'Olivia Preston Biology, Chemistry, English +more',
         subTitle: 'AED200 / 45mins',
+        rating: '4/5'
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607719/brownhairman_i2jgph.jpg',
         title: 'Olivia Preston Science, Languages',
         subTitle: 'AED200 / 45mins',
+        rating: '4/5'
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/katoracutting_ulrxqq.jpg',
         title: 'Olivia Preston Biology, Chemistry, English +more',
         subTitle: 'AED200 / 45mins',
+        rating: '4/5'
     },
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg',
         title: 'Olivia Preston Biology, Chemistry, English +more',
         subTitle: 'AED200 / 45mins',
+        rating: '4/5'
     },
 ];
 
