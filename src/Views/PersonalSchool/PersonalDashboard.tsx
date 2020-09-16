@@ -109,8 +109,13 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-6 p-0">
                             <div className="main_container_col11">
+                                <div className="personal_container_day_time">
+                                <div className="personal_container_day">
                                 <Typography className="subtext">Your Day</Typography>
+                                </div><div className="personal_container_time">
                                 <Typography className="subtext">9:21 am</Typography>
+                                </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-6 p-0">

@@ -119,7 +119,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
             </div>
             
             <div className="personal_school_container_2">
-            <div className="tutor_dash_line row"></div>
+                <div className="tutor_dash_line"></div>
                 <div className="row">
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_2_col6">
