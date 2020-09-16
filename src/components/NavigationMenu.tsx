@@ -95,6 +95,7 @@ interface INavigationMenu {
     showBurgerNav?: string;
     reverseButtons?: string;
     tutorOptions?: string;
+    tutorProfileText?:boolean;
 }
 
 const NavigationMenu: FC<INavigationMenu> = ({
@@ -114,6 +115,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
     reverseButtons,
     showBurgerNav,
     tutorOptions,
+    tutorProfileText,
 }) => {
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
@@ -244,7 +246,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                             <>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                                     <Typography style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'black',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'2.8rem',paddingTop:'1rem'}}>Rakesh</Typography>
-                                    <Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'#5F5F5F',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography>
+                                    <Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:!tutorProfileText?'#5F5F5F':'#CFCFCF',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography>
                                     <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
                                 </div>
                             </>
