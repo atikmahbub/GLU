@@ -1,209 +1,179 @@
-import React, { FC, useState, ReactNode, memo } from 'react';
+import React, { FC, useState, useEffect, ReactNode, memo } from 'react';
 import { Typography } from '@material-ui/core';
 import commonImg from '../../Assets/images';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 // import './style.scss';
-import Hidden from '@material-ui/core/Hidden';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import TestImage from "./test.jpg"
+import { createMuiTheme, responsiveFontSizes, MuiThemeProvider, ThemeProvider } from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme)
+
+// theme.typography.h4 = {
+//     fontSize: '7.5rem',
+//     lineHeight: '7.5rem',
+//   '@media (max-width:750px)': {
+//     fontSize: '1.5rem',
+//   },
+
+//   '@media (min-width:750px)': {
+//     fontSize: '1rem',
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '2.4rem',
+//   },
+
+//   [theme.breakpoints.up('sm')]: {
+//     fontSize: '2rem',
+//   },
+// };
 
 
-// const theme = createMuiTheme({
-//     breakpoints: {
-//       values: {
-//         xs: 0,
-//         sm:600,
-//         md: 1450,
-//         lg: 1920,
-//         xl: 2250,
-//       },
-//     },
-//   })
-
-
-const useStyles = makeStyles((theme) => ({
-    brownContainer: {
-        width: "100vw",
-        // height: "100vh",
-        backgroundColor: "#5E5558",
+const useStyles = makeStyles({
+    body: {
+        position: 'relative',
+        backgroundColor: '#5E5558',
+        minWidth: '100%',
+        // minHeight: '1000px',
+        border: '2px solid black',
         fontFamily: 'CircularXXWeb-Book',
-        margin: '0rem',
-        paddingLeft: '3.125rem',
     },
-    elementsContainer: {
-        height: "90vh",
-        marginTop: "9.25rem",
+    imageGridContainer: {
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '10px',
+        },
     },
-    titleContainer: {
-        marginTop: "1rem",
+    imageContainer: {
+        marginTop: '14vh',
+        float: 'left',
+        width: '28vw',
+        height: '50vh',
+        [theme.breakpoints.down('sm')]: {
+            marginTop: '10px',
+            width: '70vw'
+        },
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
     },
     title: {
-        fontSize: '2.625rem',
-        lineHeight: '1.875rem',
-        color: "white",
-        paddingBottom: '20px',
-        border: '2px solid',
-        [theme.breakpoints.down('lg')]: {
-            fontSize: '4.625rem',
-            lineHeight: '4.875rem',
-        },
-
-    },
-    nameRatingContainer: {
-        justifyContent: 'flex-start',
-    },
-    bigNameCountry: {
-        fontSize: '7.5rem',
-        lineHeight: '7.5rem',
-        fontWeight: 400,
+        marginLeft: '20px',
+        marginTop: '14vh',
         color: 'white',
-        marginTop: '-8.937rem',
-        border: "2px solid red",
-        [theme.breakpoints.down('lg')]: {
-            lineHeight: '8.5rem',
-            marginTop: '-2.937rem',
-        },
-        [theme.breakpoints.up('sm')]: {
-            marginTop: '9.063rem',
-        },
+        fontSize: '3vh',
+        minWidth: '100%'
     },
-    ratingFavoriteContainer: {
-        marginTop: '-0.438rem',
-        border: "2px solid green",
-        [theme.breakpoints.down('lg')]:{
-            marginTop: '-2.438rem',
-        },
+    titleColumn: {
+        maxHeight: "200px",
     },
-    ratingContainer: {
-        width: "103px",
-        [theme.breakpoints.down('lg')]:{
-            width: '158px',
-        },
-    },
-    favoriteContainer: {
-        width: "137px",
-        border: "2px solid blue",
-        [theme.breakpoints.down('lg')]:{
-            width: "232px",
-        },
-    },
-    rating: {
+    secondHeader: {
+        marginTop: '-18vh',
+        marginLeft: '20px',
+        lineHeight: '6vw',
+        fontSize: '6vw',
         color: 'white',
-        fontSize: '1.25rem',
-        [theme.breakpoints.down('lg')]:{
-            fontSize: '3.25rem',
-        },
-    },
-    favorite: {
-        color: 'white',
-        fontSize: '1.25rem',
-        [theme.breakpoints.down('lg')]:{
-            fontSize: '3.25rem',
-        },
-    },
-    icon: {
-        color: "white",
-        marginRight: '1.2rem',
-        [theme.breakpoints.down('lg')]:{
-            width: '4rem',
-            height: '5rem',
-            marginRight: '2.2rem',
-        },
-
-    },
-    bottomText: {
-        color: 'white',
-        fontSize: '1.562rem',
-        // marginBottom: '2.125rem',
-        marginTop: '10.5rem',
-        [theme.breakpoints.down('lg')]:{
-            marginTop: '24.5rem',
-        },
-        [theme.breakpoints.down('sm')]:{
-            fontSize: '16.5rem',
-        },
-    },
-    imageTutor: {
-        height: "34.062rem",
-        marginTop: "1rem",
-        marginBottom: "1rem",
-        border: "2px solid green",
+        width: '100%',
+        fontFamily: 'CircularXXWeb-Book',
         [theme.breakpoints.down('sm')]: {
-            marginTop: '5rem',
-            width: '43.437rem',
-            height: '46.062rem',
-
-        },
-        '& img': {
-            height: "34.062rem",
-            width: "33.437rem",
-            objectFit: "cover",
-            [theme.breakpoints.down(1450)]: {
-                width: '51.437rem',
-                height: '48.062rem',
-                border: "2px solid red",
-            },
-            [theme.breakpoints.down('lg')]:{
-                width: '44.437rem',
-                height: '54.062rem',
-            },
-            [theme.breakpoints.down('sm')]:{
-                width: '100%',
-                height: '43.062rem',
-                maxWidth: '531px',
-
+            marginTop: '20px',
         },
     },
-},
-    smallScreenBottomText:{
-        border: "2px solid",
-        display: "flex",
-        alignItems: "center",
-        marginTop: "-54px",
+    gridContainer1: {
+        width: '100%',
+    },
+    iconBox: {
+        display: 'flex',
+        fontSize: '1vh',
+        marginTop: '20px',
+        marginBottom: '136px',
+    },
+    starBox: {
+        display: 'flex',
+    },
+    favoriteBox: {
+        marginLeft: '20px',
+        display: 'flex'
+    },
+    basicAdvance: {
+        padding: 0,
+        color: 'white',
+        position: 'absolute',
+        bottom: '5px',
+        left: '20px',
     }
-}));
+});
 
 const ParentIndividualTutorBanner: FC = () => {
     const classes = useStyles();
+    const [height, setHeight] = useState(1000);
+    // const [width, setWidth] = useState('100%'); // Keeping for the future use.
+
+    const updateWindowDimensions = () => {
+        let height = window.innerHeight;
+        /* Can be used later
+    s    if(window.innerWidth < 600) {
+          height = 1100;
+        } */
+        setHeight(height);
+        //   setWidth(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', updateWindowDimensions);
+    }, []);
+
     return (
-        // <MuiThemeProvider theme={theme}>
-        <Grid container className={classes.brownContainer}>
-            <Grid container className={classes.elementsContainer}>
-                <Grid item lg={6} md={6} sm={12}className={classes.titleContainer}>
-                    <Typography className={classes.title}>Title</Typography>
-                </Grid>
-                <Grid item className={classes.imageTutor} lg={6} md={6} sm={12}>
-                    <LazyLoadImage
-                        alt=""
-                        effect="blur"
-                        src={TestImage} />
-                </Grid>
-                <Grid item lg={12} sm={12}>
-                    <Typography className={classes.bigNameCountry}>Web Developer <br />React, Redux</Typography>
-                </Grid>
-                    <Grid container item className={classes.ratingFavoriteContainer} lg={12}>
-                        <Grid container className={classes.ratingContainer}>
-                            <StarBorder className={classes.icon} />
-                            <Typography  className={classes.rating}>5/5</Typography>
+        <MuiThemeProvider theme={theme}>
+            <React.Fragment>
+                <div className={classes.body}>
+                    {/* <div style={{height}} className={classes.body}> */}
+                    <Grid className={classes.gridContainer1} container spacing={3}>
+                        <Grid className={classes.titleColumn} item xs={12} sm={12} md={6}>
+                            <div className={classes.title}>Tutor</div>
                         </Grid>
-                        <Grid container className={classes.favoriteContainer} >
-                            <FavoriteBorder className={classes.icon} />
-                            <Typography  className={classes.favorite}>Styled</Typography>
+                        <Grid item className={classes.imageGridContainer} xs={12} sm={12} md={6}>
+                            <Container className={classes.imageContainer}>
+                                {/* <img className={classes.image} alt="" src={ImageFile}/> */}
+                                <LazyLoadImage
+                                    alt=""
+                                    effect="blur"
+                                    src={commonImg.twogirl}
+                                    className={classes.image} />
+                            </Container>
                         </Grid>
-                        {/* <Grid item className={classes.favoriteContainer}/> */}
                     </Grid>
-                    <Grid item lg={12}>
-                        <Typography  className={classes.bottomText}>Basic, Advance</Typography>
-                    </Grid>
-            </Grid>
-        </Grid>
-        // </MuiThemeProvider>
+                    <div className={classes.secondHeader} >
+                        <div >
+                            Moly Pearce
+                    </div>
+                        <div >
+                            Dubai, UAE
+                    </div>
+                        <div className={classes.iconBox}>
+                            <div className={classes.starBox}>
+                                <StarBorder />
+                                <Typography style={{ marginLeft: '7px' }} >5/5</Typography>
+                            </div>
+                            <div className={classes.favoriteBox}>
+                                <FavoriteBorder />
+                                <Typography style={{ marginLeft: '7px' }} >Favorite</Typography>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={classes.basicAdvance}>
+                        Primary, Secondary
+                </div>
+                </div>
+            </React.Fragment>
+        </MuiThemeProvider>
     );
 };
 
 export default ParentIndividualTutorBanner;
-

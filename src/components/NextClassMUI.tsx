@@ -92,6 +92,7 @@ const NextClass:  FC = () => {
                     </Typography>
                     <Typography className={classes.subTitle}>Harriet Earl</Typography>
                 </Grid>
+                
         </Grid>
     );
 };
