@@ -64,7 +64,7 @@ const Drawer: FC<DrawerProps> = ({
                     <IconButton className={classes.button} onClick={onClose}>
                         <CloseIcon />
                     </IconButton>
-                    <Typography className={heading ? classes.font : classes.noFont} variant="h6">Upcoming Classes</Typography>
+                    <Typography className={heading ? classes.font : classes.noFont} variant="h6"></Typography>
                 </Grid>
                 {children}
             </Grid>

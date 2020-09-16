@@ -151,18 +151,18 @@ const TotalClasses = () => {
         <div className="total__classes">
             <div  className="row">
                 {imageMetaDeta.map((item: any, index) => (
-                    <div key={index} className="col-md-3 mb-5">
+                    <div key={index} className="col-md-3 mb-5" onClick={handleDrawer} style={{cursor: "pointer"}}>
                         <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
-                        {/* <Drawer
-                            open={openDrawer}
-                            onClose={handleDrawer}
-                            width="68.875rem"
-                            heading={true}>
-                            <SlidingDrawerContent />
-                        </Drawer> */}
                     </div>
                 ))}
             </div>
+            <Drawer
+                open={openDrawer}
+                onClose={handleDrawer}
+                width="68.875rem"
+                heading={true}>
+                <SlidingDrawerContent />
+            </Drawer>
         </div>
     );
 };
