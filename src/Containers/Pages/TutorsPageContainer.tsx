@@ -3,28 +3,27 @@ import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
-import CardsGrid from '../CardsGrid';
-import ImageCard from '../../components/Cards/ImageCard';
 import FilterContainer from '../FilterContainer';
+import ImageCard from '../../components/Cards/ImageCard';
+import CardsGrid from '../CardsGrid';
 import CardsGridContainer from '../CardsGridContainer';
-import { cards2, filters, filtersData } from '../../data/filters';
 import PageFooter from '../../components/PageFooter';
+import { cards3, filters, filtersData } from '../../data/filters';
 
-interface IRecordedClassesPageContainer {
+interface ITutorsPageContainer {
     userType: UserTypes;
 }
 
-const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userType }) => {
+const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
     const menuList = useMemo(() => createMenuList(userType), [userType])
-
     return (
         <NavigationMenu
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding title="Recorded Classes" filters={filters} filtersData={filtersData}>
+            <FilterContainer padding title="Tutors" filters={filters} filtersData={filtersData}>
                 <CardsGrid>
-                    {cards2.map((card, index) => (
+                    {cards3.map((card, index) => (
                         <ImageCard key={index} {...card} />
                     ))}
                 </CardsGrid>
@@ -49,7 +48,7 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
             </CardsGridContainer>
             <CardsGridContainer>
                 <CardsGrid>
-                    {cards2.map((card, index) => (
+                    {cards3.map((card, index) => (
                         <ImageCard key={index} {...card} />
                     ))}
                 </CardsGrid>
@@ -77,4 +76,4 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
     )
 }
 
-export default RecordedClassesPageContainer;
+export default TutorsPageContainer

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { TextField } from '@material-ui/core';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
-import { LocationSearching } from '@material-ui/icons';
 import { registerContext } from './Index';
 
 interface props {
@@ -92,7 +91,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                         className="custom-adornment-input"
                         value={location}
                         onChange={handleLocation}
-                        icon={<LocationSearching className="search-loc" />}
+                        icon={<i className="icon-Locate" />}
                     />
                 </div>
             </div>

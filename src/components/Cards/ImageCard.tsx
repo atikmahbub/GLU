@@ -30,7 +30,10 @@ const useStyles = makeStyles({
     dateTime: {
         marginBottom: '1.5625rem',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    iconStar: {
+        fontSize: '0.85rem',
     },
 });
 
@@ -52,6 +55,7 @@ const ImageCard: FC<IImageCard> = ({
     date,
     time,
     bigTitle,
+    rating,
     rootClassName,
 }) => {
     const classes = useStyles({ imgAspectRatio });
@@ -71,7 +75,17 @@ const ImageCard: FC<IImageCard> = ({
             >
                 {title}
             </Typography>
-            <Typography className={classes.subTitle}>{subTitle}</Typography>
+            <Typography className={classes.subTitle}>
+                {rating && (
+                    <span>
+                        <i className={classNames('icon-Star_3', classes.iconStar)} />
+                        &nbsp;
+                        {rating}
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                )}
+                {subTitle}
+            </Typography>
         </Grid>
     );
 };
