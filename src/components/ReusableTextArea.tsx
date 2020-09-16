@@ -13,7 +13,7 @@ const useStyles = makeStyles({
             'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 3rem, #ccc 3.0625rem, #ccc 3rem, white 3.0625rem)',
         lineHeight: '3rem',
         border: 'none',
-        width: '90%',
+        width: '100%',
         height: '14rem',
         color: 'inherit',
         fontFamily: 'CircularXXWeb-Book',

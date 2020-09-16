@@ -76,7 +76,7 @@ const UpcomingClasses = () => {
                     </div>
                     Upcoming Classes
                 </Typography>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to={'/tutor/my-classes'}>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to={'/tutor/set-class'}>
                     <div className={classes.upload}>Set class</div>
                 </Link>
             </div>
@@ -102,11 +102,13 @@ const UpcomingClasses = () => {
                     <span className={classes.medText}>45 mins</span>
                 </div>
                 <div className={classes.dateBox2}>
-                    <Typography className={classes.headerText}>
-                        Language.
-                        <br />
-                        First look at French for beginners
-                    </Typography>
+                    <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                        <Typography className={classes.headerText}>
+                            Language.
+                            <br />
+                            First look at French for beginners
+                        </Typography>
+                    </Link>
                     <br />
 
                     <div className={classes.medText}>Fully Booked</div>
@@ -130,11 +132,13 @@ const UpcomingClasses = () => {
                         <span className={classes.medText}>45 mins</span>
                     </div>
                     <div className={classes.dateBox2}>
-                        <Typography className={classes.headerText}>
-                            Language.
-                            <br />
-                            First look at French for beginners
-                        </Typography>
+                        <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                            <Typography className={classes.headerText}>
+                                Language.
+                                <br />
+                                First look at French for beginners
+                            </Typography>
+                        </Link>
                         <br />
 
                         <div className={classes.medText}>Fully Booked</div>
@@ -164,11 +168,13 @@ const UpcomingClasses = () => {
                     <span className={classes.medText}>45 mins</span>
                 </div>
                 <div className={classes.dateBox2}>
-                    <Typography className={classes.headerText}>
-                        Language.
-                        <br />
-                        First look at French for beginners
-                    </Typography>
+                    <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                        <Typography className={classes.headerText}>
+                            Language.
+                            <br />
+                            First look at French for beginners
+                        </Typography>
+                    </Link>
                     <br />
 
                     <div className={classes.medText}>Fully Booked</div>
@@ -192,11 +198,13 @@ const UpcomingClasses = () => {
                         <span className={classes.medText}>45 mins</span>
                     </div>
                     <div className={classes.dateBox2}>
-                        <Typography className={classes.headerText}>
-                            Language.
-                            <br />
-                            First look at French for beginners
-                        </Typography>
+                        <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                            <Typography className={classes.headerText}>
+                                Language.
+                                <br />
+                                First look at French for beginners
+                            </Typography>
+                        </Link>
                         <br />
 
                         <div className={classes.medText}>Fully Booked</div>

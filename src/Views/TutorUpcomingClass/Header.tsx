@@ -56,11 +56,13 @@ const Header = () => {
                 <span className={classes.medText}>45 mins</span>
             </div>
             <div>
-                <Typography className={classes.headerText}>
-                    Geography
-                    <br />
-                    Ignetious Sedimentary
-                </Typography>
+                <Link to="/tutor/upcoming-class" style={{ textDecoration: 'none', color: 'black' }}>
+                    <Typography className={classes.headerText}>
+                        Geography
+                        <br />
+                        Ignetious Sedimentary
+                    </Typography>
+                </Link>
                 <br />
 
                 <div className={classes.medText}>Fully Booked</div>

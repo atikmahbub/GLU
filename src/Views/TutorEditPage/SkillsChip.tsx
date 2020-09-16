@@ -9,6 +9,7 @@ const useStyles = makeStyles({
         fontSize: '1.25rem',
         marginRight: '0.625rem',
         marginBottom: '0.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 

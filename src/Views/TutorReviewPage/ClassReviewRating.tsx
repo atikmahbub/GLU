@@ -80,7 +80,9 @@ const ClassReviewRating = () => {
                     <Grid item xs={12}>
                         <Typography className={classes.small}>Feedback</Typography>
                         <TextareaAutosize className={classes.textareaClass} />
-                        <Typography className={classes.small}>Stars</Typography>
+                        <Typography style={{ marginTop: '41.5px' }} className={classes.small}>
+                            Stars
+                        </Typography>
                         <StarIcon />
                         <StarIcon />
                         <StarIcon />
@@ -113,7 +115,9 @@ const ClassReviewRating = () => {
                         <Typography className={classes.small}>Feedback</Typography>
                         {/* <TextareaAutosize rowsMin={6} className={classes.textareaClass} /> */}
                         <ReusableTextArea noOfRows={5} />
-                        <Typography className={classes.small}>Stars</Typography>
+                        <Typography style={{ marginTop: '41.5px' }} className={classes.small}>
+                            Stars
+                        </Typography>
                         <StarIcon />
                         <StarIcon />
                         <StarIcon />

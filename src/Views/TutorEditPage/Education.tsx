@@ -3,31 +3,33 @@ import { makeStyles, Typography, TextField } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
-    details: {
-        width: '55.375rem',
-    },
     detailsText: {
         fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     labelText: {
         display: 'inline-block',
         marginTop: '1.9375rem',
         fontSize: '1.5625rem',
         font: 'normal normal normal 25px/30px CircularXXSub-RegularSubset',
+        fontFamily: 'CircularXXWeb-Book',
+
         marginBottom: '0',
     },
     btnContainer: {
         display: 'inline-block',
-        transform: 'translateX(40rem)',
+        transform: 'translateX(39.5rem)',
     },
     infoText: {
         fontSize: '2.265rem',
         width: '23.81rem',
         lineHeight: 1,
         marginTop: '0.5625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
     hr: {
         marginTop: '2.5rem',
+        width: '100%',
     },
     upload: {
         fontSize: '1.25rem',
@@ -41,6 +43,7 @@ const useStyles = makeStyles({
         boxSizing: 'border-box',
         display: 'inline-block',
         marginBottom: '6.0625rem',
+        fontFamily: 'CircularXXWeb-Book',
     },
 });
 
@@ -49,7 +52,7 @@ const Education = () => {
 
     return (
         <div>
-            <div className={classes.details}>
+            <div>
                 <div className={classes.detailsText}>Experience</div>
                 <div className={classes.labelText}>2018-Now</div>
                 <div className={classes.btnContainer}>

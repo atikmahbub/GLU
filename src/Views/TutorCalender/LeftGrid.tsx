@@ -1,34 +1,24 @@
 import 'date-fns';
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardTimePicker, KeyboardDatePicker } from '@material-ui/pickers';
+import Calendar from 'react-calendar';
 
 export default function LeftGrid() {
     // The first commit of Material-UI
     const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
-
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
+    const handleDateChange = (selectedDate) => {
+        setSelectedDate(selectedDate);
     };
-
     return (
         <Grid item md={6}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                    disableToolbar
-                    variant="inline"
-                    format="MM/dd/yyyy"
-                    margin="normal"
-                    id="date-picker-inline"
-                    label="Date picker inline"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                    }}
-                />
-            </MuiPickersUtilsProvider>
+            <Calendar
+                // nextLabel={null}
+                next2Label={null}
+                // prevLabel={null}
+                prev2Label={null}
+                onChange={handleDateChange}
+                value={selectedDate}
+            />
         </Grid>
     );
 }
