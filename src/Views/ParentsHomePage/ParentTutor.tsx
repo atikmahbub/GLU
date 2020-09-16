@@ -8,6 +8,7 @@ import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedA
 import { Link } from 'react-router-dom';
 
 function ParentTutor() {
+    localStorage.setItem("tabValue","classes")
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
 

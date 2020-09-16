@@ -33,7 +33,6 @@ const ParentDashboard: React.FunctionComponent = () => {
         setOpenDrawer(false);
         setOpenPushDrawer(!openPushDrawer);
     };
-
     return (
         <NavigationMenu menuList={menu} background="secondary" absolute>
             <div className="main_container">

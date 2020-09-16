@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, Container, Divider } from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
@@ -15,17 +15,21 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import AddIcon from '@material-ui/icons/Add';
 import UpcomingClassCardParent from '../../components/Cards/UpcomingClassCardParent';
 import Women from "../../Assets/images";
+import Tabs from './Tabs';
+import Classes from './Classes';
 
 const useStyles = makeStyles((theme) => ({
-    filterContainer:{
+    filterContainer: {
         display: "flex",
         alignItems: "center",
     },
-    filter:{
+    filter: {
         marginLeft: "-57px",
     },
 }));
 const ClassesTutorsWithFilter: React.FunctionComponent = () => {
+    const [activeTab, setActiveTab] = useState('classes');
+
     const route = useHistory();
     const gotoClasses = () => {
         route.push('/parent/classes');
@@ -34,61 +38,43 @@ const ClassesTutorsWithFilter: React.FunctionComponent = () => {
         route.push('/parent/classes');
     };
     const classes = useStyles();
+    const onChangeTab = () => {
+        return setActiveTab
+    }
+    
     return (
         <NavigationMenu menuList={parentMenus}>
             <div className="student__classes__tutor classes_page">
                 <div className="filter__row__container">
                     <div className="button__container">
-                        <Typography className="title active" onClick={gotoClasses}>
+                        {/* <Typography className="title active" onClick={gotoClasses}>
                             Classes
                         </Typography>
                         <Typography className="title" onClick={gotoTutors}>
                             Tutors
-                        </Typography>
+                        </Typography> */}
+                        <Tabs value={activeTab} onChange={setActiveTab} />
+
                     </div>
-                    <div style={{display: "flex", alignItems: "center"}}>
-                             <Typography variant="h3" className={classes.filter}>Filter</Typography>
-                             <AddIcon fontSize="large" />
+
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                        <Typography variant="h3" className={classes.filter}>Filter</Typography>
+                        <AddIcon fontSize="large" />
                     </div>
                     <div className="sort__container">
                         {/* <ExpandMore className="arrow__downward" /> */}
                         <Typography className="sort__title"></Typography>
                     </div>
                 </div>
-                <TotalClasses />
-                <UpcomingClassCardParent
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608149/gluschool/women_x9nbtk.jpg"
-                    date="24/07/20"
-                    startTime="3pm"
-                    endTime="4.30pm"
-                    subject="English."
-                    description="How to structure"
-                    name="Jeff Lee"
-                    subTitle="AED200"
-                />                
-                <TutorListMiddle />
-                {/* <UpcomingClassesPartSec /> */}
-                <UpcomingClassCardParent
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/gluschool/penpadgirl_hclxwv.jpg"
-                    date="24/07/20"
-                    startTime="3pm"
-                    endTime="4.30pm"
-                    subject="English."
-                    description="How to structure"
-                    name="Jeff Lee"
-                    subTitle="AED200"
-                />    
-                <TutorListBottom />
 
-                <div className="row">
-                    <div className="show__more__wrapper">
-                        <div className="show__more__contianer">
-                            <OutlineButton text="Show more" />
-                            <Typography className="title">Showing 50 of 5488</Typography>
-                        </div>
+
+                {activeTab === 'classes' && (
+                    <div className="school__container">
+                        <Classes />
                     </div>
-                </div>
-                <Footer />
+                )}
+
+                {activeTab === 'tutors' && <Classes />}
             </div>
         </NavigationMenu>
     );

@@ -36,6 +36,7 @@ interface IHomePageContainer {
 const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
     const classes = useStyles();
     const menuList = useMemo(() => createMenuList(userType), [userType])
+    localStorage.setItem("tabValue", "classes")
 
     return (
         <NavigationMenu
