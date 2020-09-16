@@ -71,6 +71,7 @@
             display: block;
             @include makeFontSmoth(0.137rem, $black);
             font-size: 1.562rem;
+            line-height: 1.762rem;
             transition: all 0.5s;
             font-weight: 500;
         }

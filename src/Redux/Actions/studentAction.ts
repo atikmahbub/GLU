@@ -27,19 +27,19 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: any, fileName:string, history: any) => {
+export const addNewStudentAPIcall = (data: any, fileName: string, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
-                dispatch(uploadProfileFileName(fileName));
                 const ides = res.data.data.map((item: any) => {
-                    return item.userId;
+                    return { id: item.userId, token: item.token };
                 });
-                ides.map((id: number) => {
-                    dispatch(invitationAPIcall({ invitee_id: id, for_role: 'student' }));
+                ides.map((item: any) => {
+                    dispatch(invitationAPIcall({ invitee_id: item.id, for_role: 'student' }));
+                    dispatch(uploadProfileFileName(fileName, item.token));
                 });
                 setTimeout(() => {
                     history.push('/dashboard/students');

@@ -9,7 +9,7 @@ interface props {
     handleEdit: (edit: number) => void;
     handleDelete: (delId: number) => void;
 }
-const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit, handleDelete }) => {
+const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit, handleDelete }) => {
     return (
         <div className="info__container">
             {data.map((item: any, i: number) => (
@@ -19,18 +19,22 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, han
                             {title} {i + 1}
                         </Typography>
                         <div className="button-group">
-                            <Button className="text-button" onClick={()=>handleEdit(i)}>Edit</Button>
-                            <Button className="text-button" onClick={()=>handleDelete(i)}>Delete</Button>
+                            <Button className="text-button" onClick={() => handleEdit(i)}>
+                                Edit
+                            </Button>
+                            <Button className="text-button" onClick={() => handleDelete(i)}>
+                                Delete
+                            </Button>
                         </div>
                     </div>
                     <Typography variant="h5" className="heading">
-                        {item.schoolName}
+                        {item.firstName}
                     </Typography>
                     <Typography variant="h5" className="heading">
-                        {item.qualification}
+                        {item.email}
                     </Typography>
                     <Typography variant="h5" className="heading">
-                        {item.course}
+                        {item.phoneCode} {item.phoneNum}
                     </Typography>
                 </div>
             ))}
@@ -41,4 +45,4 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, han
     );
 };
 
-export default PreviewCard;
+export default ParentPreviewCard;

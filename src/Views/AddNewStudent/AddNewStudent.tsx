@@ -24,6 +24,7 @@ const AddNewStudent: React.FunctionComponent = () => {
         yearGroup: 'First',
         fatherName: '',
         motherName: '',
+        studentId: -1,
     });
     const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
     const [editMode, setEditMode] = useState(false);
@@ -53,6 +54,7 @@ const AddNewStudent: React.FunctionComponent = () => {
                     formGroup: checkValue(data.formGroup),
                     fatherName: checkValue(data.fatherName),
                     motherName: checkValue(data.motherName),
+                    studentId: checkValue(data.studentId),
                 };
                 setState(newState);
                 setEditMode(true);
@@ -76,7 +78,8 @@ const AddNewStudent: React.FunctionComponent = () => {
             ],
         };
         if (editMode) {
-            // dispatch(editStudentAPIcall(data, routes));
+            const editdata = { ...data, students: data.students[0] };
+            dispatch(editStudentAPIcall(editdata, state.studentId, routes));
         } else {
             dispatch(addNewStudentAPIcall(data, fileData.fileName, routes));
         }

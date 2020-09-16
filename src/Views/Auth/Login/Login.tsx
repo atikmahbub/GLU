@@ -4,14 +4,12 @@ import AuthCard from '../../../Containers/Cards/AuthCard';
 import SocialLogin from '../../../components/Auth/SocialLogin';
 import AdornmentInput from '../../../components/Inputs/AdornmentInput';
 import { Typography, TextField, Checkbox, Button } from '@material-ui/core';
-import SelectField from '../../../components/Inputs/SelectField';
 import { RouteComponentProps } from 'react-router-dom';
 import { userLoginAPIcall } from '../../../Redux/Actions/loginAction';
 import { dispatch } from '../../../Redux/Store/Store';
 import Loader from '../../../components/Loader';
 import { connect } from 'react-redux';
 
-const loginAs = ['school', 'Admin', 'Teacher', 'Parent', 'Student', 'Account', 'Librarrian'];
 type props = {
     loader: boolean;
     history: RouteComponentProps;
@@ -45,12 +43,6 @@ class Login extends React.PureComponent<props> {
                             Glu.
                         </Typography>
                         <Typography className="slogan">Great learning umbrella.</Typography>
-                        {/* <SelectField
-                            label="Login As"
-                            className="mb-4"
-                            getValue={(value) => this.handleLoginAs(value)}
-                            options={loginAs}
-                        /> */}
                         <TextField
                             className="mb-4"
                             variant="outlined"
