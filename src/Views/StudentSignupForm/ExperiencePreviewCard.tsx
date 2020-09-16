@@ -9,11 +9,11 @@ interface props {
     data: any;
     handleEdit: (edit: number) => void;
 }
-const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit}) => {
+const ExperiencePreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit }) => {
     const context = useContext(registerContext);
     const deleteHanlder = (i: number) => {
         const data = { ...context.state };
-        data.parent.childs.splice(i, 1);
+        data.teacher.experience.splice(i, 1);
         context.setState(data);
     };
     return (
@@ -34,13 +34,13 @@ const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, dat
                         </div>
                     </div>
                     <Typography variant="h5" className="heading">
-                        {item.firstName}
+                        {item.workplace}
                     </Typography>
                     <Typography variant="h5" className="heading">
-                        {item.email}
+                        {item.position}
                     </Typography>
                     <Typography variant="h5" className="heading">
-                        {item.phoneCode} {item.phoneNum}
+                        {item.designation} {item.phoneNum}
                     </Typography>
                 </div>
             ))}
@@ -51,4 +51,4 @@ const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, dat
     );
 };
 
-export default ParentPreviewCard;
+export default ExperiencePreviewCard;

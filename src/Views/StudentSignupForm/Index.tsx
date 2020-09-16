@@ -17,6 +17,10 @@ import StudentStepper from './StudentStepper';
 import ParentStepper from './ParentStepper';
 import TeacherStepper from './TeacherStepper';
 import ParentPreviewCard from './ParentPreviewCard';
+import ExperiencePreviewCard from './ExperiencePreviewCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerAPIcall, registerPhoneNumberAPIcall, studentEduAPIcall } from '../../Redux/Actions/registerAction';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 
 export const registerContext = createContext<any>({});
 const RegisterProvider = registerContext.Provider;
@@ -28,25 +32,34 @@ const Index: React.FunctionComponent = () => {
         parent: {
             childs: [{ firstName: '', lastName: '', email: '', phoneCode: '+91', phoneNum: '', location: '' }],
         },
+        teacher: {
+            skills: [],
+            file: null,
+            identity: 'dl',
+            experience: [{ workplace: '', position: '', designation: '', from: new Date(), to: new Date() }],
+        },
         student: {
             firstName: '',
             lastName: '',
             email: '',
             phoneCode: '+91',
             phoneNum: '',
-            location: '',
-            password: '',
+            location: 'Up',
+            password: '@Gyan123@',
             tc: 'tc',
             veriCode: '+91',
             veriMobile: '',
+            gender: 'male',
             education: [{ schoolName: '', qualification: '', course: '', from: new Date(), to: new Date() }],
         },
     });
+    const [editMode, setEditMode] = useState(false);
+    const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
-
+    const token = useSelector((state: rootReducerType) => state.authReducer.userData);
     const handleSPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, password: e.target.value } });
     };
@@ -55,40 +68,60 @@ const Index: React.FunctionComponent = () => {
     };
     const handleSchool = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
-        data.student.education[data.student.education.length - 1] = {
-            ...state.student.education[data.student.education.length - 1],
+        let active = data.student.education.length - 1;
+        if (editMode) {
+            active = curActive;
+        }
+        data.student.education[active] = {
+            ...state.student.education[active],
             schoolName: e.target.value,
         };
         setState(data);
     };
     const handleQualification = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
-        data.student.education[data.student.education.length - 1] = {
-            ...state.student.education[data.student.education.length - 1],
+        let active = data.student.education.length - 1;
+        if (editMode) {
+            active = curActive;
+        }
+        data.student.education[active] = {
+            ...state.student.education[active],
             qualification: e.target.value,
         };
         setState(data);
     };
     const handleCourse = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
-        data.student.education[data.student.education.length - 1] = {
-            ...state.student.education[data.student.education.length - 1],
+        let active = data.student.education.length - 1;
+        if (editMode) {
+            active = curActive;
+        }
+        data.student.education[active] = {
+            ...state.student.education[active],
             course: e.target.value,
         };
         setState(data);
     };
     const handleFromDate = (date: Date) => {
         const data = { ...state };
-        data.student.education[data.student.education.length - 1] = {
-            ...state.student.education[data.student.education.length - 1],
+        let active = data.student.education.length - 1;
+        if (editMode) {
+            active = curActive;
+        }
+        data.student.education[active] = {
+            ...state.student.education[active],
             from: date,
         };
         setState(data);
     };
     const handleToDate = (date: Date) => {
         const data = { ...state };
-        data.student.education[data.student.education.length - 1] = {
-            ...state.student.education[data.student.education.length - 1],
+        let active = data.student.education.length - 1;
+        if (editMode) {
+            active = curActive;
+        }
+        data.student.education[active] = {
+            ...state.student.education[active],
             to: date,
         };
         setState(data);
@@ -99,8 +132,15 @@ const Index: React.FunctionComponent = () => {
     const handleVeriMobile = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, veriMobile: e.target.value } });
     };
-    console.log(state);
     const handleNext = () => {
+        setEditMode(false);
+        // userRegistration();
+        // if (active === 0) {
+        goToNextPage();
+        // }
+    };
+
+    const goToNextPage = () => {
         if (whoIam !== '') {
             if (active === activeLength - 1) {
                 setHideButtons({ ...hideButtons, farword: true });
@@ -109,6 +149,52 @@ const Index: React.FunctionComponent = () => {
             }
         }
     };
+
+    const dispatch = useDispatch();
+    const userRegistration = () => {
+        let role = '';
+        if (whoIam === 'student') {
+            role = 'Student';
+        } else if (whoIam === 'parent') {
+            role = 'Guardian';
+        } else if (whoIam === 'teacher') {
+            role = 'Teacher';
+        }
+        const registerData = {
+            email: state.student.email,
+            password: state.student.password,
+            firstName: state.student.firstName,
+            lastName: state.student.lastName,
+            role: role,
+            location: state.student.location,
+            firebaseToken: '123',
+        };
+        const educationData = state.student.education.map((item: any) => {
+            return {
+                school: item.schoolName,
+                qualification: item.qualification,
+                fieldOfStudy: item.course,
+                startDate: item.from.toISOString(),
+                endDate: item.to.toISOString(),
+            };
+        });
+        if (active === 1) {
+            dispatch(registerAPIcall(registerData, goToNextPage));
+        } else if (active === 3 && whoIam === 'student') {
+            educationData.forEach((item, i: number) => {
+                if (i === educationData.length - 1) {
+                    dispatch(studentEduAPIcall(item, goToNextPage));
+                } else {
+                    dispatch(studentEduAPIcall(item));
+                }
+            });
+        }
+    };
+
+    const handleCodeSend = () => {
+        const contact = { phoneNumber: `${state.student.veriCode}${state.student.veriMobile}` };
+        dispatch(registerPhoneNumberAPIcall(contact));
+    }
 
     const handleBack = () => {
         if (whoIam !== '') {
@@ -145,11 +231,28 @@ const Index: React.FunctionComponent = () => {
             from: new Date(),
             to: new Date(),
         });
-
         setState(data);
         setActive((prevState) => prevState - 1);
     };
 
+    const experienceBack = () => {
+        const data = { ...state };
+        data.teacher.experience.push({
+            workplace: '',
+            position: '',
+            designation: '',
+            from: new Date(),
+            to: new Date(),
+        });
+        setState(data);
+        setActive((prevState) => prevState - 1);
+    };
+
+    const editHandler = (i: number) => {
+        setEditMode(true);
+        setCurActive(i);
+        setActive((prevState) => prevState - 1);
+    };
     const renderStepper: any = {
         student: <StudentStepper active={active} />,
         parent: <ParentStepper active={active} />,
@@ -165,14 +268,13 @@ const Index: React.FunctionComponent = () => {
                     <PreviewCard
                         data={state.student.education}
                         title="Education"
-                        handleEdit={() => {}}
-                        handleDelete={() => {}}
+                        handleEdit={editHandler}
                         handler={goBack}
                     />
                 </>
             ),
         },
-        { title: 'Verify Account', comp: <VerifyAccount /> },
+        { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
         { title: 'Verify Account', comp: <VerificationCode /> },
     ];
     const parent = [
@@ -184,8 +286,7 @@ const Index: React.FunctionComponent = () => {
                 <ParentPreviewCard
                     data={state.parent.childs}
                     title="Child"
-                    handleEdit={() => {}}
-                    handleDelete={() => {}}
+                    handleEdit={editHandler}
                     handler={parentGoBack}
                 />
             ),
@@ -202,23 +303,21 @@ const Index: React.FunctionComponent = () => {
             comp: (
                 <PreviewCard
                     data={state.student.education}
-                    title="Education 1"
-                    handleEdit={() => {}}
-                    handleDelete={() => {}}
+                    title="Education"
+                    handleEdit={editHandler}
                     handler={goBack}
                 />
             ),
         },
-        { title: 'Your Experience', comp: <TeacherExperience /> },
+        { title: 'Your Experience', comp: <TeacherExperience nextHandler={handleNext} /> },
         {
             title: 'Your Experience',
             comp: (
-                <PreviewCard
-                    data={state.student.education}
-                    title="Education 1"
-                    handleEdit={() => {}}
-                    handleDelete={() => {}}
-                    handler={goBack}
+                <ExperiencePreviewCard
+                    data={state.teacher.experience}
+                    title="Education"
+                    handleEdit={editHandler}
+                    handler={experienceBack}
                 />
             ),
         },
@@ -271,6 +370,8 @@ const Index: React.FunctionComponent = () => {
                                     setState: setState,
                                     state: state,
                                     student: state.student,
+                                    editMode: editMode,
+                                    currentActive: curActive,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,

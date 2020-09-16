@@ -16,7 +16,7 @@ const InfoContainer: React.FunctionComponent = () => {
         context.setState({ ...context.state, student: { ...context.state.student, email: e.target.value } });
     };
     const handleSphoneCode = (value: string) => {
-        context.setState({ ...context.state, student: { ...context.state.student, phoneCode: value } });
+        context.setState({ ...context.state, student: { ...context.state.student, gender: value } });
     };
 
     const handleSPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +25,9 @@ const InfoContainer: React.FunctionComponent = () => {
 
     const handleSlocation = (e: React.ChangeEvent<HTMLInputElement>) => {
         context.setState({ ...context.state, student: { ...context.state.student, location: e.target.value } });
+    };
+    const handlePassword = (value: string) => {
+        context.setState({ ...context.state, student: { ...context.state.student, password: value } });
     };
     return (
         <div className="info__container">
@@ -35,7 +38,7 @@ const InfoContainer: React.FunctionComponent = () => {
                 handleLastName={handleSlastName}
                 email={context.student.email}
                 handleEmail={handleSemailName}
-                mobilePre={context.student.phoneCode}
+                mobilePre={context.student.gender}
                 handleMobilePre={(value: string) => handleSphoneCode(value)}
                 mobile={context.student.mobile}
                 handleMobile={handleSPhoneNumber}
@@ -44,7 +47,12 @@ const InfoContainer: React.FunctionComponent = () => {
             />
             <div className="row">
                 <div className="col-lg-12">
-                    <UnderLineAddornment label="Password" className="custom-adornment-input" />
+                    <UnderLineAddornment
+                        label="Password"
+                        className="custom-adornment-input"
+                        value={context.student.password}
+                        onChange={handlePassword}
+                    />
                 </div>
             </div>
             <FormControl component="fieldset">

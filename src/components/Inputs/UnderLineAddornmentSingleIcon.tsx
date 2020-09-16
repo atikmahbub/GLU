@@ -7,8 +7,9 @@ interface props {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     label?: string;
     icon?: React.ReactNode;
+    type?:string;
 }
-const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ className, value, label, onChange, icon }) => {
+const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ className, value, label, onChange, icon, type }) => {
     const handlePasswordVisibility = () => {};
 
     return (
@@ -16,6 +17,7 @@ const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ classNa
             <InputLabel htmlFor="password-input">{label}</InputLabel>
             <Input
                 id="password-input"
+                type={type}
                 value={value}
                 onChange={onChange}
                 endAdornment={
@@ -25,6 +27,7 @@ const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ classNa
                             aria-label="toggle password visibility"
                             onClick={handlePasswordVisibility}
                             edge="end"
+                            disableRipple
                         >
                             {icon}
                         </IconButton>
