@@ -71,9 +71,9 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                 </div>
                 <div className="bages-avatar">
                   
-                    <img src={Icons.user} width={20} height={22} />
+                <i style={{fontSize:'1.8rem'}} className="icon-Available_Slots" />
                     <IconButton onClick={resetAuth} className="notification-btn mr-0 ml-4">
-                        <PowerSettingsNew />
+                        <i className="icon-Exit" />
                     </IconButton>
                 </div>
             </div>
