@@ -13,6 +13,8 @@ import { useHistory } from 'react-router';
 import { parentMenus } from '../../Helper/parentMenus';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import AddIcon from '@material-ui/icons/Add';
+import UpcomingClassCardParent from '../../components/Cards/UpcomingClassCardParent';
+import Women from "../../Assets/images";
 
 const useStyles = makeStyles((theme) => ({
     filterContainer:{
@@ -54,9 +56,28 @@ const ClassesTutorsWithFilter: React.FunctionComponent = () => {
                     </div>
                 </div>
                 <TotalClasses />
-                <UpcomingClasses />
+                <UpcomingClassCardParent
+                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608149/gluschool/women_x9nbtk.jpg"
+                    date="24/07/20"
+                    startTime="3pm"
+                    endTime="4.30pm"
+                    subject="English."
+                    description="How to structure"
+                    name="Jeff Lee"
+                    subTitle="AED200"
+                />                
                 <TutorListMiddle />
-                <UpcomingClassesPartSec />
+                {/* <UpcomingClassesPartSec /> */}
+                <UpcomingClassCardParent
+                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/gluschool/penpadgirl_hclxwv.jpg"
+                    date="24/07/20"
+                    startTime="3pm"
+                    endTime="4.30pm"
+                    subject="English."
+                    description="How to structure"
+                    name="Jeff Lee"
+                    subTitle="AED200"
+                />    
                 <TutorListBottom />
 
                 <div className="row">
