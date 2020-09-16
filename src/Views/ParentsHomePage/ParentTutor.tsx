@@ -12,7 +12,7 @@ function ParentTutor() {
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
 
     const navigations = [
-        { link: '/parent/homepage', name: 'Home' },
+        { link: '/parent/home', name: 'Home' },
         { link: 'parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },

@@ -12,7 +12,10 @@ import Drawer from './Drawer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import SlidingPushDrawerContent from './SlidingPushDrawerContent';
 import HomeBanner from '../../components/Home/HomeBanner';
-
+import BannerCarousel from '../../components/Carousels/BannerCarousel';
+import {
+    bannerCards,
+} from '../../data/homepage';
 
 
 import './style.scss';
@@ -23,10 +26,10 @@ const index: React.FunctionComponent = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
     const navigations = [
-        { name: 'Home', link: '/parent/homepage' },
+        { name: 'Home', link: '/parent/home' },
         { name: 'Dashboard', link: '/parent/dashboard' },
-        { name: 'Subject', link: '/parent/homepage' },
-        { name: 'Messages', link: '/parent/homepage' },
+        { name: 'Subject', link: '/parent/home' },
+        { name: 'Messages', link: '/parent/home' },
     ];
     const handleDrawer = () => {
         setOpenDrawer(!openDrawer);
@@ -56,7 +59,7 @@ const index: React.FunctionComponent = () => {
                             menuDrawerAnimation={false}
                             />
                 </div>
-
+                {/* <BannerCarousel cards={bannerCards} /> */}
                 <HomeBanner
                     image={commonImg.smilegirl}
                     mobileImg={commonImg.curlygirlcroped}

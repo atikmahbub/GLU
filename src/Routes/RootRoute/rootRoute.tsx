@@ -60,7 +60,7 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     {component: EmailVerification, name: '/email-verification'},
-    {component: ParentsHomePage, name: '/parent/homepage'},
+    {component: ParentsHomePage, name: '/parent/home'},
     {component: ParentDashboard, name: '/parent/dashboard'},
     {component: WatchSession, name: '/watch-session'},
 

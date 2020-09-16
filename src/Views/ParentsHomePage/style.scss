@@ -11,6 +11,15 @@
         padding-bottom: 0px;
         margin-bottom: 0px;
     }
+    .navigation__menu{
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+        .makeStyles-container-24, .makeStyles-container-18 {
+            color: white;
+            background-color: transparent;
+        }
+    }
     .menu__type2__container {
         position: absolute;
         z-index: 1;

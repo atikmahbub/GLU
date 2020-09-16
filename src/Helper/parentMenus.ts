@@ -1,8 +1,8 @@
 import { menuTypes } from '../Interfaces/menuTypes';
 
 export const parentMenus: menuTypes[]  = [
-    { name: 'Home', link: '/parent/homepage' },
+    { name: 'Home', link: '/parent/home' },
     { name: 'Dashboard', link: '/parent/dashboard' },
-    { name: 'Subject', link: '/parent/homepage' },
-    { name: 'Messages', link: '/parent/homepage' },
+    { name: 'Subject', link: '/parent/home' },
+    { name: 'Messages', link: '/parent/home' },
 ];

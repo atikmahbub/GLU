@@ -62,8 +62,8 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             />
             <RecommendedContainer
                 padding
-                title="Previous Classes"
-                link={`/${userType}/previous-classes`}
+                title="Recorded Classes"
+                link={`/${userType}/recorded-classes`}
                 data={recommendedCards}
                 rootClassName={classes.recommendedRoot}
             />
@@ -81,8 +81,8 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             <CalendarDateSubjectsCard date="July 2020" cards={calendarSubjectsCards} paddingBottom={false} />
             <RecommendedContainer
                 padding
-                title="Upcoming Classes"
-                link={`/${userType}/upcoming-classes`}
+                title="Live Classes"
+                link={`/${userType}/live-classes`}
                 data={recommendedCards2}
                 rootClassName={classes.recommendedRoot}
             />
