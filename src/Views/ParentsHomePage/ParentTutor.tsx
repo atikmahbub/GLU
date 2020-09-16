@@ -31,7 +31,7 @@ function ParentTutor() {
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingDrawerContent />}>
 
         <div className="parent__tutor">
-                <div className="navigation__menu">
+                <div className="navigation__menu__parent__tutor">
                     <NavigationMenu 
                         menuList={navigations} 
                         handler={handleDrawer} 
