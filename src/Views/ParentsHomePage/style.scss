@@ -1,16 +1,4 @@
-.homepage__wrapper {
-    .drawer {
-        position: absolute;
-        .full_drawer {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            z-index: 25;
-            transition: all 0.5s;
-        }
-    }
+.homepage__wrapper, .parent__tutor {
     .section-two .ear-ring-girl {
         object-position: 50% 15%;
     }
@@ -22,6 +10,15 @@
         padding-top: 0px;
         padding-bottom: 0px;
         margin-bottom: 0px;
+    }
+    .navigation__menu{
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+        .makeStyles-container-24, .makeStyles-container-18 {
+            color: white;
+            background-color: transparent;
+        }
     }
     .menu__type2__container {
         position: absolute;
@@ -57,97 +54,7 @@
             }
         }
     }
-    .parent__upcoming__classes__container {
-        background-color: #f7f7f7;
-        height: 55.625rem;
-        .parent__upcoming__classes {
-            height: 36.875rem;
-            width: 100%;
-            .upcoming__class {
-                padding-top: 9.375rem;
-                padding-left: 0rem;
-                padding-left: 3.062rem;
-                .image-thumbnail-container {
-                    .image-thumbnail {
-                        padding-top: 65%;
-                        height: 36.875rem;
-                    }
-                    .img {
-                        width: 80%;
-                    }
-                }
-            }
-            .left .title__subtitle {
-                .title {
-                    font-size: 2.625rem;
-                    width: 11.437rem;
-                    line-height: 2.812rem;
-                }
-
-                .subtitle {
-                    font-size: 1.562rem;
-                    margin-top: 1.062rem;
-                }
-            }
-            .right .title__subtitle {
-                .title {
-                    font-size: 2.625rem;
-                    width: 26.125rem;
-                    line-height: 2.812rem;
-                }
-
-                .subtitle {
-                    font-size: 1.562rem;
-                    margin-top: 1.062rem;
-                }
-            }
-        }
-    }
-    .next__class {
-        .next__class__card {
-            padding-top: 0rem;
-            padding-bottom: 0rem;
-            padding-left: 0rem;
-            margin-top: 0rem;
-            margin-bottom: 0rem;
-            padding-top: 6.125rem;
-            padding-bottom: 6.187rem;
-            padding-left: 3.062rem;
-            .dropdown {
-                display: flex;
-                align-items: center;
-                font-size: 1.562rem;
-                line-height: 1.875rem;
-                font-family: 'CircularXXWeb-Book';
-                letter-spacing: 0px;
-                color: #5f5f5f;
-            }
-            .title {
-                font-size: 2.625rem;
-                line-height: 2.812rem;
-            }
-            .subtitle {
-                font-size: 1.562rem;
-                line-height: 1.875rem;
-                padding-top: 1.062rem;
-            }
-            .next__class__image {
-                .image-thumbnail-container {
-                    .img {
-                        padding-bottom: 0rem;
-                        height: 20rem;
-                        // height: 70%;
-                    }
-                }
-            }
-            .next__class__date {
-                .date__time__card {
-                    padding-left: 8.125rem;
-                    width: 10.875rem;
-                }
-            }
-        }
-    }
+    
     .first__row {
         display: flex;
         align-items: center;
@@ -283,185 +190,6 @@
             font-family: 'CircularXXMonoWeb-Regular';
         }
     }
-
-
-    .push__drawer {
-        background-color: rgba(0, 0, 0, 0.5);
-        .drawer__right__Container {
-            -ms-overflow-style: none;
-            position: fixed!important;
-            top: 0!important;
-            // right: -50%;
-            // width: 27%;
-            width: 32.312rem;
-            // width: 65%;
-            height: 100vh;
-            overflow: auto;
-            background-color: white;
-            z-index: -4;
-            opacity: 0;
-            // transform: translateX(32.312rem)!important;
-            transition: all 0.75s ease;
-        }
-
-        .full_drawer {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-            z-index: 15;
-            transition: all 0.5s;
-        }
-
-        .drawer__right__Container.show {
-            right: 0;
-            // right: 50;
-            opacity: 1;
-        }
-
-        .drawer__right__Container .button__row {
-            margin-left: -0.75rem!important;
-            padding-top: 1.774rem;
-            position: absolute;
-            .close-icon-btn{
-                width: 1.325rem!important;
-                height: 1.325rem!important;
-            }
-            p{
-                display: none;
-            }
-        }
-
-        .push__drawer__content .heading {
-            font-size: 2.625rem;
-        }
-
-        .push__drawer__content {
-            width: 100%;
-            padding: 0rem !important;
-            margin: 0rem !important;
-            transition: all 0.5s;
-            background: rgba(0, 0, 0, 0);
-            font-size: 2.625rem;
-            padding-top: 9.25rem !important;
-            padding-left: 3.125rem !important;
-            .title__description {
-                width: 24.312rem;
-                // width: 29.132rem;
-                margin-top: 3.062rem;
-                .first__row__title {
-                    .title {
-                        color: black;
-                        font-size: 1.562rem;
-                    }
-                }
-                .second__row__description {
-                    .subtitle {
-                        color: #5f5f5f;
-                        font-size: 1.562rem;
-                    }
-                }
-
-                .third__row__time {
-                    margin-top: 0.812rem;
-                    .subtitle {
-                        color: #5f5f5f;
-                        font-size: 1.125rem;
-                    }
-                }
-
-                .accept__ignore__container {
-                    display: flex;
-                    font-size: 1.25rem;
-                    margin-top: 1.5rem;
-                    button {
-                        width: 9.375rem;
-                        margin-right: 0.625rem;
-                        border: 1px solid #e2e0e0;
-                        background-color: white;
-                    }
-                }
-
-                hr {
-                    border: 1px solid #e2e0e0;
-                }
-            }
-
-            .message__request, .topped__up, .booking__confirmed {
-                margin-top: 1.906rem;
-            }
-
-            .topped__up{
-                .topped__up__with__close{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-            }
-            .clear__all{
-                font-size: 1rem;
-                font-family: "CircularXX";
-                margin-top: 4.562rem;
-                color: #5f5f5f;
-            }
-
-        }
-
-        .drawer__right__Container .button__row {
-            margin-left: -0.75rem!important;
-        }
-
-    }
-
-
-    .drawer{
-        .drawer__right__Container{
-            z-index: -4!important;
-        }
-    }
-
-    .drawer__content {
-        .icontext__container {
-            color: #5f5f5f;
-        }
-        .child__purchase__item {
-            display: flex;
-            align-items: center;
-            margin-top: 1.906rem;
-            .child__purchase {
-                display: flex;
-                align-items: center;
-                width: 18.75rem;
-                border: 1px solid #5f5f5f;
-                font-size: 1.4rem;
-                line-height: 1.562rem;
-                // margin-top: 1.906rem;
-                .child {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 9.375rem;
-                    height: 2.437rem;
-                    padding: 5px;
-                    color: black;
-                    :nth-child(2) {
-                        color: #5f5f5f;
-                    }
-                }
-                .purchase {
-                    padding: 0.562rem 2.125rem;
-                    border-left: 1px solid #5f5f5f;
-                    color: black;
-                }
-            }
-            .item {
-                margin-left: 1.25rem;
-                color: #5f5f5f;
-            }
-        }
-    }
-
     .icontext__container .icon {
         color: #5f5f5f;
     }

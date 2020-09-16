@@ -31,15 +31,19 @@ export default function Personal() {
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
                             <div className="card__row card_row1">
-                                <SmallCard
-                                    mainHeading={'Previous Classes'}
-                                    subHeading1={'Purchased'}
-                                    subHeading2={'57'} />
-                                <SmallCard
-                                    mainHeading={'Whiteboard'}
-                                    subHeading1={'Try out what the class '}
-                                    subHeading2={'will be like.'}
-                                />
+                                {/* <div className="parent__previous__classes"> */}
+                                    <SmallCard
+                                        mainHeading={'Previous '}
+                                        subHeading1={'Purchased'}
+                                        subHeading2={'57'} />
+                                {/* </div> */}
+                                {/* <div className="parent__whiteboard"> */}
+                                    <SmallCard
+                                        mainHeading={'Whiteboard'}
+                                        subHeading1={'Try out what the class '}
+                                        subHeading2={'will be like.'}
+                                    />
+                                {/* </div> */}
                             </div>
 
                         </div>
@@ -75,8 +79,8 @@ export default function Personal() {
                     <div className="horizontal__line__parent">
                     </div>
                     <div className="row">
-                        <div className="col-md-6 p-0">
-                            <div className="main_container_col11">
+                        <div className="col-md-6 p-0" >
+                            <div className="main_container_col11" style={{width:"94%", marginBottom:"1.875rem"}}>
                                 <Typography className="subtext">Your Day</Typography>
                                 <Typography className="subtext">9:21 am</Typography>
                             </div>
