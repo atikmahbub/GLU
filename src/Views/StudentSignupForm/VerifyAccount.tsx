@@ -4,7 +4,10 @@ import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddo
 import { Typography } from '@material-ui/core';
 import { registerContext } from './Index';
 
-const VerifyAccount = () => {
+interface props {
+    onClick?: () => void;
+}
+const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
     const context = useContext(registerContext);
 
     return (
@@ -24,10 +27,15 @@ const VerifyAccount = () => {
                 <div className="col-md-8 mb-3">
                     <UnderLineAddornmentSingleIcon
                         label=""
+                        type="number"
                         className="custom-adornment-input"
                         value={context.student.veriMobile}
                         onChange={context.studentHandler.veriMobile}
-                        icon={<Typography className="text">Send Code</Typography>}
+                        icon={
+                            <Typography className="text" onClick={onClick}>
+                                Send Code
+                            </Typography>
+                        }
                     />
                 </div>
             </div>

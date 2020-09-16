@@ -12,7 +12,6 @@ import SectionSix from './SectionSix';
 import PeopleSaying from './PeopleSaying';
 import Footer from '../Footer/Footer';
 import SlidingMenu from '../../components/SlidingMenu';
-import ScrollButton from './ScrollButton';
 import { Icons } from '../../Assets/Icons';
 import BottomGAtext from './BottomGAtext';
 

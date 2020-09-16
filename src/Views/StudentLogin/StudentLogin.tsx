@@ -8,13 +8,13 @@ import { userLoginAPIcall } from '../../Redux/Actions/loginAction';
 import { useDispatch } from 'react-redux';
 
 const StudentLogin = () => {
-    const [state, setState] = useState({ username: 'upk@123', password: 'Test@1234' });
+    const [state, setState] = useState({ email: 'upk@123', password: 'Test@1234' });
     const routes = useHistory();
     const handleForgot = () => {
         routes.push('/student-forgot-password');
     };
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, username: e.target.value });
+        setState({ ...state, email: e.target.value });
     };
     const handlePass = (value: string) => {
         setState({ ...state, password: value });
@@ -33,7 +33,7 @@ const StudentLogin = () => {
                         <TextField
                             className="line-input mb-5"
                             label="Email Address"
-                            value={state.username}
+                            value={state.email}
                             onChange={handleEmail}
                             fullWidth
                         />

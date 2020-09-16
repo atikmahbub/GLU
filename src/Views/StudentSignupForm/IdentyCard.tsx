@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Identity from './Identity';
-import OutlineButton from '../../components/Button/OutlineButton';
-import { Typography } from '@material-ui/core';
+import UploadMaxSize from '../../components/Button/UploadMaxSize';
+import { registerContext } from './Index';
 
 const IdentyCard = () => {
+    const context = useContext(registerContext);
+    const handleUpload = (file: File) => {
+        const data = {...context.state};
+        data.teacher.file = file;
+        context.setState(data);
+    }
     return (
         <div >
             <Identity/>
-            <div className="upload-container mb-4">
-                <OutlineButton text="Upload" />
-                <Typography className="title">Max file size 5MB</Typography>
-            </div>
+            <UploadMaxSize onClick={handleUpload} />
         </div>
     );
 }

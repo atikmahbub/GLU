@@ -18,16 +18,15 @@ const TempComp: React.FunctionComponent = ({teacherSkill}) => {
         { link: '', name: 'Shop' },
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
-    // const [skill,setSkill]=useState(teacherSkill?teacherSkill:[]);
-    // useEffect(() => {
-    //     dispatch(getTeacherSkills());
-    // }, [])
+    const [skill,setSkill]=useState(teacherSkill?teacherSkill:[]);
+    useEffect(() => {
+        dispatch(getTeacherSkills());
+    }, [])
     
     // const classes=useStyles();
     return (
         <NavigationMenu menuList={menu} colorWhite={true} background="brown">
             <div className="profile_container">
-    {skill&&skill.map((val)=>(<div>{val}</div>))}
             <div className="main_container p-0">
                 <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
             </div>
