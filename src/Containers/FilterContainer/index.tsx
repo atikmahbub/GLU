@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useState } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -9,6 +10,9 @@ import useToggle from '../../Hooks/useToggle';
 import { IFilterDataElement, IFilterElement } from './types';
 
 const useStyles = makeStyles({
+    root: {
+        padding: ({ padding }: any) => padding ? '4.5625rem 3.125rem' : 0
+    },
     filterBtn: {
         fontSize: '2.625rem',
         lineHeight: '2.8125rem',
@@ -25,28 +29,38 @@ const useStyles = makeStyles({
     },
 });
 
-function getFilterText (filter: string): string {
-    return filter ? ' - ' + filter : '+'
+function getFilterText(filter: string): string {
+    return filter ? ' - ' + filter : '+';
 }
 
 type CardsGridContainerProps = {
     title: string;
     rootClassName?: string;
+    padding?: boolean;
     filters: IFilterElement[];
     filtersData: IFilterDataElement[];
+    sort?: boolean;
 };
 
-const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, filters, filtersData, children }) => {
-    const classes = useStyles();
+const FilterContainer: FC<CardsGridContainerProps> = ({
+    title,
+    rootClassName,
+    padding,
+    filters,
+    filtersData,
+    sort,
+    children,
+}) => {
+    const classes = useStyles({ padding });
     const [filterDrawer, toggleFilterDrawer] = useToggle(false);
     const [activeFilter, setActiveFilter] = useState('');
 
     const handleChange = useCallback(({ label }: IFilterDataElement) => {
-        setActiveFilter(label)
+        setActiveFilter(label);
     }, []);
 
     return (
-        <Grid container direction="column" className={rootClassName}>
+        <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <FilterDrawer
                 open={filterDrawer}
                 onClose={toggleFilterDrawer}
@@ -70,10 +84,12 @@ const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, fi
                         Filter
                         {getFilterText(activeFilter)}
                     </ButtonPrimary>
-                    <ButtonPrimary className={classes.sortBtn}>
-                        <ExpandMoreIcon />
-                        Sort
-                    </ButtonPrimary>
+                    {sort && (
+                        <ButtonPrimary className={classes.sortBtn}>
+                            <ExpandMoreIcon />
+                            Sort
+                        </ButtonPrimary>
+                    )}
                 </Grid>
             </Grid>
             <Grid container>{children}</Grid>
@@ -84,6 +100,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({ title, rootClassName, fi
 FilterContainer.defaultProps = {
     filters: [],
     filtersData: [],
+    sort: true
 };
 
 export default FilterContainer;

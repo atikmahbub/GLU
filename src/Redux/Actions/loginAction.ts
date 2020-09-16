@@ -1,5 +1,5 @@
 import { API, setAuthrizationToken } from '../../Utility/API';
-import { loginAuth, loginData } from '../Interfaces/auth';
+import { loginAuth } from '../Interfaces/auth';
 import { endponts } from '../../Utility/endpoints';
 import { USER_LOGIN } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
@@ -41,7 +41,7 @@ export const userLogin = (data: any): appAction => {
     };
 };
 
-export const authRegisterAPIcall = (data: { username: string; password: string; token: string }, history: any) => {
+export const authRegisterAPIcall = (data: { email: string; password: string; token: string }, history: any) => {
     return (dispatch: any) => {
         API.post(endponts.authRegister, data)
             .then((res) => {

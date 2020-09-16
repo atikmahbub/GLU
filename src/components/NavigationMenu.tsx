@@ -10,6 +10,7 @@ import Notifications from './Notifications';
 import TopDrawerMenu from './TopDrawerMenu';
 import IconButton from './Button/IconButton';
 import ButtonPrimary from './Button/ButtonPrimary';
+import Drawer from './Drawer';
 import useToggle from '../Hooks/useToggle';
 import { getColor } from '../Helper/styles';
 
@@ -96,6 +97,7 @@ interface INavigationMenu {
     reverseButtons?: string;
     tutorOptions?: string;
     tutorProfileText?:boolean;
+    LeftDrawerMenuComponent?: ReactNode;
 }
 
 const NavigationMenu: FC<INavigationMenu> = ({
@@ -116,10 +118,12 @@ const NavigationMenu: FC<INavigationMenu> = ({
     showBurgerNav,
     tutorOptions,
     tutorProfileText,
+    LeftDrawerMenuComponent,
 }) => {
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
     const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
+    const [leftMenuDrawer, setLeftMenuDrawer] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const classes = useStyles({ background, topMenuDrawer });
     // const [displayBurgerNav,setBurgerNav]=useState(showBurgerNav?showBurgerNav:true);
@@ -127,6 +131,9 @@ const NavigationMenu: FC<INavigationMenu> = ({
         setNotificationsDrawer(true);
     }, []);
     const openMenuDrawer = useCallback(() => {
+        if (LeftDrawerMenuComponent) {
+            return setLeftMenuDrawer(true);
+        }
         if (TopDrawerMenuComponent) {
             return toggleTopMenuDrawer();
         }
@@ -138,6 +145,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
     const closeDrawers = useCallback(() => {
         setNotificationsDrawer(false);
         setMenuDrawer(false);
+        setLeftMenuDrawer(false);
     }, []);
 
     const renderMenuList = useMemo(() => {
@@ -259,6 +267,11 @@ const NavigationMenu: FC<INavigationMenu> = ({
                         <TopDrawerMenu open={topMenuDrawer} onClose={closeDrawers} containerRef={containerRef}>
                             {TopDrawerMenuComponent}
                         </TopDrawerMenu>
+                    )}
+                    {LeftDrawerMenuComponent && (
+                        <Drawer open={leftMenuDrawer} onClose={closeDrawers} fullHeight width="44vw" position="left">
+                            {LeftDrawerMenuComponent}
+                        </Drawer>
                     )}
                 </div>
                 <div>{children}</div>

@@ -5,6 +5,11 @@
     .school-color {
         color: #8b8b8b;
     }
+    .card_title_1{
+        font-size: 2.625rem;
+        line-height: 2.812rem;
+        font-family: 'CircularXXWeb-Book';
+    }
     .main_container_dashboard_title {
         font-size: 2.625rem;
         padding-left: 2rem;
@@ -32,7 +37,7 @@
                 padding-top: 1.9rem;
                 padding-left: 2.4375rem;
                 line-height: 2.8125rem;
-                font-size: 2.625rem;
+                font-size: 2.625rem!important;
                 max-width: 192px;
                 max-height: 101px;
             }

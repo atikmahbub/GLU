@@ -19,8 +19,14 @@ import TeacherStepper from './TeacherStepper';
 import ParentPreviewCard from './ParentPreviewCard';
 import ExperiencePreviewCard from './ExperiencePreviewCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerAPIcall, registerPhoneNumberAPIcall, studentEduAPIcall } from '../../Redux/Actions/registerAction';
+import {
+    registerAPIcall,
+    registerPhoneNumberAPIcall,
+    studentEduAPIcall,
+    verifyOTPAPIcall,
+} from '../../Redux/Actions/registerAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import { useHistory } from 'react-router';
 
 export const registerContext = createContext<any>({});
 const RegisterProvider = registerContext.Provider;
@@ -29,6 +35,7 @@ const Index: React.FunctionComponent = () => {
     const [active, setActive] = useState(0);
     const [whoIam, setWhoIam] = useState('');
     const [state, setState] = useState({
+        otp: '',
         parent: {
             childs: [{ firstName: '', lastName: '', email: '', phoneCode: '+91', phoneNum: '', location: '' }],
         },
@@ -130,16 +137,20 @@ const Index: React.FunctionComponent = () => {
         setState({ ...state, student: { ...state.student, veriCode: value } });
     };
     const handleVeriMobile = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value);
         setState({ ...state, student: { ...state.student, veriMobile: e.target.value } });
     };
     const handleNext = () => {
         setEditMode(false);
-        // userRegistration();
-        // if (active === 0) {
-        goToNextPage();
-        // }
+        userRegistration();
+        if (active === 0) {
+            goToNextPage();
+        }
+        if (active === 5) {
+            otpVerifyCall();
+        }
     };
-
+    console.log(state);
     const goToNextPage = () => {
         if (whoIam !== '') {
             if (active === activeLength - 1) {
@@ -188,13 +199,30 @@ const Index: React.FunctionComponent = () => {
                     dispatch(studentEduAPIcall(item));
                 }
             });
+            console.log(active);
         }
     };
-
-    const handleCodeSend = () => {
-        const contact = { phoneNumber: `${state.student.veriCode}${state.student.veriMobile}` };
-        dispatch(registerPhoneNumberAPIcall(contact));
-    }
+    const routes = useHistory();
+    const gotoWelcome = () => {
+        routes.push({
+            pathname: '/signup-success',
+            state: {
+                userName: `${state.student.firstName} ${state.student.lastName}`,
+            },
+        });
+    };
+    const otpVerifyCall = () => {
+        const data = {
+            phoneNumber: `${state.student.veriCode}${state.student.veriMobile}`,
+            code: state.otp,
+        };
+        dispatch(verifyOTPAPIcall(data, gotoWelcome));
+    };
+    const handleCodeSend = (value: string) => {
+        console.log(value);
+        const contact = { phoneNumber: `${state.student.veriCode}${value}` };
+        dispatch(registerPhoneNumberAPIcall(contact, goToNextPage));
+    };
 
     const handleBack = () => {
         if (whoIam !== '') {

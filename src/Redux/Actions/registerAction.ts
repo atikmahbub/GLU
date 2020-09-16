@@ -32,10 +32,24 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
     };
 };
 
-export const registerPhoneNumberAPIcall = (data: any) => {
+export const registerPhoneNumberAPIcall = (data: any, goToNextPage: () => void) => {
     return (dispatch: Dispatch<any>) => {
         API.post(endponts.registerPhone, data)
-            .then(() => {})
+            .then(() => {
+                goToNextPage();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+};
+
+export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.verifyOtp, data)
+            .then(() => {
+                goToNextPage();
+            })
             .catch((err) => {
                 console.log(err);
             });

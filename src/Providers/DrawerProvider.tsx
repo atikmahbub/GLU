@@ -23,7 +23,7 @@ const useStyles = makeStyles(({ transitions }) => ({
 interface IDrawerProvider extends DrawerProps {
     open: boolean;
     onClose: () => void;
-    drawerWidth?: number | string;
+    drawerWidth?: number;
     drawerContent: ReactNode;
     drawerPosition?: 'left' | 'right' | 'top' | 'bottom';
     children: ReactNode;

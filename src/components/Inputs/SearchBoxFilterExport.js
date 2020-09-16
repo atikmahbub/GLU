@@ -46,7 +46,7 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
                 onChange={handleSearch}
                 variant="outlined"
                 fullWidth={true}
-                icon={<Search />}
+                icon={<i className="icon-Search_Nav" />}
             />
         </div>
     );

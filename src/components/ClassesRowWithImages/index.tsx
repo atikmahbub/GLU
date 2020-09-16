@@ -2,17 +2,21 @@ import React from 'react';
 import HeadingRowContainer from '../../components/HeadingRowContainer';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
+import { link } from 'fs';
 
 interface props {
     title: string;
+    linkTo: string;
 }
 
 const Classes: React.FunctionComponent<props> = ({
-    title
+    title,
+    linkTo
+
 }) => {
     return (
         <div className="class_container">
-            <HeadingRowContainer title={title} link="see all" />
+            <HeadingRowContainer title={title} link="see all" linkTo={linkTo} />
             <div className="row">
                 <div className="col-md-3">
                     <ImageThumbnail

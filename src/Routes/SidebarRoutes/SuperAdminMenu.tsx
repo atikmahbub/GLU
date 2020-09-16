@@ -90,12 +90,12 @@ export const SuperAdminMenu: any[] = [
                 menuList: [],
                 routeName: '/departments',
             },
-            {
-                menuName: 'Daily Attendance',
-                isExpandable: false,
-                menuList: [],
-                routeName: '/daily-attendance',
-            },
+            // {
+            //     menuName: 'Daily Attendance',
+            //     isExpandable: false,
+            //     menuList: [],
+            //     routeName: '/daily-attendance',
+            // },
             // {
             //     menuName: 'Event Calender',
             //     isExpandable: false,
@@ -141,27 +141,27 @@ export const SuperAdminMenu: any[] = [
         isExpandable: true,
         routeName: '',
         menuList: [
-            {
-                menuName: 'Student Fee Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/studen-free-manager',
-            },
-            {
-                menuName: 'Expense Category',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/expense-category',
-            },
-            {
-                menuName: 'Expense Manager',
-                isExpandable: false,
-                isOpen: false,
-                menuList: [],
-                routeName: '/expense-manager',
-            },
+            // {
+            //     menuName: 'Student Fee Manager',
+            //     isExpandable: false,
+            //     isOpen: false,
+            //     menuList: [],
+            //     routeName: '/studen-free-manager',
+            // },
+            // {
+            //     menuName: 'Expense Category',
+            //     isExpandable: false,
+            //     isOpen: false,
+            //     menuList: [],
+            //     routeName: '/expense-category',
+            // },
+            // {
+            //     menuName: 'Expense Manager',
+            //     isExpandable: false,
+            //     isOpen: false,
+            //     menuList: [],
+            //     routeName: '/expense-manager',
+            // },
         ],
     },
     {

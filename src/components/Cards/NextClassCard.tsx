@@ -44,7 +44,7 @@ const NextClassCard: FC<INextClassCard> = ({ img, date, startTime, endTime, subj
                 />
             </Grid>
             <Grid container justify="flex-end" item xs={1}>
-                <SeeAll short to="/" />
+                {/* <SeeAll short to="/" /> */}
             </Grid>
         </Grid>
     );

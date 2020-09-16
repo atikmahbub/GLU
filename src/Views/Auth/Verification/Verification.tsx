@@ -8,7 +8,7 @@ import { authRegisterAPIcall } from '../../../Redux/Actions/loginAction';
 
 class Verification extends React.PureComponent<RouteComponentProps> {
   state = {
-    username: '',
+    email: '',
     password: '',
     token:'',
   };
@@ -23,13 +23,13 @@ class Verification extends React.PureComponent<RouteComponentProps> {
       this.props.history.push("/")
   }
   handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({...this.state, username:e.target.value})
+    this.setState({...this.state, email:e.target.value})
   }
   handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({...this.state, password:e.target.value})
   }
   handleRegister = () => {
-    if(this.state.username!=='' && this.state.password!==''){
+    if(this.state.email!=='' && this.state.password!==''){
       this.props.authRegister(this.state, this.props.history);
     }
   }
@@ -59,7 +59,7 @@ class Verification extends React.PureComponent<RouteComponentProps> {
                 className="mb-4"
                 variant="outlined"
                 label="Username"
-                value={this.state.username}
+                value={this.state.email}
                 onChange={this.handleUsername}
                 fullWidth
               />

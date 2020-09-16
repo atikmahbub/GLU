@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography, IconButton, Button } from '@material-ui/core';
-import { ControlPoint } from '@material-ui/icons';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import CardStatus from './CardStatus';
 import CardTable from '../../components/Table/CardTable';
@@ -17,10 +16,10 @@ interface tableProps {
 }
 const Dashboard: React.FunctionComponent = () => {
     const userList = [
-        { username: 'Student', total: 200 },
-        { username: 'Teachers', total: 10 },
-        { username: 'Parents', total: 5 },
-        { username: 'Staff', total: 5 },
+        { email: 'Student', total: 200 },
+        { email: 'Teachers', total: 10 },
+        { email: 'Parents', total: 5 },
+        { email: 'Staff', total: 5 },
     ];
     const eventList = [
         { eventTime: '10:00-11:00', eventName: 'What was life in Bennin', eventDate: '07/06', eventOrg: 'jamie lee' },
@@ -30,19 +29,23 @@ const Dashboard: React.FunctionComponent = () => {
     return (
         <div className="row row__margin">
             <div className="col-md-8 colum__spacing">
-                <CardContainer mb="mb-2">
-                    <GraphContainer />
-                </CardContainer>
-                <div className="row drow_mr">
+                <div className="row row__margin">
+                    <div className="col-md-12 pt-0 pb-0 colum__spacing">
+                        <CardContainer mb="mb-2">
+                            <GraphContainer />
+                        </CardContainer>
+                    </div>
+                </div>
+                <div className="row row__margin">
                     {userList.map((item) => (
                         <div key={uuidv4()} className="col-md-6 colum__spacing">
                             <div className="bg-white">
-                                <CardStatus heading={item.username} total={item.total} />
+                                <CardStatus heading={item.email} total={item.total} />
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className="row drow_mr">
+                <div className="row row__margin">
                     <div className="col-md-12 colum__spacing">
                         <CardContainer>
                             <div className="dashboard-table-container">

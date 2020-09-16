@@ -1,21 +1,9 @@
-import React, { FC } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
-import routes from '../../Routes/Parents';
+import React from 'react';
+import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 
-const Index: FC = () => {
-    // const classes = useStyles();
+const Index: React.FunctionComponent = () => {
     return (
-        // <Grid container direction="column">
-        //     <Grid container direction="column">
-        //         <Switch>
-        //             {routes.map((route, index) => (
-        //                 <Route exact key={index} {...route} />
-        //             ))}
-        //             <Redirect to="/parent/homepage" />
-        //         </Switch>
-        //     </Grid>
-        // </Grid>
+        <HomePageContainer userType="parent" />
     );
 };
 

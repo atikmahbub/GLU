@@ -117,4 +117,16 @@ export const dashboardRoutes = [
         pathname: '/dashboard/teacher-details/class-group-details/homework',
         component: TeacherCGHomework,
     },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/students',
+        component: StudentList,
+    },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/feedback',
+        component: Feedback,
+    },
+    {
+        pathname: '/dashboard/teacher-details/class-group-details/merits/sanctions',
+        component: MeritsSanction,
+    },
 ];
