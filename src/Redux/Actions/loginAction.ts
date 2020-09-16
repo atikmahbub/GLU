@@ -1,7 +1,6 @@
 import { API, setAuthrizationToken } from '../../Utility/API';
 import { loginAuth, loginData } from '../Interfaces/auth';
 import { endponts } from '../../Utility/endpoints';
-import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { USER_LOGIN } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';

@@ -5,34 +5,7 @@ import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddo
 import { LocationSearching } from '@material-ui/icons';
 import { registerContext } from './Index';
 
-interface props {
-    firstName: string;
-    lastName: string;
-    email: string;
-    mobilePre: string;
-    location:string;
-    mobile: string;
-    handleFirstName: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleLastName: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleEmail: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleMobilePre: (value:string) => void;
-    handleMobile: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleLocation: (e:React.ChangeEvent<HTMLInputElement>) => void;
-}
-const UserDetailsForm: React.FunctionComponent<props> = ({
-    firstName,
-    lastName,
-    email,
-    mobilePre,
-    mobile,
-    location,
-    handleFirstName,
-    handleLastName,
-    handleEmail,
-    handleMobilePre,
-    handleMobile,
-    handleLocation,
-}) => {
+const ChildrenForm: React.FunctionComponent = () => {
     const context = useContext(registerContext);
     return (
         <>
@@ -40,8 +13,8 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 <div className="col-lg-6">
                     <TextField
                         className="line-input"
-                        value={firstName}
-                        onChange={handleFirstName}
+                        value={context.student.firstName}
+                        onChange={context.studentHandler.firstName}
                         label="First Name"
                         fullWidth
                     />
@@ -49,8 +22,8 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 <div className="col-lg-6">
                     <TextField
                         className="line-input"
-                        value={lastName}
-                        onChange={handleLastName}
+                        value={context.student.lastName}
+                        onChange={context.studentHandler.lastName}
                         label="Last Name"
                         fullWidth
                     />
@@ -60,8 +33,8 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 <div className="col-lg-12">
                     <TextField
                         className="line-input"
-                        value={email}
-                        onChange={handleEmail}
+                        value={context.student.email}
+                        onChange={context.studentHandler.email}
                         label="Email Address"
                         fullWidth
                     />
@@ -71,9 +44,9 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                         className="custom-adornment-input"
                         label="Mobile Number"
                         options={['+91']}
-                        value={mobilePre}
+                        value={context.student.phoneCode}
                         getValue={(value: string) => {
-                           handleMobilePre(value);
+                            context.studentHandler.phoneCode(value);
                         }}
                     />
                 </div>
@@ -81,8 +54,8 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                     <TextField
                         className="line-input remove_mb"
                         label=""
-                        value={mobile}
-                        onChange={handleMobile}
+                        value={context.student.phoneNum}
+                        onChange={context.studentHandler.phoneNum}
                         fullWidth
                     />
                 </div>
@@ -90,8 +63,8 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                     <UnderLineAddornmentSingleIcon
                         label="Location"
                         className="custom-adornment-input"
-                        value={location}
-                        onChange={handleLocation}
+                        value={context.student.location}
+                        onChange={context.studentHandler.location}
                         icon={<LocationSearching className="search-loc" />}
                     />
                 </div>
@@ -100,4 +73,4 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
     );
 };
 
-export default UserDetailsForm;
+export default ChildrenForm;
