@@ -8,6 +8,7 @@ const ParentTutor = lazy(() => import('../../Views/ParentsHomePage/ParentTutor')
 const ParentRecordedClasses = lazy(() => import('../../Views/ParentRecordedClasses/Index'));
 const ParentPreviousClasses = lazy(() => import('../../Views/ParentPreviousClasses/Index'));
 const ClassesTutorsWithFilter = lazy(() => import('../../Views/ClassesTutorsWithFilter/ClassesTutorsWithFilter'));
+const ParentCalendar = lazy(() => import('../../Views/ParentCalendar/Index'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -19,7 +20,12 @@ export const routes = [
     createRouteObj('/parent/tutors/tutor', ParentTutor),
     createRouteObj('/parent/recorded-classes', ClassesTutorsWithFilter),
     createRouteObj('/parent/classes', ClassesTutorsWithFilter),
-    createRouteObj('/parent/previous-classes', ParentPreviousClasses)
+    createRouteObj('/parent/previous-classes', ParentPreviousClasses),
+    createRouteObj('/parent/parent-calender', ParentCalendar)
+
+
+
+    
 
 ];
 
