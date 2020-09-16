@@ -254,3 +254,78 @@ export const cards2: ImageCardElement[] = [
         time: '9am - 11.30am'
     },
 ]
+
+export const cards3: ImageCardElement[] = [
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607725/greentshirtboy_egan9k.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607730/twogirl_zxplyw.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/tablegirl_yg2bzv.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607732/yellowpillowboy_i7g8kg.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607725/greentshirtboy_egan9k.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/thinkingboy_tcq5wo.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607725/handonhairgirl_xacgln.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1599028758/supportPageBoy_kn0wdj.png',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607723/payingpadgirl_kvm5nm.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607722/girlwithhermom_buyidl.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/boyondark_yz2lmw.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+    {
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg',
+        title: 'How to structure narrative in fictio… English, Freddy Smith',
+        subTitle: 'AED200',
+        rating: '4/5'
+    },
+]

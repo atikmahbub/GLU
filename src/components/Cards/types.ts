@@ -4,6 +4,7 @@ export interface ImageCardElement {
     subTitle?: string;
     date?: string;
     time?: string;
+    rating?: string;
 }
 
 export interface BannerCardElement {
