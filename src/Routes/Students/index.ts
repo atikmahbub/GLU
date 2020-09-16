@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { createRouteObj } from '../../Helper/routes';
 import { linkTo } from '../../Helper/linkTo';
+const LiveClasses = lazy(() => import('../../Views/StudentsModule/LiveClasses'));
 const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
 const StudentsDashboard = lazy(() => import('../../Views/StudentsModule/Dashboard'));
 const StudentHomePage = lazy(() => import('../../Views/StudentHomepage/Index'));
@@ -23,6 +24,7 @@ const routes = [
     createRouteObj('/students/upcoming-classes', UpcomingClasses),
     createRouteObj('/students/tutors', TutorList),
     createRouteObj('/students/classes', StudentClassesTutors),
+    createRouteObj('/students/live-classes', LiveClasses),
     createRouteObj('/students/watch-previous-classes', StudentWatchPreviousClass),
     createRouteObj(linkTo.tutorDetails, TutorDetail),
     createRouteObj(linkTo.studentProfile, editStudentProfile),
