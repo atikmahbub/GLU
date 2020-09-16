@@ -58,15 +58,15 @@ const ReusableSubjectDesc: React.FunctionComponent<props> = ({ displayStudentInp
                     <div className="col-md-11 p-0">
                         <div className="description_container">
                             <Typography className="title">Description</Typography>
-                            {/* <textarea rows={5} style={{ width: '100%' }} className="textbox" /> */}
-                            {/* <ReusableTextArea noOfRows={6}/> */}
+                            <textarea rows={5} style={{ width: '100%' }} className="textbox" /> 
+                            {/* <ReusableTextArea noOfRows={6}/>
                             {/* <TextField
                                 placeholder="MultiLine with rows: 2 and rowsMax: 4"
                                 multiline
                                 rows={2}
                                 rowsMax={4}
                             /> */}
-                            <TextareaAutosize rowsMin={6} className={classes.textareaClass} />
+                            {/* <TextareaAutosize rowsMin={6} className={classes.textareaClass} /> */}
                         </div>
                     </div>
                     <div className="col-md-12 p-0">
