@@ -1,14 +1,14 @@
 import React from 'react';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Grid } from '@material-ui/core';
 import image from '../../Assets/images';
 import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles({
     imageBox: {
         marginBottom: '3.125rem',
-        display: 'inline',
-        width: '26.125rem',
+        width: '100%',
     },
+    imgg: {},
     headerText: {
         fontSize: '2.625rem',
         display: 'inline-block',
@@ -38,13 +38,16 @@ const useStyles = makeStyles({
         fontSize: '1.5625rem',
         width: 'inherit',
         fontFamily: 'CircularXXWeb-Book',
-
-        marginTop: '21px',
+        lineHeight: 1,
+        marginTop: '1.3125rem',
     },
     rating: {
         color: '#5F5F5F',
         fontSize: '1.3125rem',
         marginTop: '0.5rem',
+    },
+    img: {
+        width: '100%',
     },
 });
 
@@ -59,21 +62,74 @@ const PreviousClass = () => {
                     See all
                 </a>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div className={classes.imageBox}>
-                    <img src={image.bookredinggirl} alt="sedimentary rocks" width="418px" height="324px" />
-                    <div className={classes.textBox}>
-                        <div className={classes.textBox}>First look at French for beginners Language</div>
-                        <div className={classes.rating}>
-                            <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
-                                <StarIcon fontSize="small" />
+            <Grid container spacing={4}>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                    <div className={classes.imageBox}>
+                        <div className={classes.imgg}>
+                            <img src={image.bookredinggirl} alt="sedimentary rocks" className={classes.img} />
+                        </div>
+                        <div className={classes.textBox}>
+                            <div className={classes.textBox}>First look at French for beginners Language</div>
+                            <div className={classes.rating}>
+                                <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
+                                    <StarIcon fontSize="small" />
+                                </div>
+                                4/5
                             </div>
-                            4/5
                         </div>
                     </div>
-                </div>
+                </Grid>
+                <Grid item md={3} sm={6} xs={12}>
+                    <div className={classes.imageBox}>
+                        <div className={classes.imgg}>
+                            <img src={image.bookredinggirl} alt="sedimentary rocks" className={classes.img} />
+                        </div>
+                        <div className={classes.textBox}>
+                            <div className={classes.textBox}>First look at French for beginners Language</div>
+                            <div className={classes.rating}>
+                                <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
+                                    <StarIcon fontSize="small" />
+                                </div>
+                                4/5
+                            </div>
+                        </div>
+                    </div>
+                </Grid>
 
-                <div className={classes.imageBox}>
+                <Grid item md={3} sm={6} xs={12}>
+                    <div className={classes.imageBox}>
+                        <div className={classes.imgg}>
+                            <img src={image.bookredinggirl} alt="sedimentary rocks" className={classes.img} />
+                        </div>
+                        <div className={classes.textBox}>
+                            <div className={classes.textBox}>First look at French for beginners Language</div>
+                            <div className={classes.rating}>
+                                <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
+                                    <StarIcon fontSize="small" />
+                                </div>
+                                4/5
+                            </div>
+                        </div>
+                    </div>
+                </Grid>
+                <Grid item md={3} sm={6} xs={12}>
+                    <div className={classes.imageBox}>
+                        <div className={classes.imgg}>
+                            <img src={image.bookredinggirl} alt="sedimentary rocks" className={classes.img} />
+                        </div>
+                        <div className={classes.textBox}>
+                            <div className={classes.textBox}>First look at French for beginners Language</div>
+                            <div className={classes.rating}>
+                                <div style={{ transform: 'translateY(-3.5px)', display: 'inline-block' }}>
+                                    <StarIcon fontSize="small" />
+                                </div>
+                                4/5
+                            </div>
+                        </div>
+                    </div>
+                </Grid>
+
+                {/* <div className={classes.imageBox}>
                     <img src={image.greentshirtboy} alt="sedimentary rocks" width="418px" height="324px" />
                     <div className={classes.textBox}>
                         <div className={classes.textBox}>First look at French for beginners Language</div>
@@ -110,8 +166,8 @@ const PreviousClass = () => {
                             4/5
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> */}
+            </Grid>
         </div>
     );
 };

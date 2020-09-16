@@ -17,14 +17,14 @@ type props = {
 class Login extends React.PureComponent<props> {
     state = {
         // role: 'school',
-        username: 'upk@123',
+        email: 'upk@123',
         password: 'Test@1234',
     };
     handleLoginAs = (value: string) => {
         this.setState({ ...this.state, role: value });
     };
     handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({ ...this.state, username: e.target.value });
+        this.setState({ ...this.state, email: e.target.value });
     };
     handlePassword = (value: string) => {
         this.setState({ ...this.state, password: value });
@@ -46,7 +46,7 @@ class Login extends React.PureComponent<props> {
                         <TextField
                             className="mb-4"
                             variant="outlined"
-                            value={this.state.username}
+                            value={this.state.email}
                             onChange={this.handleEmail}
                             label="Email Address"
                             fullWidth

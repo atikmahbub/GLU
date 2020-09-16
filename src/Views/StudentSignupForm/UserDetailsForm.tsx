@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { TextField } from '@material-ui/core';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { LocationSearching } from '@material-ui/icons';
 import { registerContext } from './Index';
@@ -10,14 +9,14 @@ interface props {
     lastName: string;
     email: string;
     mobilePre: string;
-    location:string;
+    location: string;
     mobile: string;
-    handleFirstName: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleLastName: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleEmail: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleMobilePre: (value:string) => void;
-    handleMobile: (e:React.ChangeEvent<HTMLInputElement>) => void;
-    handleLocation: (e:React.ChangeEvent<HTMLInputElement>) => void;
+    handleFirstName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleLastName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleMobilePre: (value: string) => void;
+    handleMobile: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleLocation: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const UserDetailsForm: React.FunctionComponent<props> = ({
     firstName,
@@ -66,26 +65,27 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                         fullWidth
                     />
                 </div>
-                <div className="col-lg-4">
+                {/* <div className="col-lg-12">
                     <SelectFieldUnderline
                         className="custom-adornment-input"
-                        label="Mobile Number"
-                        options={['+91']}
+                        label="Gender"
+                        options={['male', 'female']}
                         value={mobilePre}
                         getValue={(value: string) => {
-                           handleMobilePre(value);
+                            handleMobilePre(value);
                         }}
                     />
-                </div>
-                <div className="col-lg-8">
+                </div> */}
+                {/* <div className="col-lg-8">
                     <TextField
                         className="line-input remove_mb"
                         label=""
+                        type="number"
                         value={mobile}
                         onChange={handleMobile}
                         fullWidth
                     />
-                </div>
+                </div> */}
                 <div className="col-lg-12">
                     <UnderLineAddornmentSingleIcon
                         label="Location"

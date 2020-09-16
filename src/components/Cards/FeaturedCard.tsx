@@ -31,7 +31,7 @@ const FeaturedCard: FC<IFeaturedCard> = ({ title, link, children }) => {
         <Grid container direction="column" className={classes.root}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <Typography className={classes.title}>{title}</Typography>
-                <SeeAll to={link} />
+                {/* <SeeAll to={link} /> */}
             </Grid>
             <CardsGrid rows={2}>
                 {children}

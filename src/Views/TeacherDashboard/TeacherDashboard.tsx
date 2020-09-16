@@ -16,10 +16,10 @@ interface tableProps {
 }
 const TeacherDashboard: React.FunctionComponent = () => {
     const userList = [
-        { username: 'Student', total: 200 },
-        { username: 'Teachers', total: 10 },
-        { username: 'Parents', total: 5 },
-        { username: 'Staff', total: 5 },
+        { email: 'Student', total: 200 },
+        { email: 'Teachers', total: 10 },
+        { email: 'Parents', total: 5 },
+        { email: 'Staff', total: 5 },
     ];
     const eventList = [
         { eventName: 'Annual Sports Meet', eventDate: 'Monday, Dec 21, 2020' },
@@ -40,7 +40,7 @@ const TeacherDashboard: React.FunctionComponent = () => {
                             <CardContainer>
                                 <CardStatus
                                     icon={<PeopleAlt className="status-icon" />}
-                                    heading={item.username}
+                                    heading={item.email}
                                     total={item.total}
                                 />
                             </CardContainer>

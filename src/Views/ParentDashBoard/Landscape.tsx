@@ -27,13 +27,20 @@ const useStyles = makeStyles({
         paddingRight: '5rem',
         paddingBottom: '2em',
     },
+    card_title_1:{
+        fontSize: '2.625rem',
+        lineHeight: '2.8125rem',
+        whiteSpace: 'pre-wrap',
+        // marginBottom: '10px',
+    },
     sliderRoot: {
         width: '100%',
+        paddingTop: '5rem'
     },
 });
 
 const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     arrows: false,
     autoplay: true,
@@ -54,8 +61,8 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
                     </Link>
             </div>
             <div className="card_title">
-                <Typography className="card_title_1">{title1}</Typography>
-                <Typography className="card_title_1">{title2}</Typography>
+                <Typography className={classes.card_title_1}>{title1}</Typography>
+                <Typography className={classes.card_title_1}>{title2}</Typography>
             </div>
 
             <div className="parent__slider">

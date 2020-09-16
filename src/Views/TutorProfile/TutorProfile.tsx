@@ -1,13 +1,16 @@
-import React from 'react';
+import React ,{useEffect,useState}from 'react';
 import { Typography } from '@material-ui/core';
+import { Link, withRouter } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import TagsContainer from '../../components/TagsContainer'
-import MadeBy from '../Footer/MadeBy';
-import PageFooter from '../../components/PageFooter'
+import { getTeacherSkills } from '../../Redux/Actions/teacherAction';
+import PageFooter from '../../components/PageFooter';
 import commonImg from '../../Assets/images';
+import {connect,useDispatch} from 'react-redux';
 
-const TempComp: React.FunctionComponent = () => {
+const TempComp: React.FunctionComponent = ({teacherSkill}) => {
+    const dispatch=useDispatch()
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -15,6 +18,11 @@ const TempComp: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+    const [skill,setSkill]=useState(teacherSkill?teacherSkill:[]);
+    useEffect(() => {
+        dispatch(getTeacherSkills());
+    }, [])
+    
     // const classes=useStyles();
     return (
         <NavigationMenu menuList={menu} colorWhite={true} background="brown">
@@ -118,5 +126,12 @@ const TempComp: React.FunctionComponent = () => {
         </NavigationMenu>
     );
 };
+ 
+const mapStateToProps = (state: any) => {
+    return {
+        teacherSkill: state.teacherReducer.teacherSkill,
+    };
+};
 
-export default TempComp;
+
+export default connect(mapStateToProps)(withRouter(TempComp));

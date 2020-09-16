@@ -16,7 +16,7 @@ const ParentDashboard: React.FunctionComponent = () => {
     const [activeTab, setActiveTab] = useState('personal');
 
     const menu = [
-        { link: '/parent/homepage', name: 'Home' },
+        { link: '/parent/home', name: 'Home' },
         { link: '/parent/dashboard', name: 'Dashboard' },
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },

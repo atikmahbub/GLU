@@ -1,7 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
-import TopDrawerMenuContent from '../Menus/TopDrawerMenuContent';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
 import NextClassCard from '../../components/Cards/NextClassCard';
 import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
@@ -20,6 +19,7 @@ import {
     recommendedCards2,
     tutorCards,
 } from '../../data/homepage';
+import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -41,7 +41,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             colorWhite
             menuList={menuList}
             background="transparent"
-            TopDrawerMenuComponent={<TopDrawerMenuContent />}
+            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
             <BannerCarousel cards={bannerCards} />
             <NextClassCard
@@ -62,8 +62,8 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             />
             <RecommendedContainer
                 padding
-                title="Previous Classes"
-                link={`/${userType}/previous-classes`}
+                title="Recorded Classes"
+                link={`/${userType}/recorded-classes`}
                 data={recommendedCards}
                 rootClassName={classes.recommendedRoot}
             />
@@ -81,8 +81,8 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             <CalendarDateSubjectsCard date="July 2020" cards={calendarSubjectsCards} paddingBottom={false} />
             <RecommendedContainer
                 padding
-                title="Upcoming Classes"
-                link={`/${userType}/upcoming-classes`}
+                title="Live Classes"
+                link={`/${userType}/live-classes`}
                 data={recommendedCards2}
                 rootClassName={classes.recommendedRoot}
             />

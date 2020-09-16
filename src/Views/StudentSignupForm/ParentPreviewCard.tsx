@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
+import { registerContext } from './Index';
 
 interface props {
     title: string;
     handler: () => void;
     data: any;
     handleEdit: (edit: number) => void;
-    handleDelete: (delId: number) => void;
 }
-const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit, handleDelete }) => {
+const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, data, handleEdit}) => {
+    const context = useContext(registerContext);
+    const deleteHanlder = (i: number) => {
+        const data = { ...context.state };
+        data.parent.childs.splice(i, 1);
+        context.setState(data);
+    };
     return (
         <div className="info__container">
             {data.map((item: any, i: number) => (
@@ -22,7 +28,7 @@ const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, dat
                             <Button className="text-button" onClick={() => handleEdit(i)}>
                                 Edit
                             </Button>
-                            <Button className="text-button" onClick={() => handleDelete(i)}>
+                            <Button className="text-button" onClick={() => deleteHanlder(i)}>
                                 Delete
                             </Button>
                         </div>

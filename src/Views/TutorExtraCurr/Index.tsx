@@ -46,9 +46,9 @@ const TutorExtraCurr = () => {
                     <Header />
                 </div>
                 <div className={classes.body}>
-                    <UpcomingClass />
+                    <UpcomingClass btnTxt="Create" />
+                    <div style={{ marginTop: '4.625rem' }}>Showing 16 of 16</div>
                 </div>
-
                 <div className="commonFooter">
                     <PageFooter />
                 </div>

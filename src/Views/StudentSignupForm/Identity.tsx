@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { FormControl, FormControlLabel, RadioGroup, Radio } from '@material-ui/core';
+import { registerContext } from './Index';
 
 const Identity: React.FunctionComponent = () => {
-    const [value, setValue] = useState('');
+    const context = useContext(registerContext);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue((event.target as HTMLInputElement).value);
+        const data = { ...context.state };
+        data.teacher.identity = event.target.value;
+        context.setState(data);
     };
 
     return (
         <FormControl component="fieldset">
-            <RadioGroup aria-label="whoareu" name="whoareu" value={value} onChange={handleChange}>
+            <RadioGroup
+                aria-label="whoareu"
+                name="whoareu"
+                value={context.state.teacher.identity}
+                onChange={handleChange}
+            >
                 <FormControlLabel
                     value="dl"
                     className="title"
