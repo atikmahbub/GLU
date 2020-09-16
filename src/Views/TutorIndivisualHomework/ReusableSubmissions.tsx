@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 interface props{
     name?:string;
@@ -21,7 +21,7 @@ const ReusableSubmissions: React.FunctionComponent<props> = ({name,isSubmitted,d
                     <div className="col-md-7">
                         <div className="mark_or_edit submissions_dateTime">
                             <Typography className="leftText">{date}</Typography>
-                            <Typography className="resources_subtext">{isEdit}</Typography>
+                           <Link to="/tutor/mark-student-homework"><Typography className="resources_subtext">{isEdit}</Typography></Link>
                         </div>
                         <div className="col-md-12 p-0">
                             <Typography className="leftText">{time}</Typography>
