@@ -17,5 +17,6 @@ export const endponts = {
     timeTable: '/schools/routines',
     emailSubscribe:'auth/email',
     fileUpload: '/file-upload/signed-url/',
-    uploadFileName:'/file-upload/uploads'
+    uploadFileName:'/file-upload/uploads',
+    getSkill:'teacher/skill'
 }
