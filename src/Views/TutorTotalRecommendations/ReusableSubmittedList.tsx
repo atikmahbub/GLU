@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-
+import CheckCircleOutlineSharpIcon from '@material-ui/icons/CheckCircleOutlineSharp';
 interface props {
     subject?: string;
     desc?: string;
@@ -54,7 +54,8 @@ const ReusableSubmittedList: React.FunctionComponent<props> = ({
                 </div>
                 {isAccepted&&
                 <div className="show_accepted">
-                <Typography className="total_recommend_xstext">Accepted</Typography>
+                    
+                <Typography className="total_recommend_xstext"><CheckCircleOutlineSharpIcon style={{fontSize:'1.2rem',marginRight:'1px'}}/>Accepted</Typography>
             </div>}
                 
             </div>
