@@ -1,66 +1,69 @@
 import React, { FC, memo } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import ImageCard, { IImageCard } from '../components/Cards/ImageCard';
-import { colors } from '../Styles/colors';
+import ImageCard from '../components/Cards/ImageCard';
+import SeeAll from '../components/Typographies/SeeAll';
 import CardsGrid from './CardsGrid';
+import { ImageCardElement } from '../components/Cards/types';
 
 const useStyles = makeStyles({
     root: {
-        marginBottom: '8.125rem'
+        marginBottom: '8.125rem',
+        padding: ({ padding }: any) => (padding ? '0 3.125rem' : 0),
     },
     titleContainer: {
-        marginBottom: '1.875rem'
+        marginBottom: '1.875rem',
     },
     title: {
         fontSize: '2.625rem',
-        lineHeight: '1.875rem'
-    },
-    seeAll: {
-        fontSize: '1.25rem',
         lineHeight: '1.875rem',
-        color: colors.primary,
-        cursor: 'pointer'
+        fontWeight: ({ titleBold }: any) => (titleBold ? 500 : 400),
     },
     imageContainerRoot: {
         marginRight: '3.125rem',
         '&:last-child': {
-            marginRight: 0
-        }
-    }
-})
+            marginRight: 0,
+        },
+    },
+});
 
-type BottomRecommendedContainerProps = {
+interface IBottomRecommendedContainer {
     title: string;
-    data: IImageCard[];
+    titleBold?: boolean;
+    data: ImageCardElement[];
+    padding?: boolean;
+    link: string;
+    rootClassName?: string;
 }
 
-const RecommendedContainer: FC<BottomRecommendedContainerProps> = ({ title, data }) => {
-    const classes = useStyles()
+const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
+    title,
+    titleBold,
+    data,
+    padding,
+    link,
+    rootClassName,
+}) => {
+    const classes = useStyles({ padding, titleBold });
     return (
-        <Grid container direction="column" className={classes.root}>
+        <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <Typography className={classes.title}>{title}</Typography>
-                <Typography className={classes.seeAll}>See all</Typography>
+                <SeeAll to={link} />
             </Grid>
             <CardsGrid>
-                {data.map((card, index) => {
-                    return (
-                        <ImageCard
-                            {...card}
-                            key={index}
-                            rootClassName={classes.imageContainerRoot}
-                        />
-                    )
-                })}
+                {data.map((card, index) => (
+                    <ImageCard {...card} key={index} rootClassName={classes.imageContainerRoot} />
+                ))}
             </CardsGrid>
         </Grid>
-    )
-}
+    );
+};
 
 RecommendedContainer.defaultProps = {
-    data: []
-}
+    data: [],
+};
 
-export default memo(RecommendedContainer)
+export default memo(RecommendedContainer);

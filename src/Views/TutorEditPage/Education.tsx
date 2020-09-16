@@ -3,9 +3,6 @@ import { makeStyles, Typography, TextField } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
-    details: {
-        width: '55.375rem',
-    },
     detailsText: {
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
@@ -21,7 +18,7 @@ const useStyles = makeStyles({
     },
     btnContainer: {
         display: 'inline-block',
-        transform: 'translateX(40rem)',
+        transform: 'translateX(39.5rem)',
     },
     infoText: {
         fontSize: '2.265rem',
@@ -32,6 +29,7 @@ const useStyles = makeStyles({
     },
     hr: {
         marginTop: '2.5rem',
+        width: '100%',
     },
     upload: {
         fontSize: '1.25rem',
@@ -54,7 +52,7 @@ const Education = () => {
 
     return (
         <div>
-            <div className={classes.details}>
+            <div>
                 <div className={classes.detailsText}>Experience</div>
                 <div className={classes.labelText}>2018-Now</div>
                 <div className={classes.btnContainer}>

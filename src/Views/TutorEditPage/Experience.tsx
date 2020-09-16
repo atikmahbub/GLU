@@ -3,9 +3,7 @@ import { makeStyles, Typography, TextField } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
-    details: {
-        width: '55.375rem',
-    },
+    details: {},
     detailsText: {
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
@@ -20,7 +18,7 @@ const useStyles = makeStyles({
     },
     btnContainer: {
         display: 'inline-block',
-        transform: 'translateX(40rem)',
+        transform: 'translateX(39.5rem)',
         fontFamily: 'CircularXXWeb-Book',
     },
     infoText: {

@@ -7,7 +7,7 @@ const TutorList = lazy(() => import('../../Views/TutorList/TutorList'));
 import { createRouteObj } from '../../Helper/routes';
 
 export const routes = [
-    createRouteObj('/parent/homepage', ParentsHomePage),
+    createRouteObj('/parent/home', ParentsHomePage),
     createRouteObj('/parent/dashboard', ParentsDashboard),
     createRouteObj('/parent/upcoming-classes', UpcomingClasses),
     createRouteObj('/parent/tutors', TutorList),

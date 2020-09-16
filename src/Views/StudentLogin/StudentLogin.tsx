@@ -4,37 +4,25 @@ import { TextField, FormControlLabel, Radio, Typography } from '@material-ui/cor
 import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
 import { useHistory } from 'react-router';
 import OutlineButton from '../../components/Button/OutlineButton';
-import { setAuthrizationToken } from '../../Utility/API';
+import { userLoginAPIcall } from '../../Redux/Actions/loginAction';
+import { useDispatch } from 'react-redux';
 
 const StudentLogin = () => {
-    const [state, setState] = useState({ email: '', password: '' });
+    const [state, setState] = useState({ username: 'upk@123', password: 'Test@1234' });
     const routes = useHistory();
     const handleForgot = () => {
         routes.push('/student-forgot-password');
     };
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, email: e.target.value });
+        setState({ ...state, username: e.target.value });
     };
     const handlePass = (value: string) => {
         setState({ ...state, password: value });
     };
     const route = useHistory();
+    const dispatch = useDispatch();
     const handleSignin = () => {
-        localStorage.setItem(
-            'auth',
-            JSON.stringify({
-                access_token:
-                    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVwa0AxMjMiLCJ1c2VySWQiOjEzLCJyb2xlIjoiU2Nob29sIiwidXNlclJvbGVJZCI6MSwiaWF0IjoxNTk4NTk1NzM0LCJleHAiOjE1OTk4OTE3MzR9.UgIJ69g1zqMv58tmOy-m_jaNQRyW-0hX3fB-zHoerEg',
-            })
-        );
-        setAuthrizationToken();
-        if (state.email === 'student@gmail.com') {
-            route.push('/students/home');
-        } else if (state.email === 'tutor@gmail.com') {
-            route.push('/tutor/');
-        } else if (state.email === 'parent@gmail.com') {
-            route.push('/parent/homepage');
-        }
+        dispatch<any>(userLoginAPIcall(state, route));
     };
 
     return (
@@ -45,7 +33,7 @@ const StudentLogin = () => {
                         <TextField
                             className="line-input mb-5"
                             label="Email Address"
-                            value={state.email}
+                            value={state.username}
                             onChange={handleEmail}
                             fullWidth
                         />

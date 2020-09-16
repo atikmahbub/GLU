@@ -12,9 +12,9 @@ export default function LeftGrid() {
     return (
         <Grid item md={6}>
             <Calendar
-                nextLabel={null}
+                // nextLabel={null}
                 next2Label={null}
-                prevLabel={null}
+                // prevLabel={null}
                 prev2Label={null}
                 onChange={handleDateChange}
                 value={selectedDate}

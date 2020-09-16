@@ -106,6 +106,7 @@ const TutorHomework: React.FunctionComponent = () => {
                                                     date={val.date}
                                                     desc={val.desc}
                                                     subjectDesc={val.subjectDesc}
+                                                    linkurl={'/tutor/individual-homework'}
                                                     isSubmitted={val.isSubmitted}
                                                     DueOrComplete={val.DueOrComplete}
                                                 />

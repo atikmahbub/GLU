@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Grid } from '@material-ui/core';
 import Img from '../../Assets/images';
 import ReusableTextArea from '../../components/ReusableTextArea';
 import Details from './Details';
@@ -11,14 +11,7 @@ const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
     },
-    rightGrid: {
-        // float: 'left',
-        left: '61.5625rem',
-        top: '8.4375',
-        position: 'absolute',
-        width: '935px',
-        paddingRight: '3.0625rem',
-    },
+    rightGrid: {},
     image: {
         width: '11.5rem',
         height: '11.47rem',
@@ -68,16 +61,14 @@ const useStyles = makeStyles({
         marginBottom: '1rem',
         fontFamily: 'CircularXXWeb-Book',
     },
-    pad: {
-        paddingRight: '3.1875rem',
-    },
+    pad: {},
 });
 
 const LeftGrid = () => {
     const classes = useStyles();
 
     return (
-        <div className={classes.rightGrid}>
+        <Grid md={6} item className={classes.rightGrid}>
             <Typography className={classes.headerText}>Profile Image</Typography>
             <div className={classes.pad}>
                 <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
@@ -88,14 +79,14 @@ const LeftGrid = () => {
                 </div>
                 <div className={classes.bio}>
                     <div className={classes.bioText}>Bio</div>
-                    <ReusableTextArea noOfRows={6} />
+                    <ReusableTextArea noOfRows={5} />
                 </div>
                 <Details />
                 <Experience />
                 <Education />
                 <Skills />
             </div>
-        </div>
+        </Grid>
     );
 };
 

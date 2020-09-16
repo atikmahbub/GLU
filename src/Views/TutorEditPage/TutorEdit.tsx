@@ -1,9 +1,9 @@
 import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Grid } from '@material-ui/core';
 import LeftGrid from './LeftGrid';
 import RightGrid from './RightGrid';
-import MadeBy from '../Footer/MadeBy';
+import PageFooter from '../../components/PageFooter';
 
 const useStyles = makeStyles({
     footer: {
@@ -13,12 +13,8 @@ const useStyles = makeStyles({
     },
     mainPadding: {
         padding: '3.125rem',
-
-        '&::after': {
-            content: '',
-            clear: 'both',
-            display: 'table',
-        },
+        paddingBottom: '0',
+        marginBottom: '0.625rem',
     },
     topMarg: {
         marginTop: '10rem',
@@ -40,12 +36,12 @@ const TutorEdit = () => {
 
     return (
         <NavigationMenu menuList={menu}>
-            <div className={classes.mainPadding}>
+            <Grid container className={classes.mainPadding}>
                 <LeftGrid />
                 <RightGrid />
-            </div>
-            <div className={`footer ${classes.footer}`}>
-                <MadeBy />
+            </Grid>
+            <div className="commonFooter">
+                <PageFooter />
             </div>
         </NavigationMenu>
     );

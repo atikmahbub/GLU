@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography, Grid } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
@@ -7,12 +7,7 @@ const useStyles = makeStyles({
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
     },
-    leftGrid: {
-        // float: 'left',
-        top: '8.4375',
-        position: 'absolute',
-        width: '985px',
-    },
+    leftGrid: {},
     confirm: {
         marginTop: '50.5625rem',
         display: 'inline-block',
@@ -38,13 +33,13 @@ const LeftGrid = () => {
     const classes = useStyles();
 
     return (
-        <div className={classes.leftGrid}>
+        <Grid md={6} item className={classes.leftGrid}>
             <Typography className={classes.headerText}>Edit Profile</Typography>
             <div className={classes.confirm}>
                 <div className={classes.upload}>Save Changes</div>
                 <SmallTextButton text="Cancel" /> and go back
             </div>
-        </div>
+        </Grid>
     );
 };
 
