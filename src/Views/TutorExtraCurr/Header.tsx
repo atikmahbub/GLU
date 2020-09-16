@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Typography, Grid } from '@material-ui/core';
 import image from '../../Assets/images';
 import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getTeachersUpcomingClasses } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
     headerText: {
@@ -86,8 +88,11 @@ const useStyles = makeStyles({
     },
 });
 
-const Header = () => {
+const Header = ({ getTeachersUpcomingClasses: any }) => {
     const classes = useStyles();
+    useEffect(() => {
+        getTeachersUpcomingClasses();
+    }, []);
 
     return (
         <div>
@@ -242,4 +247,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default connect(null, { getTeachersUpcomingClasses })(Header);
