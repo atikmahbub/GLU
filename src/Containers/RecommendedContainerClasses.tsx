@@ -63,7 +63,7 @@ const RecommendedContainerClasses: FC<IBottomRecommendedContainer> = ({
             </Grid>
             <CardsGrid>
                 {data.map((card, index) => (
-                    <div  onClick={handleDrawer} >
+                    <div  onClick={handleDrawer} key={index}>
                          <ImageCard {...card} key={index} rootClassName={classes.imageContainerRoot}style={{ cursor: "pointer" }}/>
                     </div>
                 ))}
