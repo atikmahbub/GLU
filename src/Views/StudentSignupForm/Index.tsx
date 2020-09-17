@@ -151,10 +151,10 @@ const Index: React.FunctionComponent = () => {
     const handleNext = () => {
         setEditMode(false);
         console.log(active);
-        // userRegistration();
-        // if (active === 0) {
+        userRegistration();
+        if (active === 0) {
             goToNextPage();
-        // }
+        }
         if (
             (active === 5 && whoIam === 'student') ||
             (active === 5 && whoIam === 'parent') ||
