@@ -12,12 +12,25 @@ const useStyles = makeStyles({
         marginTop: '3rem',
     },
 });
+
+const menu = [
+    { link: '/tutor/', name: 'Dashboard' },
+    { link: '/tutor/set-class', name: 'Set Class' },
+    { link: '', name: 'Messages' },
+    { link: '', name: 'Shop' },
+];
 const SchoolInfo = () => {
     const classes = useStyles();
 
     return (
         <div>
-            <NavigationMenu background="secondary">
+            <NavigationMenu
+                menuList={menu}
+                showBurgerNav={'hide'}
+                tutorOptions={'show'}
+                reverseButtons={'yes'}
+                background={'secondary'}
+            >
                 <SchoolInfoHeader />
                 <SchoolInfoBody />
                 <div className="commonFooter" style={{ padding: '0 3rem' }}>

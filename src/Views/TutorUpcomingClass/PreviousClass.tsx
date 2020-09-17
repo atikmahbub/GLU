@@ -57,7 +57,7 @@ const PreviousClass = () => {
     return (
         <div>
             <div className={classes.mainBox}>
-                <Typography className={classes.headerText}>PreviousClasses</Typography>
+                <Typography className={classes.headerText}>Previous Classes</Typography>
                 <a href="#" className={classes.upload}>
                     See all
                 </a>
