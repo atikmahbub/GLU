@@ -14,7 +14,8 @@ import { createMenuList } from '../../Helper/menus';
 import {
     bannerCards,
     bannerCards2,
-    bannerCards3, calendarSubjectsCards,
+    bannerCards3,
+    calendarSubjectsCards,
     recommendedCards,
     recommendedCards2,
     tutorCards,
@@ -33,7 +34,7 @@ interface IHomePageContainer {
 
 const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
     const classes = useStyles();
-    const menuList = useMemo(() => createMenuList(userType), [userType])
+    const menuList = useMemo(() => createMenuList(userType), [userType]);
 
     return (
         <NavigationMenu

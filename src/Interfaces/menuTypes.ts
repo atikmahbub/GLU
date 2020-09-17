@@ -4,6 +4,7 @@ export interface menuTypes {
 }
 
 export interface menuListItem {
-   link: string;
    name: string;
+   link?: string;
+   subjectsDrawer?: boolean;
 }
