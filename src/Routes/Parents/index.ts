@@ -9,7 +9,7 @@ const ParentTutor = lazy(() => import('../../Views/ParentsHomePage/ParentTutor')
 const ParentPreviousClasses = lazy(() => import('../../Views/ParentPreviousClasses/Index'));
 const ClassesTutorsWithFilter = lazy(() => import('../../Views/ClassesTutorsWithFilter/ClassesTutorsWithFilter'));
 const ParentCalendar = lazy(() => import('../../Views/ParentCalendar/ParentCalendar'));
-const SchoolTimetableParent = lazy(() => import('../../Views/SchoolTimetableParent/SchoolTimeTable'));
+const SchoolTimetableParent = lazy(() => import('../../Views/SchoolTimeTableParent/SchoolTimeTable'));
 
 import { createRouteObj } from '../../Helper/routes';
 
