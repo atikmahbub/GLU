@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactNode, memo } from 'react';
+import React, { FC, useState, ReactNode, useMemo } from 'react';
 import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +9,7 @@ import NavigationMenu from '../NavigationMenu';
 import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 import MadeByFooter from '../../Views/Footer/MadeBy';
 import PageFooter from '../PageFooter';
+import { createMenuList } from '../../Helper/menus';
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -46,8 +47,10 @@ const menu = [
 const ParentIndividualHomeworkBanner: FC = () => {
     const classes = useStyles();
 
+    const menuList = useMemo(() => createMenuList("parent"), ["parent"])
+
     return (
-        <NavigationMenu absolute background="transparent" menuList={menu}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
+        <NavigationMenu absolute background="transparent" menuList={menuList} TopDrawerMenuComponent  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
             <Grid container className={classes.container}>
                 <Grid container className={classes.elementsContainer}>
                     <Grid item container xs={6}>
