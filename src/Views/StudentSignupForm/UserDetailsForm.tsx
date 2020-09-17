@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { TextField } from '@material-ui/core';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { registerContext } from './Index';
+import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 
 interface props {
     firstName: string;
@@ -64,27 +65,32 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                         fullWidth
                     />
                 </div>
-                {/* <div className="col-lg-12">
-                    <SelectFieldUnderline
-                        className="custom-adornment-input"
-                        label="Gender"
-                        options={['male', 'female']}
-                        value={mobilePre}
-                        getValue={(value: string) => {
-                            handleMobilePre(value);
-                        }}
-                    />
-                </div> */}
-                {/* <div className="col-lg-8">
-                    <TextField
-                        className="line-input remove_mb"
-                        label=""
-                        type="number"
-                        value={mobile}
-                        onChange={handleMobile}
-                        fullWidth
-                    />
-                </div> */}
+                {(context.whoIam === 'parent' && context.active === 2) && (
+                    <React.Fragment>
+                        <div className="col-md-4">
+                            <SelectFieldUnderline
+                                className="custom-adornment-input"
+                                label="Mobile Number"
+                                options={['+91']}
+                                value={mobilePre}
+                                getValue={(value: string) => {
+                                    handleMobilePre(value);
+                                }}
+                            />
+                        </div>
+                        <div className="col-md-8">
+                            <TextField
+                                className="line-input remove_mb"
+                                label=""
+                                type="number"
+                                value={mobile}
+                                onChange={handleMobile}
+                                fullWidth
+                            />
+                        </div>
+                    </React.Fragment>
+                )}
+
                 <div className="col-lg-12">
                     <UnderLineAddornmentSingleIcon
                         label="Location"

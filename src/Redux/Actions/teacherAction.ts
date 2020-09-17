@@ -4,7 +4,6 @@ import { handleError } from './errorHandler';
 import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
-import { dispatch } from '../Store/Store';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
