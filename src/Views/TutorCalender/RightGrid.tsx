@@ -19,16 +19,18 @@ const RightGrid = () => {
 
     return (
         <Grid item xs={12} md={6}>
-            <Typography className={classes.h1}>11th August 2020</Typography>
-            <LiveClass />
-            <hr className={classes.hr} />
-            <UpcomingClass />
-            <hr className={classes.hr} />
-            <UpcomingClass />
-            <hr className={classes.hr} />
-            <UpcomingClass />
-            <hr className={classes.hr} />
-            <UpcomingClass />
+            <div style={{ paddingLeft: '1rem' }}>
+                <Typography className={classes.h1}>11th August 2020</Typography>
+                <LiveClass />
+                <hr className={classes.hr} />
+                <UpcomingClass />
+                <hr className={classes.hr} />
+                <UpcomingClass />
+                <hr className={classes.hr} />
+                <UpcomingClass />
+                <hr className={classes.hr} />
+                <UpcomingClass />
+            </div>
         </Grid>
     );
 };
