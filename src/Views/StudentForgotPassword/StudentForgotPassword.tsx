@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { TextField, Button, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { forgotPasswordAPIcall } from '../../Redux/Actions/loginAction';
 
 const StudentForgotPassword = () => {
-    const routes = useHistory();
-    const handleSend = () => {
-        routes.push('/student-reset-password');
+    const [email, setEmail] = useState('');
+    const handleSend = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value)
     };
+    const dispatch = useDispatch();
+    const sendResetPassword = () => {
+        const data = {email};
+        dispatch(forgotPasswordAPIcall(data))
+    }
     return (
         <NavigationMenu absolute>
             <div className="credential__container">
@@ -18,9 +25,15 @@ const StudentForgotPassword = () => {
                             We will send a link to the email address your account is registered with, so you can reset
                             your password.
                         </Typography>
-                        <TextField className="line-input mb-4" label="Email Address" fullWidth />
+                        <TextField
+                            className="line-input mb-4"
+                            label="Email Address"
+                            value={email}
+                            onChange={handleSend}
+                            fullWidth
+                        />
                         <div className="button-container">
-                            <Button className="outline-button" onClick={handleSend}>
+                            <Button className="outline-button" onClick={sendResetPassword}>
                                 Send
                             </Button>
                         </div>

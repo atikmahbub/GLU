@@ -26,5 +26,7 @@ export const endponts = {
     techerExp:'teacher/experience',
     teacherBio: 'auth/teacher/bio/',
     teacherFileUpload: 'file-upload/uploads/documents',
-    parentChildAdd: 'guardian/children'
+    parentChildAdd: 'guardian/children',
+    forgotEmail: 'auth/forget/password',
+    resetPassword: 'auth/reset/password/'
 };
