@@ -17,7 +17,7 @@ const Dashboard: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="main_container">
                 <Typography className="main_container_dashboard_title">Dashboard</Typography>
                 <div className="main_container_dashboard">

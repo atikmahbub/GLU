@@ -23,7 +23,7 @@ const TutorRecord: React.FunctionComponent = () => {
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     const classes = useStyles();
     return (
-        <NavigationMenu menuList={menu} containerClassName={classes.navigationContainer}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="tutor_record_container">
                 <div className="tutor_record_container_1">
                     <div className="tutor_record_container_1_1">

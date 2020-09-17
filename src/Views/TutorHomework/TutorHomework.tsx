@@ -60,7 +60,7 @@ const TutorHomework: React.FunctionComponent = () => {
     ];
     return (
         <>
-            <NavigationMenu menuList={menu}>
+             <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
                 <div className="tutor_homework_main">
                     <div className="container-fluid">
                         <div className="row">
