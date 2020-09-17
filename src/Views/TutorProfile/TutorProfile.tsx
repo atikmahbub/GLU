@@ -8,7 +8,6 @@ import { getTeacherSkills } from '../../Redux/Actions/teacherAction';
 import PageFooter from '../../components/PageFooter';
 import commonImg from '../../Assets/images';
 import { useDispatch, useSelector } from 'react-redux';
-import { rootReducer } from '../../Redux/Reducers';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 
 const TempComp: React.FunctionComponent = () => {
@@ -21,11 +20,16 @@ const TempComp: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
-    const [skill, setSkill] = useState(teacherSkill ? teacherSkill : null);
+    const [skill, setSkill] = useState([]);
     useEffect(() => {
         dispatch(getTeacherSkills());
     }, []);
 
+    useEffect(()=>{
+        if(teacherSkill){
+               setSkill(teacherSkill);
+        }
+    },[teacherSkill])
     console.log('in tutor profile' + JSON.stringify(skill));
     // console.log(JSON.localStorage.getItem('auth')+"In profile");
     // const classes=useStyles();
