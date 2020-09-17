@@ -3,7 +3,6 @@ import NavigationMenu from '../../components/NavigationMenu';
 import ManageAccount from './ManageAccount';
 import Individual from './Individual';
 import ProfileSetting from './ProfileSetting';
-import Footer from '../Footer/Footer';
 import VideoLectureContainer from '../../components/VideoLectureContainer';
 import PageFooter from '../../components/PageFooter';
 

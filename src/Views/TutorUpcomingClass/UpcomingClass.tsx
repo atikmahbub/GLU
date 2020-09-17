@@ -57,6 +57,7 @@ const useStyles = makeStyles({
     image: {
         width: '26.0625rem',
         height: '20rem',
+        objectFit: 'cover',
     },
 
     ////
