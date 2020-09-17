@@ -84,7 +84,7 @@ const UpcomingClasses = ({ btnTxt }) => {
             <hr style={{ marginBottom: '51px' }} />
             <div style={{ display: 'flex' }}>
                 <div className={classes.headerTextBox}>
-                    <Typography className={classes.headerText} style={{ minWidth: '200px' }}>
+                    <Typography className={classes.headerText} style={{ minWidth: '250px' }}>
                         July 2020
                     </Typography>
                 </div>
@@ -119,7 +119,7 @@ const UpcomingClasses = ({ btnTxt }) => {
             <div>
                 <div style={{ display: 'flex' }}>
                     <div className={classes.headerTextBox}>
-                        <Typography className={classes.headerText} style={{ minWidth: '200px' }}></Typography>
+                        <Typography className={classes.headerText} style={{ minWidth: '250px' }}></Typography>
                     </div>
                     <div className={classes.imageBox}>
                         <img src={image.smilegirl} alt="sedimentary rocks" className={classes.image} />
@@ -153,7 +153,7 @@ const UpcomingClasses = ({ btnTxt }) => {
             <hr style={{ marginBottom: '51px', marginTop: '51px' }} />
             <div style={{ display: 'flex' }}>
                 <div className={classes.headerTextBox}>
-                    <Typography className={classes.headerText} style={{ width: '200px' }}>
+                    <Typography className={classes.headerText} style={{ width: '250px' }}>
                         August 2020
                     </Typography>
                 </div>
@@ -188,7 +188,7 @@ const UpcomingClasses = ({ btnTxt }) => {
             <div>
                 <div style={{ display: 'flex' }}>
                     <div className={classes.headerTextBox}>
-                        <Typography className={classes.headerText} style={{ width: '200px' }}></Typography>
+                        <Typography className={classes.headerText} style={{ width: '250px' }}></Typography>
                     </div>
                     <div className={classes.imageBox}>
                         <img src={image.girlwithlaptop} alt="sedimentary rocks" className={classes.image} />
