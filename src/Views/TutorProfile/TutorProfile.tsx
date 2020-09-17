@@ -35,7 +35,7 @@ const TempComp: React.FunctionComponent = ({teacherSkill}) => {
                 <div className="row">
                     <div className="col-md-6 order-md-1 order-2 p-0">
                         
-                        <Typography className="profile_container_1_text1">Limited Availablitiy</Typography>
+                        <Typography className="profile_container_1_text1">Limited Availability</Typography>
                         
                     </div>
                     <div className="col-md-6 order-md-2 order-1 p-0">

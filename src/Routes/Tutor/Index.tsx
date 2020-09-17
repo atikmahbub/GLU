@@ -50,7 +50,7 @@ export const tutorRoutes = [
     createRouteObj('/tutor/tutor-availablity', TutorAvailablity),
     createRouteObj('/tutor/class-review', ClassReview),
     createRouteObj('/tutor/tutor-review', TutorReview),
-    createRouteObj('/tutor/availablity', TutorAvailablity),
+    createRouteObj('/tutor/availability', TutorAvailablity),
     createRouteObj('/tutor/exams', TutorExams),
     createRouteObj('/tutor/recommend', TutorRecommend),
     createRouteObj('/tutor/upcoming-class', TutorUpcomingClass),

@@ -254,7 +254,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                             <>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                                     <Typography style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'black',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'2.8rem',paddingTop:'1rem'}}>Rakesh</Typography>
-                                    <Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:!tutorProfileText?'#5F5F5F':'#CFCFCF',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography>
+                                   <Link to="/" style={{color:!tutorProfileText?'#5F5F5F':'#CFCFCF',textDecoration:'none'}}><Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:!tutorProfileText?'#5F5F5F':'#CFCFCF',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography></Link> 
                                     <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
                                 </div>
                             </>
