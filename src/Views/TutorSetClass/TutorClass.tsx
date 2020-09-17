@@ -30,7 +30,7 @@ const TutorClass: React.FunctionComponent = () => {
     return (
         
             
-                <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
                 <div className="tutor_class_container">
             
             <div className="tutor_class_subcontainer">

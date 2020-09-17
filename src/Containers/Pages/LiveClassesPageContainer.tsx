@@ -10,6 +10,7 @@ import { cards2, filters, filtersData } from '../../data/filters';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
+import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 
 interface ILiveClassesPageContainer {
     userType: UserTypes;
@@ -39,6 +40,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
                 description="How to structure narrative in fiction."
                 name="Jeff Lee"
                 subTitle="AED200"
+                addButton={false}
             />
             <CardsGridContainer>
                 <CardsGrid>
@@ -56,6 +58,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
                 description="How to structure narrative in fiction."
                 name="Jeff Lee"
                 subTitle="AED200"
+                addButton={false}
             />
             <CardsGridContainer>
                 <CardsGrid>
@@ -64,6 +67,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
                     ))}
                 </CardsGrid>
             </CardsGridContainer>
+            <ShowMoreCard paddingTop={false} current={50} total={5488} />
             <PageFooter />
         </NavigationMenu>
     )

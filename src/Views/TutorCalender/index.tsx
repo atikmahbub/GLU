@@ -21,7 +21,7 @@ const Index = () => {
     ];
 
     return (
-        <NavigationMenu background="primary" menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="primary">
             <div className={classes.body}>
                 <Grid container spacing={4}>
                     <LeftGrid />

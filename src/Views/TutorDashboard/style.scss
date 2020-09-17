@@ -186,12 +186,14 @@
             margin-bottom: 3.125rem;
         }
         .main_container_col11 {
+            .personal_container_day_time{
             @include flex(center, space-between, row);
             font-family: 'CircularXXWeb-Book';
             .subtext {
                 font-family: inherit;
                 font-size: 2.625rem;
             }
+        }
         }
         .main_container_col12 {
             .main_subcontainer_timeline {
@@ -228,6 +230,7 @@
     .main_container_dashboard_col6{
         padding: 2rem 0;
     }
+
     .card__row {
         
         @include flex(center, space-between, column);
@@ -279,6 +282,11 @@
 }
 //Media Queries
 @media screen and (min-width: 767px) {
+    .personal_container_day_time{
+        .personal_container_time{
+            margin-right:3.125rem;
+        }
+    }
     .set__margin {
         margin-bottom: 3.125rem;
     }

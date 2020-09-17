@@ -16,7 +16,7 @@ const TutorRecommend: React.FunctionComponent = () => {
     ];
     const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
     return (
-        <NavigationMenu menuList={menu} >
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
         <div className="tutor_recommend_container">
         
 

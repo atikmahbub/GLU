@@ -9,6 +9,7 @@ import FilterContainer from '../FilterContainer';
 import CardsGridContainer from '../CardsGridContainer';
 import { cards2, filters, filtersData } from '../../data/filters';
 import PageFooter from '../../components/PageFooter';
+import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 
 interface IRecordedClassesPageContainer {
     userType: UserTypes;
@@ -72,6 +73,7 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
                     />
                 </CardsGrid>
             </CardsGridContainer>
+            <ShowMoreCard current={50} total={5488} />
             <PageFooter />
         </NavigationMenu>
     )

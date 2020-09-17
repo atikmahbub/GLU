@@ -9,6 +9,7 @@ import CardsGrid from '../CardsGrid';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
 import { cards3, filters, filtersData } from '../../data/filters';
+import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 
 interface ITutorsPageContainer {
     userType: UserTypes;
@@ -71,6 +72,7 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
                     />
                 </CardsGrid>
             </CardsGridContainer>
+            <ShowMoreCard current={50} total={5488} />
             <PageFooter />
         </NavigationMenu>
     )

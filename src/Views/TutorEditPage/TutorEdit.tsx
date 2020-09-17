@@ -35,7 +35,7 @@ const TutorEdit = () => {
     const classes = useStyles();
 
     return (
-        <NavigationMenu menuList={menu}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
             <Grid container className={classes.mainPadding}>
                 <LeftGrid />
                 <RightGrid />

@@ -19,9 +19,9 @@ const SmallCard: React.FunctionComponent<props> = ({ mainHeading, subHeading1, s
 
             <Typography className="title second_title">
                 {mainHeading === 'Reviews' && <StarRateSharpIcon style={{ color: 'black', marginRight: '0.5rem' }} />}
-                {mainHeading === 'Availablity' && (
+                {/* {mainHeading === 'Availablity' && (
                     <FiberManualRecordSharpIcon style={{ color: '#2267FF', marginRight: '0.5rem' }} />
-                )}
+                )} */}
                 {subHeading2}
             </Typography>
         </div>
