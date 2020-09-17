@@ -46,7 +46,7 @@ const TutorUpcomingClass = () => {
                     <Header />
                 </div>
                 <div className={classes.body1}>
-                    <UpcomingClasses />
+                    <UpcomingClasses btnTxt="Set class" />
                 </div>
                 <div className={classes.body2}>
                     <PrevClasses />

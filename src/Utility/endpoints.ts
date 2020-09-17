@@ -18,9 +18,10 @@ export const endponts = {
     emailSubscribe: 'auth/email',
     fileUpload: '/file-upload/signed-url/',
     uploadFileName: '/file-upload/uploads',
+    teacherUpcomingClass: 'teacher/upcoming/class',
     register: '/auth/register',
     studentEdu: '/student/qualification',
     registerPhone: '/user/phone/',
     verifyOtp: '/user/verify/phone/',
-    getSkill:'teacher/skill',
+    getSkill: 'teacher/skill',
 };
