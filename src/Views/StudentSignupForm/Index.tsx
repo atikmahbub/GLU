@@ -23,8 +23,14 @@ import {
     registerAPIcall,
     registerPhoneNumberAPIcall,
     studentEduAPIcall,
+    teacherExperienceAPIcall,
     verifyOTPAPIcall,
+    teacherAddSkillAPIcall,
+    teacherAddBioAPIcall,
+    teacherDocUploadAPIcall,
+    parentChildAddAPIcall,
 } from '../../Redux/Actions/registerAction';
+import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import { useHistory } from 'react-router';
 
@@ -43,6 +49,7 @@ const Index: React.FunctionComponent = () => {
             skills: [],
             file: null,
             identity: 'dl',
+            bio: '',
             experience: [{ workplace: '', position: '', designation: '', from: new Date(), to: new Date() }],
         },
         student: {
@@ -66,7 +73,8 @@ const Index: React.FunctionComponent = () => {
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
-    const token = useSelector((state: rootReducerType) => state.authReducer.userData);
+    const userData = useSelector((state: rootReducerType) => state.authReducer.userData);
+    const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
     const handleSPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, password: e.target.value } });
     };
@@ -142,11 +150,16 @@ const Index: React.FunctionComponent = () => {
     };
     const handleNext = () => {
         setEditMode(false);
+        console.log(active);
         userRegistration();
         if (active === 0) {
             goToNextPage();
         }
-        if (active === 5) {
+        if (
+            (active === 5 && whoIam === 'student') ||
+            (active === 5 && whoIam === 'parent') ||
+            (active === 10 && whoIam === 'teacher')
+        ) {
             otpVerifyCall();
         }
     };
@@ -189,9 +202,18 @@ const Index: React.FunctionComponent = () => {
                 endDate: item.to.toISOString(),
             };
         });
+        const experienceData = state.teacher.experience.map((item: any) => {
+            return {
+                workPlace: item.workplace,
+                position: item.position,
+                department: item.designation,
+                startDate: item.from.toISOString(),
+                endDate: item.to.toISOString(),
+            };
+        });
         if (active === 1) {
             dispatch(registerAPIcall(registerData, goToNextPage));
-        } else if (active === 3 && whoIam === 'student') {
+        } else if ((active === 3 && whoIam === 'student') || (active === 4 && whoIam === 'teacher')) {
             educationData.forEach((item, i: number) => {
                 if (i === educationData.length - 1) {
                     dispatch(studentEduAPIcall(item, goToNextPage));
@@ -199,8 +221,50 @@ const Index: React.FunctionComponent = () => {
                     dispatch(studentEduAPIcall(item));
                 }
             });
-            console.log(active);
+        } else if (active === 6 && whoIam === 'teacher') {
+            experienceData.forEach((item, i: number) => {
+                if (i === experienceData.length - 1) {
+                    dispatch(teacherExperienceAPIcall(item, goToNextPage));
+                } else {
+                    dispatch(teacherExperienceAPIcall(item));
+                }
+            });
+        } else if (active === 7 && whoIam === 'teacher') {
+            const skillSet = state.teacher.skills.map((item: string) => {
+                return { skillName: item };
+            });
+            dispatch(teacherAddSkillAPIcall(skillSet, goToNextPage));
+        } else if (active === 2 && whoIam === 'teacher') {
+            const data = { bio: state.teacher.bio };
+            dispatch(teacherAddBioAPIcall(data, userData.userRoleId, goToNextPage));
+        } else if (active === 8 && whoIam === 'teacher') {
+            const file: any = state.teacher.file;
+            dispatch(getFileUploadAPIcall(file.name));
+        } else if (active === 3 && whoIam === 'parent') {
+            state.parent.childs.map((item: any) => {
+                const data = {
+                    firstName: item.firstName,
+                    lastName: item.lastName,
+                    email: item.email,
+                    phoneNumber: `${item.phoneCode}${item.phoneNum}`,
+                    location: item.location,
+                };
+                dispatch(parentChildAddAPIcall(data, goToNextPage));
+            });
         }
+    };
+    useEffect(() => {
+        if (fileData) {
+            const file: any = state.teacher.file;
+            dispatch(uploadProfileAmznUrl(fileData.url, file, uploadDocument));
+        }
+    }, [fileData]);
+    const uploadDocument = () => {
+        const data = {
+            fileName: fileData.file,
+            documentType: state.teacher.identity,
+        };
+        dispatch(teacherDocUploadAPIcall(data, goToNextPage));
     };
     const routes = useHistory();
     const gotoWelcome = () => {
@@ -319,7 +383,7 @@ const Index: React.FunctionComponent = () => {
                 />
             ),
         },
-        { title: 'Verify Account', comp: <VerifyAccount /> },
+        { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
         { title: 'Verify Account', comp: <VerificationCode /> },
     ];
     const teacher = [
@@ -351,7 +415,7 @@ const Index: React.FunctionComponent = () => {
         },
         { title: 'Your Skill', comp: <TeacherSkills /> },
         { title: 'Your Identity', comp: <IdentyCard /> },
-        { title: 'Verify Account', comp: <VerifyAccount /> },
+        { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
         { title: 'Verify Account', comp: <VerificationCode /> },
     ];
     const getComponent = () => {
@@ -400,6 +464,8 @@ const Index: React.FunctionComponent = () => {
                                     student: state.student,
                                     editMode: editMode,
                                     currentActive: curActive,
+                                    whoIam: whoIam,
+                                    active: active,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,

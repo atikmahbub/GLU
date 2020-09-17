@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { handleError } from './errorHandler';
 import { appAction } from '../../Interfaces';
 import { Dispatch } from 'react';
+import { dispatch } from '../Store/Store';
 
 export const userLoginAPIcall = (data: loginAuth, history: any) => {
     return (dispatch: any) => {
@@ -79,6 +80,33 @@ export const emailVerificationAPIcall = (token: string, redirectToHome: () => vo
             })
             .catch((err) => {
                 console.log(err);
+            });
+    };
+};
+
+export const forgotPasswordAPIcall = (data: any) => {
+    return (dispatch: Dispatch<any>) => {
+        dispatch(spinner(true));
+        API.post(endponts.forgotEmail, data)
+            .then((res) => {
+                dispatch(spinner(false));
+                console.log(res);
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const resetPasswordAPIcall = (data: any, token:string, redirect:()=>void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(`${endponts.resetPassword}${token}`, data)
+            .then((res) => {
+                toast.success('Password Reset Successfully.');
+                redirect();
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
             });
     };
 };

@@ -1,6 +1,7 @@
 import { Dispatch } from 'react';
 import { API, setAuthrizationToken } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
+import { handleError } from './errorHandler';
 import { userLogin } from './loginAction';
 
 export const registerAPIcall = (data: any, goToNextPage: () => void) => {
@@ -52,6 +53,85 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 console.log(err);
+            });
+    };
+};
+
+export const teacherExperienceAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.techerExp, data)
+            .then((res) => {
+                console.log(res);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const teacherAddSkillAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.teahcerSkill, data)
+            .then((res) => {
+                console.log(res);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const teacherAddBioAPIcall = (data: any, id: number, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.put(`${endponts.teacherBio}${id}`, data)
+            .then((res) => {
+                console.log(res);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.put(endponts.teacherFileUpload, data)
+            .then((res) => {
+                console.log(res);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.parentChildAdd, data)
+            .then((res) => {
+                console.log(res);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
             });
     };
 };

@@ -10,6 +10,13 @@ const ParentPreviousClasses = lazy(() => import('../../Views/ParentPreviousClass
 const ClassesTutorsWithFilter = lazy(() => import('../../Views/ClassesTutorsWithFilter/ClassesTutorsWithFilter'));
 const ParentCalendar = lazy(() => import('../../Views/ParentCalendar/ParentCalendar'));
 const SchoolTimetableParent = lazy(() => import('../../Views/SchoolTimeTableParent/SchoolTimeTable'));
+const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'));
+const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
+const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
+const ParentIndividualHomeWork = lazy(() => import('../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner'));
+// const Reports = lazy(() => import('../../Views/ParentDashBoard/Reports'));
+const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
+const ParentSchoolInfo = lazy(() => import('../../Views/ParentSchoolInfo/SchoolInfo'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -24,6 +31,19 @@ export const routes = [
     createRouteObj('/parent/previous-classes', ParentPreviousClasses),
     createRouteObj('/parent/parent-calender', ParentCalendar),
     createRouteObj('/parent/school-table', SchoolTimetableParent),
+    createRouteObj('/parent/favourites', Favourites),
+    createRouteObj('/parent/help', HelpSupport),
+    createRouteObj('/parent/upcoming-classes', UpcomingClasses),
+    createRouteObj('/parent/individual-homework', ParentIndividualHomeWork),
+    createRouteObj('/parent/reports', Reports),
+    createRouteObj('/parent/school-info', ParentSchoolInfo),
+
+
+
+  
+
+
+
 ];
 
 export default routes;

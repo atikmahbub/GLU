@@ -27,16 +27,16 @@ const SchoolBasicInfo: React.FunctionComponent = () => {
                 </div>
                 <div className="col-md-12">
                     <div className="biograpghy__container">
-                        <Typography className="title">Short Bio</Typography>
+                        <Typography className="title">Bio</Typography>
                         <textarea rows={5} className="textbox" value={context.basicInfo.bio} onChange={context.bio} />
                     </div>
                 </div>
-                <div className="col-md-12">
+                {/* <div className="col-md-12">
                     <div className="biograpghy__container">
                         <Typography className="title">Long Bio</Typography>
                         <textarea rows={10} className="textbox" value={context.basicInfo.bio} onChange={context.bio} />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

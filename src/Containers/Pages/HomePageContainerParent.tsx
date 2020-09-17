@@ -48,6 +48,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             menuList={menuList}
             background="transparent"
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType}/>}
+            TopDrawerMenuComponent
             // TopDrawerMenuComponent = {<TopDrawerMenu userType={userType}/>} 
         >
             <BannerCarousel cards={bannerCards} />

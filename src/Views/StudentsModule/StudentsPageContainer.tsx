@@ -1,11 +1,11 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
-import { studentMenus } from '../../Helper/studentMenus';
 import { getColor } from '../../Helper/styles';
 import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
+import { createMenuList } from '../../Helper/menus';
 
 const useStyles = makeStyles({
     root: {
@@ -33,10 +33,11 @@ const StudentsPageContainer: FC<StudentsPageContainerProps> = ({
     contentClassName,
     children,
 }) => {
+    const menuList = useMemo(() => createMenuList('students'), [])
     const classes = useStyles({ background });
     return (
         <NavigationMenu
-            menuList={studentMenus}
+            menuList={menuList}
             background={navMenuBackground}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="students" />}
         >

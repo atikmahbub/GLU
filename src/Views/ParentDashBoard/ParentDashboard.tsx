@@ -34,7 +34,7 @@ const ParentDashboard: React.FunctionComponent = () => {
         setOpenPushDrawer(!openPushDrawer);
     };
     return (
-        <NavigationMenu absolute background="transparent" menuList={menu}>
+        <NavigationMenu absolute background="transparent" menuList={menu} TopDrawerMenuComponent>
             <div className="main_container">
                 <div className="title__container">
                     <Tabs value={activeTab} onChange={setActiveTab} />

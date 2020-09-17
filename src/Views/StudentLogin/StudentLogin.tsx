@@ -11,7 +11,7 @@ const StudentLogin = () => {
     const [state, setState] = useState({ email: 'upk@123', password: 'Test@1234' });
     const routes = useHistory();
     const handleForgot = () => {
-        routes.push('/student-forgot-password');
+        routes.push('/forgot-password');
     };
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, email: e.target.value });
