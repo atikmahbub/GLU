@@ -5,6 +5,7 @@ import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import Landscape from './Landscape';
 import CalendarComponentParent from '../../components/CalendarComponentParent';
+import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 
 export default function Personal() {
     return (
@@ -49,6 +50,8 @@ export default function Personal() {
                         </div>
                     </div>
                 </div>
+
+                {/* <ParentIndividualTutorBanner/> */}
 
                 {/* Reusable Component  */}
                 <div className="row wallet__date__container">

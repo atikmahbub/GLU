@@ -1,10 +1,10 @@
 import React from 'react';
-import HomePageContainer from '../../Containers/Pages/HomePageContainer';
+import HomePageContainerParent from '../../Containers/Pages/HomePageContainerParent';
 
 const Index: React.FunctionComponent = () => {
     return (
-        <HomePageContainer userType="parent" />
+        <HomePageContainerParent userType="parent" />
     );
 };
-
+//Some Changes
 export default Index;
