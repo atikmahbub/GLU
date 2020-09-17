@@ -830,6 +830,9 @@ button.primary-btn {
         @include flex(center, flex-start, row);
         margin-top: 1.5rem;
         margin-bottom: 1.75rem;
+        .MuiSvgIcon-root.title{
+            margin-top: 0;
+        }
         .title {
             color: #000;
             font-size: 0.687rem;

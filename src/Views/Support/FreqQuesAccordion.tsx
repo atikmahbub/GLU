@@ -4,7 +4,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import { v4 as uuidv4 } from 'uuid';
-import { ArrowDropDown } from '@material-ui/icons';
+import AddIcon from '@material-ui/icons/Add';
 
 const quesAns = [
     { ques: 'Do I have to pay for subscription?' },
@@ -20,7 +20,7 @@ const FreqQuesAccordion: React.FunctionComponent = () => {
         <div className="accord-container">
             {quesAns.map((item) => (
                 <Accordion className="accord" key={uuidv4()}>
-                    <AccordionSummary expandIcon={<ArrowDropDown className="icon" />}>
+                    <AccordionSummary expandIcon={<AddIcon fontSize="large" className="icon" />}>
                         <Typography className="ques">{item.ques}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
