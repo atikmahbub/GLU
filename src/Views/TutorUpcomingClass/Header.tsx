@@ -41,7 +41,13 @@ const Header = () => {
             </div>
             <div className={classes.imageBox}>
                 <Link to="/tutor/upcoming-class">
-                    <img src={image.tutorDashboard} alt="sedimentary rocks" width="535px" height="411px" />
+                    <img
+                        src={image.tutorDashboard}
+                        alt="sedimentary rocks"
+                        width="535px"
+                        height="411px"
+                        objectFit="cover"
+                    />
                 </Link>
             </div>
             <div className={classes.dateBox}>
