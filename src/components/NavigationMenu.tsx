@@ -279,6 +279,8 @@ const NavigationMenu: FC<INavigationMenu> = ({
                                         Rakesh
                                     </Typography>
                                     <Typography
+                                        component={Link}
+                                        to="/"
                                         className={customClass}
                                         style={{
                                             fontFamily: 'CircularXXWeb-Book',
@@ -287,6 +289,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                                             lineHeight: '1.875rem',
                                             marginRight: '4.25rem',
                                             paddingTop: '1rem',
+                                            textDecoration:'none'
                                         }}
                                     >
                                         Sign Out

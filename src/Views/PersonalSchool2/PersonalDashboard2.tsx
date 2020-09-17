@@ -6,7 +6,7 @@ import SmallCard from '../../components/SmallCard';
 import MadeBy from '../Footer/MadeBy';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import ProgressBar from './ProgressBar';
-import PageFooter from '../../components/PageFooter'
+import PageFooter from '../../components/PageFooter';
 import CalendarComponent from '../../components/CalendarComponent';
 const PersonalDashboard2: React.FunctionComponent = () => {
     return (
@@ -16,7 +16,12 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_col1">
                             <div className="card__row card_row1">
-                                <SmallCard  linkurl={'/tutor/my-classes'} mainHeading={'My Classes'} subHeading1={'Published'} subHeading2={'57'} />
+                                <SmallCard
+                                    linkurl={'/tutor/my-classes'}
+                                    mainHeading={'My Classes'}
+                                    subHeading1={'Published'}
+                                    subHeading2={'57'}
+                                />
                                 <SmallCard
                                     linkurl={'/tutor/record-class'}
                                     mainHeading={'Record Class'}
@@ -44,10 +49,10 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                         <div className="personal_school_container_col2">
                             <div className="card__row card_row3">
                                 <SmallCard
-                                    linkurl={'/tutor/availablity'}
-                                    mainHeading={'Availablity'}
+                                    linkurl={'/tutor/availability'}
+                                    mainHeading={'Availability'}
                                     subHeading1={'Status'}
-                                    subHeading2={'Limited Availablity'}
+                                    subHeading2={'Limited Availability'}
                                 />
                                 <SmallCard
                                     linkurl={'/tutor/homework'}
@@ -102,7 +107,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                                     subHeading2={'4'}
                                 />
                                 <SmallCard
-                                    linkurl={'/tutor/'}
+                                    linkurl={'/tutor/school-info'}
                                     mainHeading={'School Info'}
                                     subHeading1={'Secondary'}
                                     subHeading2={'Dubai,UAE'}
@@ -117,14 +122,20 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                     <BackgroundTemplate imgSrc={commonImg.ladyProfile} />
                 </div>
             </div>
-            
+
             <div className="personal_school_container_2">
-                <div className="tutor_dash_line"></div>
+                <div className="tutor_dash_line row"></div>
                 <div className="row">
                     <div className="col-md-6 p-0">
                         <div className="personal_school_container_2_col6">
-                            <Typography className="subtext">Your Day</Typography>
-                            <Typography className="subtext">9:21 am</Typography>
+                            
+                                
+                                    <Typography className="subtext">Your Day</Typography>
+                                
+                               
+                                    <Typography className="subtext">9:21 am</Typography>
+                                
+                            
                         </div>
                     </div>
                     <div className="col-md-6 p-0">
@@ -161,7 +172,7 @@ const PersonalDashboard2: React.FunctionComponent = () => {
                 </div>
             </div>
             <div className="commonWhiteFooter">
-                <PageFooter/>
+                <PageFooter />
             </div>
         </div>
     );

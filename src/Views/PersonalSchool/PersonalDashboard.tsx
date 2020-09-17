@@ -10,7 +10,6 @@ import ResuableTimeline from '../../components/ReusableTimeline';
 import ReusableLandscape from '../../components/ReusableLandscape';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import CalendarComponent from '../../components/CalendarComponent';
-
 const PersonalDashboard: React.FunctionComponent = () => {
     return (
         <>
@@ -46,10 +45,10 @@ const PersonalDashboard: React.FunctionComponent = () => {
                             </div>
                             <div className="card__row card_row2">
                                 <SmallCard
-                                    linkurl={"/tutor/availablity"}
-                                    mainHeading={'Availablity'}
+                                    linkurl={"/tutor/availability"}
+                                    mainHeading={'Availability'}
                                     subHeading1={'Status'}
-                                    subHeading2={'Limited Availablity'}
+                                    subHeading2={'Limited Availability'}
                                 />
                             </div>
                         </div>
@@ -109,6 +108,7 @@ const PersonalDashboard: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-6 p-0">
                             <div className="main_container_col11">
+                        
                                 <div className="personal_container_day_time">
                                 <div className="personal_container_day">
                                 <Typography className="subtext">Your Day</Typography>
