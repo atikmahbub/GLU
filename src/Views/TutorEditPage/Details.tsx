@@ -106,16 +106,16 @@ const useStyles = makeStyles({
     iconBox: {
         position: 'absolute',
         display: 'inline-block',
-        transform: 'translate(-1.5rem, 1rem)',
+        transform: 'translate(-1.1rem, 1.2rem)',
     },
     iconBox2: {
         position: 'absolute',
         display: 'inline-block',
-        transform: 'translate(-1.5rem, -0.7rem)',
+        transform: 'translate(-1.1rem, -0.5rem)',
         fontFamily: 'CircularXXWeb-Book',
     },
     reset: {
-        transform: 'translate(-1.5rem, -1.5rem)',
+        transform: 'translate(-2rem, -1.5rem)',
         fontFamily: 'CircularXXWeb-Book',
     },
 });
@@ -171,7 +171,8 @@ const Details = () => {
                 </label>
                 <input type="text" id="location" className={classes.inputBox}></input>
                 <div className={classes.iconBox}>
-                    <LocationSearchingIcon />
+                    {/* <LocationSearchingIcon /> */}
+                    <i className="icon-Locate"></i>
                 </div>
             </div>
 
@@ -185,7 +186,8 @@ const Details = () => {
                         <SmallTextButton text="Reset" />
                     </div>
 
-                    <VisibilityOffIcon />
+                    {/* <VisibilityOffIcon /> */}
+                    <i className="icon-Invisible"></i>
                 </div>
             </div>
         </div>

@@ -24,12 +24,6 @@ export const routes = [
     createRouteObj('/parent/previous-classes', ParentPreviousClasses),
     createRouteObj('/parent/parent-calender', ParentCalendar),
     createRouteObj('/parent/school-table', SchoolTimetableParent),
-
-
-
-
-    
-
 ];
 
 export default routes;
