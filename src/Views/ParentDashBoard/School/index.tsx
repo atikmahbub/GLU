@@ -2,7 +2,9 @@ import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import WhiteCard from '../../../components/Cards/WhiteCard';
+import WhiteCardParentTimeTable from '../../../components/Cards/WhiteCardParentTimeTable';
 import LineChart from '../LineChart';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     container: {
@@ -22,7 +24,9 @@ const School: FC = () => {
                     titleRightLinkTo="/students/"
                     content={<LineChart />}
                 />
-                <WhiteCard size={3} title="School Timetable" description="Classes" value="5" />
+              {/* <Link to="/parent/school-table"> */}
+                <WhiteCardParentTimeTable size={3} title="School Timetable" description="Classes" value="5" />
+            {/* </Link> */}
                 <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
             </Grid>
             <Grid container className={classes.container}>
