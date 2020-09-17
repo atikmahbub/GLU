@@ -10,9 +10,11 @@ import Notifications from './Notifications';
 import TopDrawerMenu from './TopDrawerMenu';
 import IconButton from './Button/IconButton';
 import ButtonPrimary from './Button/ButtonPrimary';
+import TopDrawerMenuContent from '../Containers/Menus/TopDrawerMenuContent';
 import Drawer from './Drawer';
 import useToggle from '../Hooks/useToggle';
 import { getColor } from '../Helper/styles';
+import { menuListItem } from '../Interfaces/menuTypes';
 
 const useStyles = makeStyles(({ transitions }) => ({
     root: {
@@ -31,9 +33,10 @@ const useStyles = makeStyles(({ transitions }) => ({
     container: {
         position: 'relative',
         zIndex: 1299,
-        backgroundColor: ({ background, topMenuDrawer }: any) => (topMenuDrawer ? '#fff' : getColor(background)),
+        backgroundColor: ({ background, topMenuDrawer, subjectsDrawer }: any) =>
+            topMenuDrawer || subjectsDrawer ? '#fff' : getColor(background),
         transition: ({ topMenuDrawer }: any) =>
-            !topMenuDrawer ? transitions.create(['background-color'], { duration: 400 }) : 'none',
+            !topMenuDrawer ? transitions.create(['background-color'], { duration: 300 }) : 'none',
         padding: 'calc(1.6875rem - 12px) 3.125rem',
         paddingLeft: 'calc(3.125rem - 12px)',
     },
@@ -81,7 +84,7 @@ export interface propsType {
 }
 
 interface INavigationMenu {
-    menuList?: propsType[];
+    menuList?: menuListItem[];
     customClass?: string;
     showMenuOptions?: boolean;
     rootClassName?: string;
@@ -96,7 +99,7 @@ interface INavigationMenu {
     showBurgerNav?: string;
     reverseButtons?: string;
     tutorOptions?: string;
-    tutorProfileText?:boolean;
+    tutorProfileText?: boolean;
     LeftDrawerMenuComponent?: ReactNode;
 }
 
@@ -123,13 +126,15 @@ const NavigationMenu: FC<INavigationMenu> = ({
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
     const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
+    const [subjectsDrawer, toggleSubjectsDrawer] = useToggle(false);
     const [leftMenuDrawer, setLeftMenuDrawer] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const classes = useStyles({ background, topMenuDrawer });
-    // const [displayBurgerNav,setBurgerNav]=useState(showBurgerNav?showBurgerNav:true);
+    const classes = useStyles({ background, topMenuDrawer, subjectsDrawer });
+
     const openNotificationDrawer = useCallback(() => {
         setNotificationsDrawer(true);
     }, []);
+
     const openMenuDrawer = useCallback(() => {
         if (LeftDrawerMenuComponent) {
             return setLeftMenuDrawer(true);
@@ -191,13 +196,21 @@ const NavigationMenu: FC<INavigationMenu> = ({
                             </li>
                         </>
                     )}
-                    {menuList.map(({ link, name }: propsType, index) => (
-                        <li key={index} className={classes.listItem}>
-                            <ButtonPrimary className={classes.button} component={Link} to={link}>
-                                {name}
-                            </ButtonPrimary>
-                        </li>
-                    ))}
+                    {menuList.map(({ link, name, subjectsDrawer }: menuListItem, index) => {
+                        return subjectsDrawer ? (
+                            <li key={index} className={classes.listItem}>
+                                <ButtonPrimary className={classes.button} onClick={toggleSubjectsDrawer}>
+                                    {name}
+                                </ButtonPrimary>
+                            </li>
+                        ) : (
+                            <li key={index} className={classes.listItem}>
+                                <ButtonPrimary className={classes.button} component={Link} to={link}>
+                                    {name}
+                                </ButtonPrimary>
+                            </li>
+                        );
+                    })}
                 </>
             );
         }
@@ -239,7 +252,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                     ref={containerRef}
                     className={classNames(classes.root, rootClassName, {
                         [classes.rootAbsolute]: absolute,
-                        [classes.rootColorWhite]: colorWhite && !topMenuDrawer,
+                        [classes.rootColorWhite]: colorWhite && !topMenuDrawer && !subjectsDrawer,
                     })}
                 >
                     <Grid
@@ -253,8 +266,31 @@ const NavigationMenu: FC<INavigationMenu> = ({
                         {tutorOptions == 'show' ? (
                             <>
                                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                    <Typography style={{fontFamily:'CircularXXWeb-Book',color:colorWhite?'white':'black',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'2.8rem',paddingTop:'1rem'}}>Rakesh</Typography>
-                                    <Typography className={ customClass} style={{fontFamily:'CircularXXWeb-Book',color:!tutorProfileText?'#5F5F5F':'#CFCFCF',fontSize:'1rem',lineHeight:'1.875rem',marginRight:'4.25rem',paddingTop:'1rem'}}>Sign Out</Typography>
+                                    <Typography
+                                        style={{
+                                            fontFamily: 'CircularXXWeb-Book',
+                                            color: colorWhite ? 'white' : 'black',
+                                            fontSize: '1rem',
+                                            lineHeight: '1.875rem',
+                                            marginRight: '2.8rem',
+                                            paddingTop: '1rem',
+                                        }}
+                                    >
+                                        Rakesh
+                                    </Typography>
+                                    <Typography
+                                        className={customClass}
+                                        style={{
+                                            fontFamily: 'CircularXXWeb-Book',
+                                            color: !tutorProfileText ? '#5F5F5F' : '#CFCFCF',
+                                            fontSize: '1rem',
+                                            lineHeight: '1.875rem',
+                                            marginRight: '4.25rem',
+                                            paddingTop: '1rem',
+                                        }}
+                                    >
+                                        Sign Out
+                                    </Typography>
                                     <Typography className={classNames(classes.logo, customClass)}>Glu</Typography>
                                 </div>
                             </>
@@ -273,6 +309,9 @@ const NavigationMenu: FC<INavigationMenu> = ({
                             {LeftDrawerMenuComponent}
                         </Drawer>
                     )}
+                    <TopDrawerMenu open={subjectsDrawer} onClose={closeDrawers} containerRef={containerRef}>
+                        <TopDrawerMenuContent />
+                    </TopDrawerMenu>
                 </div>
                 <div>{children}</div>
             </div>
