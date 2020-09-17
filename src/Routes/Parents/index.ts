@@ -16,7 +16,7 @@ const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
 const ParentIndividualHomeWork = lazy(() => import('../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner'));
 // const Reports = lazy(() => import('../../Views/ParentDashBoard/Reports'));
 const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
-const TutorSchoolInfo = lazy(() => import('../../Views/TutorSchoolInfo/SchoolInfo'));
+const ParentSchoolInfo = lazy(() => import('../../Views/ParentSchoolInfo/SchoolInfo'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -36,7 +36,7 @@ export const routes = [
     createRouteObj('/parent/upcoming-classes', UpcomingClasses),
     createRouteObj('/parent/individual-homework', ParentIndividualHomeWork),
     createRouteObj('/parent/reports', Reports),
-    createRouteObj('/parent/school-info', TutorSchoolInfo),
+    createRouteObj('/parent/school-info', ParentSchoolInfo),
 
 
 
