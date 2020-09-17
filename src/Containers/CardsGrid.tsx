@@ -8,8 +8,6 @@ function getGridTemplateColumns(rows: number | string): string {
             return '1fr 1fr 1fr 1fr'
         case 2:
             return '1fr 1fr'
-        case '1/2':
-            return '2fr 1fr 1fr'
         default:
             return '1fr 1fr 1fr 1fr'
     }
@@ -24,7 +22,7 @@ const useStyles = makeStyles({
 })
 
 interface ICardsGrid {
-    rows?: 4 | 2 | '1/2';
+    rows?: 4 | 2;
 }
 
 const CardsGrid: FC<ICardsGrid> = ({ children, rows }) => {
