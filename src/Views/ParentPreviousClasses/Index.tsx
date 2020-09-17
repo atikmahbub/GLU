@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
@@ -6,6 +6,7 @@ import Footer from '../Footer/Footer';
 import SlidingDrawerContent from './SlidingDrawerContent';
 import TotalClasses from './TotalClasses';
 import SortDropdown from '../../components/SortDropdown';
+import { createMenuList } from '../../Helper/menus';
 
 const Index: React.FunctionComponent = () => {
     const menu = [
@@ -14,10 +15,11 @@ const Index: React.FunctionComponent = () => {
         { name: 'Subject', link: '/parent/home' },
         { name: 'Messages', link: '/parent/home' },
     ];
+    const menuList = useMemo(() => createMenuList("parent"), ["parent"])
 
     return (
         <NavigationMenu
-            menuList={menu}
+            menuList={menuList}
             menuDrawerWidth="65vw"
             menuDrawerAnimation={false}
             MenuDrawerComponent={<SlidingDrawerContent />}
@@ -33,7 +35,7 @@ const Index: React.FunctionComponent = () => {
                             </div>
                             <div className="col-md-6 mb-5">
                                 <div className="title__sort__container">
-                                    <Typography className="title">Recorded Classes</Typography>
+                                    <Typography className="title">Previous Classes</Typography>
                                     <SortDropdown />
                                 </div>
                             </div>

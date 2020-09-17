@@ -27,11 +27,10 @@ const studentFavourite = React.lazy(() => import('../../Views/StudentFavourite/I
 
 const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchResult/Index'));
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
-const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/Index'));
+const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
 const ParentDashboard = React.lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
 const WatchSession = React.lazy(() => import('../../Views/SessionList/WatchSession'));
-
 
 export const rootRoute = [
     { component: Home, name: '/' },
@@ -52,18 +51,17 @@ export const rootRoute = [
     { component: StudentTutorPreviousClasses, name: '/student-previous-classes' },
     { component: studentDetail, name: '/student-detail' },
     { component: studentIncompleteDetail, name: '/student-incomplete-detail' },
-    
+
     { component: studentSchoolInfo, name: '/student-school-info' },
     { component: studentNoFavourite, name: '/student-no-favourite' },
     { component: studentNoPreviousClass, name: '/student-no-previous-class' },
     { component: studentFavourite, name: '/student-favourite' },
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
-    {component: EmailVerification, name: '/email-verification'},
-    {component: ParentsHomePage, name: '/parent/home'},
-    {component: ParentDashboard, name: '/parent/dashboard'},
-    {component: WatchSession, name: '/watch-session'},
+    { component: EmailVerification, name: '/email-verification' },
+    { component: ParentsHomePage, name: '/parent/home' },
+    { component: ParentDashboard, name: '/parent/dashboard' },
+    { component: WatchSession, name: '/watch-session' },
 
-    
-    {component: WatchSession, name: '/watch-session'},    
+    { component: WatchSession, name: '/watch-session' },
 ];

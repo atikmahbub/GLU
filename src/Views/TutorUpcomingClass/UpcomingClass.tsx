@@ -57,12 +57,13 @@ const useStyles = makeStyles({
     image: {
         width: '26.0625rem',
         height: '20rem',
+        objectFit: 'cover',
     },
 
     ////
 });
 
-const UpcomingClasses = () => {
+const UpcomingClasses = ({ btnTxt }) => {
     const classes = useStyles();
 
     return (
@@ -77,13 +78,13 @@ const UpcomingClasses = () => {
                     Upcoming Classes
                 </Typography>
                 <Link style={{ textDecoration: 'none', color: 'black' }} to={'/tutor/set-class'}>
-                    <div className={classes.upload}>Set class</div>
+                    <div className={classes.upload}>{btnTxt}</div>
                 </Link>
             </div>
             <hr style={{ marginBottom: '51px' }} />
             <div style={{ display: 'flex' }}>
                 <div className={classes.headerTextBox}>
-                    <Typography className={classes.headerText} style={{ width: '241px' }}>
+                    <Typography className={classes.headerText} style={{ minWidth: '250px' }}>
                         July 2020
                     </Typography>
                 </div>
@@ -114,9 +115,12 @@ const UpcomingClasses = () => {
                     <div className={classes.medText}>Fully Booked</div>
                 </div>
             </div>
-            <hr style={{ marginLeft: '351px', marginTop: '50px', marginBottom: '51px' }} />
+            <hr style={{ marginLeft: '19.3rem', marginTop: '50px', marginBottom: '51px' }} />
             <div>
-                <div style={{ display: 'flex', marginLeft: '351px' }}>
+                <div style={{ display: 'flex' }}>
+                    <div className={classes.headerTextBox}>
+                        <Typography className={classes.headerText} style={{ minWidth: '250px' }}></Typography>
+                    </div>
                     <div className={classes.imageBox}>
                         <img src={image.smilegirl} alt="sedimentary rocks" className={classes.image} />
                     </div>
@@ -149,7 +153,7 @@ const UpcomingClasses = () => {
             <hr style={{ marginBottom: '51px', marginTop: '51px' }} />
             <div style={{ display: 'flex' }}>
                 <div className={classes.headerTextBox}>
-                    <Typography className={classes.headerText} style={{ width: '241px' }}>
+                    <Typography className={classes.headerText} style={{ width: '250px' }}>
                         August 2020
                     </Typography>
                 </div>
@@ -180,9 +184,12 @@ const UpcomingClasses = () => {
                     <div className={classes.medText}>Fully Booked</div>
                 </div>
             </div>
-            <hr style={{ marginLeft: '351px', marginTop: '51px', marginBottom: '51px' }} />
+            <hr style={{ marginLeft: '19.3rem', marginTop: '51px', marginBottom: '51px' }} />
             <div>
-                <div style={{ display: 'flex', marginLeft: '351px' }}>
+                <div style={{ display: 'flex' }}>
+                    <div className={classes.headerTextBox}>
+                        <Typography className={classes.headerText} style={{ width: '250px' }}></Typography>
+                    </div>
                     <div className={classes.imageBox}>
                         <img src={image.girlwithlaptop} alt="sedimentary rocks" className={classes.image} />
                     </div>

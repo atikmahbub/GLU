@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
@@ -15,6 +15,7 @@ import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedA
 import ParentIndividualHomeworkBanner from '../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner';
 import DateAndResources from '../../components/ParentIndividualHomeWork/DateAndResources';
 import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
+import { createMenuList } from '../../Helper/menus';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -45,9 +46,12 @@ const ParentDashboard: React.FunctionComponent = () => {
         { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
     ]; 
+
+    const menuList = useMemo(() => createMenuList("parent"), ["parent"])
+
   
     return (
-        <NavigationMenu absolute background="transparent" menuList={menu}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
+        <NavigationMenu absolute background="transparent" menuList={menuList}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />} TopDrawerMenuComponent>
 
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
 

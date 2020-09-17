@@ -31,5 +31,5 @@ export const Icons = {
     arrowDown,
     calendar,
     user,
-    exit
+    exit,
 };
