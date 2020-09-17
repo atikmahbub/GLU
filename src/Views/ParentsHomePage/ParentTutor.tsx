@@ -6,8 +6,10 @@ import SlidingDrawerContent from '../../Views/ParentsHomePage/SlidingDrawerConte
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import { Link } from 'react-router-dom';
+import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 
 function ParentTutor() {
+    localStorage.setItem("tabValue","classes")
     const [openDrawer, setOpenDrawer] = useState(false);
     const [openPushDrawer, setOpenPushDrawer] = useState(false);
 
@@ -27,11 +29,22 @@ function ParentTutor() {
         setOpenDrawer(false);
         setOpenPushDrawer(!openPushDrawer);
     };
+
+    const menu = [
+        { link: '/parent/home', name: 'Home' },
+        { link: '/parent/dashboard', name: 'Dashboard' },
+        { link: '', name: 'Subject' },
+        { link: '', name: 'Messages' },
+    ];
+
+
     return (
+        <NavigationMenu absolute background="transparent" menuList={menu} colorWhite  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
+
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingDrawerContent />}>
 
         <div className="parent__tutor">
-                <div className="navigation__menu">
+                {/* <div className="navigation__menu__parent__tutor">
                     <NavigationMenu 
                         menuList={navigations} 
                         handler={handleDrawer} 
@@ -39,11 +52,12 @@ function ParentTutor() {
                         MenuDrawerComponent={<SlidingDrawerContent />} 
                         menuDrawerWidth="68.875rem"
                         menuDrawerAnimation={false}/>
-                </div>
+                </div> */}
             <ParentIndividualTutorBanner />
             <LimitedAvailability />
         </div>
         </DrawerProvider>
+        </NavigationMenu>
     )
 }
 
