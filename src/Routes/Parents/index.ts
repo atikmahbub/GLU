@@ -10,6 +10,11 @@ const ParentPreviousClasses = lazy(() => import('../../Views/ParentPreviousClass
 const ClassesTutorsWithFilter = lazy(() => import('../../Views/ClassesTutorsWithFilter/ClassesTutorsWithFilter'));
 const ParentCalendar = lazy(() => import('../../Views/ParentCalendar/ParentCalendar'));
 const SchoolTimetableParent = lazy(() => import('../../Views/SchoolTimeTableParent/SchoolTimeTable'));
+const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'));
+const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
+const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
+
+
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -24,6 +29,12 @@ export const routes = [
     createRouteObj('/parent/previous-classes', ParentPreviousClasses),
     createRouteObj('/parent/parent-calender', ParentCalendar),
     createRouteObj('/parent/school-table', SchoolTimetableParent),
+    createRouteObj('/parent/favourites', Favourites),
+    createRouteObj('/parent/help', HelpSupport),
+    createRouteObj('/parent/upcoming-classes', UpcomingClasses),
+
+
+
 ];
 
 export default routes;

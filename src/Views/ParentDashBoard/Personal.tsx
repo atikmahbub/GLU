@@ -36,7 +36,8 @@ export default function Personal() {
                                     <SmallCard
                                         mainHeading={'Previous '}
                                         subHeading1={'Purchased'}
-                                        subHeading2={'57'} />
+                                        subHeading2={'57'}
+                                        linkurl={"/parent/previous-classes"} />
                                 {/* </div> */}
                                 {/* <div className="parent__whiteboard"> */}
                                     <SmallCard
