@@ -24,7 +24,7 @@ export const fileUploadData = (data: any) => {
     };
 };
 
-export const uploadProfileAmznUrl = (url: string, image: File) => {
+export const uploadProfileAmznUrl = (url: string, image: File, callBack?: () => void) => {
     return (dispatch: Dispatch<any>) => {
         let data = new FormData();
 
@@ -37,6 +37,9 @@ export const uploadProfileAmznUrl = (url: string, image: File) => {
         })
             .then((res) => {
                 console.log(res);
+                if (callBack) {
+                    callBack();
+                }
             })
             .catch((err) => {
                 console.log(err);
