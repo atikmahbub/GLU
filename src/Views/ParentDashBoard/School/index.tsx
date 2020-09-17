@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import WhiteCard from '../../../components/Cards/WhiteCard';
 import WhiteCardParentHomeWork from '../../../components/Cards/WhiteCardParentHomeWork';
+import WhiteCardParentReport from '../../../components/Cards/WhiteCardParentReport';
 
 import WhiteCardParentTimeTable from '../../../components/Cards/WhiteCardParentTimeTable';
 import LineChart from '../LineChart';
@@ -19,11 +20,11 @@ const School: FC = () => {
     return (
         <Grid container direction="column">
             <Grid container className={classes.container}>
-                <WhiteCard
+                <WhiteCardParentReport
                     size={6}
                     title={'Class Reports\nMar-Aug'}
                     titleRightLink="See reports"
-                    titleRightLinkTo="/students/"
+                    titleRightLinkTo="/parent/reports"
                     content={<LineChart />}
                 />
               {/* <Link to="/parent/school-table"> */}
