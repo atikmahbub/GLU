@@ -71,10 +71,11 @@ export const editTeacherAPIcall = (data: any, editId: number, history: any) => {
 // };
 export const getTeacherSkills = () => {
     return (dispatch: any) => {
-        API.get(`/teacher/skill`)
+        API.get(endponts.getSkill)
             .then((res) => {
-                console.log('skill Array' + JSON.stringify(res.data));
-                dispatch(getSkillAction(res.data.Skills));
+                console.log('skill Array' + JSON.stringify(res.data.data[0].Skills));
+
+                dispatch(getSkillAction(res.data.data[0].Skills));
             })
             .catch((err) => {
                 handleError(dispatch, err);
