@@ -65,7 +65,7 @@ const resourcesArray=[
 const IndivisualExtraCurricular: React.FunctionComponent = () => {
     return (
         <div className="tutor_indivisual_extra_curr_main">
-            <NavigationMenu menuList={menu} background="secondary">
+             <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
                 <ExtraCurricularBanner />
                 <div className="tutor_indivisual_extra_curr_container2">
                     <BigBanner

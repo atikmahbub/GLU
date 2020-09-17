@@ -36,7 +36,7 @@ const Notification = () => {
                         </Grid>
                         <Grid item xs={12} md={8}>
                             <Typography className={classes.title}>Upload Document (Optional)</Typography>
-                            <UploadMaxSize />
+                            <UploadMaxSize onClick={()=>{}} />
                             <TextAreaWithLabel label="Message" rows={5} />
                         </Grid>
                     </Grid>
@@ -46,11 +46,11 @@ const Notification = () => {
                         <Grid item xs={12} md={8}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} md={5}>
-                                    <SelectWithLabel fieldName="Schedule message (Optional)" />
+                                    <SelectWithLabel options={[]} fieldName="Schedule message (Optional)" />
                                 </Grid>
                                 <Grid item xs={12} md={5}>
                                     <div className={classes.mt}>
-                                        <SelectWithLabel />
+                                        <SelectWithLabel options={[]} />
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} md={2}></Grid>

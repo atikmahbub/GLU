@@ -49,6 +49,18 @@
         }
     }
 }
+.tutor_dash_line{
+    border-top-color: rgba(0, 0, 0, 0.25);
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-bottom: 3.125rem;
+}
+.tutor_bar_line{
+    border-top-color: rgba(0, 0, 0, 0.25);
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-bottom: 2.0625rem;
+}
 .personal_school_container_2_col7 {
     font-family: 'CircularXXWeb-Book';
     .text {
@@ -131,7 +143,7 @@
             border-left-color: #cfcfcf;
             border-style: solid;
             .main_subcontainer {
-                padding: 0 3.125rem;
+                padding-left:4.0625rem;
             }
         }
     }

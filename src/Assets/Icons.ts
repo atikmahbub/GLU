@@ -13,6 +13,7 @@ import googleWhite from './Icons/googleBlack.svg';
 import arrowDown from './Icons/arrowDown.svg';
 import calendar from './Icons/calendar.svg';
 import user from './Icons/user.svg';
+import exit from './Icons/exit.svg';
 
 export const Icons = {
     Facebook,
@@ -30,4 +31,5 @@ export const Icons = {
     arrowDown,
     calendar,
     user,
+    exit,
 };

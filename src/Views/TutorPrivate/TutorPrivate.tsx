@@ -12,7 +12,7 @@ const TutorRecord: React.FunctionComponent = () => {
         { link: '', name: 'Shop' },
     ];
     return (
-        <NavigationMenu menuList={menu} background={"secondary"}>
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="private_tutor_page">
             <div className="reusable_private_tutor_banner">
                 <div className="container-fluid">

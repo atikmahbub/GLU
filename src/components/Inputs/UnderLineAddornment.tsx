@@ -42,9 +42,9 @@ const UnderLineAddornment: React.FunctionComponent<props> = ({className, value,l
                 edge="end"
               >
                 {isShowPassword ? (
-                  <VisibilityOffIcon className="icon" />
+                  <i className="icon-Visible" />
                 ) : (
-                  <VisibilityIcon className="icon" />
+                  <i className="icon-Invisible" />
                 )}
               </IconButton>
             </InputAdornment>

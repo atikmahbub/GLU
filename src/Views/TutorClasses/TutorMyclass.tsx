@@ -124,7 +124,7 @@ const TutorMyClass: React.FunctionComponent = () => {
     ];
     return (
         <div className="tutor_myclasses">
-            <NavigationMenu menuList={menu}>
+             <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
                 <div className="tutor_myclasses_container">
                     <div className="tutor_myclasses_header">
                         <div className="header_text">

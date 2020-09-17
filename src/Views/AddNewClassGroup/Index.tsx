@@ -30,10 +30,10 @@ const Index = () => {
             <InputWithLabel fieldName="" placeholder="Add another member" />
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <SelectWithLabel fieldName="Year group" />
+                    <SelectWithLabel options={[]} fieldName="Year group" />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <SelectWithLabel fieldName="Department" />
+                    <SelectWithLabel options={[]} fieldName="Department" />
                 </Grid>
             </Grid>
             <ProfileTileContainer data={data} />

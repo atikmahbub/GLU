@@ -9,7 +9,7 @@ import { ISelectOption } from './types';
 
 const useStyles = makeStyles({
     root: {
-        width: ({ fullWidth }: any) => fullWidth ? '100%' : 'fit-content',
+        width: ({ fullWidth }: any) => (fullWidth ? '100%' : 'fit-content'),
         height: 'fit-content',
     },
     rootColumn: {
@@ -17,11 +17,11 @@ const useStyles = makeStyles({
     },
     rootRow: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     label: {
         color: '#000',
-        marginBottom: 0
+        marginBottom: 0,
     },
     labelTop: {
         marginBottom: '0.6875rem',
@@ -52,8 +52,8 @@ const useStyles = makeStyles({
             borderColor: '#000',
         },
         '& .MuiSelect-icon': {
-            top: 'unset'
-        }
+            top: 'unset',
+        },
     },
     inputRootUnderlined: {
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
@@ -89,7 +89,7 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
     rootClassName,
     inputRootClassName,
     labelPlacement,
-    fullWidth
+    fullWidth,
 }) => {
     const classes = useStyles({ rounded, value, fullWidth });
     return (
@@ -97,7 +97,7 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
             container
             className={classNames(classes.root, rootClassName, {
                 [classes.rootColumn]: labelPlacement === 'top',
-                [classes.rootRow]: labelPlacement === 'left'
+                [classes.rootRow]: labelPlacement === 'left',
             })}
         >
             {label && (
@@ -117,7 +117,9 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
                     [classes.inputRootUnderlined]: variant === 'underlined',
                     [classes.inputRootOutlined]: variant === 'outlined',
                 })}
-                IconComponent={KeyboardArrowDownIcon}
+                IconComponent={() => {
+                    return <i className="icon-Down" style={{marginRight:'0.8rem'}} />;
+                }}
                 onChange={onChange}
             >
                 {placeholder && (

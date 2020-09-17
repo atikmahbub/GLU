@@ -14,14 +14,14 @@ const useStyles = makeStyles({
 const Index = () => {
     const classes = useStyles();
     const menu = [
-        { link: '/tutor/', name: 'Dashboard' },
-        { link: '/tutor/set-class', name: 'Set Class' },
+        { link: '/parent/home', name: 'Home' },
+        { link: '/parent/dashboard', name: 'Dashboard' },
+        { link: '', name: 'Subject' },
         { link: '', name: 'Messages' },
-        { link: '', name: 'Shop' },
     ];
 
     return (
-        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="primary">
+        <NavigationMenu background="primary" menuList={menu}>
             <div className={classes.body}>
                 <Grid container spacing={4}>
                     <LeftGrid />

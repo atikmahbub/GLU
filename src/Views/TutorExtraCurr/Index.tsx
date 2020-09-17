@@ -41,7 +41,7 @@ const TutorExtraCurr = () => {
 
     return (
         <div>
-            <NavigationMenu background="secondary" menuList={menu}>
+             <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
                 <div className={classes.head}>
                     <Header />
                 </div>

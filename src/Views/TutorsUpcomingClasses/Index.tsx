@@ -57,7 +57,7 @@ const Index: React.FunctionComponent = () => {
         },
     ];
     return (
-        <NavigationMenu menuList={menus}>
+       <NavigationMenu>
             <div className="black__navigation tutors__upcoming__classes">
                 <div className="next__wrapper__container">
                     <DateTimeTitile

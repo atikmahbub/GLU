@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import Landscape from './Landscape';
-import CalendarComponent from '../../components/CalendarComponent';
+import CalendarComponentParent from '../../components/CalendarComponentParent';
 
 export default function Personal() {
     return (
@@ -62,7 +62,7 @@ export default function Personal() {
                     </div>
 
                     {/* start */}
-                    <CalendarComponent
+                    <CalendarComponentParent
                         mainHeading={'Thursday 30th July 2020'}
                         heading1={'Upcomming Classes'}
                         heading2={'Total Spaces'}

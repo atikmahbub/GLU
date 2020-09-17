@@ -21,7 +21,7 @@ const PersonalSchoolToggle: React.FunctionComponent = () => {
     }
     const [toggle, setToggle] = useState(localStorage.getItem('toggleState')==null?"isPersonal":localStorage.getItem('toggleState'));
     return (
-        <NavigationMenu menuList={menu} background="secondary">
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} background="secondary">
             <div className="personal_school">
                 <div className="personal-school-main">
                     <Typography
