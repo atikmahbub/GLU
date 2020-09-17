@@ -4,7 +4,7 @@ import { TEACHER_LIST, TEACHER_DETAILS,TEACHER_DATA,GET_TEACHER_SKILLS } from '.
 const initialState = {
     teacherList: null,
     teacherData:null,
-    teacherSkill:[]
+    teacherSkill:null
 };
 
 export const teacherReducer = (state = initialState, action: any) => {
@@ -25,10 +25,8 @@ export const teacherReducer = (state = initialState, action: any) => {
             }
         }
         case GET_TEACHER_SKILLS:{
-            return{
-                ...state,
-                teacherSkill:action.payload
-            }
+            newState.teacherSkill=action.payload;
+            return newState;
         }
         default: {
             return newState;
