@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Typography } from '@material-ui/core';
-import { Link, withRouter } from 'react-router-dom';
+// import { Link, withRouter } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import TagsContainer from '../../components/TagsContainer';
-import { getTeacherSkills } from '../../Redux/Actions/teacherAction';
+import { getTeacherSkills,getTeacherExperience } from '../../Redux/Actions/teacherAction';
 import PageFooter from '../../components/PageFooter';
 import commonImg from '../../Assets/images';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 const TempComp: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const teacherSkill = useSelector((state:rootReducerType) => state.teacherReducer.teacherSkill);
+    const teacherExperience=useSelector((state)=>state.teacherReducer.teacherExperience);
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -23,14 +24,15 @@ const TempComp: React.FunctionComponent = () => {
     const [skill, setSkill] = useState([]);
     useEffect(() => {
         dispatch(getTeacherSkills());
+        dispatch(getTeacherExperience());
     }, []);
-
-    useEffect(()=>{
-        if(teacherSkill){
-               setSkill(teacherSkill);
-        }
-    },[teacherSkill])
-    console.log('in tutor profile' + JSON.stringify(skill));
+    console.log("experience here"+JSON.stringify(teacherExperience));
+    // useEffect(()=>{
+    //     if(teacherSkill){
+    //         setSkill(teacherSkill);
+    //     }
+    // },[teacherSkill])
+    // console.log('in tutor profile' + JSON.stringify(skill));
     // console.log(JSON.localStorage.getItem('auth')+"In profile");
     // const classes=useStyles();
     return (

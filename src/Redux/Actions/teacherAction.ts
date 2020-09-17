@@ -1,7 +1,7 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS } from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS,GET_TEACHER_EXPERIENCE} from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 
@@ -73,7 +73,7 @@ export const getTeacherSkills = () => {
     return (dispatch: any) => {
         API.get(endponts.teahcerSkill)
             .then((res) => {
-                console.log('skill Array' + JSON.stringify(res.data.data[0].Skills));
+                // console.log('skill Array' + JSON.stringify(res.data.data[0].Skills));
 
                 dispatch(getSkillAction(res.data.data[0].Skills));
             })
@@ -132,3 +132,18 @@ export const getTeachersUpcomingClasses = () => {
         }
     };
 };
+export const getTeacherExperience=()=>{
+    return (dispatch:any)=>{
+        API.get(endponts.techerExp).then((res)=>{
+            dispatch(getTeacherExpData(res.data.data));
+        }).catch((err)=>{
+            handleError(dispatch, err);
+        })
+    }
+}
+export const getTeacherExpData=(data:any)=>{
+    return {
+        type:GET_TEACHER_EXPERIENCE,
+        payload:data
+    }
+}

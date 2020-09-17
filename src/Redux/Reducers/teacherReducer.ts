@@ -1,10 +1,11 @@
-import { TEACHER_LIST, TEACHER_DETAILS,TEACHER_DATA,GET_TEACHER_SKILLS } from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS,TEACHER_DATA,GET_TEACHER_SKILLS ,GET_TEACHER_EXPERIENCE} from '../ActionTypes/teacherTypes';
 
 
 const initialState = {
     teacherList: null,
     teacherData:null,
-    teacherSkill:null
+    teacherSkill:null,
+    teacherExperience:null
 };
 
 export const teacherReducer = (state = initialState, action: any) => {
@@ -26,6 +27,10 @@ export const teacherReducer = (state = initialState, action: any) => {
         }
         case GET_TEACHER_SKILLS:{
             newState.teacherSkill=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_EXPERIENCE:{
+            newState.teacherExperience=action.payload;
             return newState;
         }
         default: {
