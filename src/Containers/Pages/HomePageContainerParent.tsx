@@ -6,7 +6,7 @@ import NextClassCard from '../../components/Cards/NextClassCard';
 import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
 import RecommendedContainer from '../RecommendedContainer';
 import RecommendedContainerTutor from '../RecommendedContainerTutor';
-// import RecommendedContainerClasses from '../RecommendedContainerClasses';
+import RecommendedContainerClasses from '../RecommendedContainerClasses';
 
 
 import UpcomingClassCardParent from '../../components/Cards/UpcomingClassCardParent';
@@ -24,6 +24,7 @@ import {
     tutorCards,
 } from '../../data/homepage';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
+import TopDrawerMenu from '../../components/TopDrawerMenu';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -46,7 +47,8 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
             colorWhite
             menuList={menuList}
             background="transparent"
-            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
+            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType}/>}
+            // TopDrawerMenuComponent = {<TopDrawerMenu userType={userType}/>} 
         >
             <BannerCarousel cards={bannerCards} />
             <NextClassCard
@@ -65,7 +67,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
                 imgSmallTitle="Computer Science"
                 imgSmall="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/vrplayerboy_fyrdco.jpg"
             />
-            <RecommendedContainer
+            <RecommendedContainerClasses
                 padding
                 title="Recorded Classes"
                 link={`/${userType}/recorded-classes`}
@@ -84,7 +86,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType }) => {
                 subTitle="AED200"
             />
             {/* <CalendarDateSubjectsCard date="July 2020" cards={calendarSubjectsCards} paddingBottom={false} /> */}
-            <RecommendedContainer
+            <RecommendedContainerClasses
                 padding
                 title="Live Classes"
                 link={`/${userType}/live-classes`}
