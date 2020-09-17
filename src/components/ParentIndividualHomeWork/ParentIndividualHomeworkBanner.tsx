@@ -4,6 +4,11 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import DateAndResources from './DateAndResources';
+import NavigationMenu from '../NavigationMenu';
+import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
+import MadeByFooter from '../../Views/Footer/MadeBy';
+import PageFooter from '../PageFooter';
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -31,22 +36,33 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const menu = [
+    { link: '/parent/home', name: 'Home' },
+    { link: '/parent/dashboard', name: 'Dashboard' },
+    { link: '', name: 'Subject' },
+    { link: '', name: 'Messages' },
+]; 
+
 const ParentIndividualHomeworkBanner: FC = () => {
     const classes = useStyles();
 
     return (
-        <Grid container className={classes.container}>
-            <Grid container className={classes.elementsContainer}>
-                <Grid item container xs={6}>
-                    <Typography className={classes.left}>Mr J Cole</Typography>
-                    <PlayCircleFilledIcon style={{ fontSize: "3rem", marginLeft: "1.25rem", color:"#2267FF" }} />
-                </Grid>
+        <NavigationMenu absolute background="transparent" menuList={menu}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />}>
+            <Grid container className={classes.container}>
+                <Grid container className={classes.elementsContainer}>
+                    <Grid item container xs={6}>
+                        <Typography className={classes.left}>Mr J Cole</Typography>
+                        <PlayCircleFilledIcon style={{ fontSize: "3rem", marginLeft: "1.25rem", color:"#2267FF" }} />
+                    </Grid>
 
-                <Grid item container xs={6}>
-                    <Typography className={classes.right}>Maths. <br/>  Introducing Advanced Linear Alegbra</Typography>
+                    <Grid item container xs={6}>
+                        <Typography className={classes.right}>Maths. <br/>  Introducing Advanced Linear Alegbra</Typography>
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
+            <DateAndResources/>
+            <PageFooter/>
+       </NavigationMenu>
     );
 };
 

@@ -13,8 +13,7 @@ const SchoolTimetableParent = lazy(() => import('../../Views/SchoolTimeTablePare
 const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'));
 const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
 const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
-
-
+const ParentIndividualHomeWork = lazy(() => import('../../components/ParentIndividualHomeWork/ParentIndividualHomeworkBanner'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -32,6 +31,9 @@ export const routes = [
     createRouteObj('/parent/favourites', Favourites),
     createRouteObj('/parent/help', HelpSupport),
     createRouteObj('/parent/upcoming-classes', UpcomingClasses),
+    createRouteObj('/parent/individual-homework', ParentIndividualHomeWork),
+
+  
 
 
 

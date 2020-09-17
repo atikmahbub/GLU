@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import WhiteCard from '../../../components/Cards/WhiteCard';
+import WhiteCardParentHomeWork from '../../../components/Cards/WhiteCardParentHomeWork';
+
 import WhiteCardParentTimeTable from '../../../components/Cards/WhiteCardParentTimeTable';
 import LineChart from '../LineChart';
 import { Link } from 'react-router-dom';
@@ -30,7 +32,7 @@ const School: FC = () => {
                 <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
             </Grid>
             <Grid container className={classes.container}>
-                <WhiteCard size={3} title="Homework" description="Assignment" value="34" />
+                <WhiteCardParentHomeWork size={3} title="Homework" description="Assignment" value="34" />
                 <WhiteCard size={3} title="Recommended" description="Total" value="12" />
                 <WhiteCard
                     size={6}
