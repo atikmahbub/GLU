@@ -33,7 +33,7 @@ const Index: React.FunctionComponent = () => {
                             </div>
                             <div className="col-md-6 mb-5">
                                 <div className="title__sort__container">
-                                    <Typography className="title">Recorded Classes</Typography>
+                                    <Typography className="title">Previous Classes</Typography>
                                     <SortDropdown />
                                 </div>
                             </div>

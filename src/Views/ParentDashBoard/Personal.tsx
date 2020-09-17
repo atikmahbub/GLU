@@ -1,13 +1,38 @@
 import React from 'react';
 import commonImg from '../../Assets/images';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import SmallCard from '../../components/SmallCard';
 import ResuableTimeline from '../../components/ReusableTimeline';
 import Landscape from './Landscape';
 import CalendarComponentParent from '../../components/CalendarComponentParent';
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 
+const useStyles = makeStyles(() => ({
+    dateLeftContainer: {
+        display: "flex",
+        justifyContent: "space-between"
+    },
+    dayText:{
+        fontSize: "2.625rem",
+        lineHeight: "1.906rem",
+        fontFamily: 'CircularXXWeb-Book',
+
+    },
+    timeRightContainer:{
+        position: "relative"
+    },
+    time:{
+        position: "absolute",
+        right: 30,
+        fontSize: "2.625rem",
+        lineHeight: "1.906rem",
+        fontFamily: 'CircularXXWeb-Book',
+
+    }
+}))
 export default function Personal() {
+    const classes = useStyles();
     return (
         <div>
             
@@ -36,7 +61,8 @@ export default function Personal() {
                                     <SmallCard
                                         mainHeading={'Previous '}
                                         subHeading1={'Purchased'}
-                                        subHeading2={'57'} />
+                                        subHeading2={'57'}
+                                        linkurl={"/parent/previous-classes"} />
                                 {/* </div> */}
                                 {/* <div className="parent__whiteboard"> */}
                                     <SmallCard
@@ -83,10 +109,14 @@ export default function Personal() {
                     </div>
                     <div className="row">
                         <div className="col-md-6 p-0" >
-                            <div className="main_container_col11" style={{width:"94%", marginBottom:"1.875rem"}}>
-                                <Typography className="subtext">Your Day</Typography>
-                                <Typography className="subtext">9:21 am</Typography>
-                            </div>
+                            <Grid container className={classes.dateLeftContainer}>
+                                <Grid item sm={6}>
+                                  <Typography className={classes.dayText}>Your Day</Typography>
+                                </Grid>
+                                <Grid item sm={6} className={classes.timeRightContainer}>
+                                     <Typography className={classes.time}>9:21 am</Typography>
+                                </Grid>
+                            </Grid>
                         </div>
                         <div className="col-md-6 p-0">
                             <div className="main_container_col12">
