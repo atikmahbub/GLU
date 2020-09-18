@@ -1,21 +1,15 @@
 import React from 'react';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
-import {
-    bannerCards,
-    bannerCards2,
-    bannerCards3,
-    calendarSubjectsCards,
-    recommendedCards,
-    recommendedCards2,
-    tutorCards,
-} from '../../data/homepage';
+import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
+import { calendarSubjectsCards, recommendedCards, recommendedCards2, tutorCards } from '../../data/homepage';
 
 const Index: React.FunctionComponent = () => {
+    const [featureTeachers, teacherBannerCards, teacherImageCards] = useFeatureTeachers();
+    console.log(featureTeachers, teacherBannerCards, teacherImageCards);
     return (
         <HomePageContainer
             userType="students"
             cardsData={{
-                bannerCarousel: bannerCards,
                 nextClass: {
                     img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607726/jump_frcudj.jpg',
                     date: '19/07/20',
@@ -33,7 +27,6 @@ const Index: React.FunctionComponent = () => {
                     imgSmall: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/vrplayerboy_fyrdco.jpg',
                 },
                 recordedClasses: recommendedCards,
-                bannerCarouselCenter: bannerCards2,
                 upcomingClass: {
                     img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg',
                     date: '24/07/20',
@@ -49,15 +42,24 @@ const Index: React.FunctionComponent = () => {
                     cards: calendarSubjectsCards,
                 },
                 liveClasses: recommendedCards2,
-                featuredTutors: {
-                    imgSmallTitle: 'Maths - Harry Stannard',
-                    imgSmall: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/blueshirtman_gkcohw.jpg',
-                    imgBigTitle: 'Languages - Johny Duke',
-                    imgBig:
-                        'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/smillingmanspects_qewo8x.jpg',
-                },
-                bannerCarouselBottom: bannerCards3,
-                tutors: tutorCards,
+                ...(teacherBannerCards.length && {
+                    bannerCarousel: teacherBannerCards,
+                    bannerCarouselCenter: teacherBannerCards,
+                    bannerCarouselBottom: teacherBannerCards,
+                }),
+                ...(featureTeachers.length &&
+                    featureTeachers[0] &&
+                    featureTeachers[1] && {
+                        featuredTutors: {
+                            imgSmallTitle: `- ${featureTeachers[0].Teacher.firstName} ${featureTeachers[0].Teacher.lastName}`,
+                            imgSmall: featureTeachers[0].Teacher.document,
+                            imgBigTitle: `- ${featureTeachers[1].Teacher.firstName} ${featureTeachers[1].Teacher.lastName}`,
+                            imgBig: featureTeachers[1].Teacher.document,
+                        },
+                    }),
+                ...(teacherImageCards.length && {
+                    tutors: teacherImageCards
+                })
             }}
         />
     );
