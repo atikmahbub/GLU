@@ -115,7 +115,6 @@ const ParentIndividualTutorBanner: FC = () => {
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     value={subject}
-                                    labelStyle={{ color: 'green' }}
                                     IconComponent={ExpandMoreIcon}
                                     onChange={handleChangeSubject}
                                     fullWidth
