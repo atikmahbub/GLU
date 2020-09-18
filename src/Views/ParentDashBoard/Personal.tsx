@@ -39,8 +39,8 @@ export default function Personal() {
             
             <div className="main_container_dashboard">
                 <div className="row set__margin">
-                    {/* <ParentIndividualTutorBanner/>
-                    <LimitedAvailability/> */}
+                    <ParentIndividualTutorBanner/>
+                    <LimitedAvailability/>
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col1 bg-white">
                             <Landscape
