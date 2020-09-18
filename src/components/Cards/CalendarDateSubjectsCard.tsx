@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
 import DateSubjectCard from './DateSubjectCard';
-import { DateSubjectCardElement } from './types';
+import { CalendarDateSubjectsCardElement, DateSubjectCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     },
 });
 
-interface ICalendarDateSubjectsCard {
+interface ICalendarDateSubjectsCard extends CalendarDateSubjectsCardElement {
     title?: string;
     date?: string;
     time?: string;
