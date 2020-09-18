@@ -35,6 +35,7 @@ interface IBottomRecommendedContainer {
     data: ImageCardElement[];
     padding?: boolean;
     link: string;
+    cardTitleLink?: string;
     rootClassName?: string;
 }
 
@@ -44,6 +45,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
     data,
     padding,
     link,
+    cardTitleLink,
     rootClassName,
 }) => {
     const classes = useStyles({ padding, titleBold });
@@ -55,7 +57,12 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
             </Grid>
             <CardsGrid>
                 {data.map((card, index) => (
-                    <ImageCard {...card} key={index} rootClassName={classes.imageContainerRoot} />
+                    <ImageCard
+                        {...card}
+                        key={index}
+                        titleLinkTo={cardTitleLink}
+                        rootClassName={classes.imageContainerRoot}
+                    />
                 ))}
             </CardsGrid>
         </Grid>

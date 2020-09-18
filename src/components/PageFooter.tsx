@@ -6,6 +6,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
+        background: ({ background }: any) => background === 'primary' ? '#fff' : '#F7F7F7',
         paddingTop: '2.25rem',
         paddingBottom: '2.25rem',
         paddingLeft: ({ padding }: any) => padding ? '3.125rem' : 0,
@@ -25,12 +26,13 @@ const useStyles = makeStyles({
 });
 
 type PageFooterProps = {
+    background?: 'primary' | 'secondary';
     padding?: boolean;
     rootClassName?: string;
 }
 
-const PageFooter: FC<PageFooterProps> = ({ padding, rootClassName }) => {
-    const classes = useStyles({ padding });
+const PageFooter: FC<PageFooterProps> = ({ background, padding, rootClassName }) => {
+    const classes = useStyles({ background, padding });
     return (
         <Grid container justify="space-between" className={classNames(classes.root, rootClassName)}>
             <Grid item container xs={6}>
@@ -50,7 +52,8 @@ const PageFooter: FC<PageFooterProps> = ({ padding, rootClassName }) => {
 };
 
 PageFooter.defaultProps = {
-    padding: true
+    padding: true,
+    background: 'primary'
 }
 
 export default memo(PageFooter);

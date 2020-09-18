@@ -2,7 +2,6 @@ import React, { FC, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
-import SeeAll from '../Typographies/SeeAll';
 import { NextClassCardElement } from './types';
 import DateSubjectCard from './DateSubjectCard';
 import AspectRatioImgCard from './AspectRationImgCard';
@@ -44,7 +43,6 @@ const NextClassCard: FC<INextClassCard> = ({ img, date, startTime, endTime, subj
                 />
             </Grid>
             <Grid container justify="flex-end" item xs={1}>
-                {/* <SeeAll short to="/" /> */}
             </Grid>
         </Grid>
     );

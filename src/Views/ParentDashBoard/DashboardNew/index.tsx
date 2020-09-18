@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import DashboardPageContainer from '../../../Containers/Pages/DashboardPageContainer';
 
-const StudentsDashboard: FC = () => {
+const ParentDashboard: FC = () => {
     return (
-        <DashboardPageContainer userType="students" />
+        <DashboardPageContainer userType="parent" />
     )
 }
 
-export default StudentsDashboard;
+export default ParentDashboard;
