@@ -8,8 +8,8 @@ import { linkTo } from '../../Helper/linkTo';
 
 const useStyles = makeStyles({
     root: {
-        background: '#797778',
-        color: '#fff',
+        background: '#fff',
+        color: '#000',
         padding: '8.4375rem 3.0625rem',
     },
     container: {
@@ -54,10 +54,11 @@ type ProfileCardProps = {
     name: string;
     address: string;
     phone: string;
+    email: string;
     rootClassName?: string;
 };
 
-const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, rootClassName }) => {
+const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, email, rootClassName }) => {
     const classes = useStyles();
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
@@ -94,6 +95,9 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, rootClassName
                     </Typography>
                     <Typography variant="h3" className={classes.text}>
                         {phone}
+                    </Typography>
+                    <Typography variant="h3" className={classes.text}>
+                        {email}
                     </Typography>
                 </Grid>
             </Grid>
