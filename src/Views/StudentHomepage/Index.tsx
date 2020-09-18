@@ -1,7 +1,7 @@
 import React from 'react';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
-import { calendarSubjectsCards, recommendedCards, recommendedCards2, tutorCards } from '../../data/homepage';
+import { calendarSubjectsCards, recommendedCards, recommendedCards2 } from '../../data/homepage';
 
 const Index: React.FunctionComponent = () => {
     const [featureTeachers, teacherBannerCards, teacherImageCards] = useFeatureTeachers();
