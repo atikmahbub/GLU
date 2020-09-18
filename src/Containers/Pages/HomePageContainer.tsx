@@ -64,6 +64,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
                 padding
                 title="Tutors"
                 link={`/${userType}/tutors`}
+                cardTitleLink={`/${userType}/tutors/tutor`}
                 data={cardsData.tutors}
                 rootClassName={classes.recommendedRoot}
             />
