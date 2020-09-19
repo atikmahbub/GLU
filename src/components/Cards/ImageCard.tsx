@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -17,6 +18,10 @@ const useStyles = makeStyles({
         marginBottom: '0.5rem',
         whiteSpace: 'pre-wrap',
         width: 'fit-content',
+        color: '#000',
+        '&:hover': {
+            color: '#000'
+        }
     },
     titleBig: {
         fontSize: '2.625rem',
@@ -45,6 +50,7 @@ export interface IImageCard extends ImageCardElement {
     bigTitle?: boolean;
     imgAspectRatio?: string;
     rootClassName?: string;
+    titleLinkTo?: string;
 }
 
 const ImageCard: FC<IImageCard> = ({
@@ -56,6 +62,7 @@ const ImageCard: FC<IImageCard> = ({
     time,
     bigTitle,
     rating,
+    titleLinkTo,
     rootClassName,
 }) => {
     const classes = useStyles({ imgAspectRatio });
@@ -72,6 +79,8 @@ const ImageCard: FC<IImageCard> = ({
                 className={classNames(classes.title, {
                     [classes.titleBig]: bigTitle,
                 })}
+                component={titleLinkTo ? Link : 'p'}
+                to={titleLinkTo}
             >
                 {title}
             </Typography>
