@@ -4,8 +4,8 @@ import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
 import { calendarSubjectsCards, recommendedCards, recommendedCards2 } from '../../data/homepage';
 
 const Index: React.FunctionComponent = () => {
-    const [featureTeachers, teacherBannerCards, teacherImageCards] = useFeatureTeachers();
-    console.log(featureTeachers, teacherBannerCards, teacherImageCards);
+    const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
+    console.log(teachersBannerCards, teachersImageCards, featuredTeachersCard);
     return (
         <HomePageContainer
             userType="students"
@@ -42,24 +42,17 @@ const Index: React.FunctionComponent = () => {
                     cards: calendarSubjectsCards,
                 },
                 liveClasses: recommendedCards2,
-                ...(teacherBannerCards.length && {
-                    bannerCarousel: teacherBannerCards,
-                    bannerCarouselCenter: teacherBannerCards,
-                    bannerCarouselBottom: teacherBannerCards,
+                ...(teachersBannerCards.length && {
+                    bannerCarousel: teachersBannerCards,
+                    bannerCarouselCenter: teachersBannerCards,
+                    bannerCarouselBottom: teachersBannerCards,
                 }),
-                ...(featureTeachers.length &&
-                    featureTeachers[0] &&
-                    featureTeachers[1] && {
-                        featuredTutors: {
-                            imgSmallTitle: `- ${featureTeachers[0].Teacher.firstName} ${featureTeachers[0].Teacher.lastName}`,
-                            imgSmall: featureTeachers[0].Teacher.document,
-                            imgBigTitle: `- ${featureTeachers[1].Teacher.firstName} ${featureTeachers[1].Teacher.lastName}`,
-                            imgBig: featureTeachers[1].Teacher.document,
-                        },
-                    }),
-                ...(teacherImageCards.length && {
-                    tutors: teacherImageCards
-                })
+                ...(featuredTeachersCard && {
+                    featuredTutors: { ...featuredTeachersCard },
+                }),
+                ...(teachersImageCards.length && {
+                    tutors: teachersImageCards,
+                }),
             }}
         />
     );
