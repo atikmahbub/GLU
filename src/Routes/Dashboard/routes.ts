@@ -29,7 +29,7 @@ import AddNewEvent from '../../Views/AddNewEvent/AddNewEvent';
 import ECA from '../../Views/ECAList';
 import StudentDetails from '../../Views/StudentDetails/StudentDetails';
 import TeacherDetails from '../../Views/TeacherDetails/TeacherDetails';
-import ParentDetails from '../../Views/ParentDetails/ParentDetails';
+import ParentDetails from '../../Views/AddNewParent/ParentDetails';
 import DepartmentDetails from '../../Views/DepartmentDetails/Index';
 import TimeTableBulk from '../../Views/TimeTableBulk/TimeTableBulk';
 import ECAbulk from '../../Views/ECAbulk/ECAbulk';
@@ -37,7 +37,6 @@ import StudentHWdetails from '../../Views/StudentDetails/StudentHomeWork/Index';
 import StudentExamReport from '../../Views/StudentDetails/StudentSubjectDetail/Index';
 import StaffDetails from '../../Views/StaffDetails/StaffDetails';
 import MeritsSanction from '../../Views/Merits/Index';
-import AddParentChild from '../../Views/AddNewParent/AddChildren';
 import Feedback from '../../Views/Feedback/Index';
 import AddYearGroup from '../../Views/AddYearGroup/Index';
 import FormGroup from '../../Views/FormGroup/index';
@@ -93,7 +92,6 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/student-details/exam', component: StudentExamReport },
     { pathname: '/dashboard/staff-details', component: StaffDetails },
     { pathname: '/dashboard/merits-sanctions', component: MeritsSanction },
-    { pathname: '/dashboard/parent/add-child', component: AddParentChild },
     { pathname: '/dashboard/feedback', component: Feedback },
     { pathname: '/dashboard/add-year-group', component: AddYearGroup },
     { pathname: '/dashboard/form-group', component: FormGroup },

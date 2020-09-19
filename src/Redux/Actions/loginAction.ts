@@ -1,7 +1,7 @@
 import { API, setAuthrizationToken } from '../../Utility/API';
 import { loginAuth } from '../Interfaces/auth';
 import { endponts } from '../../Utility/endpoints';
-import { USER_LOGIN } from '../ActionTypes/authTypes';
+import { REGSITER_DATA, USER_LOGIN } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { handleError } from './errorHandler';
@@ -110,3 +110,10 @@ export const resetPasswordAPIcall = (data: any, token:string, redirect:()=>void)
             });
     };
 };
+
+export const registerDataRes = (data:any) => {
+    return {
+        type: REGSITER_DATA,
+        payload: data
+    }
+}

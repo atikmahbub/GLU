@@ -46,6 +46,7 @@
                                 height: 3.875rem;
                                 border-radius: 3.875rem;
                                 margin-right: 1.187rem;
+                                margin-left: 1rem;
                                 img {
                                     width: 100%;
                                 }
@@ -995,7 +996,7 @@ button.outline-button {
         @include flex(center, center, row);
         .title {
             color: $white;
-            font-size: 3.3rem;
+            font-size: 7.5rem;
             width: 100%;
             text-align: left;
             padding-left: 1.5rem;
