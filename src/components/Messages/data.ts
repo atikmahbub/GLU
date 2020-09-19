@@ -1,30 +1,49 @@
 const data = [
     {
+        id: 0,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1599028758/supportPageBoy_kn0wdj.png',
-        title: 'How to structure narrative in fiction English - Sarah Swan',
-        subTitle: 'AED200 / 45mins',
-        date: '24/07/20',
-        time: '9.30am',
+        userName: 'Matt Goss',
+        onlineStatus: 'Online',
     },
     {
+        id: 1,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/tablegirl_yg2bzv.jpg',
-        title: 'Natural selection and evolution Biology - Jeff Lee',
-        subTitle: 'AED200 / 45mins',
-        date: '24/07/20',
-        time: '9.30am',
+        userName: 'Frank Smith',
+        onlineStatus: 'Online',
     },
     {
+        id: 2,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607732/yellowpillowboy_i7g8kg.jpg',
-        title: 'How to structure narrative in fiction English - Sarah Swan',
-        subTitle: 'AED200 / 45mins',
-        date: '24/07/20',
-        time: '9.30am',
+        userName: 'Jen Holden',
+        onlineStatus: 'Online',
     },
     {
+        id: 3,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
-        title: 'Natural selection and evolution Biology - Jeff Lee',
-        subTitle: 'AED200 / 45mins',
-        date: '24/07/20',
-        time: '9.30am',
+        userName: 'Sam Healy',
+        onlineStatus: 'Last seen 23/07/20',
+    },
+
+    {
+        id: 4,
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
+        userName: 'Frank Smith',
+        onlineStatus: 'Online',
+    },
+
+    {
+        id: 5,
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
+        userName: 'Jessica Chewter',
+        onlineStatus: 'Last seen 3.10pm',
+    },
+
+    {
+        id: 6,
+        img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
+        userName: 'Sam Healy',
+        onlineStatus: 'Last seen 23/07/20',
     },
 ];
+
+export default data;

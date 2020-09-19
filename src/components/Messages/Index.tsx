@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 import UserCard from './UserCard';
+import userData from './data';
 
 const useStyles = makeStyles({
     body: {
         position: 'relative',
-        backgroundColor: '#5E5558',
+        backgroundColor: 'white',
         minWidth: '100%',
         height: '100vh',
-        border: '2px solid #5E5558',
         fontFamily: 'CircularXXWeb-Book',
         paddingBottom: "50px",
     },
@@ -20,7 +20,6 @@ const useStyles = makeStyles({
         paddingTop: '9.25rem',
     },
     title: {
-        fontFamily: 'CircularXXWeb-Book',
         fontSize: '2.625rem',
         lineHeight: '2.812rem',
         backgroundColor: 'white',
@@ -29,7 +28,6 @@ const useStyles = makeStyles({
         backgroundColor: 'white',
     },
     rightHeading: {
-        fontFamily: 'CircularXXWeb-Book',
         fontSize: '5rem',
         lineHeight: '5rem',
     },
@@ -41,12 +39,9 @@ const useStyles = makeStyles({
         color: "#2267FF",
         marginLeft: "10px",
     },
-
-
 });
-export default function Index() {
+const Index: FC = () => {
     const classes = useStyles();
-
     return (
         <Container className={classes.body}>
             <Grid container className={classes.elements}>
@@ -59,13 +54,10 @@ export default function Index() {
                         <i className="icon-Message" style={{ fontSize: "30px" }} />
                         <Typography className={classes.newMessage}>New Message</Typography>
                     </Grid>
-                    <Grid container style={{marginTop: "80px"}}>
-                        <Grid container xs={6}>
-                            <UserCard/>
-                        </Grid>
-                        <Grid container xs={6}>
-                            <UserCard/>
-                        </Grid>
+                    <Grid container style={{marginTop: "40px"}}>
+                        {userData.map(({ id, img, userName, onlineStatus }: any)=> (
+                                <UserCard key={id} image={img} userName={userName} onlineStatus={onlineStatus}/>
+                        ))}
                     </Grid>
                 </Grid>
 
@@ -74,3 +66,5 @@ export default function Index() {
         </Container>
     )
 }
+
+export default Index;
