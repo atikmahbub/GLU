@@ -2,30 +2,15 @@ import React from 'react';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
 import { calendarSubjectsCards, recommendedCards, recommendedCards2 } from '../../data/homepage';
+import useUpcomingClasses from '../../Hooks/students/useUpcomingClasses';
 
 const Index: React.FunctionComponent = () => {
     const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
-    console.log(teachersBannerCards, teachersImageCards, featuredTeachersCard);
+    const { nextClassCard, featuredSubjectsCard } = useUpcomingClasses();
     return (
         <HomePageContainer
             userType="students"
             cardsData={{
-                nextClass: {
-                    img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607726/jump_frcudj.jpg',
-                    date: '19/07/20',
-                    startTime: '9am',
-                    endTime: '10.15am',
-                    subject: 'PE.',
-                    description: 'Creating a running',
-                    subTitle: '75mins',
-                    name: 'Harriet Earl',
-                },
-                featuredSubjects: {
-                    imgBigTitle: 'Business Studies',
-                    imgBig: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607716/chairwithman_p09ojq.jpg',
-                    imgSmallTitle: 'Computer Science',
-                    imgSmall: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/vrplayerboy_fyrdco.jpg',
-                },
                 recordedClasses: recommendedCards,
                 upcomingClass: {
                     img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg',
@@ -52,6 +37,12 @@ const Index: React.FunctionComponent = () => {
                 }),
                 ...(teachersImageCards.length && {
                     tutors: teachersImageCards,
+                }),
+                ...(nextClassCard && {
+                    nextClass: { ...nextClassCard },
+                }),
+                ...(featuredSubjectsCard && {
+                    featuredSubjects: { ...featuredSubjectsCard },
                 }),
             }}
         />
