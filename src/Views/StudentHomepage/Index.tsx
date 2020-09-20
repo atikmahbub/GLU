@@ -1,27 +1,19 @@
 import React from 'react';
+import { calendarSubjectsCards, recommendedCards2 } from '../../data/homepage';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
-import { calendarSubjectsCards, recommendedCards, recommendedCards2 } from '../../data/homepage';
 import useUpcomingClasses from '../../Hooks/students/useUpcomingClasses';
+import usePreviousClasses from '../../Hooks/students/usePreviousClasses';
 
 const Index: React.FunctionComponent = () => {
     const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
-    const { nextClassCard, featuredSubjectsCard } = useUpcomingClasses();
+    const { nextClassCard, featuredSubjectsCard, upcomingClassCard } = useUpcomingClasses();
+    const { prevClassImageCards } = usePreviousClasses()
+
     return (
         <HomePageContainer
             userType="students"
             cardsData={{
-                recordedClasses: recommendedCards,
-                upcomingClass: {
-                    img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg',
-                    date: '24/07/20',
-                    startTime: '3pm',
-                    endTime: '4.30pm',
-                    subject: 'English.',
-                    description: 'How to structure',
-                    name: 'Jeff Lee',
-                    subTitle: 'AED200',
-                },
                 calendar: {
                     date: 'July 2020',
                     cards: calendarSubjectsCards,
@@ -44,6 +36,12 @@ const Index: React.FunctionComponent = () => {
                 ...(featuredSubjectsCard && {
                     featuredSubjects: { ...featuredSubjectsCard },
                 }),
+                ...(upcomingClassCard && {
+                    upcomingClass: { ...upcomingClassCard }
+                }),
+                ...(prevClassImageCards.length && {
+                    recordedClasses: prevClassImageCards
+                })
             }}
         />
     );

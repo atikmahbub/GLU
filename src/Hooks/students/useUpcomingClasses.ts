@@ -6,7 +6,8 @@ import { dataToFeaturedCard, dataToNextClassCard } from '../../Helper/students/u
 function useUpcomingClasses() {
     const [state, setState] = useState<any>({
         nextClassCard: null,
-        featuredSubjectsCard: null
+        featuredSubjectsCard: null,
+        upcomingClassCard: null,
     });
 
     useEffect(() => {
@@ -15,7 +16,8 @@ function useUpcomingClasses() {
                 setState((prevState: any) => ({
                     ...prevState,
                     nextClassCard: dataToNextClassCard(data.upcomingSessionDetail[0]),
-                    featuredSubjectsCard: dataToFeaturedCard(data.upcomingSessionDetail)
+                    featuredSubjectsCard: dataToFeaturedCard(data.upcomingSessionDetail),
+                    upcomingClassCard: dataToNextClassCard(data.upcomingSessionDetail[0])
                 }));
             }
         });

@@ -11,13 +11,13 @@ function useFeatureTeachers() {
     });
 
     useEffect(() => {
-        API.get(studentsEndpoints.getFeatureTeacher).then(({ data }) => {
-            if (data.success) {
+        API.get(studentsEndpoints.getFeatureTeacher).then(({ data: { success, data } }) => {
+            if (success) {
                 setState((prevState: any) => ({
                     ...prevState,
-                    teachersBannerCards: dataToBannerCards(data.data),
-                    teachersImageCards: dataToImageCard(data.data),
-                    featuredTeachersCard: dataToFeaturedCard(data.data),
+                    teachersBannerCards: dataToBannerCards(data),
+                    teachersImageCards: dataToImageCard(data),
+                    featuredTeachersCard: dataToFeaturedCard(data),
                 }));
             }
         });

@@ -33,5 +33,6 @@ export const endponts = {
 
 export const studentsEndpoints = {
     getFeatureTeacher: 'student/feature/teacher',
-    getUpcomingSessions: 'student/upcoming/session'
+    getUpcomingSessions: 'student/upcoming/session',
+    getPreviousSessions: 'student/previous/session'
 }
