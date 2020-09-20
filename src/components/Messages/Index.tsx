@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-
 import Grid from '@material-ui/core/Grid';
 import UserCard from './UserCard';
 import userData from './data';
+import { identity } from '@fullcalendar/react';
 
 const useStyles = makeStyles({
     body: {
@@ -39,6 +39,9 @@ const useStyles = makeStyles({
         color: "#2267FF",
         marginLeft: "10px",
     },
+    userContainer: {
+        marginTop: "30px"
+    },
 });
 const Index: FC = () => {
     const classes = useStyles();
@@ -56,13 +59,13 @@ const Index: FC = () => {
                     </Grid>
                     <Grid container style={{marginTop: "40px"}}>
                         {userData.map(({ id, img, userName, onlineStatus }: any)=> (
+                            <Grid key={id} container item xs={6} className={classes.userContainer}>
                                 <UserCard key={id} image={img} userName={userName} onlineStatus={onlineStatus}/>
+                            </Grid>
                         ))}
                     </Grid>
                 </Grid>
-
             </Grid>
-
         </Container>
     )
 }

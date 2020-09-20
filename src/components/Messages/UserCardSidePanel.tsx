@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import { Typography, Container } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 type Props = {
@@ -34,11 +34,21 @@ const useStyles = makeStyles({
         lineHeight: '25px',
         color: '#5F5F5F',
     },
+    onlineDotContainer:{
+        height: '11px',
+        width: '11px',
+        marginRight: 0,
+        backgroundColor: '#00A800',
+        marginLeft: '187px',
+        marginTop: 'auto',
+        marginBottom: 'auto',
+        borderRadius: '50%',
+    },
 });
 
 
 
-const UserCard: FC<Props> = ({ key, image, userName, onlineStatus }) => {
+const UserCardSidePanel: FC<Props> = ({ key, image, userName, onlineStatus }) => {
     const classes = useStyles();
     return (
         <>
@@ -51,9 +61,10 @@ const UserCard: FC<Props> = ({ key, image, userName, onlineStatus }) => {
                     <Typography className={classes.userName}> {userName}</Typography>
                     <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
                 </Grid>
+                <Grid container className={classes.onlineDotContainer} alignItems="center"/>
             {/* </Grid> */}
         </>
     )
 }
 
-export default UserCard;
+export default UserCardSidePanel;
