@@ -108,7 +108,7 @@ const ChatPage: FC = () => {
         <Container className={classes.body}>
             <Grid container className={classes.contentContainer}>
                 <Grid item xs={6} className={classes.userContainer}>
-                    <Typography className={classes.userName}>Matt Oliver </Typography> 
+                    <Typography className={classes.userName}>Matt Goss </Typography> 
                     <Grid className={classes.messageBox}>
                         <MessageSent/>
                         <MessageReceived/>
@@ -137,7 +137,7 @@ const ChatPage: FC = () => {
                         </Grid>
       
                         <Grid container item className={classes.userContainerSidePanel}>
-                                <UserCardSidePanelActive key={userData[2].id} image={userData[2].img} userName={userData[2].userName} onlineStatus={userData[2].onlineStatus}/>
+                                <UserCardSidePanelActive key={userData[1].id} image={userData[1].img} userName={userData[1].userName} onlineStatus={userData[1].onlineStatus}/>
                                 <Divider width="100%" style={{marginTop: '20px'}}/>
 
                         </Grid>  
@@ -149,7 +149,7 @@ const ChatPage: FC = () => {
                         </Grid>  
                         
                         <Grid container item className={classes.userContainerSidePanel}>
-                                <UserCardSidePanel key={userData[1].id} image={userData[1].img} userName={userData[1].userName} onlineStatus={userData[1].onlineStatus}/>
+                                <UserCardSidePanel key={userData[3].id} image={userData[3].img} userName={userData[3].userName} onlineStatus={userData[3].onlineStatus}/>
                                 <Divider width="100%" style={{marginTop: '10px'}}/>
 
                         </Grid>                                  

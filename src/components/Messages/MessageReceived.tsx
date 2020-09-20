@@ -35,7 +35,7 @@ const MessageReceived: FC = () => {
     const classes = useStyles()
     return (
         <Container className={classes.messageContainer}>
-           <img className={classes.tutorImage} src={userData[2].img} alt=""/>
+           <img className={classes.tutorImage} src={userData[1].img} alt=""/>
            <Container>
                 <Typography className={classes.message}> Hey, I need some help with the new French vocab homework. Do you have a bit of time to walk me through it?</Typography> 
                 <Typography className={classes.messageTime}>3.10pm </Typography> 

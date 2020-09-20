@@ -8,7 +8,7 @@ const data = [
     {
         id: 1,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/tablegirl_yg2bzv.jpg',
-        userName: 'Frank Smith',
+        userName: 'Matt Goss',
         onlineStatus: 'Online',
     },
     {
