@@ -36,22 +36,17 @@ const useStyles = makeStyles({
     },
 });
 
-
-
 const UserCard: FC<Props> = ({ key, image, userName, onlineStatus }) => {
     const classes = useStyles();
     return (
         <>
-            {/* <Grid key={key} container item xs={6} className={classes.userContainer}> */}
-
-                <Grid className={classes.imageContainer}>
-                    <img className={classes.image} src={image} />
-                </Grid>
-                <Grid>
-                    <Typography className={classes.userName}> {userName}</Typography>
-                    <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
-                </Grid>
-            {/* </Grid> */}
+            <Grid className={classes.imageContainer}>
+                <img className={classes.image} src={image} />
+            </Grid>
+            <Grid>
+                <Typography className={classes.userName}> {userName}</Typography>
+                <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
+            </Grid>
         </>
     )
 }

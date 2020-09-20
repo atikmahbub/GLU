@@ -35,39 +35,35 @@ const useStyles = makeStyles({
         lineHeight: '25px',
         color: '#5F5F5F',
     },
-    onlineDotWithNoOfMsgContainer:{
+    onlineDotWithNoOfMsgContainer: {
         position: 'absolute',
         right: 0,
     },
-    onlineDotContainer:{
+    onlineDotContainer: {
         position: 'absolute',
         height: '11px',
         width: '11px',
         marginRight: 0,
         backgroundColor: '#00A800',
-        // marginLeft: '187px',
         marginTop: 'auto',
         marginBottom: 'auto',
         borderRadius: '50%',
         right: 0,
-        // top: '50%',
     },
 
-    offlineDotContainer:{
+    offlineDotContainer: {
         position: 'absolute',
         height: '11px',
         width: '11px',
         marginRight: 0,
         backgroundColor: 'transparent',
-        // marginLeft: '187px',
         marginTop: 'auto',
         marginBottom: 'auto',
         borderRadius: '50%',
         border: '2px solid darkgrey',
         right: 0,
-        // top: '50%',
     },
-    noOfMsg:{
+    noOfMsg: {
         marginTop: '20px',
     }
 });
@@ -78,30 +74,26 @@ const UserCardSidePanel: FC<Props> = ({ key, image, userName, onlineStatus, newM
     const classes = useStyles();
     return (
         <>
-            {/* <Grid key={key} container item xs={6} className={classes.userContainer}> */}
-
-                <Grid className={classes.imageContainer}>
-                    <img className={classes.image} src={image} />
-                </Grid>
-                <Grid>
-                    <Typography className={classes.userName}> {userName}</Typography>
-                    <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
-                </Grid>
-                {
-                  onlineStatus == 'Offline'
-                  ?
-                <Grid className={classes.onlineDotWithNoOfMsgContainer}>
-                    <Grid container className={classes.offlineDotContainer} alignItems="center"/>
-                    {/* <Typography className={classes.noOfMsg}>1 new message</Typography> */}
-                </Grid>    
-                :
-                <Grid className={classes.onlineDotWithNoOfMsgContainer}>
-                    <Grid container className={classes.onlineDotContainer} alignItems="center"/>
-                    <Typography className={classes.noOfMsg}>1 new message</Typography>
-                </Grid>
-                }
-
-            {/* </Grid> */}
+            <Grid className={classes.imageContainer}>
+                <img className={classes.image} src={image} />
+            </Grid>
+            <Grid>
+                <Typography className={classes.userName}> {userName}</Typography>
+                <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
+            </Grid>
+            {
+                onlineStatus == 'Offline'
+                    ?
+                    <Grid className={classes.onlineDotWithNoOfMsgContainer}>
+                        <Grid container className={classes.offlineDotContainer} alignItems="center" />
+                        {/* <Typography className={classes.noOfMsg}>1 new message</Typography> */}
+                    </Grid>
+                    :
+                    <Grid className={classes.onlineDotWithNoOfMsgContainer}>
+                        <Grid container className={classes.onlineDotContainer} alignItems="center" />
+                        <Typography className={classes.noOfMsg}>1 new message</Typography>
+                    </Grid>
+            }
         </>
     )
 }

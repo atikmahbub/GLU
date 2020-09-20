@@ -5,7 +5,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     messageContainer:{
-        // backgroundColor: "lightgrey",
         maxWidth: "48.062rem",
         marginLeft:0,
         paddingLeft: 0,

@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import UserCard from './UserCard';
 import userData from './data';
-import { identity } from '@fullcalendar/react';
 
 const useStyles = makeStyles({
     body: {

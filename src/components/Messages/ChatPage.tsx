@@ -24,7 +24,6 @@ const useStyles = makeStyles({
         marginRight: 0,
         paddingRight: 0,
         position: 'relative',
-        // backgroundColor: 'grey',
         minWidth: '100%',
         height: '100vh',
         fontFamily: 'CircularXXWeb-Book',
@@ -42,21 +41,17 @@ const useStyles = makeStyles({
 
     userContainerSidePanel:{
         position: 'relative',
-        // backgroundColor: "white",
         marginTop: '20px',
         display: 'flex',
-        // paddingTop: '9.25rem',
     },
     userName:{
         fontSize: "2.625rem",
-        // paddingLeft: "24px",
     },
     sidePanelTitle:{
         fontSize: "2.625rem",
     },
     messageBox:{
         backgroundColor: "white",
-        // border:"2px solid grey",
         height: "60vh",
         marginTop: '5.187rem',
         paddingLeft: 0,
@@ -64,8 +59,6 @@ const useStyles = makeStyles({
     sidePanelContainer:{
         marginRight: 0,
         paddingRight: 0,
-        // backgroundColor: '#F7F7F7',
-        // width: "39.625rem",
     },
     messageContainer:{
         marginLeft: 0,
