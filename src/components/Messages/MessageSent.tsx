@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import userData from './data';
 
 const useStyles = makeStyles({
     messageContainer:{
@@ -10,14 +9,6 @@ const useStyles = makeStyles({
         maxWidth: "48.062rem",
         marginLeft:0,
         paddingLeft: 0,
-        marginTop: "30px",
-        display: 'flex',
-    },
-    tutorImage:{
-        width: '42px',
-        height: '42px',
-        objectFit: 'cover',
-        marginTop: '9px'
     },
     message:{
         color: "black",
@@ -31,17 +22,14 @@ const useStyles = makeStyles({
     }
 })
 
-const MessageReceived: FC = () => {
+const MessageSent: FC = () => {
     const classes = useStyles()
     return (
         <Container className={classes.messageContainer}>
-           <img className={classes.tutorImage} src={userData[2].img} alt=""/>
-           <Container>
-                <Typography className={classes.message}> Hey, I need some help with the new French vocab homework. Do you have a bit of time to walk me through it?</Typography> 
-                <Typography className={classes.messageTime}>3.10pm </Typography> 
-           </Container>
+           <Typography className={classes.message}> Hey, I need some help with the new French vocab homework. Do you have a bit of time to walk me through it?</Typography> 
+           <Typography className={classes.messageTime}>3.10pm </Typography> 
         </Container>
     )
 }
 
-export default MessageReceived
+export default MessageSent

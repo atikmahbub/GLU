@@ -15,7 +15,7 @@ const data = [
         id: 2,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607732/yellowpillowboy_i7g8kg.jpg',
         userName: 'Jen Holden',
-        onlineStatus: 'Online',
+        onlineStatus: 'Offline',
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const data = [
         id: 4,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
         userName: 'Frank Smith',
-        onlineStatus: 'Online',
+        onlineStatus: 'Offline',
     },
 
     {

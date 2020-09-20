@@ -8,7 +8,6 @@ type Props = {
     image: string,
     userName: string,
     onlineStatus: string,
-    newMessage?: boolean,
 }
 
 const useStyles = makeStyles({
@@ -16,8 +15,8 @@ const useStyles = makeStyles({
         marginTop: "30px"
     },
     imageContainer: {
-        height: '42px',
-        width: '42px',
+        height: '162px',
+        width: '162px',
         marginTop: '6px',
         marginRight: '25px',
     },
@@ -35,9 +34,14 @@ const useStyles = makeStyles({
         lineHeight: '25px',
         color: '#5F5F5F',
     },
-    onlineDotWithNoOfMsgContainer:{
-        position: 'absolute',
-        right: 0,
+    timeContainer:{
+        marginTop: '91px',
+        paddingLeft: 0,
+    },
+    localTime:{
+        fontSize: '18px',
+        lineHeight: '25px',
+        color: 'black',  
     },
     onlineDotContainer:{
         position: 'absolute',
@@ -51,30 +55,13 @@ const useStyles = makeStyles({
         borderRadius: '50%',
         right: 0,
         // top: '50%',
-    },
 
-    offlineDotContainer:{
-        position: 'absolute',
-        height: '11px',
-        width: '11px',
-        marginRight: 0,
-        backgroundColor: 'transparent',
-        // marginLeft: '187px',
-        marginTop: 'auto',
-        marginBottom: 'auto',
-        borderRadius: '50%',
-        border: '2px solid darkgrey',
-        right: 0,
-        // top: '50%',
     },
-    noOfMsg:{
-        marginTop: '20px',
-    }
 });
 
 
 
-const UserCardSidePanel: FC<Props> = ({ key, image, userName, onlineStatus, newMessage }) => {
+const UserCardSidePanel: FC<Props> = ({ key, image, userName, onlineStatus }) => {
     const classes = useStyles();
     return (
         <>
@@ -83,24 +70,15 @@ const UserCardSidePanel: FC<Props> = ({ key, image, userName, onlineStatus, newM
                 <Grid className={classes.imageContainer}>
                     <img className={classes.image} src={image} />
                 </Grid>
-                <Grid>
+                <Grid >
                     <Typography className={classes.userName}> {userName}</Typography>
-                    <Typography className={classes.onlineStatus}>{onlineStatus}</Typography>
-                </Grid>
-                {
-                  onlineStatus == 'Offline'
-                  ?
-                <Grid className={classes.onlineDotWithNoOfMsgContainer}>
-                    <Grid container className={classes.offlineDotContainer} alignItems="center"/>
-                    {/* <Typography className={classes.noOfMsg}>1 new message</Typography> */}
-                </Grid>    
-                :
-                <Grid className={classes.onlineDotWithNoOfMsgContainer}>
-                    <Grid container className={classes.onlineDotContainer} alignItems="center"/>
-                    <Typography className={classes.noOfMsg}>1 new message</Typography>
-                </Grid>
-                }
+                    <Container className={classes.timeContainer}>
+                        <Typography className={classes.localTime}>Local Time</Typography>
+                        <Typography className={classes.onlineStatus}>11:24 AM</Typography>
+                    </Container>
 
+                </Grid>
+                <Grid container className={classes.onlineDotContainer} alignItems="center"/>
             {/* </Grid> */}
         </>
     )
