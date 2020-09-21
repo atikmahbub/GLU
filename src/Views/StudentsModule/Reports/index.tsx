@@ -9,7 +9,7 @@ import TitlePrimary from '../../../components/Typographies/TitlePrimary';
 import ColumnsContainer from '../../../Containers/ColumnsContainer';
 import RecommendedContainer from '../../../Containers/RecommendedContainer';
 import FormControlSelect from '../../../components/Form/FormControlSelect';
-import ExamResultCard from '../../../components/Cards/ExamResultCard';
+import ExamResultAccordion from '../../../components/Accordions/ExamResultAccordion';
 import Tag from '../../../components/Tag';
 import PageFooter from '../../../components/PageFooter';
 import { monthsOptions } from '../../../Helper/options';
@@ -18,7 +18,7 @@ import { colors } from '../../../Styles/colors';
 
 const useStyles = makeStyles({
     pageContainerContent: {
-        paddingBottom: 0
+        paddingBottom: 0,
     },
     whiteContainerRoot: {
         width: 'calc(100% + (3.125rem * 2))',
@@ -28,39 +28,39 @@ const useStyles = makeStyles({
         padding: '6.25rem 3.125rem 0 3.125rem',
     },
     controlsContainer: {
-      marginBottom: '5rem'
+        marginBottom: '5rem',
     },
     selectRoot: {
         marginRight: '7.375rem',
     },
     selectInputRoot: {
-        width: 150
+        width: 150,
     },
     seeAll: {
         fontSize: '1.25rem',
         lineHeight: '1.875rem',
         color: colors.primary,
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     columnsContainerRoot: {
-        marginBottom: '5.3125rem'
+        marginBottom: '5.3125rem',
     },
     tagsContainer: {
         borderLeft: '1px solid rgba(0, 0, 0, 0.25)',
-        padding: '0 1.5625rem'
+        paddingLeft: '3.125rem',
     },
     tagsWrapper: {
-        marginBottom: '8rem'
+        marginBottom: '8rem',
     },
     tagsTitle: {
         fontSize: '1.5625rem',
         lineHeight: '2.0625rem',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
     },
     footerRoot: {
         paddingLeft: 0,
-        paddingRight: 0
-    }
+        paddingRight: 0,
+    },
 });
 
 const Reports: FC = () => {
@@ -101,11 +101,9 @@ const Reports: FC = () => {
                                     />
                                 </Grid>
                                 <Grid container direction="column">
-                                    {exams.map((exam, index) => {
-                                        return (
-                                            <ExamResultCard key={index} {...exam} />
-                                        )
-                                    })}
+                                    {exams.map((exam, index) => (
+                                        <ExamResultAccordion key={index} {...exam} />
+                                    ))}
                                 </Grid>
                                 <Typography className={classes.seeAll}>See all</Typography>
                             </Grid>
@@ -116,12 +114,12 @@ const Reports: FC = () => {
                             <Typography className={classes.tagsTitle}>Recommended Tags</Typography>
                             <Grid container item xs={10}>
                                 {tags.map((tag, index) => {
-                                    return <Tag key={index} title={tag} />
+                                    return <Tag key={index} title={tag} />;
                                 })}
                             </Grid>
                         </Grid>
                     </Grid>
-                    <RecommendedContainer title="Recommended Tutors" data={recommended} />
+                    <RecommendedContainer title="Recommended Tutors" link="/students/tutors" data={recommended} />
                     <PageFooter rootClassName={classes.footerRoot} />
                 </WhiteContainer>
             </Grid>

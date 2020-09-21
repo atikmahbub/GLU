@@ -2,7 +2,7 @@ import { STUDENT_INFO, STUDENT_DETAILS } from '../ActionTypes/studentTypes';
 
 const initialState = {
     studentData: null,
-    studentDetails: null
+    studentDetails: null,
 };
 
 export const studentReducer = (state = initialState, action: any) => {

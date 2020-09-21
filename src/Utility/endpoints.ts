@@ -32,3 +32,9 @@ export const endponts = {
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
 };
+
+export const studentsEndpoints = {
+    getFeatureTeacher: 'student/feature/teacher',
+    getUpcomingSessions: 'student/upcoming/session',
+    getPreviousSessions: 'student/previous/session'
+}
