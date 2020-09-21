@@ -4,18 +4,19 @@ import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
 import useUpcomingClasses from '../../Hooks/students/useUpcomingClasses';
 import usePreviousClasses from '../../Hooks/students/usePreviousClasses';
+import { getCurrentMonth, getCurrentYear } from '../../Helper/date';
 
 const Index: React.FunctionComponent = () => {
     const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
     const { nextClassCard, featuredSubjectsCard, upcomingClassCard } = useUpcomingClasses();
-    const { prevClassImageCards } = usePreviousClasses()
+    const { prevClassImageCards } = usePreviousClasses();
 
     return (
         <HomePageContainer
             userType="students"
             cardsData={{
                 calendar: {
-                    date: 'July 2020',
+                    date: `${getCurrentMonth()} ${getCurrentYear()}`,
                     cards: calendarSubjectsCards,
                 },
                 liveClasses: recommendedCards2,
@@ -37,11 +38,11 @@ const Index: React.FunctionComponent = () => {
                     featuredSubjects: { ...featuredSubjectsCard },
                 }),
                 ...(upcomingClassCard && {
-                    upcomingClass: { ...upcomingClassCard }
+                    upcomingClass: { ...upcomingClassCard },
                 }),
                 ...(prevClassImageCards.length && {
-                    recordedClasses: prevClassImageCards
-                })
+                    recordedClasses: prevClassImageCards,
+                }),
             }}
         />
     );
