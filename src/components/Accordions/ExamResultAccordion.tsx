@@ -79,7 +79,20 @@ const ExamResultAccordion: FC<IExamResultAccordion> = ({ title, date, descriptio
                         <Typography className={classes.readMoreText}>Read more</Typography>
                     </Grid>
                     <Grid>
-                        <BarChart chartWidth={410} chartHeight={170} />
+                        <BarChart
+                            chartWidth={410}
+                            chartHeight={170}
+                            data={[
+                                {
+                                    data: [85],
+                                    color: colors.primary,
+                                },
+                                {
+                                    data: [64],
+                                    color: colors.lightPrimary,
+                                },
+                            ]}
+                        />
                     </Grid>
                 </Grid>
             }

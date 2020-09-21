@@ -1,30 +1,31 @@
 import React, { FC, memo, useState } from 'react';
-import Highcharts from 'highcharts'
+import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import Grid from '@material-ui/core/Grid';
-import { colors } from '../../../Styles/colors';
+import { ChartDataElement } from '../types';
 
-const initOptions = ({ chartWidth, chartHeight }: any) => {
+const initOptions = ({ chartWidth, chartHeight, column, data, xAxisLabels, xAxisCategories }: IBarChart) => {
     return {
         chart: {
             backgroundColor: 'transparent',
-            type: 'bar',
+            type: column ? 'column' : 'bar',
             width: chartWidth,
-            height: chartHeight
+            height: chartHeight,
         },
         title: {
-            text: ''
+            text: '',
         },
         credits: {
-            enabled: false
+            enabled: false,
         },
         xAxis: {
             title: {
                 text: '',
             },
             labels: {
-                enabled: false,
+                enabled: xAxisLabels,
             },
+            categories: xAxisCategories
         },
         yAxis: {
             title: {
@@ -36,37 +37,33 @@ const initOptions = ({ chartWidth, chartHeight }: any) => {
         },
         plotOptions: {
             series: {
-                pointWidth: 20
-            }
+                pointWidth: 20,
+                pointPadding: 1
+            },
         },
         legend: {
-            enabled: false
+            enabled: false,
         },
-        series: [
-            {
-                data: [85],
-                color: colors.primary
-            },
-            {
-                data: [64],
-                color: colors.lightPrimary
-            }
-        ]
-    }
-}
+        series: data,
+    };
+};
 
-type BarChartProps = {
+export interface IBarChart {
     chartWidth?: number;
     chartHeight?: number;
+    column?: boolean;
+    data: ChartDataElement[];
+    xAxisLabels?: boolean;
+    xAxisCategories?: number[] | string[];
 }
 
-const BarChart: FC<BarChartProps> = ({ chartWidth, chartHeight }) => {
-    const [options] = useState(initOptions({ chartWidth, chartHeight }))
+const BarChart: FC<IBarChart> = ({ chartWidth, chartHeight, column, data, xAxisLabels, xAxisCategories }) => {
+    const [options] = useState(initOptions({ chartWidth, chartHeight, column, data, xAxisLabels, xAxisCategories }));
     return (
         <Grid container>
             <HighchartsReact highcharts={Highcharts} options={options} />
         </Grid>
-    )
-}
+    );
+};
 
-export default memo(BarChart)
+export default memo(BarChart);

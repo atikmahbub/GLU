@@ -14,10 +14,10 @@ import PercentCard from '../../components/Cards/PercentCard';
 import ColumnsContainer from '../ColumnsContainer';
 import WalletActivityAccordion from '../../components/Accordions/WalletActivityAccordion';
 import SeeAll from '../../components/Typographies/SeeAll';
+import PageFooter from '../../components/PageFooter';
 import { createMenuList } from '../../Helper/menus';
 import { UserTypes } from '../../Types/user';
-import { activity } from '../../data/wallet';
-import PageFooter from '../../components/PageFooter';
+import { activity, barChart } from '../../data/wallet';
 
 const useStyles = makeStyles({
     title: {
@@ -100,7 +100,7 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                                 </Grid>
                             </Grid>
                             <Grid container className={classes.chartContainer}>
-                                <BarChart />
+                                <BarChart column {...barChart} />
                             </Grid>
                         </Grid>
                     </Grid>
