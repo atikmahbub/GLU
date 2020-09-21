@@ -22,11 +22,13 @@ export const endponts = {
     studentEdu: 'student/qualification',
     registerPhone: 'user/phone/',
     verifyOtp: 'user/verify/phone/',
-    teahcerSkill:'teacher/skill',
-    techerExp:'teacher/experience',
+    teahcerSkill: 'teacher/skill',
+    // teahcerExperience: 'teacher/experience',
+    teahcerEducation: 'teacher/qualification',
+    techerExp: 'teacher/experience',
     teacherBio: 'auth/teacher/bio/',
     teacherFileUpload: 'file-upload/uploads/documents',
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
-    resetPassword: 'auth/reset/password/'
+    resetPassword: 'auth/reset/password/',
 };
