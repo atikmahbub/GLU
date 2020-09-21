@@ -9,13 +9,15 @@ interface props {
     placeholder?: string;
     onChange?: (e:React.ChangeEvent<HTMLInputElement>)=>void;
     value?:string | number;
-    handleEnter?:(e:any)=>void
+    handleEnter?:(e:any)=>void;
+    disalbed?:boolean;
+    onBlur?:()=>void
 }
-const InputWithLabel: React.FunctionComponent<props> = ({ type, fieldName, fieldClass, mt, placeholder,value, onChange, handleEnter }) => {
+const InputWithLabel: React.FunctionComponent<props> = ({ type, fieldName, fieldClass, mt, placeholder,value, onChange, handleEnter, disalbed, onBlur }) => {
     return (
         <div className={`input__with__label ${mt}`}>
             <Typography className={`fieldName ${fieldClass}`}>{fieldName}</Typography>
-            <input type={type} className="inputfield" value={value}  onChange={onChange} placeholder={placeholder} onKeyDown={handleEnter} />
+            <input type={type} className="inputfield" value={value}  onChange={onChange} placeholder={placeholder} onKeyDown={handleEnter} disabled={disalbed} onBlur={onBlur} />
         </div>
     );
 };

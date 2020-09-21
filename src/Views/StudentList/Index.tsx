@@ -17,7 +17,7 @@ const Index = () => {
             const data = students.map((element: any) => {
                 return {
                     profile: element.Student?.User?.profile ? element.Student?.User?.profile : commonImg.photo,
-                    yearGroup: element.ClassSection ? checkValue(element.ClassSection?.Class.className) : 'first',
+                    yearGroup: element.ClassSection ? checkValue(element.ClassSection?.Class.title) : 'first',
                     formGroup: element.ClassSection ? checkValue(element.ClassSection?.Section.sectionName) : 'A',
                     email: checkValue(element?.Student?.User?.email),
                     gender: checkValue(element.Student?.gender),

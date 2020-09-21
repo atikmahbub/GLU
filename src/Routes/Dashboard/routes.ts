@@ -93,7 +93,7 @@ export const dashboardRoutes = [
     { pathname: '/dashboard/staff-details', component: StaffDetails },
     { pathname: '/dashboard/merits-sanctions', component: MeritsSanction },
     { pathname: '/dashboard/feedback', component: Feedback },
-    { pathname: '/dashboard/add-year-group', component: AddYearGroup },
+    { pathname: '/dashboard/edit-year-group', component: AddYearGroup },
     { pathname: '/dashboard/form-group', component: FormGroup },
     { pathname: '/dashboard/edit-form-group', component: AddFormGroup },
     { pathname: '/dashboard/parent/send-notification', component: Notification },

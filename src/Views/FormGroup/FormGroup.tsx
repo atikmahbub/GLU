@@ -5,18 +5,21 @@ import AddButton from '../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router';
 import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import CardTable from '../../components/Table/CardTable';
-import commonImg from '../../Assets/images';
 import FormFilter from './FormFilter';
 
 interface props {
     groupList?: any[];
+    filters?:any
 }
-const FormGroup: React.FunctionComponent<props> = ({ groupList }) => {
+const FormGroup: React.FunctionComponent<props> = ({ groupList, filters }) => {
     const [toggler, setToggler] = useState(false);
     const routes = useHistory();
 
     const handleToggler = () => {
-        routes.push('/dashboard/edit-form-group');
+        routes.push({pathname:'/dashboard/edit-form-group', state:{
+            classId: filters.class,
+            sectionId: filters.section
+        }});
     };
     return (
         <div className="student-wrapper">
@@ -59,38 +62,7 @@ const FormGroup: React.FunctionComponent<props> = ({ groupList }) => {
                                     field: 'formGroup',
                                 },
                             ]}
-                            rowData={[
-                                {
-                                    name: 'Jenny Smith',
-                                    studentId: 'XC9382',
-                                    profile: commonImg.photo,
-                                    formGroup: 'A',
-                                },
-                                {
-                                    name: 'Shehan Abeysinghe',
-                                    studentId: 'XC9382',
-                                    profile: commonImg.photo,
-                                    formGroup: 'A',
-                                },
-                                {
-                                    name: 'Gemma Abigail Holmes',
-                                    studentId: 'XC9382',
-                                    profile: commonImg.photo,
-                                    formGroup: 'A',
-                                },
-                                {
-                                    name: 'Gwanda Betty Cooper',
-                                    studentId: 'XC9382',
-                                    profile: commonImg.photo,
-                                    formGroup: 'A',
-                                },
-                                {
-                                    name: 'Jenny Smith',
-                                    studentId: 'XC9382',
-                                    profile: commonImg.photo,
-                                    formGroup: 'A',
-                                },
-                            ]}
+                            rowData={groupList}
                         />
                     </div>
                 </div>
