@@ -13,8 +13,11 @@ import BarChart from '../../components/Charts/BarChart';
 import PercentCard from '../../components/Cards/PercentCard';
 import ColumnsContainer from '../ColumnsContainer';
 import WalletActivityAccordion from '../../components/Accordions/WalletActivityAccordion';
+import SeeAll from '../../components/Typographies/SeeAll';
 import { createMenuList } from '../../Helper/menus';
 import { UserTypes } from '../../Types/user';
+import { activity } from '../../data/wallet';
+import PageFooter from '../../components/PageFooter';
 
 const useStyles = makeStyles({
     title: {
@@ -113,13 +116,19 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                     }
                     rightContent={
                         <Grid container direction="column">
-                            <WalletActivityAccordion />
-                            <WalletActivityAccordion />
-                            <WalletActivityAccordion />
+                            <Grid container direction="column">
+                                {activity.map((card, index) => (
+                                    <WalletActivityAccordion key={index} {...card} />
+                                ))}
+                            </Grid>
+                            <Grid>
+                                <SeeAll to="/" />
+                            </Grid>
                         </Grid>
                     }
                 />
             </CardsGridContainer>
+            <PageFooter />
         </NavigationMenu>
     );
 };
