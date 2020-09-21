@@ -11,26 +11,29 @@ const Index = () => {
     const [parentList, setParentList] = useState([]);
 
     useEffect(() => {
+        dispatch(getallparentAPIcall());
+    }, []);
+
+    useEffect(() => {
         if (parents) {
             const data = parents.map((element: any) => {
                 return {
                     profile: element.profile ? element.profile : commonImg.photo,
                     parentId: element.id,
-                    first_name: checkValue(element.first_name),
-                    last_name: checkValue(element.last_name),
-                    name: checkValue(element.first_name) + ' ' + checkValue(element.last_name),
+                    childrens:element?.GuardianStudents?.length,
+                    firstName: checkValue(element.firstName),
+                    lastName: checkValue(element.lastName),
+                    name: checkValue(element.firstName) + ' ' + checkValue(element.lastName),
                     email: checkValue(element.User.email),
                     gender: checkValue(element.User.gender),
-                    phoneNumber: checkValue(element.User.phoneNumber),
+                    phoneNumber: checkValue(element.phoneNumber),
                     action: '',
                 };
             });
             setParentList(data);
         }
     }, [parents]);
-    useEffect(() => {
-        dispatch(getallparentAPIcall());
-    }, []);
+    console.log(parentList)
     return <ParentList parentList={parentList}/>;
 };
 

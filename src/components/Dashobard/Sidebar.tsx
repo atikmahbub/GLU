@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Typography, Button } from '@material-ui/core';
-import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
-import { ArrowForwardIos } from '@material-ui/icons';
+import { Typography } from '@material-ui/core';
+import { useHistory, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { colors } from '../../Styles/colors';
+
 
 export interface sidebarItems {
     menuName: string;

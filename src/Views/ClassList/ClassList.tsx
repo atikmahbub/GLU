@@ -14,27 +14,29 @@ import FormControlInput from '../../components/Form/FormControlInput';
 
 const useStyles = makeStyles({
     inputsContainer: {
-        marginBottom: '2.1875rem'
+        marginBottom: '2.1875rem',
     },
     inputRoot: {
-        marginRight: '0.625rem'
-    }
-})
+        marginRight: '0.625rem',
+    },
+});
 
 interface props {
     classList?: any[];
 }
 
 const ClassList: React.FunctionComponent<props> = ({ classList }) => {
-    const classes = useStyles()
+    const classes = useStyles();
     const routes = useHistory();
 
     const handleToggler = () => {
-        routes.push('/dashboard/add-year-group');
+        routes.push('/dashboard/year-group/add-year-group');
     };
 
     const redirectDetails = (id:number) => {
-        routes.push('/dashboard/year-group/details');
+        routes.push({pathname:'/dashboard/year-group/details', state:{
+            id:id
+        }});
     };
 
     return (
@@ -121,46 +123,15 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                                 field: 'action',
                                 render: (rowData: any) => (
                                     <ActionToolbar
-                                    showDetail={true}
-                                    detailClick={() => redirectDetails(rowData.id)}
-                                    // deleteClick={() => handleDelete(rowData.id)}
-                                    // editClick={() => handleEdit(rowData)}
+                                        showDetail={true}
+                                        detailClick={() => redirectDetails(rowData.id)}
+                                        // deleteClick={() => handleDelete(rowData.id)}
+                                        // editClick={() => handleEdit(rowData)}
                                     />
                                 ),
                             },
                         ]}
-                        rowData={[
-                            {
-                                group: 'Year 4',
-                                children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                group: 'Year 4',
-                                children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                group: 'Year 4',
-                                children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                group: 'Year 4',
-                                children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                group: 'Year 4',
-                                children: '122',
-                                formGroup: 'A',
-                                hoy: 'Mr.Shehan Abeysinghe',
-                            },
-                        ]}
+                        rowData={classList}
                     />
                 </BorderTableContainer>
             </CardContainer>
