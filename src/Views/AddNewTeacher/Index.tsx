@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
@@ -10,7 +10,7 @@ import ChipAdder from '../../components/Cards/ChipAdder';
 import SaveController from '../../components/Dashobard/SaveController';
 import { useDispatch } from 'react-redux';
 import { addNewTeacherAPIcall } from '../../Redux/Actions/teacherAction';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 const useStyle = makeStyles({
     root: {
@@ -37,8 +37,10 @@ const Index = () => {
         mobileNumber: '',
         gender: '',
         designation: '',
+        department: '',
     });
-    const [department, setDepartment] = useState<any>([]);
+    const [editMode, setEditMode] = useState(false);
+    const [department, setDepartment] = useState('');
     const [subjects, setSubjects] = useState<any>([]);
 
     const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,8 +89,33 @@ const Index = () => {
                 },
             ],
         };
-        dispatch(addNewTeacherAPIcall(data, history));
+        if (editMode) {
+            // dispatch(editTeacherAPIcall())
+        } else {
+            dispatch(addNewTeacherAPIcall(data, history));
+        }
     };
+    const findRoutes: any = useLocation();
+    useEffect(() => {
+        console.log(findRoutes)
+        if (findRoutes.hasOwnProperty('state')) {
+            if (findRoutes.state.hasOwnProperty('teacherInfo')) {
+                const values = (findRoutes as any)?.state?.teacherInfo;
+                const data = {
+                    firstName: values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    mobilePre: '',
+                    mobileNumber: '',
+                    gender: '',
+                    designation: values.email,
+                    department: values.department,
+                };
+                setState(data);
+                setEditMode(true);
+            }
+        }
+    }, []);
     return (
         <CardContainer>
             <PdBox>

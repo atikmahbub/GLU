@@ -11,7 +11,7 @@ export const endponts = {
     section: 'section/',
     invitation: 'auth/invite',
     authRegister: 'auth/register',
-    departments: 'schools/departments',
+    departments: 'school/department',
     sessions: 'session',
     subject: 'schools/subjects',
     timeTable: 'schools/routines',
@@ -28,5 +28,6 @@ export const endponts = {
     teacherFileUpload: 'file-upload/uploads/documents',
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
-    resetPassword: 'auth/reset/password/'
+    resetPassword: 'auth/reset/password/',
+    searchStudent: 'school/student/like'
 };
