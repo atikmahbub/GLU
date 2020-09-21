@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
     },
-    rightGrid: {},
     image: {
         width: '11.5rem',
         height: '11.47rem',
@@ -50,7 +49,7 @@ const useStyles = makeStyles({
     },
     bio: {
         marginTop: '5.726875rem',
-        width: '55.375rem',
+        width: '100%',
         marginBottom: '5.3125rem',
         fontFamily: 'CircularXXWeb-Book',
     },
@@ -68,7 +67,7 @@ const LeftGrid = () => {
     const classes = useStyles();
 
     return (
-        <Grid md={6} item className={classes.rightGrid}>
+        <div>
             <Typography className={classes.headerText}>Profile Image</Typography>
             <div className={classes.pad}>
                 <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
@@ -86,7 +85,7 @@ const LeftGrid = () => {
                 <Education />
                 <Skills />
             </div>
-        </Grid>
+        </div>
     );
 };
 

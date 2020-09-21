@@ -1,7 +1,13 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS } from '../ActionTypes/teacherTypes';
+import {
+    TEACHER_LIST,
+    TEACHER_DETAILS,
+    GET_TEACHER_SKILLS,
+    GET_TEACHER_EDUCATION,
+    GET_TEACHER_EXPERIENCE,
+} from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 
@@ -129,6 +135,83 @@ export const getTeachersUpcomingClasses = () => {
             console.log('techerUpcomingClasses: ', techerUpcomingClasses);
         } catch (err) {
             console.error(err);
+        }
+    };
+};
+
+export const addTeacherSkill = (data: any) => {
+    return async (dispatch: any) => {
+        try {
+            await API.post(endponts.teahcerSkill, data);
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getTeacherExperienceApiCall = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(endponts.techerExp);
+            console.log('teacher experience: ', res);
+            dispatch(getExperienceList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getTeacherEducationApiCall = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(endponts.teahcerEducation);
+
+            console.log('teacher qualification: ', res);
+            dispatch(getEducationList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getExperienceList = (data: any) => {
+    return {
+        type: GET_TEACHER_EXPERIENCE,
+        payload: data,
+    };
+};
+export const getEducationList = (data: any) => {
+    return {
+        type: GET_TEACHER_EDUCATION,
+        payload: data,
+    };
+};
+
+export const deleteTeacherEducationApiCall = (id) => {
+    return async (dispatch: any) => {
+        try {
+            console.log('Delete Button pressed');
+            await API.delete(`${endponts.teahcerEducation}/${id}`);
+
+            dispatch(getEducationList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const deleteTeacherExperienceApiCall = (deleteId: number) => {
+    return async (dispatch: any) => {
+        try {
+            console.log('Delete Button pressed');
+            console.log(`${endponts.techerExp}/${deleteId}`);
+            console.log(deleteId);
+
+            const res = await API.delete(`${endponts.techerExp}/${deleteId}`);
+
+            dispatch(getExperienceList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
         }
     };
 };
