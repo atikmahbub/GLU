@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Typography, TextField } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 import SkillChip from './SkillsChip';
+import { connect } from 'react-redux';
+import { addTeacherSkill } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
     details: {
-        width: '55.375rem',
+        width: '100%',
         fontFamily: 'CircularXXWeb-Book',
     },
     detailsText: {
@@ -75,29 +77,50 @@ const useStyles = makeStyles({
     },
 });
 
-const Skills = () => {
+const Skills = ({ skills, addTeacherSkill }) => {
     const classes = useStyles();
+    const formOnSubmit = async (e: any) => {
+        e.preventDefault();
+        const formatData = [{ skillName: newSkill }];
+        await addTeacherSkill(formatData);
+        // forceUpdate();
+        window.location.reload();
+    };
+    const [newSkill, setNewSkill] = useState(null);
+    const handleSkill = (e: any) => {
+        console.log(newSkill);
+        setNewSkill(e.target.value);
+    };
 
     return (
         <div>
             <div className={classes.details}>
                 <div className={classes.detailsText}>Skills</div>
-                <label htmlFor="skills" className={classes.inputLabel}>
-                    Add new
-                </label>
-                <input type="text" id="skills" className={classes.inputBox}></input>
+                <form onSubmit={formOnSubmit}>
+                    <label htmlFor="skills" className={classes.inputLabel}>
+                        Add new
+                    </label>
+                    <input
+                        value={newSkill}
+                        onChange={(e) => handleSkill(e)}
+                        type="text"
+                        id="skills"
+                        name="skill"
+                        className={classes.inputBox}
+                    ></input>
+                </form>
             </div>
             <div className={classes.chipContainer}>
-                <SkillChip skill="Maths" />
-                <SkillChip skill="Computer Science" />
-                <SkillChip skill="English" />
-                <SkillChip skill="Languages" />
-                <SkillChip skill="Project Management" />
-                <SkillChip skill="Multilingual" />
-                <SkillChip skill="Japanese" />
+                {skills && skills.map((item) => <SkillChip skill={item.skillName} key={item.id} />)}
             </div>
         </div>
     );
 };
 
-export default Skills;
+const mapStateToProps = (state) => {
+    return {
+        skills: state.teacherReducer.teacherSkill,
+    };
+};
+
+export default connect(mapStateToProps, { addTeacherSkill })(Skills);

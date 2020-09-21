@@ -8,6 +8,11 @@ import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { useDispatch } from 'react-redux';
 import { deleteParentAPIcall } from '../../Redux/Actions/parentAction';
 import UserTable from '../../components/Dashobard/Table/UserTable';
+import CardTable from '../../components/Table/CardTable';
+import TableUserProfile from '../../components/Dashobard/TableUserProfile';
+import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import commonImg from '../../Assets/images';
+import ParentListFilter from './ParentListFilter';
 
 interface props {
     parentList: Array<parentListTypes>;
@@ -58,12 +63,51 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
                     trigger={handleRoutes}
                 />
             </CardContainer>
-            <UserTable
-                showFilter={true}
-                redirectDetails={(value: any) => redirectDetails(value)}
-                handleEdit={(value: any) => handleEdit(value)}
-                handleDelete={(value: any) => handleDelete(value)}
-            />
+            <CardContainer>
+                <div className="student-table">
+                    <ParentListFilter/>
+                    <div className="table__container">
+                        <CardTable
+                            showToolbar={false}
+                            showPagination={true}
+                            selectable={true}
+                            tableHeight="100vh"
+                            columns={[
+                                {
+                                    width: '60%',
+                                    title: 'Name',
+                                    field: 'name',
+                                    render: (rowData: any) => (
+                                        <TableUserProfile name={rowData.name} profile={rowData.profile} />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'No.of Children',
+                                    field: 'childrens',
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Email address',
+                                    field: 'email',
+                                },
+                                {
+                                    width: '23%',
+                                    render: (rowData: any) => (
+                                        <ActionToolbar
+                                            showDetail={true}
+                                            detailClick={() => redirectDetails(rowData.id)}
+                                            deleteClick={() => handleDelete(rowData.id)}
+                                            editClick={() => handleEdit(rowData)}
+                                        />
+                                    ),
+                                },
+                            ]}
+                            rowData={parentList}
+                        />
+                    </div>
+                </div>
+            </CardContainer>
         </div>
     );
 };

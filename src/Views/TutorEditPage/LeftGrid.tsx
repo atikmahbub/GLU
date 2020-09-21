@@ -33,13 +33,13 @@ const LeftGrid = () => {
     const classes = useStyles();
 
     return (
-        <Grid md={6} item className={classes.leftGrid}>
+        <div>
             <Typography className={classes.headerText}>Edit Profile</Typography>
             <div className={classes.confirm}>
                 <div className={classes.upload}>Save Changes</div>
                 <SmallTextButton text="Cancel" /> and go back
             </div>
-        </Grid>
+        </div>
     );
 };
 

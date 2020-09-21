@@ -2,48 +2,48 @@ import React, { useState, useEffect } from 'react';
 import ClassList from './ClassList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallclassAPIcall } from '../../Redux/Actions/classAction';
-
+import { isArray } from 'lodash';
 
 const index: React.FunctionComponent = () => {
     const dispatch = useDispatch();
-    const [toggler, setToggler] = useState(false);
     const classes = useSelector((state: any) => state.classReducer.classList);
     const [classList, setclassList] = useState([]);
-    const handleToggler = () => {
-        setToggler(!toggler);
-    };
+
     useEffect(() => {
         dispatch(getallclassAPIcall());
     }, []);
     useEffect(() => {
-        // if (classes!==null) {
-        //     const check = classes.filter((v:any,i:number,a:any)=>a.findIndex((t:any)=>(t?.class?.name === v?.class?.name))===i)
-        //     const data = check.map((element: any, index:number) => {
-        //        const sections = element.sections.map((item:any)=>{
-        //            return item?.Section?.name;
-        //        });
-        //        const teachers = element.teachers.map((item:any)=>{
-        //         return checkValue(item?.Teacher?.first_name);
-                
-        //     });
-        //         return {
-        //             rowId:index,
-        //             id: element?.class?.id,
-        //             year: element?.class?.name,
-        //             formGroup: sections.join(', '),
-        //             editSection: sections,
-        //             teacher: teachers.length>0 ? teachers.join(', ') : 'ashish gupta',
-        //             student: '25',
-        //             action: '',
-        //         };
-        //     });
-        //     console.log(data)
-        //     setclassList(data);
-        // }
+        if (isArray(classes)) {
+            const data: any = [];
+            classes?.forEach((item: any) => {
+                if (item?.ClassSections.length > 0) {
+                    item?.ClassSections.forEach((subItem: any) => {
+                        const result = {
+                            id: item?.id,
+                            group: item?.title,
+                            children: subItem?.SectionStudents.length,
+                            formGroup: subItem?.Section?.sectionName,
+                            hoy: item?.head ? item?.head : 'N/A',
+                        };
+                        data.push(result);
+                    });
+                } else {
+                    data.push({
+                        id: item?.id,
+                        group: item?.title,
+                        children: 'N/A',
+                        formGroup: 'N/A',
+                        hoy: item?.head ? item?.head : 'N/A',
+                    });
+                }
+            });
+            console.log(data);
+            setclassList(data);
+        }
     }, [classes]);
     return (
         <div>
-            <ClassList classList={classList}  />
+            <ClassList classList={classList} />
         </div>
     );
 };
