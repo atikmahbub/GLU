@@ -28,5 +28,9 @@ export const endponts = {
     teacherFileUpload: 'file-upload/uploads/documents',
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
-    resetPassword: 'auth/reset/password/'
+    resetPassword: 'auth/reset/password/',
+    teacherEdu:'teacher/qualification',
+    teacherHomework:'teacher/homework',
+    teacherHomeworkCount:'teacher/homework/count',
+    teacherRecommendation:'teacher/recommend',
 };

@@ -28,6 +28,9 @@ export interface studentReducerType {
 export interface teacherReducerType {
     teacherList:any
     teacherSkill:any
+    teacherExperience:any
+    teacherHomework:any
+    teacherEducation:any
 }
 export interface parentReducerType {
     parentData: any,

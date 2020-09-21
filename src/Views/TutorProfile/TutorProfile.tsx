@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import BackgroundTemplate from '../../components/BackgroundTemplate';
 import TagsContainer from '../../components/TagsContainer';
-import { getTeacherSkills,getTeacherExperience } from '../../Redux/Actions/teacherAction';
+import { getTeacherSkills,getTeacherExperience ,getTeacherEducation} from '../../Redux/Actions/teacherAction';
 import PageFooter from '../../components/PageFooter';
 import commonImg from '../../Assets/images';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,19 +14,24 @@ const TempComp: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const teacherSkill = useSelector((state:rootReducerType) => state.teacherReducer.teacherSkill);
     const teacherExperience=useSelector((state)=>state.teacherReducer.teacherExperience);
+    const teacherEducation=useSelector((state)=>state.teacherReducer.teacherEducation);
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
-    const [skill, setSkill] = useState([]);
+    
+    // const skillArray = ['Computer Science', 'ICT', 'Maths', 'English', 'Computer Science', 'ICT', 'Maths', 'English'];
+    // const [skill, setSkill] = useState([]);
     useEffect(() => {
         dispatch(getTeacherSkills());
         dispatch(getTeacherExperience());
+        dispatch(getTeacherEducation());
     }, []);
-    console.log("experience here"+JSON.stringify(teacherExperience));
+    console.log("education here"+JSON.stringify(teacherEducation));
+    // const strDate=teacherExperience?new Date(teacherExperience[0].Experience.startDate).toString().split(" "):null;
+    // console.log(strDate);
     // useEffect(()=>{
     //     if(teacherSkill){
     //         setSkill(teacherSkill);
@@ -82,18 +87,15 @@ const TempComp: React.FunctionComponent = () => {
                                                 <div className="top_sm_border mr-1"></div>
                                             </div>
                                             <Typography className="subtext1">Experience</Typography>
-                                            <div className="profile_container_1_2_subcontainer1_row1">
-                                                <Typography className="subtext2">2014-Present</Typography>
+                                            {teacherExperience&&teacherExperience.map((val,index)=>(
+                                                <div className="profile_container_1_2_subcontainer1_row1">
+                                                <Typography className="subtext2">{`${new Date(val.Experience.startDate).toString().split(" ")[3]}-${val.Experience.stillWorking?"Present":new Date(val.Experience.startDate).toString().split(" ")[3]}`}</Typography>
                                                 <Typography className="subtext3">
-                                                    Dubai British School Chemistry Head of Department
+                                                    {val.Experience.workPlace}<br></br>
+                                                    {val.Experience.department}
                                                 </Typography>
                                             </div>
-                                            <div className="profile_container_1_2_subcontainer1_row1">
-                                                <Typography className="subtext2">2012-2014</Typography>
-                                                <Typography className="subtext3">
-                                                    Gems Intl. School Science Teacher
-                                                </Typography>
-                                            </div>
+                                            ))}
                                         </div>
                                     </div>
                                     <div className="col-6 p-0">
@@ -102,18 +104,18 @@ const TempComp: React.FunctionComponent = () => {
                                                 <div className="top_sm_border mr-1"></div>
                                             </div>
                                             <Typography className="subtext1">Education</Typography>
-                                            <div className="profile_container_1_2_subcontainer2_row2">
+                                            {teacherEducation&&teacherEducation.map((val,index)=>(
+                                                <div className="profile_container_1_2_subcontainer2_row2">
                                                 <Typography className="subtext3">
-                                                    University of Essex Project Management MSc
+                                                    {val.QualificationDetail.school}
+                                                    <br></br>
+                                                    {val.QualificationDetail.qualification}
                                                 </Typography>
                                                 <br></br>
                                             </div>
-                                            <div className="profile_container_1_2_subcontainer2_row2">
-                                                <Typography className="subtext3">
-                                                    Westmister University Biomedical Science BSc Honours
-                                                </Typography>
-                                                <br></br>
-                                            </div>
+                                            ))}
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,10 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS,GET_TEACHER_EXPERIENCE} from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS, GET_TEACHER_EXPERIENCE ,GET_TEACHER_EDUCATION,GET_TEACHER_HOMEWORK,GET_TEACHER_HOMEWORK_COUNT, GET_TEACHER_RECOMMENDATION} from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
+import { dispatch } from '../Store/Store';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -17,14 +18,12 @@ export const getallTeacherAPIcall = () => {
             });
     };
 };
-
 export const teacherList = (data: any) => {
     return {
         type: TEACHER_LIST,
         payload: data,
     };
 };
-
 export const addNewTeacherAPIcall = (data: any, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
@@ -132,18 +131,80 @@ export const getTeachersUpcomingClasses = () => {
         }
     };
 };
-export const getTeacherExperience=()=>{
-    return (dispatch:any)=>{
-        API.get(endponts.techerExp).then((res)=>{
-            dispatch(getTeacherExpData(res.data.data));
+export const getTeacherExperience = () => {
+    return (dispatch: any) => {
+        API.get(endponts.techerExp)
+            .then((res) => {
+                dispatch(getTeacherExpData(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+export const getTeacherExpData = (data: any) => {
+    return {
+        type: GET_TEACHER_EXPERIENCE,
+        payload: data,
+    };
+};
+export const getTeacherEducation = () => {
+    return (dispatch: any) => {
+        API.get(endponts.teacherEdu).then((res)=>{
+            dispatch(getTeacherEduData(res.data.data));
         }).catch((err)=>{
             handleError(dispatch, err);
         })
+    };
+};
+export const getTeacherEduData=(data:any)=>{
+    return{
+        type:GET_TEACHER_EDUCATION,
+        payload:data
     }
 }
-export const getTeacherExpData=(data:any)=>{
-    return {
-        type:GET_TEACHER_EXPERIENCE,
+export const getTeacherHomework=()=>{
+    return(dispatch:any)=>{
+        API.get(endponts.teacherHomework).then((res)=>{
+            dispatch(getTeacherHomeworkData(res.data.data))
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}
+export const getTeacherHomeworkData=(data:any)=>{
+    return{
+        type:GET_TEACHER_HOMEWORK,
+        payload:data
+    }
+}
+export const getTeacherHomeworkCount=()=>{
+    return(dispatch:any)=>{
+        API.get(endponts.teacherHomeworkCount).then((res)=>{
+            dispatch(getTeacherHomeworkCountData(res.data.data));
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }   
+}
+export const getTeacherHomeworkCountData=(data:any)=>{
+    return{
+        type:GET_TEACHER_HOMEWORK_COUNT,
+        payload:data
+    }
+}
+export const getTeacherRecommendation=()=>{
+    return(dispatch:any)=>{
+        API.get(endponts.teacherRecommendation).then((res)=>{
+            dispatch(getTeacherRecommendationData(res.data.data));
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}
+export const getTeacherRecommendationData=(data:any)=>{
+    return{
+        type:GET_TEACHER_RECOMMENDATION,
         payload:data
     }
 }

@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {useDispatch,useSelector} from 'react-redux';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import {getTeacherRecommendation} from '../../Redux/Actions/teacherAction';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
 import PageFooter from '../../components/PageFooter';
 import MadeBy from '../Footer/MadeBy';
 const TutorClass: React.FunctionComponent = () => {
+    const dispatch=useDispatch();
+    const teacherRecommend=useSelector((state:rootReducerType)=>state.teacherReducer.teacherRecommendations);
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
+    useEffect(() => {
+        dispatch(getTeacherRecommendation());
+    }, [])
+    console.log("recommend"+JSON.stringify(teacherRecommend));
     const studentsName = [
         'Toby Frost',
         'Lugain Rfidah',
@@ -74,6 +83,7 @@ const TutorClass: React.FunctionComponent = () => {
             isAccepted:false
         }
     ];
+    
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
             <div className="tutor_total_recommend">
@@ -122,18 +132,18 @@ const TutorClass: React.FunctionComponent = () => {
                                     </Typography>
                                 </div>
                                 <div className="total_recommend_list_container">
-                                    {studentsSubmitted.map((val, index) => (
+                                    {teacherRecommend&&teacherRecommend.map((val, index) => (
                                         <>
                                             <ReusableSubmittedList
                                                 subject={val.subject}
-                                                desc={val.desc}
-                                                SubmittedDate={val.SubmittedDate}
-                                                studentsNum={val.studentsNum}
-                                                studentList={val.studentList}
-                                                isAccepted={val.isAccepted}
+                                                desc={val.class}
+                                                SubmittedDate={new Date(val.submitted).toString()}
+                                                // studentsNum={val.RecommendedStudents.length}
+                                                studentList={val.RecommendedStudents}
+                                                DisplayAccepted={false}
                                             />
 
-                                            {index!=studentsSubmitted.length&&<div className="recommend_line"></div>}
+                                            
                                         </>
                                     ))}
                                 </div>
@@ -150,18 +160,18 @@ const TutorClass: React.FunctionComponent = () => {
     
                              <div className="total_recommend_container_3">
                              
-                             {studentsAccepted.map((val, index) => (
+                             {teacherRecommend&&teacherRecommend.map((val, index) => (
                                         <>
                                             <ReusableSubmittedList
                                                 subject={val.subject}
-                                                desc={val.desc}
-                                                SubmittedDate={val.SubmittedDate}
-                                                studentsNum={val.studentsNum}
-                                                studentList={val.studentList}
-                                                isAccepted={val.isAccepted}
+                                                desc={val.class}
+                                                SubmittedDate={val.submitted}
+                                             
+                                                studentList={val.RecommendedStudents}
+                                                DisplayAccepted={true}
                                             />
 
-                                            {index!=studentsSubmitted.length-1&&<div className="recommend_line"></div>}
+                                            
                                         </>
                                     ))}
                                     

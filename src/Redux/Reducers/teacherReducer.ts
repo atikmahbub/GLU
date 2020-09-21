@@ -1,13 +1,14 @@
-import { TEACHER_LIST, TEACHER_DETAILS,TEACHER_DATA,GET_TEACHER_SKILLS ,GET_TEACHER_EXPERIENCE} from '../ActionTypes/teacherTypes';
-
-
+import { TEACHER_LIST, TEACHER_DETAILS,TEACHER_DATA,GET_TEACHER_SKILLS ,GET_TEACHER_EXPERIENCE,GET_TEACHER_EDUCATION,GET_TEACHER_HOMEWORK_COUNT,GET_TEACHER_HOMEWORK,GET_TEACHER_RECOMMENDATION} from '../ActionTypes/teacherTypes';
 const initialState = {
     teacherList: null,
     teacherData:null,
     teacherSkill:null,
-    teacherExperience:null
+    teacherExperience:null,
+    teacherEducation:null,
+    teacherHomework:null,
+    teacherHomeworkCount:null,
+    teacherRecommendations:null,
 };
-
 export const teacherReducer = (state = initialState, action: any) => {
     const newState = { ...state };
     switch (action.type) {
@@ -31,6 +32,22 @@ export const teacherReducer = (state = initialState, action: any) => {
         }
         case GET_TEACHER_EXPERIENCE:{
             newState.teacherExperience=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_EDUCATION:{
+            newState.teacherEducation=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_HOMEWORK:{
+            newState.teacherHomework=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_HOMEWORK_COUNT:{
+            newState.teacherHomeworkCount=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_RECOMMENDATION:{
+            newState.teacherRecommendations=action.payload;
             return newState;
         }
         default: {
