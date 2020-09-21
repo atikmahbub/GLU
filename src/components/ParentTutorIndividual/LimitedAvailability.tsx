@@ -1,4 +1,4 @@
-import React, { FC, useState, ReactNode, memo } from 'react';
+import React, { FC } from 'react';
 import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
@@ -10,7 +10,6 @@ import Select from '@material-ui/core/Select';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import "./style.scss"
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '3.062rem',
     },
     elementsContainer: {
-        height: "90vh",
+        // height: "90vh",
         marginTop: "9.25rem",
     },
     limitedAvailabilityContainer:{
@@ -51,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     limitedAvailabilityText: {
         fontSize: "1.562rem",
         lineHeight: "1.875rem",
-        // marginLeft : "-38px"
     },
 
     right: {
@@ -60,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: "2.812rem",
     },
     form: {
-        // marginTop: "4.25rem",
         marginTop: "0rem",
 
     }

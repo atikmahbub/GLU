@@ -61,17 +61,13 @@ type CardProps = {
     content?: ReactNode;
 };
 
-function getTo(to: string | undefined) {
-    return to || '/';
-}
-
 const WhiteCard: FC<CardProps> = ({
     size,
     title,
     bigTitle,
     titleClassName,
     titleRightLink,
-    titleRightLinkTo,
+    titleRightLinkTo = '/',
     description,
     value,
     forcePadding,
@@ -89,7 +85,7 @@ const WhiteCard: FC<CardProps> = ({
                             {title}
                         </Typography>
                         {titleRightLink && (
-                            <Typography className={classes.titleLink} component={Link} to={getTo(titleRightLinkTo)}>
+                            <Typography className={classes.titleLink} component={Link} to={titleRightLinkTo}>
                                 {titleRightLink}
                             </Typography>
                         )}

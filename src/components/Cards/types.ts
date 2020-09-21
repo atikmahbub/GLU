@@ -42,3 +42,9 @@ export interface FeaturedCardElement {
 export interface UpcomingClassCardElement extends DateSubjectCardElement {
     img: string;
 }
+
+export interface CalendarDateSubjectsCardElement {
+    date?: string;
+    time?: string;
+    cards: DateSubjectCardElement[]
+}

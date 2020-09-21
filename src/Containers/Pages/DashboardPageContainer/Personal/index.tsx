@@ -4,12 +4,11 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import ClassesCarousel from './ClassesCarousel';
 import WhiteCard from '../../../../components/Cards/WhiteCard';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
-import Schedule from '../../../../components/Schedule';
+import CardsGridContainer from '../../../CardsGridContainer';
+import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
+import { calendarSubjectsCards } from '../../../../data/homepage';
 
 const useStyles = makeStyles({
-    cardsWrapper: {
-        paddingBottom: '9.375rem',
-    },
     container: {
         marginBottom: '3.125rem',
         '&:last-child': {
@@ -22,18 +21,13 @@ const useStyles = makeStyles({
     calendarCardTitle: {
         marginBottom: '10.875rem',
     },
-    profileCardRoot: {
-        width: 'calc(100% + (3.125rem * 2))',
-        marginLeft: '-3.125rem',
-        marginBottom: '9.375rem',
-    },
 });
 
 const Personal: FC = () => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
-            <Grid container direction="column" className={classes.cardsWrapper}>
+            <CardsGridContainer background="secondary" paddingTop={false}>
                 <Grid container className={classes.container}>
                     <WhiteCard
                         size={6}
@@ -59,14 +53,24 @@ const Personal: FC = () => {
                         titleClassName={classes.calendarCardTitle}
                     />
                 </Grid>
-            </Grid>
+            </CardsGridContainer>
             <ProfileCard
                 name="Frank Howard"
                 address="Dubai, UAE"
                 phone="(+971) 4 554 0350"
-                rootClassName={classes.profileCardRoot}
+                email="frankhwrd@gmail.com"
             />
-            <Schedule title="Your Day" time="11.15am" />
+            <CardsGridContainer background="secondary">
+                <CalendarDateSubjectsCard
+                    background="secondary"
+                    padding={false}
+                    paddingBottom={false}
+                    title="Your Morning"
+                    time="9.21am"
+                    cards={calendarSubjectsCards}
+                    cardsContainerPaddingBig
+                />
+            </CardsGridContainer>
         </Grid>
     );
 };
