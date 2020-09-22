@@ -7,7 +7,7 @@ import { BannerCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
-        background: ({ img }: any) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center 0 / cover`,
+        background: ({ img }: any) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center / cover`,
         padding: '0 3.125rem',
         color: '#fff',
     },

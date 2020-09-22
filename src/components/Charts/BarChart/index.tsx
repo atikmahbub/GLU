@@ -24,6 +24,10 @@ const initOptions = ({ chartWidth, chartHeight, column, data, xAxisLabels, xAxis
             },
             labels: {
                 enabled: xAxisLabels,
+                style: {
+                    color: '#000 !important'
+                },
+                // padding: 10
             },
             categories: xAxisCategories
         },

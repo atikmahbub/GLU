@@ -34,6 +34,10 @@ const useStyles = makeStyles({
         fontSize: '1.25rem',
         lineHeight: '1.5625rem',
     },
+    buttonIcon: {
+        fontSize: '0.75rem',
+        marginRight: '0.5rem'
+    },
     buttonAdd: {
         marginLeft: '1.25rem',
         cursor: 'pointer',
@@ -96,7 +100,10 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                                     </Typography>
                                 </Grid>
                                 <Grid container justify="flex-end" item xs={1}>
-                                    <ButtonPrimary className={classes.button}>AED</ButtonPrimary>
+                                    <ButtonPrimary className={classes.button}>
+                                        <i className={classNames('icon-Down', classes.buttonIcon)} />
+                                        AED
+                                    </ButtonPrimary>
                                 </Grid>
                             </Grid>
                             <Grid container className={classes.chartContainer}>
