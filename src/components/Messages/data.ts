@@ -8,7 +8,7 @@ const data = [
     {
         id: 1,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/tablegirl_yg2bzv.jpg',
-        userName: 'Matt Goss',
+        userName: 'Ryan Goss',
         onlineStatus: 'Online',
     },
     {
@@ -41,7 +41,7 @@ const data = [
     {
         id: 6,
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg',
-        userName: 'Sam Healy',
+        userName: 'Frank Healy',
         onlineStatus: 'Last seen 23/07/20',
     },
 ];
