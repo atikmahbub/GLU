@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
@@ -186,9 +186,19 @@ const EditFormEdu = ({ match, getTeacherEducationById }) => {
         { link: '', name: 'Shop' },
     ];
     const classes = useStyles();
+    const [formData, setFormData] = useState({
+        school: null,
+        qualification: null,
+        fieldOfStudy: null,
+        startDate: null,
+        endDate: null,
+    });
     useEffect(() => {
         console.log(match.params.id);
-        getTeacherEducationById(match.params.id);
+        const callFunc = async () => {
+            const data = await getTeacherEducationById(match.params.id);
+        };
+        callFunc();
     }, []);
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>

@@ -286,8 +286,8 @@ export const getTeacherEducationById = (id) => {
     return async (dispatch: any) => {
         try {
             const data = await API.get(`${endponts.teahcerEducation}/${id}`);
-            console.log(data);
-            // dispatch(getExperienceList(res.data.data));
+
+            return data.data.data;
         } catch (err) {
             handleError(dispatch, err);
         }
