@@ -7,10 +7,11 @@ interface props {
     options: string[];
     onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     value?: string | number;
+    mt?:string;
 }
-const SelectWithLabel: React.FunctionComponent<props> = ({ fieldName, value, onChange, options }) => {
+const SelectWithLabel: React.FunctionComponent<props> = ({ fieldName, value, mt, onChange, options }) => {
     return (
-        <div className="input__with__label">
+        <div className={`input__with__label ${mt}`}>
             <Typography className="fieldName">{fieldName}</Typography>
             <div className="select-w-icon">
                 <select className="inputfield" value={value} onChange={onChange}>

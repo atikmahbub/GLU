@@ -31,8 +31,9 @@ const AddNewStudent: React.FunctionComponent = () => {
     const handleNext = () => {
         // setNext(next + 1);
         if (image) {
-            dispatch(getFileUploadAPIcall(image.name));
+            // dispatch(getFileUploadAPIcall(image.name));
         }
+        hitStudentAPIcall() // temporary just for demo
     };
     const dispatch = useDispatch();
     const routes = useHistory();
@@ -81,13 +82,13 @@ const AddNewStudent: React.FunctionComponent = () => {
             const editdata = { ...data, students: data.students[0] };
             dispatch(editStudentAPIcall(editdata, state.studentId, routes));
         } else {
-            dispatch(addNewStudentAPIcall(data, fileData.fileName, routes));
+            dispatch(addNewStudentAPIcall(data, 'fileData.fileName', routes));
         }
     };
     useEffect(() => {
         if (fileData) {
-            dispatch(uploadProfileAmznUrl(fileData.url, image as any));
-            hitStudentAPIcall();
+            // dispatch(uploadProfileAmznUrl(fileData.url, image as any));
+            // hitStudentAPIcall();
         }
     }, [fileData]);
     const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {

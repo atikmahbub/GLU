@@ -11,6 +11,7 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 import FormControlSelect from '../../components/Form/FormControlSelect';
 import FormControlInput from '../../components/Form/FormControlInput';
+import { gotoRoute } from '../../Helper/gotoRoute';
 
 const useStyles = makeStyles({
     inputsContainer: {
@@ -33,10 +34,16 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
         routes.push('/dashboard/year-group/add-year-group');
     };
 
-    const redirectDetails = (id:number) => {
-        routes.push({pathname:'/dashboard/year-group/details', state:{
-            id:id
-        }});
+    const redirectDetails = (id: number) => {
+        routes.push({
+            pathname: '/dashboard/year-group/details',
+            state: {
+                id: id,
+            },
+        });
+    };
+    const handleNotification = () => {
+        routes.push(gotoRoute.message);
     };
 
     return (
@@ -50,6 +57,7 @@ const ClassList: React.FunctionComponent<props> = ({ classList }) => {
                     showNotification={true}
                     notificationText="Send notification"
                     notificationIcon={<MailOutline />}
+                    notififcationClick={handleNotification}
                     trigger={handleToggler}
                 />
             </CardContainer>
