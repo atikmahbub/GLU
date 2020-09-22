@@ -9,15 +9,19 @@ import { getAllSectionByFromAndClassIdAPIcall } from '../../Redux/Actions/classA
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import SearchProfilePreview from '../../components/Dashobard/SearchProfilePreview';
 import { checkValue } from '../../Helper/checkValue';
+import { searchStudentAPIcall } from '../../Redux/Actions/studentAction';
 
 const Index = () => {
     const [search, setSearch] = useState('');
-    const [studentList, setStudentList] = useState([]);
+    const [studentList, setStudentList] = useState<any>([]);
     const [teacherList, setTeacherList] = useState([]);
     const [section, setSection] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
     const findState = useLocation();
     const dispatch = useDispatch();
     const classes = useSelector((state: rootReducerType) => state.classReducer.sectionList);
+    const searchStudents = useSelector((state: rootReducerType) => state.studentReducer.searchStudent);
+
     useEffect(() => {
         if (findState?.state) {
             dispatch(
@@ -38,7 +42,7 @@ const Index = () => {
             const students = classes?.SectionStudents.map((item: any) => {
                 return {
                     name: checkValue(item?.Student?.firstName) + ' ' + checkValue(item?.Student?.lastName),
-                    photo: commonImg.photo,
+                    profile: commonImg.photo,
                 };
             });
             setSection(checkValue(classes?.Section?.sectionName));
@@ -47,6 +51,30 @@ const Index = () => {
     }, [classes]);
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
+    };
+    useEffect(() => {
+        if (search !== '') {
+            const data = { name: search };
+            dispatch(searchStudentAPIcall(data));
+        }
+    }, [search]);
+    useEffect(() => {
+        if (searchStudents) {
+            const data = searchStudents.map((item: any) => {
+                return {
+                    name: item.firstName + ' ' + item.lastName,
+                    profile: item.User.profile ? item.User.profile : commonImg.photo,
+                    id: item.id,
+                };
+            });
+            setSearchResult(data);
+        }
+    }, [searchStudents]);
+    const handleSearchAdd = (value: any) => {
+        console.log(value)
+        const data = [...studentList];
+        data.push(value);
+        setStudentList(data);
     };
     return (
         <TwoColGrid titleOne="New Form Group">
@@ -59,8 +87,13 @@ const Index = () => {
                 }
             })}
             <InputWithLabel placeholder="Add another member" mt="mt-2" />
-
-            <SearchProfilePreview palceholder="Add new student" value={search} onChange={handleSearch} />
+            <SearchProfilePreview
+                palceholder="Add new student"
+                data={searchResult}
+                value={search}
+                searchAdd={handleSearchAdd}
+                onChange={handleSearch}
+            />
             <ProfileTileContainer data={studentList} />
         </TwoColGrid>
     );

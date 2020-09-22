@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles, Typography, TextField } from '@material-ui/core';
-import SmallTextButton from './SmallTextButton';
 import Reusable from './ReusableEduExp';
 // import { getTeacherEducationApiCall } from '../../Redux/Actions/teacherAction';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     detailsText: {
@@ -24,6 +24,10 @@ const useStyles = makeStyles({
         display: 'inline-block',
         marginBottom: '6.0625rem',
         fontFamily: 'CircularXXWeb-Book',
+
+        '&:hover': {
+            cursor: 'pointer',
+        },
     },
 });
 
@@ -43,11 +47,15 @@ const Education = ({ education }) => {
                         }
                         institute={item.QualificationDetail.school}
                         position={item.QualificationDetail.qualification}
-                        deleteEducationId={item.QualificationDetail.id}
+                        educationId={item.QualificationDetail.id}
                     />
                 ))}
 
-            <div className={classes.upload}>Add more</div>
+            <Link to="/tutor/tutor-edit/add-education">
+                <div style={{ textDecoration: 'none', color: 'black' }} className={classes.upload}>
+                    Add more
+                </div>
+            </Link>
         </div>
     );
 };

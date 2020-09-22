@@ -13,6 +13,7 @@ import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import commonImg from '../../Assets/images';
 import ParentListFilter from './ParentListFilter';
+import { gotoRoute } from '../../Helper/gotoRoute';
 
 interface props {
     parentList: Array<parentListTypes>;
@@ -49,6 +50,9 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
     const handleDelete = (deleteId: number) => {
         dispatch(deleteParentAPIcall(deleteId));
     };
+    const handleNotification = () => {
+        routes.push(gotoRoute.message);
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -58,6 +62,7 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
                     btnIcon={<Add />}
                     notificationIcon={<MailOutline />}
                     notificationText="Send notification"
+                    notififcationClick={handleNotification}
                     showNotification={true}
                     btnTitle="Add New Parent"
                     trigger={handleRoutes}
@@ -65,7 +70,7 @@ const ParentList: React.FunctionComponent<props> = ({ parentList }) => {
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
-                    <ParentListFilter/>
+                    <ParentListFilter />
                     <div className="table__container">
                         <CardTable
                             showToolbar={false}

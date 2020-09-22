@@ -18,9 +18,6 @@ const useStyles = makeStyles({
         fontSize: '5rem',
         lineHeight: '5rem',
     },
-    percentCardRoot: {
-        marginBottom: '1.125rem',
-    },
 });
 
 const ChartInfo: FC = () => {
@@ -41,7 +38,7 @@ const ChartInfo: FC = () => {
             </Grid>
             <Grid container>
                 <Grid container direction="column" justify="center" item xs={6}>
-                    <PercentCard value="54%" dif="+3%" title="Your average" rootClassName={classes.percentCardRoot} />
+                    <PercentCard value="54%" dif="+3%" title="Your average" marginBottom />
                     <PercentCard value="45%" dif="-9%" title="Student average" color={colors.lightPrimary} />
                 </Grid>
                 <Grid item xs={6}>

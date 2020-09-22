@@ -12,7 +12,7 @@ const index: React.FunctionComponent = () => {
     const [availableSession, setavailableSession] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getAllSessionsAPIcall());
+        // dispatch(getAllSessionsAPIcall());
     }, []);
     useEffect(() => {
         if (sessions) {

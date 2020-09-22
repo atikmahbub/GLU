@@ -6,7 +6,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import { routeEndpoints } from '../../Utility/routeEndpoints';
-import UserTable from '../../components/Dashobard/Table/UserTable';
+import ActionToolbar from '../../components/Dashobard/ActionToolbar';
+import CardTable from '../../components/Table/CardTable';
+import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 
 interface colDataType {
     id: number;
@@ -32,14 +34,13 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             },
         });
     };
-    const redirectDetails = () => {
+    const redirectDetails = (id:number) => {
         routes.push('/dashboard/teacher-details/class-group-details');
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
             pathname: routeEndpoints.teacher.addNewTeacher,
             state: {
-                breadcrumb: routeEndpoints.teacher.editTeacher,
                 teacherInfo: data,
             },
         });
@@ -52,12 +53,56 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             <CardContainer>
                 <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} />
             </CardContainer>
-            <UserTable
-                showFilter={true}
-                redirectDetails={() => redirectDetails()}
-                handleEdit={(value: any) => handleEdit(value)}
-                handleDelete={(value: any) => handleDelete(value)}
-            />
+            <CardContainer>
+                <div className="student-table">
+                    <div className="table__container">
+                        <CardTable
+                            showToolbar={false}
+                            showPagination={true}
+                            selectable={true}
+                            tableHeight="100vh"
+                            columns={[
+                                {
+                                    width: '23%',
+                                    title: 'Name',
+                                    field: 'name',
+                                    render: (rowData: any) => (
+                                        <TableUserProfile name={rowData.name} profile={rowData.profile} />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Staff ID',
+                                    field: 'staffId',
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Department',
+                                    field: 'department',
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Designation',
+                                    field: 'designation',
+                                },
+
+                                {
+                                    width: '23%',
+                                    render: (rowData: any) => (
+                                        <ActionToolbar
+                                            showDetail={true}
+                                            detailClick={() => redirectDetails(rowData.id)}
+                                            deleteClick={() => handleDelete(rowData.id)}
+                                            editClick={() => handleEdit(rowData)}
+                                        />
+                                    ),
+                                },
+                            ]}
+                            rowData={teacherList}
+                        />
+                    </div>
+                </div>
+            </CardContainer>
         </div>
     );
 };

@@ -56,7 +56,7 @@ const Landscape: React.FunctionComponent<props> = ({ imgSrc, date, time1, time2,
         <>
 
             <div className="card_subtitle">
-                <Link to="/parent/upcoming-classes" style={{ color: 'blue' }}>
+                <Link to="/parent/upcoming-classes" style={{ color: '#2267FF' }}>
                     See upcomming
                 </Link>
             </div>
