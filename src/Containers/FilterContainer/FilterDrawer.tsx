@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo, useMemo, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
@@ -24,33 +24,39 @@ const useStyles = makeStyles({
 interface IFilterDrawer {
     open: boolean;
     onClose: () => void;
-    filters: IFilterElement[];
+    filters?: IFilterElement[];
     data: IFilterDataElement[];
     onChange: (item: IFilterDataElement) => void;
+    initialFilterLabel?: string;
 }
 
-const initialFilter: IFilterElement[] = [
-    {
-        value: null,
-        label: 'All',
-    },
-];
+function createInitialFilter(label = 'All'): IFilterElement[] {
+    return [
+        {
+            value: null,
+            label,
+        },
+    ];
+}
 
-const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data, onChange }) => {
+const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data, onChange, initialFilterLabel }) => {
     const classes = useStyles();
     const [activeFilter, setActiveFilter] = useState<FilterValue>(null);
+
+    const formattedFilters = useMemo(() => {
+        return [...createInitialFilter(initialFilterLabel), ...(filters || [])]
+    }, [initialFilterLabel, filters])
 
     const handleActiveFilterChange = (_: any, value: FilterValue) => {
         setActiveFilter(value);
     };
 
     const handleChange = (item: IFilterDataElement) => {
-        onChange(item)
-        onClose()
-    }
+        onChange(item);
+        onClose();
+    };
 
-    const filteredData =
-        activeFilter ? data.filter(({ type }: IFilterDataElement) => type === activeFilter) : data;
+    const filteredData = activeFilter ? data.filter(({ type }: IFilterDataElement) => type === activeFilter) : data;
 
     return (
         <Drawer
@@ -61,7 +67,7 @@ const FilterDrawer: FC<IFilterDrawer> = ({ open, onClose, filters, data, onChang
             headerComponent={
                 <Grid container>
                     <Tabs value={activeFilter} onChange={handleActiveFilterChange}>
-                        {[...initialFilter, ...filters].map(({ label, value }: IFilterElement, index) => (
+                        {formattedFilters.map(({ label, value }: IFilterElement, index) => (
                             <Tab key={index} value={value} label={label} className={classes.tabRoot} />
                         ))}
                     </Tabs>

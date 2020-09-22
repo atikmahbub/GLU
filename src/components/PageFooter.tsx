@@ -10,9 +10,12 @@ const useStyles = makeStyles({
         paddingTop: '2.25rem',
         paddingBottom: '2.25rem',
         paddingLeft: ({ padding }: any) => padding ? '3.125rem' : 0,
-        paddingRight: ({ padding }: any) => padding ? '3.125rem' : 0
+        paddingRight: ({ padding }: any) => padding ? '3.125rem' : 0,
+        fontFamily: 'CircularXXMonoWeb-Regular'
     },
     text: {
+        fontFamily: 'inherit',
+        color: '#000',
         cursor: 'pointer',
         fontSize: '1rem',
         marginRight: '3.125rem',
@@ -44,8 +47,8 @@ const PageFooter: FC<PageFooterProps> = ({ background, padding, rootClassName })
                 </Typography>
             </Grid>
             <Grid container justify="flex-end" item xs={6}>
-                <Typography className={classes.text}>Help</Typography>
-                <Typography className={classes.text}>Glu 2020</Typography>
+                <Typography className={classes.text}>T&C’s / Privacy & Cookies</Typography>
+                <Typography className={classes.text}>Glu © 2020</Typography>
             </Grid>
         </Grid>
     );
