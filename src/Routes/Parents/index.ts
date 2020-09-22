@@ -17,6 +17,8 @@ const ParentIndividualHomeWork = lazy(() => import('../../components/ParentIndiv
 // const Reports = lazy(() => import('../../Views/ParentDashBoard/Reports'));
 const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
 const ParentSchoolInfo = lazy(() => import('../../Views/ParentSchoolInfo/SchoolInfo'));
+const ParentMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/ParentMessages'));
+const NewMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/NewMessages'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -37,7 +39,8 @@ export const routes = [
     createRouteObj('/parent/individual-homework', ParentIndividualHomeWork),
     createRouteObj('/parent/reports', Reports),
     createRouteObj('/parent/school-info', ParentSchoolInfo),
-
+    createRouteObj('/parent/messages', ParentMessages),
+    createRouteObj('/parent/parent/messages/new-messages', NewMessages),
 
 
   
