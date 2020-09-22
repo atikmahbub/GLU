@@ -187,13 +187,13 @@ export const getEducationList = (data: any) => {
     };
 };
 
-export const deleteTeacherEducationApiCall = (id) => {
+export const deleteTeacherEducationApiCall = (id: number) => {
     return async (dispatch: any) => {
         try {
             console.log('Delete Button pressed');
             await API.delete(`${endponts.teahcerEducation}/${id}`);
 
-            dispatch(getEducationList(res.data.data));
+            // dispatch(getEducationList(res.data.data));
         } catch (err) {
             handleError(dispatch, err);
         }
@@ -207,9 +207,9 @@ export const deleteTeacherExperienceApiCall = (deleteId: number) => {
             console.log(`${endponts.techerExp}/${deleteId}`);
             console.log(deleteId);
 
-            const res = await API.delete(`${endponts.techerExp}/${deleteId}`);
+            await API.delete(`${endponts.techerExp}/${deleteId}`);
 
-            dispatch(getExperienceList(res.data.data));
+            // dispatch(getExperienceList(res.data.data));
         } catch (err) {
             handleError(dispatch, err);
         }

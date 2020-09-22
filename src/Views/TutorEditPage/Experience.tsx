@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import Reusable from './ReusableEduExp';
 import { getTeacherExperienceApiCall } from '../../Redux/Actions/teacherAction';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     detailsText: {
@@ -23,6 +24,10 @@ const useStyles = makeStyles({
         display: 'inline-block',
         marginBottom: '6.0625rem',
         fontFamily: 'CircularXXWeb-Book',
+
+        '&:hover': {
+            cursor: 'pointer',
+        },
     },
 });
 
@@ -40,16 +45,19 @@ const Experience = ({ experience }) => {
                         endDate={item.Experience.endDate ? item.Experience.endDate.substring(0, 4) : null}
                         institute={item.Experience.workPlace}
                         position={item.Experience.position}
-                        deleteExperienceId={item.Experience.id}
+                        experienceId={item.Experience.id}
                     />
                 ))}
-
-            <div className={classes.upload}>Add more</div>
+            <Link to="/tutor/tutor-edit/add-experience">
+                <div style={{ textDecoration: 'none', color: 'black' }} className={classes.upload}>
+                    Add more
+                </div>
+            </Link>
         </div>
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
     return {
         experience: state.teacherReducer.teacherExperience,
     };
