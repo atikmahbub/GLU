@@ -4,6 +4,7 @@ import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
 import { connect } from 'react-redux';
 import SmallTextButton from '../TutorEditPage/SmallTextButton';
+import { getTeacherEducationById } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
     footer: {
@@ -177,7 +178,7 @@ const useStyles = makeStyles({
     },
 });
 
-const EditFormEdu = (props: any) => {
+const EditFormEdu = ({ match, getTeacherEducationById }) => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -185,7 +186,10 @@ const EditFormEdu = (props: any) => {
         { link: '', name: 'Shop' },
     ];
     const classes = useStyles();
-    useEffect(() => {}, []);
+    useEffect(() => {
+        console.log(match.params.id);
+        getTeacherEducationById(match.params.id);
+    }, []);
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
@@ -244,4 +248,4 @@ const EditFormEdu = (props: any) => {
     );
 };
 
-export default connect()(EditFormEdu);
+export default connect(null, { getTeacherEducationById })(EditFormEdu);

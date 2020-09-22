@@ -5,6 +5,9 @@ import {
     GET_TEACHER_SKILLS,
     GET_TEACHER_EDUCATION,
     GET_TEACHER_EXPERIENCE,
+    DELETE_EDUCATION,
+    DELETE_EXPERIENCE,
+    ADD_TEACHER_SKILL,
 } from '../ActionTypes/teacherTypes';
 
 const initialState = {
@@ -48,6 +51,29 @@ export const teacherReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 teacherEducation: action.payload,
+            };
+        }
+
+        case DELETE_EDUCATION: {
+            const id = action.payload;
+            return {
+                ...state,
+                teacherEducation: state.teacherEducation.filter((item) => item.qualificationId !== id),
+            };
+        }
+
+        case DELETE_EXPERIENCE: {
+            const id = action.payload;
+            return {
+                ...state,
+                teacherExperience: state.teacherExperience.filter((item) => item.experienceId !== id),
+            };
+        }
+
+        case ADD_TEACHER_SKILL: {
+            return {
+                ...state,
+                teacherSkill: [...state.teacherSkill, action.payload],
             };
         }
 
