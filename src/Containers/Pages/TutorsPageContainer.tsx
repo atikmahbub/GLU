@@ -31,7 +31,7 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
             >
                 <CardsGrid>
                     {cards3.map((card, index) => (
-                        <ImageCard key={index} {...card} />
+                        <ImageCard key={index} titleLinkTo={`/${userType}/tutors/tutor`} {...card} />
                     ))}
                 </CardsGrid>
             </FilterContainer>
@@ -56,7 +56,7 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
             <CardsGridContainer>
                 <CardsGrid>
                     {cards3.map((card, index) => (
-                        <ImageCard key={index} {...card} />
+                        <ImageCard key={index} titleLinkTo={`/${userType}/tutors/tutor`} {...card} />
                     ))}
                 </CardsGrid>
             </CardsGridContainer>
