@@ -14,6 +14,7 @@ const useStlyes = makeStyles({
     maxSize: {
         fontSize: '1rem',
         color: colors.black,
+        marginLeft: '1rem'
     },
 });
 
@@ -55,7 +56,7 @@ const UploadMaxSize: React.FC<props> = ({ onClick }) => {
                 type="file"
                 ref={input}
             />
-            <label htmlFor="contained-button-file">
+            <label htmlFor="contained-button-file" style={{ marginBottom: 0 }}>
                 <OutlineButton text="Upload" btnClick={triggerInput} />
             </label>
             <Typography className={classes.maxSize}>{showTitle}</Typography>

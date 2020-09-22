@@ -25,6 +25,7 @@ export interface schoolReducerType {
 export interface studentReducerType {
     studentData: any;
     studentDetails: any;
+    searchStudent: any;
 }
 export interface teacherReducerType {
     teacherList: any;
