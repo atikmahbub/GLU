@@ -42,7 +42,7 @@ const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType }) => {
                 </Tabs>
             </CardsGridContainer>
             {activeTab === 'school' && <School />}
-            {activeTab === 'personal' && <Personal />}
+            {activeTab === 'personal' && <Personal userType={userType} />}
             <PageFooter background="secondary" />
         </NavigationMenu>
     );
