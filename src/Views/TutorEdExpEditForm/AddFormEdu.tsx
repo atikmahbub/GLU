@@ -191,10 +191,7 @@ const AddFormEdu = (props: any) => {
         startDate: null,
         endDate: null,
     });
-    const handleChange = (e: any) => {
-        console.log(e.target.id, e.target.value);
-        setEducation((prevState) => {...prevState, e.target.id: e.target.value});
-    };
+
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
