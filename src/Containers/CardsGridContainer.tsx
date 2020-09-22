@@ -5,7 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
-        padding: '9.375rem 3.125rem',
+        padding: ({ padding }: any) => padding ? '9.375rem 3.125rem' : 0,
         background: ({ background }: any) => (background === 'primary' ? '#fff' : '#F7F7F7'),
         paddingTop: ({ paddingTop, paddingTopVariant }: any) =>
             paddingTop ? (paddingTopVariant === 1 ? '9.375rem' : '6.25rem') : 0,
@@ -15,6 +15,7 @@ const useStyles = makeStyles({
 interface ICardsGridContainer {
     background?: 'primary' | 'secondary';
     rootClassName?: string;
+    padding?: boolean;
     paddingTop?: boolean;
     paddingTopVariant?: 1 | 2;
 }
@@ -22,11 +23,12 @@ interface ICardsGridContainer {
 const CardsGridContainer: FC<ICardsGridContainer> = ({
     background,
     rootClassName,
+    padding,
     paddingTop,
     paddingTopVariant,
     children,
 }) => {
-    const classes = useStyles({ background, paddingTop, paddingTopVariant });
+    const classes = useStyles({ background, padding, paddingTop, paddingTopVariant });
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
             {children}
@@ -36,6 +38,7 @@ const CardsGridContainer: FC<ICardsGridContainer> = ({
 
 CardsGridContainer.defaultProps = {
     background: 'primary',
+    padding: true,
     paddingTop: true,
     paddingTopVariant: 1,
 };

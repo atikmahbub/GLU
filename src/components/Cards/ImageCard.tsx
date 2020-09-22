@@ -7,6 +7,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import AspectRatioImgCard from './AspectRationImgCard';
 import IconCircle from '../Icons/IconCircle';
 import { ImageCardElement } from './types';
+import RatingCard from './RatingCard';
 
 const useStyles = makeStyles({
     imgContainer: {
@@ -36,9 +37,6 @@ const useStyles = makeStyles({
         marginBottom: '1.5625rem',
         display: 'flex',
         alignItems: 'center',
-    },
-    iconStar: {
-        fontSize: '0.85rem',
     },
 });
 
@@ -85,14 +83,7 @@ const ImageCard: FC<IImageCard> = ({
                 {title}
             </Typography>
             <Typography className={classes.subTitle}>
-                {rating && (
-                    <span>
-                        <i className={classNames('icon-Star_3', classes.iconStar)} />
-                        &nbsp;
-                        {rating}
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
-                )}
+                {rating && <RatingCard rating={rating} />}
                 {subTitle}
             </Typography>
         </Grid>
