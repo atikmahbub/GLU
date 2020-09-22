@@ -19,6 +19,7 @@ const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
 const ParentSchoolInfo = lazy(() => import('../../Views/ParentSchoolInfo/SchoolInfo'));
 const ParentMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/ParentMessages'));
 const NewMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/NewMessages'));
+const Wallet  = lazy(() => import('../../Views/ParentDashBoard/Wallet'));
 
 import { createRouteObj } from '../../Helper/routes';
 
@@ -41,6 +42,8 @@ export const routes = [
     createRouteObj('/parent/school-info', ParentSchoolInfo),
     createRouteObj('/parent/messages', ParentMessages),
     createRouteObj('/parent/parent/messages/new-messages', NewMessages),
+    createRouteObj('/parent/wallet', Wallet),
+
 
 
   
