@@ -190,7 +190,7 @@ const TutorRecommend: React.FunctionComponent = () => {
                                     <div className="recommendCancel_container">
                                         <>
                                             <div className="reusable_addCancel_subcontainer">
-                                                <div className="add_button" onClick={() => finalSubmit()}>
+                                                <div className="add_button" style={{cursor:'pointer'}} onClick={() => finalSubmit()}>
                                                     <Typography className="addCanceltext">Add</Typography>
                                                 </div>
                                                 <div className="cancel_button">
