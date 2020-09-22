@@ -48,3 +48,12 @@ export interface CalendarDateSubjectsCardElement {
     time?: string;
     cards: DateSubjectCardElement[]
 }
+
+export interface TutorProfileCardElement {
+    name: string;
+    city: string;
+    country: string;
+    rating: string;
+    description: string;
+    img: string;
+}

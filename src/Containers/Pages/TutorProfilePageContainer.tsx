@@ -19,7 +19,14 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <TutorProfileCard />
+            <TutorProfileCard
+                name="Jen Holden"
+                city="London"
+                country="UK"
+                rating="5/5"
+                description="Primary, Secondary"
+                img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608142/gluschool/smilegirl_ellmdm.jpg"
+            />
         </NavigationMenu>
     );
 };

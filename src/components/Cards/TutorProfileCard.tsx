@@ -8,6 +8,7 @@ import AspectRatioImgCard from './AspectRationImgCard';
 import TitlePrimary from '../Typographies/TitlePrimary';
 import { Typography } from '@material-ui/core';
 import RatingCard from './RatingCard';
+import { TutorProfileCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
         lineHeight: '7.5rem',
     },
     favouriteContainer: {
-        marginBottom: '8.4375rem'
+        marginBottom: '8.4375rem',
     },
     favourite: {
         fontSize: '1.25rem',
@@ -34,17 +35,19 @@ const useStyles = makeStyles({
     },
     favouriteIcon: {
         marginRight: '0.625rem',
-        fontSize: '1rem'
+        fontSize: '1rem',
     },
     rating: {
-        fontSize: '1.5625rem'
+        fontSize: '1.5625rem',
     },
     description: {
-        fontSize: '1.5625rem'
+        fontSize: '1.5625rem',
     },
 });
 
-const TutorProfileCard: FC = () => {
+interface ITutorProfileCard extends TutorProfileCardElement {}
+
+const TutorProfileCard: FC<ITutorProfileCard> = ({ name, city, country, rating, description, img }) => {
     const classes = useStyles();
     return (
         <Grid container component={Div100vh} className={classes.root}>
@@ -59,10 +62,10 @@ const TutorProfileCard: FC = () => {
                         <Grid container direction="column">
                             <Grid container direction="column" className={classes.titleBigContainer}>
                                 <Typography className={classes.titleBig} variant="h2">
-                                    Jen Holden
+                                    {name}
                                 </Typography>
                                 <Typography className={classes.titleBig} variant="h2">
-                                    London, UK
+                                    {city}, {country}
                                 </Typography>
                             </Grid>
                             <Grid container className={classes.favouriteContainer}>
@@ -72,18 +75,15 @@ const TutorProfileCard: FC = () => {
                                 </Typography>
                             </Grid>
                             <Grid container>
-                                <RatingCard rating="5/5" rootClassName={classes.rating} />
-                                <Typography className={classes.description}>Primary, Secondary</Typography>
+                                <RatingCard rating={rating} rootClassName={classes.rating} />
+                                <Typography className={classes.description}>{description}</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid container>
                     <Grid container item xs={7}>
-                        <AspectRatioImgCard
-                            ratio="101%"
-                            img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608142/gluschool/smilegirl_ellmdm.jpg"
-                        />
+                        <AspectRatioImgCard ratio="101%" img={img} />
                     </Grid>
                 </Grid>
             </CardsGrid>
