@@ -6,7 +6,7 @@ import { createMenuList } from '../../Helper/menus';
 import FilterContainer from '../FilterContainer';
 import CardsGrid from '../CardsGrid';
 import ImageCard from '../../components/Cards/ImageCard';
-import { cards2, filters, filtersData } from '../../data/filters';
+import { cards2, classesFiltersData } from '../../data/filters';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
@@ -17,14 +17,17 @@ interface ILiveClassesPageContainer {
 }
 
 const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType])
+    const menuList = useMemo(() => createMenuList(userType), [userType]);
 
     return (
-        <NavigationMenu
-            menuList={menuList}
-            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
-        >
-            <FilterContainer padding sort={false} title="Live Classes" filters={filters} filtersData={filtersData}>
+        <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>
+            <FilterContainer
+                padding
+                sort={false}
+                title="Live Classes"
+                initialFilterLabel="Filter"
+                filtersData={classesFiltersData}
+            >
                 <CardsGrid>
                     {cards2.map((card, index) => (
                         <ImageCard key={index} {...card} />
@@ -70,7 +73,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
             <ShowMoreCard paddingTop={false} current={50} total={5488} />
             <PageFooter />
         </NavigationMenu>
-    )
-}
+    );
+};
 
-export default LiveClassesPageContainer
+export default LiveClassesPageContainer;

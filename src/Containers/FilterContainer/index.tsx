@@ -11,7 +11,7 @@ import { IFilterDataElement, IFilterElement } from './types';
 
 const useStyles = makeStyles({
     root: {
-        padding: ({ padding }: any) => padding ? '4.5625rem 3.125rem' : 0
+        padding: ({ padding }: any) => (padding ? '4.5625rem 3.125rem' : 0),
     },
     filterBtn: {
         fontSize: '2.625rem',
@@ -37,8 +37,9 @@ type CardsGridContainerProps = {
     title: string;
     rootClassName?: string;
     padding?: boolean;
-    filters: IFilterElement[];
+    filters?: IFilterElement[];
     filtersData: IFilterDataElement[];
+    initialFilterLabel?: string;
     sort?: boolean;
 };
 
@@ -49,6 +50,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
     filters,
     filtersData,
     sort,
+    initialFilterLabel,
     children,
 }) => {
     const classes = useStyles({ padding });
@@ -67,6 +69,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
                 filters={filters}
                 data={filtersData}
                 onChange={handleChange}
+                initialFilterLabel={initialFilterLabel}
             />
             <Grid container className={classes.header}>
                 <Grid container item xs={6}>
@@ -100,7 +103,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
 FilterContainer.defaultProps = {
     filters: [],
     filtersData: [],
-    sort: true
+    sort: true,
 };
 
 export default FilterContainer;

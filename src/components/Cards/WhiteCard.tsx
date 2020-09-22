@@ -12,10 +12,10 @@ const useStyles = makeStyles({
         minHeight: 250,
         height: 'fit-content',
         '&:first-child': {
-            paddingLeft: ({ forcePadding }: any) => forcePadding ? '1.5625rem' : 0,
+            paddingLeft: ({ forcePadding }: any) => (forcePadding ? '1.5625rem' : 0),
         },
         '&:last-child': {
-            paddingRight: ({ forcePadding }: any) => forcePadding ? '1.5625rem' : 0,
+            paddingRight: ({ forcePadding }: any) => (forcePadding ? '1.5625rem' : 0),
         },
     },
     paper: {
@@ -31,6 +31,10 @@ const useStyles = makeStyles({
         lineHeight: '2.8125rem',
         whiteSpace: 'pre-wrap',
         marginBottom: 10,
+        color: '#000',
+        '&:hover': {
+            color: '#000'
+        }
     },
     titleBig: {
         fontSize: '5rem',
@@ -48,9 +52,10 @@ const useStyles = makeStyles({
     },
 });
 
-type CardProps = {
+interface IWhiteCard {
     size: any;
     title: string;
+    titleLink?: string;
     bigTitle?: boolean;
     titleClassName?: string;
     titleRightLink?: string;
@@ -59,12 +64,13 @@ type CardProps = {
     value?: string;
     forcePadding?: boolean;
     content?: ReactNode;
-};
+}
 
-const WhiteCard: FC<CardProps> = ({
+const WhiteCard: FC<IWhiteCard> = ({
     size,
     title,
     bigTitle,
+    titleLink,
     titleClassName,
     titleRightLink,
     titleRightLinkTo = '/',
@@ -81,6 +87,8 @@ const WhiteCard: FC<CardProps> = ({
                     <Grid container justify="space-between">
                         <Typography
                             className={classNames(classes.title, titleClassName, { [classes.titleBig]: bigTitle })}
+                            component={titleLink ? Link : 'p'}
+                            to={titleLink}
                         >
                             {title}
                         </Typography>

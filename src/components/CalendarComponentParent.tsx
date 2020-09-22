@@ -17,7 +17,7 @@ const CalendarComponent: React.FunctionComponent<props> = ({mainHeading,heading1
                            <div className="cardtitle__subtitle__container">
                             <Typography className="card_title">Thursday 30th July 2020</Typography>
                             <div className="card_subtitle">
-                                <Link to="/parent/parent-calender"  style={{ color: 'blue' , textDecoration:'none'}}>
+                                <Link to="/parent/parent-calender"  style={{ color: '#2267FF' , textDecoration:'none'}}>
                                     See calendar
                                 </Link>
                             </div>
