@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import SmallTextButton from './SmallTextButton';
 import { deleteTeacherEducationApiCall, deleteTeacherExperienceApiCall } from '../../Redux/Actions/teacherAction';
 import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     details: {
@@ -40,8 +41,8 @@ interface props {
     endDate: any;
     institute: string;
     position: string;
-    deleteEducationId?: number;
-    deleteExperienceId?: number;
+    educationId?: number;
+    experienceId?: number;
     deleteTeacherEducationApiCall?: () => void;
     deleteTeacherExperienceApiCall?: () => void;
 }
@@ -51,26 +52,26 @@ const ReusableEduExp: React.FC<props> = ({
     endDate,
     institute,
     position,
-    deleteExperienceId,
-    deleteEducationId,
+    experienceId,
+    educationId,
     deleteTeacherEducationApiCall,
     deleteTeacherExperienceApiCall,
 }) => {
     const classes = useStyles();
 
     const deleteFunction = () => {
-        if (deleteEducationId) {
-            console.log(deleteEducationId);
+        if (educationId) {
+            // console.log(deleteEducationId);
             return {
                 func: deleteTeacherEducationApiCall,
-                data: deleteEducationId,
+                data: educationId,
             };
         }
-        if (deleteExperienceId) {
-            console.log(deleteExperienceId);
+        if (experienceId) {
+            console.log(experienceId);
             return {
                 func: deleteTeacherExperienceApiCall,
-                data: deleteExperienceId,
+                data: experienceId,
             };
         }
     };
@@ -81,7 +82,18 @@ const ReusableEduExp: React.FC<props> = ({
             <div className={classes.details}>
                 <div className={classes.labelText}>{endDate ? `${startDate}-${endDate}` : `${startDate}-Now`}</div>
                 <div className={classes.btnContainer}>
-                    <SmallTextButton onClick={() => {}} text="Edit" />
+                    {educationId && (
+                        <Link to={`/tutor/tutor-edit/education-edit-form/${educationId}`}>
+                            <SmallTextButton text="Edit" />
+                        </Link>
+                    )}
+
+                    {experienceId && (
+                        <Link to={`/tutor/tutor-edit/experience-edit-form/${experienceId}`}>
+                            <SmallTextButton text="Edit" />
+                        </Link>
+                    )}
+
                     <div style={{ marginLeft: '2rem', display: 'inline-block' }}>
                         <SmallTextButton
                             onClick={() => {
