@@ -16,6 +16,7 @@ const index: React.FunctionComponent = () => {
         if (departmentList) {
             const data = departmentList.map((item: any) => {
                 return {
+                    id: item.id,
                     students: item.Students.length,
                     teachers: item.Teachers.length,
                     hod: item.hod,

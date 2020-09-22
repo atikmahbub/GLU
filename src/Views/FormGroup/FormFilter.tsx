@@ -2,11 +2,10 @@ import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import FormControlInput from '../../components/Form/FormControlInput';
-import { Search } from '@material-ui/icons';
 
 const useStyles = makeStyles(({
     parent:{
-        padding: ' 0.5rem 1.875rem',
+        padding: '0.5rem 1.875rem',
         backgroundColor: '#f3f7ff',
         paddingBottom: '1.5rem'
     },
