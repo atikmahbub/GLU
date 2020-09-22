@@ -31,6 +31,7 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
+    getUserProfile: 'user/profile'
 };
 
 export const studentsEndpoints = {
