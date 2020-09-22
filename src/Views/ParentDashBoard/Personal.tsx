@@ -8,6 +8,7 @@ import CalendarComponentParent from '../../components/CalendarComponentParent';
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles(() => ({
     dateLeftContainer: {
@@ -84,14 +85,16 @@ export default function Personal() {
 
                 {/* Reusable Component  */}
                 <div className="row wallet__date__container">
+                {/* <Link style={{color:'white',textDecoration:'none'}} to="parent/wallet"> */}
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col3">
                             <div className="card__row card_row3">
-                                <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED320'} />
+                                <SmallCard linkurl="/parent/wallet" mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED320'} />
                             </div>
 
                         </div>
                     </div>
+                {/* </Link> */}
 
                     {/* start */}
                     <CalendarComponentParent
