@@ -1,6 +1,5 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import commonImg from '../../Assets/images';
 import { colors } from '../../Styles/colors';
 import InputWithLabel from '../Inputs/InputWithLabel';
 import classNames from 'classnames';
@@ -13,12 +12,28 @@ const useStyles = makeStyles({
     hide: {
         opacity: 0,
         transition: 'all 0.3s',
+        display: 'none'
     },
     parent: {
         maxWidth: '20rem',
         boxShadow: '0 -2px 20px -5px rgba(0,0,0,0.3)',
         marginTop: '1rem',
         position: 'relative',
+        padding: '0 1rem',
+        maxHeight: '40rem',
+        overflowY: 'auto',
+        '&::-webkit-scrollbar': {
+            width: '1rem',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            borderRadius: '0.8rem',
+            backgroundColor: colors.lightGray,
+        },
+    },
+    card: {
+        padding: '1rem',
+        borderBottom: `1px solid ${colors.borderGray}`,
+        cursor: 'pointer',
     },
     arrow: {
         width: 0,
@@ -46,12 +61,16 @@ interface props {
     value?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     palceholder?: string;
+    data: any;
+    searchAdd: (value: any) => void;
 }
-const SearchProfilePreview: React.FC<props> = ({ value, onChange, palceholder }) => {
+const SearchProfilePreview: React.FC<props> = ({ value, onChange, palceholder, data, searchAdd }) => {
     const myclass = useStyles();
     const [show, setShow] = useState(false);
     const handleShow = () => {
-        setShow(false);
+        setTimeout(()=>{
+            setShow(false);
+        },200)
     };
     useEffect(() => {
         if (value !== '') {
@@ -72,10 +91,12 @@ const SearchProfilePreview: React.FC<props> = ({ value, onChange, palceholder })
             />
             <Box className={classNames(myclass.parent, show ? myclass.show : myclass.hide)}>
                 <Box className={myclass.arrow}></Box>
-                <Grid container alignItems="center" justify="flex-start">
-                    <img src={commonImg.photo} className={myclass.photo} alt="" />
-                    <Typography className={myclass.title}>FirstName</Typography>
-                </Grid>
+                {data.map((item: any, i: number) => (
+                    <Grid key={i} container alignItems="center" justify="flex-start" className={myclass.card} onClick={()=>searchAdd(item)}>
+                        <img src={item.profile} className={myclass.photo} alt="" />
+                        <Typography className={myclass.title}>{item.name}</Typography>
+                    </Grid>
+                ))}
             </Box>
         </Box>
     );

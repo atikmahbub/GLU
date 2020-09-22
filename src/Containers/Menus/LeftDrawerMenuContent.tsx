@@ -51,14 +51,14 @@ const LeftDrawerMenuContent: FC<ILeftDrawerMenuContent> = ({ userType }) => {
         <Grid container direction="column" justify="space-between" className={classes.root}>
             <Grid container direction="column">
                 <Grid container direction="column" className={classes.menuList}>
-                    {menuList.map(({ name, link }, index) => (
+                    {menuList.map(({ name, link = '/' }, index) => (
                         <Typography key={index} className={classes.link} component={Link} to={link}>
                             {name}
                         </Typography>
                     ))}
                 </Grid>
                 <Grid container direction="column">
-                    {menuListSecondary.map(({ name, link }, index) => (
+                    {menuListSecondary.map(({ name, link = '/' }, index) => (
                         <Typography
                             key={index}
                             className={classNames(classes.link, classes.linkSmall)}

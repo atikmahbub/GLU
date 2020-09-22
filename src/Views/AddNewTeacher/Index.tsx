@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
@@ -9,8 +9,8 @@ import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
 import ChipAdder from '../../components/Cards/ChipAdder';
 import SaveController from '../../components/Dashobard/SaveController';
 import { useDispatch } from 'react-redux';
-import { addNewTeacherAPIcall } from '../../Redux/Actions/teacherAction';
-import { useHistory } from 'react-router';
+import { addNewTeacherAPIcall, editTeacherAPIcall } from '../../Redux/Actions/teacherAction';
+import { useHistory, useLocation } from 'react-router';
 
 const useStyle = makeStyles({
     root: {
@@ -30,6 +30,7 @@ const useStyle = makeStyles({
 const Index = () => {
     const classes = useStyle();
     const [state, setState] = useState({
+        id: 0,
         firstName: '',
         lastName: '',
         email: '',
@@ -37,8 +38,10 @@ const Index = () => {
         mobileNumber: '',
         gender: '',
         designation: '',
+        department: '',
     });
-    const [department, setDepartment] = useState<any>([]);
+    const [editMode, setEditMode] = useState(false);
+    const [department, setDepartment] = useState('');
     const [subjects, setSubjects] = useState<any>([]);
 
     const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,22 +76,55 @@ const Index = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const handleSubmit = () => {
-        const data = {
-            teachers: [
-                {
-                    firstName: state.firstName,
-                    gender: state.gender,
-                    lastName: state.lastName,
-                    email: state.email,
-                    phoneNumber: state.mobileNumber,
-                    designation: state.designation,
-                    departmentName: department,
-                    subjects: subjects,
-                },
-            ],
+        const teacher = {
+            firstName: state.firstName,
+            gender: state.gender,
+            lastName: state.lastName,
+            email: state.email,
+            phoneNumber: state.mobileNumber,
+            designation: state.designation,
+            departmentName: department,
+            subjects: subjects,
         };
-        dispatch(addNewTeacherAPIcall(data, history));
+        if (editMode) {
+            let data: any = { ...teacher };
+            delete data.gender;
+            delete data.email;
+            delete data.phoneNumber;
+            dispatch(editTeacherAPIcall(data, state.id, history));
+        } else {
+            const data = {
+                teachers: [teacher],
+            };
+            dispatch(addNewTeacherAPIcall(data, history));
+        }
     };
+    const findRoutes: any = useLocation();
+    useEffect(() => {
+        console.log(findRoutes);
+        if (findRoutes.hasOwnProperty('state')) {
+            if (findRoutes.state.hasOwnProperty('teacherInfo')) {
+                const values = (findRoutes as any)?.state?.teacherInfo;
+                const subjects = values.subjects.map((item: any) => {
+                    return item.Subject.subjectName;
+                });
+                setSubjects(subjects);
+                const data = {
+                    id: values.staffId,
+                    firstName: values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    mobilePre: '',
+                    mobileNumber: '',
+                    gender: '',
+                    designation: values.email,
+                    department: values.department,
+                };
+                setState(data);
+                setEditMode(true);
+            }
+        }
+    }, []);
     return (
         <CardContainer>
             <PdBox>
