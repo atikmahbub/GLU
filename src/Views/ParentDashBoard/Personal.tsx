@@ -9,7 +9,8 @@ import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import {Link} from 'react-router-dom'
-
+import WhiteCard from '../../components/Cards/WhiteCard';
+import ClassesCarousel from './ClassesCarousel';
 const useStyles = makeStyles(() => ({
     dateLeftContainer: {
         display: "flex",
@@ -44,7 +45,7 @@ export default function Personal() {
                     <LimitedAvailability/> */}
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col1 bg-white">
-                            <Landscape
+                            {/* <Landscape
                                 imgSrc={commonImg.tutorDashboard}
                                 title1={'Upcomming'}
                                 title2={'Classes'}
@@ -55,8 +56,17 @@ export default function Personal() {
                                 subheading2={'Fully Booked'}
                                 subject={'Geography.'}
                                 desc={'Igneous, Sedimentary,'}
-                            />
+                            /> */}
+                                                    <WhiteCard
+                            size={12}
+                            title={'Upcoming\nClasses'}
+                            titleRightLink="See upcoming"
+                            titleRightLinkTo="/parent/upcoming-classes"
+                            content={<ClassesCarousel />}
+                            titleClassName={classes.upcomingClassCardTitle}
+                        />
                         </div>
+
                     </div>
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
