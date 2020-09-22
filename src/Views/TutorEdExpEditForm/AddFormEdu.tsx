@@ -3,6 +3,8 @@ import { makeStyles, Grid } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
 import { connect } from 'react-redux';
+import { addTeacherEducationApiCall } from '../../Redux/Actions/teacherAction';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     footer: {
@@ -176,13 +178,14 @@ const useStyles = makeStyles({
     },
 });
 
-const AddFormEdu = (props: any) => {
+const AddFormEdu = ({ addTeacherEducationApiCall }) => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
+    const history = useHistory();
     const classes = useStyles();
     const [education, setEducation] = useState({
         school: null,
@@ -191,7 +194,10 @@ const AddFormEdu = (props: any) => {
         startDate: null,
         endDate: null,
     });
-
+    const handleChange = (e) => {
+        console.log(education);
+        return setEducation({ ...education, [e.target.id]: e.target.value });
+    };
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
@@ -207,7 +213,7 @@ const AddFormEdu = (props: any) => {
                                 School/College
                             </label>
                             <input
-                                onChange={handleChange}
+                                onChange={(e) => handleChange(e)}
                                 value={education.school}
                                 type="text"
                                 id="school"
@@ -220,6 +226,7 @@ const AddFormEdu = (props: any) => {
                                 Qualification
                             </label>
                             <input
+                                onChange={(e) => handleChange(e)}
                                 value={education.qualification}
                                 type="text"
                                 id="qualification"
@@ -232,6 +239,7 @@ const AddFormEdu = (props: any) => {
                                 Field of study
                             </label>
                             <input
+                                onChange={(e) => handleChange(e)}
                                 value={education.fieldOfStudy}
                                 type="text"
                                 id="fieldOfStudy"
@@ -244,6 +252,7 @@ const AddFormEdu = (props: any) => {
                                     Start Date
                                 </label>
                                 <input
+                                    onChange={(e) => handleChange(e)}
                                     value={education.startDate}
                                     type="date"
                                     id="startDate"
@@ -255,6 +264,7 @@ const AddFormEdu = (props: any) => {
                                     End Date
                                 </label>
                                 <input
+                                    onChange={(e) => handleChange(e)}
                                     value={education.endDate}
                                     type="date"
                                     id="endDate"
@@ -264,8 +274,9 @@ const AddFormEdu = (props: any) => {
                         </div>
                     </div>
                     <div
-                        onClick={() => {
+                        onClick={async () => {
                             console.log('Button clicked');
+                            await addTeacherEducationApiCall(education, history);
                         }}
                         style={{ textDecoration: 'none', color: 'black' }}
                         className={classes.upload}
@@ -281,4 +292,4 @@ const AddFormEdu = (props: any) => {
     );
 };
 
-export default connect()(AddFormEdu);
+export default connect(null, { addTeacherEducationApiCall })(AddFormEdu);

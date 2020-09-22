@@ -31,6 +31,11 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
+    teacherEdu:'teacher/qualification',
+    teacherHomework:'teacher/homework',
+    teacherHomeworkCount:'teacher/homework/count',
+    teacherRecommendation:'teacher/recommend',
+    teacherStudentLike:'teacher/student/like',
     searchStudent: 'school/student/like'
 };
 

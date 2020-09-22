@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
 import { connect } from 'react-redux';
 import SmallTextButton from '../TutorEditPage/SmallTextButton';
+import { getTeacherEducationById } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
     footer: {
@@ -177,7 +178,7 @@ const useStyles = makeStyles({
     },
 });
 
-const EditFormEdu = (props: any) => {
+const EditFormEdu = ({ match, getTeacherEducationById }) => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -185,7 +186,20 @@ const EditFormEdu = (props: any) => {
         { link: '', name: 'Shop' },
     ];
     const classes = useStyles();
-    useEffect(() => {}, []);
+    const [formData, setFormData] = useState({
+        school: null,
+        qualification: null,
+        fieldOfStudy: null,
+        startDate: null,
+        endDate: null,
+    });
+    useEffect(() => {
+        console.log(match.params.id);
+        const callFunc = async () => {
+            const data = await getTeacherEducationById(match.params.id);
+        };
+        callFunc();
+    }, []);
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
@@ -244,4 +258,4 @@ const EditFormEdu = (props: any) => {
     );
 };
 
-export default connect()(EditFormEdu);
+export default connect(null, { getTeacherEducationById })(EditFormEdu);

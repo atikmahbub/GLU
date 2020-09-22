@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import CheckCircleOutlineSharpIcon from '@material-ui/icons/CheckCircleOutlineSharp';
 import { Link } from 'react-router-dom';
 interface props {
-    date?:string;
+    date?:any;
     subject?:string;
     subjectDesc?:string;
     desc?:string;
