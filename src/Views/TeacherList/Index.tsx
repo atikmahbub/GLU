@@ -24,6 +24,7 @@ const Index = () => {
                     designation: checkValue(element.designation),
                     department: checkValue(element?.Department?.departmentName),
                     profile: commonImg.photo,
+                    subjects: element.TeacherSubjects,
                 };
             });
             setTeacherList(data);

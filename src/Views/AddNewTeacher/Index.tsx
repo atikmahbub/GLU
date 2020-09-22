@@ -9,7 +9,7 @@ import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
 import ChipAdder from '../../components/Cards/ChipAdder';
 import SaveController from '../../components/Dashobard/SaveController';
 import { useDispatch } from 'react-redux';
-import { addNewTeacherAPIcall } from '../../Redux/Actions/teacherAction';
+import { addNewTeacherAPIcall, editTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import { useHistory, useLocation } from 'react-router';
 
 const useStyle = makeStyles({
@@ -30,6 +30,7 @@ const useStyle = makeStyles({
 const Index = () => {
     const classes = useStyle();
     const [state, setState] = useState({
+        id: 0,
         firstName: '',
         lastName: '',
         email: '',
@@ -75,33 +76,41 @@ const Index = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const handleSubmit = () => {
-        const data = {
-            teachers: [
-                {
-                    firstName: state.firstName,
-                    gender: state.gender,
-                    lastName: state.lastName,
-                    email: state.email,
-                    phoneNumber: state.mobileNumber,
-                    designation: state.designation,
-                    departmentName: department,
-                    subjects: subjects,
-                },
-            ],
+        const teacher = {
+            firstName: state.firstName,
+            gender: state.gender,
+            lastName: state.lastName,
+            email: state.email,
+            phoneNumber: state.mobileNumber,
+            designation: state.designation,
+            departmentName: department,
+            subjects: subjects,
         };
         if (editMode) {
-            // dispatch(editTeacherAPIcall())
+            let data: any = { ...teacher };
+            delete data.gender;
+            delete data.email;
+            delete data.phoneNumber;
+            dispatch(editTeacherAPIcall(data, state.id, history));
         } else {
+            const data = {
+                teachers: [teacher],
+            };
             dispatch(addNewTeacherAPIcall(data, history));
         }
     };
     const findRoutes: any = useLocation();
     useEffect(() => {
-        console.log(findRoutes)
+        console.log(findRoutes);
         if (findRoutes.hasOwnProperty('state')) {
             if (findRoutes.state.hasOwnProperty('teacherInfo')) {
                 const values = (findRoutes as any)?.state?.teacherInfo;
+                const subjects = values.subjects.map((item: any) => {
+                    return item.Subject.subjectName;
+                });
+                setSubjects(subjects);
                 const data = {
+                    id: values.staffId,
                     firstName: values.firstName,
                     lastName: values.lastName,
                     email: values.email,
