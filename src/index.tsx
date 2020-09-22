@@ -11,6 +11,8 @@ import './Styles/Scss/index.scss';
 import './Styles/css/icomoon.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-grid.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 ReactDOM.render(
     <Provider store={Store}>

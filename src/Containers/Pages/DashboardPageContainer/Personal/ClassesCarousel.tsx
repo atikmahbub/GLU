@@ -1,12 +1,9 @@
 import React, { FC, memo } from 'react';
+import classNames from 'classnames';
 import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ClassCard from '../../../../components/Cards/ClassCard';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import classNames from 'classnames';
 
 const useStyles = makeStyles({
     root: {

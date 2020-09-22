@@ -14,10 +14,10 @@ export interface addparentArray {
     parents: Array<addParentFormDataType>;
 }
 export interface addParentFormDataType {
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    gender: string;
+    title: string;
     phoneNumber: string;
 }
 

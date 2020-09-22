@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
 import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import classNames from 'classnames';
 import LineDivider from '../../components/Dashobard/LineDivider';
 import ThreeColTable from '../../components/Dashobard/ThreeColTable';
-import ThreeText from '../../components/Dashobard/FormGroup/ThreeText';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { EditClassAPIcall, getallclassByIdAPIcall } from '../../Redux/Actions/classAction';
+import { checkValue } from '../../Helper/checkValue';
+import OutlineButton from '../../components/Button/OutlineButton';
 
 const useStyles = makeStyles({
     parent: {
@@ -32,26 +36,63 @@ const useStyles = makeStyles({
     boldText: {
         fontWeight: 600,
         paddingRight: '4rem',
+        width: '6.7rem',
     },
 });
 const Index = () => {
     const classes = useStyles();
-    const data = [
-        { col1: 'Group 4', col2: 'John Wisk', col3: '65' },
-        { col1: 'Group 6', col2: 'Jenny Smith', col3: '55' },
-        { col1: 'Group 8', col2: 'John Wisk', col3: '62' },
-        { col1: 'Group 10', col2: 'Angelina Jolie', col3: '56' },
-        { col1: 'Group 7', col2: 'Harrison Ford', col3: '46' },
-    ];
+    const dispatch = useDispatch();
+    const [state, setState] = useState({ title: '', hod: '', yearGroup: '', id:0 });
+    const totalClass = useSelector((state: any) => state.classReducer.classList);
+    const [classList, setclassList] = useState([]);
+    const [totalStudent, setTotalStudent] = useState(0);
+    const findState = useLocation();
+    useEffect(() => {
+        console.log(findState);
+        if (findState?.state) {
+            dispatch(getallclassByIdAPIcall((findState as any).state.id));
+            setState({...state, id: (findState as any).state.id})
+        }
+    }, []);
+
+    useEffect(() => {
+        if (totalClass) {
+            const data = totalClass.ClassSections.map((item: any) => {
+                setTotalStudent((prevState) => prevState + item?.SectionStudents.length);
+                return {
+                    col1: item?.Section?.sectionName,
+                    col2:
+                        checkValue(item?.SectionTeachers[0]?.Teacher?.firstName) +
+                        ' ' +
+                        checkValue(item?.SectionTeachers[0]?.Teacher?.lastName),
+                    col3: item?.SectionStudents.length,
+                };
+            });
+            setState({ ...state, title: totalClass.title, hod: totalClass.head });
+            setclassList(data);
+        }
+    }, [totalClass]);
+
+    const handleSubmit = () => {
+        if (state.id!==0) {
+            const data = { head: state.hod };
+            dispatch(EditClassAPIcall(data, state.id));
+        }
+    };
+    const handleHod = (e:React.ChangeEvent<HTMLInputElement>) =>{
+        setState({...state, hod:e.target.value})
+    }
+
     return (
         <Grid container className={classes.parent}>
             <Grid item xs={12} md={4}>
                 <Typography className={classes.title}>Year Group</Typography>
             </Grid>
             <Grid item xs={12} md={8}>
-                <InputWithLabel fieldName="Title" mt="mt-0" />
-                <ThreeText headTitle="Head of year" title="John Wick" another="Add another member" />
-                <InputWithLabel fieldName="Year Group" />
+                <InputWithLabel fieldName="Title" mt="mt-0" value={state.title} />
+                <InputWithLabel fieldName="Head of year" value={state.hod} onChange={handleHod} />
+                <InputWithLabel placeholder="Add another member" mt="mt-1" />
+                <InputWithLabel fieldName="Year Group" value={state.id} disalbed={true} />
             </Grid>
             <LineDivider mt="3.75rem" mb="3.75rem" />
             <Grid item xs={12} md={4}></Grid>
@@ -64,13 +105,16 @@ const Index = () => {
                         colHead1="Form Groups"
                         colHead2="Tutor"
                         colHead3="Students"
-                        data={data}
+                        data={classList}
                         padding="0"
                     />
                     <Grid container alignItems="center" justify="space-between">
                         <Typography className={classNames(classes.title, classes.boldText)}>Total</Typography>
-                        <Typography className={classNames(classes.title, classes.boldText)}>284</Typography>
+                        <Typography className={classNames(classes.title, classes.boldText)}>{totalStudent}</Typography>
                     </Grid>
+                </div>
+                <div className="mt-5">
+                    <OutlineButton text="Submit" btnClick={handleSubmit} />
                 </div>
             </Grid>
         </Grid>

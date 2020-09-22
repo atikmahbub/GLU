@@ -27,7 +27,7 @@ const useStyle = makeStyles({
     },
 });
 
-const AddChildren: React.FC = () => {
+const ParentDetails: React.FC = () => {
     const classes = useStyle();
     const data = [
         { col1: 'Computer', col2: 'James Arthur' },
@@ -109,6 +109,7 @@ const AddChildren: React.FC = () => {
                             tableName="Fee Details"
                             colHead1="Term"
                             colHead2="Status"
+                            linkTo=""
                         />
                     </div>
                     <div className="col-lg-7 pt-0 colum__spacing">
@@ -135,4 +136,4 @@ const AddChildren: React.FC = () => {
     );
 };
 
-export default AddChildren;
+export default ParentDetails;

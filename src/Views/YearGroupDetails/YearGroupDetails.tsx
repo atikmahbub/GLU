@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add, MailOutline } from '@material-ui/icons';
 import AddButton from '../../components/Dashobard/AddButton';
@@ -9,13 +9,16 @@ import BorderTableContainer from '../../Containers/Dashboard/BorderTableContaine
 
 interface props {
     classList?: any[];
+    groupId?:number
 }
-const YearGroupDetails: React.FunctionComponent<props> = ({ classList }) => {
+const YearGroupDetails: React.FunctionComponent<props> = ({ classList, groupId }) => {
     const routes = useHistory();
-
     const handleToggler = () => {
-        routes.push('/dashboard/year-group/add-year-group');
+        routes.push({pathname:'/dashboard/edit-year-group', state:{
+            id:groupId
+        }});
     };
+
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -23,7 +26,7 @@ const YearGroupDetails: React.FunctionComponent<props> = ({ classList }) => {
                     title="Year 4"
                     subtitle="Head: Mr.John Krasinski"
                     btnIcon={<Add />}
-                    btnTitle="New Form Group"
+                    btnTitle="Edit Form Group"
                     component="notification"
                     showNotification={true}
                     notificationText="Send notification"
@@ -68,33 +71,7 @@ const YearGroupDetails: React.FunctionComponent<props> = ({ classList }) => {
                                 ),
                             },
                         ]}
-                        rowData={[
-                            {
-                                children: '122',
-                                formGroup: 'Year 4 — Red',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                children: '122',
-                                formGroup: 'Year 4 — Blue',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                children: '122',
-                                formGroup: 'Year 4 — Yellow',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                children: '122',
-                                formGroup: 'Year 4 — Gold',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                children: '122',
-                                formGroup: 'Year 4 — Green',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                            },
-                        ]}
+                        rowData={classList}
                     />
                 </BorderTableContainer>
             </CardContainer>

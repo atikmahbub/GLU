@@ -10,7 +10,6 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import TableFilter from '../../components/Dashobard/Table/TableFilter';
 import CardTable from '../../components/Table/CardTable';
-import commonImg from '../../Assets/images';
 
 interface colDataType {
     id: number;

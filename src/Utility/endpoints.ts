@@ -4,14 +4,14 @@ export const endponts = {
     schoolProfile: 'school/profile',
     student: 'school/student',
     getAllStudents: 'school/students',
-    teacher: 'schools/teachers',
-    parent: 'schools/guardians',
-    class: 'schools/classes',
+    teacher: 'school/teacher',
+    parent: 'school/guardian',
+    class: 'class',
     singleClass: 'schools/class',
-    section: 'schools/sections',
+    section: 'section/',
     invitation: 'auth/invite',
     authRegister: 'auth/register',
-    departments: 'schools/departments',
+    departments: 'school/department',
     sessions: 'session',
     subject: 'schools/subjects',
     timeTable: 'schools/routines',
@@ -31,4 +31,11 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
+    searchStudent: 'school/student/like'
 };
+
+export const studentsEndpoints = {
+    getFeatureTeacher: 'student/feature/teacher',
+    getUpcomingSessions: 'student/upcoming/session',
+    getPreviousSessions: 'student/previous/session'
+}

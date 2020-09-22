@@ -3,7 +3,6 @@ import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -39,10 +38,13 @@ const useStyles = makeStyles((theme) => ({
         margin: '0rem',
         paddingLeft: '3.125rem',
         paddingRight: '3.062rem',
+        paddingTop: "5.593rem",
     },
     elementsContainer: {
         // height: "90vh",
-        marginTop: "9.25rem",
+        // marginTop: "9.25rem",
+        marginTop: 0,
+
     },
     limitedAvailabilityContainer:{
         color: "black",
@@ -52,14 +54,13 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: "1.875rem",
     },
 
-    right: {
+    rightText: {
         color: "black",
         fontSize: "2.625rem",
         lineHeight: "2.812rem",
     },
     form: {
         marginTop: "0rem",
-
     }
 }));
 
@@ -103,18 +104,17 @@ const ParentIndividualTutorBanner: FC = () => {
                 </Grid>
 
                 <Grid item container lg={6}>
-                    <Typography className={classes.right}>
+                    <Typography className={classes.rightText}>
                         I am an American author, life coach, and philanthropist. Known for my infomercials, seminars, and self-help books including the books Unlimited Power and Awaken the Giant Within. In 2015 and 2016 I was listed on the Worth Magazine Power 100 list.
                     </Typography>
                     <Grid item direction="column" className={classes.form} lg={6} spacing={2}>
                         <Grid item xs={12} sm={12} md={12}>
                             <FormControl className={classes.formControl}>
-                                <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Students</InputLabel>
+                                <Typography className={classes.inputLabel}> Student </Typography>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
                                     value={subject}
-                                    labelStyle={{ color: 'green' }}
                                     IconComponent={ExpandMoreIcon}
                                     onChange={handleChangeSubject}
                                     fullWidth
@@ -127,7 +127,7 @@ const ParentIndividualTutorBanner: FC = () => {
                         </Grid>
                         <Grid item xs={12} sm={12} md={12}>
                             <FormControl className={classes.formControl}>
-                                <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Date</InputLabel>
+                            <Typography className={classes.inputLabel}> Date </Typography>
                                 <Select
                                     labelId="demo-simple-select-label"
                                     IconComponent={CalendarTodayIcon}
@@ -145,7 +145,7 @@ const ParentIndividualTutorBanner: FC = () => {
                         <Grid container item lg={12} md={12} sm={12} spacing={1}>
                             <Grid item xs={12}>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel className={classes.inputLabel} id="demo-simple-select-label">Start Time</InputLabel>
+                                <Typography className={classes.inputLabel}> Start Time </Typography>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         IconComponent={ExpandMoreIcon}
@@ -162,7 +162,7 @@ const ParentIndividualTutorBanner: FC = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControl className={classes.formControl}>
-                                    <InputLabel className={classes.inputLabel} id="demo-simple-select-label">End Time</InputLabel>
+                                <Typography className={classes.inputLabel}> End Time </Typography>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         IconComponent={ExpandMoreIcon}

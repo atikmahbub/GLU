@@ -1,65 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import ModalBox from '../../components/Modal/ModalBox';
-import { TextField, Button } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+
 import Departments from './Departments';
-import ErrorMessage from '../../components/ErrorMessage';
-import { useForm } from 'react-hook-form';
-import { departmentFormValidation } from '../../Helper/FormValidations/departmentFormValidation';
-import { useDispatch } from 'react-redux';
-import { addNewDepartmentAPIcall, getAllDepartmentAPIcall, updateDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 
 const index: React.FunctionComponent = () => {
-    const [toggler, setToggler] = useState(false);
-    const [editDepartment, setEditDepartment] = useState();
     const dispatch = useDispatch();
-    const handleToggler = () => {
-        setToggler(!toggler);
-    };
-    const { register, errors, handleSubmit, reset } = useForm({
-        validationSchema: departmentFormValidation.validationSetting,
-    });
-    const submit = (data: any) => {
-        console.log(data);
-        if (editDepartment) {
-            dispatch(updateDepartmentAPIcall(editDepartment.id, {name: data.department}, handleToggler));
-        }else{
-            dispatch(addNewDepartmentAPIcall({ name: data.department }, handleToggler));
-        }
-    };
+    const [departments, setDepartments] = useState([]);
+    const departmentList = useSelector((state: any) => state.schoolReducer.departmentList);
+
     useEffect(() => {
         dispatch(getAllDepartmentAPIcall());
     }, []);
     useEffect(() => {
-        if (editDepartment) {
-            reset({ department: (editDepartment as any).name });
-            handleToggler();
+        if (departmentList) {
+            const data = departmentList.map((item: any) => {
+                return {
+                    students: item.Students.length,
+                    teachers: item.Teachers.length,
+                    hod: item.hod,
+                    department: item.departmentName,
+                };
+            });
+            setDepartments(data);
         }
-    }, [editDepartment]);
-    return (
-        <div>
-            {toggler ? (
-                <ModalBox title="Create Department" modalHandler={handleToggler}>
-                    <div className="modal-form">
-                        <form onSubmit={handleSubmit(submit)}>
-                            <TextField
-                                variant="outlined"
-                                name="department"
-                                inputRef={register}
-                                className="custom-input"
-                                fullWidth
-                                label="Department Name"
-                            />
-                            {errors.department && <ErrorMessage msg={departmentFormValidation.errorMsg.department} />}
-                            <Button type="submit" className="session-button">
-                                {editDepartment ? 'Update Department' : 'Create Department'}
-                            </Button>
-                        </form>
-                    </div>
-                </ModalBox>
-            ) : null}
-            <Departments editDepartment={setEditDepartment}/>
-        </div>
-    );
+    }, [departmentList]);
+
+    return <Departments departmentList={departments} />;
 };
 
 export default index;
