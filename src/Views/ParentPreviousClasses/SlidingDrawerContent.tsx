@@ -25,9 +25,14 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                         Maths <br />Esme Stannard
                     </Typography>
                 </div>
-                <div className="chip__container">
+                {/* <div className="chip__container">
                     <Typography className="title">AED250</Typography>
-                </div>
+                </div> */}
+                <div className="child__purchase__item">
+                            <div className="child__purchase" style={{width:"7.75rem"}}>
+                                <div className="purchase" style={{cursor: "pointer", borderLeft:"none"}}><Typography className="subtitle" >Watch</Typography></div>
+                            </div>
+                        </div>
                 <div className="description__container">
                     <Typography className="title">
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt

@@ -8,7 +8,9 @@ import CalendarComponentParent from '../../components/CalendarComponentParent';
 import ParentIndividualTutorBanner from '../../components/ParentTutorIndividual/ParentIndividualTutorBanner';
 import LimitedAvailability from '../../components/ParentTutorIndividual/LimitedAvailability';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-
+import {Link} from 'react-router-dom'
+import WhiteCard from '../../components/Cards/WhiteCard';
+import ClassesCarousel from './ClassesCarousel';
 const useStyles = makeStyles(() => ({
     dateLeftContainer: {
         display: "flex",
@@ -43,7 +45,7 @@ export default function Personal() {
                     <LimitedAvailability/> */}
                     <div className="col-md-6 p-0">
                         <div className="main_container_dashboard_col1 bg-white">
-                            <Landscape
+                            {/* <Landscape
                                 imgSrc={commonImg.tutorDashboard}
                                 title1={'Upcomming'}
                                 title2={'Classes'}
@@ -54,8 +56,17 @@ export default function Personal() {
                                 subheading2={'Fully Booked'}
                                 subject={'Geography.'}
                                 desc={'Igneous, Sedimentary,'}
-                            />
+                            /> */}
+                                                    <WhiteCard
+                            size={12}
+                            title={'Upcoming\nClasses'}
+                            titleRightLink="See upcoming"
+                            titleRightLinkTo="/parent/upcoming-classes"
+                            content={<ClassesCarousel />}
+                            titleClassName={classes.upcomingClassCardTitle}
+                        />
                         </div>
+
                     </div>
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col2">
@@ -84,14 +95,16 @@ export default function Personal() {
 
                 {/* Reusable Component  */}
                 <div className="row wallet__date__container">
+                {/* <Link style={{color:'white',textDecoration:'none'}} to="parent/wallet"> */}
                     <div className="col-md-6  p-0">
                         <div className="main_container_dashboard_col3">
                             <div className="card__row card_row3">
-                                <SmallCard mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED320'} />
+                                <SmallCard linkurl="/parent/wallet" mainHeading={'Wallet'} subHeading1={'Balance'} subHeading2={'AED320'} />
                             </div>
 
                         </div>
                     </div>
+                {/* </Link> */}
 
                     {/* start */}
                     <CalendarComponentParent

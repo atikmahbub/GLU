@@ -8,7 +8,7 @@ import ImageCard from '../../components/Cards/ImageCard';
 import CardsGrid from '../CardsGrid';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
-import { cards3, filters, filtersData } from '../../data/filters';
+import { cards3, classesFiltersData } from '../../data/filters';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 
 interface ITutorsPageContainer {
@@ -22,7 +22,13 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer padding sort={false} title="Tutors" filters={filters} filtersData={filtersData}>
+            <FilterContainer
+                padding
+                sort={false}
+                title="Tutors"
+                initialFilterLabel="Filter"
+                filtersData={classesFiltersData}
+            >
                 <CardsGrid>
                     {cards3.map((card, index) => (
                         <ImageCard key={index} {...card} />

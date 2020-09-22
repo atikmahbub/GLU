@@ -43,15 +43,15 @@ export const schoolInfo = (data: any) => {
     };
 };
 
-export const addNewDepartmentAPIcall = (data: any, close: Function) => {
+export const addNewDepartmentAPIcall = (data: any, hisotry: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.departments, data)
             .then((res) => {
                 console.log(res);
                 dispatch(getAllDepartmentAPIcall());
-                close();
                 dispatch(spinner(false));
+                hisotry.push('/dashboard/departments');
                 toast.success('Department Added Successfully.');
             })
             .catch((err) => {
@@ -95,14 +95,14 @@ export const deleteDepartmentAPIcall = (id: number) => {
     };
 };
 
-export const updateDepartmentAPIcall = (id: number, data: { name: string }, close: Function) => {
+export const updateDepartmentAPIcall = (id: number, data: any, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.put(`${endponts.departments}/${id}`, data)
             .then((res) => {
                 console.log(res);
                 dispatch(getAllDepartmentAPIcall());
-                close();
+                history.push('/dashboard/departments');
                 dispatch(spinner(false));
                 toast.success('Department Updated Successfully.');
             })
@@ -140,7 +140,7 @@ export const addSessionsAPIcall = (data: any, close: Function) => {
             .then((res) => {
                 dispatch(spinner(false));
                 console.log(res);
-                toast.success("Session Added Successfully.");
+                toast.success('Session Added Successfully.');
                 dispatch(getAllSessionsAPIcall());
                 close();
             })
@@ -165,11 +165,13 @@ export const deleteSessionAPIcall = (id: number) => {
 };
 
 export const getTimeTableAPIcall = () => {
-    return (dispatch: Dispatch<any>)=> {
-        API.get(endponts.timeTable).then((res)=>{
-            console.log(res)
-        }).catch(err=>{
-            handleError(dispatch, err);
-        })
-    }
-}
+    return (dispatch: Dispatch<any>) => {
+        API.get(endponts.timeTable)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};

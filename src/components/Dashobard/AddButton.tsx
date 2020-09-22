@@ -9,6 +9,7 @@ interface AddButtonProps {
     btnTitle?: string;
     btnIcon?: any;
     trigger?: () => void;
+    notififcationClick?: ()=>void;
     style?: object;
     component?: string;
     hideBtn?: boolean;
@@ -37,6 +38,7 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
     bulkbtn,
     bulkText,
     bulkTrigger,
+    notififcationClick,
     notificationText,
     notificationIcon,
     showNotification,
@@ -61,7 +63,7 @@ const AddButton: React.FunctionComponent<AddButtonProps> = ({
                 return (
                     <Grid container className={classes.buttonContainer} alignItems="center" justify="space-between">
                         {showNotification && (
-                            <div {...props} onClick={trigger} className="rounded-btn">
+                            <div {...props} onClick={notififcationClick} className="rounded-btn">
                                 {notificationText}
                                 {notificationIcon}
                             </div>

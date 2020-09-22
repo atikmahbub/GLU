@@ -34,13 +34,13 @@ export const addNewStudentAPIcall = (data: any, fileName: string, history: any) 
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
-                const ides = res.data.data.map((item: any) => {
-                    return { id: item.userId, token: item.token };
-                });
-                ides.map((item: any) => {
-                    dispatch(invitationAPIcall({ invitee_id: item.id, for_role: 'student' }));
-                    dispatch(uploadProfileFileName(fileName, item.token));
-                });
+                // const ides = res.data.data.map((item: any) => {
+                //     return { id: item.userId, token: item.token };
+                // });
+                // ides.map((item: any) => {
+                //     dispatch(invitationAPIcall({ invitee_id: item.id, for_role: 'student' }));
+                //     dispatch(uploadProfileFileName(fileName, item.token));
+                // });
                 setTimeout(() => {
                     history.push('/dashboard/students');
                 }, 1000);
