@@ -16,6 +16,8 @@ import ParentIndividualHomeworkBanner from '../../components/ParentIndividualHom
 import DateAndResources from '../../components/ParentIndividualHomeWork/DateAndResources';
 import LeftDrawerMenuContent from '../../Containers/Menus/LeftDrawerMenuContent';
 import { createMenuList } from '../../Helper/menus';
+import Messages from '../../components/Messages/Index';
+import ChatPage from '../../components/Messages/ChatPage';
 
 
 const ParentDashboard: React.FunctionComponent = () => {
@@ -54,7 +56,8 @@ const ParentDashboard: React.FunctionComponent = () => {
         <NavigationMenu absolute background="transparent" menuList={menuList}  LeftDrawerMenuComponent={<LeftDrawerMenuContent userType="parent" />} TopDrawerMenuComponent>
 
         <DrawerProvider open={openPushDrawer} onClose={handlePushDrawer} drawerWidth={321} drawerContent={<SlidingPushDrawerContent />}>
-
+            {/* <Messages/>
+            <ChatPage/> */}
             <div className="parent_dashboard_container">
                 {/* <div className="navigation__menu">
                     <NavigationMenu 

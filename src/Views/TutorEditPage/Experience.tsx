@@ -1,36 +1,15 @@
 import React from 'react';
-import { makeStyles, Typography, TextField } from '@material-ui/core';
-import SmallTextButton from './SmallTextButton';
+import { makeStyles } from '@material-ui/core';
+import Reusable from './ReusableEduExp';
+import { getTeacherExperienceApiCall } from '../../Redux/Actions/teacherAction';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
-    details: {},
     detailsText: {
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
     },
-    labelText: {
-        display: 'inline-block',
-        marginTop: '1.9375rem',
-        fontSize: '1.5625rem',
-        font: 'normal normal normal 25px/30px CircularXXSub-RegularSubset',
-        marginBottom: '0',
-        fontFamily: 'CircularXXWeb-Book',
-    },
-    btnContainer: {
-        display: 'inline-block',
-        transform: 'translateX(40.5rem)',
-        fontFamily: 'CircularXXWeb-Book',
-    },
-    infoText: {
-        fontSize: '2.265rem',
-        width: '23.81rem',
-        lineHeight: 1,
-        marginTop: '0.5625rem',
-        fontFamily: 'CircularXXWeb-Book',
-    },
-    hr: {
-        marginTop: '2.5rem',
-    },
+
     upload: {
         fontSize: '1.25rem',
         width: '9.375rem',
@@ -47,36 +26,33 @@ const useStyles = makeStyles({
     },
 });
 
-const Experience = () => {
+const Experience = ({ experience }) => {
     const classes = useStyles();
 
     return (
         <div>
-            <div className={classes.details}>
-                <div className={classes.detailsText}>Experience</div>
-                <div className={classes.labelText}>2018-Now</div>
-                <div className={classes.btnContainer}>
-                    <SmallTextButton text="Edit" />
-                    <div style={{ marginLeft: '2rem', display: 'inline-block' }}>
-                        <SmallTextButton text="Delete" />
-                    </div>
-                </div>
-                <div className={classes.infoText}>GEMS Intl School Head of Department Geography</div>
-            </div>
-            <hr className={classes.hr} />
-            <div>
-                <div className={classes.labelText}>2015-2018</div>
-                <div className={classes.btnContainer}>
-                    <SmallTextButton text="Edit" />
-                    <div style={{ marginLeft: '2rem', display: 'inline-block' }}>
-                        <SmallTextButton text="Delete" />
-                    </div>
-                </div>
-                <div className={classes.infoText}>GEMS Intl School Head of Department Geography</div>
-                <div className={classes.upload}>Add more</div>
-            </div>
+            <div className={classes.detailsText}>Experience</div>
+            {experience &&
+                experience.map((item: any) => (
+                    <Reusable
+                        key={item.experienceId}
+                        startDate={item.Experience.startDate.substring(0, 4)}
+                        endDate={item.Experience.endDate ? item.Experience.endDate.substring(0, 4) : null}
+                        institute={item.Experience.workPlace}
+                        position={item.Experience.position}
+                        deleteExperienceId={item.Experience.id}
+                    />
+                ))}
+
+            <div className={classes.upload}>Add more</div>
         </div>
     );
 };
 
-export default Experience;
+const mapStateToProps = (state) => {
+    return {
+        experience: state.teacherReducer.teacherExperience,
+    };
+};
+
+export default connect(mapStateToProps, { getTeacherExperienceApiCall })(Experience);

@@ -5,8 +5,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import BannerCard from '../Cards/BannerCard';
 import { BannerCardElement } from '../Cards/types';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const useStyles = makeStyles({
     sliderRoot: {

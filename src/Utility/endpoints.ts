@@ -22,8 +22,10 @@ export const endponts = {
     studentEdu: 'student/qualification',
     registerPhone: 'user/phone/',
     verifyOtp: 'user/verify/phone/',
-    teahcerSkill:'teacher/skill',
-    techerExp:'teacher/experience',
+    teahcerSkill: 'teacher/skill',
+    // teahcerExperience: 'teacher/experience',
+    teahcerEducation: 'teacher/qualification',
+    techerExp: 'teacher/experience',
     teacherBio: 'auth/teacher/bio/',
     teacherFileUpload: 'file-upload/uploads/documents',
     parentChildAdd: 'guardian/children',
@@ -31,3 +33,9 @@ export const endponts = {
     resetPassword: 'auth/reset/password/',
     searchStudent: 'school/student/like'
 };
+
+export const studentsEndpoints = {
+    getFeatureTeacher: 'student/feature/teacher',
+    getUpcomingSessions: 'student/upcoming/session',
+    getPreviousSessions: 'student/previous/session'
+}
