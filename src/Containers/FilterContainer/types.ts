@@ -8,5 +8,5 @@ export interface IFilterElement {
 export interface IFilterDataElement {
     label: string;
     value: string;
-    type: string;
+    type?: string;
 }
