@@ -40,7 +40,7 @@ export const routes = [
     createRouteObj('/parent/reports', Reports),
     createRouteObj('/parent/school-info', ParentSchoolInfo),
     createRouteObj('/parent/messages', ParentMessages),
-    createRouteObj('/parent/messages/new-messages', NewMessages),
+    createRouteObj('/parent/parent/messages/new-messages', NewMessages),
 
 
   
