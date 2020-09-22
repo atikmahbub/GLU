@@ -1,10 +1,11 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
-import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS, GET_TEACHER_EXPERIENCE ,GET_TEACHER_EDUCATION,GET_TEACHER_HOMEWORK,GET_TEACHER_HOMEWORK_COUNT, GET_TEACHER_RECOMMENDATION} from '../ActionTypes/teacherTypes';
+import { TEACHER_LIST, TEACHER_DETAILS, GET_TEACHER_SKILLS, GET_TEACHER_EXPERIENCE ,GET_TEACHER_EDUCATION,GET_TEACHER_HOMEWORK,GET_TEACHER_HOMEWORK_COUNT, GET_TEACHER_RECOMMENDATION,GET_TEACHER_STUDENT_LIKE} from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { dispatch } from '../Store/Store';
+import data from '../../components/Notifications/data';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -110,7 +111,7 @@ export const getTeacherDetailsAPIcall = (id: number) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
-            });
+        });
     };
 };
 
@@ -143,6 +144,47 @@ export const getTeacherExperience = () => {
     };
 };
 export const getTeacherExpData = (data: any) => {
+    return {
+        type: GET_TEACHER_EXPERIENCE,
+        payload: data,
+    };
+}
+export const addTeacherSkill = (data: any) => {
+    return async (dispatch: any) => {
+        try {
+            await API.post(endponts.teahcerSkill, data);
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getTeacherExperienceApiCall = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(endponts.techerExp);
+            console.log('teacher experience: ', res);
+            dispatch(getExperienceList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getTeacherEducationApiCall = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(endponts.teahcerEducation);
+
+            console.log('teacher qualification: ', res);
+            dispatch(getEducationList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getExperienceList = (data: any) => {
     return {
         type: GET_TEACHER_EXPERIENCE,
         payload: data,
@@ -207,4 +249,67 @@ export const getTeacherRecommendationData=(data:any)=>{
         type:GET_TEACHER_RECOMMENDATION,
         payload:data
     }
+}
+export const getEducationList = (data: any) => {
+    return {
+        type: GET_TEACHER_EDUCATION,
+        payload: data,
+    };
+};
+
+export const deleteTeacherEducationApiCall = (id) => {
+    return async (dispatch: any) => {
+        try {
+            console.log('Delete Button pressed');
+            await API.delete(`${endponts.teahcerEducation}/${id}`);
+
+            dispatch(getEducationList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const deleteTeacherExperienceApiCall = (deleteId: number) => {
+    return async (dispatch: any) => {
+        try {
+            console.log('Delete Button pressed');
+            console.log(`${endponts.techerExp}/${deleteId}`);
+            console.log(deleteId);
+
+            const res = await API.delete(`${endponts.techerExp}/${deleteId}`);
+
+            dispatch(getExperienceList(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+export const getTeacherStudentLike=(data:any)=>{
+    return async(dispatch:any)=>{
+        try{
+            const res=await API.post(endponts.teacherStudentLike,data)
+            console.log("in rec"+JSON.stringify(res.data.data))
+            dispatch(getTeacherStudentLikeData(res.data.data));
+        }
+        catch(err){
+            handleError(dispatch, err);
+        }
+    };
+}
+export const getTeacherStudentLikeData=(data:any)=>{
+    return{
+        payload:data,
+        type:GET_TEACHER_STUDENT_LIKE
+    }
+}
+export const postTeacherRecommendation=(data:any)=>{
+    return async(dispatch:any)=>{
+        try{
+            const res=await API.post(endponts.teacherRecommendation,data)
+        }
+        catch(err){
+            handleError(dispatch, err);
+        }
+    };
 }

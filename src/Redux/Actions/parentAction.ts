@@ -6,6 +6,8 @@ import { addParentFormDataType, addparentArray } from '../../Interfaces/parentMo
 import { routeEndpoints } from '../../Utility/routeEndpoints';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
+import { registerDataRes } from './loginAction';
+import { Dispatch } from 'react';
 
 export const getallparentAPIcall = () => {
     return (dispatch: any) => {
@@ -27,16 +29,20 @@ export const parentList = (data: any) => {
     };
 };
 
-export const addNewParentAPIcall = (data: addparentArray, history: any) => {
+export const addNewParentAPIcall = (data: addparentArray, history: any, profileUpload: () => void) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.parent, data)
             .then((res) => {
                 console.log(res);
-                dispatch(getallparentAPIcall());
-                history.push(routeEndpoints.parent.parentList);
+                dispatch(registerDataRes(res.data.data));
                 dispatch(spinner(false));
-                toast.success("Parent Added Successfully.");
+                toast.success('Parent Added Successfully.');
+                profileUpload();
+                dispatch(getallparentAPIcall());
+                setTimeout(() => {
+                    history.push(routeEndpoints.parent.parentList);
+                }, 1000);
             })
             .catch((err) => {
                 console.log(err);
@@ -54,7 +60,7 @@ export const editParentAPIcall = (data: addParentFormDataType, editId: number, h
                 dispatch(getallparentAPIcall());
                 history.push(routeEndpoints.parent.parentList);
                 dispatch(spinner(false));
-                toast.success("Parent updated Successfully.");
+                toast.success('Parent updated Successfully.');
             })
             .catch((err) => {
                 console.log(err);
@@ -63,12 +69,12 @@ export const editParentAPIcall = (data: addParentFormDataType, editId: number, h
     };
 };
 
-export const deleteParentAPIcall = ( deleteId: number) => {
+export const deleteParentAPIcall = (deleteId: number) => {
     return (dispatch: any) => {
         API.delete(`${endponts.parent}/${deleteId}`)
             .then((res) => {
                 dispatch(getallparentAPIcall());
-                toast.success("Parent deleted Successfully.");
+                toast.success('Parent deleted Successfully.');
             })
             .catch((err) => {
                 console.log(err);
@@ -77,12 +83,11 @@ export const deleteParentAPIcall = ( deleteId: number) => {
     };
 };
 
-
-export const getParentDetailsAPIcall = (id:number) => {
+export const getParentDetailsAPIcall = (id: number) => {
     return (dispatch: any) => {
         API.get(`${endponts.parent}/${id}`)
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
                 dispatch(parentDetailAPIres(res.data.data));
             })
             .catch((err) => {
@@ -91,9 +96,27 @@ export const getParentDetailsAPIcall = (id:number) => {
     };
 };
 
-export const parentDetailAPIres = (data:any) => {
+export const parentDetailAPIres = (data: any) => {
     return {
         type: PARENT_DETAILS,
-        payload: data
-    }
-}
+        payload: data,
+    };
+};
+
+export const addChildrenAPIcall = (data: any, token: string) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.parentChildAdd, data, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((res) => {
+                console.log(res);
+                toast.success('Your children information saved successfully.');
+            })
+            .catch((err) => {
+                console.log(err);
+                // handleError(dispatch, err);
+            });
+    };
+};

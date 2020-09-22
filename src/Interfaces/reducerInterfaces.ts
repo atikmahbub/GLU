@@ -12,6 +12,7 @@ export interface rootReducerType {
 
 export interface authReducerType {
     userData: any;
+    registerData: any;
 }
 export interface uiReducerType {
     loader: boolean;
@@ -22,8 +23,8 @@ export interface schoolReducerType {
     sessionList: any;
 }
 export interface studentReducerType {
-    studentData: any,
-    studentDetails: any
+    studentData: any;
+    studentDetails: any;
 }
 export interface teacherReducerType {
     teacherList:any
@@ -33,8 +34,8 @@ export interface teacherReducerType {
     teacherEducation:any
 }
 export interface parentReducerType {
-    parentData: any,
-    parentDetails: any,
+    parentData: any;
+    parentDetails: any;
 }
 export interface classReducerType {
     classList: any;
@@ -42,9 +43,9 @@ export interface classReducerType {
 }
 
 export interface subjectReducerType {
-    subjectList: any
+    subjectList: any;
 }
 
 export interface FileUploadReducerType {
-    fileData: any
+    fileData: any;
 }

@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const ParentsHomePage = lazy(() => import('../../Views/ParentsHomePage/index'));
+const ParentsHomePage = lazy(() => import('../../Views/ParentsHomePage'));
 const ParentsDashboard = lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
 // const LiveClasses = lazy(() => import('../../Views/LiveClasses/Index'));
 // const TutorList = lazy(() => import('../../Views/TutorList/TutorList'));

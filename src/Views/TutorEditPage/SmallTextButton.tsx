@@ -7,16 +7,25 @@ const useStyles = makeStyles({
         color: '#5F5F5F',
         display: 'inline-block',
         fontFamily: 'CircularXXWeb-Book',
+
+        '&:hover': {
+            cursor: 'pointer',
+        },
     },
 });
 
-interface props {
+interface prop {
     text: string;
+    onClick?: () => void;
 }
-const SmallTextButton: React.FC<props> = ({ text }) => {
+const SmallTextButton: React.FC<prop> = ({ text, ...props }) => {
     const classes = useStyles();
 
-    return <div className={classes.btnText}>{text}</div>;
+    return (
+        <div {...props} className={classes.btnText}>
+            {text}
+        </div>
+    );
 };
 
 export default SmallTextButton;

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { makeStyles, Grid } from '@material-ui/core';
 import LeftGrid from './LeftGrid';
 import RightGrid from './RightGrid';
 import PageFooter from '../../components/PageFooter';
+import { connect } from 'react-redux';
+import {
+    getTeacherExperienceApiCall,
+    getTeacherEducationApiCall,
+    getTeacherSkills,
+} from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
     footer: {
@@ -25,7 +31,17 @@ const useStyles = makeStyles({
     },
 });
 
-const TutorEdit = () => {
+const TutorEdit = ({ getTeacherSkills, skillsData, getTeacherExperienceApiCall, getTeacherEducationApiCall }) => {
+    useEffect(() => {
+        getTeacherEducationApiCall();
+    }, []);
+    useEffect(() => {
+        getTeacherSkills();
+    }, []);
+    useEffect(() => {
+        getTeacherExperienceApiCall();
+    }, []);
+
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -35,10 +51,14 @@ const TutorEdit = () => {
     const classes = useStyles();
 
     return (
-        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
-            <Grid container className={classes.mainPadding}>
-                <LeftGrid />
-                <RightGrid />
+        <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
+            <Grid container className={classes.mainPadding} spacing={6}>
+                <Grid item md={6}>
+                    <LeftGrid />
+                </Grid>
+                <Grid item md={6}>
+                    {skillsData && <RightGrid />}
+                </Grid>
             </Grid>
             <div className="commonFooter">
                 <PageFooter />
@@ -47,4 +67,14 @@ const TutorEdit = () => {
     );
 };
 
-export default TutorEdit;
+const mapStateToProps = (state) => {
+    return {
+        skillsData: state.teacherReducer.teacherSkill,
+    };
+};
+
+export default connect(mapStateToProps, {
+    getTeacherSkills,
+    getTeacherEducationApiCall,
+    getTeacherExperienceApiCall,
+})(TutorEdit);

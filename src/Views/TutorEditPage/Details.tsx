@@ -1,12 +1,9 @@
 import React from 'react';
 import { makeStyles, Typography, TextField } from '@material-ui/core';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import LocationSearchingIcon from '@material-ui/icons/LocationSearching';
 import SmallTextButton from './SmallTextButton';
 
 const useStyles = makeStyles({
     details: {
-        width: '55.375rem',
         marginBottom: '5.3125rem',
         fontFamily: 'CircularXXWeb-Book',
     },
@@ -65,12 +62,12 @@ const useStyles = makeStyles({
         marginTop: '2.5625rem',
     },
     preNum: {
-        width: '18.8125rem',
+        width: '30%',
         display: 'inline-block',
-        marginRight: '1.5rem',
+        marginRight: '3%',
     },
     mainNum: {
-        width: '35rem',
+        width: '67%',
         display: 'inline-block',
     },
     selectInputBox: {

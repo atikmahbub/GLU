@@ -33,7 +33,9 @@ const NewSkillContainer: React.FunctionComponent<props> = ({ skillArray }) => {
                                 fullWidth
                                 onChange={(e)=>setQuery(e.target.value)}
                             />
+
                         </div>
+                        
                         <div className="col-md-12">
                             <div className="skill_container">
                                 <div className="row choose_weeks">

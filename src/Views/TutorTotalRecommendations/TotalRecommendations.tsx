@@ -3,7 +3,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import {getTeacherRecommendation} from '../../Redux/Actions/teacherAction';
+import {getTeacherRecommendation,getTeacherStudentLike} from '../../Redux/Actions/teacherAction';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
 import PageFooter from '../../components/PageFooter';
@@ -20,6 +20,7 @@ const TutorClass: React.FunctionComponent = () => {
     useEffect(() => {
         dispatch(getTeacherRecommendation());
     }, [])
+    
     console.log("recommend"+JSON.stringify(teacherRecommend));
     const studentsName = [
         'Toby Frost',
