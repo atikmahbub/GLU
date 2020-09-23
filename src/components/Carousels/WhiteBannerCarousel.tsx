@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import BannerCard from '../Cards/BannerCard';
-import IndividualSubjectBannerCard from '../Cards/IndividualSubjectBannerCard';
+import WhiteBannerCard from '../Cards/WhiteBannerCard';
 
 import { IndividualSubjectWhiteBannerCardElement } from '../Cards/types';
 
@@ -83,7 +83,7 @@ const WhiteBannerCarousel: FC<IWhiteBannerCarousel> = ({ cards }) => {
                 className={classes.sliderRoot}
             >
                 {cards.map((card, index) => (
-                    <IndividualSubjectBannerCard {...card} key={index} />
+                    <WhiteBannerCard {...card} key={index} />
                 ))}
             </Slider>
         </Grid>

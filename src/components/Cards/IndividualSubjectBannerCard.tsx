@@ -3,65 +3,56 @@ import Div100vh from 'react-div-100vh';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { FavoriteBorder } from '@material-ui/icons';
+import { BannerCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
-        // background: ({ img }: any) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center / cover`,
-        backgroundColor: "white",
+        background: ({ img }: any) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center / cover`,
         padding: '0 3.125rem',
-        color: 'black',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        color: '#fff',
     },
-    heading:{
-        margin: 0,
-        padding: 0,
-        fontSize: '7.5rem',
-        // lineheight: '7.5rem',
-        fontStyle: 'CircularXXTrial',
-        opacity: 1,
-        fontWeight: 500,
+    content: {
+        paddingBottom: '12.5rem',
     },
-    favoriteBox: {
-        // marginLeft: "7px",
-        width: '100px',
-        color: '#5F5F5F',
+    title: {
+        fontSize: '5rem',
+        lineHeight: '5rem',
     },
-    favoriteText: {
-        fontSize: '1.25rem',
-    },
-
+    time: {
+        fontSize: '1.5625rem',
+        lineHeight: '2.75rem',
+        textIndent: '0.3125rem'
+    }
 });
 
-export interface IWhiteBannerCarousal {
-    text: string;
-}
+interface IBannerCard extends BannerCardElement {}
 
-const IndividualSubjectBannerCard: FC<IWhiteBannerCarousal> = ({ text }) => {
-    const classes = useStyles({ text });
+const BannerCard: FC<IBannerCard> = ({ img, name, subject, time, description }) => {
+    const classes = useStyles({ img });
     return (
         <Grid container direction="column" justify="flex-end" component={Div100vh} className={classes.root}>
-                    <Typography className={classes.heading}>
-                         {text}
+            <Grid container justify="flex-end">
+                <Grid item xs={6}>
+                    <Typography className={classes.time}>{time}</Typography>
+                </Grid>
+            </Grid>
+            <Grid container className={classes.content}>
+                <Grid container direction="column" item xs={6}>
+                    <Typography variant="h2" className={classes.title}>
+                        {name}
                     </Typography>
-                    <Typography className={classes.heading}> 
+                </Grid>
+                <Grid container direction="column" item xs={6}>
+                    <Typography variant="h2" className={classes.title}>
+                        {subject}
                     </Typography>
-
-                    <Typography className={classes.heading}>
-                          We have 71 Tutors
+                    <Typography variant="h2" className={classes.title}>
+                        {description}
                     </Typography>
-
-                    <Typography className={classes.heading}>
-                         and 308 Classes
-                    </Typography>
-                    <Grid container className={classes.favoriteBox}>
-                        <FavoriteBorder />
-                        <Typography style={{ marginLeft: '7px' }} className={classes.favoriteText}>Favorite</Typography>
-                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     );
 };
 
-export default memo(IndividualSubjectBannerCard);
+export default memo(BannerCard);
