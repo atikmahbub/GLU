@@ -110,7 +110,7 @@ const Skills = ({ skills, addTeacherSkill }) => {
                 </form>
             </div>
             <div className={classes.chipContainer}>
-                {skills && skills.map((item) => <SkillChip skill={item.skillName} key={item.id} />)}
+                {skills && skills.map((item) => <SkillChip skill={item.skillName} key={item.id} id = {item.id} />)}
             </div>
         </div>
     );
