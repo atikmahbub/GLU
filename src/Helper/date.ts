@@ -1,14 +1,14 @@
-import parse from 'date-fns/parse'
-import format from 'date-fns/format'
+import parse from 'date-fns/parse';
+import format from 'date-fns/format';
 
 export function parseTime(time: string): string {
-    return format(parse(time.substr(0, 8), 'HH:mm:ss', new Date()), 'h:mma')
+    return format(parse(time.substr(0, 8), 'HH:mm:ss', new Date()), 'h:mma')l
 }
 
 export function getCurrentMonth(): string {
-    return format(new Date(), 'MMMM')
+    return format(new Date(), 'MMMM');
 }
 
 export function getCurrentYear(): string {
-    return format(new Date(), 'yyyy')
+    return format(new Date(), 'yyyy');
 }

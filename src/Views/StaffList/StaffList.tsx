@@ -59,24 +59,22 @@ const StaffList: React.FunctionComponent = () => {
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Student ID',
-                                    field: 'studentId',
+                                    title: 'Staff ID',
+                                    field: 'staffid',
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Year Group',
-                                    field: 'yearGroup',
+                                    title: 'Department',
+                                    field: 'department',
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Form Group',
-                                    field: 'formGroup',
+                                    title: 'Designation',
+                                    field: 'designation',
                                 },
 
                                 {
                                     width: '23%',
-                                    title: 'Action',
-                                    field: 'action',
                                     render: (rowData: any) => (
                                         <ActionToolbar
                                             showDetail={true}
@@ -91,37 +89,37 @@ const StaffList: React.FunctionComponent = () => {
                                 {
                                     name: 'Jenny Smith',
                                     profile: commonImg.photo,
-                                    studentId: 'XC9382',
-                                    yearGroup: '1',
-                                    formGroup: 'A',
+                                    staffid: 'XC9382',
+                                    department: 'Science',
+                                    designation: 'Senior',
                                 },
                                 {
                                     name: 'Jenny Smith',
                                     profile: commonImg.photo,
-                                    studentId: 'XC9382',
-                                    yearGroup: '1',
-                                    formGroup: 'A',
+                                    staffid: 'XC9382',
+                                    department: 'Science',
+                                    designation: 'Senior',
                                 },
                                 {
                                     name: 'Jenny Smith',
                                     profile: commonImg.photo,
-                                    studentId: 'XC9382',
-                                    yearGroup: '1',
-                                    formGroup: 'A',
+                                    staffid: 'XC9382',
+                                    department: 'Science',
+                                    designation: 'Senior',
                                 },
                                 {
                                     name: 'Jenny Smith',
                                     profile: commonImg.photo,
-                                    studentId: 'XC9382',
-                                    yearGroup: '1',
-                                    formGroup: 'A',
+                                    staffid: 'XC9382',
+                                    department: 'Science',
+                                    designation: 'Senior',
                                 },
                                 {
                                     name: 'Jenny Smith',
                                     profile: commonImg.photo,
-                                    studentId: 'XC9382',
-                                    yearGroup: '1',
-                                    formGroup: 'A',
+                                    staffid: 'XC9382',
+                                    department: 'Science',
+                                    designation: 'Senior',
                                 },
                             ]}
                         />

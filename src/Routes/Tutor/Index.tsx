@@ -21,6 +21,10 @@ const TutorExtraCurr = React.lazy(() => import('../../Views/TutorExtraCurr/Index
 const TutorCalender = React.lazy(() => import('../../Views/TutorCalender/index'));
 const StudentHomework = React.lazy(() => import('../../Views/StudentHomework/StudentHomework'));
 const TutorSchoolInfo = React.lazy(() => import('../../Views/TutorSchoolInfo/SchoolInfo'));
+const TutorEduEditForm = React.lazy(() => import('../../Views/TutorEdExpEditForm/EditFormEdu'));
+const TutorExpEditForm = React.lazy(() => import('../../Views/TutorEdExpEditForm/EditFormExp'));
+const TutorAddExpForm = React.lazy(() => import('../../Views/TutorEdExpEditForm/AddFormExp'));
+const TutorAddEduForm = React.lazy(() => import('../../Views/TutorEdExpEditForm/AddFormEdu'));
 
 // const TutorAvailablity= React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 const TutorExams = React.lazy(() => import('../../Views/TutorExams/TutorExams'));
@@ -64,6 +68,10 @@ export const tutorRoutes = [
     createRouteObj('/tutor/my-classes', TutorMyClasses),
     createRouteObj('/tutor/homework', TutorHomework),
     createRouteObj('/tutor/tutor-edit', TutorEdit),
+    createRouteObj('/tutor/tutor-edit/education-edit-form/:id', TutorEduEditForm),
+    createRouteObj('/tutor/tutor-edit/experience-edit-form/:id', TutorExpEditForm),
+    createRouteObj('/tutor/tutor-edit/add-experience', TutorAddExpForm),
+    createRouteObj('/tutor/tutor-edit/add-education', TutorAddEduForm),
     createRouteObj('/tutor/tutor-upcoming-classes', TutorUpcomingClasses),
     createRouteObj('/tutor/extra-curriculam', TutorExtraCurr),
     createRouteObj('/tutor/tutor-calender', TutorCalender),

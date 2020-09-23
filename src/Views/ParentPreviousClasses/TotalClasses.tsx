@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ImageThumbnail from '../../components/ImageThumbnail';
 import commonImg from '../../Assets/images';
 import { v4 as uuidv4 } from 'uuid';
+import Drawer from './Drawer';
+import SlidingDrawerContent from './SlidingDrawerContent';
 
 const TotalClasses = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
+
     const imageMetaDeta = [
         {
             title: (
@@ -179,15 +183,25 @@ const TotalClasses = () => {
             img: commonImg.typinggirl,
         },
     ];
+    const handleDrawer = () => {
+        setOpenDrawer(!openDrawer);
+    };
     return (
         <div className="total__classes">
             <div  className="row">
                 {imageMetaDeta.map((item: any) => (
-                    <div key={uuidv4()} className="col-md-3 mb-5">
+                    <div key={uuidv4()} className="col-md-3 mb-5" onClick={handleDrawer} style={{ cursor: "pointer" }}>
                         <ImageThumbnail image={item.img} title={item.title} subtitle={item.subtitle} />
                     </div>
                 ))}
             </div>
+            <Drawer
+                open={openDrawer}
+                onClose={handleDrawer}
+                width="68.875rem"
+                heading={true}>
+                <SlidingDrawerContent />
+            </Drawer>
         </div>
     );
 };

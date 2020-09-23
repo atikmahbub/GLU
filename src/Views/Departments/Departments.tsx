@@ -5,18 +5,17 @@ import CardTable from '../../components/Table/CardTable';
 import AddButton from '../../components/Dashobard/AddButton';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteDepartmentAPIcall } from '../../Redux/Actions/schoolAction';
 import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 
 interface props {
-    editDepartment: Function;
+    departmentList?: any;
 }
-const Departments: React.FunctionComponent<props> = ({ editDepartment }) => {
+const Departments: React.FunctionComponent<props> = ({ departmentList }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
-    const [departments, setDepartments] = useState([]);
-    const departmentList = useSelector((state: any) => state.schoolReducer.departmentList);
+
     const redirectDetails = () => {
         routes.push('/dashboard/department-details');
     };
@@ -24,22 +23,16 @@ const Departments: React.FunctionComponent<props> = ({ editDepartment }) => {
         dispatch(deleteDepartmentAPIcall(id));
     };
     const handleEdit = (data: any) => {
-        editDepartment(data);
+        routes.push({
+            pathname: '/dashboard/department/add-new-department',
+            state: {
+                data: data,
+            },
+        });
     };
     const handleRoute = () => {
-        routes.push('/dashboard/department/add-new-department')
-    }
-    useEffect(() => {
-        if (departmentList) {
-            const data = departmentList.map((item: any) => {
-                return {
-                    id: item.id,
-                    name: item.name,
-                };
-            });
-            setDepartments(data);
-        }
-    }, [departmentList]);
+        routes.push('/dashboard/department/add-new-department');
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -90,48 +83,12 @@ const Departments: React.FunctionComponent<props> = ({ editDepartment }) => {
                                         showDetail={true}
                                         detailClick={() => redirectDetails()}
                                         // deleteClick={() => handleDelete(rowData.id)}
-                                        // editClick={() => handleEdit(rowData)}
+                                        editClick={() => handleEdit(rowData)}
                                     />
                                 ),
                             },
                         ]}
-                        rowData={[
-                            {
-                                students: '122',
-                                teachers: 20,
-                                teacher: 'Mr.Shehan Abeysinghe',
-                                department: 'Mathematics',
-                                hod: 'Mr.Shehan Abeysinghe',
-                            },
-                            {
-                                students: '122',
-                                teachers: 10,
-                                teacher: 'Mrs. Angelina Jolie',
-                                department: 'Business Studies',
-                                hod: 'Mrs. Angelina Jolie',
-                            },
-                            {
-                                students: '122',
-                                teachers: 2,
-                                teacher: 'Mr. Robert Stark',
-                                department: 'Science',
-                                hod: 'Mr. Robert Stark',
-                            },
-                            {
-                                students: '122',
-                                teachers: 10,
-                                teacher: 'Mrs. Alexandra Smith',
-                                department: 'Mathematics',
-                                hod: 'Mrs. Alexandra Smith',
-                            },
-                            {
-                                students: '122',
-                                teachers: 11,
-                                teacher: 'Mr.Shehan Abeysinghe',
-                                department: 'Mathematics',
-                                hod: 'Mr.Shehan Abeysinghe',
-                            },
-                        ]}
+                        rowData={departmentList}
                     />
                 </BorderTableContainer>
             </CardContainer>

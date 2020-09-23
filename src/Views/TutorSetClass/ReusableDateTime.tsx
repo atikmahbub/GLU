@@ -26,7 +26,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
             <div className="reusableDateandTime col-md-12">
                 <div className="row">
                     <div className="col-md-4 p-0">
-                        <TextField className="line-input-large" label="Date" fullWidth value="9:25AM" />
+                        <TextField className="line-input-large" label="Date" fullWidth />
                     </div>
                     <div className="col-md-7 p-0">
                         <div className="sub_rows">
@@ -36,7 +36,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
                                         label="Start Time"
                                         value="9.25am"
                                         className="select-large"
-                                        options={['9.25am']}
+                                        options={['9.25am','9:30am']}
                                         getValue={() => {}}
                                     />
                                 </div>
@@ -45,7 +45,7 @@ const ReusableDateTime: React.FunctionComponent = () => {
                                         label="End Time"
                                         value="9.25am"
                                         className="select-large"
-                                        options={['9.25am']}
+                                        options={['9.25am','10.25am']}
                                         getValue={() => {}}
                                     />
                                 </div>

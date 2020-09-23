@@ -14,7 +14,7 @@ const SaveController: React.FunctionComponent<props> = ({ handleNext, activeCom,
             <div className="row">
                 <div className="col-6">
                     <Typography className="help-support">
-                        Read our <Link to=""> Help Guide </Link> for support
+                        Read our <Link to="/support"> Help Guide </Link> for support
                     </Typography>
                 </div>
                 <div className="col-6">

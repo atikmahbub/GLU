@@ -11,7 +11,7 @@ export const endponts = {
     section: 'section/',
     invitation: 'auth/invite',
     authRegister: 'auth/register',
-    departments: 'schools/departments',
+    departments: 'school/department',
     sessions: 'session',
     subject: 'schools/subjects',
     timeTable: 'schools/routines',
@@ -31,7 +31,13 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
-    getUserProfile: 'user/profile'
+    getUserProfile: 'user/profile',
+    teacherEdu:'teacher/qualification',
+    teacherHomework:'teacher/homework',
+    teacherHomeworkCount:'teacher/homework/count',
+    teacherRecommendation:'teacher/recommend',
+    teacherStudentLike:'teacher/student/like',
+    searchStudent: 'school/student/like'
 };
 
 export const studentsEndpoints = {

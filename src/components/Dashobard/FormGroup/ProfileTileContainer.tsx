@@ -36,7 +36,7 @@ const ProfileTileContainer: React.FunctionComponent<props> = ({ data }) => {
         <Grid container alignItems="center" justify="flex-start" className={classes.root}>
             {data.map((item: any, i:number) => (
                 <Grid key={i} container alignItems="center" justify="flex-start" className={classes.parent}>
-                    <img className={classes.image} src={item.photo} alt="" />
+                    <img className={classes.image} src={item.profile} alt="" />
                     <Typography className={classes.title}>{item.name}</Typography>
                 </Grid>
             ))}

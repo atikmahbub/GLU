@@ -83,8 +83,7 @@ const Skills = ({ skills, addTeacherSkill }) => {
         e.preventDefault();
         const formatData = [{ skillName: newSkill }];
         await addTeacherSkill(formatData);
-        // forceUpdate();
-        window.location.reload();
+        setNewSkill('');
     };
     const [newSkill, setNewSkill] = useState(null);
     const handleSkill = (e: any) => {

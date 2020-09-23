@@ -101,7 +101,7 @@ const ChatPage: FC = () => {
         <Container className={classes.body}>
             <Grid container className={classes.contentContainer}>
                 <Grid item xs={6} className={classes.userContainer}>
-                    <Typography className={classes.userName}>Matt Goss </Typography> 
+                    <Typography className={classes.userName}>Ryan Goss </Typography> 
                     <Grid className={classes.messageBox}>
                         <MessageSent/>
                         <MessageReceived/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import commonImg from '../../Assets/images';
 import { Typography } from '@material-ui/core';
 import IconTextRow from '../../components/IconTextRow';
@@ -6,8 +6,30 @@ import { FavoriteBorder } from '@material-ui/icons';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import './style.scss';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import { Link } from 'react-router-dom';
+
+const useStyles = makeStyles({
+    messageContainer:{
+        maxWidth: "48.062rem",
+        marginLeft:0,
+        paddingLeft: 0,
+        marginTop: "30px",
+    },
+    message:{
+        color: "black",
+        fontSize: "1.562rem",
+        lineHeight: "1.875rem",
+    },
+    messageTime:{
+        color: "#5F5F5F",
+        fontSize: "1.125rem",
+        lineHeight: '1.562rem',
+    }
+})
 
 const SlidingDrawerContent: React.FunctionComponent = () => {
+    const [purchaseClicked, setPurchaseClicked] = useState(false)
     return (
         <div className="drawer__content">
             <div className="row">
@@ -19,7 +41,7 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                 <Typography className="title">Introducing advanced long devision</Typography>
                 <div className="icon__text__container">
                     <div className="favorite">
-                        <IconTextRow  icon={<FavoriteBorder className="icon" />} title="Favorite" />
+                        <IconTextRow icon={<FavoriteBorder className="icon" />} title="Favorite" />
                     </div>
                     <div className="available__slots">
                         <IconTextRow icon={<PermIdentityIcon className="icon" />} title="6 Available slots" />
@@ -27,30 +49,52 @@ const SlidingDrawerContent: React.FunctionComponent = () => {
                 </div>
                 <div className="time__teacher__container">
                     <Typography className="heading">
-                    19/07/20 <br/> 45mins
+                        19/07/20 <br /> 45mins
                     </Typography>
                     <Typography className="heading">
                         Maths <br />Frankie Smith
                     </Typography>
                 </div>
+                {
+                    purchaseClicked
+                        ?
+                        <div className="child__purchase__item" >
+                            <div className="child__purchase" style={{border:'2px solid #2267FF'}}>
+                                <div className="child">
+                                    <Typography className="subtitle" style={{color: "#2267FF"}} >Child 1</Typography>
+                                    <Typography variant="h5">
+                                        <ExpandMoreIcon
+                                            style={{ fontSize: "3rem", color: "#2267FF"}} />
+                                    </Typography>
+                                </div>
+                                <div className="purchase" style={{borderLeft:'2px solid #2267FF'}} ><Typography className="subtitle" style={{color: "#2267FF"}}><Link to="wallet" style={{textDecoration: "none"}}>Confirm</Link></Typography></div>
 
-                <div className="child__purchase__item">
-                    <div className="child__purchase">
-                        <div className="child">
-                            <Typography className="subtitle">Child 1</Typography>
-                            <Typography variant="h5">
-                                <ExpandMoreIcon 
-                                    style={{fontSize:"3rem"}} />
-                            </Typography>
+                            </div>
+
+                            <div className="item">
+                                <Typography className="subtitle" style={{color: "#2267FF"}} >AED100</Typography>
+                            </div>
                         </div>
-                        <div className="purchase"><Typography className="subtitle">Purchase</Typography></div>
+                        :
 
-                    </div>
+                        <div className="child__purchase__item">
+                            <div className="child__purchase">
+                                <div className="child">
+                                    <Typography className="subtitle">Child 1</Typography>
+                                    <Typography variant="h5">
+                                        <ExpandMoreIcon
+                                            style={{ fontSize: "3rem" }} />
+                                    </Typography>
+                                </div>
+                                <div className="purchase" style={{cursor: "pointer"}}><Typography className="subtitle"  onClick={() => setPurchaseClicked(true)}>Purchase</Typography></div>
 
-                    <div className="item">
-                        <Typography className="subtitle">AED100</Typography>
-                    </div>
-                </div>
+                            </div>
+
+                            <div className="item">
+                                <Typography className="subtitle">AED100</Typography>
+                            </div>
+                        </div>
+                }
 
                 <div className="description__container">
                     <Typography className="title">
