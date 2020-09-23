@@ -16,13 +16,13 @@ const useStyles = makeStyles({
     title: {
         fontSize: '1.5625rem',
         lineHeight: '1.875rem',
-        marginBottom: '0.5rem',
+        marginBottom: ({ titleMarginBottomVariant }: any) => (titleMarginBottomVariant === 1 ? '0.5rem' : '1rem'),
         whiteSpace: 'pre-wrap',
         width: 'fit-content',
         color: '#000',
         '&:hover': {
-            color: '#000'
-        }
+            color: '#000',
+        },
     },
     titleBig: {
         fontSize: '2.625rem',
@@ -32,6 +32,11 @@ const useStyles = makeStyles({
         fontSize: '1.125rem',
         lineHeight: '1.5625rem',
         color: '#5F5F5F',
+    },
+    subTitleSecondary: {
+        fontSize: '1.5625rem',
+        lineHeight: '1.875rem',
+        color: '#000',
     },
     dateTime: {
         marginBottom: '1.5625rem',
@@ -49,6 +54,8 @@ export interface IImageCard extends ImageCardElement {
     imgAspectRatio?: string;
     rootClassName?: string;
     titleLinkTo?: string;
+    subTitleVariant?: 1 | 2;
+    titleMarginBottomVariant?: 1 | 2;
 }
 
 const ImageCard: FC<IImageCard> = ({
@@ -62,8 +69,10 @@ const ImageCard: FC<IImageCard> = ({
     rating,
     titleLinkTo,
     rootClassName,
+    subTitleVariant,
+    titleMarginBottomVariant,
 }) => {
-    const classes = useStyles({ imgAspectRatio });
+    const classes = useStyles({ imgAspectRatio, titleMarginBottomVariant });
     return (
         <Grid container direction="column" className={rootClassName}>
             <AspectRatioImgCard img={img} ratio={imgAspectRatio} rootClassName={classes.imgContainer} />
@@ -82,12 +91,21 @@ const ImageCard: FC<IImageCard> = ({
             >
                 {title}
             </Typography>
-            <Typography className={classes.subTitle}>
+            <Typography
+                className={classNames(classes.subTitle, {
+                    [classes.subTitleSecondary]: subTitleVariant === 2,
+                })}
+            >
                 {rating && <RatingCard rating={rating} />}
                 {subTitle}
             </Typography>
         </Grid>
     );
+};
+
+ImageCard.defaultProps = {
+    subTitleVariant: 1,
+    titleMarginBottomVariant: 1,
 };
 
 export default memo(ImageCard);

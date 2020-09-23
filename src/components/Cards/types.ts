@@ -33,10 +33,13 @@ export interface NextClassCardElement extends DateSubjectCardElement {
 }
 
 export interface FeaturedCardElement {
+    title?: string;
     imgBig: string;
     imgBigTitle: string;
+    imgBigSubtitle?: string;
     imgSmall: string;
     imgSmallTitle: string;
+    imgSmallSubtitle?: string;
 }
 
 export interface UpcomingClassCardElement extends DateSubjectCardElement {

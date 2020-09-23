@@ -10,7 +10,7 @@ import { ImageCardElement } from '../components/Cards/types';
 
 const useStyles = makeStyles({
     root: {
-        marginBottom: '8.125rem',
+        marginBottom: ({ marginBottom }: any) => marginBottom ? '8.125rem' : 0,
         padding: ({ padding }: any) => (padding ? '0 3.125rem' : 0),
     },
     titleContainer: {
@@ -37,6 +37,7 @@ interface IBottomRecommendedContainer {
     link: string;
     cardTitleLink?: string;
     rootClassName?: string;
+    marginBottom?: boolean;
 }
 
 const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
@@ -47,8 +48,9 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
     link,
     cardTitleLink,
     rootClassName,
+    marginBottom
 }) => {
-    const classes = useStyles({ padding, titleBold });
+    const classes = useStyles({ padding, titleBold, marginBottom });
     return (
         <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <Grid container justify="space-between" className={classes.titleContainer}>
@@ -71,6 +73,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
 
 RecommendedContainer.defaultProps = {
     data: [],
+    marginBottom: true
 };
 
 export default memo(RecommendedContainer);
