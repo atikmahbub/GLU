@@ -11,7 +11,11 @@ import {
     GET_TEACHER_STUDENT_LIKE,
     DELETE_EDUCATION,
     DELETE_EXPERIENCE,
+
     ADD_TEACHER_SKILL,
+    POST_TEACHER_RECOMMENDATION,
+    GET_TEACHER_RECOMMENDATION_COUNT,
+    POST_TEACHER_HOMEWORK
 } from '../ActionTypes/teacherTypes';
 const initialState = {
     teacherList: null,
@@ -23,6 +27,9 @@ const initialState = {
     teacherHomeworkCount: null,
     teacherRecommendations: null,
     teacherStudentLike: null,
+    teacherPostRecommendation:null,
+    teacherRecommendationCount:null,
+    teacherCreateHomework:null,
 };
 export const teacherReducer = (state = initialState, action: any) => {
     const newState = { ...state };
@@ -92,7 +99,18 @@ export const teacherReducer = (state = initialState, action: any) => {
                 teacherSkill: [...state.teacherSkill, action.payload],
             };
         }
-
+        case POST_TEACHER_RECOMMENDATION:{
+            newState.teacherPostRecommendation=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_RECOMMENDATION_COUNT:{
+            newState.teacherRecommendationCount=action.payload;
+            return newState;
+        }
+        case POST_TEACHER_HOMEWORK:{
+            newState.teacherCreateHomework=action.payload;
+            return newState;
+        }
         default: {
             return newState;
         }

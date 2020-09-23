@@ -15,6 +15,9 @@ import {
     GET_TEACHER_HOMEWORK_COUNT,
     GET_TEACHER_RECOMMENDATION,
     GET_TEACHER_STUDENT_LIKE,
+    POST_TEACHER_RECOMMENDATION,
+    GET_TEACHER_RECOMMENDATION_COUNT,
+    POST_TEACHER_HOMEWORK
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
@@ -404,8 +407,47 @@ export const postTeacherRecommendation = (data: any) => {
     return async (dispatch: any) => {
         try {
             const res = await API.post(endponts.teacherRecommendation, data);
+            dispatch(postTeacherRecommendationData(res.data));
         } catch (err) {
             handleError(dispatch, err);
         }
     };
 };
+export const postTeacherRecommendationData=(data:any)=>{
+    return {
+        type:POST_TEACHER_RECOMMENDATION,
+        payload:data
+    }
+}
+export const getTeacherRecommendationCount=()=>{
+    return async(dispatch:any)=>{
+        try{
+            const res=await API.get(endponts.teacherRecommendationCount);
+            dispatch(getTeacherRecommendationCountData(res.data));
+        }
+        catch(err){
+            handleError(dispatch,err);
+        }
+    }
+}
+export const getTeacherRecommendationCountData=(data:any)=>{
+    return{
+        type:GET_TEACHER_RECOMMENDATION_COUNT,
+        payload:data
+    }
+}
+export const postTeacherHomework=(data:any)=>{
+    return (dispatch:any)=>{
+        API.post(endponts.teacherHomework,data).then((res)=>{
+            dispatch(postTeacherHomeworkData(res.data));
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}
+export const postTeacherHomeworkData=(data:any)=>{
+    return{
+        type:POST_TEACHER_HOMEWORK,
+        payload:data
+    }
+}

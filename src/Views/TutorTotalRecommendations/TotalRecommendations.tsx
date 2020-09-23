@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
+import { Typography} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import {getTeacherRecommendation,getTeacherStudentLike} from '../../Redux/Actions/teacherAction';
+import {getTeacherRecommendation,getTeacherRecommendationCount} from '../../Redux/Actions/teacherAction';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
 import PageFooter from '../../components/PageFooter';
-import MadeBy from '../Footer/MadeBy';
 const TutorClass: React.FunctionComponent = () => {
     const dispatch=useDispatch();
     const teacherRecommend=useSelector((state:rootReducerType)=>state.teacherReducer.teacherRecommendations);
+    const teacherRecommendCount=useSelector((state:rootReducerType)=>state.teacherReducer.teacherRecommendationCount);
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -20,71 +20,9 @@ const TutorClass: React.FunctionComponent = () => {
     useEffect(() => {
         dispatch(getTeacherRecommendation());
     }, [])
-    
-    console.log("recommend"+JSON.stringify(teacherRecommend));
-    const studentsName = [
-        'Toby Frost',
-        'Lugain Rfidah',
-        'Jack Marshall',
-        'Mia Adams',
-        'Jen Holden',
-        'Arthor Smith',
-        'Rohan Rai',
-        'Joshua Lee',
-    ];
-    const studentsAccepted = [
-        {
-            subject: 'English',
-            desc: 'How to structure narrative in fiction',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        },
-        {
-            subject: 'Biology',
-            desc: 'How chlorophyll absorbs light',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        },
-        {
-            subject: 'French',
-            desc:'French Understanding feminine nouns',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        }
-    ];
-    const studentsSubmitted = [
-        {
-            subject: 'English',
-            desc: 'How to structure narrative in fiction',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        },
-        {
-            subject: 'Biology',
-            desc: 'How chlorophyll absorbs light',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        },
-        {
-            subject: 'French',
-            desc:'French Understanding feminine nouns',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        }
-    ];
-    
+    useEffect(() => {
+        dispatch(getTeacherRecommendationCount());
+    }, [])
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
             <div className="tutor_total_recommend">
@@ -103,7 +41,7 @@ const TutorClass: React.FunctionComponent = () => {
                                 <div className="number_container">
                                     <div className="suggested_number_container">
                                         <div className="suggested_number">
-                                            <Typography className="total_recommend_text">40</Typography>
+                                            <Typography className="total_recommend_text">{teacherRecommendCount&&teacherRecommendCount.data.suggest}</Typography>
                                         </div>
                                         <div className="suggest_text">
                                             <Typography className="total_recommend_smalltext">Suggested</Typography>
@@ -111,7 +49,7 @@ const TutorClass: React.FunctionComponent = () => {
                                     </div>
                                     <div className="accepted_number_container">
                                         <div className="accepted_number">
-                                            <Typography className="total_recommend_text">17</Typography>
+                                            <Typography className="total_recommend_text">{teacherRecommendCount&&teacherRecommendCount.data.accepted}</Typography>
                                         </div>
                                         <div className="accepted_text">
                                             <Typography className="total_recommend_smalltext">Accepted</Typography>

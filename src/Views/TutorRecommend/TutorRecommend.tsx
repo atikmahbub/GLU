@@ -2,15 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, TextField } from '@material-ui/core';
 import ReusableBanner from '../../components/ReusableBanner';
-import NewSkillContainer from '../TutorSetClass/NewSkillContainer';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
-import AddCancelButton from '../TutorAvailablity/AddCancelButton';
 import PageFooter from '../../components/PageFooter';
 import { useDispatch, useSelector } from 'react-redux';
-import MadeBy from '../Footer/MadeBy';
 import { getTeacherStudentLike ,postTeacherRecommendation} from '../../Redux/Actions/teacherAction';
-import CompNcomp from '../../components/Dashobard/CompNcomp';
-import StudentsDashboard from '../StudentsModule/Dashboard';
+// import CompNcomp from '../../components/Dashobard/CompNcomp';
+// import StudentsDashboard from '../StudentsModule/Dashboard';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 const TutorRecommend: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const menu = [
@@ -32,7 +30,8 @@ const TutorRecommend: React.FunctionComponent = () => {
         dispatch(getTeacherStudentLike(query));
     }, [query]);
 
-    const teacherStudentLike = useSelector((state) => state.teacherReducer.teacherStudentLike);
+    const teacherStudentLike = useSelector((state:rootReducerType) => state.teacherReducer.teacherStudentLike);
+    const teacherPostRecommendation=useSelector((state:rootReducerType)=>state.teacherReducer.teacherPostRecommendation);
     const [todo, setTodo] = useState([]);
     const inputRef = useRef(null);
     const handleSubmit = (e: any) => {
@@ -190,9 +189,9 @@ const TutorRecommend: React.FunctionComponent = () => {
                                     <div className="recommendCancel_container">
                                         <>
                                             <div className="reusable_addCancel_subcontainer">
-                                                <div className="add_button" style={{cursor:'pointer'}} onClick={() => finalSubmit()}>
-                                                    <Typography className="addCanceltext">Add</Typography>
-                                                </div>
+                                                <button disabled={teacherPostRecommendation&&teacherPostRecommendation.success} className="add_button btn"   onClick={() => finalSubmit()}>
+                                                    <Typography  className="addCanceltext">Add</Typography>
+                                                </button>
                                                 <div className="cancel_button">
                                                     <Typography className="addCanceltext">Cancel</Typography>
                                                 </div>
