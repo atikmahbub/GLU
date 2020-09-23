@@ -5,6 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
+        height: 'fit-content',
         position: 'relative',
         paddingTop: ({ ratio }: any) => ratio,
     },

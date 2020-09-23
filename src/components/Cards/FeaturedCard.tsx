@@ -2,7 +2,6 @@ import React, { ReactNode, FC, memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import SeeAll from '../Typographies/SeeAll';
 import CardsGrid from '../../Containers/CardsGrid';
 
 const useStyles = makeStyles({
@@ -21,17 +20,15 @@ const useStyles = makeStyles({
 
 interface IFeaturedCard {
     title: string;
-    link: string;
     children: ReactNode;
 }
 
-const FeaturedCard: FC<IFeaturedCard> = ({ title, link, children }) => {
+const FeaturedCard: FC<IFeaturedCard> = ({ title, children }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column" className={classes.root}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <Typography className={classes.title}>{title}</Typography>
-                {/* <SeeAll to={link} /> */}
             </Grid>
             <CardsGrid rows={2}>
                 {children}

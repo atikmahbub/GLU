@@ -9,7 +9,6 @@ const TutorSetHomework = React.lazy(() => import('../../Views/TutorSetHomework/S
 const PersonalSchoolToggle = React.lazy(() => import('../../Views/PersonalSchoolMain/PersonalSchoolToggle'));
 const UpcomingClasses = React.lazy(() => import('../../Views/UpcomingClasses/Index'));
 const SchoolTimetable = React.lazy(() => import('../../Views/SchoolTimeTable/SchoolTimeTable'));
-
 const TutorAvailablity = React.lazy(() => import('../../Views/TutorAvailablity/TutorAvailablity'));
 
 // Added by Vivek
@@ -43,7 +42,6 @@ const TutorTotalRecommendations = React.lazy(
 );
 const TutorMyClasses = React.lazy(() => import('../../Views/TutorClasses/TutorMyclass'));
 const TutorHomework = React.lazy(() => import('../../Views/TutorHomework/TutorHomework'));
-
 export const tutorRoutes = [
     createRouteObj('/tutor/', PersonalSchoolToggle),
     createRouteObj('/tutor/profile', TutorProfile),

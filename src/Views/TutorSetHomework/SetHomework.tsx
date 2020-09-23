@@ -7,9 +7,7 @@ import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import { getTeacherStudentLike,postTeacherHomework} from '../../Redux/Actions/teacherAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import PageFooter from '../../components/PageFooter';
-
-
-const TutorRecord: React.FunctionComponent = () => {
+const TutorSetHomework: React.FunctionComponent = () => {
     const menu = [
         { link: '/tutor', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -88,7 +86,6 @@ const TutorRecord: React.FunctionComponent = () => {
                                                 fullWidth
                                                 value={homework.endTime}
                                                 onChange={(e)=>setHomework({...homework,endTime:e.target.value})}
-                                                // value="9:25AM"
                                             />
                                         </div>
                                     </div>
@@ -148,12 +145,12 @@ const TutorRecord: React.FunctionComponent = () => {
                                             </div>
                                             <div className="upload_component">
                                                 <div className="upload_button">
-                                                    <Typography className="text">Upload</Typography>
+                                                   <Typography className="text">Upload</Typography>
                                                 </div>
                                                 <div>
                                                     <Typography className="subtext">Max size (500mb)</Typography>
                                                 </div>
-                                                <input type="file" style={{ display: 'none' }} />
+                                                <input id="upload-button" type="file" style={{ display: 'none' }} />
                                             </div>
                                             <div className="col-12 p-0 horizontalline"></div>
                                         </div>
@@ -268,4 +265,4 @@ const TutorRecord: React.FunctionComponent = () => {
     );
 };
 
-export default TutorRecord;
+export default TutorSetHomework;

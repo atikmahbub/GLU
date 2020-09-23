@@ -15,7 +15,8 @@ import {
     ADD_TEACHER_SKILL,
     POST_TEACHER_RECOMMENDATION,
     GET_TEACHER_RECOMMENDATION_COUNT,
-    POST_TEACHER_HOMEWORK
+    POST_TEACHER_HOMEWORK,
+    DELETE_SKILL,
 } from '../ActionTypes/teacherTypes';
 const initialState = {
     teacherList: null,
@@ -111,6 +112,15 @@ export const teacherReducer = (state = initialState, action: any) => {
             newState.teacherCreateHomework=action.payload;
             return newState;
         }
+
+        case DELETE_SKILL: {
+            const id = action.payload;
+            return {
+                ...state,
+                teacherSkill: state.teacherSkill.filter((item) => item.id !== id),
+            };
+        }
+
         default: {
             return newState;
         }
