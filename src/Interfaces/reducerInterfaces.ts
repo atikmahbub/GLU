@@ -13,6 +13,7 @@ export interface rootReducerType {
 export interface authReducerType {
     userData: any;
     registerData: any;
+    verifyUser: any;
 }
 export interface uiReducerType {
     loader: boolean;

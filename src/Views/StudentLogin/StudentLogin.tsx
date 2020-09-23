@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { TextField, FormControlLabel, Radio, Typography } from '@material-ui/core';
 import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
@@ -6,23 +6,26 @@ import { useHistory } from 'react-router';
 import OutlineButton from '../../components/Button/OutlineButton';
 import { userLoginAPIcall } from '../../Redux/Actions/loginAction';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { loginValidation } from '../../Helper/FormValidations/loginValidation';
+import ShowErrors from '../../components/ShowErrors';
 
 const StudentLogin = () => {
-    const [state, setState] = useState({ email: 'upk@123', password: 'Test@1234' });
+    const { register, errors, handleSubmit } = useForm({
+        validationSchema: loginValidation,
+    });
     const routes = useHistory();
     const handleForgot = () => {
         routes.push('/forgot-password');
     };
-    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setState({ ...state, email: e.target.value });
-    };
-    const handlePass = (value: string) => {
-        setState({ ...state, password: value });
-    };
     const route = useHistory();
     const dispatch = useDispatch();
-    const handleSignin = () => {
-        dispatch<any>(userLoginAPIcall(state, route));
+    const submit = (data: any) => {
+        const details = {
+            email: data.email,
+            password: data.password,
+        };
+        dispatch<any>(userLoginAPIcall(details, route));
     };
 
     return (
@@ -30,29 +33,36 @@ const StudentLogin = () => {
             <div className="credential__container">
                 <div className="credential__form__container">
                     <div className="form-container">
-                        <TextField
-                            className="line-input mb-5"
-                            label="Email Address"
-                            value={state.email}
-                            onChange={handleEmail}
-                            fullWidth
-                        />
-                        <UnderLineAddornment
-                            label="Password"
-                            className="custom-adornment-input"
-                            onChange={(value: string) => handlePass(value)}
-                        />
-                        <div className="button-container">
-                            <OutlineButton text="Sign In" btnClick={handleSignin} />
-                            <FormControlLabel
-                                color="primary"
-                                value=""
-                                className="keep__signed radio-button"
-                                control={<Radio />}
-                                label="Keep me signed in"
+                        <form onSubmit={handleSubmit(submit)}>
+                            <TextField
+                                className="line-input mb-5"
+                                label="Email Address"
+                                name="email"
+                                inputRef={register}
+                                fullWidth
                             />
-                        </div>
+                            {}
+                            {errors.email && <ShowErrors error={errors.email.message} />}
+                            <UnderLineAddornment
+                                label="Password"
+                                name="password"
+                                inputRef={register}
+                                className="custom-adornment-input"
+                            />
+                            {errors.password && <ShowErrors mt="0" error={errors.password.message} />}
+                            <div className="button-container">
+                                <OutlineButton text="Sign In" buttonType="submit" />
+                                <FormControlLabel
+                                    color="primary"
+                                    value=""
+                                    className="keep__signed radio-button"
+                                    control={<Radio />}
+                                    label="Keep me signed in"
+                                />
+                            </div>
+                        </form>
                     </div>
+
                     <Typography className="forgot__password" onClick={handleForgot}>
                         Forgot your password?
                     </Typography>

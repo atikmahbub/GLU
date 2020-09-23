@@ -18,8 +18,7 @@ import {
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
-import { dispatch } from '../Store/Store';
-import data from '../../components/Notifications/data';
+import { registerDataRes } from './loginAction';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -46,8 +45,9 @@ export const addNewTeacherAPIcall = (data: any, history: any) => {
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success("Teacher's added successfully.");
+                dispatch(registerDataRes(res.data.data));
                 setTimeout(() => {
-                    history.push('/dashboard/teachers');
+                    // history.push('/dashboard/teachers');
                 }, 1000);
             })
             .catch((err) => {

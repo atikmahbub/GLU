@@ -17,7 +17,8 @@ const CardTable = ({
     rowClick,
     wantRows,
     getWantRows,
-    filterRender
+    filterRender,
+    ...props
 }) => {
     return (
         <MaterialTable
@@ -34,6 +35,7 @@ const CardTable = ({
                 Toolbar: (props) => (showToolbar ? <SearchBoxFilterExport filter={filterRender} availabeProps={props} /> : null),
             }}
             onRowClick={rowClick}    
+            onSearchChange={(e)=>console.log(e)}
             options={{
                 headerStyle: {
                     height: 1,
@@ -52,7 +54,8 @@ const CardTable = ({
                 showTextRowsSelected: false,
                 exportButton: true,
                 paging: showPagination,
-                tableLayout:'auto'
+                tableLayout:'auto',
+                searchText:"gyan"
             }}
             icons={{
                 Search: () => <i className="icon-Search_Nav" />,

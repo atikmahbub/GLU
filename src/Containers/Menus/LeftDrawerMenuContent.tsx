@@ -1,5 +1,5 @@
 import React, { FC, memo, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -8,6 +8,7 @@ import { Typography } from '@material-ui/core';
 import { UserTypes } from '../../Types/user';
 import { createLeftDrawerMenuList, createLeftDrawerMenuListSecondary } from '../../Helper/menus';
 import { menuListItem } from '../../Interfaces/menuTypes';
+import { resetTokenAndLocalStorage } from '../../Utility/API';
 
 const useStyles = makeStyles({
     root: {
@@ -46,7 +47,11 @@ const LeftDrawerMenuContent: FC<ILeftDrawerMenuContent> = ({ userType }) => {
     const classes = useStyles();
     const menuList: menuListItem[] = useMemo(() => createLeftDrawerMenuList(userType), [userType]);
     const menuListSecondary: menuListItem[] = useMemo(() => createLeftDrawerMenuListSecondary(userType), [userType]);
-
+    const history = useHistory();
+    const resetAuth = () => {
+        resetTokenAndLocalStorage();
+        history.push('/');
+    };
     return (
         <Grid container direction="column" justify="space-between" className={classes.root}>
             <Grid container direction="column">
@@ -72,7 +77,9 @@ const LeftDrawerMenuContent: FC<ILeftDrawerMenuContent> = ({ userType }) => {
             </Grid>
             <Grid container>
                 <ButtonPrimary className={classes.button}>Harrison Marshall</ButtonPrimary>
-                <ButtonPrimary className={classNames(classes.button, classes.buttonSignOut)}>Sign out</ButtonPrimary>
+                <ButtonPrimary className={classNames(classes.button, classes.buttonSignOut)} onClick={resetAuth}>
+                    Sign out
+                </ButtonPrimary>
             </Grid>
         </Grid>
     );

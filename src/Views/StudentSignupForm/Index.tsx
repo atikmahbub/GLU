@@ -29,10 +29,12 @@ import {
     teacherAddBioAPIcall,
     teacherDocUploadAPIcall,
     parentChildAddAPIcall,
+    verfiyRegisterUserAPIcall,
+    updateRegisterAPIcall,
 } from '../../Redux/Actions/registerAction';
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 export const registerContext = createContext<any>({});
 const RegisterProvider = registerContext.Provider;
@@ -70,11 +72,13 @@ const Index: React.FunctionComponent = () => {
     const [editMode, setEditMode] = useState(false);
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
+    const [useUpdateApi, setUseUpdateApi] = useState(false);
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
     const userData = useSelector((state: rootReducerType) => state.authReducer.userData);
     const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
+    const loader = useSelector((state: rootReducerType) => state.uiReducer.loader);
     const handleSPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, password: e.target.value } });
     };
@@ -184,7 +188,7 @@ const Index: React.FunctionComponent = () => {
         } else if (whoIam === 'teacher') {
             role = 'Teacher';
         }
-        const registerData = {
+        const registerData: any = {
             email: state.student.email,
             password: state.student.password,
             firstName: state.student.firstName,
@@ -212,7 +216,13 @@ const Index: React.FunctionComponent = () => {
             };
         });
         if (active === 1) {
-            dispatch(registerAPIcall(registerData, goToNextPage));
+            if (useUpdateApi) {
+                delete registerData.role;
+                delete registerData.firebaseToken;
+                dispatch(updateRegisterAPIcall(registerData, goToNextPage));
+            } else {
+                dispatch(registerAPIcall(registerData, goToNextPage));
+            }
         } else if ((active === 3 && whoIam === 'student') || (active === 4 && whoIam === 'teacher')) {
             educationData.forEach((item, i: number) => {
                 if (i === educationData.length - 1) {
@@ -287,8 +297,14 @@ const Index: React.FunctionComponent = () => {
         const contact = { phoneNumber: `${state.student.veriCode}${value}` };
         dispatch(registerPhoneNumberAPIcall(contact, goToNextPage));
     };
+    const resendPhoneCode = (value: string) => {
+        console.log(value);
+        const contact = { phoneNumber: `${state.student.veriCode}${value}` };
+        dispatch(registerPhoneNumberAPIcall(contact));
+    };
 
     const handleBack = () => {
+        console.log(active);
         if (whoIam !== '') {
             if (hideButtons.farword) {
                 setHideButtons({ ...hideButtons, farword: false });
@@ -299,7 +315,9 @@ const Index: React.FunctionComponent = () => {
             }
         }
     };
-
+    const changePhoneNumer = () => {
+        setActive((prevState) => prevState - 1);
+    };
     const parentGoBack = () => {
         const data = { ...state };
         data.parent.childs.push({
@@ -345,6 +363,40 @@ const Index: React.FunctionComponent = () => {
         setCurActive(i);
         setActive((prevState) => prevState - 1);
     };
+
+    const searchQuery = useLocation();
+    const verifyUser = useSelector((state: rootReducerType) => state.authReducer.verifyUser);
+    useEffect(() => {
+        const getToken = searchQuery.search.split('ref=');
+        console.log(getToken);
+        if (getToken[1]) {
+            dispatch(verfiyRegisterUserAPIcall(getToken[1]));
+        }
+    }, []);
+    useEffect(() => {
+        if (verifyUser) {
+            console.log(verifyUser);
+            if (verifyUser.hasOwnProperty('Teacher')) {
+                setWhoIam('teacher');
+            } else if (verifyUser.hasOwnProperty('Parent')) {
+                setWhoIam('parent');
+            } else if (verifyUser.hasOwnProperty('Student')) {
+                setWhoIam('student');
+            }
+            const student = verifyUser.Student;
+            const data = {
+                firstName: student.firstName,
+                lastName: student.lastName,
+                email: verifyUser.email,
+                phoneNum: student.phoneNumber,
+            };
+            setState({ ...state, student: { ...state.student, ...data } });
+            goToNextPage();
+            setUseUpdateApi(true);
+        }
+    }, [verifyUser]);
+
+    //==================component render========================//
     const renderStepper: any = {
         student: <StudentStepper active={active} />,
         parent: <ParentStepper active={active} />,
@@ -367,7 +419,10 @@ const Index: React.FunctionComponent = () => {
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode /> },
+        {
+            title: 'Verify Account',
+            comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} />,
+        },
     ];
     const parent = [
         { title: 'Your details', comp: <InfoContainer /> },
@@ -384,7 +439,7 @@ const Index: React.FunctionComponent = () => {
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode /> },
+        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
     ];
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
@@ -416,7 +471,7 @@ const Index: React.FunctionComponent = () => {
         { title: 'Your Skill', comp: <TeacherSkills /> },
         { title: 'Your Identity', comp: <IdentyCard /> },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode /> },
+        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
     ];
     const getComponent = () => {
         switch (whoIam) {
@@ -442,6 +497,7 @@ const Index: React.FunctionComponent = () => {
     useEffect(() => {
         getComponent();
     }, [whoIam]);
+    //==================component render========================//
 
     return (
         <NavigationMenu showMenuOptions={false}>
@@ -489,7 +545,7 @@ const Index: React.FunctionComponent = () => {
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
-                    <IconButton className="controller-button" onClick={handleNext}>
+                    <IconButton className="controller-button" disabled={loader} onClick={handleNext}>
                         <ArrowForward className="icon" />
                     </IconButton>
                 )}

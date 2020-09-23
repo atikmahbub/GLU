@@ -8,9 +8,15 @@ import InputWithLabel from '../../components/Inputs/InputWithLabel';
 import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
 import ChipAdder from '../../components/Cards/ChipAdder';
 import SaveController from '../../components/Dashobard/SaveController';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNewTeacherAPIcall, editTeacherAPIcall } from '../../Redux/Actions/teacherAction';
 import { useHistory, useLocation } from 'react-router';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import {
+    getFileUploadAPIcall,
+    uploadProfileAmznUrl,
+    uploadProfileFileName,
+} from '../../Redux/Actions/FileUploadAction';
 
 const useStyle = makeStyles({
     root: {
@@ -43,7 +49,9 @@ const Index = () => {
     const [editMode, setEditMode] = useState(false);
     const [department, setDepartment] = useState('');
     const [subjects, setSubjects] = useState<any>([]);
-
+    const [image, setImage] = useState<File>();
+    const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
+    const tokenData = useSelector((state: rootReducerType) => state.authReducer.registerData);
     const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, firstName: e.target.value });
     };
@@ -75,6 +83,9 @@ const Index = () => {
     };
     const dispatch = useDispatch();
     const history = useHistory();
+    const handleFile = (file: File) => {
+        setImage(file);
+    };
     const handleSubmit = () => {
         const teacher = {
             firstName: state.firstName,
@@ -125,6 +136,25 @@ const Index = () => {
             }
         }
     }, []);
+    useEffect(() => {
+        if (tokenData) {
+            if(image){
+                dispatch(getFileUploadAPIcall((image as any).name, tokenData[0].token));
+            }
+        }
+    }, [tokenData]);
+
+    useEffect(() => {
+        if (fileData) {
+            dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
+        }
+    }, [fileData]);
+
+    const uploadProfile = () => {
+        if (fileData) {
+            dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
+        }
+    };
     return (
         <CardContainer>
             <PdBox>
@@ -134,7 +164,7 @@ const Index = () => {
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <Typography className={classes.heading}>Teachers Information</Typography>
-                        <UploadMaxSize onClick={() => {}} />
+                        <UploadMaxSize onClick={handleFile} />
                         <InputWithLabel fieldName="First Name" value={state.firstName} onChange={handleFirstName} />
                         <InputWithLabel fieldName="Last Name" value={state.lastName} onChange={handleLastName} />
                         <InputWithLabel

@@ -5,7 +5,8 @@ import { handleError } from './errorHandler';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { invitationAPIcall } from './InvitationAction';
-import { uploadProfileFileName } from './FileUploadAction';
+import { getFileUploadAPIcall, uploadProfileFileName } from './FileUploadAction';
+import { registerDataRes } from './loginAction';
 
 export const getallStudentAPIcall = () => {
     return (dispatch: any) => {
@@ -34,15 +35,9 @@ export const addNewStudentAPIcall = (data: any, fileName: string, history: any) 
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
-                // const ides = res.data.data.map((item: any) => {
-                //     return { id: item.userId, token: item.token };
-                // });
-                // ides.map((item: any) => {
-                //     dispatch(invitationAPIcall({ invitee_id: item.id, for_role: 'student' }));
-                //     dispatch(uploadProfileFileName(fileName, item.token));
-                // });
+                dispatch(registerDataRes(res.data.data));
                 setTimeout(() => {
-                    history.push('/dashboard/students');
+                    // history.push('/dashboard/students');
                 }, 1000);
             })
             .catch((err) => {
@@ -107,7 +102,7 @@ export const searchStudentAPIcall = (data: any) => {
         API.post(endponts.searchStudent, data)
             .then((res) => {
                 console.log(res.data);
-                dispatch(searchStudentRes(res.data.data))
+                dispatch(searchStudentRes(res.data.data));
             })
             .catch((err) => {
                 handleError(dispatch, err);

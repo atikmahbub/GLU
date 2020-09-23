@@ -62,7 +62,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                     <TableFilter />
                     <div className="table__container">
                         <CardTable
-                            showToolbar={false}
+                            showToolbar={true}
                             showPagination={true}
                             selectable={true}
                             tableHeight="100vh"
