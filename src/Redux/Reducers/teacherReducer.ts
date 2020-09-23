@@ -13,6 +13,7 @@ import {
     DELETE_EXPERIENCE,
     ADD_TEACHER_SKILL,
     DELETE_SKILL,
+    ADD_DETAILS,
 } from '../ActionTypes/teacherTypes';
 const initialState = {
     teacherList: null,
@@ -99,6 +100,13 @@ export const teacherReducer = (state = initialState, action: any) => {
             return {
                 ...state,
                 teacherSkill: state.teacherSkill.filter((item) => item.id !== id),
+            };
+        }
+
+        case ADD_DETAILS: {
+            return {
+                ...state,
+                teacherData: action.payload,
             };
         }
 

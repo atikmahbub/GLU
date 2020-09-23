@@ -31,16 +31,17 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
-    teacherEdu:'teacher/qualification',
-    teacherHomework:'teacher/homework',
-    teacherHomeworkCount:'teacher/homework/count',
-    teacherRecommendation:'teacher/recommend',
-    teacherStudentLike:'teacher/student/like',
-    searchStudent: 'school/student/like'
+    teacherEdu: 'teacher/qualification',
+    teacherHomework: 'teacher/homework',
+    teacherHomeworkCount: 'teacher/homework/count',
+    teacherRecommendation: 'teacher/recommend',
+    teacherStudentLike: 'teacher/student/like',
+    searchStudent: 'school/student/like',
+    userDetails: 'user/profile',
 };
 
 export const studentsEndpoints = {
     getFeatureTeacher: 'student/feature/teacher',
     getUpcomingSessions: 'student/upcoming/session',
-    getPreviousSessions: 'student/previous/session'
-}
+    getPreviousSessions: 'student/previous/session',
+};

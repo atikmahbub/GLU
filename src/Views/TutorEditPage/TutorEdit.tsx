@@ -9,6 +9,7 @@ import {
     getTeacherExperienceApiCall,
     getTeacherEducationApiCall,
     getTeacherSkills,
+    getTeacherDetails,
 } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
@@ -77,4 +78,5 @@ export default connect(mapStateToProps, {
     getTeacherSkills,
     getTeacherEducationApiCall,
     getTeacherExperienceApiCall,
+    getTeacherDetails,
 })(TutorEdit);

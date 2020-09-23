@@ -16,6 +16,7 @@ import {
     GET_TEACHER_RECOMMENDATION,
     GET_TEACHER_STUDENT_LIKE,
     DELETE_SKILL,
+    ADD_DETAILS,
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
@@ -466,3 +467,28 @@ export const deleteSkill = (data: any) => {
         payload: data,
     };
 };
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+// Get teacher Detail
+export const getTeacherDetails = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(`${endponts.userDetails}`);
+            console.log('respp: ', res);
+            if (res.data.success) dispatch(addDetails(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const addDetails = (data: any) => {
+    return {
+        type: ADD_DETAILS,
+        payload: data,
+    };
+};
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
