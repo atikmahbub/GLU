@@ -20,16 +20,20 @@ const ParentSchoolInfo = lazy(() => import('../../Views/ParentSchoolInfo/SchoolI
 const ParentMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/ParentMessages'));
 const NewMessages = lazy(() => import('../../Views/ParentsHomePage/Messages/NewMessages'));
 const Wallet  = lazy(() => import('../../Views/ParentDashBoard/Wallet'));
+const RecordedClasses = lazy(() => import('../../Views/ParentsHomePage/RecordedClasses'));
+const LiveClasses = lazy(() => import('../../Views/ParentsHomePage/LiveClasses'));
+const TutorsPage = lazy(() => import('../../Views/ParentsHomePage/TutorsPage'));
+const IndividualSubject = lazy(() => import('../../Views/ParentsHomePage/IndividualSubject'));
 
 import { createRouteObj } from '../../Helper/routes';
 
 export const routes = [
     createRouteObj('/parent/home', ParentsHomePage),
     createRouteObj('/parent/dashboard', ParentsDashboard),
-    createRouteObj('/parent/live-classes', ClassesTutorsWithFilter),
-    createRouteObj('/parent/tutors', ClassesTutorsWithFilter),
+    createRouteObj('/parent/live-classes', LiveClasses),
+    createRouteObj('/parent/tutors', TutorsPage),
     createRouteObj('/parent/tutors/tutor', ParentTutor),
-    createRouteObj('/parent/recorded-classes', ClassesTutorsWithFilter),
+    createRouteObj('/parent/recorded-classes', RecordedClasses),
     createRouteObj('/parent/classes', ClassesTutorsWithFilter),
     createRouteObj('/parent/previous-classes', ParentPreviousClasses),
     createRouteObj('/parent/parent-calender', ParentCalendar),
@@ -43,6 +47,7 @@ export const routes = [
     createRouteObj('/parent/messages', ParentMessages),
     createRouteObj('/parent/parent/messages/new-messages', NewMessages),
     createRouteObj('/parent/wallet', Wallet),
+    createRouteObj('/parent/individual-subject', IndividualSubject)
 
 
 

@@ -15,6 +15,11 @@ export interface BannerCardElement {
     time: string;
 }
 
+
+export interface IndividualSubjectWhiteBannerCardElement {
+    text: string;
+}
+
 export interface DateTimeCardElement {
     date: string;
     startTime: string;
@@ -47,4 +52,12 @@ export interface CalendarDateSubjectsCardElement {
     date?: string;
     time?: string;
     cards: DateSubjectCardElement[]
+}
+
+export interface IndividualSubjectBannerCardElement {
+    img: string;
+    name: string;
+    subject: string;
+    description: string;
+    time: string;
 }
