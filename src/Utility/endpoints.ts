@@ -37,7 +37,8 @@ export const endponts = {
     teacherHomeworkCount:'teacher/homework/count',
     teacherRecommendation:'teacher/recommend',
     teacherStudentLike:'teacher/student/like',
-    searchStudent: 'school/student/like'
+    searchStudent: 'school/student/like',
+    teacherRecommendationCount:'teacher/recommend/count',
 };
 
 export const studentsEndpoints = {

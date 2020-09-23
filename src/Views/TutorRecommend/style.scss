@@ -39,6 +39,9 @@
     ul{
         text-decoration: none;
         list-style: none;
+        li{
+            cursor: pointer;
+        }
     }
 }
 @media screen and(min-width:767px) {
