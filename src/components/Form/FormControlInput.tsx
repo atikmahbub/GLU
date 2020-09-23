@@ -3,17 +3,25 @@ import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import InputBase from '@material-ui/core/InputBase';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import InputLabel from '@material-ui/core/InputLabel';
 
 const useStyles = makeStyles({
     root: {
-        width: ({ fullWidth }: any) => fullWidth ? '100%' : 'fit-content',
+        width: ({ fullWidth }: any) => (fullWidth ? '100%' : 'fit-content'),
         position: 'relative',
+    },
+    rootColumn: {
+        flexDirection: 'column',
+    },
+    rootRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     inputRoot: {
         flexGrow: 1,
-        width: 250,
+        minWidth: ({ fullWidth }: any) => (fullWidth ? 'auto' :  250),
         height: '2.75rem',
-        '& .MuiInputBase-input': {
+        '& input': {
             padding: 0,
             height: '100%',
             fontSize: '1rem',
@@ -56,6 +64,16 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    label: {
+        color: '#000',
+        marginBottom: 0,
+    },
+    labelTop: {
+        marginBottom: '0.6875rem',
+    },
+    labelLeft: {
+        marginRight: '0.6875rem',
+    },
 });
 
 type FormControlInputProps = {
@@ -68,6 +86,9 @@ type FormControlInputProps = {
     rounded?: boolean;
     fullWidth?: boolean;
     icon?: ReactNode;
+    label?: string;
+    labelClassName?: string;
+    labelPlacement?: 'left' | 'top';
     rootClassName?: string;
     inputRootClassName?: string;
 };
@@ -81,12 +102,31 @@ const FormControlInput: FC<FormControlInputProps> = ({
     rounded,
     fullWidth,
     icon,
+    label,
+    labelClassName,
+    labelPlacement,
     rootClassName,
-    inputRootClassName
+    inputRootClassName,
 }) => {
     const classes = useStyles({ icon, rounded, fullWidth });
     return (
-        <Grid container alignItems="center" className={classNames(classes.root, rootClassName)}>
+        <Grid
+            container
+            className={classNames(classes.root, rootClassName, {
+                [classes.rootColumn]: labelPlacement === 'top',
+                [classes.rootRow]: labelPlacement === 'left',
+            })}
+        >
+            {label && (
+                <InputLabel
+                    className={classNames(classes.label, labelClassName, {
+                        [classes.labelTop]: labelPlacement === 'top',
+                        [classes.labelLeft]: labelPlacement === 'left',
+                    })}
+                >
+                    {label}
+                </InputLabel>
+            )}
             {icon && (
                 <Grid
                     item
@@ -114,7 +154,8 @@ const FormControlInput: FC<FormControlInputProps> = ({
 
 FormControlInput.defaultProps = {
     onChange: () => {},
-    variant: 'underlined'
+    variant: 'underlined',
+    labelPlacement: 'top',
 };
 
 export default memo(FormControlInput);
