@@ -42,7 +42,13 @@ const Personal: FC<IPersonal> = ({ userType }) => {
                         content={<ClassesCarousel />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />
-                    <WhiteCard size={3} title="Previous Classes" description="Purchased" value="57" />
+                    <WhiteCard
+                        size={3}
+                        title="Previous Classes"
+                        description="Purchased"
+                        value="57"
+                        titleLink={`/${userType}/recorded-classes`}
+                    />
                     <WhiteCard size={3} title="Whiteboard" description={'Try out what the class\nwill be like'} />
                 </Grid>
                 <Grid container className={classes.container} justify="space-between">
