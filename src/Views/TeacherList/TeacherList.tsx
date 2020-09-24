@@ -34,8 +34,13 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             },
         });
     };
-    const redirectDetails = (id:number) => {
-        routes.push('/dashboard/teacher-details/class-group-details');
+    const redirectDetails = (data: any) => {
+        routes.push({
+            pathname: '/dashboard/teacher-details/class-group-details',
+            state: {
+                teacherData: data,
+            },
+        });
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
@@ -91,7 +96,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     render: (rowData: any) => (
                                         <ActionToolbar
                                             showDetail={true}
-                                            detailClick={() => redirectDetails(rowData.id)}
+                                            detailClick={() => redirectDetails(rowData)}
                                             deleteClick={() => handleDelete(rowData.id)}
                                             editClick={() => handleEdit(rowData)}
                                         />

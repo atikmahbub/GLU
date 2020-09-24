@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import commonImg from '../../Assets/images';
 import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
 import AttendenceRow from '../../components/Dashobard/UserDetails/AttendenceRow';
 import PresentRow from '../../components/Dashobard/UserDetails/PresentRow';
@@ -23,13 +23,8 @@ const StudentDetails: React.FunctionComponent = () => {
         timetable: [],
         profile: '',
     });
-    // useEffect(()=>{
-    //     if(routes.hasOwnProperty('state')){
-    //         if ((routes as any).state.hasOwnProperty('id')) {
-    //             dispatch(getStudentDetailsAPIcall((routes as any).state.id));
-    //         }
-    //     }
-    // }, [])
+   
+
     useEffect(() => {
         if (studentInfo) {
             const studentDetls = studentInfo.studentsDetail[0];
@@ -77,12 +72,12 @@ const StudentDetails: React.FunctionComponent = () => {
             <div className="row row__margin">
                 <div className="col-md-12 colum__spacing">
                     <div className="p-4 bg-white">
-                    <UserTable
-                        showFilter={false}
-                        redirectDetails={() => redirectDetails()}
-                        handleEdit={(value: any) => handleEdit(value)}
-                        handleDelete={(value: any) => handleDelete(value)}
-                    />
+                        <UserTable
+                            showFilter={false}
+                            redirectDetails={() => redirectDetails()}
+                            handleEdit={(value: any) => handleEdit(value)}
+                            handleDelete={(value: any) => handleDelete(value)}
+                        />
                     </div>
                 </div>
             </div>

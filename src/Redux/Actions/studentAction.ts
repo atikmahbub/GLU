@@ -34,7 +34,7 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: any, fileName: string, history: any) => {
+export const addNewStudentAPIcall = (data: any,  history?: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)

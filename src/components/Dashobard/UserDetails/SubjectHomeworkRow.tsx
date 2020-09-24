@@ -13,7 +13,8 @@ interface props {
     colWidth2?: string;
     height?: string;
     children?: React.ReactNode;
-    examDetails?:any
+    examDetails?:any;
+    hwDetails?:any
 }
 const SubjectHomeworkRow: React.FunctionComponent<props> = ({
     color,
@@ -25,22 +26,13 @@ const SubjectHomeworkRow: React.FunctionComponent<props> = ({
     colWidth2,
     height,
     children,
-    examDetails
+    hwDetails
 }) => {
     const route = useHistory();
     const gotoPage = () => {
         route.push('/dashboard/student-details/homework');
     };
-    const [examData, setExamData] = useState([0, 0, 0]);
-    useEffect(()=>{
-        if(examDetails){
-            const data = examDetails.map((item:any)=>{
-                return item.total;
-            })
-            setExamData(data);
-
-        }
-    },[examDetails])
+    console.log(hwDetails)
     return (
         <div className="row row__margin">
             <div className="col-lg-5 d-flex col-md-12 colum__spacing">
@@ -62,9 +54,8 @@ const SubjectHomeworkRow: React.FunctionComponent<props> = ({
                     marker1="Completed"
                     marker2="Not completed"
                     chartName="Homework"
-                    available={50}
-                    notavailalbe={30}
-                    // data={examData}
+                    available={hwDetails.complete}
+                    notavailalbe={hwDetails.incomplete}
                 />
             </div>
         </div>

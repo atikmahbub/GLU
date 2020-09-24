@@ -7,6 +7,7 @@ import { addDays } from 'date-fns';
 import { Typography } from '@material-ui/core';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { months } from '../../../Helper/months';
+import { checkValueReturn0 } from '../../../Helper/checkValueReturn0';
 
 interface props {
     dateRange?: (data: any) => void;
@@ -32,7 +33,10 @@ const AttendenceRow: React.FC<props> = ({ dateRange, attendance }) => {
     }, [state]);
     useEffect(() => {
         if (attendance) {
-            setAttendanceDet({ attendance: attendance.presentPercentage, puncuality: attendance.presentPercentage });
+            setAttendanceDet({
+                attendance: checkValueReturn0(attendance.presentPercentage),
+                puncuality: checkValueReturn0(attendance.presentPercentage),
+            });
         }
     }, [attendance]);
     return (

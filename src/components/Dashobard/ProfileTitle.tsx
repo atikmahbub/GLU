@@ -7,16 +7,17 @@ import NormalSelectInput from '../Inputs/NormalSelectInput';
 interface props {
     hideBtns?: boolean;
     detailName?: string;
+    data?: any;
 }
-const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName }) => {
+const ProfileTitle: React.FunctionComponent<props> = ({ hideBtns, detailName, data }) => {
     return (
         <CardContainer>
             <div className="top_container">
                 <div className="image_title_cotainer">
                     <img className="profile" src={commonImg.blueshirtman} alt="" />
                     <div className="title_container">
-                        <Typography className="heading">Olivia Preston</Typography>
-                        <Typography className="title">2666 Junior Avenue, Atlanta, GA, 30303</Typography>
+                        <Typography className="heading">{data?.name}</Typography>
+                        <Typography className="title">N/A</Typography>
                     </div>
                 </div>
                 {hideBtns ? (

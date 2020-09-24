@@ -83,7 +83,7 @@ const AddNewStudent: React.FunctionComponent = () => {
             const editdata = { ...data, students: data.students[0] };
             dispatch(editStudentAPIcall(editdata, state.studentId, routes));
         } else {
-            dispatch(addNewStudentAPIcall(data, 'fileData.fileName', routes));
+            dispatch(addNewStudentAPIcall(data, routes));
         }
     };
     useEffect(() => {
