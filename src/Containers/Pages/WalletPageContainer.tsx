@@ -7,7 +7,6 @@ import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import CardsGridContainer from '../CardsGridContainer';
 import CardsGrid from '../CardsGrid';
-import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
 import BarChart from '../../components/Charts/BarChart';
 import PercentCard from '../../components/Cards/PercentCard';
@@ -18,6 +17,7 @@ import PageFooter from '../../components/PageFooter';
 import { createMenuList } from '../../Helper/menus';
 import { UserTypes } from '../../Types/user';
 import { activity, barChart } from '../../data/wallet';
+import CurrencyButton from '../../components/Wallet/CurrencyButton';
 
 const useStyles = makeStyles({
     title: {
@@ -30,14 +30,6 @@ const useStyles = makeStyles({
         fontSize: '1.5625rem',
         lineHeight: '1.875rem',
     },
-    button: {
-        fontSize: '1.25rem',
-        lineHeight: '1.5625rem',
-    },
-    buttonIcon: {
-        fontSize: '0.75rem',
-        marginRight: '0.5rem'
-    },
     buttonAdd: {
         marginLeft: '1.25rem',
         cursor: 'pointer',
@@ -49,6 +41,9 @@ const useStyles = makeStyles({
     percentCardsContainer: {
         flexGrow: 1,
     },
+    rightContainer: {
+        position: 'relative'
+    }
 });
 
 interface IWalletPageContainer {
@@ -91,19 +86,14 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid container direction="column">
+                        <Grid container direction="column" className={classes.rightContainer}>
+                            <CurrencyButton />
                             <Grid container justify="space-between">
-                                <Grid container direction="column" item xs={11}>
+                                <Grid container direction="column">
                                     <Typography className={classes.title}>Current Balance</Typography>
                                     <Typography className={classes.title}>
                                         1,320<span className={classes.titleSmall}>AED</span>
                                     </Typography>
-                                </Grid>
-                                <Grid container justify="flex-end" item xs={1}>
-                                    <ButtonPrimary className={classes.button}>
-                                        <i className={classNames('icon-Down', classes.buttonIcon)} />
-                                        AED
-                                    </ButtonPrimary>
                                 </Grid>
                             </Grid>
                             <Grid container className={classes.chartContainer}>

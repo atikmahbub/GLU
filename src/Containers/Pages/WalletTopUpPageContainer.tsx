@@ -13,6 +13,7 @@ import PaymentMethodCard from '../../components/Cards/PaymentMethodCard';
 import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
 import PageFooter from '../../components/PageFooter';
+import CurrencyButton from '../../components/Wallet/CurrencyButton';
 
 const useStyles = makeStyles({
     title: {
@@ -35,6 +36,9 @@ const useStyles = makeStyles({
         paddingLeft: '2.6875rem',
         paddingRight: '2.6875rem'
     },
+    rightContainer: {
+        position: 'relative'
+    }
 });
 
 interface IWalletTopUpPageContainer {
@@ -59,15 +63,16 @@ const WalletTopUpPageContainer: FC<IWalletTopUpPageContainer> = ({ userType }) =
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid container direction="column">
-                            <Grid container direction="column" className={classes.container}>
+                        <Grid container direction="column" className={classes.rightContainer}>
+                            <CurrencyButton />
+                            {false && <Grid container direction="column" className={classes.container}>
                                 <TitlePrimary className={classes.title}>Payment Method</TitlePrimary>
                                 <Grid container direction="column">
-                                    <PaymentMethodCard active type="visa" ends="6159" expires="12/23" />
-                                    <PaymentMethodCard type="ms" ends="0044" expires="12/23" />
-                                    <PaymentMethodCard type="ms" ends="2841" expires="12/23" />
+                                    <PaymentMethodCard active type="visa" ends="6159" expires="12/23"/>
+                                    <PaymentMethodCard type="ms" ends="0044" expires="12/23"/>
+                                    <PaymentMethodCard type="ms" ends="2841" expires="12/23"/>
                                 </Grid>
-                            </Grid>
+                            </Grid>}
                             <Grid container direction="column" className={classes.container}>
                                 <TitlePrimary className={classes.title}>Add New Card</TitlePrimary>
                                 <Grid container direction="column">
