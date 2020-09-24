@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         lineHeight: '1.5625rem',
     },
     header: {
-        marginBottom: '2.4375rem',
+        marginBottom: ({ children }: any) => children ? '2.4375rem' : 0,
     },
     headerFilterContainer: {
         paddingLeft: '1.5625rem',
@@ -53,7 +53,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
     initialFilterLabel,
     children,
 }) => {
-    const classes = useStyles({ padding });
+    const classes = useStyles({ padding, children: !!children });
     const [filterDrawer, toggleFilterDrawer] = useToggle(false);
     const [activeFilter, setActiveFilter] = useState('');
 
@@ -95,7 +95,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
                     )}
                 </Grid>
             </Grid>
-            <Grid container>{children}</Grid>
+            {children && <Grid container>{children}</Grid>}
         </Grid>
     );
 };

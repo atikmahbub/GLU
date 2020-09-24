@@ -3,15 +3,15 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import PageFooter from '../../components/PageFooter';
-import { HomePageCardsData } from './types';
+// import { HomePageCardsData } from './types';
 import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
 import { Grid, Typography, Divider } from '@material-ui/core';
 import HomeworkCard from '../HomeworkCard';
 import FilterContainer from '../FilterContainer';
-import { cards2, classesFiltersData } from '../../data/filters';
-import CardsGrid from '../CardsGrid';
-import ImageCard from '../../components/Cards/ImageCard';
+import { classesFiltersData } from '../../data/filters';
+// import CardsGrid from '../CardsGrid';
+// import ImageCard from '../../components/Cards/ImageCard';
 
 
 const useStyles = makeStyles({
