@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProfileTitle from '../../../components/Dashobard/ProfileTitle';
 import TwoColTable from '../../../components/Dashobard/TwoColTable';
 import PercentageProgress from '../../../components/Dashobard/PercentageProgress';
 import CompNcomp from '../../../components/Dashobard/CompNcomp';
 import AssignmentDetails from '../../../components/Dashobard/UserDetails/AssignmentDetails';
+import { useDispatch } from 'react-redux';
+import { studentTermResultAPIcall } from '../../../Redux/Actions/studentAction';
+import { useLocation } from 'react-router';
 
 const Index = () => {
     const [showMoreDetail, setShowMoreDetails] = useState(false);
-
+    const [studentId, setStudentId] = useState(0);
+    const [term, setTerm] = useState('1');
+    const handleTerm = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setTerm(e.target.value);
+    };
+    const dispatch = useDispatch();
+    const routes = useLocation();
+    useEffect(() => {
+        if (routes.hasOwnProperty('state')) {
+            if ((routes as any).state.hasOwnProperty('id')) {
+                setStudentId((routes as any).state.id);
+            }
+        }
+    }, []);
+    useEffect(() => {
+        dispatch(studentTermResultAPIcall(studentId, term));
+    }, [term]);
     const data = [
         { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
         { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
@@ -55,9 +74,15 @@ const Index = () => {
     };
     return (
         <div className="details-wrapper change_card_pd">
-            <ProfileTitle hideBtns={true} detailName="Homework" />
+            <ProfileTitle
+                hideBtns={true}
+                // value={term}
+                // onChange={handleTerm}
+                // showDropDown={true}
+                detailName="Homework"
+            />
             <div className="row row__margin">
-                <div className={`col-md-${showMoreDetail ? '8':'12'} colum__spacing`}>
+                <div className={`col-md-${showMoreDetail ? '8' : '12'} colum__spacing`}>
                     <TwoColTable
                         rowClick={handleRowClick}
                         color="#5FB475"

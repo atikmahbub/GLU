@@ -5,8 +5,8 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
-        borderTop: '1px solid rgba(0, 0, 0, 0.25)',
-        paddingTop: '3.125rem',
+        borderTop: ({ topBorder }: any) => topBorder ? '1px solid rgba(0, 0, 0, 0.25)' : 0,
+        paddingTop: ({ topBorder }: any) => topBorder ? '3.125rem' : 0,
     },
     section: {
         padding: '0',
@@ -24,20 +24,22 @@ const useStyles = makeStyles({
     },
 });
 
-type ColumnsContainerProps = {
+interface IColumnsContainer {
     leftContent: ReactNode;
     rightContent: ReactNode;
     rightContentPaddingTop?: boolean;
     rootClassName?: string;
-};
+    topBorder?: boolean;
+}
 
-const ColumnsContainer: FC<ColumnsContainerProps> = ({
+const ColumnsContainer: FC<IColumnsContainer> = ({
     leftContent,
     rightContent,
     rightContentPaddingTop,
     rootClassName,
+    topBorder,
 }) => {
-    const classes = useStyles({ rightContentPaddingTop });
+    const classes = useStyles({ rightContentPaddingTop, topBorder });
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
             <Grid container item xs={6} className={classes.section}>
@@ -56,6 +58,7 @@ const ColumnsContainer: FC<ColumnsContainerProps> = ({
 };
 
 ColumnsContainer.defaultProps = {
+    topBorder: true,
     rightContentPaddingTop: true,
 };
 

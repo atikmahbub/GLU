@@ -7,8 +7,9 @@ import { useHistory } from 'react-router';
 interface props {
     barData?: any;
     toalPercent?: string | number;
+    studentId?: string | number;
 }
-const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent }) => {
+const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent, studentId }) => {
     const data = [
         { col1: 'January', col2: 'Success' },
         { col1: 'Fabruary', col2: 'Success' },
@@ -17,7 +18,12 @@ const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent }) => {
     ];
     const route = useHistory();
     const gotoPage = () => {
-        route.push('/dashboard/student-details/exam');
+        route.push({
+            pathname: '/dashboard/student-details/exam',
+            state: {
+                id: studentId,
+            },
+        });
     };
     const xAxisData = ['First Term exam', 'Second Term Exam', 'Third Term Exam'];
     return (

@@ -80,3 +80,12 @@ export interface PaymentMethodCardElement {
     ends: string;
     expires: string;
 }
+
+export interface HomeworkCardElement {
+    title: string;
+    subject: string;
+    dueDate: string;
+    name: string;
+    description: string;
+    submitted?: boolean;
+}

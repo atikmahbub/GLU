@@ -9,6 +9,7 @@ import RecommendedContainer from '../../RecommendedContainer';
 import { UserTypes } from '../../../Types/user';
 import { createMenuList } from '../../../Helper/menus';
 import { liveClasses, recordedClasses } from '../../../data/tutorProfile';
+import PageFooter from '../../../components/PageFooter';
 
 interface ITutorProfilePageContainer {
     userType: UserTypes;
@@ -58,6 +59,7 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
                     marginBottom={false}
                 />
             </CardsGridContainer>
+            <PageFooter />
         </NavigationMenu>
     );
 };

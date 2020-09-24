@@ -7,6 +7,7 @@ import {
     STUDNET_ATTENDANCE,
     STUDENT_EXAM,
     STUDENT_HOMEWORK,
+    STUDENT_TERM_RESULT,
 } from '../ActionTypes/studentTypes';
 import { handleError } from './errorHandler';
 import { spinner } from './uiAction';
@@ -34,7 +35,7 @@ export const studentInfo = (data: any) => {
     };
 };
 
-export const addNewStudentAPIcall = (data: any,  history?: any) => {
+export const addNewStudentAPIcall = (data: any, history?: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
         API.post(endponts.student, data)
@@ -179,6 +180,26 @@ export const studentExamDetailsAPIcall = (id: number) => {
 export const studenExamDetailsRes = (data: any) => {
     return {
         type: STUDENT_EXAM,
+        payload: data,
+    };
+};
+
+export const studentTermResultAPIcall = (id: number, term: string) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.studentExam}${id}/term/${term}`)
+            .then((res) => {
+                console.log(res.data);
+                dispatch(studentTermResultRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const studentTermResultRes = (data: any) => {
+    return {
+        type: STUDENT_TERM_RESULT,
         payload: data,
     };
 };
