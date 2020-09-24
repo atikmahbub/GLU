@@ -7,6 +7,7 @@ import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
 import { calendarSubjectsCards } from '../../../../data/homepage';
+import { UserTypes } from '../../../../Types/user';
 
 const useStyles = makeStyles({
     container: {
@@ -17,7 +18,11 @@ const useStyles = makeStyles({
     },
 });
 
-const School: FC = () => {
+interface ISchool {
+    userType: UserTypes;
+}
+
+const School: FC<ISchool> = ({ userType }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -35,7 +40,7 @@ const School: FC = () => {
                         <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
                     </Grid>
                     <Grid container className={classes.container}>
-                        <WhiteCard size={3} title="Homework" description="Assignment" titleLink={"/students/all-homework"} value="34" />
+                        <WhiteCard size={3} title="Homework" description="Assignment" titleLink={`/${userType}/homework`} value="34" />
                         <WhiteCard size={3} title="Recommended" description="Total" value="12" />
                         <WhiteCard
                             size={6}

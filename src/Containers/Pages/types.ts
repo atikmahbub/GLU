@@ -6,8 +6,13 @@ import {
     UpcomingClassCardElement,
     CalendarDateSubjectsCardElement,
     IndividualSubjectBannerCardElement,
-    IndividualSubjectWhiteBannerCardElement
+    IndividualSubjectWhiteBannerCardElement,
 } from '../../components/Cards/types';
+import { UserTypes } from '../../Types/user';
+
+export interface UserType {
+    userType: UserTypes;
+}
 
 export interface HomePageCardsData {
     bannerCarousel: BannerCardElement[];
@@ -39,4 +44,3 @@ export interface IndividualSubjectCardData {
     whiteBannerCarousel: IndividualSubjectWhiteBannerCardElement[];
     individualSubjectBannerCard: IndividualSubjectBannerCardElement[];
 }
-

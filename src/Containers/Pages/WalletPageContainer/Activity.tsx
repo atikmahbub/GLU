@@ -1,23 +1,21 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import NavigationMenu from '../../components/NavigationMenu';
-import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
-import CardsGridContainer from '../CardsGridContainer';
-import CardsGrid from '../CardsGrid';
-import ButtonPrimary from '../../components/Button/ButtonPrimary';
-import TitlePrimary from '../../components/Typographies/TitlePrimary';
-import BarChart from '../../components/Charts/BarChart';
-import PercentCard from '../../components/Cards/PercentCard';
-import ColumnsContainer from '../ColumnsContainer';
-import WalletActivityAccordion from '../../components/Accordions/WalletActivityAccordion';
-import SeeAll from '../../components/Typographies/SeeAll';
-import PageFooter from '../../components/PageFooter';
-import { createMenuList } from '../../Helper/menus';
-import { UserTypes } from '../../Types/user';
-import { activity, barChart } from '../../data/wallet';
+import CardsGridContainer from '../../CardsGridContainer';
+import CardsGrid from '../../CardsGrid';
+import TitlePrimary from '../../../components/Typographies/TitlePrimary';
+import PercentCard from '../../../components/Cards/PercentCard';
+import CurrencyButton from '../../../components/Wallet/CurrencyButton';
+import BarChart from '../../../components/Charts/BarChart';
+import ColumnsContainer from '../../ColumnsContainer';
+import WalletActivityAccordion from '../../../components/Accordions/WalletActivityAccordion';
+import SeeAll from '../../../components/Typographies/SeeAll';
+import { activity, barChart } from '../../../data/wallet';
+import { UserTypes } from '../../../Types/user';
+import PageFooter from '../../../components/PageFooter';
 
 const useStyles = makeStyles({
     title: {
@@ -30,14 +28,6 @@ const useStyles = makeStyles({
         fontSize: '1.5625rem',
         lineHeight: '1.875rem',
     },
-    button: {
-        fontSize: '1.25rem',
-        lineHeight: '1.5625rem',
-    },
-    buttonIcon: {
-        fontSize: '0.75rem',
-        marginRight: '0.5rem'
-    },
     buttonAdd: {
         marginLeft: '1.25rem',
         cursor: 'pointer',
@@ -49,29 +39,33 @@ const useStyles = makeStyles({
     percentCardsContainer: {
         flexGrow: 1,
     },
+    rightContainer: {
+        position: 'relative',
+    },
+    link: {
+        '&:hover': {
+            textDecoration: 'none',
+        },
+    },
 });
 
-interface IWalletPageContainer {
+interface IActivity {
     userType: UserTypes;
 }
 
-const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
+const Activity: FC<IActivity> = ({ userType }) => {
     const classes = useStyles();
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
     return (
-        <NavigationMenu
-            absolute
-            background="secondary"
-            menuList={menuList}
-            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
-        >
+        <Grid container direction="column">
             <CardsGridContainer background="secondary">
                 <CardsGrid rows={2}>
                     <Grid container>
                         <Grid container direction="column">
                             <Grid container alignItems="center">
                                 <TitlePrimary>Wallet</TitlePrimary>
-                                <i className={classNames('icon-Add', classes.buttonAdd)} />
+                                <Link to={`/${userType}/wallet/top-on`} className={classes.link}>
+                                    <i className={classNames('icon-Add', classes.buttonAdd)} />
+                                </Link>
                             </Grid>
                             <Grid
                                 container
@@ -91,19 +85,14 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid container direction="column">
+                        <Grid container direction="column" className={classes.rightContainer}>
+                            <CurrencyButton />
                             <Grid container justify="space-between">
-                                <Grid container direction="column" item xs={11}>
+                                <Grid container direction="column">
                                     <Typography className={classes.title}>Current Balance</Typography>
                                     <Typography className={classes.title}>
                                         1,320<span className={classes.titleSmall}>AED</span>
                                     </Typography>
-                                </Grid>
-                                <Grid container justify="flex-end" item xs={1}>
-                                    <ButtonPrimary className={classes.button}>
-                                        <i className={classNames('icon-Down', classes.buttonIcon)} />
-                                        AED
-                                    </ButtonPrimary>
                                 </Grid>
                             </Grid>
                             <Grid container className={classes.chartContainer}>
@@ -136,8 +125,8 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
                 />
             </CardsGridContainer>
             <PageFooter />
-        </NavigationMenu>
+        </Grid>
     );
 };
 
-export default WalletPageContainer;
+export default Activity;
