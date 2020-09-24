@@ -24,10 +24,17 @@ const StudentDetails: React.FunctionComponent = () => {
     const examDetails = useSelector((state: any) => state.studentReducer.examDetails);
     const studentHwDetails = useSelector((state: any) => state.studentReducer.studentHwDetails);
 
-
     const [teacherSubject, setTeacherSubject] = useState([]);
+    const [studentDetails, setStudentDetails] = useState<any>();
     const [studentId, setStudentId] = useState(0);
     const [examData, setExamData] = useState([0, 0, 0]);
+    const [yearPercentage, setYearPercentage] = useState<any>(0);
+
+    const [homeWorkData, setHomeWorkData] = useState({
+        complete: 40,
+        incomplete: 40,
+    });
+
     const routes = useLocation();
     const dispatch = useDispatch();
     const [details, setDetails] = useState<studentDetailsProps>({
@@ -41,12 +48,12 @@ const StudentDetails: React.FunctionComponent = () => {
     });
     useEffect(() => {
         if (routes.hasOwnProperty('state')) {
-            if ((routes as any).state.hasOwnProperty('id')) {
-                const id = (routes as any).state.id;
+            if ((routes as any).state.hasOwnProperty('studentDetails')) {
+                const id = (routes as any).state.studentDetails.id;
                 dispatch(getStudentDetailsAPIcall(id));
                 dispatch(studentExamDetailsAPIcall(id));
                 dispatch(studentHomeworkDetailsAPIcall(id));
-
+                setStudentDetails((routes as any).state.studentDetails);
                 setStudentId((routes as any).state.id);
             }
         }
@@ -74,35 +81,36 @@ const StudentDetails: React.FunctionComponent = () => {
     };
     useEffect(() => {
         if (examDetails) {
-            const data = examDetails.map((item: any) => {
+            const data = examDetails.result.map((item: any) => {
                 return item.total;
             });
             setExamData(data);
+            setYearPercentage(Number(examDetails.yearPercent).toFixed(2))
         }
     }, [examDetails]);
     useEffect(() => {
         if (studentHwDetails) {
-            // const data = studentHwDetails.map((item: any) => {
-            //     return item.total;
-            // });
-            // setExamData(data);
-            console.log('studentHwDetails',studentHwDetails)
+            const data = {
+                complete: studentHwDetails.allHomeworkCount,
+                incomplete: studentHwDetails.incompleteCount,
+            };
+            setHomeWorkData(data);
         }
     }, [studentHwDetails]);
 
     return (
         <UserDetailsWrapper>
-            <ProfileTitle />
+            <ProfileTitle data={studentDetails} />
             <AttendenceRow attendance={studentAttendance} dateRange={handleDateRange} />
             <PresentRow attendance={studentAttendance} />
             <SubjectHomeworkRow
                 data={teacherSubject}
-                examDetails={examDetails}
+                hwDetails={homeWorkData}
                 tableName="Subjects"
                 colHead1="Class"
                 colHead2="Teacher"
             />
-            <FeeExamResultRow barData={examData} />
+            <FeeExamResultRow toalPercent={yearPercentage} barData={examData} />
             <ECArow />
             <TimeTableRow />
         </UserDetailsWrapper>

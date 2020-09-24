@@ -15,6 +15,13 @@ export interface BannerCardElement {
     time: string;
 }
 
+
+export interface IndividualSubjectWhiteBannerCardElement {
+    subject: string;
+    tutorsCount: number,
+    classesCount: number,
+}
+
 export interface DateTimeCardElement {
     date: string;
     startTime: string;
@@ -49,9 +56,16 @@ export interface UpcomingClassCardElement extends DateSubjectCardElement {
 export interface CalendarDateSubjectsCardElement {
     date?: string;
     time?: string;
-    cards: DateSubjectCardElement[]
+    cards: DateSubjectCardElement[];
 }
 
+export interface IndividualSubjectBannerCardElement {
+    img: string;
+    name: string;
+    subject: string;
+    description: string;
+    time: string;
+}
 export interface TutorProfileCardElement {
     name: string;
     city: string;
@@ -59,4 +73,10 @@ export interface TutorProfileCardElement {
     rating: string;
     description: string;
     img: string;
+}
+
+export interface PaymentMethodCardElement {
+    type: 'visa' | 'ms';
+    ends: string;
+    expires: string;
 }

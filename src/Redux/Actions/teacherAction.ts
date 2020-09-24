@@ -24,6 +24,7 @@ import {
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
 import { registerDataRes } from './loginAction';
+import { studentInfo } from './studentAction';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -449,44 +450,45 @@ export const editExperienceApiCall = (id: any, data: any, history: any) => {
         }
     };
 };
-export const postTeacherRecommendationData=(data:any)=>{
+export const postTeacherRecommendationData = (data: any) => {
     return {
-        type:POST_TEACHER_RECOMMENDATION,
-        payload:data
-    }
-}
-export const getTeacherRecommendationCount=()=>{
-    return async(dispatch:any)=>{
-        try{
-            const res=await API.get(endponts.teacherRecommendationCount);
+        type: POST_TEACHER_RECOMMENDATION,
+        payload: data,
+    };
+};
+export const getTeacherRecommendationCount = () => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(endponts.teacherRecommendationCount);
             dispatch(getTeacherRecommendationCountData(res.data));
+        } catch (err) {
+            handleError(dispatch, err);
         }
-        catch(err){
-            handleError(dispatch,err);
-        }
-    }
-}
-export const getTeacherRecommendationCountData=(data:any)=>{
-    return{
-        type:GET_TEACHER_RECOMMENDATION_COUNT,
-        payload:data
-    }
-}
-export const postTeacherHomework=(data:any)=>{
-    return (dispatch:any)=>{
-        API.post(endponts.teacherHomework,data).then((res)=>{
-            dispatch(postTeacherHomeworkData(res.data));
-        }).catch((err)=>{
-            handleError(dispatch,err);
-        })
-    }
-}
-export const postTeacherHomeworkData=(data:any)=>{
-    return{
-        type:POST_TEACHER_HOMEWORK,
-        payload:data
-    }
-}
+    };
+};
+export const getTeacherRecommendationCountData = (data: any) => {
+    return {
+        type: GET_TEACHER_RECOMMENDATION_COUNT,
+        payload: data,
+    };
+};
+export const postTeacherHomework = (data: any) => {
+    return (dispatch: any) => {
+        API.post(endponts.teacherHomework, data)
+            .then((res) => {
+                dispatch(postTeacherHomeworkData(res.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+export const postTeacherHomeworkData = (data: any) => {
+    return {
+        type: POST_TEACHER_HOMEWORK,
+        payload: data,
+    };
+};
 
 /////////////////////////////////////////////////////////////////////////////
 // Delete skill by id
@@ -533,3 +535,17 @@ export const addDetails = (data: any) => {
 };
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
+
+//cms get all student list for teacher
+export const getAllStudentTeacherAPIcall = (id: number) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.teacher}/${id}/students`)
+            .then((res) => {
+                dispatch(studentInfo(res.data.data));
+                console.log(res.data.data);
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};

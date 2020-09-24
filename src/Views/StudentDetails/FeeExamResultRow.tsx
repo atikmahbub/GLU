@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TwoColTable from '../../components/Dashobard/TwoColTable';
 import HistogramChart from '../../components/Dashobard/HistogramChart';
 import { Typography } from '@material-ui/core';
@@ -6,8 +6,9 @@ import { useHistory } from 'react-router';
 
 interface props {
     barData?: any;
+    toalPercent?: string | number;
 }
-const FeeExamResultRow: React.FC<props> = ({ barData }) => {
+const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent }) => {
     const data = [
         { col1: 'January', col2: 'Success' },
         { col1: 'Fabruary', col2: 'Success' },
@@ -33,7 +34,7 @@ const FeeExamResultRow: React.FC<props> = ({ barData }) => {
                         </div>
                         <div className="col-md-3 d-flex align-content-center justify-content-center">
                             <div className="align-self-center">
-                                <Typography className="percent">68%</Typography>
+                                <Typography className="percent">{toalPercent}%</Typography>
                                 <Typography className="title">Year Average</Typography>
                             </div>
                         </div>

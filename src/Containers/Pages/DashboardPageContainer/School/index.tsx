@@ -35,7 +35,7 @@ const School: FC = () => {
                         <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
                     </Grid>
                     <Grid container className={classes.container}>
-                        <WhiteCard size={3} title="Homework" description="Assignment" value="34" />
+                        <WhiteCard size={3} title="Homework" description="Assignment" titleLink={"/students/all-homework"} value="34" />
                         <WhiteCard size={3} title="Recommended" description="Total" value="12" />
                         <WhiteCard
                             size={6}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PresentRowContainer from '../../../Containers/Dashboard/PresentRowContainer';
 import PresetGridCol from '../PresetGridCol';
 import CardContainer from '../../../Containers/Cards/CardContainer';
+import { checkValueReturn0 } from '../../../Helper/checkValueReturn0';
 
 interface props {
     attendance?: any;
@@ -19,11 +20,11 @@ const PresentRow: React.FC<props> = ({ attendance }) => {
     useEffect(() => {
         if (attendance) {
             const data = {
-                presentPercent: attendance.presentPercentage,
-                present: attendance.presentPercentage,
-                absentPercent: attendance.absentPrecentage,
-                absent: attendance.absent,
-                onTime: attendance.presentPercentage,
+                presentPercent: checkValueReturn0(attendance.presentPercentage),
+                present: checkValueReturn0(attendance.presentPercentage),
+                absentPercent: checkValueReturn0(attendance.absentPrecentage),
+                absent: checkValueReturn0(attendance.absent),
+                onTime: checkValueReturn0(attendance.presentPercentage),
                 late: '0',
             };
             setState(data);

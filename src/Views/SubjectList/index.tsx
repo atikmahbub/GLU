@@ -22,17 +22,11 @@ const index: React.FunctionComponent = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getAllDepartmentAPIcall());
-        dispatch(getallclassAPIcall());
+       
     }, []);
 
     useEffect(() => {
-        if (departmentList) {
-            const data = departmentList.map((item: any) => {
-                return item.name;
-            });
-            setDepartments(data);
-        }
+       
     }, [departmentList]);
 
     return <SubjectList setEditData={setEditData} />;

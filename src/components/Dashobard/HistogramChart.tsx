@@ -36,7 +36,7 @@ export const HistogramChart: React.FunctionComponent<props> = ({goto, data, xAxi
         },
         yAxis: {
             categories: [0, 1000],
-            tickInterval: 500,
+            tickInterval: 100,
             title: {
                 text: null,
             },

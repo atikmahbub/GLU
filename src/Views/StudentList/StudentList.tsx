@@ -10,7 +10,6 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import TableFilter from '../../components/Dashobard/Table/TableFilter';
 import CardTable from '../../components/Table/CardTable';
-import { string } from 'yup';
 
 interface colDataType {
     id: number;
@@ -22,8 +21,10 @@ interface colDataType {
 }
 interface props {
     students: colDataType[];
+    teacherdata?: any;
+    teacherMode?: boolean;
 }
-const StudentList: React.FunctionComponent<props> = ({ students }) => {
+const StudentList: React.FunctionComponent<props> = ({ students, teacherdata, teacherMode }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
     const [studentData, setStudentData] = useState<any>([]);
@@ -37,13 +38,16 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             },
         });
     };
-    const redirectDetails = (id: number) => {
-        routes.push({
-            pathname: routeEndpoints.student.details,
-            state: {
-                id: id,
-            },
-        });
+    const redirectDetails = (data: any) => {
+        if (teacherMode) {
+        } else {
+            routes.push({
+                pathname: routeEndpoints.student.details,
+                state: {
+                    studentDetails: data,
+                },
+            });
+        }
     };
     const handleEdit = (data: colDataType) => {
         routes.push({
@@ -85,7 +89,13 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Students" btnIcon={<Add />} btnTitle="Add Student" trigger={handleRoutes} />
+                <AddButton
+                    title="Students"
+                    subtitle={`Students ${teacherdata.name} `}
+                    btnIcon={<Add />}
+                    btnTitle="Add Student"
+                    trigger={handleRoutes}
+                />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -128,7 +138,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                     render: (rowData: any) => (
                                         <ActionToolbar
                                             showDetail={true}
-                                            detailClick={() => redirectDetails(rowData.id)}
+                                            detailClick={() => redirectDetails(rowData)}
                                             deleteClick={() => handleDelete(rowData.id)}
                                             editClick={() => handleEdit(rowData)}
                                         />
