@@ -46,6 +46,7 @@ export const endponts = {
     studentExam: '/school/student/',
     studentHomework: '/school/status/homework/student/',
     teacherRecommendationCount: 'teacher/recommend/count',
+    getAllSubject: '/school/class-groups',
 };
 
 export const studentsEndpoints = {

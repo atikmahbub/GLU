@@ -12,38 +12,20 @@ import FormControlInput from '../../components/Form/FormControlInput';
 import { Grid, makeStyles } from '@material-ui/core';
 import FormControlSelect from '../../components/Form/FormControlSelect';
 
-const useStyles = makeStyles(({
+const useStyles = makeStyles({
     inputsContainer: {
         marginBottom: '2.1875rem',
     },
     inputRoot: {
         marginRight: '0.625rem',
     },
-}))
+});
 interface props {
     setEditData: Function;
 }
 const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
     const classes = useStyles();
     const [subjects, setSubjects] = useState([]);
-    const subjectList = useSelector((state: rootReducerType) => state.subjectReducer.subjectList);
-    console.log(subjectList);
-    useEffect(() => {
-        if (subjectList) {
-            const data = {
-                department: subjectList.class_section_subject_details.Department.name,
-                yearGroup: subjectList.class_section_subject_details.Class.name,
-                formGroup: subjectList.class_section_subject_details.Section.name,
-                teacher: 'john',
-                student: subjectList.class_section_subject_details.student_count,
-                action: '',
-            };
-            const subjects = subjectList.class_section_subject_details.Subjects.map((item: any) => {
-                return { ...data, classGroup: item.name, subjectId: item.id };
-            });
-            setSubjects(subjects);
-        }
-    }, [subjectList]);
 
     const route = useHistory();
     const handleRoute = () => {
@@ -66,7 +48,7 @@ const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
             </CardContainer>
             <CardContainer>
                 <BorderTableContainer>
-                <Grid container justify="space-between" className={classes.inputsContainer}>
+                    <Grid container justify="space-between" className={classes.inputsContainer}>
                         <Grid container item xs={6}>
                             <FormControlSelect
                                 placeholder="Year Group"
@@ -152,35 +134,35 @@ const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
                                 children: '122',
                                 yearGroup: 'A',
                                 teacher: 'Mr.Shehan Abeysinghe',
-                                department:'Mathematics'
+                                department: 'Mathematics',
                             },
                             {
                                 class: 'Year 4 Business Studies Set 1',
                                 children: '122',
                                 yearGroup: 'A',
                                 teacher: 'Mrs. Angelina Jolie',
-                                department:'Business Studies'
+                                department: 'Business Studies',
                             },
                             {
                                 class: 'Year 9 Science Set 2',
                                 children: '122',
                                 yearGroup: 'A',
                                 teacher: 'Mr. Robert Stark',
-                                department:'Science'
+                                department: 'Science',
                             },
                             {
                                 class: 'Year 4 Maths Set 5',
                                 children: '122',
                                 yearGroup: 'A',
                                 teacher: 'Mrs. Alexandra Smith',
-                                department:'Mathematics'
+                                department: 'Mathematics',
                             },
                             {
                                 class: 'Year 4 Business Studies Set 1',
                                 children: '122',
                                 yearGroup: 'A',
                                 teacher: 'Mr.Shehan Abeysinghe',
-                                department:'Mathematics'
+                                department: 'Mathematics',
                             },
                         ]}
                     />
