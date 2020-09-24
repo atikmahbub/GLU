@@ -27,6 +27,8 @@ const StudentDetails: React.FunctionComponent = () => {
     const [teacherSubject, setTeacherSubject] = useState([]);
     const [studentDetails, setStudentDetails] = useState<any>();
     const [studentId, setStudentId] = useState(0);
+
+
     const [examData, setExamData] = useState([0, 0, 0]);
     const [yearPercentage, setYearPercentage] = useState<any>(0);
 
@@ -111,7 +113,7 @@ const StudentDetails: React.FunctionComponent = () => {
                 colHead1="Class"
                 colHead2="Teacher"
             />
-            <FeeExamResultRow toalPercent={yearPercentage} studentId={studentId} barData={examData} />
+            <FeeExamResultRow toalPercent={yearPercentage} studentId={studentId} studentDetails={studentDetails} barData={examData} />
             <ECArow />
             <TimeTableRow />
         </UserDetailsWrapper>

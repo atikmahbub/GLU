@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import AddButton from '../../components/Dashobard/AddButton';
 import { Add, MailOutline } from '@material-ui/icons';
-import { useSelector } from 'react-redux';
-import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import BorderTableContainer from '../../Containers/Dashboard/BorderTableContainer';
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
@@ -21,12 +19,10 @@ const useStyles = makeStyles({
     },
 });
 interface props {
-    setEditData: Function;
+    subjects: any;
 }
-const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
+const SubjectList: React.FunctionComponent<props> = ({ subjects }) => {
     const classes = useStyles();
-    const [subjects, setSubjects] = useState([]);
-
     const route = useHistory();
     const handleRoute = () => {
         route.push('/dashboard/class-group/add-class-group');
@@ -128,43 +124,7 @@ const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
                                 ),
                             },
                         ]}
-                        rowData={[
-                            {
-                                class: 'Year 4 Maths Set 5',
-                                children: '122',
-                                yearGroup: 'A',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                                department: 'Mathematics',
-                            },
-                            {
-                                class: 'Year 4 Business Studies Set 1',
-                                children: '122',
-                                yearGroup: 'A',
-                                teacher: 'Mrs. Angelina Jolie',
-                                department: 'Business Studies',
-                            },
-                            {
-                                class: 'Year 9 Science Set 2',
-                                children: '122',
-                                yearGroup: 'A',
-                                teacher: 'Mr. Robert Stark',
-                                department: 'Science',
-                            },
-                            {
-                                class: 'Year 4 Maths Set 5',
-                                children: '122',
-                                yearGroup: 'A',
-                                teacher: 'Mrs. Alexandra Smith',
-                                department: 'Mathematics',
-                            },
-                            {
-                                class: 'Year 4 Business Studies Set 1',
-                                children: '122',
-                                yearGroup: 'A',
-                                teacher: 'Mr.Shehan Abeysinghe',
-                                department: 'Mathematics',
-                            },
-                        ]}
+                        rowData={subjects}
                     />
                 </BorderTableContainer>
             </CardContainer>
