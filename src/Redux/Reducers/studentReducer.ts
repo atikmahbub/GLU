@@ -1,4 +1,12 @@
-import { STUDENT_INFO, STUDENT_DETAILS, STUDENT_SEARCH, STUDNET_ATTENDANCE, STUDENT_EXAM, STUDENT_HOMEWORK } from '../ActionTypes/studentTypes';
+import {
+    STUDENT_INFO,
+    STUDENT_DETAILS,
+    STUDENT_SEARCH,
+    STUDNET_ATTENDANCE,
+    STUDENT_EXAM,
+    STUDENT_HOMEWORK,
+    STUDENT_TERM_RESULT
+} from '../ActionTypes/studentTypes';
 
 const initialState = {
     studentData: null,
@@ -7,6 +15,7 @@ const initialState = {
     studentAttendance: null,
     examDetails: null,
     studentHwDetails: null,
+    studentTermResult: null,
 };
 
 export const studentReducer = (state = initialState, action: any) => {
@@ -34,6 +43,10 @@ export const studentReducer = (state = initialState, action: any) => {
         }
         case STUDENT_HOMEWORK: {
             newState.studentHwDetails = action.payload;
+            return newState;
+        }
+        case STUDENT_TERM_RESULT: {
+            newState.studentTermResult = action.payload;
             return newState;
         }
         default: {

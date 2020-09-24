@@ -54,7 +54,8 @@ const StudentDetails: React.FunctionComponent = () => {
                 dispatch(studentExamDetailsAPIcall(id));
                 dispatch(studentHomeworkDetailsAPIcall(id));
                 setStudentDetails((routes as any).state.studentDetails);
-                setStudentId((routes as any).state.id);
+                setStudentId((routes as any).state.studentDetails.id);
+                console.log(routes)
             }
         }
     }, []);
@@ -110,7 +111,7 @@ const StudentDetails: React.FunctionComponent = () => {
                 colHead1="Class"
                 colHead2="Teacher"
             />
-            <FeeExamResultRow toalPercent={yearPercentage} barData={examData} />
+            <FeeExamResultRow toalPercent={yearPercentage} studentId={studentId} barData={examData} />
             <ECArow />
             <TimeTableRow />
         </UserDetailsWrapper>
