@@ -91,7 +91,7 @@ const StudentList: React.FunctionComponent<props> = ({ students, teacherdata, te
             <CardContainer>
                 <AddButton
                     title="Students"
-                    subtitle={`Students ${teacherdata.name} `}
+                    subtitle={`${teacherdata.name ? 'Students' : ''}${teacherdata.name} `}
                     btnIcon={<Add />}
                     btnTitle="Add Student"
                     trigger={handleRoutes}
