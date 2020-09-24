@@ -5,13 +5,37 @@ import { FeaturedCardElement } from './types';
 
 interface IFeaturedTutorsCard extends FeaturedCardElement {}
 
-const FeaturedTutorsCard: FC<IFeaturedTutorsCard> = ({ imgBig, imgBigTitle, imgSmall, imgSmallTitle }) => {
+const FeaturedTutorsCard: FC<IFeaturedTutorsCard> = ({
+    title = 'Featured Tutors',
+    imgBig,
+    imgBigTitle,
+    imgBigSubtitle,
+    imgSmall,
+    imgSmallTitle,
+    imgSmallSubtitle,
+}) => {
     return (
-        <FeaturedCard title="Featured Tutors" link="/">
-            <ImageCard bigTitle imgAspectRatio="69%" title={imgSmallTitle} img={imgSmall} />
-            <ImageCard bigTitle imgAspectRatio="112%" title={imgBigTitle} img={imgBig} />
+        <FeaturedCard title={title}>
+            <ImageCard
+                bigTitle
+                imgAspectRatio="69%"
+                title={imgSmallTitle}
+                img={imgSmall}
+                subTitle={imgSmallSubtitle}
+                subTitleVariant={2}
+                titleMarginBottomVariant={2}
+            />
+            <ImageCard
+                bigTitle
+                imgAspectRatio="112%"
+                title={imgBigTitle}
+                img={imgBig}
+                subTitle={imgBigSubtitle}
+                subTitleVariant={2}
+                titleMarginBottomVariant={2}
+            />
         </FeaturedCard>
-    )
-}
+    );
+};
 
-export default memo(FeaturedTutorsCard)
+export default memo(FeaturedTutorsCard);

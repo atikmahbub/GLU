@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PercentCard from './PercentCard';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
@@ -6,7 +6,13 @@ import 'react-date-range/dist/theme/default.css';
 import { addDays } from 'date-fns';
 import { Typography } from '@material-ui/core';
 import CardContainer from '../../../Containers/Cards/CardContainer';
-const AttendenceRow = () => {
+import { months } from '../../../Helper/months';
+
+interface props {
+    dateRange?: (data: any) => void;
+    attendance?: any;
+}
+const AttendenceRow: React.FC<props> = ({ dateRange, attendance }) => {
     const [state, setState] = useState([
         {
             startDate: new Date(),
@@ -14,7 +20,21 @@ const AttendenceRow = () => {
             key: 'selection',
         },
     ]);
+    const [attendanceDet, setAttendanceDet] = useState({
+        attendance: '0',
+        puncuality: '0',
+    });
 
+    useEffect(() => {
+        if (dateRange) {
+            dateRange(state);
+        }
+    }, [state]);
+    useEffect(() => {
+        if (attendance) {
+            setAttendanceDet({ attendance: attendance.presentPercentage, puncuality: attendance.presentPercentage });
+        }
+    }, [attendance]);
     return (
         <div>
             <div className="row row__margin">
@@ -25,7 +45,10 @@ const AttendenceRow = () => {
                                 <div className="col-md-4">
                                     <Typography className="calender_title">Calendar</Typography>
                                     <Typography className="calender_from">
-                                        <span>From</span> 15th July To 8th August
+                                        <span>From</span> {state[0].startDate.getDate()} <span> </span>
+                                        {months[state[0].startDate.getMonth()]} To {state[0].endDate.getDate()}
+                                        <span> </span>
+                                        {months[state[0].endDate.getMonth()]}
                                     </Typography>
                                 </div>
                                 <div className="col-md-8">
@@ -43,11 +66,11 @@ const AttendenceRow = () => {
                     </CardContainer>
                 </div>
                 <div className="col-lg-4 col-md-12 colum__spacing">
-                    <PercentCard heading="Attendance" percent={'24%'} title="Year to date" />
+                    <PercentCard heading="Attendance" percent={`${attendanceDet.attendance}%`} title="Year to date" />
                     <PercentCard
                         style={{ marginBottom: 0 }}
                         heading="Punctuality"
-                        percent={'45%'}
+                        percent={`${attendanceDet.puncuality}%`}
                         title="Year to date (On time)"
                     />
                 </div>

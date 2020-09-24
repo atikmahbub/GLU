@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
 import { connect } from 'react-redux';
-import SmallTextButton from '../TutorEditPage/SmallTextButton';
+import { addTeacherExperienceApiCall } from '../../Redux/Actions/teacherAction';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     footer: {
@@ -177,7 +178,7 @@ const useStyles = makeStyles({
     },
 });
 
-const AddFormExp = (props: any) => {
+const AddFormExp = ({ addTeacherExperienceApiCall }) => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -185,7 +186,21 @@ const AddFormExp = (props: any) => {
         { link: '', name: 'Shop' },
     ];
     const classes = useStyles();
-    useEffect(() => {}, []);
+    const history = useHistory();
+
+    const [experience, setExperience] = useState({
+        workPlace: null,
+        position: null,
+        department: null,
+        description: null,
+        startDate: null,
+        endDate: null,
+    });
+    const handleChange = (e) => {
+        console.log(experience);
+        return setExperience({ ...experience, [e.target.id]: e.target.value });
+    };
+
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
@@ -197,41 +212,92 @@ const AddFormExp = (props: any) => {
                     <div className={classes.details}>
                         <div className={classes.detailsText}>Experience</div>
                         <div className={classes.email}>
-                            <label htmlFor="school" className={classes.inputLabel}>
+                            <label htmlFor="workPlace" className={classes.inputLabel}>
                                 Workplace
                             </label>
-                            <input type="text" id="school" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={experience.workPlace}
+                                type="text"
+                                id="workPlace"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
 
                         <div className={classes.email}>
-                            <label htmlFor="qualification" className={classes.inputLabel}>
+                            <label htmlFor="position" className={classes.inputLabel}>
                                 Position
                             </label>
-                            <input type="text" id="qualification" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={experience.position}
+                                type="text"
+                                id="position"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
 
                         <div className={classes.email}>
-                            <label htmlFor="fieldOfStudy" className={classes.inputLabel}>
+                            <label htmlFor="department" className={classes.inputLabel}>
                                 Department
                             </label>
-                            <input type="text" id="fieldOfStudy" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={experience.department}
+                                type="text"
+                                id="department"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
+
+                        <div className={classes.email}>
+                            <label htmlFor="description" className={classes.inputLabel}>
+                                Description
+                            </label>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={experience.description}
+                                type="text"
+                                id="description"
+                                className={classes.inputBox}
+                            ></input>
+                        </div>
+
                         <div className={classes.name}>
                             <div className={classes.firstName}>
-                                <label htmlFor="fname" className={classes.inputLabel}>
+                                <label htmlFor="startDate" className={classes.inputLabel}>
                                     Start Date
                                 </label>
-                                <input type="date" id="fname" className={classes.inputBoxDate}></input>
+                                <input
+                                    onChange={(e) => handleChange(e)}
+                                    value={experience.startDate}
+                                    type="date"
+                                    id="startDate"
+                                    className={classes.inputBoxDate}
+                                ></input>
                             </div>
                             <div className={classes.lastName}>
-                                <label htmlFor="lname" className={classes.inputLabel}>
+                                <label htmlFor="endDate" className={classes.inputLabel}>
                                     End Date
                                 </label>
-                                <input type="date" id="lname" className={classes.inputBoxDate}></input>
+                                <input
+                                    onChange={(e) => handleChange(e)}
+                                    value={experience.endDate}
+                                    type="date"
+                                    id="endDate"
+                                    className={classes.inputBoxDate}
+                                ></input>
                             </div>
                         </div>
                     </div>
-                    <div style={{ textDecoration: 'none', color: 'black' }} className={classes.upload}>
+                    <div
+                        onClick={async () => {
+                            console.log('Button clicked');
+                            await addTeacherExperienceApiCall(experience, history);
+                        }}
+                        style={{ textDecoration: 'none', color: 'black' }}
+                        className={classes.upload}
+                    >
                         Save
                     </div>
                 </Grid>
@@ -243,4 +309,4 @@ const AddFormExp = (props: any) => {
     );
 };
 
-export default connect()(AddFormExp);
+export default connect(null, { addTeacherExperienceApiCall })(AddFormExp);

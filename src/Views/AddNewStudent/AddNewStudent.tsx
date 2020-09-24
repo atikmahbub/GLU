@@ -6,7 +6,11 @@ import SelectWithLabel from '../../components/Inputs/SelectWithLabel';
 import SaveController from '../../components/Dashobard/SaveController';
 import UploadMaxSize from '../../components/Button/UploadMaxSize';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
+import {
+    getFileUploadAPIcall,
+    uploadProfileAmznUrl,
+    uploadProfileFileName,
+} from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import { addNewStudentAPIcall, editStudentAPIcall } from '../../Redux/Actions/studentAction';
 import { useHistory, useLocation } from 'react-router';
@@ -27,12 +31,10 @@ const AddNewStudent: React.FunctionComponent = () => {
         studentId: -1,
     });
     const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
+    const tokenData = useSelector((state: rootReducerType) => state.authReducer.registerData);
     const [editMode, setEditMode] = useState(false);
     const handleNext = () => {
-        // setNext(next + 1);
-        if (image) {
-            dispatch(getFileUploadAPIcall(image.name));
-        }
+        hitStudentAPIcall();
     };
     const dispatch = useDispatch();
     const routes = useHistory();
@@ -81,15 +83,29 @@ const AddNewStudent: React.FunctionComponent = () => {
             const editdata = { ...data, students: data.students[0] };
             dispatch(editStudentAPIcall(editdata, state.studentId, routes));
         } else {
-            dispatch(addNewStudentAPIcall(data, fileData.fileName, routes));
+            dispatch(addNewStudentAPIcall(data, 'fileData.fileName', routes));
         }
     };
     useEffect(() => {
+        if (tokenData) {
+            if(image){
+            dispatch(getFileUploadAPIcall((image as any).name, tokenData[0].token));
+            }
+        }
+    }, [tokenData]);
+
+    useEffect(() => {
         if (fileData) {
-            dispatch(uploadProfileAmznUrl(fileData.url, image as any));
-            hitStudentAPIcall();
+            dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
         }
     }, [fileData]);
+
+    const uploadProfile = () => {
+        if (fileData) {
+            dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
+        }
+    };
+
     const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, firstName: e.target.value });
     };

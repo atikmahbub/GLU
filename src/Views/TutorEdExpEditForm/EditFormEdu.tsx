@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, Grid } from '@material-ui/core';
 import NavigationMenu from '../../components/NavigationMenu';
 import PageFooter from '../../components/PageFooter';
 import { connect } from 'react-redux';
-import SmallTextButton from '../TutorEditPage/SmallTextButton';
+import { getTeacherEducationById, editEducationApiCall } from '../../Redux/Actions/teacherAction';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     footer: {
@@ -177,7 +178,7 @@ const useStyles = makeStyles({
     },
 });
 
-const EditFormEdu = (props: any) => {
+const EditFormEdu = ({ match, getTeacherEducationById, editEducationApiCall }) => {
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
@@ -185,7 +186,40 @@ const EditFormEdu = (props: any) => {
         { link: '', name: 'Shop' },
     ];
     const classes = useStyles();
-    useEffect(() => {}, []);
+
+    const history = useHistory();
+
+    const [formData, setFormData] = useState({
+        school: null,
+        qualification: null,
+        fieldOfStudy: null,
+        startDate: null,
+        endDate: null,
+    });
+
+    const handleChange = (e: any) => {
+        console.log(formData);
+        setFormData({ ...formData, [e.target.id]: e.target.value });
+    };
+
+    useEffect(() => {
+        console.log(match.params.id);
+
+        const callFunc = async () => {
+            const data = await getTeacherEducationById(match.params.id);
+            setFormData(() => {
+                return {
+                    school: data.school,
+                    qualification: data.qualification,
+                    fieldOfStudy: data.fieldOfStudy,
+                    startDate: data.startDate.split('T')[0],
+                    endDate: data.endDate.split('T')[0],
+                };
+            });
+        };
+        callFunc();
+    }, []);
+
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
             <Grid container className={classes.mainPadding} spacing={6}>
@@ -200,39 +234,74 @@ const EditFormEdu = (props: any) => {
                             <label htmlFor="school" className={classes.inputLabel}>
                                 School/College
                             </label>
-                            <input type="text" id="school" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={formData.school}
+                                type="text"
+                                id="school"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
 
                         <div className={classes.email}>
                             <label htmlFor="qualification" className={classes.inputLabel}>
                                 Qualification
                             </label>
-                            <input type="text" id="qualification" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={formData.qualification}
+                                type="text"
+                                id="qualification"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
 
                         <div className={classes.email}>
                             <label htmlFor="fieldOfStudy" className={classes.inputLabel}>
                                 Field Of Study
                             </label>
-                            <input type="text" id="fieldOfStudy" className={classes.inputBox}></input>
+                            <input
+                                onChange={(e) => handleChange(e)}
+                                value={formData.fieldOfStudy}
+                                type="text"
+                                id="fieldOfStudy"
+                                className={classes.inputBox}
+                            ></input>
                         </div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="fname" className={classes.inputLabel}>
                                     Start Date
                                 </label>
-                                <input type="date" id="fname" className={classes.inputBoxDate}></input>
+                                <input
+                                    onChange={(e) => handleChange(e)}
+                                    value={formData.startDate}
+                                    type="date"
+                                    id="fname"
+                                    className={classes.inputBoxDate}
+                                ></input>
                             </div>
                             <div className={classes.lastName}>
                                 <label htmlFor="lname" className={classes.inputLabel}>
                                     End Date
                                 </label>
-                                <input type="date" id="lname" className={classes.inputBoxDate}></input>
+                                <input
+                                    onChange={(e) => handleChange(e)}
+                                    value={formData.endDate}
+                                    type="date"
+                                    id="lname"
+                                    className={classes.inputBoxDate}
+                                ></input>
                             </div>
                         </div>
-                        <SmallTextButton text="Save" />
                     </div>
-                    <div style={{ textDecoration: 'none', color: 'black' }} className={classes.upload}>
+                    <div
+                        onClick={() => {
+                            editEducationApiCall(match.params.id, formData, history);
+                        }}
+                        style={{ textDecoration: 'none', color: 'black' }}
+                        className={classes.upload}
+                    >
                         Save
                     </div>
                 </Grid>
@@ -244,4 +313,4 @@ const EditFormEdu = (props: any) => {
     );
 };
 
-export default connect()(EditFormEdu);
+export default connect(null, { getTeacherEducationById, editEducationApiCall })(EditFormEdu);

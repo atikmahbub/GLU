@@ -22,7 +22,14 @@ const Departments: React.FunctionComponent<props> = ({ departmentList }) => {
     const handleDelete = (id: number) => {
         dispatch(deleteDepartmentAPIcall(id));
     };
-    const handleEdit = (data: any) => {};
+    const handleEdit = (data: any) => {
+        routes.push({
+            pathname: '/dashboard/department/add-new-department',
+            state: {
+                data: data,
+            },
+        });
+    };
     const handleRoute = () => {
         routes.push('/dashboard/department/add-new-department');
     };
@@ -76,7 +83,7 @@ const Departments: React.FunctionComponent<props> = ({ departmentList }) => {
                                         showDetail={true}
                                         detailClick={() => redirectDetails()}
                                         // deleteClick={() => handleDelete(rowData.id)}
-                                        // editClick={() => handleEdit(rowData)}
+                                        editClick={() => handleEdit(rowData)}
                                     />
                                 ),
                             },

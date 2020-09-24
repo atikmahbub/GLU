@@ -30,6 +30,20 @@
         }
     }
 }
+.show_students_like{
+    .students_like_text{
+        font-family: 'CircularXXWeb-Book';
+        font-size: 1.5625rem;
+        line-height: 1.8125rem;
+    }
+    ul{
+        text-decoration: none;
+        list-style: none;
+        li{
+            cursor: pointer;
+        }
+    }
+}
 @media screen and(min-width:767px) {
     
     .recommendleftBorder{

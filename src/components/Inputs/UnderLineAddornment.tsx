@@ -1,57 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { FormControl, InputLabel, OutlinedInput,  InputAdornment, IconButton, FilledInput, Input } from '@material-ui/core';
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import {
+    FormControl,
+    InputLabel,
+    OutlinedInput,
+    InputAdornment,
+    IconButton,
+    FilledInput,
+    Input,
+} from '@material-ui/core';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
-interface props{
-  className?: string;
-  value?:string;
-  onChange?: (value: string) => void;
-  label?: string
+interface props {
+    className?: string;
+    value?: string;
+    onChange?: (value: string) => void;
+    label?: string;
+    name?: string;
+    inputRef?: any;
 }
-const UnderLineAddornment: React.FunctionComponent<props> = ({className, value,label, onChange}) => {
+const UnderLineAddornment: React.FunctionComponent<props> = ({ className, name, inputRef, value, label, onChange }) => {
     const [password, setPassword] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
 
     const handlePasswordVisibility = () => {
         setIsShowPassword(!isShowPassword);
-      };
+    };
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setPassword(e.target.value);
-      if(onChange){
-        onChange(e.target.value);
-      }
-    }
-      useEffect(()=>{
+        setPassword(e.target.value);
+        if (onChange) {
+            onChange(e.target.value);
+        }
+    };
+    useEffect(() => {
         value && setPassword(value);
-      }, [])
+    }, []);
     return (
         <FormControl className={`${className} mb-2`} variant="outlined" fullWidth>
-        <InputLabel htmlFor="password-input">{label}</InputLabel>
-        <Input
-          id="password-input"
-          type={isShowPassword ? "text" : "password"}
-          value={password}
-          onChange={handlePassword}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                className="eye-button"
-                aria-label="toggle password visibility"
-                onClick={handlePasswordVisibility}
-                edge="end"
-              >
-                {isShowPassword ? (
-                  <i className="icon-Visible" />
-                ) : (
-                  <i className="icon-Invisible" />
-                )}
-              </IconButton>
-            </InputAdornment>
-          }
-        />
-      </FormControl>
+            <InputLabel htmlFor="password-input">{label}</InputLabel>
+            <Input
+                name={name}
+                inputRef={inputRef}
+                id="password-input"
+                type={isShowPassword ? 'text' : 'password'}
+                endAdornment={
+                    <InputAdornment position="end">
+                        <IconButton
+                            className="eye-button"
+                            aria-label="toggle password visibility"
+                            onClick={handlePasswordVisibility}
+                            edge="end"
+                        >
+                            {isShowPassword ? <i className="icon-Visible" /> : <i className="icon-Invisible" />}
+                        </IconButton>
+                    </InputAdornment>
+                }
+            />
+        </FormControl>
     );
-}
+};
 
 export default UnderLineAddornment;

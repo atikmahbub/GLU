@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../components/Dashobard/AddButton';
@@ -10,6 +10,7 @@ import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import TableUserProfile from '../../components/Dashobard/TableUserProfile';
 import TableFilter from '../../components/Dashobard/Table/TableFilter';
 import CardTable from '../../components/Table/CardTable';
+import { string } from 'yup';
 
 interface colDataType {
     id: number;
@@ -25,6 +26,9 @@ interface props {
 const StudentList: React.FunctionComponent<props> = ({ students }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
+    const [studentData, setStudentData] = useState<any>([]);
+    const [searchValue, setSearchValue] = useState('');
+
     const handleRoutes = () => {
         routes.push({
             pathname: routeEndpoints.student.addNewStudent,
@@ -37,7 +41,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
         routes.push({
             pathname: routeEndpoints.student.details,
             state: {
-               studentId: id
+                id: id,
             },
         });
     };
@@ -49,9 +53,35 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             },
         });
     };
+    useEffect(() => {
+        setStudentData(students);
+    }, [students]);
+
     const handleDelete = (deleteId: number) => {
         dispatch(deleteStudentAPIcall(deleteId));
     };
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(e.target.value);
+    };
+    useEffect(() => {
+        if (searchValue === '') {
+            setStudentData(students);
+        } else {
+            setTimeout(() => {
+                const data = studentData.filter((item: any) => {
+                    if (
+                        String(item.name).toLocaleLowerCase().search(searchValue.toLocaleLowerCase()) > -1 ||
+                        String(item.yearGroup).toLocaleLowerCase().search(searchValue.toLocaleLowerCase()) > -1 ||
+                        String(item.formGroup).toLocaleLowerCase().search(searchValue.toLocaleLowerCase()) > -1
+                    ) {
+                        return item;
+                    }
+                });
+                setStudentData(data);
+            }, 1000);
+        }
+    }, [searchValue]);
+
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -59,7 +89,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
-                    <TableFilter />
+                    <TableFilter searchOnchange={handleSearchChange} searchValue={searchValue} />
                     <div className="table__container">
                         <CardTable
                             showToolbar={false}
@@ -78,7 +108,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                 {
                                     width: '23%',
                                     title: 'Student ID',
-                                    field: 'studentId',
+                                    field: 'id',
                                 },
                                 {
                                     width: '23%',
@@ -105,7 +135,7 @@ const StudentList: React.FunctionComponent<props> = ({ students }) => {
                                     ),
                                 },
                             ]}
-                            rowData={students}
+                            rowData={studentData}
                         />
                     </div>
                 </div>

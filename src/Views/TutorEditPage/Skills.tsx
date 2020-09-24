@@ -83,8 +83,7 @@ const Skills = ({ skills, addTeacherSkill }) => {
         e.preventDefault();
         const formatData = [{ skillName: newSkill }];
         await addTeacherSkill(formatData);
-        // forceUpdate();
-        window.location.reload();
+        setNewSkill('');
     };
     const [newSkill, setNewSkill] = useState(null);
     const handleSkill = (e: any) => {
@@ -111,7 +110,7 @@ const Skills = ({ skills, addTeacherSkill }) => {
                 </form>
             </div>
             <div className={classes.chipContainer}>
-                {skills && skills.map((item) => <SkillChip skill={item.skillName} key={item.id} />)}
+                {skills && skills.map((item) => <SkillChip skill={item.skillName} key={item.id} id = {item.id} />)}
             </div>
         </div>
     );

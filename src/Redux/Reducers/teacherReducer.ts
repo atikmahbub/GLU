@@ -3,18 +3,35 @@ import {
     TEACHER_DETAILS,
     TEACHER_DATA,
     GET_TEACHER_SKILLS,
-    GET_TEACHER_EDUCATION,
     GET_TEACHER_EXPERIENCE,
-} from '../ActionTypes/teacherTypes';
+    GET_TEACHER_EDUCATION,
+    GET_TEACHER_HOMEWORK_COUNT,
+    GET_TEACHER_HOMEWORK,
+    GET_TEACHER_RECOMMENDATION,
+    GET_TEACHER_STUDENT_LIKE,
+    DELETE_EDUCATION,
+    DELETE_EXPERIENCE,
 
+    ADD_TEACHER_SKILL,
+    POST_TEACHER_RECOMMENDATION,
+    GET_TEACHER_RECOMMENDATION_COUNT,
+    POST_TEACHER_HOMEWORK,
+    DELETE_SKILL,
+} from '../ActionTypes/teacherTypes';
 const initialState = {
     teacherList: null,
     teacherData: null,
     teacherSkill: null,
-    teacherEducation: null,
     teacherExperience: null,
+    teacherEducation: null,
+    teacherHomework: null,
+    teacherHomeworkCount: null,
+    teacherRecommendations: null,
+    teacherStudentLike: null,
+    teacherPostRecommendation:null,
+    teacherRecommendationCount:null,
+    teacherCreateHomework:null,
 };
-
 export const teacherReducer = (state = initialState, action: any) => {
     const newState = { ...state };
     switch (action.type) {
@@ -36,18 +53,71 @@ export const teacherReducer = (state = initialState, action: any) => {
             newState.teacherSkill = action.payload;
             return newState;
         }
-
         case GET_TEACHER_EXPERIENCE: {
+            newState.teacherExperience = action.payload;
+            return newState;
+        }
+        case GET_TEACHER_EDUCATION: {
+            newState.teacherEducation = action.payload;
+            return newState;
+        }
+        case GET_TEACHER_HOMEWORK: {
+            newState.teacherHomework = action.payload;
+            return newState;
+        }
+        case GET_TEACHER_HOMEWORK_COUNT: {
+            newState.teacherHomeworkCount = action.payload;
+            return newState;
+        }
+        case GET_TEACHER_RECOMMENDATION: {
+            newState.teacherRecommendations = action.payload;
+            return newState;
+        }
+        case GET_TEACHER_STUDENT_LIKE: {
+            newState.teacherStudentLike = action.payload;
+            return newState;
+        }
+
+        case DELETE_EDUCATION: {
+            const id = action.payload;
             return {
                 ...state,
-                teacherExperience: action.payload,
+                teacherEducation: state.teacherEducation.filter((item) => item.qualificationId !== id),
             };
         }
 
-        case GET_TEACHER_EDUCATION: {
+        case DELETE_EXPERIENCE: {
+            const id = action.payload;
             return {
                 ...state,
-                teacherEducation: action.payload,
+                teacherExperience: state.teacherExperience.filter((item) => item.experienceId !== id),
+            };
+        }
+
+        case ADD_TEACHER_SKILL: {
+            return {
+                ...state,
+                teacherSkill: [...state.teacherSkill, action.payload],
+            };
+        }
+        case POST_TEACHER_RECOMMENDATION:{
+            newState.teacherPostRecommendation=action.payload;
+            return newState;
+        }
+        case GET_TEACHER_RECOMMENDATION_COUNT:{
+            newState.teacherRecommendationCount=action.payload;
+            return newState;
+        }
+        case POST_TEACHER_HOMEWORK:{
+            newState.teacherCreateHomework=action.payload;
+            return newState;
+        }
+
+        case DELETE_SKILL: {
+            const id = action.payload;
+            return {
+                ...state,
+                teacherSkill: state.teacherSkill.filter((item) => item.id !== id),
             };
         }
 

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TwoColTable from '../../components/Dashobard/TwoColTable';
 import HistogramChart from '../../components/Dashobard/HistogramChart';
 import { Typography } from '@material-ui/core';
 import { useHistory } from 'react-router';
 
-const FeeExamResultRow = () => {
+interface props {
+    barData?: any;
+}
+const FeeExamResultRow: React.FC<props> = ({ barData }) => {
     const data = [
         { col1: 'January', col2: 'Success' },
         { col1: 'Fabruary', col2: 'Success' },
@@ -15,7 +18,6 @@ const FeeExamResultRow = () => {
     const gotoPage = () => {
         route.push('/dashboard/student-details/exam');
     };
-    const histogramData = [800, 900, 990];
     const xAxisData = ['First Term exam', 'Second Term Exam', 'Third Term Exam'];
     return (
         <div className="row row__margin">
@@ -27,7 +29,7 @@ const FeeExamResultRow = () => {
                     <div className="row">
                         <div className="col-md-9 bdr_right">
                             <Typography className="exam_heading">Exam Results</Typography>
-                            <HistogramChart xAxis={xAxisData} data={histogramData} goto={gotoPage} />
+                            <HistogramChart xAxis={xAxisData} data={barData} goto={gotoPage} />
                         </div>
                         <div className="col-md-3 d-flex align-content-center justify-content-center">
                             <div className="align-self-center">

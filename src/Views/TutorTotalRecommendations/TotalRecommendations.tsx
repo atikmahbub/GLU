@@ -1,79 +1,28 @@
-import React from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
-import {Link} from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { Typography} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {useDispatch,useSelector} from 'react-redux';
+import { rootReducerType } from '../../Interfaces/reducerInterfaces';
+import {getTeacherRecommendation,getTeacherRecommendationCount} from '../../Redux/Actions/teacherAction';
 import NavigationMenu from '../../components/NavigationMenu';
 import ReusableSubmittedList from './ReusableSubmittedList';
 import PageFooter from '../../components/PageFooter';
-import MadeBy from '../Footer/MadeBy';
 const TutorClass: React.FunctionComponent = () => {
+    const dispatch=useDispatch();
+    const teacherRecommend=useSelector((state:rootReducerType)=>state.teacherReducer.teacherRecommendations);
+    const teacherRecommendCount=useSelector((state:rootReducerType)=>state.teacherReducer.teacherRecommendationCount);
     const menu = [
         { link: '/tutor/', name: 'Dashboard' },
         { link: '/tutor/set-class', name: 'Set Class' },
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const studentsName = [
-        'Toby Frost',
-        'Lugain Rfidah',
-        'Jack Marshall',
-        'Mia Adams',
-        'Jen Holden',
-        'Arthor Smith',
-        'Rohan Rai',
-        'Joshua Lee',
-    ];
-    const studentsAccepted = [
-        {
-            subject: 'English',
-            desc: 'How to structure narrative in fiction',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        },
-        {
-            subject: 'Biology',
-            desc: 'How chlorophyll absorbs light',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        },
-        {
-            subject: 'French',
-            desc:'French Understanding feminine nouns',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:true
-        }
-    ];
-    const studentsSubmitted = [
-        {
-            subject: 'English',
-            desc: 'How to structure narrative in fiction',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        },
-        {
-            subject: 'Biology',
-            desc: 'How chlorophyll absorbs light',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        },
-        {
-            subject: 'French',
-            desc:'French Understanding feminine nouns',
-            SubmittedDate: '11/08/20',
-            studentsNum: '8',
-            studentList: studentsName,
-            isAccepted:false
-        }
-    ];
+    useEffect(() => {
+        dispatch(getTeacherRecommendation());
+    }, [])
+    useEffect(() => {
+        dispatch(getTeacherRecommendationCount());
+    }, [])
     return (
         <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'}>
             <div className="tutor_total_recommend">
@@ -92,7 +41,7 @@ const TutorClass: React.FunctionComponent = () => {
                                 <div className="number_container">
                                     <div className="suggested_number_container">
                                         <div className="suggested_number">
-                                            <Typography className="total_recommend_text">40</Typography>
+                                            <Typography className="total_recommend_text">{teacherRecommendCount&&teacherRecommendCount.data.suggest}</Typography>
                                         </div>
                                         <div className="suggest_text">
                                             <Typography className="total_recommend_smalltext">Suggested</Typography>
@@ -100,7 +49,7 @@ const TutorClass: React.FunctionComponent = () => {
                                     </div>
                                     <div className="accepted_number_container">
                                         <div className="accepted_number">
-                                            <Typography className="total_recommend_text">17</Typography>
+                                            <Typography className="total_recommend_text">{teacherRecommendCount&&teacherRecommendCount.data.accepted}</Typography>
                                         </div>
                                         <div className="accepted_text">
                                             <Typography className="total_recommend_smalltext">Accepted</Typography>
@@ -122,18 +71,18 @@ const TutorClass: React.FunctionComponent = () => {
                                     </Typography>
                                 </div>
                                 <div className="total_recommend_list_container">
-                                    {studentsSubmitted.map((val, index) => (
+                                    {teacherRecommend&&teacherRecommend.map((val, index) => (
                                         <>
                                             <ReusableSubmittedList
                                                 subject={val.subject}
-                                                desc={val.desc}
-                                                SubmittedDate={val.SubmittedDate}
-                                                studentsNum={val.studentsNum}
-                                                studentList={val.studentList}
-                                                isAccepted={val.isAccepted}
+                                                desc={val.class}
+                                                SubmittedDate={new Date(val.submitted).toString()}
+                                                // studentsNum={val.RecommendedStudents.length}
+                                                studentList={val.RecommendedStudents}
+                                                DisplayAccepted={false}
                                             />
 
-                                            {index!=studentsSubmitted.length&&<div className="recommend_line"></div>}
+                                            
                                         </>
                                     ))}
                                 </div>
@@ -150,18 +99,18 @@ const TutorClass: React.FunctionComponent = () => {
     
                              <div className="total_recommend_container_3">
                              
-                             {studentsAccepted.map((val, index) => (
+                             {teacherRecommend&&teacherRecommend.map((val, index) => (
                                         <>
                                             <ReusableSubmittedList
                                                 subject={val.subject}
-                                                desc={val.desc}
-                                                SubmittedDate={val.SubmittedDate}
-                                                studentsNum={val.studentsNum}
-                                                studentList={val.studentList}
-                                                isAccepted={val.isAccepted}
+                                                desc={val.class}
+                                                SubmittedDate={val.submitted}
+                                             
+                                                studentList={val.RecommendedStudents}
+                                                DisplayAccepted={true}
                                             />
 
-                                            {index!=studentsSubmitted.length-1&&<div className="recommend_line"></div>}
+                                            
                                         </>
                                     ))}
                                     

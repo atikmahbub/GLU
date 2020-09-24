@@ -51,6 +51,7 @@ import TeacherCGAttendance from '../../Views/TeacherDetails/ClassGroups/Attendan
 import TeacherCGPerticularAttendance from '../../Views/TeacherDetails/ClassGroups/PerticularAttendace/Index';
 import TeacherCGExamResult from '../../Views/TeacherDetails/ClassGroups/ExamResult/Index';
 import TeacherCGHomework from '../../Views/TeacherDetails/ClassGroups/HomeWork/Index';
+import CmsNotification from '../../Views/CmsNotification/CmsNotification';
 
 export const dashboardRoutes = [
     { pathname: '/dashboard', component: Dashboard },
@@ -126,5 +127,9 @@ export const dashboardRoutes = [
     {
         pathname: '/dashboard/teacher-details/class-group-details/merits/sanctions',
         component: MeritsSanction,
+    },
+    {
+        pathname: '/dashboard/message',
+        component: CmsNotification,
     },
 ];

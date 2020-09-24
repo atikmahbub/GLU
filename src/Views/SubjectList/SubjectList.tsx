@@ -8,11 +8,23 @@ import BorderTableContainer from '../../Containers/Dashboard/BorderTableContaine
 import CardTable from '../../components/Table/CardTable';
 import ActionToolbar from '../../components/Dashobard/ActionToolbar';
 import { useHistory } from 'react-router';
+import FormControlInput from '../../components/Form/FormControlInput';
+import { Grid, makeStyles } from '@material-ui/core';
+import FormControlSelect from '../../components/Form/FormControlSelect';
 
+const useStyles = makeStyles(({
+    inputsContainer: {
+        marginBottom: '2.1875rem',
+    },
+    inputRoot: {
+        marginRight: '0.625rem',
+    },
+}))
 interface props {
     setEditData: Function;
 }
 const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
+    const classes = useStyles();
     const [subjects, setSubjects] = useState([]);
     const subjectList = useSelector((state: rootReducerType) => state.subjectReducer.subjectList);
     console.log(subjectList);
@@ -54,6 +66,40 @@ const SubjectList: React.FunctionComponent<props> = ({ setEditData }) => {
             </CardContainer>
             <CardContainer>
                 <BorderTableContainer>
+                <Grid container justify="space-between" className={classes.inputsContainer}>
+                        <Grid container item xs={6}>
+                            <FormControlSelect
+                                placeholder="Year Group"
+                                value=""
+                                options={[]}
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                                rootClassName={classes.inputRoot}
+                            />
+                            <FormControlSelect
+                                placeholder="Department"
+                                value=""
+                                options={[]}
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                            />
+                        </Grid>
+                        <Grid container justify="flex-end" item xs={6}>
+                            <FormControlInput
+                                id=""
+                                name=""
+                                value=""
+                                placeholder="Search"
+                                onChange={() => {}}
+                                variant="outlined"
+                                rounded
+                                fullWidth={false}
+                                icon={<i className="icon-Search_Nav" />}
+                            />
+                        </Grid>
+                    </Grid>
                     <CardTable
                         showToolbar={false}
                         showPagination={true}
