@@ -15,6 +15,10 @@ import {
     GET_TEACHER_HOMEWORK_COUNT,
     GET_TEACHER_RECOMMENDATION,
     GET_TEACHER_STUDENT_LIKE,
+    POST_TEACHER_RECOMMENDATION,
+    GET_TEACHER_RECOMMENDATION_COUNT,
+    POST_TEACHER_HOMEWORK,
+    DELETE_SKILL,
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
@@ -372,17 +376,6 @@ export const addTeacherExperienceApiCall = (data, history) => {
     };
 };
 
-export const getTeacherEducationById = (id) => {
-    return async (dispatch: any) => {
-        try {
-            const data = await API.get(`${endponts.teahcerEducation}/${id}`);
-
-            return data.data.data;
-        } catch (err) {
-            handleError(dispatch, err);
-        }
-    };
-};
 export const getTeacherStudentLike = (data: any) => {
     return async (dispatch: any) => {
         try {
@@ -407,5 +400,110 @@ export const postTeacherRecommendation = (data: any) => {
         } catch (err) {
             handleError(dispatch, err);
         }
+    };
+};
+
+export const getTeacherEducationById = (id) => {
+    return async (dispatch: any) => {
+        try {
+            const data = await API.get(`${endponts.teahcerEducation}/${id}`);
+
+            return data.data.data;
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const editEducationApiCall = (id: any, data: any, history: any) => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.put(`${endponts.teacherEdu}/${id}`, data);
+            if (res.data.success) history.push('/tutor/tutor-edit');
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const getTeacherExperienceById = (id) => {
+    return async (dispatch: any) => {
+        try {
+            const data = await API.get(`${endponts.techerExp}/${id}`);
+
+            return data.data.data;
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const editExperienceApiCall = (id: any, data: any, history: any) => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.put(`${endponts.techerExp}/${id}`, data);
+            if (res.data.success) history.push('/tutor/tutor-edit');
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+export const postTeacherRecommendationData=(data:any)=>{
+    return {
+        type:POST_TEACHER_RECOMMENDATION,
+        payload:data
+    }
+}
+export const getTeacherRecommendationCount=()=>{
+    return async(dispatch:any)=>{
+        try{
+            const res=await API.get(endponts.teacherRecommendationCount);
+            dispatch(getTeacherRecommendationCountData(res.data));
+        }
+        catch(err){
+            handleError(dispatch,err);
+        }
+    }
+}
+export const getTeacherRecommendationCountData=(data:any)=>{
+    return{
+        type:GET_TEACHER_RECOMMENDATION_COUNT,
+        payload:data
+    }
+}
+export const postTeacherHomework=(data:any)=>{
+    return (dispatch:any)=>{
+        API.post(endponts.teacherHomework,data).then((res)=>{
+            dispatch(postTeacherHomeworkData(res.data));
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}
+export const postTeacherHomeworkData=(data:any)=>{
+    return{
+        type:POST_TEACHER_HOMEWORK,
+        payload:data
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// Delete skill by id
+export const deleteSkillById = (id) => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.delete(`${endponts.teahcerSkill}/${id}`);
+            console.log(res.data.success);
+            if (res.data.success) dispatch(deleteSkill(id));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+
+export const deleteSkill = (data: any) => {
+    return {
+        type: DELETE_SKILL,
+        payload: data,
     };
 };

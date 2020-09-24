@@ -31,6 +31,7 @@ export const endponts = {
     parentChildAdd: 'guardian/children',
     forgotEmail: 'auth/forget/password',
     resetPassword: 'auth/reset/password/',
+    getUserProfile: 'user/profile',
     teacherEdu:'teacher/qualification',
     teacherHomework:'teacher/homework',
     teacherHomeworkCount:'teacher/homework/count',
@@ -42,11 +43,13 @@ export const endponts = {
     getStudentDetails: 'school/subject/student/',
     attendanceDetails: 'attendance/student/',
     studentExam: '/school/student/',
-    studentHomework:'/school/status/homework/student/'
+    studentHomework:'/school/status/homework/student/',
+    teacherRecommendationCount:'teacher/recommend/count',
 };
 
 export const studentsEndpoints = {
-    getFeatureTeacher: 'student/feature/teacher',
-    getUpcomingSessions: 'student/upcoming/session',
-    getPreviousSessions: 'student/previous/session'
+    getFeatureTeacher: 'review/featured/teachers',
+    getUpcomingSessions: 'freelancer/student/session/upcoming',
+    getPreviousSessions: 'freelancer/student/session/previous',
+    getFeatureSubject: 'freelancer/student/featured/subject'
 }

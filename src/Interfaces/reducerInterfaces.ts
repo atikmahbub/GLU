@@ -34,6 +34,11 @@ export interface teacherReducerType {
     teacherExperience:any
     teacherHomework:any
     teacherEducation:any
+    teacherRecommendations:any
+    teacherPostRecommendation:any
+    teacherStudentLike:any
+    teacherRecommendationCount:any
+    teacherCreateHomework:any
 }
 export interface parentReducerType {
     parentData: any;

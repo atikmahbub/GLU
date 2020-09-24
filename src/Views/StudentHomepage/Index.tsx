@@ -4,12 +4,14 @@ import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
 import useUpcomingClasses from '../../Hooks/students/useUpcomingClasses';
 import usePreviousClasses from '../../Hooks/students/usePreviousClasses';
+import useFeatureSubjects from '../../Hooks/students/useFeatureSubjects';
 import { getCurrentMonth, getCurrentYear } from '../../Helper/date';
 
 const Index: React.FunctionComponent = () => {
     const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
-    const { nextClassCard, featuredSubjectsCard, upcomingClassCard } = useUpcomingClasses();
+    const { nextClassCard, upcomingClassCard } = useUpcomingClasses();
     const { prevClassImageCards } = usePreviousClasses();
+    const { featuredSubjectsCard } = useFeatureSubjects();
 
     return (
         <HomePageContainer

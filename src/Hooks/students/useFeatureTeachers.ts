@@ -16,7 +16,7 @@ function useFeatureTeachers() {
                 setState((prevState: any) => ({
                     ...prevState,
                     teachersBannerCards: dataToBannerCards(data),
-                    teachersImageCards: dataToImageCard(data),
+                    teachersImageCards: dataToImageCard(data.slice(0, 4)),
                     featuredTeachersCard: dataToFeaturedCard(data),
                 }));
             }

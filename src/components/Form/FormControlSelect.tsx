@@ -4,7 +4,6 @@ import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { ISelectOption } from './types';
 
 const useStyles = makeStyles({
@@ -31,7 +30,7 @@ const useStyles = makeStyles({
     },
     inputRoot: {
         flexGrow: 1,
-        width: 250,
+        minWidth: 250,
         height: '2.75rem',
         cursor: 'default',
         '&::before': {
@@ -41,7 +40,7 @@ const useStyles = makeStyles({
             display: 'none',
         },
         '& .MuiSelect-select': {
-            padding: '0 0.6875rem',
+            padding: ({ variant }: any) => (variant === 'underlined' ? 0 : '0 0.6875rem'),
             height: '100%',
             color: ({ value }: any) => (value ? '#000' : '#5F5F5F'),
             '&:focus': {
@@ -75,6 +74,7 @@ type FormControlSelectProps = {
     rootClassName?: string;
     inputRootClassName?: string;
     labelPlacement?: 'left' | 'top';
+    labelClassName?: string;
     fullWidth?: boolean;
 };
 
@@ -89,9 +89,10 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
     rootClassName,
     inputRootClassName,
     labelPlacement,
+    labelClassName,
     fullWidth,
 }) => {
-    const classes = useStyles({ rounded, value, fullWidth });
+    const classes = useStyles({ rounded, variant, value, fullWidth });
     return (
         <Grid
             container
@@ -102,7 +103,7 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
         >
             {label && (
                 <InputLabel
-                    className={classNames(classes.label, {
+                    className={classNames(classes.label, labelClassName, {
                         [classes.labelTop]: labelPlacement === 'top',
                         [classes.labelLeft]: labelPlacement === 'left',
                     })}
@@ -118,7 +119,7 @@ const FormControlSelect: FC<FormControlSelectProps> = ({
                     [classes.inputRootOutlined]: variant === 'outlined',
                 })}
                 IconComponent={() => {
-                    return <i className="icon-Down" style={{marginRight:'0.8rem'}} />;
+                    return <i className="icon-Down" style={{ marginRight: '0.8rem' }} />;
                 }}
                 onChange={onChange}
             >

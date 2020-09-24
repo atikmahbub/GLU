@@ -3,12 +3,14 @@ import { Link, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import { Typography } from '@material-ui/core';
+import ButtonPrimary from '../../components/Button/ButtonPrimary';
+import useUserProfile from '../../Hooks/user/useUserProfile';
 import { UserTypes } from '../../Types/user';
-import { createLeftDrawerMenuList, createLeftDrawerMenuListSecondary } from '../../Helper/menus';
 import { menuListItem } from '../../Interfaces/menuTypes';
-import { resetTokenAndLocalStorage } from '../../Utility/API';
+import { createLeftDrawerMenuList, createLeftDrawerMenuListSecondary } from '../../Helper/menus';
+import { clearStorage } from '../../Helper/storage';
+import useHistoryPush from '../../Hooks/useHistoryPush';
 
 const useStyles = makeStyles({
     root: {
@@ -45,13 +47,16 @@ interface ILeftDrawerMenuContent {
 
 const LeftDrawerMenuContent: FC<ILeftDrawerMenuContent> = ({ userType }) => {
     const classes = useStyles();
+    const historyPush = useHistoryPush();
     const menuList: menuListItem[] = useMemo(() => createLeftDrawerMenuList(userType), [userType]);
     const menuListSecondary: menuListItem[] = useMemo(() => createLeftDrawerMenuListSecondary(userType), [userType]);
-    const history = useHistory();
-    const resetAuth = () => {
-        resetTokenAndLocalStorage();
-        history.push('/');
+    const { name } = useUserProfile();
+
+    const handleLogOut = () => {
+        clearStorage();
+        historyPush('/');
     };
+
     return (
         <Grid container direction="column" justify="space-between" className={classes.root}>
             <Grid container direction="column">
@@ -76,8 +81,8 @@ const LeftDrawerMenuContent: FC<ILeftDrawerMenuContent> = ({ userType }) => {
                 </Grid>
             </Grid>
             <Grid container>
-                <ButtonPrimary className={classes.button}>Harrison Marshall</ButtonPrimary>
-                <ButtonPrimary className={classNames(classes.button, classes.buttonSignOut)} onClick={resetAuth}>
+                <ButtonPrimary className={classes.button}>{name}</ButtonPrimary>
+                <ButtonPrimary onClick={handleLogOut} className={classNames(classes.button, classes.buttonSignOut)}>
                     Sign out
                 </ButtonPrimary>
             </Grid>
