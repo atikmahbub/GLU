@@ -17,8 +17,7 @@ const CardTable = ({
     rowClick,
     wantRows,
     getWantRows,
-    filterRender,
-    ...props
+    filterRender
 }) => {
     return (
         <MaterialTable

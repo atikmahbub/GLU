@@ -14,7 +14,7 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
         setShowFilter(!showFilter);
     };
     const handleSearch = (e) => {
-        console.log(availabeProps)
+        // console.log(availabeProps)
         setSearch(e.target.value);
         availabeProps.onSearchChanged(e.target.value);
     };

@@ -1,9 +1,12 @@
 import React from 'react';
 import SelectFieldUnderline from '../../Inputs/SelectFieldUnderline';
 import FormControlInput from '../../Form/FormControlInput';
-import { Search } from '@material-ui/icons';
 
-const TableFilter = () => {
+interface props {
+    searchOnchange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    searchValue: string;
+}
+const TableFilter: React.FC<props> = ({searchOnchange, searchValue}) => {
     return (
         <div className="filter__column__box">
             <div className="column__box">
@@ -54,8 +57,16 @@ const TableFilter = () => {
                     getValue={() => {}}
                 />
             </div>
-            <div style={{paddingTop: '1.3rem'}} className="column__box">
-                <FormControlInput name="" id="" fullWidth={true} placeholder="Search" value="" icon={<i className="icon-Search_Nav"/>} onChange={() => {}} />
+            <div style={{ paddingTop: '1.3rem' }} className="column__box">
+                <FormControlInput
+                    name=""
+                    id=""
+                    fullWidth={true}
+                    placeholder="Search"
+                    value={searchValue}
+                    icon={<i className="icon-Search_Nav" />}
+                    onChange={searchOnchange}
+                />
             </div>
         </div>
     );

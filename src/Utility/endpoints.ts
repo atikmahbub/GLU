@@ -38,7 +38,11 @@ export const endponts = {
     teacherStudentLike:'teacher/student/like',
     searchStudent: 'school/student/like',
     registerVerfiyUser: 'auth/verify/',
-    updateProfile: 'user/profile'
+    updateProfile: 'user/profile',
+    getStudentDetails: 'school/subject/student/',
+    attendanceDetails: 'attendance/student/',
+    studentExam: '/school/student/',
+    studentHomework:'/school/status/homework/student/'
 };
 
 export const studentsEndpoints = {
