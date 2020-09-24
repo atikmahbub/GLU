@@ -8,8 +8,9 @@ interface props {
     barData?: any;
     toalPercent?: string | number;
     studentId?: string | number;
+    studentDetails?:any
 }
-const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent, studentId }) => {
+const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent, studentId, studentDetails }) => {
     const data = [
         { col1: 'January', col2: 'Success' },
         { col1: 'Fabruary', col2: 'Success' },
@@ -22,6 +23,7 @@ const FeeExamResultRow: React.FC<props> = ({ barData, toalPercent, studentId }) 
             pathname: '/dashboard/student-details/exam',
             state: {
                 id: studentId,
+                studentDetails: studentDetails
             },
         });
     };

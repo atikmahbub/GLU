@@ -29,7 +29,7 @@ export const addNewSubjectAPIcall = (
 
 export const getSubjectListAPIcall = () => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${endponts.getAllStudents}`)
+        API.get(`${endponts.getAllSubject}`)
             .then((res) => {
                 console.log(res);
                 dispatch(subjectListAPIres(res.data.data));
