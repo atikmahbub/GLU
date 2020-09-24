@@ -7,7 +7,6 @@ import { FavoriteBorder } from '@material-ui/icons';
 
 const useStyles = makeStyles({
     root: {
-        // background: ({ img }: any) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${img}) center / cover`,
         backgroundColor: "white",
         padding: '0 3.125rem',
         color: 'black',
@@ -19,13 +18,12 @@ const useStyles = makeStyles({
         margin: 0,
         padding: 0,
         fontSize: '7.5rem',
-        // lineheight: '7.5rem',
+        lineheight: '7.5rem',
         fontStyle: 'CircularXXTrial',
         opacity: 1,
         fontWeight: 500,
     },
     favoriteBox: {
-        // marginLeft: "7px",
         width: '100px',
         color: '#5F5F5F',
     },

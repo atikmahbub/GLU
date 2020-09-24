@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Slider from 'react-slick';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
-import BannerCard from '../Cards/BannerCard';
 import WhiteBannerCard from '../Cards/WhiteBannerCard';
 
 import { IndividualSubjectWhiteBannerCardElement } from '../Cards/types';
