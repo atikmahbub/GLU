@@ -25,9 +25,15 @@ const useStyles = makeStyles({
     }
 });
 
-interface IBannerCard extends BannerCardElement {}
+export interface IndividualSubjectBannerCardElement {
+    img?: string;
+    name?: string;
+    subject?: string;
+    description?: string;
+    time?: string;
+}
 
-const BannerCard: FC<IBannerCard> = ({ img, name, subject, time, description }) => {
+const IndividualSubjectBannerCard: FC<IndividualSubjectBannerCardElement> = ({ img, name, subject, time, description }) => {
     const classes = useStyles({ img });
     return (
         <Grid container direction="column" justify="flex-end" component={Div100vh} className={classes.root}>
@@ -55,4 +61,4 @@ const BannerCard: FC<IBannerCard> = ({ img, name, subject, time, description }) 
     );
 };
 
-export default memo(BannerCard);
+export default memo(IndividualSubjectBannerCard);

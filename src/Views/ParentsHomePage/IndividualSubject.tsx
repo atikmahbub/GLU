@@ -18,7 +18,7 @@ const Index: React.FunctionComponent = () => {
             userType="parent"
             cardsData={{
                 whiteBannerCarousel: whiteBannerCardIndividualSubject,
-                bannerCard: bannerCardsIndividualSubject,
+                individualSubjectBannerCard: bannerCardsIndividualSubject,
                 nextClass: {
                     img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607726/jump_frcudj.jpg',
                     date: '19/07/20',

@@ -37,5 +37,6 @@ export interface IndividualSubjectCardData {
     bannerCarouselBottom?: BannerCardElement[];
     tutors?: ImageCardElement[];
     whiteBannerCarousel: IndividualSubjectWhiteBannerCardElement[];
+    individualSubjectBannerCard: IndividualSubjectBannerCardElement[];
 }
 

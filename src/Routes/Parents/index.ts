@@ -24,7 +24,7 @@ const RecordedClasses = lazy(() => import('../../Views/ParentsHomePage/RecordedC
 const LiveClasses = lazy(() => import('../../Views/ParentsHomePage/LiveClasses'));
 const TutorsPage = lazy(() => import('../../Views/ParentsHomePage/TutorsPage'));
 const IndividualSubject = lazy(() => import('../../Views/ParentsHomePage/IndividualSubject'));
-
+const AllHomework = lazy(() => import('../../Views/ParentsHomePage/AllHomework'));
 import { createRouteObj } from '../../Helper/routes';
 
 export const routes = [
@@ -47,9 +47,10 @@ export const routes = [
     createRouteObj('/parent/messages', ParentMessages),
     createRouteObj('/parent/parent/messages/new-messages', NewMessages),
     createRouteObj('/parent/wallet', Wallet),
-    createRouteObj('/parent/individual-subject', IndividualSubject)
-
-
+    createRouteObj('/parent/individual-subject', IndividualSubject),
+    createRouteObj('/parent/all-homework', AllHomework),
+    createRouteObj('/parent/all-homework/homework', ParentIndividualHomeWork),
+    
 
   
 

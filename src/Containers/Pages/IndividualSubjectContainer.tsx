@@ -5,6 +5,7 @@ import BannerCarousel from '../../components/Carousels/BannerCarousel';
 import WhiteBannerCarousel from '../../components/Carousels/WhiteBannerCarousel';
 
 import BannerCard from '../../components/Cards/BannerCard';
+import IndividualSubjectBannerCard from '../../components/Cards/IndividualSubjectBannerCard';
 
 import NextClassCard from '../../components/Cards/NextClassCard';
 import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';

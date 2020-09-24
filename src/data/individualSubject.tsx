@@ -1,6 +1,6 @@
-import { BannerCardElement, IndividualSubjectWhiteBannerCardElement } from '../components/Cards/types';
+import { IndividualSubjectBannerCardElement, IndividualSubjectWhiteBannerCardElement } from '../components/Cards/types';
 
-export const bannerCardsIndividualSubject: BannerCardElement[] = [
+export const bannerCardsIndividualSubject: IndividualSubjectBannerCardElement[] = [
     {
         img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607725/smilegirl_stfagl.jpg',
         name: 'Charlie Ray',
