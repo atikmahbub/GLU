@@ -21,7 +21,7 @@ const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
                     <SelectFieldUnderline
                         className="custom-adornment-input mb-3"
                         label="Mobile Number"
-                        options={['+91']}
+                        options={['+91', '+971']}
                         value={context.student.veriCode}
                         getValue={(value: string) => {
                             context.studentHandler.veriCode(value);

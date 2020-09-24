@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
 import { FormControl, FormControlLabel, RadioGroup, Radio } from '@material-ui/core';
 import UserDetailsForm from './UserDetailsForm';
 import { registerContext } from './Index';
+import PasswordOnChange from '../../components/Inputs/PasswordOnChange';
 
 const InfoContainer: React.FunctionComponent = () => {
     const context = useContext(registerContext);
@@ -44,10 +44,11 @@ const InfoContainer: React.FunctionComponent = () => {
                 handleMobile={handleSPhoneNumber}
                 location={context.student.location}
                 handleLocation={handleSlocation}
+                disable={context.disable}
             />
             <div className="row">
                 <div className="col-lg-12">
-                    <UnderLineAddornment
+                    <PasswordOnChange
                         label="Password"
                         className="custom-adornment-input"
                         value={context.student.password}
