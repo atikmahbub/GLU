@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, makeStyles } from '@material-ui/core';
 import { colors } from '../../../Styles/colors';
 import ArrowCard from '../../../components/Dashobard/ArrowCard';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 const useStyles = makeStyles({
     headingParent: {
@@ -41,10 +41,25 @@ const Index = () => {
         'Feedback',
         'Merits/Sanctions',
     ]);
+    const [teacherdata, setTeacherdata] = useState({ name: '' });
     const routes = useHistory();
     const handleRoute = (group: string) => {
-        routes.push(`/dashboard/teacher-details/class-group-details/${String(group).toLowerCase().replace(' ', '-')}`);
+        routes.push({
+            pathname: `/dashboard/teacher-details/class-group-details/${String(group).toLowerCase().replace(' ', '-')}`,
+            state: {
+                forTeacher: true,
+                teacherData: teacherdata
+            },
+        });
     };
+    const findRoutes = useLocation();
+    useEffect(() => {
+        if (findRoutes.hasOwnProperty('state')) {
+            if ((findRoutes as any)?.state?.hasOwnProperty('teacherData')) {
+                setTeacherdata((findRoutes as any).state.teacherData);
+            }
+        }
+    }, []);
     return (
         <Box component="div">
             <Box component="div" className={classes.headingParent}>
@@ -56,7 +71,7 @@ const Index = () => {
                 {groups.map((group: string, i: number) => (
                     <ArrowCard title={group} key={i} onClick={() => handleRoute(group)} />
                 ))}
-                <Typography className={classes.bottomTittle}>Mr.Williams Biology Class</Typography>
+                <Typography className={classes.bottomTittle}>{teacherdata.name}</Typography>
             </Box>
         </Box>
     );
