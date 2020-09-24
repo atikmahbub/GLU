@@ -3,24 +3,14 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
 import WhiteBannerCarousel from '../../components/Carousels/WhiteBannerCarousel';
-
-import BannerCard from '../../components/Cards/BannerCard';
-import IndividualSubjectBannerCard from '../../components/Cards/IndividualSubjectBannerCard';
-
-import NextClassCard from '../../components/Cards/NextClassCard';
-import FeaturedSubjectsCard from '../../components/Cards/FeaturedSubjectsCard';
 import RecommendedContainer from '../RecommendedContainer';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
-import CalendarDateSubjectsCard from '../../components/Cards/CalendarDateSubjectsCard';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import PageFooter from '../../components/PageFooter';
 import { IndividualSubjectCardData } from './types';
 import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
-import { cards } from '../../Views/RecordedClasses/data';
-import commonImg from '../../Assets/images';
-
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -39,27 +29,12 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
     return (
         <NavigationMenu
             absolute
-            colorWhite
             menuList={menuList}
-            background="primary"
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
             <WhiteBannerCarousel cards={cardsData.whiteBannerCarousel} />
             <BannerCarousel cards={cardsData.individualSubjectBannerCard}/>
-            {/* <NextClassCard {...cardsData.nextClass} />
-            <FeaturedSubjectsCard {...cardsData.featuredSubjects} />
-            <RecommendedContainer
-                padding
-                title="Recorded Classes"
-                link={`/${userType}/recorded-classes`}
-                data={cardsData.recordedClasses}
-                rootClassName={classes.recommendedRoot}
-            />
-            <BannerCarousel cards={cardsData.bannerCarouselCenter} />
             <UpcomingClassCard {...cardsData.upcomingClass} />
-            {cardsData.calendar && (
-                <CalendarDateSubjectsCard {...cardsData.calendar} paddingBottom={false} />
-            )}
             <RecommendedContainer
                 padding
                 title="Live Classes"
@@ -67,8 +42,15 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
                 data={cardsData.liveClasses}
                 rootClassName={classes.recommendedRoot}
             />
-            <FeaturedTutorsCard {...cardsData.featuredTutors} />
             <BannerCarousel cards={cardsData.bannerCarouselBottom} />
+            <RecommendedContainer
+                padding
+                title="Recorded Classes"
+                link={`/${userType}/recorded-classes`}
+                data={cardsData.recordedClasses}
+                rootClassName={classes.recommendedRoot}
+            />
+            <FeaturedTutorsCard {...cardsData.featuredTutors} />
             <RecommendedContainer
                 padding
                 title="Tutors"
@@ -76,7 +58,7 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
                 cardTitleLink={`/${userType}/tutors/tutor`}
                 data={cardsData.tutors}
                 rootClassName={classes.recommendedRoot}
-            /> */}
+            />
             <PageFooter />
         </NavigationMenu>
     );

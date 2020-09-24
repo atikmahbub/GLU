@@ -18,6 +18,7 @@ const SchoolInfo = lazy(() => import('../../Views/Merits/SchoolInfo'));
 const MyPreviousClasses = lazy(() => import('../../Views/StudentsModule/MyPreviousClasses'));
 const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'))
 const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'))
+const AllHomework = lazy(() => import('../../Views/ParentsHomePage/AllHomework'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -36,7 +37,8 @@ const routes = [
     createRouteObj(linkTo.studentProfile, editStudentProfile),
     createRouteObj('/students/schoolInfo', SchoolInfo),
     createRouteObj('/students/my-previous-classes', MyPreviousClasses),
-    createRouteObj('/students/wallet', Wallet)
+    createRouteObj('/students/wallet', Wallet),
+    createRouteObj('/students/all-homework', AllHomework),
 ];
 
 export default routes;

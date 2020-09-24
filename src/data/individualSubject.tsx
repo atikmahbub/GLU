@@ -20,9 +20,18 @@ export const bannerCardsIndividualSubject: IndividualSubjectBannerCardElement[] 
 
 export const whiteBannerCardIndividualSubject: IndividualSubjectWhiteBannerCardElement[] = [
     {
-        text: 'Maths. is Best',
+        subject: 'Maths.',
+        tutorsCount: 143,
+        classesCount: 2508,
     },
     {
-        text: 'Arts. is Best',
+        subject: 'Languages.',
+        tutorsCount: 304,
+        classesCount: 1058,
+    },
+    {
+        subject: 'Art.',
+        tutorsCount: 103,
+        classesCount: 187,
     }
 ]

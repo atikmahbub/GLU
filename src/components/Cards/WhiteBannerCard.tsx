@@ -36,30 +36,32 @@ const useStyles = makeStyles({
 });
 
 export interface IWhiteBannerCarousal {
-    text: string;
+    subject: string;
+    tutorsCount: number,
+    classesCount: number,
 }
 
-const IndividualSubjectBannerCard: FC<IWhiteBannerCarousal> = ({ text }) => {
-    const classes = useStyles({ text });
+const IndividualSubjectBannerCard: FC<IWhiteBannerCarousal> = ({ subject, tutorsCount, classesCount }) => {
+    const classes = useStyles();
     return (
         <Grid container direction="column" justify="flex-end" component={Div100vh} className={classes.root}>
-                    <Typography className={classes.heading}>
-                         {text}
-                    </Typography>
-                    <Typography className={classes.heading}> 
-                    </Typography>
+            <Typography className={classes.heading}>
+                    {subject} 
+            </Typography>
+            <Typography className={classes.heading}> 
+            </Typography>
 
-                    <Typography className={classes.heading}>
-                          We have 71 Tutors
-                    </Typography>
+            <Typography className={classes.heading}>
+                    We have {tutorsCount}  Tutors
+            </Typography>
 
-                    <Typography className={classes.heading}>
-                         and 308 Classes
-                    </Typography>
-                    <Grid container className={classes.favoriteBox}>
-                        <FavoriteBorder />
-                        <Typography style={{ marginLeft: '7px' }} className={classes.favoriteText}>Favorite</Typography>
-                    </Grid>
+            <Typography className={classes.heading}>
+                    and {classesCount} Classes
+            </Typography>
+            <Grid container className={classes.favoriteBox}>
+                <FavoriteBorder />
+                <Typography style={{ marginLeft: '7px' }} className={classes.favoriteText}>Favorite</Typography>
+            </Grid>
         </Grid>
     );
 };

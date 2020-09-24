@@ -24,18 +24,18 @@ export interface HomePageCardsData {
 }
 
 export interface IndividualSubjectCardData {
-    bannerCarousel?: IndividualSubjectBannerCardElement[];
+    bannerCarousel: IndividualSubjectBannerCardElement[];
     bannerCard?: BannerCardElement[];
     nextClass?: NextClassCardElement;
     featuredSubjects?: FeaturedCardElement;
-    recordedClasses?: ImageCardElement[];
-    bannerCarouselCenter?: BannerCardElement[];
-    upcomingClass?: UpcomingClassCardElement;
+    recordedClasses: ImageCardElement[];
+    bannerCarouselCenter: BannerCardElement[];
+    upcomingClass: UpcomingClassCardElement;
     calendar?: CalendarDateSubjectsCardElement;
-    liveClasses?: ImageCardElement[];
-    featuredTutors?: FeaturedCardElement;
-    bannerCarouselBottom?: BannerCardElement[];
-    tutors?: ImageCardElement[];
+    liveClasses: ImageCardElement[];
+    featuredTutors: FeaturedCardElement;
+    bannerCarouselBottom: BannerCardElement[];
+    tutors: ImageCardElement[];
     whiteBannerCarousel: IndividualSubjectWhiteBannerCardElement[];
     individualSubjectBannerCard: IndividualSubjectBannerCardElement[];
 }

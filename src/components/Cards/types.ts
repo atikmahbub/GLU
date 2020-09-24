@@ -17,7 +17,9 @@ export interface BannerCardElement {
 
 
 export interface IndividualSubjectWhiteBannerCardElement {
-    text: string;
+    subject: string;
+    tutorsCount: Number,
+    classesCount: Number,
 }
 
 export interface DateTimeCardElement {
