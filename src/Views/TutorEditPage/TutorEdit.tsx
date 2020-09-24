@@ -32,7 +32,13 @@ const useStyles = makeStyles({
     },
 });
 
-const TutorEdit = ({ getTeacherSkills, skillsData, getTeacherExperienceApiCall, getTeacherEducationApiCall }) => {
+const TutorEdit = ({
+    getTeacherSkills,
+    skillsData,
+    getTeacherExperienceApiCall,
+    getTeacherEducationApiCall,
+    getTeacherDetails,
+}) => {
     useEffect(() => {
         getTeacherEducationApiCall();
     }, []);
@@ -41,6 +47,9 @@ const TutorEdit = ({ getTeacherSkills, skillsData, getTeacherExperienceApiCall, 
     }, []);
     useEffect(() => {
         getTeacherExperienceApiCall();
+    }, []);
+    useEffect(() => {
+        getTeacherDetails();
     }, []);
 
     const menu = [

@@ -45,6 +45,10 @@ const useStyles = makeStyles({
         boxSizing: 'border-box',
         display: 'inline-block',
         fontFamily: 'CircularXXWeb-Book',
+
+        '&:hover': {
+            cursor: 'pointer',
+        },
     },
     smallText: {
         display: 'inline-block',
@@ -359,6 +363,9 @@ const Details = ({ tutorDetails, textAreaData }) => {
                     {/* <VisibilityOffIcon /> */}
                     <i className="icon-Invisible"></i>
                 </div>
+            </div>
+            <div style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }} className={classes.upload}>
+                Save
             </div>
         </div>
     );
