@@ -19,6 +19,7 @@ const MyPreviousClasses = lazy(() => import('../../Views/StudentsModule/MyPrevio
 const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'));
 const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
 const TutorProfile = lazy(() => import('../../Views/StudentsModule/TutorProfile'));
+const WalletTopOn = lazy(() => import('../../Views/StudentsModule/WalletTopOn'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -39,6 +40,7 @@ const routes = [
     createRouteObj('/students/my-previous-classes', MyPreviousClasses),
     createRouteObj('/students/wallet', Wallet),
     createRouteObj('/students/tutors/tutor', TutorProfile),
+    createRouteObj('/students/wallet/top-on', WalletTopOn)
 ];
 
 export default routes;
