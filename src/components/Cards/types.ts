@@ -56,7 +56,7 @@ export interface UpcomingClassCardElement extends DateSubjectCardElement {
 export interface CalendarDateSubjectsCardElement {
     date?: string;
     time?: string;
-    cards: DateSubjectCardElement[]
+    cards: DateSubjectCardElement[];
 }
 
 export interface IndividualSubjectBannerCardElement {
@@ -73,4 +73,10 @@ export interface TutorProfileCardElement {
     rating: string;
     description: string;
     img: string;
+}
+
+export interface PaymentMethodCardElement {
+    type: 'visa' | 'ms';
+    ends: string;
+    expires: string;
 }
