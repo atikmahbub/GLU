@@ -1,4 +1,12 @@
-import { IndividualSubjectBannerCardElement, IndividualSubjectWhiteBannerCardElement } from '../components/Cards/types';
+import { IndividualSubjectWhiteBannerCardElement } from '../components/Cards/types';
+
+export interface IndividualSubjectBannerCardElement {
+    img: string;
+    name: string;
+    subject: string;
+    description: string;
+    time: string;
+}
 
 export const bannerCardsIndividualSubject: IndividualSubjectBannerCardElement[] = [
     {

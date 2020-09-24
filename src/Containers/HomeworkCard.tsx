@@ -80,7 +80,7 @@ export default function HomeworkCard() {
                     <Typography style={{ fontSize: '1.562rem' }}>Teacher <br />  Mr L Parker</Typography>
                 </Grid>
                 <Typography className={classes.description}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren…</Typography>
-                <Divider style={{ marginTop: "4rem" }} />
+                {/* <Divider style={{ marginTop: "4rem" }} /> */}
             </Grid>
 
         </>

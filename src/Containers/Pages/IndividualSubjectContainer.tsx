@@ -45,7 +45,7 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
             <WhiteBannerCarousel cards={cardsData.whiteBannerCarousel} />
-            {/* <IndividualSubjectBannerCard {...cardsData.individualSubjectBannerCard}/> */}
+            <BannerCarousel cards={cardsData.individualSubjectBannerCard}/>
             {/* <NextClassCard {...cardsData.nextClass} />
             <FeaturedSubjectsCard {...cardsData.featuredSubjects} />
             <RecommendedContainer
