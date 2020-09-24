@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography, IconButton, Button } from '@material-ui/core';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import CardStatus from './CardStatus';
@@ -6,6 +6,11 @@ import CardTable from '../../components/Table/CardTable';
 import GraphContainer from './GraphContainer';
 import { v4 as uuidv4 } from 'uuid';
 import { Icons } from '../../Assets/Icons';
+import { getallTeacherAPIcall } from '../../Redux/Actions/teacherAction';
+import { getallparentAPIcall } from '../../Redux/Actions/parentAction';
+import { getallStudentAPIcall } from '../../Redux/Actions/studentAction';
+import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 interface tableProps {
     student: string;
@@ -14,11 +19,34 @@ interface tableProps {
     amount: string;
     status: string;
 }
-const Dashboard: React.FunctionComponent = () => {
+
+interface mainProps {
+    getallTeacherAPIcall: () => void;
+    getallparentAPIcall: () => void;
+    getallStudentAPIcall: () => void;
+}
+const Dashboard: React.FunctionComponent<mainProps> = ({
+    getallTeacherAPIcall,
+    getallparentAPIcall,
+    getallStudentAPIcall,
+}) => {
+    const studentcountData = useSelector((state: { studentReducer: any }) => state.studentReducer.studentData);
+    const teachercountData = useSelector((state: { teacherReducer: any }) => state.teacherReducer.teacherList);
+    const parentcountData = useSelector((state: { parentReducer: any }) => state.parentReducer.parentData);
+    useEffect(() => {
+        getallTeacherAPIcall();
+    }, []);
+    useEffect(() => {
+        getallparentAPIcall();
+    }, []);
+    useEffect(() => {
+        getallStudentAPIcall();
+    }, []);
+
     const userList = [
-        { email: 'Student', total: 200 },
-        { email: 'Teachers', total: 10 },
-        { email: 'Parents', total: 5 },
+        { email: 'Student', total: studentcountData ? studentcountData.length : '' },
+        { email: 'Teachers', total: teachercountData ? teachercountData.length : '' },
+        { email: 'Parents', total: parentcountData ? parentcountData.length : '' },
         { email: 'Staff', total: 5 },
     ];
     const eventList = [
@@ -185,4 +213,4 @@ const Dashboard: React.FunctionComponent = () => {
     );
 };
 
-export default Dashboard;
+export default connect(null, { getallTeacherAPIcall, getallparentAPIcall, getallStudentAPIcall })(Dashboard);
