@@ -82,6 +82,7 @@ export interface PaymentMethodCardElement {
 }
 
 export interface HomeworkCardElement {
+    id: number;
     title: string;
     subject: string;
     dueDate: string;

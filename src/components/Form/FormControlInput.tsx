@@ -24,7 +24,8 @@ const useStyles = makeStyles({
         '& input': {
             padding: 0,
             height: '100%',
-            fontSize: '1rem',
+            fontSize: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1rem' : '1.5625rem',
+            lineHeight: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1' : '1.875rem'
         },
     },
     inputRootUnderlined: {
@@ -67,6 +68,8 @@ const useStyles = makeStyles({
     label: {
         color: '#000',
         marginBottom: 0,
+        fontSize: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1rem' : '1.5625rem',
+        lineHeight: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1' : '1.875rem'
     },
     labelTop: {
         marginBottom: '0.6875rem',
@@ -91,6 +94,7 @@ type FormControlInputProps = {
     labelPlacement?: 'left' | 'top';
     rootClassName?: string;
     inputRootClassName?: string;
+    fontSizeVariant?: 1 | 2;
 };
 const FormControlInput: FC<FormControlInputProps> = ({
     id,
@@ -107,8 +111,9 @@ const FormControlInput: FC<FormControlInputProps> = ({
     labelPlacement,
     rootClassName,
     inputRootClassName,
+    fontSizeVariant
 }) => {
-    const classes = useStyles({ icon, rounded, fullWidth });
+    const classes = useStyles({ icon, rounded, fullWidth, fontSizeVariant});
     return (
         <Grid
             container
@@ -156,6 +161,7 @@ FormControlInput.defaultProps = {
     onChange: () => {},
     variant: 'underlined',
     labelPlacement: 'top',
+    fontSizeVariant: 1
 };
 
 export default memo(FormControlInput);

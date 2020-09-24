@@ -1,24 +1,22 @@
-import React, { FC, useMemo } from 'react';
-import { use100vh } from 'react-div-100vh';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
-import { createMenuList } from '../../Helper/menus';
 import CardsGridContainer from '../CardsGridContainer';
 import ColumnsContainer from '../ColumnsContainer';
+import FullHeightContainer from '../FullHeightContainer';
 import FilterContainer from '../FilterContainer';
 import HomeworkCard from '../../components/Cards/HomeworkCard';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
+import useMenuList from '../../Hooks/useMenuList';
 import { classesFiltersData } from '../../data/filters';
 import { homeworks } from '../../data/homework';
 import PageFooter from '../../components/PageFooter';
 import { UserType } from './types';
-import FullHeightContainer from '../FullHeightContainer';
 
 const useStyles = makeStyles({
-    root: {},
     filterContainer: {
         marginBottom: '3.75rem',
     },
@@ -41,9 +39,8 @@ const useStyles = makeStyles({
 interface IHomeworkPageContainer extends UserType {}
 
 const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
-    const height = use100vh();
-    const classes = useStyles({ height });
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const classes = useStyles();
+    const menuList = useMenuList(userType);
     return (
         <NavigationMenu
             absolute
@@ -83,7 +80,11 @@ const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
                                 </Grid>
                                 <Grid container>
                                     {homeworks.map((homework, index) => (
-                                        <HomeworkCard {...homework} key={index} />
+                                        <HomeworkCard
+                                            {...homework}
+                                            titleLink={`/${userType}/homework/${homework.id}`}
+                                            key={index}
+                                        />
                                     ))}
                                 </Grid>
                             </Grid>

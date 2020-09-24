@@ -5,7 +5,7 @@ interface IFavoritesPageContainer {
     userType: string;
 }
 
-const FavoritesPageContainer: FC<IFavoritesPageContainer> = ({ userType }) => {
+const FavoritesPageContainer: FC<IFavoritesPageContainer> = () => {
     return (
         <NavigationMenu>
 
