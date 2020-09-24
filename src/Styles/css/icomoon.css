@@ -26,6 +26,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-MasterCard:before {
+    content: '\e94e';
+    color: #5f5f5f;
+}
+.icon-Visa:before {
+    content: '\e94f';
+    color: #5f5f5f;
+}
 .icon-Exit:before {
     content: '\e94d';
 }
@@ -174,8 +182,6 @@
 }
 .icon-Notifications_Nav:before {
     content: '\e92f';
-    width: 22px;
-    display: block;
 }
 .icon-Pause:before {
     content: '\e930';
