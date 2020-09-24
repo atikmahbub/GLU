@@ -11,12 +11,10 @@ export const authorize = (token: string) => {
         API.defaults.headers.Authorization = token;
     }
 };
-
 export const resetTokenAndLocalStorage = () => {
     delete API.defaults.headers.Authorization;
     localStorage.removeItem('auth');
 };
-
 export const setAuthrizationToken = () => {
     const data = localStorage.getItem('auth');
     let token: string = '';

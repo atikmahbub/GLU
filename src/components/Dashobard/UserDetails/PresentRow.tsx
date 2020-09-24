@@ -1,29 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PresentRowContainer from '../../../Containers/Dashboard/PresentRowContainer';
 import PresetGridCol from '../PresetGridCol';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 
-const PresentRow = () => {
+interface props {
+    attendance?: any;
+}
+
+const PresentRow: React.FC<props> = ({ attendance }) => {
+    const [state, setState] = useState({
+        presentPercent: '0',
+        present: '0',
+        absentPercent: '0',
+        absent: '0',
+        onTime: '0',
+        late: '0',
+    });
+    useEffect(() => {
+        if (attendance) {
+            const data = {
+                presentPercent: attendance.presentPercentage,
+                present: attendance.presentPercentage,
+                absentPercent: attendance.absentPrecentage,
+                absent: attendance.absent,
+                onTime: attendance.presentPercentage,
+                late: '0',
+            };
+            setState(data);
+        }
+    }, [attendance]);
     return (
         <CardContainer>
             <div className="preset_row">
                 <div style={{ marginLeft: 0, marginRight: 0 }} className="row">
                     <div className="col-lg-6  bg-white p-0">
                         <div className="pd_right">
-                        <PresentRowContainer>
-                            <PresetGridCol present="26%" status="present" />
-                            <PresetGridCol present="12 days" status="present" />
-                            <PresetGridCol present="74%" status="Absent" />
-                        </PresentRowContainer>
+                            <PresentRowContainer>
+                                <PresetGridCol present={`${state.presentPercent} %`} status="present" />
+                                <PresetGridCol present={`${state.present} days`} status="present" />
+                                <PresetGridCol present={`${state.absentPercent} %`} status="Absent" />
+                            </PresentRowContainer>
                         </div>
                     </div>
                     <div className="col-lg-6  bg-white p-0">
                         <div className="pd_left">
-                        <PresentRowContainer>
-                            <PresetGridCol present="37 days" status="Absent" />
-                            <PresetGridCol present="37 days" status="On time" />
-                            <PresetGridCol present="37 days" status="Late" />
-                        </PresentRowContainer>
+                            <PresentRowContainer>
+                                <PresetGridCol present={`${state.absent} days`} status="Absent" />
+                                <PresetGridCol present={`${state.onTime} days`} status="On time" />
+                                <PresetGridCol present={`${state.late} days`} status="Late" />
+                            </PresentRowContainer>
                         </div>
                     </div>
                 </div>

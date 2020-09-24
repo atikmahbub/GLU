@@ -38,10 +38,19 @@ export const endponts = {
     teacherStudentLike: 'teacher/student/like',
     searchStudent: 'school/student/like',
     userDetails: 'user/profile',
+    getUserProfile: 'user/profile',
+    registerVerfiyUser: 'auth/verify/',
+    updateProfile: 'user/profile',
+    getStudentDetails: 'school/subject/student/',
+    attendanceDetails: 'attendance/student/',
+    studentExam: '/school/student/',
+    studentHomework: '/school/status/homework/student/',
+    teacherRecommendationCount: 'teacher/recommend/count',
 };
 
 export const studentsEndpoints = {
-    getFeatureTeacher: 'student/feature/teacher',
-    getUpcomingSessions: 'student/upcoming/session',
-    getPreviousSessions: 'student/previous/session',
+    getFeatureTeacher: 'review/featured/teachers',
+    getUpcomingSessions: 'freelancer/student/session/upcoming',
+    getPreviousSessions: 'freelancer/student/session/previous',
+    getFeatureSubject: 'freelancer/student/featured/subject',
 };

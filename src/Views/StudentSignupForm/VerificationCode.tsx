@@ -1,13 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Typography } from '@material-ui/core';
 import OtpInput from 'react-otp-input';
 import { registerContext } from './Index';
 
-const VerificationCode: React.FunctionComponent = () => {
+interface props {
+    onClick?: (value: string) => void;
+    changeNumber?: () => void;
+}
+
+const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumber }) => {
     const context = useContext(registerContext);
     const handleOtp = (value: string) => {
         console.log(value);
         context.setState({ ...context.state, otp: value });
+    };
+    const resendPassword = () => {
+        if (onClick) {
+            onClick(context.student.veriMobile);
+        }
     };
     return (
         <div className="info__container">
@@ -22,8 +32,8 @@ const VerificationCode: React.FunctionComponent = () => {
                 {context.state.student.veriMobile}
             </Typography>
             <Typography className="mono__text">
-                {' '}
-                Didn’t receive a code <span>Resend </span> or <span> Change number </span>
+                Didn’t receive a code <span onClick={resendPassword}>Resend </span> or
+                <span onClick={changeNumber}> Change number </span>
             </Typography>
         </div>
     );

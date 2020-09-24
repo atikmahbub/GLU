@@ -15,13 +15,15 @@ import {
     GET_TEACHER_HOMEWORK_COUNT,
     GET_TEACHER_RECOMMENDATION,
     GET_TEACHER_STUDENT_LIKE,
+    POST_TEACHER_RECOMMENDATION,
+    GET_TEACHER_RECOMMENDATION_COUNT,
+    POST_TEACHER_HOMEWORK,
     DELETE_SKILL,
     ADD_DETAILS,
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
-import { dispatch } from '../Store/Store';
-import data from '../../components/Notifications/data';
+import { registerDataRes } from './loginAction';
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -48,8 +50,9 @@ export const addNewTeacherAPIcall = (data: any, history: any) => {
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success("Teacher's added successfully.");
+                dispatch(registerDataRes(res.data.data));
                 setTimeout(() => {
-                    history.push('/dashboard/teachers');
+                    // history.push('/dashboard/teachers');
                 }, 1000);
             })
             .catch((err) => {
@@ -446,6 +449,44 @@ export const editExperienceApiCall = (id: any, data: any, history: any) => {
         }
     };
 };
+export const postTeacherRecommendationData=(data:any)=>{
+    return {
+        type:POST_TEACHER_RECOMMENDATION,
+        payload:data
+    }
+}
+export const getTeacherRecommendationCount=()=>{
+    return async(dispatch:any)=>{
+        try{
+            const res=await API.get(endponts.teacherRecommendationCount);
+            dispatch(getTeacherRecommendationCountData(res.data));
+        }
+        catch(err){
+            handleError(dispatch,err);
+        }
+    }
+}
+export const getTeacherRecommendationCountData=(data:any)=>{
+    return{
+        type:GET_TEACHER_RECOMMENDATION_COUNT,
+        payload:data
+    }
+}
+export const postTeacherHomework=(data:any)=>{
+    return (dispatch:any)=>{
+        API.post(endponts.teacherHomework,data).then((res)=>{
+            dispatch(postTeacherHomeworkData(res.data));
+        }).catch((err)=>{
+            handleError(dispatch,err);
+        })
+    }
+}
+export const postTeacherHomeworkData=(data:any)=>{
+    return{
+        type:POST_TEACHER_HOMEWORK,
+        payload:data
+    }
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // Delete skill by id

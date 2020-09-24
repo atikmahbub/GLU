@@ -91,6 +91,7 @@ export const forgotPasswordAPIcall = (data: any) => {
             .then((res) => {
                 dispatch(spinner(false));
                 console.log(res);
+                toast.success('Reset link sent. please check your email.');
             })
             .catch((err) => {
                 handleError(dispatch, err);

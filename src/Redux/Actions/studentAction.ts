@@ -1,11 +1,18 @@
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
-import { STUDENT_INFO, STUDENT_DETAILS, STUDENT_SEARCH } from '../ActionTypes/studentTypes';
+import {
+    STUDENT_INFO,
+    STUDENT_DETAILS,
+    STUDENT_SEARCH,
+    STUDNET_ATTENDANCE,
+    STUDENT_EXAM,
+    STUDENT_HOMEWORK,
+} from '../ActionTypes/studentTypes';
 import { handleError } from './errorHandler';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
-import { invitationAPIcall } from './InvitationAction';
-import { uploadProfileFileName } from './FileUploadAction';
+import { registerDataRes } from './loginAction';
+import { NumberLocale } from 'yup';
 
 export const getallStudentAPIcall = () => {
     return (dispatch: any) => {
@@ -34,15 +41,9 @@ export const addNewStudentAPIcall = (data: any, fileName: string, history: any) 
             .then((res) => {
                 dispatch(spinner(false));
                 toast.success('Students Added Successfully.');
-                // const ides = res.data.data.map((item: any) => {
-                //     return { id: item.userId, token: item.token };
-                // });
-                // ides.map((item: any) => {
-                //     dispatch(invitationAPIcall({ invitee_id: item.id, for_role: 'student' }));
-                //     dispatch(uploadProfileFileName(fileName, item.token));
-                // });
+                dispatch(registerDataRes(res.data.data));
                 setTimeout(() => {
-                    history.push('/dashboard/students');
+                    // history.push('/dashboard/students');
                 }, 1000);
             })
             .catch((err) => {
@@ -84,7 +85,7 @@ export const editStudentAPIcall = (data: any, editId: number, history: any) => {
 
 export const getStudentDetailsAPIcall = (id: number) => {
     return (dispatch: any) => {
-        API.get(`${endponts.student}/${id}`)
+        API.get(`${endponts.getStudentDetails}${id}`)
             .then((res) => {
                 console.log(res.data);
                 dispatch(studentDetailAPIres(res.data.data));
@@ -107,7 +108,7 @@ export const searchStudentAPIcall = (data: any) => {
         API.post(endponts.searchStudent, data)
             .then((res) => {
                 console.log(res.data);
-                dispatch(searchStudentRes(res.data.data))
+                dispatch(searchStudentRes(res.data.data));
             })
             .catch((err) => {
                 handleError(dispatch, err);
@@ -118,6 +119,66 @@ export const searchStudentAPIcall = (data: any) => {
 export const searchStudentRes = (data: any) => {
     return {
         type: STUDENT_SEARCH,
+        payload: data,
+    };
+};
+
+export const studentAttDetailAPIcall = (id: number, startData: string, endDate: string) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.attendanceDetails}${id}?startDate=${startData}&endDate=${endDate}`)
+            .then((res) => {
+                console.log(res.data);
+                dispatch(studentAttDetailsRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const studentAttDetailsRes = (data: any) => {
+    return {
+        type: STUDNET_ATTENDANCE,
+        payload: data,
+    };
+};
+
+export const studentHomeworkDetailsAPIcall = (id: NumberLocale) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.studentHomework}${id}`)
+            .then((res) => {
+                console.log(res.data);
+                dispatch(studentHomeworkDetailsRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const studentHomeworkDetailsRes = (data: any) => {
+    return {
+        type: STUDENT_HOMEWORK,
+        payload: data,
+    };
+};
+
+export const studentExamDetailsAPIcall = (id: number) => {
+    return (dispatch: any) => {
+        API.get(`${endponts.studentExam}${id}/exam`)
+            .then((res) => {
+                console.log(res.data);
+                dispatch(studenExamDetailsRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const studenExamDetailsRes = (data: any) => {
+    return {
+        type: STUDENT_EXAM,
         payload: data,
     };
 };

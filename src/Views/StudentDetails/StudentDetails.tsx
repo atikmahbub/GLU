@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import commonImg from '../../Assets/images';
 import { useSelector, useDispatch } from 'react-redux';
 import { studentDetailsProps } from '../../Interfaces/studentModule';
 import { useLocation } from 'react-router-dom';
-import { getStudentDetailsAPIcall } from '../../Redux/Actions/studentAction';
+import {
+    getStudentDetailsAPIcall,
+    studentAttDetailAPIcall,
+    studentExamDetailsAPIcall,
+    studentHomeworkDetailsAPIcall,
+} from '../../Redux/Actions/studentAction';
 import ProfileTitle from '../../components/Dashobard/ProfileTitle';
 import AttendenceRow from '../../components/Dashobard/UserDetails/AttendenceRow';
 import PresentRow from '../../components/Dashobard/UserDetails/PresentRow';
@@ -12,9 +16,18 @@ import FeeExamResultRow from './FeeExamResultRow';
 import ECArow from '../../components/Dashobard/UserDetails/ECArow';
 import TimeTableRow from '../../components/Dashobard/UserDetails/TimeTableRow';
 import UserDetailsWrapper from '../../Containers/Dashboard/UserDetailsWrapper';
+import { checkValue } from '../../Helper/checkValue';
 
 const StudentDetails: React.FunctionComponent = () => {
     const studentInfo = useSelector((state: any) => state.studentReducer.studentDetails);
+    const studentAttendance = useSelector((state: any) => state.studentReducer.studentAttendance);
+    const examDetails = useSelector((state: any) => state.studentReducer.examDetails);
+    const studentHwDetails = useSelector((state: any) => state.studentReducer.studentHwDetails);
+
+
+    const [teacherSubject, setTeacherSubject] = useState([]);
+    const [studentId, setStudentId] = useState(0);
+    const [examData, setExamData] = useState([0, 0, 0]);
     const routes = useLocation();
     const dispatch = useDispatch();
     const [details, setDetails] = useState<studentDetailsProps>({
@@ -26,41 +39,70 @@ const StudentDetails: React.FunctionComponent = () => {
         timetable: [],
         profile: '',
     });
-    // useEffect(()=>{
-    //     if(routes.hasOwnProperty('state')){
-    //         if ((routes as any).state.hasOwnProperty('id')) {
-    //             dispatch(getStudentDetailsAPIcall((routes as any).state.id));
-    //         }
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (routes.hasOwnProperty('state')) {
+            if ((routes as any).state.hasOwnProperty('id')) {
+                const id = (routes as any).state.id;
+                dispatch(getStudentDetailsAPIcall(id));
+                dispatch(studentExamDetailsAPIcall(id));
+                dispatch(studentHomeworkDetailsAPIcall(id));
+
+                setStudentId((routes as any).state.id);
+            }
+        }
+    }, []);
     useEffect(() => {
         if (studentInfo) {
-            const studentDetls = studentInfo.studentsDetail[0];
-            const data = {
-                name: studentDetls.first_name + ' ' + studentDetls.last_name,
-                email: studentDetls.User.email,
-                class: studentDetls.SchoolClassDetail.Class.name + ', ' + studentDetls.SchoolClassDetail.Section.name,
-                subjects: studentDetls.SchoolClassDetail.Subjects,
-                phoneNumber: studentDetls.User.phoneNumber,
-                timetable: studentInfo.routine,
-                profile: commonImg.photo,
-            };
-            setDetails(data);
+            const data = studentInfo.map((item: any) => {
+                const teacher = item?.Teacher;
+                return {
+                    col1: checkValue(teacher?.TeacherSubjects[0]?.Subject?.subjectName),
+                    col2: checkValue(teacher?.firstName) + ' ' + checkValue(teacher?.lastName),
+                };
+            });
+            setTeacherSubject(data);
         }
     }, [studentInfo]);
-    const data = [
-        { col1: 'Computer', col2: 'James Arthur' },
-        { col1: 'Biology', col2: 'Morgan Freeman' },
-        { col1: 'Chemistry', col2: 'Jhonny Depp' },
-        { col1: 'Physics', col2: 'Chris Hemsworth' },
-    ];
+
+    const handleDateRange = (data: any) => {
+        const startDate = data[0].startDate.toISOString().split('T')[0];
+        const endDate = data[0].endDate.toISOString().split('T')[0];
+        console.log(startDate, endDate);
+        if (studentId !== 0) {
+            dispatch(studentAttDetailAPIcall(studentId, startDate, endDate));
+        }
+    };
+    useEffect(() => {
+        if (examDetails) {
+            const data = examDetails.map((item: any) => {
+                return item.total;
+            });
+            setExamData(data);
+        }
+    }, [examDetails]);
+    useEffect(() => {
+        if (studentHwDetails) {
+            // const data = studentHwDetails.map((item: any) => {
+            //     return item.total;
+            // });
+            // setExamData(data);
+            console.log('studentHwDetails',studentHwDetails)
+        }
+    }, [studentHwDetails]);
+
     return (
         <UserDetailsWrapper>
             <ProfileTitle />
-            <AttendenceRow />
-            <PresentRow />
-            <SubjectHomeworkRow data={data} tableName="Subjects" colHead1="Class" colHead2="Teacher" />
-            <FeeExamResultRow />
+            <AttendenceRow attendance={studentAttendance} dateRange={handleDateRange} />
+            <PresentRow attendance={studentAttendance} />
+            <SubjectHomeworkRow
+                data={teacherSubject}
+                examDetails={examDetails}
+                tableName="Subjects"
+                colHead1="Class"
+                colHead2="Teacher"
+            />
+            <FeeExamResultRow barData={examData} />
             <ECArow />
             <TimeTableRow />
         </UserDetailsWrapper>

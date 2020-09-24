@@ -33,22 +33,23 @@ const useStyle = makeStyles(() => ({
     },
     buttonContainer: {
         width: '10rem',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'space-between'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
 }));
-type dataType = { name: string; date: string; status: string; color: string };
+type dataType = { name: string; date: string; status: string; color?: string };
 interface props {
     data?: Array<dataType>;
-    showTerm?:boolean;
+    showTerm?: boolean;
+    showButton?: boolean;
 }
-const AssignmentDetails: React.FC<props> = ({ data, showTerm }) => {
+const AssignmentDetails: React.FC<props> = ({ data, showTerm, showButton }) => {
     const classes = useStyle();
     return (
         <Box component="div" className={classes.parentBox}>
             <Typography className={classes.viewName}>Business Studies</Typography>
-            <TabRow/>
+            <TabRow />
             {data?.map((item: dataType, i: number) => (
                 <Grid
                     container
@@ -63,12 +64,14 @@ const AssignmentDetails: React.FC<props> = ({ data, showTerm }) => {
                         <Typography className={classNames(classes.title, classes.subTitle)}>{item.date}</Typography>
                     </Box>
                     <Box className={classes.buttonContainer}>
-                        {
-                            item.color==='#7fcb4b' ?
-                        <Check style={{ color: item.color }} className={classNames(classes.icon)} />
-                        :
-                        <Close style={{ color: item.color }} className={classNames(classes.icon)} />
-                        }
+                        {showButton ? (
+                            item.color === '#7fcb4b' ? (
+                                <Check style={{ color: item.color }} className={classNames(classes.icon)} />
+                            ) : (
+                                <Close style={{ color: item.color }} className={classNames(classes.icon)} />
+                            )
+                        ) : null}
+                        {}
                         <Typography className={classes.title}>{item.status}</Typography>
                     </Box>
                 </Grid>
