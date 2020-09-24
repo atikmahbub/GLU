@@ -5,28 +5,8 @@ import IconTextRow from '../../components/IconTextRow';
 import { FavoriteBorder } from '@material-ui/icons';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import './style.scss';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Link } from 'react-router-dom';
-
-const useStyles = makeStyles({
-    messageContainer:{
-        maxWidth: "48.062rem",
-        marginLeft:0,
-        paddingLeft: 0,
-        marginTop: "30px",
-    },
-    message:{
-        color: "black",
-        fontSize: "1.562rem",
-        lineHeight: "1.875rem",
-    },
-    messageTime:{
-        color: "#5F5F5F",
-        fontSize: "1.125rem",
-        lineHeight: '1.562rem',
-    }
-})
 
 const SlidingDrawerContent: React.FunctionComponent = () => {
     const [purchaseClicked, setPurchaseClicked] = useState(false)

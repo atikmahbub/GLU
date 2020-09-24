@@ -16,6 +16,7 @@ const TutorDetail = lazy(() => import('../../Views/TutorDetail/index'));
 const editStudentProfile = lazy(() => import('../../Views/StudentDashboard/EditStudentProfile/Index'));
 const SchoolInfo = lazy(() => import('../../Views/Merits/SchoolInfo'));
 const MyPreviousClasses = lazy(() => import('../../Views/StudentsModule/MyPreviousClasses'));
+const AllHomework = lazy(() => import('../../Views/ParentsHomePage/AllHomework'));
 const Favourites = lazy(() => import('../../Views/StudentFavourite/Index'));
 const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
 const TutorProfile = lazy(() => import('../../Views/StudentsModule/TutorProfile'));
@@ -38,6 +39,7 @@ const routes = [
     createRouteObj('/students/schoolInfo', SchoolInfo),
     createRouteObj('/students/my-previous-classes', MyPreviousClasses),
     createRouteObj('/students/wallet', Wallet),
+    createRouteObj('/students/all-homework', AllHomework),
     createRouteObj('/students/tutors/tutor', TutorProfile),
 ];
 
