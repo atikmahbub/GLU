@@ -1,5 +1,5 @@
 import React, { FC, memo, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';

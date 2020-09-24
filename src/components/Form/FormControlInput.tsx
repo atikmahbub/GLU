@@ -81,7 +81,7 @@ type FormControlInputProps = {
     name: string;
     placeholder: string;
     value: string;
-    onChange: () => void;
+    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void;
     variant?: 'underlined' | 'outlined';
     rounded?: boolean;
     fullWidth?: boolean;

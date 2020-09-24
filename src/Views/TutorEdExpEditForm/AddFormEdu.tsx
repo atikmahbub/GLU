@@ -188,13 +188,13 @@ const AddFormEdu = ({ addTeacherEducationApiCall }) => {
     const history = useHistory();
     const classes = useStyles();
     const [education, setEducation] = useState({
-        school: null,
-        qualification: null,
-        fieldOfStudy: null,
-        startDate: null,
-        endDate: null,
+        school: '',
+        qualification: '',
+        fieldOfStudy: '',
+        startDate: '',
+        endDate: '',
     });
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(education);
         return setEducation({ ...education, [e.target.id]: e.target.value });
     };

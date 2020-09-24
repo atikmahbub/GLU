@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import UploadMaxSize from '../../components/Button/UploadMaxSize';
 import TwoColGrid from '../../components/Dashobard/TwoColGrid';
@@ -16,6 +16,13 @@ const useStyles = makeStyles({
     mt: {
         marginTop: '2rem',
     },
+    textField:{
+        width:'100%',
+        marginTop: '1rem',
+        '& .MuiInput-input':{
+            fontSize: '1.5rem'
+        }
+    }
 });
 
 const CmsNotification = () => {
@@ -30,10 +37,26 @@ const CmsNotification = () => {
                 <Typography className={classes.title}>Schedule message (Optional)</Typography>
                 <Grid container spacing={2}>
                     <Grid item sm={12} md={4}>
-                        <SelectWithLabel mt="mt-2" options={['Choose date']} />
+                        <TextField
+                            id="date"
+                            type="date"
+                            defaultValue="2017-05-24"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
                     </Grid>
                     <Grid item sm={12} md={4}>
-                        <SelectWithLabel mt="mt-2" options={['Choose time']} />
+                        <TextField
+                            id="date"
+                            type="date"
+                            defaultValue="2017-05-24"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
                     </Grid>
                     <Grid item sm={12} md={4}></Grid>
                 </Grid>

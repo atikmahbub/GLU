@@ -4,9 +4,17 @@ import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { GET_FILE_URL } from '../ActionTypes/FileUploadTypes';
 
-export const getFileUploadAPIcall = (file: string) => {
+export const getFileUploadAPIcall = (file: string, token?: string) => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${endponts.fileUpload}${file}`)
+        const data: any = {};
+        if (token !== '' && token !== null && token !== undefined) {
+            data.Authorization = `Bearer ${token}`;
+        }
+        API.get(`${endponts.fileUpload}${file}`, {
+            headers: {
+                ...data,
+            },
+        })
             .then((res) => {
                 console.log(res);
                 dispatch(fileUploadData(res.data.data));
@@ -26,13 +34,12 @@ export const fileUploadData = (data: any) => {
 
 export const uploadProfileAmznUrl = (url: string, image: File, callBack?: () => void) => {
     return (dispatch: Dispatch<any>) => {
-        let data = new FormData();
-
-        data.append('file', image);
+        const data = image;
+        console.log('my image', image);
         Axios.put(`https://cors-anywhere.herokuapp.com/${url}`, data, {
             headers: {
                 'x-amz-acl': 'public-read',
-                'Content-Type': 'multipart/form-data',
+                'Content-Type': 'image/jpeg',
             },
         })
             .then((res) => {

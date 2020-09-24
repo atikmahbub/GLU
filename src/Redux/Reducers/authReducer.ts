@@ -1,8 +1,9 @@
-import { REGSITER_DATA, USER_LOGIN } from '../ActionTypes/authTypes';
+import { REGSITER_DATA, USER_LOGIN, VERIFIY_USER } from '../ActionTypes/authTypes';
 
 const initialState = {
     userData: null,
-    registerData:null
+    registerData: null,
+    verifyUser: null,
 };
 
 export const authReducer = (state = initialState, action: any) => {
@@ -14,6 +15,10 @@ export const authReducer = (state = initialState, action: any) => {
         }
         case REGSITER_DATA: {
             newState.registerData = action.payload;
+            return newState;
+        }
+        case VERIFIY_USER: {
+            newState.verifyUser = action.payload;
             return newState;
         }
         default: {

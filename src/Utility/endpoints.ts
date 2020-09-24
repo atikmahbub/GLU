@@ -38,6 +38,12 @@ export const endponts = {
     teacherRecommendation:'teacher/recommend',
     teacherStudentLike:'teacher/student/like',
     searchStudent: 'school/student/like',
+    registerVerfiyUser: 'auth/verify/',
+    updateProfile: 'user/profile',
+    getStudentDetails: 'school/subject/student/',
+    attendanceDetails: 'attendance/student/',
+    studentExam: '/school/student/',
+    studentHomework:'/school/status/homework/student/',
     teacherRecommendationCount:'teacher/recommend/count',
 };
 

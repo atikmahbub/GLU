@@ -86,7 +86,7 @@
         "lodash": "^4.17.20",
         "lodash.isnumber": "^3.0.3",
         "lodash.replace": "^4.1.4",
-        "material-table": "^1.49.0",
+        "material-table": "^1.48.0",
         "moment": "^2.24.0",
         "otp-input-react": "^0.2.4",
         "papaparse": "^5.2.0",

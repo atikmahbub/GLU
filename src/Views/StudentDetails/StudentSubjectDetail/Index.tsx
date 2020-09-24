@@ -36,21 +36,21 @@ const Index = () => {
         { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
     ];
     const moreDetails = [
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Human Resources', date: '20.06.2020', status: 'Incompleted', color: '#ffafaf' },
-        { name: 'International', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'International', date: '20.06.2020', status: 'Incompleted', color: '#ffafaf' },
-        { name: 'Human Resources', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'International', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Human Resources', date: '20.06.2020', status: 'Incompleted', color: '#ffafaf' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Human Resources', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Incompleted', color: '#ffafaf' },
-        { name: 'International', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
-        { name: 'Accounting', date: '20.06.2020', status: 'Completed', color: '#7fcb4b' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'Human Resources', date: '20.06.2020', status: '69%' },
+        { name: 'International', date: '20.06.2020', status: '69%' },
+        { name: 'International', date: '20.06.2020', status: '69%' },
+        { name: 'Human Resources', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'International', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'Human Resources', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'Human Resources', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
+        { name: 'International', date: '20.06.2020', status: '69%' },
+        { name: 'Accounting', date: '20.06.2020', status: '69%' },
     ];
     return (
         <div className="details-wrapper change_card_pd">
@@ -65,15 +65,16 @@ const Index = () => {
                         colWidth2="20%"
                         tableName=""
                         colHead1="Subjects"
-                        colHead2="Completed"
+                        colHead2="Average"
                         height="unset"
+                        linkTo=""
                     >
                         <CompNcomp completed="completed" notCompleted="Not completed" />
                     </TwoColTable>
                 </div>
                 {showMoreDetail && (
                     <div className={`col-md-4 colum__spacing`}>
-                        <AssignmentDetails showTerm={true} data={moreDetails} />
+                        <AssignmentDetails showTerm={true} showButton={false} data={moreDetails} />
                     </div>
                 )}
             </div>

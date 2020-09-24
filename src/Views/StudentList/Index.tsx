@@ -22,7 +22,7 @@ const Index = () => {
                     email: checkValue(element?.Student?.User?.email),
                     gender: checkValue(element.Student?.gender),
                     name: checkValue(element.Student?.firstName) + ' ' + checkValue(element.Student?.lastName),
-                    studentId: element.Student.id,
+                    id: element.Student.id,
                     firstName: checkValue(element.Student?.firstName),
                     lastName: checkValue(element.Student?.lastName),
                     fatherName: checkValue(element.Student?.fatherName),
