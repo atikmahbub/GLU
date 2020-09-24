@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import Div100vh from 'react-div-100vh';
+import { use100vh } from 'react-div-100vh';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -13,6 +13,9 @@ import { UserType } from '../types';
 import PageFooter from '../../../components/PageFooter';
 
 const useStyles = makeStyles({
+    root: {
+        minHeight: ({ height }: any) => height,
+    },
     rightContainer: {
         position: 'relative',
     },
@@ -52,9 +55,10 @@ const useStyles = makeStyles({
 interface INoActivity extends UserType {}
 
 const NoActivity: FC<INoActivity> = ({ userType }) => {
-    const classes = useStyles();
+    const height = use100vh();
+    const classes = useStyles({ height });
     return (
-        <CardsGridContainer component={Div100vh} paddingBottom={false}>
+        <CardsGridContainer rootClassName={classes.root} paddingBottom={false}>
             <Grid container direction="column" justify="space-between">
                 <CardsGrid rows={2}>
                     <Grid container>

@@ -56,6 +56,7 @@ CardsGridContainer.defaultProps = {
     background: 'primary',
     padding: true,
     paddingTop: true,
+    paddingBottom: true,
     paddingTopVariant: 1,
     paddingBottomVariant: 1,
 };

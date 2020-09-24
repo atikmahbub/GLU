@@ -19,8 +19,11 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            {/*<Activity userType={userType} />*/}
-            <NoActivity userType={userType} />
+            {false ? (
+                <Activity userType={userType} />
+            ) : (
+                <NoActivity userType={userType} />
+            )}
         </NavigationMenu>
     );
 };

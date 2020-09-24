@@ -65,7 +65,7 @@ const WalletTopUpPageContainer: FC<IWalletTopUpPageContainer> = ({ userType }) =
                     <Grid container>
                         <Grid container direction="column" className={classes.rightContainer}>
                             <CurrencyButton />
-                            {false && <Grid container direction="column" className={classes.container}>
+                            {true && <Grid container direction="column" className={classes.container}>
                                 <TitlePrimary className={classes.title}>Payment Method</TitlePrimary>
                                 <Grid container direction="column">
                                     <PaymentMethodCard active type="visa" ends="6159" expires="12/23"/>

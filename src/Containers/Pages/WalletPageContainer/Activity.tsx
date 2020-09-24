@@ -15,6 +15,7 @@ import WalletActivityAccordion from '../../../components/Accordions/WalletActivi
 import SeeAll from '../../../components/Typographies/SeeAll';
 import { activity, barChart } from '../../../data/wallet';
 import { UserTypes } from '../../../Types/user';
+import PageFooter from '../../../components/PageFooter';
 
 const useStyles = makeStyles({
     title: {
@@ -123,6 +124,7 @@ const Activity: FC<IActivity> = ({ userType }) => {
                     }
                 />
             </CardsGridContainer>
+            <PageFooter />
         </Grid>
     );
 };
