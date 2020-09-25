@@ -64,7 +64,7 @@ const Dashboard: React.FunctionComponent = () => {
                             </div>
                             <Typography className="total-no">189</Typography>
                             <Typography className="total-status mb-3">Students are attending today</Typography>
-                            <Typography className="primary__text">Go to attendance</Typography>
+                            {/* <Typography className="primary__text">Go to attendance</Typography> */}
                         </div>
                     </CardContainer>
                 </div>

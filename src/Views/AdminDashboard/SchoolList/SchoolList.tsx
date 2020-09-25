@@ -29,7 +29,7 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     const handleActiveInactive = (id: number) => {
         setSwitchState(!switchState)
         dispatch(activateDeactivateUser(id))
-        // dispatch(getallSchoolAPIcall());
+        dispatch(getallSchoolAPIcall());
     }
 
     return (
