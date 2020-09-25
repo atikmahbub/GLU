@@ -53,7 +53,22 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
 
 export const activateDeactivateUser = (id: number) => {
     return (dispatch: any) => {
-        API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id)
+        console.log("========= id =========", id)
+        API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id )
+        .then((res) => {
+            dispatch(spinner(false));
+            toast.success("Video Status Updated");
+        })
+        .catch((err) => {
+            handleError(dispatch, err);
+        });       
+    }
+}
+
+
+export const activateDeactivateVideo = (id: number) => {
+    return (dispatch: any) => {
+        API.put(superAdminEndpoints.activateDeactivateVideo + "/" + id)
         .then((res) => {
             dispatch(spinner(false));
             toast.success("School Status Updated");
@@ -63,6 +78,8 @@ export const activateDeactivateUser = (id: number) => {
         });       
     }
 }
+
+
 export const schoolList = (data: any) => {
     return {
         type: SCHOOL_LIST,

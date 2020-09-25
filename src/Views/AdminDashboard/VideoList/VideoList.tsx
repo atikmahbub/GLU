@@ -4,27 +4,16 @@ import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteTeacherAPIcall } from '../../../Redux/Actions/teacherAction';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-
-interface colDataType {
-    title: number,
-    description: number,
-    resource: string,
-    coverImage: string
-    videoLink: string,
-    maxStudent: string
-}
+import { activateDeactivateVideo, getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
 interface props {
     videoList: Array<string | number>;
 }
 const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
-    // alert(JSON.stringify(schoolList))
-
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -35,17 +24,11 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
             },
         });
     };
-    const handleEdit = (data: colDataType) => {
-        routes.push({
-            pathname: routeEndpoints.teacher.addNewTeacher,
-            state: {
-                teacherInfo: data,
-            },
-        });
-    };
-    const handleDelete = (deleteId: number) => {
-        dispatch(deleteTeacherAPIcall(deleteId));
-    };
+    const handleActiveInactive = (id: number) => {
+        // setSwitchState(!switchState)
+        dispatch(activateDeactivateVideo(id))
+        dispatch(getallVideoAPIcall());
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -63,7 +46,7 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                                 {
                                     width: '23%',
                                     title: 'Title',
-                                    field: 'tittle',
+                                    field: 'title',
                                     // render: (rowData: any) => (
                                     //     <TableUserProfile name={rowData.schoolName}/>
                                     // ),
@@ -90,22 +73,10 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            // onChange={() => handleActiveInactive(rowData.userId)}
+                                            onChange={() => handleActiveInactive(rowData.id)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
-                                        />
-                                    ),
-                                },
-
-                                {
-                                    width: '23%',
-                                    render: (rowData: any) => (
-                                        <ActionToolbar
-                                            showDetail={true}
-                                            // detailClick={() => redirectDetails(rowData)}
-                                            deleteClick={() => handleDelete(rowData.id)}
-                                            editClick={() => handleEdit(rowData)}
                                         />
                                     ),
                                 },

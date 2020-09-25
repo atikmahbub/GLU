@@ -35,30 +35,12 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
             },
         });
     };
-    // const redirectDetails = (data: any) => {
-    //     routes.push({
-    //         pathname: '/dashboard/teacher-details/class-group-details',
-    //         state: {
-    //             teacherData: data,
-    //         },
-    //     });
-    // };
     const handleActiveInactive = (id: number) => {
         setSwitchState(!switchState)
         dispatch(activateDeactivateUser(id))
         dispatch(getallSchoolAPIcall());
     }
-    const handleEdit = (data: colDataType) => {
-        routes.push({
-            pathname: routeEndpoints.teacher.addNewTeacher,
-            state: {
-                teacherInfo: data,
-            },
-        });
-    };
-    const handleDelete = (deleteId: number) => {
-        dispatch(deleteTeacherAPIcall(deleteId));
-    };
+
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -106,18 +88,6 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                     ),
                                 },
 
-                                {
-                                    width: '23%',
-                                    render: (rowData: any) => (
-                                        <ActionToolbar
-                                            showDetail={false}
-                                            // showDelete={false}
-                                            // detailClick={() => redirectDetails(rowData)}
-                                            // deleteClick={() => handleDelete(rowData.id)}
-                                            editClick={() => handleEdit(rowData)}
-                                        />
-                                    ),
-                                },
                             ]}
                             rowData={schoolList}
                         />

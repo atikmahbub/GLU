@@ -74,9 +74,9 @@ const Index = () => {
     };
     const dispatch = useDispatch();
     const history = useHistory();
-    // const handleFile = (file: File) => {
-    //     setImage(file);
-    // };
+    const handleFile = (file: File) => {
+        setImage(file);
+    };
     const handleSubmit = () => {
         const teacher = {
             schoolName: state.schoolName,
@@ -127,17 +127,17 @@ const Index = () => {
         }
     }, [tokenData]);
 
-    // useEffect(() => {
-    //     if (fileData) {
-    //         dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
-    //     }
-    // }, [fileData]);
+    useEffect(() => {
+        if (fileData) {
+            dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
+        }
+    }, [fileData]);
 
-    // const uploadProfile = () => {
-    //     if (fileData) {
-    //         dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
-    //     }
-    // };
+    const uploadProfile = () => {
+        if (fileData) {
+            dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
+        }
+    };
     return (
         <CardContainer>
             <PdBox>
@@ -149,9 +149,6 @@ const Index = () => {
                         <Typography className={classes.heading}>School Information</Typography>
                         {/* <UploadMaxSize onClick={handleFile} /> */}
                         <InputWithLabel fieldName="School Name" value={state.schoolName} onChange={handleSchoolName} />
-
-                        {/* <InputWithLabel fieldName="First Name" value={state.firstName} onChange={handleFirstName} />
-                        <InputWithLabel fieldName="Last Name" value={state.lastName} onChange={handleLastName} /> */}
                         <InputWithLabel
                             fieldName="Email"
                             placeholder="sample@gmail.com"
