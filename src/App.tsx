@@ -2,13 +2,14 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Close } from '@material-ui/icons';
-import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './Routes/PrivateRoutes/PrivateRoute';
 import { rootRoute } from './Routes/RootRoute/rootRoute';
 import { rootRouteInterface } from './Interfaces/rootRouteInterface';
 import { rootPrivateRoute } from './Routes/RootRoute/rootPrivateRoute';
 import { MuiThemeProvider } from '@material-ui/core';
 import theme from "./Styles/theme";
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;

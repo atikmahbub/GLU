@@ -5,7 +5,6 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { FavoriteBorder, StarBorder } from '@material-ui/icons';
 import { createMuiTheme, responsiveFontSizes, MuiThemeProvider } from '@material-ui/core/styles';
 

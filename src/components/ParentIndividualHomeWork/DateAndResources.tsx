@@ -2,7 +2,6 @@ import React, { FC, useState, ReactNode, memo } from 'react';
 import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import Divider from '@material-ui/core/Divider';
 import Hidden from '@material-ui/core/Hidden';
