@@ -3,7 +3,7 @@ import { Dashboard as DashboardIcon } from '@material-ui/icons';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import { Switch, Route } from 'react-router-dom';
-import { getNavigationMenu } from '../../Routes/SidebarRoutes';
+import { getNavigationMenu } from '../../Routes/AdminSidebarRoutes';
 import { dashboardRoutes } from '../../Routes/AdminDashboard/routes';
 import {v4 as uuidv4} from "uuid";
 

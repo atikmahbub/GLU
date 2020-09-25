@@ -25,7 +25,7 @@ const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
                             {/* <img src={commonImg.schoolLogo} alt="" /> */}
                         {/* </div> */}
                         <div>
-                            <Typography className="school-name">GLU Admin</Typography>
+                            <Typography className="school-name"> </Typography>
                             {/* <Typography className="title">Visit website</Typography> */}
                         </div>
                     </div>

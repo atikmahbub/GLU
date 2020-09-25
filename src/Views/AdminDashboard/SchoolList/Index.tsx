@@ -19,8 +19,9 @@ const Index = () => {
                     website: element.website,
                     phoneNumber: element.phoneNumber,
                     id: element.id,
-                    userId: element.userId,
                     createdAt: element.createdAt,
+                    isActive: element.User.isActive == null ? true : element.User.isActive,
+                    userId: element.User.id,
                 };
             });
 

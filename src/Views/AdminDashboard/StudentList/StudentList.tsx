@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteTeacherAPIcall } from '../../../Redux/Actions/teacherAction';
-import { activateDeactivateUser, getallSchoolAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
+import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-
+import { getallStudentAPIcall, activateDeactivateUser } from '../../../Redux/Actions/superAdminActions';
 interface props {
-    schoolList: Array<string | number>;
+    studentList: Array<string | number>;
 }
-const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
-    const [switchState, setSwitchState] = useState(true)
+const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
+    // alert(JSON.stringify(studentList))
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -27,15 +26,16 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
         });
     };
     const handleActiveInactive = (id: number) => {
-        setSwitchState(!switchState)
+        // setSwitchState(!switchState)
         dispatch(activateDeactivateUser(id))
-        dispatch(getallSchoolAPIcall());
+        dispatch(getallStudentAPIcall());
     }
-
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Schools" btnIcon={<Add />} btnTitle="Add New School" trigger={handleRoutes} />
+                {/* <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} /> */}
+                <AddButton title="Students"/>
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -48,29 +48,42 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                             columns={[
                                 {
                                     width: '23%',
-                                    title: 'Name',
-                                    field: 'schoolName',
+                                    title: 'First Name',
+                                    field: 'firstName',
                                     // render: (rowData: any) => (
                                     //     <TableUserProfile name={rowData.schoolName}/>
                                     // ),
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Website',
-                                    field: 'website',
+                                    title: 'Last Name',
+                                    field: 'lastName',
+                                    // render: (rowData: any) => (
+                                    //     <TableUserProfile name={rowData.schoolName}/>
+                                    // ),
                                 },
                                 {
                                     width: '23%',
-                                    title: 'PhoneNumber',
+                                    title: 'Gender',
+                                    field: 'gender',
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Phone Number',
                                     field: 'phoneNumber',
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'Location',
+                                    field: 'location',
                                 },
 
                                 {
                                     width: '23%',
-                                    title: 'Active/Inactive',
+                                    title: 'Approve/Reject',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isActive}
+                                            checked={rowData.isVerified}
                                             onChange={() => handleActiveInactive(rowData.userId)}
                                             color="primary"
                                             name="checkedB"
@@ -78,9 +91,8 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                         />
                                     ),
                                 },
-
                             ]}
-                            rowData={schoolList}
+                            rowData={studentList}
                         />
                     </div>
                 </div>
@@ -89,4 +101,4 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     );
 };
 
-export default SchoolList;
+export default StudentList;
