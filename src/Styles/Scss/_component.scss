@@ -831,7 +831,7 @@ button.primary-btn {
         @include flex(center, flex-start, row);
         margin-top: 1.5rem;
         margin-bottom: 1.75rem;
-        .MuiSvgIcon-root.title{
+        .MuiSvgIcon-root.title {
             margin-top: 0;
         }
         .title {
@@ -1421,7 +1421,7 @@ button.outline-button {
         line-height: 3.125rem;
     }
     .image_title_cotainer {
-        max-width: 30rem;
+        width: 30rem;
         @include flex(center, flex-start, row);
         .profile {
             width: 5rem;
@@ -1562,7 +1562,7 @@ button.outline-button {
     }
 }
 
-//Child and purchase items 
+//Child and purchase items
 .child__purchase__item {
     display: flex;
     align-items: center;
@@ -1597,8 +1597,7 @@ button.outline-button {
         margin-left: 1.25rem;
         color: #5f5f5f;
     }
-}   
-
+}
 
 //Parent Notification
 .push__drawer__content {
@@ -1609,7 +1608,7 @@ button.outline-button {
     transition: all 0.5s;
     background: rgba(0, 0, 0, 0);
     font-size: 2.625rem;
-    .heading{
+    .heading {
         font-size: 2.625rem;
     }
     .title__description {
@@ -1653,23 +1652,23 @@ button.outline-button {
         }
     }
 
-    .message__request, .topped__up, .booking__confirmed {
+    .message__request,
+    .topped__up,
+    .booking__confirmed {
         margin-top: 1.906rem;
     }
 
-    .topped__up{
-        .topped__up__with__close{
+    .topped__up {
+        .topped__up__with__close {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
     }
-    .clear__all{
+    .clear__all {
         font-size: 1rem;
-        font-family: "CircularXX";
+        font-family: 'CircularXX';
         margin-top: 4.562rem;
         color: #5f5f5f;
     }
-
 }
-

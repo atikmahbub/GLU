@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles, Typography, Grid } from '@material-ui/core';
-import Img from '../../Assets/images';
-import ReusableTextArea from '../../components/ReusableTextArea';
+import React, { useState, useEffect } from 'react';
+import { makeStyles, Typography, TextareaAutosize } from '@material-ui/core';
+import { connect } from 'react-redux';
+
 import Details from './Details';
 import Experience from './Experience';
 import Education from './Education';
@@ -11,11 +11,7 @@ const useStyles = makeStyles({
     headerText: {
         fontSize: '2.625rem',
     },
-    image: {
-        width: '11.5rem',
-        height: '11.47rem',
-        marginTop: '2.49rem',
-    },
+
     addPhotoBox: {
         marginLeft: '3.125rem',
 
@@ -61,25 +57,53 @@ const useStyles = makeStyles({
         fontFamily: 'CircularXXWeb-Book',
     },
     pad: {},
+    input: {
+        display: 'none',
+    },
+    textareaClass: {
+        backgroundAttachment: 'local',
+        backgroundImage:
+            'linear-gradient(to right, white 0px, transparent 0px),linear-gradient(to left, white 0px, transparent 0px),repeating-linear-gradient(white, white 3rem, #ccc 3.0625rem, #ccc 3rem, white 3.0625rem)',
+        lineHeight: '3rem',
+        border: 'none',
+        width: '100%',
+        height: '14rem',
+        color: 'inherit',
+        fontFamily: 'CircularXXWeb-Book',
+
+        fontSize: '2.625rem',
+        '&:hover': {
+            border: 'none',
+            cursor: 'text',
+        },
+        '&:focus': {
+            border: 'none',
+            outline: 'none',
+        },
+        font: 'normal normal normal 42px/62px CircularXXWeb;',
+    },
 });
 
-const LeftGrid = () => {
+const LeftGrid = ({ textAreaData }) => {
     const classes = useStyles();
+
+    const [textAreaValue, setTextArea] = useState({
+        bio: null,
+    });
+
+    const handleChange = (e: any) => {
+        console.log(textAreaValue);
+        setTextArea({ ...textAreaValue, [e.target.id]: e.target.value });
+    };
+
+    useEffect(() => {
+        setTextArea({ bio: textAreaData });
+    }, []);
 
     return (
         <div>
             <Typography className={classes.headerText}>Profile Image</Typography>
             <div className={classes.pad}>
-                <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
-                <div className={classes.addPhotoBox}>
-                    <Typography className={classes.addPhotoText}>Add a photo to your account</Typography>
-                    <div className={classes.upload}>Upload</div>
-                    <div className={classes.smallText}>Max size 50MB</div>
-                </div>
-                <div className={classes.bio}>
-                    <div className={classes.bioText}>Bio</div>
-                    <ReusableTextArea noOfRows={5} />
-                </div>
                 <Details />
                 <Experience />
                 <Education />
@@ -89,4 +113,10 @@ const LeftGrid = () => {
     );
 };
 
-export default LeftGrid;
+const mapStateToProps = (state) => {
+    return {
+        textAreaData: state.teacherReducer.teacherData.bio,
+    };
+};
+
+export default connect(mapStateToProps)(LeftGrid);

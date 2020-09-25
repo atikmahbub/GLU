@@ -9,6 +9,7 @@ import {
     getTeacherExperienceApiCall,
     getTeacherEducationApiCall,
     getTeacherSkills,
+    getTeacherDetails,
 } from '../../Redux/Actions/teacherAction';
 
 const useStyles = makeStyles({
@@ -31,7 +32,13 @@ const useStyles = makeStyles({
     },
 });
 
-const TutorEdit = ({ getTeacherSkills, skillsData, getTeacherExperienceApiCall, getTeacherEducationApiCall }) => {
+const TutorEdit = ({
+    getTeacherSkills,
+    skillsData,
+    getTeacherExperienceApiCall,
+    getTeacherEducationApiCall,
+    getTeacherDetails,
+}) => {
     useEffect(() => {
         getTeacherEducationApiCall();
     }, []);
@@ -40,6 +47,9 @@ const TutorEdit = ({ getTeacherSkills, skillsData, getTeacherExperienceApiCall, 
     }, []);
     useEffect(() => {
         getTeacherExperienceApiCall();
+    }, []);
+    useEffect(() => {
+        getTeacherDetails();
     }, []);
 
     const menu = [
@@ -77,4 +87,5 @@ export default connect(mapStateToProps, {
     getTeacherSkills,
     getTeacherEducationApiCall,
     getTeacherExperienceApiCall,
+    getTeacherDetails,
 })(TutorEdit);

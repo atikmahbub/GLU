@@ -17,6 +17,7 @@ const Index = () => {
         setShowMoreDetails(true);
     };
     const [studentId, setStudentId] = useState(0);
+    const [studentDetails, setStudentDetails] = useState({ name: '' });
     const [term, setTerm] = useState('1');
     const handleTerm = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setTerm(e.target.value);
@@ -25,9 +26,10 @@ const Index = () => {
     const routes = useLocation();
     useEffect(() => {
         if (routes.hasOwnProperty('state')) {
-            if ((routes as any).state.hasOwnProperty('id')) {
+            if ((routes as any)?.state?.hasOwnProperty('id')) {
                 console.log(routes);
                 setStudentId((routes as any).state.id);
+                setStudentDetails((routes as any).state.studentDetails);
             }
         }
     }, []);
@@ -40,37 +42,12 @@ const Index = () => {
             const data = termResult.map((item: any) => {
                 return {
                     col1: checkValue(item.Subject.subjectName),
-                    col2: <PercentageProgress percent={checkValue(item.percentage)} />,
+                    col2: <PercentageProgress percent={`${checkValue(item.percentage)}%`} />,
                 };
             });
             setTermData(data);
         }
     }, [termResult]);
-    const data = [
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Mathematics', col2: <PercentageProgress percent="69%" /> },
-        { col1: 'Biology', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Physics', col2: <PercentageProgress percent="34%" /> },
-        { col1: 'Business Studies', col2: <PercentageProgress percent="55%" /> },
-    ];
     const moreDetails = [
         { name: 'Accounting', date: '20.06.2020', status: '69%' },
         { name: 'Human Resources', date: '20.06.2020', status: '69%' },
@@ -93,6 +70,7 @@ const Index = () => {
             <ProfileTitle
                 hideBtns={true}
                 value={term}
+                data={studentDetails}
                 onChange={handleTerm}
                 showDropDown={true}
                 detailName="Exam Results"

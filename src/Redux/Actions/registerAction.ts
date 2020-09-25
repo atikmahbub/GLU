@@ -194,6 +194,7 @@ export const verfiyRegisterUserAPIcall = (token: string) => {
                 console.log(res);
                 const data = {
                     access_token: `Bearer ${token}`,
+                    userRoleId: res.data.data?.Teacher?.id
                 };
                 localStorage.setItem('auth', JSON.stringify(data));
                 dispatch(userLogin(data));

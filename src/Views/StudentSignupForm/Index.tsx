@@ -375,21 +375,42 @@ const Index: React.FunctionComponent = () => {
     }, []);
     useEffect(() => {
         if (verifyUser) {
+            let data = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNum: '',
+            };
             console.log(verifyUser);
             if (verifyUser.hasOwnProperty('Teacher')) {
                 setWhoIam('teacher');
-            } else if (verifyUser.hasOwnProperty('Parent')) {
+                const teacher = verifyUser.Teacher;
+                data = {
+                    firstName: teacher.firstName,
+                    lastName: teacher.lastName,
+                    email: verifyUser.email,
+                    phoneNum: teacher.phoneNumber,
+                };
+            } else if (verifyUser.hasOwnProperty('Gauridan')) {
                 setWhoIam('parent');
+                const parent = verifyUser.Gauridan;
+                data = {
+                    firstName: parent.firstName,
+                    lastName: parent.lastName,
+                    email: verifyUser.email,
+                    phoneNum: parent.phoneNumber,
+                };
             } else if (verifyUser.hasOwnProperty('Student')) {
                 setWhoIam('student');
+                const student = verifyUser.Student;
+                data = {
+                    firstName: student.firstName,
+                    lastName: student.lastName,
+                    email: verifyUser.email,
+                    phoneNum: student.phoneNumber,
+                };
             }
-            const student = verifyUser.Student;
-            const data = {
-                firstName: student.firstName,
-                lastName: student.lastName,
-                email: verifyUser.email,
-                phoneNum: student.phoneNumber,
-            };
+
             setState({ ...state, student: { ...state.student, ...data } });
             goToNextPage();
             setUseUpdateApi(true);

@@ -1,8 +1,7 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
 import FilterContainer from '../FilterContainer';
 import CardsGrid from '../CardsGrid';
 import ImageCard from '../../components/Cards/ImageCard';
@@ -11,16 +10,21 @@ import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
+import useToggle from '../../Hooks/useToggle';
+import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
+import useMenuList from '../../Hooks/useMenuList';
 
 interface ILiveClassesPageContainer {
     userType: UserTypes;
 }
 
 const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
 
     return (
         <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>
+            <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <FilterContainer
                 padding
                 sort={false}
@@ -30,7 +34,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
             >
                 <CardsGrid>
                     {cards2.map((card, index) => (
-                        <ImageCard key={index} {...card} />
+                        <ImageCard key={index} {...card} onTitleClick={toggleClassPurchaseDrawer} />
                     ))}
                 </CardsGrid>
             </FilterContainer>
@@ -48,7 +52,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
             <CardsGridContainer>
                 <CardsGrid>
                     {cards2.map((card, index) => (
-                        <ImageCard key={index} {...card} />
+                        <ImageCard key={index} {...card} onTitleClick={toggleClassPurchaseDrawer} />
                     ))}
                 </CardsGrid>
             </CardsGridContainer>
@@ -66,7 +70,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
             <CardsGridContainer>
                 <CardsGrid>
                     {cards2.map((card, index) => (
-                        <ImageCard key={index} {...card} />
+                        <ImageCard key={index} {...card} onTitleClick={toggleClassPurchaseDrawer} />
                     ))}
                 </CardsGrid>
             </CardsGridContainer>

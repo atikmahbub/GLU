@@ -27,10 +27,11 @@ export const addNewSubjectAPIcall = (
     };
 };
 
-export const getSubjectListAPIcall = (className: string, sectionName: string) => {
+export const getSubjectListAPIcall = () => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${endponts.subject}/${className}/${sectionName}`)
+        API.get(`${endponts.getAllSubject}`)
             .then((res) => {
+                console.log(res);
                 dispatch(subjectListAPIres(res.data.data));
             })
             .catch((err) => {
@@ -69,14 +70,13 @@ export const updateSubjectAPIcall = (
     };
 };
 
-
 export const deleteSubjectAPIcall = (className: string, sectionName: string, deleteId: number) => {
     return (dispatch: any) => {
         API.delete(`${endponts.subject}/${className}/${sectionName}/${deleteId}`)
             .then((res) => {
                 console.log(res);
                 toast.success('Subject deleted successfully.');
-                dispatch(getSubjectListAPIcall(className, sectionName))
+                dispatch(getSubjectListAPIcall(className, sectionName));
             })
             .catch((err) => {
                 handleError(dispatch, err);
