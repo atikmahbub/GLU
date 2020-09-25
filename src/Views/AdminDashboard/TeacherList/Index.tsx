@@ -12,20 +12,19 @@ const Index = () => {
 
     useEffect(() => {
         dispatch(getallTeacherAPIcall());
-        console.log("======= action dispatche =========Video")
     }, []);
     useEffect(() => {
         if (video) {
             const data = video.map((element: any) => {
                 return {
-                    userId: element.userId,
-                    teacherId: element.teacherId,
-                    firstName: element.firstName,
-                    lastName: element.lastName,
-                    gender: element.gender,
-                    phoneNumber: element.phoneNumber,
-                    location: element.location,
-                    registeredOn: element.registeredOn,
+                    userId: checkValue(element.userId),
+                    teacherId: checkValue(element.teacherId),
+                    firstName: checkValue(element.firstName),
+                    lastName: checkValue(element.lastName),
+                    gender: checkValue(element.gender),
+                    phoneNumber: checkValue(element.phoneNumber),
+                    location: checkValue(element.location),
+                    registeredOn: checkValue(element.registeredOn),
                 };
             });
             setTeacherList(data);
@@ -33,7 +32,7 @@ const Index = () => {
     }, [video]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <TeacherList teacherList={teacherList}/>
+    return <TeacherList teacherList={teacherList} />;
 };
 
 export default Index;

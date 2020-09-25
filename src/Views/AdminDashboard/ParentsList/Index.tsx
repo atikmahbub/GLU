@@ -5,7 +5,6 @@ import { checkValue } from '../../../Helper/checkValue';
 import commonImg from '../../../Assets/images';
 import ParentsList from './ParentsList';
 
-
 const Index = () => {
     const dispatch = useDispatch();
     const parent = useSelector((state: any) => state.superAdminReducer.parentsList);
@@ -13,20 +12,19 @@ const Index = () => {
 
     useEffect(() => {
         dispatch(getallParentsAPIcall());
-        console.log("======= action dispatche =========Video")
     }, []);
     useEffect(() => {
         if (parent) {
             const data = parent.map((element: any) => {
                 return {
-                    userId: element.userId,
-                    teacherId: element.teacherId,
-                    firstName: element.firstName,
-                    lastName: element.lastName,
-                    gender: element.gender,
-                    phoneNumber: element.phoneNumber,
-                    location: element.location,
-                    registeredOn: element.registeredOn,
+                    userId: checkValue(element.userId),
+                    teacherId: checkValue(element.teacherId),
+                    firstName: checkValue(element.firstName),
+                    lastName: checkValue(element.lastName),
+                    gender: checkValue(element.gender),
+                    phoneNumber: checkValue(element.phoneNumber),
+                    location: checkValue(element.location),
+                    registeredOn: checkValue(element.registeredOn),
                 };
             });
             setParentsList(data);
@@ -34,7 +32,7 @@ const Index = () => {
     }, [parent]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <ParentsList parentsList={parentsList}/>
+    return <ParentsList parentsList={parentsList} />;
 };
 
 export default Index;

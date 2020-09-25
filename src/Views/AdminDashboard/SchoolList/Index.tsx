@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { checkValue } from '../../../Helper/checkValue';
 import { getallSchoolAPIcall } from '../../../Redux/Actions/superAdminActions';
 import SchoolList from './SchoolList'
 
@@ -16,13 +17,13 @@ const Index = () => {
             const data = school.map((element: any, i:number) => {
                 return {
                     index: i,
-                    schoolName: element.schoolName,
-                    website: element.website,
-                    phoneNumber: element.phoneNumber,
-                    id: element.id,
-                    createdAt: element.createdAt,
-                    isActive: element.User.isActive == null ? true : element.User.isActive,
-                    userId: element.User.id,
+                    schoolName: checkValue(element.schoolName),
+                    website: checkValue(element.website),
+                    phoneNumber: checkValue(element.phoneNumber),
+                    id: checkValue(element.id),
+                    createdAt: checkValue(element.createdAt),
+                    isActive: element.User.isActive == null ? true :element.User.isActive,
+                    userId: checkValue(element.User.id),
                 };
             });
 
