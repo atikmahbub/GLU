@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -14,7 +14,12 @@ interface props {
     parentsList: Array<string | number>;
 }
 const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
-    // alert(JSON.stringify(parentsList))
+    const [parent, setParent] = useState<any>([]);
+    useEffect(() => {
+        if (parentsList) {
+            setParent(parentsList);
+        }
+    }, [parentsList]);
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -25,18 +30,20 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
             },
         });
     };
-    const handleActiveInactive = (id: number) => {
-        // setSwitchState(!switchState)
-        dispatch(activateDeactivateUser(id))
+    const handleActiveInactive = (id: number, i: number) => {
+        const data = [...parent];
+        data[i].isActive = !data[i].isActive;
+        setParent(data);
+        dispatch(activateDeactivateUser(id, callGetParents));
+    };
+    const callGetParents = () => {
         dispatch(getallParentsAPIcall());
-    }
-    
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
                 {/* <AddButton title="Parents" btnIcon={<Add />} btnTitle="Add New Parent" trigger={handleRoutes} /> */}
-                <AddButton title="Parents"/>
-
+                <AddButton title="Parents" />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -85,7 +92,7 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.userId)}
+                                            onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -93,7 +100,7 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                     ),
                                 },
                             ]}
-                            rowData={parentsList}
+                            rowData={parent}
                         />
                     </div>
                 </div>

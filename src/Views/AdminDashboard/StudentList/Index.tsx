@@ -18,8 +18,9 @@ const Index = () => {
     useEffect(() => {
         // alert(JSON.stringify(data))
         if (student) {
-            const data = student.map((element: any) => {
+            const data = student.map((element: any, i:number) => {
                 return {
+                    index: i,
                     userId: checkValue(element.userId),
                     studentId: checkValue(element.studentId),
                     firstName: checkValue(element.firstName),
@@ -29,7 +30,6 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     isVerified: checkValue(element.isVerified),
-
                 };
             });
             

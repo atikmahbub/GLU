@@ -35,9 +35,11 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
         const data = [...schools];
         data[i].isActive = !data[i].isActive;
         setSchools(data);
-        dispatch(activateDeactivateUser(id));
+        dispatch(activateDeactivateUser(id, callGetSchool));
     };
-
+    const callGetSchool = () => {
+        dispatch(getallSchoolAPIcall());
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
