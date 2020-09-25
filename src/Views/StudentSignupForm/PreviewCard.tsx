@@ -25,10 +25,10 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, han
                             {title} {i + 1}
                         </Typography>
                         <div className="button-group">
-                            <Button className="text-button" onClick={() => handleEdit(i)}>
+                            <Button disableElevation className="text-button" onClick={() => handleEdit(i)}>
                                 Edit
                             </Button>
-                            <Button className="text-button" onClick={() => deleteHanlder(i)}>
+                            <Button disableElevation className="text-button" onClick={() => deleteHanlder(i)}>
                                 Delete
                             </Button>
                         </div>

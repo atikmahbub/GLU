@@ -35,11 +35,13 @@ import {
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import { useHistory, useLocation } from 'react-router';
+import { getStepsRegister } from '../../Helper/getStepsRegister';
 
 export const registerContext = createContext<any>({});
 const RegisterProvider = registerContext.Provider;
 
 const Index: React.FunctionComponent = () => {
+    const stepLength: any = { student: 4, parent: 4, teacher: 9 };
     const [active, setActive] = useState(0);
     const [whoIam, setWhoIam] = useState('');
     const [state, setState] = useState({
@@ -464,7 +466,7 @@ const Index: React.FunctionComponent = () => {
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
+        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} /> },
     ];
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
@@ -531,7 +533,7 @@ const Index: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-6 mb-2">
                             <Typography className="stepper__title">
-                                Step {active + 1}/{activeLength}
+                                Step {getStepsRegister(whoIam, active) + 1}/{stepLength[whoIam]}
                             </Typography>
                             <div className="stepper_marker">{renderStepper[whoIam]}</div>
                         </div>

@@ -81,7 +81,7 @@
 .MuiFormControl-root.custom-adornment-input {
     margin-bottom: 2.5rem;
     .MuiFormLabel-root.Mui-focused {
-        color: #000;
+        color: $black;
         font-size: 1.562rem;
         font-family: 'CircularXXSub-BookSubset';
     }
@@ -99,7 +99,7 @@
     .MuiInputBase-input.MuiInput-input {
         font-family: 'CircularXXSub-BookSubset';
         font-size: 1.562rem;
-        color: $gray;
+        color: $black;
     }
 }
 
@@ -383,4 +383,18 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
     -moz-appearance: textfield;
+}
+
+//reple color effect
+.MuiIconButton-colorSecondary {
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.025) !important;
+    }
+}
+
+span.MuiTouchRipple-root {
+    span {
+        background-color: 'red!important';
+        opacity: 0.3;
+    }
 }

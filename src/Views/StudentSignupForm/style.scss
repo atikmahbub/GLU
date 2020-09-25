@@ -124,9 +124,12 @@
                         .button-group {
                             @include flex(center, space-between, row);
                             .text-button {
-                                color: $primary;
+                                color: $titleGray;
                                 text-transform: capitalize;
                                 font-size: 1.25rem;
+                                &:hover{
+                                    background-color: transparent;
+                                }
                             }
                         }
                     }
