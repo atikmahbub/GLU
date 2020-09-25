@@ -384,3 +384,17 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
     -moz-appearance: textfield;
 }
+
+//reple color effect
+.MuiIconButton-colorSecondary {
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.025) !important;
+    }
+}
+
+span.MuiTouchRipple-root {
+    span {
+        background-color: 'red!important';
+        opacity: 0.3;
+    }
+}
