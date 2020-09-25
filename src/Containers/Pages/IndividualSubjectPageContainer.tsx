@@ -11,6 +11,8 @@ import { IndividualSubjectCardData } from './types';
 import { UserTypes } from '../../Types/user';
 import useMenuList from '../../Hooks/useMenuList';
 import WhiteBannerCard from '../../components/Cards/WhiteBannerCard';
+import useToggle from '../../Hooks/useToggle';
+import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -26,12 +28,14 @@ interface IIndividualSubjectContainer{
 const IndividualSubjectPageContainer: FC<IIndividualSubjectContainer> = ({ userType, cardsData }) => {
     const classes = useStyles();
     const menuList = useMenuList(userType)
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
     return (
         <NavigationMenu
             absolute
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <WhiteBannerCard {...cardsData.whiteBannerCard} />
             <BannerCarousel cards={cardsData.bannerCarouselBottom} />
             <UpcomingClassCard {...cardsData.upcomingClass} />
@@ -40,6 +44,7 @@ const IndividualSubjectPageContainer: FC<IIndividualSubjectContainer> = ({ userT
                 title="Live Classes"
                 link={`/${userType}/live-classes`}
                 data={cardsData.liveClasses}
+                cardTitleClick={toggleClassPurchaseDrawer}
                 rootClassName={classes.recommendedRoot}
             />
             <BannerCarousel cards={cardsData.bannerCarouselBottom} />
