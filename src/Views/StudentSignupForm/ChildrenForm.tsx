@@ -4,6 +4,7 @@ import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { LocationSearching } from '@material-ui/icons';
 import { registerContext } from './Index';
+import { mobileCode } from '../../Helper/mobileCode';
 
 const ChildrenForm: React.FunctionComponent = () => {
     const context = useContext(registerContext);
@@ -43,7 +44,7 @@ const ChildrenForm: React.FunctionComponent = () => {
                     <SelectFieldUnderline
                         className="custom-adornment-input"
                         label="Mobile Number"
-                        options={['+91']}
+                        options={mobileCode}
                         value={context.student.phoneCode}
                         getValue={(value: string) => {
                             context.studentHandler.phoneCode(value);

@@ -157,17 +157,17 @@ const Index: React.FunctionComponent = () => {
     };
     const handleNext = () => {
         setEditMode(false);
-        userRegistration();
-        if (active === 0) {
+        // userRegistration();
+        // if (active === 0) {
             goToNextPage();
-        }
-        if (
-            (active === 5 && whoIam === 'student') ||
-            (active === 5 && whoIam === 'parent') ||
-            (active === 10 && whoIam === 'teacher')
-        ) {
-            otpVerifyCall();
-        }
+        // }
+        // if (
+        //     (active === 5 && whoIam === 'student') ||
+        //     (active === 5 && whoIam === 'parent') ||
+        //     (active === 10 && whoIam === 'teacher')
+        // ) {
+        //     otpVerifyCall();
+        // }
     };
     console.log(state);
     const goToNextPage = () => {

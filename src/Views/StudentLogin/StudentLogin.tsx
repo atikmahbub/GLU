@@ -44,7 +44,6 @@ const StudentLogin = () => {
                                 inputRef={register}
                                 fullWidth
                             />
-                            {}
                             {errors.email && <ShowErrors error={errors.email.message} />}
                             <UnderLineAddornment
                                 label="Password"
@@ -66,7 +65,6 @@ const StudentLogin = () => {
                             </div>
                         </form>
                     </div>
-
                     <Typography className="forgot__password" onClick={handleForgot}>
                         Forgot your password?
                     </Typography>

@@ -3,6 +3,7 @@ import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { Typography } from '@material-ui/core';
 import { registerContext } from './Index';
+import { mobileCode } from '../../Helper/mobileCode';
 
 interface props {
     onClick?: (value: string) => void;
@@ -21,7 +22,7 @@ const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
                     <SelectFieldUnderline
                         className="custom-adornment-input mb-3"
                         label="Mobile Number"
-                        options={['+91', '+971']}
+                        options={mobileCode}
                         value={context.student.veriCode}
                         getValue={(value: string) => {
                             context.studentHandler.veriCode(value);
