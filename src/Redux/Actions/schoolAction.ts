@@ -12,7 +12,8 @@ export const getSchoolAPIcall = () => {
         dispatch(spinner(true));
         API.get(endponts.schoolProfile)
             .then((res) => {
-                console.log(res);
+                console.log("checkkk: ",res);
+            
                 dispatch(schoolInfo(res.data.data));
                 dispatch(spinner(false));
             })
