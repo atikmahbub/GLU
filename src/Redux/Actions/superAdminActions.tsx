@@ -109,11 +109,11 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
 
 export const activateDeactivateUser = (id: number) => {
     return (dispatch: any) => {
-        console.log("========= id =========", id)
         API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id )
         .then((res) => {
             dispatch(spinner(false));
-            toast.success("Video Status Updated");
+            toast.success('School Status Changed Successfully.');
+            dispatch(getallSchoolAPIcall());
         })
         .catch((err) => {
             handleError(dispatch, err);

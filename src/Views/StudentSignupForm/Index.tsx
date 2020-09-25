@@ -65,7 +65,7 @@ const Index: React.FunctionComponent = () => {
             location: '',
             password: '',
             tc: 'tc',
-            veriCode: '+91',
+            veriCode: '',
             veriMobile: '',
             gender: 'male',
             education: [{ schoolName: '', qualification: '', course: '', from: new Date(), to: new Date() }],
@@ -148,8 +148,8 @@ const Index: React.FunctionComponent = () => {
         };
         setState(data);
     };
-    const handleVeriCode = (value: string) => {
-        setState({ ...state, student: { ...state.student, veriCode: value } });
+    const handleVeriCode = (e: React.SyntheticEvent<HTMLSelectElement>) => {
+        setState({ ...state, student: { ...state.student, veriCode: (e.target as any).value } });
     };
     const handleVeriMobile = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target.value);
@@ -296,7 +296,7 @@ const Index: React.FunctionComponent = () => {
     };
     const handleCodeSend = (value: string) => {
         console.log(value);
-        const contact = { phoneNumber: `${state.student.veriCode}${value}` };
+        const contact = { phoneNumber: value };
         dispatch(registerPhoneNumberAPIcall(contact, goToNextPage));
     };
     const resendPhoneCode = (value: string) => {
@@ -466,7 +466,10 @@ const Index: React.FunctionComponent = () => {
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} /> },
+        {
+            title: 'Verify Account',
+            comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} />,
+        },
     ];
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },

@@ -20,15 +20,15 @@ const Index = () => {
         if (student) {
             const data = student.map((element: any) => {
                 return {
-                    userId: element.userId,
-                    studentId: element.studentId,
-                    firstName: element.firstName,
-                    lastName: element.lastName,
-                    gender: element.gender,
-                    phoneNumber: element.phoneNumber,
-                    location: element.location,
-                    registeredOn: element.registeredOn,
-                    isVerified: element.isVerified,
+                    userId: checkValue(element.userId),
+                    studentId: checkValue(element.studentId),
+                    firstName: checkValue(element.firstName),
+                    lastName: checkValue(element.lastName),
+                    gender: checkValue(element.gender),
+                    phoneNumber: checkValue(element.phoneNumber),
+                    location: checkValue(element.location),
+                    registeredOn: checkValue(element.registeredOn),
+                    isVerified: checkValue(element.isVerified),
 
                 };
             });
