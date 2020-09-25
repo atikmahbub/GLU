@@ -6,6 +6,7 @@ import { checkValue } from '../../Helper/checkValue';
 import commonImg from '../../Assets/images';
 
 const Index = () => {
+    console.log("======= Teacher List ==========")
     const dispatch = useDispatch();
     const teachers = useSelector((state: any) => state.teacherReducer.teacherList);
     const [teacherList, setTeacherList] = useState([]);

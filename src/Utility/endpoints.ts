@@ -53,3 +53,9 @@ export const studentsEndpoints = {
     getPreviousSessions: 'freelancer/student/session/previous',
     getFeatureSubject: 'freelancer/student/featured/subject'
 }
+
+
+export const superAdminEndpoints = {
+    getAllSchools: 'superAdmin/schools',
+    addSchool: 'superAdmin/schools',
+}

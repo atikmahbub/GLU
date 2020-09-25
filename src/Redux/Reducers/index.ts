@@ -8,6 +8,7 @@ import { parentReducer } from './parentReducer';
 import { classReducer } from './classReducer';
 import { subjectReducer } from './subjectReducer';
 import { fileUploadReducer } from './fileUploadReducer';
+import { superAdminReducer } from './superAdminReducer';
 
 export const rootReducer = combineReducers({
     authReducer,
@@ -19,4 +20,5 @@ export const rootReducer = combineReducers({
     classReducer,
     subjectReducer,
     fileUploadReducer,
+    superAdminReducer,
 });
