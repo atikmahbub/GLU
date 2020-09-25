@@ -4,26 +4,16 @@ import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { deleteTeacherAPIcall } from '../../../Redux/Actions/teacherAction';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
-
-interface colDataType {
-    id: number,
-    userId: number,
-    schoolName: string,
-    website: string
-    phoneNumber: string,
-    createdAt: string
-}
+import Switch from '@material-ui/core/Switch';
+import { activateDeactivateVideo, getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
 interface props {
-    schoolList: Array<string | number>;
+    videoList: Array<string | number>;
 }
-const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
-    // alert(JSON.stringify(schoolList))
-
+const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -34,26 +24,11 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
             },
         });
     };
-    // const redirectDetails = (data: any) => {
-    //     routes.push({
-    //         pathname: '/dashboard/teacher-details/class-group-details',
-    //         state: {
-    //             teacherData: data,
-    //         },
-    //     });
-    // };
-    const handleEdit = (data: colDataType) => {
-        routes.push({
-            pathname: routeEndpoints.teacher.addNewTeacher,
-            state: {
-                teacherInfo: data,
-            },
-        });
-    };
-    const handleDelete = (deleteId: number) => {
-        dispatch(deleteTeacherAPIcall(deleteId));
-    };
-    console.log("==== the school list =====", schoolList)
+    const handleActiveInactive = (id: number) => {
+        // setSwitchState(!switchState)
+        dispatch(activateDeactivateVideo(id))
+        dispatch(getallVideoAPIcall());
+    }
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -70,16 +45,16 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                             columns={[
                                 {
                                     width: '23%',
-                                    title: 'Name',
-                                    field: 'schoolName',
+                                    title: 'Title',
+                                    field: 'title',
                                     // render: (rowData: any) => (
                                     //     <TableUserProfile name={rowData.schoolName}/>
                                     // ),
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Link',
-                                    field: 'website',
+                                    title: 'Description',
+                                    field: 'description',
                                 },
                                 {
                                     width: '23%',
@@ -88,29 +63,25 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Accept',
-                                    field: 'createdAt',
+                                    title: 'Video',
+                                    field: 'videoLink',
                                 },
 
                                 {
                                     width: '23%',
-                                    title: 'Reject',
-                                    field: 'createdAt',
-                                },
-
-                                {
-                                    width: '23%',
+                                    title: 'Approve/Reject',
                                     render: (rowData: any) => (
-                                        <ActionToolbar
-                                            showDetail={true}
-                                            // detailClick={() => redirectDetails(rowData)}
-                                            deleteClick={() => handleDelete(rowData.id)}
-                                            editClick={() => handleEdit(rowData)}
+                                        <Switch
+                                            checked={rowData.isActive}
+                                            onChange={() => handleActiveInactive(rowData.id)}
+                                            color="primary"
+                                            name="checkedB"
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
                                     ),
                                 },
                             ]}
-                            rowData={schoolList}
+                            rowData={videoList}
                         />
                     </div>
                 </div>
@@ -119,4 +90,4 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     );
 };
 
-export default SchoolList;
+export default VideoList;

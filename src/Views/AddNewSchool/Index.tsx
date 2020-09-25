@@ -42,6 +42,8 @@ const Index = () => {
         email: '',
         mobilePre: '',
         mobileNumber: '',
+        password: '',
+        website: '',
 
     });
     const [editMode, setEditMode] = useState(false);
@@ -56,6 +58,14 @@ const Index = () => {
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, email: e.target.value });
     };
+
+    const handleWebsite = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, website: e.target.value });
+    };
+
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, password: e.target.value });
+    };
     const handleMobilePre = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, mobilePre: e.target.value });
     };
@@ -64,14 +74,16 @@ const Index = () => {
     };
     const dispatch = useDispatch();
     const history = useHistory();
-    // const handleFile = (file: File) => {
-    //     setImage(file);
-    // };
+    const handleFile = (file: File) => {
+        setImage(file);
+    };
     const handleSubmit = () => {
         const teacher = {
             schoolName: state.schoolName,
             email: state.email,
             phoneNumber: state.mobileNumber,
+            password: state.password,
+            website: state.website,
         };
         if (editMode) {
             let data: any = { ...teacher };
@@ -99,6 +111,8 @@ const Index = () => {
                     email: values.email,
                     mobilePre: '',
                     mobileNumber: '',
+                    password: '',
+                    website: '',
                 };
                 setState(data);
                 setEditMode(true);
@@ -113,17 +127,17 @@ const Index = () => {
         }
     }, [tokenData]);
 
-    // useEffect(() => {
-    //     if (fileData) {
-    //         dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
-    //     }
-    // }, [fileData]);
+    useEffect(() => {
+        if (fileData) {
+            dispatch(uploadProfileAmznUrl(fileData.url, image as any, uploadProfile));
+        }
+    }, [fileData]);
 
-    // const uploadProfile = () => {
-    //     if (fileData) {
-    //         dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
-    //     }
-    // };
+    const uploadProfile = () => {
+        if (fileData) {
+            dispatch(uploadProfileFileName(fileData.fileName, tokenData[0].token));
+        }
+    };
     return (
         <CardContainer>
             <PdBox>
@@ -135,14 +149,23 @@ const Index = () => {
                         <Typography className={classes.heading}>School Information</Typography>
                         {/* <UploadMaxSize onClick={handleFile} /> */}
                         <InputWithLabel fieldName="School Name" value={state.schoolName} onChange={handleSchoolName} />
-
-                        {/* <InputWithLabel fieldName="First Name" value={state.firstName} onChange={handleFirstName} />
-                        <InputWithLabel fieldName="Last Name" value={state.lastName} onChange={handleLastName} /> */}
                         <InputWithLabel
                             fieldName="Email"
                             placeholder="sample@gmail.com"
                             value={state.email}
                             onChange={handleEmail}
+                        />
+                        <InputWithLabel
+                            fieldName="Website"
+                            placeholder="Website"
+                            value={state.website}
+                            onChange={handleWebsite}
+                        />
+                         <InputWithLabel
+                            fieldName="Password"
+                            placeholder="Password"
+                            value={state.password}
+                            onChange={handlePassword}
                         />
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={4}>

@@ -1,41 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import TeacherList from '../../TeacherList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getallSchoolAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { checkValue } from '../../../Helper/checkValue';
 import commonImg from '../../../Assets/images';
-import SchoolList from './VideoList';
+import VideoList from './VideoList';
 
 const Index = () => {
     const dispatch = useDispatch();
-    const school = useSelector((state: any) => state.superAdminReducer.schoolList);
-    const [schoolList, setSchoolList] = useState([]);
+    const video = useSelector((state: any) => state.superAdminReducer.videoList);
+    const [videoList, setVideoList] = useState([]);
 
     useEffect(() => {
-        dispatch(getallSchoolAPIcall());
+        dispatch(getallVideoAPIcall());
+        console.log("======= action dispatche =========Video")
     }, []);
     useEffect(() => {
-        console.log("====== THe School Info ======= school", school)
-
-        if (school) {
-            const data = school.map((element: any) => {
+        if (video) {
+            const data = video.map((element: any) => {
                 return {
-                    schoolName: element.schoolName,
-                    website: element.website,
-                    phoneNumber: element.phoneNumber,
-                    id: element.id,
-                    userId: element.userId,
-                    createdAt: element.createdAt,
+                    title: element.title,
+                    description: element.description,
+                    resource: element.resource,
+                    coverImage: element.coverImage,
+                    videoLink: element.videoLink,
+                    maxStudent: element.maxStudent,
                 };
             });
-            console.log("====== THe School Info =======", data)
-
-            setSchoolList(data);
+            setVideoList(data);
         }
-    }, [school]);
+    }, [video]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <SchoolList schoolList={schoolList}/>
+    return <VideoList videoList={videoList}/>
 };
 
 export default Index;

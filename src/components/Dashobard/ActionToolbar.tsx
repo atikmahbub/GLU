@@ -7,9 +7,9 @@ interface props {
     editClick?: () => void;
     deleteClick?: () => void;
     showDetail?: boolean;
-    renderComponent?: React.ReactNode
+    renderComponent?: React.ReactNode;
 }
-const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, deleteClick, showDetail, editClick, renderComponent }) => {
+const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, deleteClick, showDetail, editClick, renderComponent}) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(!show);
@@ -31,14 +31,18 @@ const ActionToolbar: React.FunctionComponent<props> = ({ detailClick, deleteClic
                         </li>
                     )}
                     {renderComponent}
-                    <li>
-                        <Button onClick={editClick} fullWidth>Edit</Button>
-                    </li>
-                    <li>
-                        <Button className="delete-btn" onClick={deleteClick} fullWidth>
-                            Delete
-                        </Button>
-                    </li>
+                   
+                        <li>
+                            <Button onClick={editClick} fullWidth>Edit</Button>
+                        </li>
+            
+                 
+                        <li>
+                            <Button className="delete-btn" onClick={deleteClick} fullWidth>
+                                Delete
+                            </Button>
+                        </li>
+           
                 </ul>
             </div>
         </div>

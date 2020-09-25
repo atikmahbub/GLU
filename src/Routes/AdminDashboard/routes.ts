@@ -54,13 +54,19 @@ import TeacherCGHomework from '../../Views/TeacherDetails/ClassGroups/HomeWork/I
 import CmsNotification from '../../Views/CmsNotification/CmsNotification';
 import SchoolList from '../../Views/AdminDashboard/SchoolList/Index';
 import VideoList from '../../Views/AdminDashboard/VideoList/Index';
+import AdminTeacherList from '../../Views/AdminDashboard/TeacherList/Index';
+import AdminStudentList from '../../Views/AdminDashboard/StudentList/Index';
+import AdminParentList from '../../Views/AdminDashboard/ParentsList/Index';
 
 import AddNewSchool from '../../Views/AddNewSchool/Index';
 
 export const dashboardRoutes = [
     { pathname: '/admin/dashboard', component: Dashboard },
     { pathname: '/admin/school', component: SchoolList },
-    { pathname: '/admin/videos', component: VideoList },
+    { pathname: '/admin/videos', component: VideoList },   
+    { pathname: '/admin/teacher', component: AdminTeacherList },
+    { pathname: '/admin/student', component: AdminStudentList },
+    { pathname: '/admin/parent', component: AdminParentList },
     { pathname: '/admin/school/add-new-school', component: AddNewSchool },
 
     { pathname: '/admin/dashboard/students', component: StudentList },
