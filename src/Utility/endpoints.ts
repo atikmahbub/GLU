@@ -60,5 +60,6 @@ export const studentsEndpoints = {
 export const superAdminEndpoints = {
     getAllSchools: 'superAdmin/schools',
     addSchool: 'superAdmin/schools',
-    activateDeactivateSchool: 'superAdmin/user'
+    activateDeactivateSchool: 'superAdmin/user',
+    getAllVideos: 'superAdmin/recorded/session',
 }

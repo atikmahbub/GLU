@@ -43,6 +43,7 @@ const Index = () => {
         mobilePre: '',
         mobileNumber: '',
         password: '',
+        website: '',
 
     });
     const [editMode, setEditMode] = useState(false);
@@ -56,6 +57,10 @@ const Index = () => {
     };
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, email: e.target.value });
+    };
+
+    const handleWebsite = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, website: e.target.value });
     };
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,6 +83,7 @@ const Index = () => {
             email: state.email,
             phoneNumber: state.mobileNumber,
             password: state.password,
+            website: state.website,
         };
         if (editMode) {
             let data: any = { ...teacher };
@@ -106,6 +112,7 @@ const Index = () => {
                     mobilePre: '',
                     mobileNumber: '',
                     password: '',
+                    website: '',
                 };
                 setState(data);
                 setEditMode(true);
@@ -150,6 +157,12 @@ const Index = () => {
                             placeholder="sample@gmail.com"
                             value={state.email}
                             onChange={handleEmail}
+                        />
+                        <InputWithLabel
+                            fieldName="Website"
+                            placeholder="Website"
+                            value={state.website}
+                            onChange={handleWebsite}
                         />
                          <InputWithLabel
                             fieldName="Password"

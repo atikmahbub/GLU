@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -24,6 +24,7 @@ interface props {
     schoolList: Array<string | number>;
 }
 const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
+    const [switchState, setSwitchState] = useState(true)
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -43,6 +44,7 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     //     });
     // };
     const handleActiveInactive = (id: number) => {
+        setSwitchState(!switchState)
         dispatch(activateDeactivateUser(id))
         dispatch(getallSchoolAPIcall());
     }

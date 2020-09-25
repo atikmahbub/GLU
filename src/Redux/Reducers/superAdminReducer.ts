@@ -1,9 +1,11 @@
 import {
     SCHOOL_LIST,
+    VIDEO_LIST,
 } from '../ActionTypes/superAdminTypes';
 
 const initialState = {
     schoolList: null,
+    videoList: null,
 
 };
 export const superAdminReducer = (state = initialState, action: any) => {
@@ -14,6 +16,10 @@ export const superAdminReducer = (state = initialState, action: any) => {
             return newState;
         }
 
+        case VIDEO_LIST: {
+            newState.videoList = action.payload;
+            return newState;
+        }
         default: {
             return newState;
         }
