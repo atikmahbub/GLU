@@ -5,6 +5,7 @@ import { checkValue } from '../../../Helper/checkValue';
 import commonImg from '../../../Assets/images';
 import ParentsList from './ParentsList';
 
+
 const Index = () => {
     const dispatch = useDispatch();
     const parent = useSelector((state: any) => state.superAdminReducer.parentsList);

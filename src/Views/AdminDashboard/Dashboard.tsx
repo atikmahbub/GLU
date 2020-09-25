@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect, } from 'react';
 import { Typography } from '@material-ui/core';
 import CardContainer from '../../Containers/Cards/CardContainer';
 import CardStatus from './CardStatus';
 import GraphContainer from './GraphContainer';
 import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+import { getallUsersCountAPIcall } from '../../Redux/Actions/superAdminActions';
 
 const Dashboard: React.FunctionComponent = () => {
+    const dispatch = useDispatch();
+    const all_users_count = useSelector((state: any) => state.superAdminReducer.allUsersCount);
+    const [usersCountArray, setAllUsersCountArray] = useState();
+
+    useEffect(() => {
+        dispatch(getallUsersCountAPIcall());
+    }, []);
+
+    useEffect(() => {
+        if (all_users_count) {
+            const userListArray = []
+            for(let [key, value] of Object.entries(all_users_count)){
+                userListArray.push({
+                    email: key, total: value 
+                })
+            }
+            setAllUsersCountArray(userListArray);
+        }
+    }, [all_users_count]);
+
+    // alert(JSON.stringify(usersCountArray))
     const userList = [
         { email: 'School', total: 12 },
         { email: 'Student', total: 200 },
@@ -23,7 +46,7 @@ const Dashboard: React.FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="row row__margin">
-                    {userList.map((item) => (
+                    {usersCountArray && usersCountArray.map((item) => (
                         <div key={uuidv4()} className="col-md-6 colum__spacing">
                             <div className="bg-white">
                                 <CardStatus heading={item.email} total={item.total} />

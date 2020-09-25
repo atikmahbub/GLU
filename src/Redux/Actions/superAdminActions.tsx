@@ -11,7 +11,21 @@ import {
     ADMIN_TEACHER_LIST,
     ADMIN_STUDENT_LIST,
     ADMIN_PARENTS_LIST,
+    ADMIN_ALL_USERS_COUNT,
 } from '../ActionTypes/superAdminTypes';
+
+export const getallUsersCountAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllUsersCount)
+            .then((res) => {
+                console.log(res);
+                dispatch(allUsersCount(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const getallSchoolAPIcall = () => {
     return (dispatch: any) => {
@@ -169,6 +183,15 @@ export const adminStudentList = (data: any) => {
 export const adminParentsList = (data: any) => {
     return {
         type: ADMIN_PARENTS_LIST,
+        payload: data,
+    };
+};
+
+
+
+export const allUsersCount = (data: any) => {
+    return {
+        type: ADMIN_ALL_USERS_COUNT,
         payload: data,
     };
 };

@@ -4,6 +4,7 @@ import {
     ADMIN_TEACHER_LIST,
     ADMIN_STUDENT_LIST,
     ADMIN_PARENTS_LIST,
+    ADMIN_ALL_USERS_COUNT,
     
 } from '../ActionTypes/superAdminTypes';
 
@@ -13,6 +14,7 @@ const initialState = {
     teacherList: null,
     studentList: null,
     parentsList: null,
+    allUsersCount: null,
 
 
 };
@@ -41,6 +43,12 @@ export const superAdminReducer = (state = initialState, action: any) => {
 
         case ADMIN_PARENTS_LIST: {
             newState.parentsList = action.payload;
+            return newState;
+        }
+
+
+        case ADMIN_ALL_USERS_COUNT: {
+            newState.allUsersCount = action.payload;
             return newState;
         }
         default: {
