@@ -1,8 +1,7 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
-import WhiteBannerCarousel from '../../components/Carousels/WhiteBannerCarousel';
 import RecommendedContainer from '../RecommendedContainer';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
@@ -10,7 +9,10 @@ import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import PageFooter from '../../components/PageFooter';
 import { IndividualSubjectCardData } from './types';
 import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
+import useMenuList from '../../Hooks/useMenuList';
+import WhiteBannerCard from '../../components/Cards/WhiteBannerCard';
+import useToggle from '../../Hooks/useToggle';
+import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -23,23 +25,26 @@ interface IIndividualSubjectContainer{
     cardsData: IndividualSubjectCardData;
 }
 
-const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType, cardsData }) => {
+const IndividualSubjectPageContainer: FC<IIndividualSubjectContainer> = ({ userType, cardsData }) => {
     const classes = useStyles();
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType)
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
     return (
         <NavigationMenu
             absolute
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <WhiteBannerCarousel cards={cardsData.whiteBannerCarousel} />
-            <BannerCarousel cards={cardsData.individualSubjectBannerCard}/>
+            <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
+            <WhiteBannerCard {...cardsData.whiteBannerCard} />
+            <BannerCarousel cards={cardsData.bannerCarouselBottom} />
             <UpcomingClassCard {...cardsData.upcomingClass} />
             <RecommendedContainer
                 padding
                 title="Live Classes"
                 link={`/${userType}/live-classes`}
                 data={cardsData.liveClasses}
+                cardTitleClick={toggleClassPurchaseDrawer}
                 rootClassName={classes.recommendedRoot}
             />
             <BannerCarousel cards={cardsData.bannerCarouselBottom} />
@@ -55,7 +60,7 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
                 padding
                 title="Tutors"
                 link={`/${userType}/tutors`}
-                cardTitleLink={`/${userType}/tutors/tutor`}
+                cardTitleLink={`/${userType}/tutor/`}
                 data={cardsData.tutors}
                 rootClassName={classes.recommendedRoot}
             />
@@ -64,4 +69,4 @@ const IndividualSubjectContainer: FC<IIndividualSubjectContainer> = ({ userType,
     );
 };
 
-export default IndividualSubjectContainer;
+export default IndividualSubjectPageContainer;

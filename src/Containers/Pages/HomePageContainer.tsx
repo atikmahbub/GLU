@@ -13,6 +13,8 @@ import PageFooter from '../../components/PageFooter';
 import { HomePageCardsData } from './types';
 import { UserTypes } from '../../Types/user';
 import { createMenuList } from '../../Helper/menus';
+import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
+import useToggle from '../../Hooks/useToggle';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -28,6 +30,8 @@ interface IHomePageContainer {
 const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
     const classes = useStyles();
     const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
+
     return (
         <NavigationMenu
             absolute
@@ -36,6 +40,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
             background="transparent"
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <BannerCarousel cards={cardsData.bannerCarousel} />
             <NextClassCard {...cardsData.nextClass} />
             <FeaturedSubjectsCard {...cardsData.featuredSubjects} />
@@ -56,6 +61,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
                 title="Live Classes"
                 link={`/${userType}/live-classes`}
                 data={cardsData.liveClasses}
+                cardTitleClick={toggleClassPurchaseDrawer}
                 rootClassName={classes.recommendedRoot}
             />
             <FeaturedTutorsCard {...cardsData.featuredTutors} />
@@ -64,7 +70,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
                 padding
                 title="Tutors"
                 link={`/${userType}/tutors`}
-                cardTitleLink={`/${userType}/tutors/tutor`}
+                cardTitleLink={`/${userType}/tutor/`}
                 data={cardsData.tutors}
                 rootClassName={classes.recommendedRoot}
             />
