@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -14,7 +14,12 @@ interface props {
     studentList: Array<string | number>;
 }
 const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
-    // alert(JSON.stringify(studentList))
+    const [students, setStudents] = useState<any>([]);
+    useEffect(() => {
+        if (studentList) {
+            setStudents(studentList);
+        }
+    }, [studentList]);
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -25,17 +30,20 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
             },
         });
     };
-    const handleActiveInactive = (id: number) => {
-        // setSwitchState(!switchState)
-        dispatch(activateDeactivateUser(id))
+    const handleActiveInactive = (id: number, i: number) => {
+        const data = [...students];
+        data[i].isVerified = !data[i].isVerified;
+        setStudents(data);
+        dispatch(activateDeactivateUser(id, callGetParents));
+    };
+    const callGetParents = () => {
         dispatch(getallStudentAPIcall());
-    }
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
                 {/* <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} /> */}
-                <AddButton title="Students"/>
-
+                <AddButton title="Students" />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -84,7 +92,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isVerified}
-                                            onChange={() => handleActiveInactive(rowData.userId)}
+                                            onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}

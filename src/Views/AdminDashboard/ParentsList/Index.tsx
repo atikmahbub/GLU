@@ -15,8 +15,9 @@ const Index = () => {
     }, []);
     useEffect(() => {
         if (parent) {
-            const data = parent.map((element: any) => {
+            const data = parent.map((element: any, i:number) => {
                 return {
+                    index: i,
                     userId: checkValue(element.userId),
                     teacherId: checkValue(element.teacherId),
                     firstName: checkValue(element.firstName),

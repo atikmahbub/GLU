@@ -107,13 +107,15 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
     };
 };
 
-export const activateDeactivateUser = (id: number) => {
+export const activateDeactivateUser = (id: number, callback?:()=>void) => {
     return (dispatch: any) => {
         API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id )
         .then((res) => {
             dispatch(spinner(false));
-            toast.success('School Status Changed Successfully.');
-            dispatch(getallSchoolAPIcall());
+            toast.success('Status Changed Successfully.');
+            if(callback){
+                callback();
+            }
         })
         .catch((err) => {
             handleError(dispatch, err);
