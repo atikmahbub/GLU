@@ -6,10 +6,13 @@ import TutorProfileCard from '../../../components/Cards/TutorProfileCard';
 import Availability from './Availability';
 import FeaturedTutorsCard from '../../../components/Cards/FeaturedTutorsCard';
 import RecommendedContainer from '../../RecommendedContainer';
+import PageFooter from '../../../components/PageFooter';
+import About from './About';
+import Reviews from './Reviews';
 import { UserTypes } from '../../../Types/user';
 import { createMenuList } from '../../../Helper/menus';
 import { liveClasses, recordedClasses } from '../../../data/tutorProfile';
-import PageFooter from '../../../components/PageFooter';
+import { tutorCards } from '../../../data/homepage';
 
 interface ITutorProfilePageContainer {
     userType: UserTypes;
@@ -59,7 +62,18 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
                     marginBottom={false}
                 />
             </CardsGridContainer>
-            <PageFooter />
+            <About />
+            <Reviews />
+            <CardsGridContainer background="secondary">
+                <RecommendedContainer
+                    title="Similar Tutors"
+                    link={`/${userType}/tutors`}
+                    cardTitleLink={`/${userType}/tutors/tutor`}
+                    data={tutorCards}
+                    marginBottom={false}
+                />
+            </CardsGridContainer>
+            <PageFooter background="secondary" />
         </NavigationMenu>
     );
 };
