@@ -1,4 +1,4 @@
-const code = [
+export const mobileCode = [
     { name: 'Israel', dial_code: '+972', code: 'IL' },
     { name: 'Afghanistan', dial_code: '+93', code: 'AF' },
     { name: 'Albania', dial_code: '+355', code: 'AL' },
@@ -197,7 +197,6 @@ const code = [
     { name: 'Zambia', dial_code: '+260', code: 'ZM' },
     { name: 'Zimbabwe', dial_code: '+263', code: 'ZW' },
     { name: 'land Islands', dial_code: '', code: 'AX' },
-    { name: 'Antarctica', dial_code: null, code: 'AQ' },
     { name: 'Bolivia, Plurinational State of', dial_code: '+591', code: 'BO' },
     { name: 'Brunei Darussalam', dial_code: '+673', code: 'BN' },
     { name: 'Cocos (Keeling) Islands', dial_code: '+61', code: 'CC' },
@@ -242,8 +241,3 @@ const code = [
     { name: 'Virgin Islands, British', dial_code: '+1 284', code: 'VG' },
     { name: 'Virgin Islands, U.S.', dial_code: '+1 340', code: 'VI' },
 ];
-
-
-export const mobileCode = code.map((item:any)=>{
-    return item.dial_code;
-})

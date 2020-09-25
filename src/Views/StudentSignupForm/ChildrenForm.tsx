@@ -44,7 +44,7 @@ const ChildrenForm: React.FunctionComponent = () => {
                     <SelectFieldUnderline
                         className="custom-adornment-input"
                         label="Mobile Number"
-                        options={mobileCode}
+                        options={["+91"]}
                         value={context.student.phoneCode}
                         getValue={(value: string) => {
                             context.studentHandler.phoneCode(value);
