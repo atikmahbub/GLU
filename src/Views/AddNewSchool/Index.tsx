@@ -42,6 +42,7 @@ const Index = () => {
         email: '',
         mobilePre: '',
         mobileNumber: '',
+        password: '',
 
     });
     const [editMode, setEditMode] = useState(false);
@@ -55,6 +56,10 @@ const Index = () => {
     };
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, email: e.target.value });
+    };
+
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setState({ ...state, password: e.target.value });
     };
     const handleMobilePre = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setState({ ...state, mobilePre: e.target.value });
@@ -72,6 +77,7 @@ const Index = () => {
             schoolName: state.schoolName,
             email: state.email,
             phoneNumber: state.mobileNumber,
+            password: state.password,
         };
         if (editMode) {
             let data: any = { ...teacher };
@@ -99,6 +105,7 @@ const Index = () => {
                     email: values.email,
                     mobilePre: '',
                     mobileNumber: '',
+                    password: '',
                 };
                 setState(data);
                 setEditMode(true);
@@ -143,6 +150,12 @@ const Index = () => {
                             placeholder="sample@gmail.com"
                             value={state.email}
                             onChange={handleEmail}
+                        />
+                         <InputWithLabel
+                            fieldName="Password"
+                            placeholder="Password"
+                            value={state.password}
+                            onChange={handlePassword}
                         />
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={4}>

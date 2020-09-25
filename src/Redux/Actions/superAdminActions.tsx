@@ -30,9 +30,6 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
                 dispatch(spinner(false));
                 toast.success("School added successfully.");
                 dispatch(registerDataRes(res.data.data));
-                setTimeout(() => {
-                    // history.push('/dashboard/teachers');
-                }, 1000);
             })
             .catch((err) => {
                 handleError(dispatch, err);
@@ -40,6 +37,18 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
     };
 };
 
+export const activateDeactivateUser = (id: number) => {
+    return (dispatch: any) => {
+        API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id)
+        .then((res) => {
+            dispatch(spinner(false));
+            toast.success("School Status Updated");
+        })
+        .catch((err) => {
+            handleError(dispatch, err);
+        });       
+    }
+}
 export const schoolList = (data: any) => {
     return {
         type: SCHOOL_LIST,

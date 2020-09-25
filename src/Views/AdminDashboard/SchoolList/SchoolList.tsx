@@ -5,9 +5,11 @@ import AddButton from '../../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTeacherAPIcall } from '../../../Redux/Actions/teacherAction';
+import { activateDeactivateUser, getallSchoolAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
+import Switch from '@material-ui/core/Switch';
 
 interface colDataType {
     id: number;
@@ -16,6 +18,7 @@ interface colDataType {
     website: string;
     phoneNumber: string;
     createdAt: string;
+    isActive: boolean;
 }
 interface props {
     schoolList: Array<string | number>;
@@ -39,6 +42,10 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     //         },
     //     });
     // };
+    const handleActiveInactive = (id: number) => {
+        dispatch(activateDeactivateUser(id))
+        dispatch(getallSchoolAPIcall());
+    }
     const handleEdit = (data: colDataType) => {
         routes.push({
             pathname: routeEndpoints.teacher.addNewTeacher,
@@ -82,25 +89,29 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                     title: 'PhoneNumber',
                                     field: 'phoneNumber',
                                 },
-                                {
-                                    width: '23%',
-                                    title: 'Created At',
-                                    field: 'createdAt',
-                                },
 
                                 {
                                     width: '23%',
                                     title: 'Active/Inactive',
-                                    field: 'createdAt',
+                                    render: (rowData: any) => (
+                                        <Switch
+                                            checked={rowData.isActive}
+                                            onChange={() => handleActiveInactive(rowData.userId)}
+                                            color="primary"
+                                            name="checkedB"
+                                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    ),
                                 },
 
                                 {
                                     width: '23%',
                                     render: (rowData: any) => (
                                         <ActionToolbar
-                                            showDetail={true}
+                                            showDetail={false}
+                                            // showDelete={false}
                                             // detailClick={() => redirectDetails(rowData)}
-                                            deleteClick={() => handleDelete(rowData.id)}
+                                            // deleteClick={() => handleDelete(rowData.id)}
                                             editClick={() => handleEdit(rowData)}
                                         />
                                     ),
