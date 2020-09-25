@@ -40,7 +40,7 @@ export interface IDrawer extends DrawerProps {
     rootClassName?: string;
     header?: boolean;
     fullHeight?: boolean;
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 const Drawer: FC<IDrawer> = ({

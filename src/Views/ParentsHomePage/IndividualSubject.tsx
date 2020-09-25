@@ -1,24 +1,22 @@
 import React from 'react';
-import IndividualSubjectContainer from '../../Containers/Pages/IndividualSubjectContainer';
+import IndividualSubjectPageContainer from '../../Containers/Pages/IndividualSubjectPageContainer';
 import {
-    bannerCards,
-    bannerCards2,
     bannerCards3,
     recommendedCards,
     recommendedCards2,
     tutorCards,
 } from '../../data/homepage';
 
-import {
-    bannerCardsIndividualSubject, whiteBannerCardIndividualSubject
-} from '../../data/individualSubject';
 const Index: React.FunctionComponent = () => {
     return (
-        <IndividualSubjectContainer
+        <IndividualSubjectPageContainer
             userType="parent"
             cardsData={{
-                whiteBannerCarousel: whiteBannerCardIndividualSubject,
-                individualSubjectBannerCard: bannerCardsIndividualSubject,
+                whiteBannerCard: {
+                    subject: 'Maths.',
+                    tutorsCount: 143,
+                    classesCount: 2508,
+                },
                 nextClass: {
                     img: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607726/jump_frcudj.jpg',
                     date: '19/07/20',

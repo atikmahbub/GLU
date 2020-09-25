@@ -35,11 +35,13 @@ import {
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 import { useHistory, useLocation } from 'react-router';
+import { getStepsRegister } from '../../Helper/getStepsRegister';
 
 export const registerContext = createContext<any>({});
 const RegisterProvider = registerContext.Provider;
 
 const Index: React.FunctionComponent = () => {
+    const stepLength: any = { student: 4, parent: 4, teacher: 9 };
     const [active, setActive] = useState(0);
     const [whoIam, setWhoIam] = useState('');
     const [state, setState] = useState({
@@ -60,8 +62,8 @@ const Index: React.FunctionComponent = () => {
             email: '',
             phoneCode: '+91',
             phoneNum: '',
-            location: 'Up',
-            password: '@Gyan123@',
+            location: '',
+            password: '',
             tc: 'tc',
             veriCode: '+91',
             veriMobile: '',
@@ -70,6 +72,7 @@ const Index: React.FunctionComponent = () => {
         },
     });
     const [editMode, setEditMode] = useState(false);
+    const [cmsRegister, setcmsRegister] = useState(false);
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
@@ -121,7 +124,7 @@ const Index: React.FunctionComponent = () => {
         };
         setState(data);
     };
-    const handleFromDate = (date: Date) => {
+    const handleFromDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
         let active = data.student.education.length - 1;
         if (editMode) {
@@ -129,11 +132,11 @@ const Index: React.FunctionComponent = () => {
         }
         data.student.education[active] = {
             ...state.student.education[active],
-            from: date,
+            from: new Date(e.target.value),
         };
         setState(data);
     };
-    const handleToDate = (date: Date) => {
+    const handleToDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
         let active = data.student.education.length - 1;
         if (editMode) {
@@ -141,7 +144,7 @@ const Index: React.FunctionComponent = () => {
         }
         data.student.education[active] = {
             ...state.student.education[active],
-            to: date,
+            to: new Date(e.target.value),
         };
         setState(data);
     };
@@ -154,7 +157,6 @@ const Index: React.FunctionComponent = () => {
     };
     const handleNext = () => {
         setEditMode(false);
-        console.log(active);
         userRegistration();
         if (active === 0) {
             goToNextPage();
@@ -304,14 +306,17 @@ const Index: React.FunctionComponent = () => {
     };
 
     const handleBack = () => {
-        console.log(active);
         if (whoIam !== '') {
             if (hideButtons.farword) {
                 setHideButtons({ ...hideButtons, farword: false });
             }
             if (active === 0) {
             } else {
-                setActive((prevState) => prevState - 1);
+                if (cmsRegister === false) {
+                    setActive((prevState) => prevState - 1);
+                } else if (cmsRegister === true && active !== 1) {
+                    setActive((prevState) => prevState - 1);
+                }
             }
         }
     };
@@ -371,6 +376,7 @@ const Index: React.FunctionComponent = () => {
         console.log(getToken);
         if (getToken[1]) {
             dispatch(verfiyRegisterUserAPIcall(getToken[1]));
+            setcmsRegister(true);
         }
     }, []);
     useEffect(() => {
@@ -519,7 +525,7 @@ const Index: React.FunctionComponent = () => {
         getComponent();
     }, [whoIam]);
     //==================component render========================//
-
+    console.log(state);
     return (
         <NavigationMenu showMenuOptions={false}>
             <div className="signup__setup">
@@ -527,7 +533,7 @@ const Index: React.FunctionComponent = () => {
                     <div className="row">
                         <div className="col-md-6 mb-2">
                             <Typography className="stepper__title">
-                                Step {active + 1}/{activeLength}
+                                Step {getStepsRegister(whoIam, active) + 1}/{stepLength[whoIam]}
                             </Typography>
                             <div className="stepper_marker">{renderStepper[whoIam]}</div>
                         </div>
@@ -543,6 +549,7 @@ const Index: React.FunctionComponent = () => {
                                     currentActive: curActive,
                                     whoIam: whoIam,
                                     active: active,
+                                    disable: cmsRegister,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,

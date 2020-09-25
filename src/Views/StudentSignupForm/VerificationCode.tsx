@@ -16,13 +16,14 @@ const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumbe
     };
     const resendPassword = () => {
         if (onClick) {
+            context.setState({ ...context.state, otp: '' });
             onClick(context.student.veriMobile);
         }
     };
     return (
         <div className="info__container">
             <Typography variant="h6" className="small__heading">
-                Verification Code
+                verification Code
             </Typography>
             <div className="otp-container">
                 <OtpInput value={context.state.otp} onChange={handleOtp} numInputs={6} />

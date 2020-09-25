@@ -6,7 +6,7 @@ import { registerContext } from './Index';
 const EducationInfoContainer = () => {
     const context = useContext(registerContext);
     let length = context.student.education.length - 1;
-    if(context.editMode){
+    if (context.editMode) {
         length = context.currentActive;
     }
     return (
@@ -39,13 +39,22 @@ const EducationInfoContainer = () => {
                 />
             </div>
             <div className="col-lg-6">
-                <DateSelector
-                    value={context.student.education[length].from}
-                    handler={context.studentHandler.from}
+                <TextField
+                    type="date"
+                    className="line-input mb-3 mt-3"
+                    value={context.student.education[length].from.toISOString().split('T')[0]}
+                    onChange={context.studentHandler.from}
+                    fullWidth
                 />
             </div>
             <div className="col-lg-6">
-                <DateSelector value={context.student.education[length].to} handler={context.studentHandler.to} />
+                <TextField
+                    type="date"
+                    className="line-input mb-3 mt-3"
+                    value={context.student.education[length].to.toISOString().split('T')[0]}
+                    onChange={context.studentHandler.to}
+                    fullWidth
+                />
             </div>
         </div>
     );

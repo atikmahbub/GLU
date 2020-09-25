@@ -26,7 +26,9 @@ export const userLoginAPIcall = (data: loginAuth, history: any) => {
                 } else if (res.data.data.role === 'Guardian') {
                     history.push('/parent/home');
                 } else if (res.data.data.role === 'Student') {
-                    history.push('/students/home');
+                    history.push('/students/home');  
+                } else if (res.data.data.role === 'SuperAdmin') {
+                    history.push('/admin/dashboard');
                 }
             })
             .catch((err: any) => {

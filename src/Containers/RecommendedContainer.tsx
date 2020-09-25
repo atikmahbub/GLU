@@ -10,7 +10,7 @@ import { ImageCardElement } from '../components/Cards/types';
 
 const useStyles = makeStyles({
     root: {
-        marginBottom: ({ marginBottom }: any) => marginBottom ? '8.125rem' : 0,
+        marginBottom: ({ marginBottom }: any) => (marginBottom ? '8.125rem' : 0),
         padding: ({ padding }: any) => (padding ? '0 3.125rem' : 0),
     },
     titleContainer: {
@@ -36,6 +36,7 @@ interface IBottomRecommendedContainer {
     padding?: boolean;
     link: string;
     cardTitleLink?: string;
+    cardTitleClick?: (id: string | number) => void;
     rootClassName?: string;
     marginBottom?: boolean;
 }
@@ -47,8 +48,9 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
     padding,
     link,
     cardTitleLink,
+    cardTitleClick,
     rootClassName,
-    marginBottom
+    marginBottom,
 }) => {
     const classes = useStyles({ padding, titleBold, marginBottom });
     return (
@@ -63,6 +65,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
                         {...card}
                         key={index}
                         titleLinkTo={cardTitleLink}
+                        onTitleClick={cardTitleClick}
                         rootClassName={classes.imageContainerRoot}
                     />
                 ))}
@@ -73,7 +76,7 @@ const RecommendedContainer: FC<IBottomRecommendedContainer> = ({
 
 RecommendedContainer.defaultProps = {
     data: [],
-    marginBottom: true
+    marginBottom: true,
 };
 
 export default memo(RecommendedContainer);

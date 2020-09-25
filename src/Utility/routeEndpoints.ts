@@ -26,5 +26,9 @@ export const routeEndpoints = {
     },
     staff:{
         details:'/dashboard/staff-details',
+    },
+
+    school:{
+        addNewSchool:'/admin/school/add-new-school',
     }
 }

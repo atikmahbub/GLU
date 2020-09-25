@@ -2,14 +2,10 @@ import React, { useState, useEffect } from 'react';
 import {
     FormControl,
     InputLabel,
-    OutlinedInput,
     InputAdornment,
     IconButton,
-    FilledInput,
     Input,
 } from '@material-ui/core';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 interface props {
     className?: string;

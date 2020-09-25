@@ -27,14 +27,14 @@ const ExperienceContainer: React.FunctionComponent = () => {
         context.setState(data);
     };
 
-    const fromDateHandler = (value: Date) => {
+    const fromDateHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...context.state };
-        data.teacher.experience[length].from = value;
+        data.teacher.experience[length].from = new Date(e.target.value);
         context.setState(data);
     };
-    const toDateHandler = (value: Date) => {
+    const toDateHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...context.state };
-        data.teacher.experience[length].to = value;
+        data.teacher.experience[length].to = new Date(e.target.value);
         context.setState(data);
     };
 
@@ -71,19 +71,21 @@ const ExperienceContainer: React.FunctionComponent = () => {
                     />
                 </div>
                 <div className="col-lg-6">
-                    <DateSelector
-                        value={teacher[length].from}
-                        handler={(value: Date) => {
-                            fromDateHandler(value);
-                        }}
+                    <TextField
+                        type="date"
+                        className="line-input mb-3 mt-3"
+                        value={teacher[length].from.toISOString().split('T')[0]}
+                        onChange={fromDateHandler}
+                        fullWidth
                     />
                 </div>
                 <div className="col-lg-6">
-                    <DateSelector
-                        value={teacher[length].to}
-                        handler={(value: Date) => {
-                            toDateHandler(value);
-                        }}
+                     <TextField
+                        type="date"
+                        className="line-input mb-3 mt-3"
+                        value={teacher[length].to.toISOString().split('T')[0]}
+                        onChange={toDateHandler}
+                        fullWidth
                     />
                 </div>
             </div>
