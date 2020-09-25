@@ -32,6 +32,7 @@ const IndividualSubjectPageContainer: FC<IIndividualSubjectContainer> = ({ userT
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >

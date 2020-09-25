@@ -15,6 +15,7 @@ const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="transparent"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

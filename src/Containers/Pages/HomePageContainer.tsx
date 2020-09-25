@@ -36,6 +36,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
         <NavigationMenu
             absolute
             colorWhite
+            userType={userType}
             menuList={menuList}
             background="transparent"
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

@@ -51,6 +51,7 @@ const WalletTopUpPageContainer: FC<IWalletTopUpPageContainer> = ({ userType }) =
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="primary"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

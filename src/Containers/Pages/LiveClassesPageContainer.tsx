@@ -21,7 +21,11 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) =
     const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
 
     return (
-        <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>
+        <NavigationMenu
+            menuList={menuList}
+            userType={userType}
+            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
+        >
             <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <FilterContainer
                 padding

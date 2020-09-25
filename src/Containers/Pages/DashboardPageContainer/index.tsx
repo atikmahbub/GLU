@@ -31,6 +31,7 @@ const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType }) => {
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="secondary"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

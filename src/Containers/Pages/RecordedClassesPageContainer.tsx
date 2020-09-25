@@ -19,7 +19,11 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userT
     const menuList = useMenuList(userType);
 
     return (
-        <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>
+        <NavigationMenu
+            menuList={menuList}
+            userType={userType}
+            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
+        >
             <FilterContainer
                 padding
                 sort={false}
