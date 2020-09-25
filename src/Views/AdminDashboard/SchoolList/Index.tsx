@@ -13,8 +13,9 @@ const Index = () => {
     }, []);
     useEffect(() => {
         if (school) {
-            const data = school.map((element: any) => {
+            const data = school.map((element: any, i:number) => {
                 return {
+                    index: i,
                     schoolName: element.schoolName,
                     website: element.website,
                     phoneNumber: element.phoneNumber,
