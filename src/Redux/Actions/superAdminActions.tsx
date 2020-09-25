@@ -9,6 +9,8 @@ import {
     SCHOOL_LIST,
     VIDEO_LIST,
     ADMIN_TEACHER_LIST,
+    ADMIN_STUDENT_LIST,
+    ADMIN_PARENTS_LISTS,
 } from '../ActionTypes/superAdminTypes';
 
 export const getallSchoolAPIcall = () => {
@@ -37,6 +39,18 @@ export const getallVideoAPIcall = () => {
     };
 };
 
+export const getallStudentAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllStudents)
+            .then((res) => {
+                console.log(res);
+                dispatch(adminStudentList(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -44,6 +58,20 @@ export const getallTeacherAPIcall = () => {
             .then((res) => {
                 console.log(res);
                 dispatch(adminTeacherList(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+
+export const getallParentsAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllParents)
+            .then((res) => {
+                console.log(res);
+                dispatch(adminParentsList(res.data.data));
             })
             .catch((err) => {
                 handleError(dispatch, err);
@@ -125,6 +153,22 @@ export const videoList = (data: any) => {
 export const adminTeacherList = (data: any) => {
     return {
         type: ADMIN_TEACHER_LIST,
+        payload: data,
+    };
+};
+
+
+export const adminStudentList = (data: any) => {
+    return {
+        type: ADMIN_STUDENT_LIST,
+        payload: data,
+    };
+};
+
+
+export const adminPARENTSList = (data: any) => {
+    return {
+        type: ADMIN_PARENTS_LIST,
         payload: data,
     };
 };
