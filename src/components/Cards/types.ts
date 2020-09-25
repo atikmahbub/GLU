@@ -17,7 +17,7 @@ export interface BannerCardElement {
 }
 
 
-export interface IndividualSubjectWhiteBannerCardElement {
+export interface WhiteBannerCardElement {
     subject: string;
     tutorsCount: number,
     classesCount: number,

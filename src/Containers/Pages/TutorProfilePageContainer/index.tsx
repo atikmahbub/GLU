@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router';
 import NavigationMenu from '../../../components/NavigationMenu';
 import CardsGridContainer from '../../CardsGridContainer';

@@ -1,16 +1,11 @@
-import React from 'react';
-import IndividualSubjectPageContainer from '../../Containers/Pages/IndividualSubjectPageContainer';
-import {
-    bannerCards3,
-    recommendedCards,
-    recommendedCards2,
-    tutorCards,
-} from '../../data/homepage';
+import React, { FC } from 'react';
+import IndividualSubjectPageContainer from '../../../Containers/Pages/IndividualSubjectPageContainer';
+import { bannerCards3, recommendedCards, recommendedCards2, tutorCards } from '../../../data/homepage';
 
-const Index: React.FunctionComponent = () => {
+const IndividualSubject: FC = () => {
     return (
         <IndividualSubjectPageContainer
-            userType="parent"
+            userType="students"
             cardsData={{
                 whiteBannerCard: {
                     subject: 'Maths.',
@@ -59,4 +54,4 @@ const Index: React.FunctionComponent = () => {
     );
 };
 
-export default Index;
+export default IndividualSubject;
