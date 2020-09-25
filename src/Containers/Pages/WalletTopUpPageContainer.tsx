@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
@@ -10,10 +10,10 @@ import FormGroup from '../../components/Form/FormGroup';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
 import PaymentMethodCard from '../../components/Cards/PaymentMethodCard';
-import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
 import PageFooter from '../../components/PageFooter';
 import CurrencyButton from '../../components/Wallet/CurrencyButton';
+import useMenuList from '../../Hooks/useMenuList';
+import { UserTypes } from '../../Types/user';
 
 const useStyles = makeStyles({
     title: {
@@ -34,11 +34,11 @@ const useStyles = makeStyles({
     button: {
         fontSize: '1.25rem',
         paddingLeft: '2.6875rem',
-        paddingRight: '2.6875rem'
+        paddingRight: '2.6875rem',
     },
     rightContainer: {
-        position: 'relative'
-    }
+        position: 'relative',
+    },
 });
 
 interface IWalletTopUpPageContainer {
@@ -47,7 +47,7 @@ interface IWalletTopUpPageContainer {
 
 const WalletTopUpPageContainer: FC<IWalletTopUpPageContainer> = ({ userType }) => {
     const classes = useStyles();
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
     return (
         <NavigationMenu
             absolute
@@ -65,14 +65,16 @@ const WalletTopUpPageContainer: FC<IWalletTopUpPageContainer> = ({ userType }) =
                     <Grid container>
                         <Grid container direction="column" className={classes.rightContainer}>
                             <CurrencyButton />
-                            {true && <Grid container direction="column" className={classes.container}>
-                                <TitlePrimary className={classes.title}>Payment Method</TitlePrimary>
-                                <Grid container direction="column">
-                                    <PaymentMethodCard active type="visa" ends="6159" expires="12/23"/>
-                                    <PaymentMethodCard type="ms" ends="0044" expires="12/23"/>
-                                    <PaymentMethodCard type="ms" ends="2841" expires="12/23"/>
+                            {true && (
+                                <Grid container direction="column" className={classes.container}>
+                                    <TitlePrimary className={classes.title}>Payment Method</TitlePrimary>
+                                    <Grid container direction="column">
+                                        <PaymentMethodCard active type="visa" ends="6159" expires="12/23" />
+                                        <PaymentMethodCard type="ms" ends="0044" expires="12/23" />
+                                        <PaymentMethodCard type="ms" ends="2841" expires="12/23" />
+                                    </Grid>
                                 </Grid>
-                            </Grid>}
+                            )}
                             <Grid container direction="column" className={classes.container}>
                                 <TitlePrimary className={classes.title}>Add New Card</TitlePrimary>
                                 <Grid container direction="column">

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -68,4 +68,4 @@ const Card: FC<CardProps> = ({ id, title, message, time }) => {
     );
 };
 
-export default memo(Card);
+export default Card;

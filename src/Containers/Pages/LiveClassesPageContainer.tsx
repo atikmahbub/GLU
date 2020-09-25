@@ -1,22 +1,20 @@
 import React, { FC } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
-import { UserTypes } from '../../Types/user';
 import FilterContainer from '../FilterContainer';
 import CardsGrid from '../CardsGrid';
 import ImageCard from '../../components/Cards/ImageCard';
-import { cards2, classesFiltersData } from '../../data/filters';
 import UpcomingClassCard from '../../components/Cards/UpcomingClassCard';
 import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
-import useToggle from '../../Hooks/useToggle';
 import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 import useMenuList from '../../Hooks/useMenuList';
+import useToggle from '../../Hooks/useToggle';
+import { cards2, classesFiltersData } from '../../data/filters';
+import { UserType } from './types';
 
-interface ILiveClassesPageContainer {
-    userType: UserTypes;
-}
+interface ILiveClassesPageContainer extends UserType {}
 
 const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType }) => {
     const menuList = useMenuList(userType);

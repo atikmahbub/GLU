@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
@@ -48,4 +48,4 @@ const NextClassCard: FC<INextClassCard> = ({ img, date, startTime, endTime, subj
     );
 };
 
-export default memo(NextClassCard);
+export default NextClassCard;

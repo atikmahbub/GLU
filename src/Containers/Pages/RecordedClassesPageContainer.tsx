@@ -1,6 +1,5 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import CardsGrid from '../CardsGrid';
@@ -10,13 +9,14 @@ import CardsGridContainer from '../CardsGridContainer';
 import { cards2, classesFiltersData } from '../../data/filters';
 import PageFooter from '../../components/PageFooter';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
+import useMenuList from '../../Hooks/useMenuList';
 
 interface IRecordedClassesPageContainer {
     userType: UserTypes;
 }
 
 const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
 
     return (
         <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>

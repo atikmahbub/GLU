@@ -1,14 +1,14 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useState } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
 import CardsGridContainer from '../../CardsGridContainer';
 import { Tab, Tabs } from '../../../components/Tabs';
-import { createMenuList } from '../../../Helper/menus';
 import { UserTypes } from '../../../Types/user';
 import School from './School';
 import PageFooter from '../../../components/PageFooter';
 import Personal from './Personal';
+import useMenuList from '../../../Hooks/useMenuList';
 
 const useStyles = makeStyles({
     tabsContainer: {
@@ -27,7 +27,7 @@ interface IDashboardPageContainer {
 const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType }) => {
     const classes = useStyles();
     const [activeTab, setActiveTab] = useState('personal');
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
     return (
         <NavigationMenu
             absolute

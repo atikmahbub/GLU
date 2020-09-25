@@ -1,6 +1,5 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import FilterContainer from '../FilterContainer';
@@ -10,18 +9,16 @@ import CardsGridContainer from '../CardsGridContainer';
 import PageFooter from '../../components/PageFooter';
 import { cards3, classesFiltersData } from '../../data/filters';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
+import useMenuList from '../../Hooks/useMenuList';
 
 interface ITutorsPageContainer {
     userType: UserTypes;
 }
 
 const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType])
+    const menuList = useMenuList(userType);
     return (
-        <NavigationMenu
-            menuList={menuList}
-            LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
-        >
+        <NavigationMenu menuList={menuList} LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}>
             <FilterContainer
                 padding
                 sort={false}
@@ -81,7 +78,7 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType }) => {
             <ShowMoreCard current={50} total={5488} />
             <PageFooter />
         </NavigationMenu>
-    )
-}
+    );
+};
 
-export default TutorsPageContainer
+export default TutorsPageContainer;

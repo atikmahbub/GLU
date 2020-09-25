@@ -1,4 +1,4 @@
-import React, { ReactNode, FC, memo } from 'react';
+import React, { ReactNode, FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -37,4 +37,4 @@ const FeaturedCard: FC<IFeaturedCard> = ({ title, children }) => {
     );
 };
 
-export default memo(FeaturedCard)
+export default FeaturedCard

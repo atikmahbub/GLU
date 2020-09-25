@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import NavigationMenu from '../../components/NavigationMenu';
 import BannerCarousel from '../../components/Carousels/BannerCarousel';
@@ -12,9 +12,9 @@ import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import PageFooter from '../../components/PageFooter';
 import { HomePageCardsData } from './types';
 import { UserTypes } from '../../Types/user';
-import { createMenuList } from '../../Helper/menus';
 import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 import useToggle from '../../Hooks/useToggle';
+import useMenuList from '../../Hooks/useMenuList';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -29,7 +29,7 @@ interface IHomePageContainer {
 
 const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
     const classes = useStyles();
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
     const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
 
     return (
@@ -53,9 +53,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
             />
             <BannerCarousel cards={cardsData.bannerCarouselCenter} />
             <UpcomingClassCard {...cardsData.upcomingClass} />
-            {cardsData.calendar && (
-                <CalendarDateSubjectsCard {...cardsData.calendar} paddingBottom={false} />
-            )}
+            {cardsData.calendar && <CalendarDateSubjectsCard {...cardsData.calendar} paddingBottom={false} />}
             <RecommendedContainer
                 padding
                 title="Live Classes"
