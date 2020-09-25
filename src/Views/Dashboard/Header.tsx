@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Typography, IconButton, makeStyles } from '@material-ui/core';
-import { useLocation, useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Typography, IconButton } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import { resetTokenAndLocalStorage } from '../../Utility/API';
 import commonImg from '../../Assets/images';
 import { Icons } from '../../Assets/Icons';
 import { getSchoolAPIcall } from '../../Redux/Actions/schoolAction';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 
 interface headerProps {
     title: string;
     icon: any;
-    getSchoolAPIcall: () => void;
 }
 
-const Header: React.FunctionComponent<headerProps> = ({ icon, getSchoolAPIcall }) => {
+const Header: React.FunctionComponent<headerProps> = ({ icon }) => {
     const history = useHistory();
     const resetAuth = () => {
         resetTokenAndLocalStorage();
         history.push('/');
     };
     const schoolData = useSelector((state: any) => state.schoolReducer?.schoolData);
+    const dispatch = useDispatch();
     useEffect(() => {
-        getSchoolAPIcall();
+        dispatch(getSchoolAPIcall());
     }, []);
     return (
         <div className="dashboard-header">
