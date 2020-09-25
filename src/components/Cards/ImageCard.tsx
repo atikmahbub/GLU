@@ -59,6 +59,7 @@ export interface IImageCard extends ImageCardElement {
 }
 
 const ImageCard: FC<IImageCard> = ({
+    id = '',
     img,
     imgAspectRatio = '77%',
     title,
@@ -67,7 +68,7 @@ const ImageCard: FC<IImageCard> = ({
     time,
     bigTitle,
     rating,
-    titleLinkTo,
+    titleLinkTo = '',
     rootClassName,
     subTitleVariant,
     titleMarginBottomVariant,
@@ -87,7 +88,7 @@ const ImageCard: FC<IImageCard> = ({
                     [classes.titleBig]: bigTitle,
                 })}
                 component={titleLinkTo ? Link : 'p'}
-                to={titleLinkTo}
+                to={`${titleLinkTo + id}`}
             >
                 {title}
             </Typography>

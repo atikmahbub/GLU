@@ -1,4 +1,5 @@
 export interface ImageCardElement {
+    id?: number;
     img: string;
     title: string;
     subTitle?: string;

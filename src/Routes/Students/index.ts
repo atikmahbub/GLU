@@ -43,7 +43,7 @@ const routes = [
     createRouteObj('/students/wallet', Wallet),
     createRouteObj('/students/homework', Homework),
     createRouteObj('/students/homework/:id', IndividualHomework),
-    createRouteObj('/students/tutors/tutor', TutorProfile),
+    createRouteObj('/students/tutor/:id', TutorProfile),
     createRouteObj('/students/wallet/top-on', WalletTopOn)
 ];
 

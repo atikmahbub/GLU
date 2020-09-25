@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+import { useParams } from 'react-router';
 import NavigationMenu from '../../../components/NavigationMenu';
 import CardsGridContainer from '../../CardsGridContainer';
 import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
@@ -9,6 +10,7 @@ import RecommendedContainer from '../../RecommendedContainer';
 import PageFooter from '../../../components/PageFooter';
 import About from './About';
 import Reviews from './Reviews';
+import useScrollTop from '../../../Hooks/useScrollTop';
 import { UserTypes } from '../../../Types/user';
 import { createMenuList } from '../../../Helper/menus';
 import { liveClasses, recordedClasses } from '../../../data/tutorProfile';
@@ -20,6 +22,9 @@ interface ITutorProfilePageContainer {
 
 const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType }) => {
     const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const { id } = useParams()
+    useScrollTop(id)
+
     return (
         <NavigationMenu
             absolute
@@ -68,7 +73,7 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
                 <RecommendedContainer
                     title="Similar Tutors"
                     link={`/${userType}/tutors`}
-                    cardTitleLink={`/${userType}/tutors/tutor`}
+                    cardTitleLink={`/${userType}/tutor/`}
                     data={tutorCards}
                     marginBottom={false}
                 />

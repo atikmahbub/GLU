@@ -12,6 +12,7 @@ export function dataToBannerCards(data: any): BannerCardElement[] {
 
 export function dataToImageCard(data: any): ImageCardElement[] {
     return data.map(({ teacher, review }: any) => ({
+        id: review.teacherId,
         img: teacher.User.profile,
         title: `${teacher.firstName} ${teacher.lastName}\nMath`,
         subTitle: 'AED200/h',
