@@ -20,6 +20,13 @@ export const RootAdminMenu: any[] = [
         menuList: [],
         routeName: '/admin/teacher',
     },
+    {
+        menuName: 'Manage Student',
+        isExpandable: false,
+        isOpen: false,
+        menuList: [],
+        routeName: '/admin/student',
+    },
 
     {
         menuName: 'Manage Parent',

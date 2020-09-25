@@ -8,6 +8,7 @@ import { registerDataRes } from './loginAction';
 import {
     SCHOOL_LIST,
     VIDEO_LIST,
+    ADMIN_TEACHER_LIST,
 } from '../ActionTypes/superAdminTypes';
 
 export const getallSchoolAPIcall = () => {
@@ -36,6 +37,19 @@ export const getallVideoAPIcall = () => {
     };
 };
 
+
+export const getallTeacherAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllTeachers)
+            .then((res) => {
+                console.log(res);
+                dispatch(adminTeacherList(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 export const addNewSchoolAPIcall = (data: any, history: any) => {
     return (dispatch: any) => {
         dispatch(spinner(true));
@@ -80,6 +94,19 @@ export const activateDeactivateVideo = (id: number) => {
 }
 
 
+export const activateDeactivateTeacher = (id: number) => {
+    return (dispatch: any) => {
+        API.put(superAdminEndpoints.activateDeactivateTeacher + "/" + id)
+        .then((res) => {
+            dispatch(spinner(false));
+            toast.success("Teacher Status Updated");
+        })
+        .catch((err) => {
+            handleError(dispatch, err);
+        });       
+    }
+}
+
 export const schoolList = (data: any) => {
     return {
         type: SCHOOL_LIST,
@@ -91,6 +118,13 @@ export const schoolList = (data: any) => {
 export const videoList = (data: any) => {
     return {
         type: VIDEO_LIST,
+        payload: data,
+    };
+};
+
+export const adminTeacherList = (data: any) => {
+    return {
+        type: ADMIN_TEACHER_LIST,
         payload: data,
     };
 };
