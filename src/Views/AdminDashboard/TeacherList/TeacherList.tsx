@@ -33,13 +33,15 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} />
+                {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
+                <AddButton title="Teachers"/>
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable
-                            showToolbar={false}
+                            showToolbar={true}
                             showPagination={true}
                             selectable={true}
                             tableHeight="100vh"

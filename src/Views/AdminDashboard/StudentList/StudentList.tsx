@@ -33,7 +33,9 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} />
+                {/* <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} /> */}
+                <AddButton title="Students"/>
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">

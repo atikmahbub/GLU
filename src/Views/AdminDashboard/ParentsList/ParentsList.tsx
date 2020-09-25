@@ -13,7 +13,8 @@ import { activateDeactivateTeacher, getallTeacherAPIcall } from '../../../Redux/
 interface props {
     parentsList: Array<string | number>;
 }
-const TeacherList: React.FunctionComponent<props> = ({ parentsList }) => {
+const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
+    // alert(JSON.stringify(parentsList))
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -33,7 +34,9 @@ const TeacherList: React.FunctionComponent<props> = ({ parentsList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} />
+                {/* <AddButton title="Parents" btnIcon={<Add />} btnTitle="Add New Parent" trigger={handleRoutes} /> */}
+                <AddButton title="Parents"/>
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -99,4 +102,4 @@ const TeacherList: React.FunctionComponent<props> = ({ parentsList }) => {
     );
 };
 
-export default TeacherList;
+export default ParentsList;

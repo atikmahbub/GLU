@@ -3,7 +3,7 @@ import {
     VIDEO_LIST,
     ADMIN_TEACHER_LIST,
     ADMIN_STUDENT_LIST,
-    ADMIN_PARENTS_LISTS,
+    ADMIN_PARENTS_LIST,
     
 } from '../ActionTypes/superAdminTypes';
 
@@ -39,7 +39,7 @@ export const superAdminReducer = (state = initialState, action: any) => {
             return newState;
         }
 
-        case ADMIN_PARENTS_LISTS: {
+        case ADMIN_PARENTS_LIST: {
             newState.parentsList = action.payload;
             return newState;
         }

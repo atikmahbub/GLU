@@ -66,5 +66,5 @@ export const superAdminEndpoints = {
     getAllTeachers: 'superadmin/freelancer-teachers',
     activateDeactivateTeacher: 'superAdmin/user',
     getAllStudents: 'superadmin/students?type=private',
-    getAllParents: 'superadmin/guardians?status=verified',
+    getAllParents: 'superadmin/guardians',
 }

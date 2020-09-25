@@ -10,7 +10,7 @@ import {
     VIDEO_LIST,
     ADMIN_TEACHER_LIST,
     ADMIN_STUDENT_LIST,
-    ADMIN_PARENTS_LISTS,
+    ADMIN_PARENTS_LIST,
 } from '../ActionTypes/superAdminTypes';
 
 export const getallSchoolAPIcall = () => {
@@ -166,7 +166,7 @@ export const adminStudentList = (data: any) => {
 };
 
 
-export const adminPARENTSList = (data: any) => {
+export const adminParentsList = (data: any) => {
     return {
         type: ADMIN_PARENTS_LIST,
         payload: data,
