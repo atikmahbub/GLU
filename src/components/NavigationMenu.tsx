@@ -313,7 +313,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                         </Drawer>
                     )}
                     <TopDrawerMenu open={subjectsDrawer} onClose={closeDrawers} containerRef={containerRef}>
-                        <TopDrawerMenuContent />
+                        <TopDrawerMenuContent onClose={toggleSubjectsDrawer} />
                     </TopDrawerMenu>
                 </div>
                 <div>{children}</div>

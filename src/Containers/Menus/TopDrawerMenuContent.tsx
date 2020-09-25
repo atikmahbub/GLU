@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -9,7 +10,7 @@ import ImageCard from '../../components/Cards/ImageCard';
 
 const useStyles = makeStyles({
     titleContainer: {
-        paddingBottom: '1.5625rem'
+        paddingBottom: '1.5625rem',
     },
     title: {
         fontSize: '1.5625rem',
@@ -17,22 +18,31 @@ const useStyles = makeStyles({
         color: '#5F5F5F',
     },
     linkContainer: {
-        paddingTop: '3.125rem'
+        paddingTop: '3.125rem',
     },
     link: {
         fontSize: '1.5625rem',
         lineHeight: '2.0625rem',
         cursor: 'pointer',
         width: 'fit-content',
+        color: '#000',
+        '&:hover': {
+            color: '#000',
+        },
     },
     border: {
         borderLeft: '1px solid rgba(0, 0, 0, 0.25)',
-        paddingLeft: '1.5625rem'
-    }
+        paddingLeft: '1.5625rem',
+    },
 });
 
-const TopDrawerMenuContent: FC = () => {
+interface ITopDrawerMenuContent {
+    onClose: () => void;
+}
+
+const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose }) => {
     const classes = useStyles();
+
     return (
         <Grid container>
             <Grid container>
@@ -50,14 +60,26 @@ const TopDrawerMenuContent: FC = () => {
                 <Grid container item xs={6}>
                     <Grid container direction="column" item xs={6}>
                         {academic.map((item, index) => (
-                            <Typography key={index} className={classes.link}>
+                            <Typography
+                                key={index}
+                                className={classes.link}
+                                onClick={onClose}
+                                component={Link}
+                                to="/students/subject/1"
+                            >
                                 {item}
                             </Typography>
                         ))}
                     </Grid>
                     <Grid container direction="column" item xs={6}>
                         {academicMore.map((item, index) => (
-                            <Typography key={index} className={classes.link}>
+                            <Typography
+                                key={index}
+                                className={classes.link}
+                                onClick={onClose}
+                                component={Link}
+                                to="/students/subject/1"
+                            >
                                 {item}
                             </Typography>
                         ))}
@@ -66,7 +88,13 @@ const TopDrawerMenuContent: FC = () => {
                 <Grid container item xs={3}>
                     <Grid container direction="column">
                         {curricular.map((item, index) => (
-                            <Typography key={index} className={classes.link}>
+                            <Typography
+                                key={index}
+                                className={classes.link}
+                                onClick={onClose}
+                                component={Link}
+                                to="/students/subject/1"
+                            >
                                 {item}
                             </Typography>
                         ))}
