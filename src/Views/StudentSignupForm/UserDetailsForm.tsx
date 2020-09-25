@@ -17,6 +17,7 @@ interface props {
     handleMobilePre: (value: string) => void;
     handleMobile: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleLocation: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    disable?: boolean;
 }
 const UserDetailsForm: React.FunctionComponent<props> = ({
     firstName,
@@ -31,6 +32,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
     handleMobilePre,
     handleMobile,
     handleLocation,
+    disable,
 }) => {
     const context = useContext(registerContext);
     return (
@@ -38,6 +40,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
             <div className="row">
                 <div className="col-lg-6">
                     <TextField
+                        disabled={disable}
                         className="line-input"
                         value={firstName}
                         onChange={handleFirstName}
@@ -47,6 +50,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 </div>
                 <div className="col-lg-6">
                     <TextField
+                        disabled={disable}
                         className="line-input"
                         value={lastName}
                         onChange={handleLastName}
@@ -58,6 +62,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
             <div className="row">
                 <div className="col-lg-12">
                     <TextField
+                        disabled={disable}
                         className="line-input"
                         value={email}
                         onChange={handleEmail}
@@ -65,7 +70,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                         fullWidth
                     />
                 </div>
-                {(context.whoIam === 'parent' && context.active === 2) && (
+                {context.whoIam === 'parent' && context.active === 2 && (
                     <React.Fragment>
                         <div className="col-md-4">
                             <SelectFieldUnderline

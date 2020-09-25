@@ -8,23 +8,19 @@ import { deleteTeacherAPIcall } from '../../../Redux/Actions/teacherAction';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
-import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 
 interface colDataType {
-    id: number,
-    userId: number,
-    schoolName: string,
-    website: string
-    phoneNumber: string,
-    createdAt: string
+    id: number;
+    userId: number;
+    schoolName: string;
+    website: string;
+    phoneNumber: string;
+    createdAt: string;
 }
 interface props {
     schoolList: Array<string | number>;
 }
 const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
-    alert(JSON.stringify(schoolList))
-
-    // console.log("==== the school list =====", schoolList)
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {

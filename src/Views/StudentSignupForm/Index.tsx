@@ -60,8 +60,8 @@ const Index: React.FunctionComponent = () => {
             email: '',
             phoneCode: '+91',
             phoneNum: '',
-            location: 'Up',
-            password: '@Gyan123@',
+            location: '',
+            password: '',
             tc: 'tc',
             veriCode: '+91',
             veriMobile: '',
@@ -70,6 +70,7 @@ const Index: React.FunctionComponent = () => {
         },
     });
     const [editMode, setEditMode] = useState(false);
+    const [cmsRegister, setcmsRegister] = useState(false);
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
@@ -121,7 +122,7 @@ const Index: React.FunctionComponent = () => {
         };
         setState(data);
     };
-    const handleFromDate = (date: Date) => {
+    const handleFromDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
         let active = data.student.education.length - 1;
         if (editMode) {
@@ -129,11 +130,11 @@ const Index: React.FunctionComponent = () => {
         }
         data.student.education[active] = {
             ...state.student.education[active],
-            from: date,
+            from: new Date(e.target.value),
         };
         setState(data);
     };
-    const handleToDate = (date: Date) => {
+    const handleToDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         const data = { ...state };
         let active = data.student.education.length - 1;
         if (editMode) {
@@ -141,7 +142,7 @@ const Index: React.FunctionComponent = () => {
         }
         data.student.education[active] = {
             ...state.student.education[active],
-            to: date,
+            to: new Date(e.target.value),
         };
         setState(data);
     };
@@ -154,7 +155,6 @@ const Index: React.FunctionComponent = () => {
     };
     const handleNext = () => {
         setEditMode(false);
-        console.log(active);
         userRegistration();
         if (active === 0) {
             goToNextPage();
@@ -304,14 +304,17 @@ const Index: React.FunctionComponent = () => {
     };
 
     const handleBack = () => {
-        console.log(active);
         if (whoIam !== '') {
             if (hideButtons.farword) {
                 setHideButtons({ ...hideButtons, farword: false });
             }
             if (active === 0) {
             } else {
-                setActive((prevState) => prevState - 1);
+                if (cmsRegister === false) {
+                    setActive((prevState) => prevState - 1);
+                } else if (cmsRegister === true && active !== 1) {
+                    setActive((prevState) => prevState - 1);
+                }
             }
         }
     };
@@ -371,6 +374,7 @@ const Index: React.FunctionComponent = () => {
         console.log(getToken);
         if (getToken[1]) {
             dispatch(verfiyRegisterUserAPIcall(getToken[1]));
+            setcmsRegister(true);
         }
     }, []);
     useEffect(() => {
@@ -519,7 +523,7 @@ const Index: React.FunctionComponent = () => {
         getComponent();
     }, [whoIam]);
     //==================component render========================//
-
+    console.log(state);
     return (
         <NavigationMenu showMenuOptions={false}>
             <div className="signup__setup">
@@ -543,6 +547,7 @@ const Index: React.FunctionComponent = () => {
                                     currentActive: curActive,
                                     whoIam: whoIam,
                                     active: active,
+                                    disable: cmsRegister,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,

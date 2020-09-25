@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import {
-    FormControl,
-    InputLabel,
-    InputAdornment,
-    IconButton,
-    Input,
-} from '@material-ui/core';
+import { FormControl, InputLabel, InputAdornment, IconButton, Input } from '@material-ui/core';
 
 interface props {
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
     label?: string;
-    name?: string;
-    inputRef?: any;
 }
-const UnderLineAddornment: React.FunctionComponent<props> = ({ className, name, inputRef, value, label, onChange }) => {
+const PasswordOnChange: React.FunctionComponent<props> = ({ className, value, label, onChange }) => {
     const [password, setPassword] = useState('');
     const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -35,8 +27,9 @@ const UnderLineAddornment: React.FunctionComponent<props> = ({ className, name, 
         <FormControl className={`${className} mb-2`} variant="outlined" fullWidth>
             <InputLabel htmlFor="password-input">{label}</InputLabel>
             <Input
-                name={name}
-                inputRef={inputRef}
+                autoComplete="off"
+                onChange={handlePassword}
+                value={password}
                 id="password-input"
                 type={isShowPassword ? 'text' : 'password'}
                 endAdornment={
@@ -56,4 +49,4 @@ const UnderLineAddornment: React.FunctionComponent<props> = ({ className, name, 
     );
 };
 
-export default UnderLineAddornment;
+export default PasswordOnChange;

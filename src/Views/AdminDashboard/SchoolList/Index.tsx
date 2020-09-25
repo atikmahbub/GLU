@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import TeacherList from '../../TeacherList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallSchoolAPIcall } from '../../../Redux/Actions/superAdminActions';
-import { checkValue } from '../../../Helper/checkValue';
-import commonImg from '../../../Assets/images';
 import SchoolList from './SchoolList'
 
 const Index = () => {
@@ -15,8 +12,6 @@ const Index = () => {
         dispatch(getallSchoolAPIcall());
     }, []);
     useEffect(() => {
-        console.log("====== THe School Info ======= school", school)
-
         if (school) {
             const data = school.map((element: any) => {
                 return {
@@ -32,8 +27,6 @@ const Index = () => {
             setSchoolList(data);
         }
     }, [school]);
-
-    // return <TeacherList teacherList={teacherList} />;
     return <SchoolList schoolList={schoolList}/>
 };
 

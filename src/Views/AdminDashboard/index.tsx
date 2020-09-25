@@ -8,11 +8,6 @@ import { dashboardRoutes } from '../../Routes/AdminDashboard/routes';
 import {v4 as uuidv4} from "uuid";
 
 const index: React.FunctionComponent = () => {
-    // useEffect(()=>{
-    //     const element = document.getElementsByTagName('html');
-    //     console.log(element);
-    //     element[0].style.fontSize="16px";
-    // },[])
     return (
         <div className="dashboard-wrapper">
             <div className="dashboard-container">

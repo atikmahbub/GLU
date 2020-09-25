@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { TextField, FormControlLabel, Radio, Typography } from '@material-ui/core';
 import UnderLineAddornment from '../../components/Inputs/UnderLineAddornment';
@@ -27,7 +27,10 @@ const StudentLogin = () => {
         };
         dispatch<any>(userLoginAPIcall(details, route));
     };
-
+    const [keepSign, setKeepSign] = useState(false);
+    const handleKeepMeSignin = () => {
+        setKeepSign(!keepSign);
+    };
     return (
         <NavigationMenu absolute>
             <div className="credential__container">
@@ -54,7 +57,8 @@ const StudentLogin = () => {
                                 <OutlineButton text="Sign In" buttonType="submit" />
                                 <FormControlLabel
                                     color="primary"
-                                    value=""
+                                    checked={keepSign}
+                                    onClick={handleKeepMeSignin}
                                     className="keep__signed radio-button"
                                     control={<Radio />}
                                     label="Keep me signed in"
