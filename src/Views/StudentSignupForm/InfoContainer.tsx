@@ -1,10 +1,24 @@
 import React, { useContext } from 'react';
-import { FormControl, FormControlLabel, RadioGroup, Radio } from '@material-ui/core';
+import { FormControl, FormControlLabel, RadioGroup, Radio, makeStyles } from '@material-ui/core';
 import UserDetailsForm from './UserDetailsForm';
 import { registerContext } from './Index';
 import PasswordOnChange from '../../components/Inputs/PasswordOnChange';
+import { colors } from '../../Styles/colors';
+
+const useStyles = makeStyles({
+    icon: {
+        color: colors.black,
+        fontSize: '1rem'
+    },
+    formControl:{
+        '& .MuiRadio-root':{
+            padding: '0!important'
+        }
+    }
+});
 
 const InfoContainer: React.FunctionComponent = () => {
+    const classes = useStyles();
     const context = useContext(registerContext);
     const handleSfirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
         context.setState({ ...context.state, student: { ...context.state.student, firstName: e.target.value } });
@@ -65,14 +79,26 @@ const InfoContainer: React.FunctionComponent = () => {
                 >
                     <FormControlLabel
                         value="tc"
-                        className="title"
-                        control={<Radio className="radio-button" />}
+                        className={`title ${classes.formControl}` }
+                        control={
+                            <Radio
+                                color="default"
+                                checkedIcon={<i className={`icon-Stop_Recording ${classes.icon}`} />}
+                                icon={<i className={`icon-Circle ${classes.icon}`} />}
+                            />
+                        }
                         label="I accept the Terms and Conditions"
                     />
                     <FormControlLabel
                         value="po"
-                        className="title"
-                        control={<Radio className="radio-button" />}
+                        className={`title ${classes.formControl}` }
+                        control={
+                            <Radio
+                                color="default"
+                                checkedIcon={<i className={`icon-Stop_Recording ${classes.icon}`} />}
+                                icon={<i className={`icon-Circle ${classes.icon}`} />}
+                            />
+                        }
                         label="Send me promotional offers and surverys via email or SMS"
                     />
                 </RadioGroup>
