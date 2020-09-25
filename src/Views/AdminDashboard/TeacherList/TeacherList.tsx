@@ -84,7 +84,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.id)}
+                                            onChange={() => handleActiveInactive(rowData.teacherId)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}

@@ -11,15 +11,6 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
 
-interface colDataType {
-    id: number;
-    userId: number;
-    schoolName: string;
-    website: string;
-    phoneNumber: string;
-    createdAt: string;
-    isActive: boolean;
-}
 interface props {
     schoolList: Array<string | number>;
 }
@@ -38,7 +29,7 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
     const handleActiveInactive = (id: number) => {
         setSwitchState(!switchState)
         dispatch(activateDeactivateUser(id))
-        dispatch(getallSchoolAPIcall());
+        // dispatch(getallSchoolAPIcall());
     }
 
     return (

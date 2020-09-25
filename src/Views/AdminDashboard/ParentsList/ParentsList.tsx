@@ -9,7 +9,7 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-import { activateDeactivateTeacher, getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { activateDeactivateUser, getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
 interface props {
     parentsList: Array<string | number>;
 }
@@ -27,8 +27,8 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
     };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
-        dispatch(activateDeactivateTeacher(id))
-        dispatch(getallTeacherAPIcall());
+        dispatch(activateDeactivateUser(id))
+        dispatch(getallParentsAPIcall());
     }
     
     return (
@@ -85,7 +85,7 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.id)}
+                                            onChange={() => handleActiveInactive(rowData.userId)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}

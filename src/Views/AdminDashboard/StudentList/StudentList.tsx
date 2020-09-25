@@ -9,7 +9,7 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-import { getallStudentAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { getallStudentAPIcall, activateDeactivateUser } from '../../../Redux/Actions/superAdminActions';
 interface props {
     studentList: Array<string | number>;
 }
@@ -27,7 +27,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
     };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
-        // dispatch(activateDeactivateVideo(id))
+        dispatch(activateDeactivateUser(id))
         dispatch(getallStudentAPIcall());
     }
     return (
@@ -83,7 +83,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     title: 'Approve/Reject',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isActive}
+                                            checked={rowData.isVerified}
                                             onChange={() => handleActiveInactive(rowData.userId)}
                                             color="primary"
                                             name="checkedB"
