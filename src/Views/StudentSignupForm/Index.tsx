@@ -466,7 +466,7 @@ const Index: React.FunctionComponent = () => {
             ),
         },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
+        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} /> },
     ];
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
