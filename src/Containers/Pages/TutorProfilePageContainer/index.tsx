@@ -12,18 +12,21 @@ import About from './About';
 import Reviews from './Reviews';
 import useScrollTop from '../../../Hooks/useScrollTop';
 import { UserTypes } from '../../../Types/user';
-import { createMenuList } from '../../../Helper/menus';
 import { liveClasses, recordedClasses } from '../../../data/tutorProfile';
 import { tutorCards } from '../../../data/homepage';
+import useToggle from '../../../Hooks/useToggle';
+import useMenuList from '../../../Hooks/useMenuList';
+import ClassPurchaseDrawer from '../../Menus/ClassPurchaseDrawer';
 
 interface ITutorProfilePageContainer {
     userType: UserTypes;
 }
 
 const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
-    const { id } = useParams()
-    useScrollTop(id)
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
+    const menuList = useMenuList(userType);
+    const { id } = useParams();
+    useScrollTop(id);
 
     return (
         <NavigationMenu
@@ -33,6 +36,7 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <TutorProfileCard
                 name="Jen Holden"
                 city="London"
@@ -57,6 +61,7 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
                     link={`/${userType}/live-classes`}
                     data={liveClasses}
                     marginBottom={false}
+                    cardTitleClick={toggleClassPurchaseDrawer}
                 />
             </CardsGridContainer>
             <CardsGridContainer paddingTop={false}>
