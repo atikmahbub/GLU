@@ -20,7 +20,9 @@ const useStyles = makeStyles({
         whiteSpace: 'pre-wrap',
         width: 'fit-content',
         color: '#000',
+        cursor: ({ onTitleClick, titleLinkTo }: any) => (onTitleClick || titleLinkTo ? 'pointer' : 'auto'),
         '&:hover': {
+            textDecoration: ({ onTitleClick, titleLinkTo }: any) => (onTitleClick || titleLinkTo ? 'underline' : 'auto'),
             color: '#000',
         },
     },
@@ -39,7 +41,12 @@ const useStyles = makeStyles({
         color: '#000',
     },
     dateTime: {
+        fontSize: '1.5625rem',
+        lineHeight: '1.875rem',
         marginBottom: '1.5625rem',
+        whiteSpace: 'pre-wrap',
+        width: 'fit-content',
+        color: '#000',
         display: 'flex',
         alignItems: 'center',
     },
@@ -54,11 +61,13 @@ export interface IImageCard extends ImageCardElement {
     imgAspectRatio?: string;
     rootClassName?: string;
     titleLinkTo?: string;
+    onTitleClick?: (id: number | string) => void;
     subTitleVariant?: 1 | 2;
     titleMarginBottomVariant?: 1 | 2;
 }
 
 const ImageCard: FC<IImageCard> = ({
+    id = '',
     img,
     imgAspectRatio = '77%',
     title,
@@ -67,17 +76,25 @@ const ImageCard: FC<IImageCard> = ({
     time,
     bigTitle,
     rating,
-    titleLinkTo,
+    titleLinkTo = '',
     rootClassName,
     subTitleVariant,
     titleMarginBottomVariant,
+    onTitleClick,
 }) => {
-    const classes = useStyles({ imgAspectRatio, titleMarginBottomVariant });
+    const classes = useStyles({ imgAspectRatio, titleMarginBottomVariant, titleLinkTo, onTitleClick: !!onTitleClick });
+
+    const handleClick = () => {
+        if (onTitleClick) {
+            onTitleClick(id);
+        }
+    };
+
     return (
         <Grid container direction="column" className={rootClassName}>
             <AspectRatioImgCard img={img} ratio={imgAspectRatio} rootClassName={classes.imgContainer} />
             {date && time && (
-                <Typography className={classNames(classes.title, classes.dateTime)}>
+                <Typography className={classes.dateTime}>
                     <IconCircle small />
                     {getDateTime(date, time)}
                 </Typography>
@@ -86,8 +103,9 @@ const ImageCard: FC<IImageCard> = ({
                 className={classNames(classes.title, {
                     [classes.titleBig]: bigTitle,
                 })}
+                onClick={handleClick}
                 component={titleLinkTo ? Link : 'p'}
-                to={titleLinkTo}
+                to={`${titleLinkTo + id}`}
             >
                 {title}
             </Typography>

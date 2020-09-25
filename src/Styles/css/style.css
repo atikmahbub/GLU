@@ -179,3 +179,8 @@ input::-webkit-input-placeholder {
 input::-webkit-input-placeholder {
   line-height:normal!important;
 }
+
+.icon-Notifications_Nav:before {
+  width: 22px;
+  display: block;
+}

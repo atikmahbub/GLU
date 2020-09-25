@@ -1,4 +1,5 @@
 export interface ImageCardElement {
+    id?: number;
     img: string;
     title: string;
     subTitle?: string;
@@ -16,7 +17,7 @@ export interface BannerCardElement {
 }
 
 
-export interface IndividualSubjectWhiteBannerCardElement {
+export interface WhiteBannerCardElement {
     subject: string;
     tutorsCount: number,
     classesCount: number,
@@ -82,6 +83,7 @@ export interface PaymentMethodCardElement {
 }
 
 export interface HomeworkCardElement {
+    id: number;
     title: string;
     subject: string;
     dueDate: string;
