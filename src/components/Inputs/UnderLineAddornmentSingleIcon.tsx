@@ -26,7 +26,7 @@ const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ classNa
                             aria-label="toggle password visibility"
                             onClick={buttonClick}
                             edge="end"
-                            disableRipple
+                            // disableRipple
                         >
                             {icon}
                         </IconButton>

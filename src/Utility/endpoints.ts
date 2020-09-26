@@ -65,4 +65,7 @@ export const superAdminEndpoints = {
     activateDeactivateVideo: 'superadmin/recorded-sessions',
     getAllTeachers: 'superadmin/freelancer-teachers',
     activateDeactivateTeacher: 'superAdmin/user',
+    getAllStudents: 'superadmin/students?type=external',
+    getAllParents: 'superadmin/guardians',
+    getAllUsersCount: 'superadmin/users/count-list'
 }

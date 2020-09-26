@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
@@ -26,4 +26,4 @@ const Tag: FC<TagProps> = ({ title }) => {
     )
 }
 
-export default memo(Tag)
+export default Tag

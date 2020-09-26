@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
@@ -81,4 +81,4 @@ UpcomingClassCard.defaultProps = {
     addButton: true,
 };
 
-export default memo(UpcomingClassCard);
+export default UpcomingClassCard;

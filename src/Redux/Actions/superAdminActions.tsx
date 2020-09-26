@@ -9,7 +9,23 @@ import {
     SCHOOL_LIST,
     VIDEO_LIST,
     ADMIN_TEACHER_LIST,
+    ADMIN_STUDENT_LIST,
+    ADMIN_PARENTS_LIST,
+    ADMIN_ALL_USERS_COUNT,
 } from '../ActionTypes/superAdminTypes';
+
+export const getallUsersCountAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllUsersCount)
+            .then((res) => {
+                console.log(res);
+                dispatch(allUsersCount(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const getallSchoolAPIcall = () => {
     return (dispatch: any) => {
@@ -37,6 +53,18 @@ export const getallVideoAPIcall = () => {
     };
 };
 
+export const getallStudentAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllStudents)
+            .then((res) => {
+                console.log(res);
+                dispatch(adminStudentList(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const getallTeacherAPIcall = () => {
     return (dispatch: any) => {
@@ -44,6 +72,20 @@ export const getallTeacherAPIcall = () => {
             .then((res) => {
                 console.log(res);
                 dispatch(adminTeacherList(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+
+export const getallParentsAPIcall = () => {
+    return (dispatch: any) => {
+        API.get(superAdminEndpoints.getAllParents)
+            .then((res) => {
+                console.log(res);
+                dispatch(adminParentsList(res.data.data));
             })
             .catch((err) => {
                 handleError(dispatch, err);
@@ -65,13 +107,15 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
     };
 };
 
-export const activateDeactivateUser = (id: number) => {
+export const activateDeactivateUser = (id: number, callback?:()=>void) => {
     return (dispatch: any) => {
-        console.log("========= id =========", id)
         API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id )
         .then((res) => {
             dispatch(spinner(false));
-            toast.success("Video Status Updated");
+            toast.success('Status Changed Successfully.');
+            if(callback){
+                callback();
+            }
         })
         .catch((err) => {
             handleError(dispatch, err);
@@ -125,6 +169,31 @@ export const videoList = (data: any) => {
 export const adminTeacherList = (data: any) => {
     return {
         type: ADMIN_TEACHER_LIST,
+        payload: data,
+    };
+};
+
+
+export const adminStudentList = (data: any) => {
+    return {
+        type: ADMIN_STUDENT_LIST,
+        payload: data,
+    };
+};
+
+
+export const adminParentsList = (data: any) => {
+    return {
+        type: ADMIN_PARENTS_LIST,
+        payload: data,
+    };
+};
+
+
+
+export const allUsersCount = (data: any) => {
+    return {
+        type: ADMIN_ALL_USERS_COUNT,
         payload: data,
     };
 };

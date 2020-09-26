@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import TeacherList from '../../TeacherList';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { checkValue } from '../../../Helper/checkValue';
-import commonImg from '../../../Assets/images';
 import VideoList from './VideoList';
 
 const Index = () => {
@@ -13,18 +11,17 @@ const Index = () => {
 
     useEffect(() => {
         dispatch(getallVideoAPIcall());
-        console.log("======= action dispatche =========Video")
     }, []);
     useEffect(() => {
         if (video) {
             const data = video.map((element: any) => {
                 return {
-                    title: element.title,
-                    description: element.description,
-                    resource: element.resource,
-                    coverImage: element.coverImage,
-                    videoLink: element.videoLink,
-                    maxStudent: element.maxStudent,
+                    title: checkValue(element.title),
+                    description: checkValue(element.description),
+                    resource: checkValue(element.resource),
+                    coverImage: checkValue(element.coverImage),
+                    videoLink: checkValue(element.videoLink),
+                    maxStudent: checkValue(element.maxStudent),
                 };
             });
             setVideoList(data);
@@ -32,7 +29,7 @@ const Index = () => {
     }, [video]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <VideoList videoList={videoList}/>
+    return <VideoList videoList={videoList} />;
 };
 
 export default Index;

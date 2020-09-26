@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { checkValue } from '../../../Helper/checkValue';
 import commonImg from '../../../Assets/images';
-import TeacherList from './TeacherList';
+import ParentsList from './ParentsList';
 
 const Index = () => {
     const dispatch = useDispatch();
-    const video = useSelector((state: any) => state.superAdminReducer.teacherList);
-    const [teacherList, setTeacherList] = useState([]);
+    const parent = useSelector((state: any) => state.superAdminReducer.parentsList);
+    const [parentsList, setParentsList] = useState([]);
 
     useEffect(() => {
-        dispatch(getallTeacherAPIcall());
+        dispatch(getallParentsAPIcall());
     }, []);
     useEffect(() => {
-        if (video) {
-            const data = video.map((element: any) => {
+        if (parent) {
+            const data = parent.map((element: any, i:number) => {
                 return {
+                    index: i,
                     userId: checkValue(element.userId),
                     teacherId: checkValue(element.teacherId),
                     firstName: checkValue(element.firstName),
@@ -25,16 +26,14 @@ const Index = () => {
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
-                    docType: 'Driving Licence',
-                    docStatus: 'Pending',
                 };
             });
-            setTeacherList(data);
+            setParentsList(data);
         }
-    }, [video]);
+    }, [parent]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <TeacherList teacherList={teacherList} />;
+    return <ParentsList parentsList={parentsList} />;
 };
 
 export default Index;

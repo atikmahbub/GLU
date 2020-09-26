@@ -1,40 +1,44 @@
 import React, { useEffect, useState } from 'react';
+import TeacherList from '../../TeacherList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { getallStudentAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { checkValue } from '../../../Helper/checkValue';
 import commonImg from '../../../Assets/images';
-import TeacherList from './TeacherList';
+import StudentList from './StudentList';
 
 const Index = () => {
     const dispatch = useDispatch();
-    const video = useSelector((state: any) => state.superAdminReducer.teacherList);
-    const [teacherList, setTeacherList] = useState([]);
+    const student = useSelector((state: any) => state.superAdminReducer.studentList);
+    const [studentList, setStudentList] = useState([]);
 
     useEffect(() => {
-        dispatch(getallTeacherAPIcall());
+        dispatch(getallStudentAPIcall());
+        console.log("======= action dispatche =========student")
     }, []);
     useEffect(() => {
-        if (video) {
-            const data = video.map((element: any) => {
+        // alert(JSON.stringify(data))
+        if (student) {
+            const data = student.map((element: any, i:number) => {
                 return {
+                    index: i,
                     userId: checkValue(element.userId),
-                    teacherId: checkValue(element.teacherId),
+                    studentId: checkValue(element.studentId),
                     firstName: checkValue(element.firstName),
                     lastName: checkValue(element.lastName),
                     gender: checkValue(element.gender),
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
-                    docType: 'Driving Licence',
-                    docStatus: 'Pending',
+                    isVerified: checkValue(element.isVerified),
                 };
             });
-            setTeacherList(data);
+            
+            setStudentList(data);
         }
-    }, [video]);
+    }, [student]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <TeacherList teacherList={teacherList} />;
+    return <StudentList studentList={studentList}/>
 };
 
 export default Index;

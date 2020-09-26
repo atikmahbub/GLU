@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -11,20 +11,16 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
 
-interface colDataType {
-    id: number;
-    userId: number;
-    schoolName: string;
-    website: string;
-    phoneNumber: string;
-    createdAt: string;
-    isActive: boolean;
-}
 interface props {
-    schoolList: Array<string | number>;
+    schoolList: any;
 }
 const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
-    const [switchState, setSwitchState] = useState(true)
+    const [schools, setSchools] = useState<any>([]);
+    useEffect(() => {
+        if (schoolList) {
+            setSchools(schoolList);
+        }
+    }, [schoolList]);
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -35,12 +31,15 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
             },
         });
     };
-    const handleActiveInactive = (id: number) => {
-        setSwitchState(!switchState)
-        dispatch(activateDeactivateUser(id))
+    const handleActiveInactive = (id: number, i: number) => {
+        const data = [...schools];
+        data[i].isActive = !data[i].isActive;
+        setSchools(data);
+        dispatch(activateDeactivateUser(id, callGetSchool));
+    };
+    const callGetSchool = () => {
         dispatch(getallSchoolAPIcall());
-    }
-
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -80,16 +79,15 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.userId)}
+                                            onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
                                     ),
                                 },
-
                             ]}
-                            rowData={schoolList}
+                            rowData={schools}
                         />
                     </div>
                 </div>

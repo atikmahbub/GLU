@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
@@ -116,4 +116,4 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, email, rootCl
     );
 };
 
-export default memo(ProfileCard);
+export default ProfileCard;

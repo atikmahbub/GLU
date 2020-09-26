@@ -14,7 +14,7 @@ const TeacherStepper: React.FunctionComponent<props> = ({ active }) => {
             <li className={`${active >= 7 ? 'active' : ''}`}>Skill</li>
             <li className={`${active >= 8 ? 'active' : ''}`}>Identity</li>
             {/* <li className={`${active >= 9 ? 'active' : ''}`}>Mobile number</li> */}
-            <li className={`${active >= 9 ? 'active' : ''}`}>verification</li>
+            <li className={`${active >= 9 ? 'active' : ''}`}>Verification</li>
         </ul>
     );
 };

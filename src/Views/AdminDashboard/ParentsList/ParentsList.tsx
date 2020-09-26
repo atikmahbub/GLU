@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -9,15 +9,17 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-import { activateDeactivateTeacher, getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
-import { Typography } from '@material-ui/core';
-import { colors } from '../../../Styles/colors';
-import OutlineButton from '../../../components/Button/OutlineButton';
-
+import { activateDeactivateUser, getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
 interface props {
-    teacherList: Array<string | number>;
+    parentsList: Array<string | number>;
 }
-const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
+const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
+    const [parent, setParent] = useState<any>([]);
+    useEffect(() => {
+        if (parentsList) {
+            setParent(parentsList);
+        }
+    }, [parentsList]);
     const routes = useHistory();
     const dispatch = useDispatch();
     const handleRoutes = () => {
@@ -28,38 +30,32 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             },
         });
     };
-
-    const handleClick = () => {
-        routes.push({
-            pathname: '/admin/teacher/detail',
-            state: {
-                teacherId: teacherList,
-            },
-        });
+    const handleActiveInactive = (id: number, i: number) => {
+        const data = [...parent];
+        data[i].isActive = !data[i].isActive;
+        setParent(data);
+        dispatch(activateDeactivateUser(id, callGetParents));
     };
-
-    const handleActiveInactive = (id: number) => {
-        // setSwitchState(!switchState)
-        dispatch(activateDeactivateTeacher(id));
-        dispatch(getallTeacherAPIcall());
+    const callGetParents = () => {
+        dispatch(getallParentsAPIcall());
     };
-
     return (
         <div className="student-wrapper">
             <CardContainer>
-                {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
-                <AddButton title="Teachers" />
+                {/* <AddButton title="Parents" btnIcon={<Add />} btnTitle="Add New Parent" trigger={handleRoutes} /> */}
+                <AddButton title="Parents" />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable
-                            showToolbar={true}
+                            showToolbar={false}
                             showPagination={true}
                             selectable={true}
                             tableHeight="100vh"
                             columns={[
                                 {
+                                    width: '23%',
                                     title: 'First Name',
                                     field: 'firstName',
                                     // render: (rowData: any) => (
@@ -67,60 +63,44 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     // ),
                                 },
                                 {
+                                    width: '23%',
                                     title: 'Last Name',
                                     field: 'lastName',
+                                    // render: (rowData: any) => (
+                                    //     <TableUserProfile name={rowData.schoolName}/>
+                                    // ),
                                 },
                                 {
+                                    width: '23%',
                                     title: 'Gender',
                                     field: 'gender',
                                 },
                                 {
+                                    width: '23%',
                                     title: 'Phone Number',
                                     field: 'phoneNumber',
                                 },
                                 {
+                                    width: '23%',
                                     title: 'Location',
                                     field: 'location',
                                 },
-                                {
-                                    title: 'Document Type',
-                                    field: 'docType',
-                                },
-                                {
-                                    title: 'Document Status',
-                                    field: 'docStatus',
-                                    render: () => (
-                                        <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                            Pending
-                                        </Typography>
-                                    ),
-                                },
 
                                 {
-                                    title: 'Active/Inactvie',
+                                    width: '23%',
+                                    title: 'Approve/Reject',
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.teacherId)}
+                                            onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
                                     ),
                                 },
-                                {
-                                    title: 'Action',
-                                    field: 'docStatus',
-                                    render: () => (
-                                        <OutlineButton
-                                            btnClick={handleClick}
-                                            style={{ width: '12rem' }}
-                                            text="View Details"
-                                        />
-                                    ),
-                                },
                             ]}
-                            rowData={teacherList}
+                            rowData={parent}
                         />
                     </div>
                 </div>
@@ -129,4 +109,4 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     );
 };
 
-export default TeacherList;
+export default ParentsList;

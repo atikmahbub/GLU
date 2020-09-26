@@ -64,6 +64,7 @@ const IndividualHomeworkPageContainer: FC<IIndividualHomeworkPageContainer> = ({
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="secondary"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
