@@ -99,7 +99,7 @@ export const teacherStyle = {
         marginTop: '2.5625rem',
     },
     preNum: {
-        width: '30%',
+        width: '100%',
         display: 'inline-block',
         marginRight: '3%',
     },
