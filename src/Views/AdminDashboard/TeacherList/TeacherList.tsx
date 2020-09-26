@@ -29,11 +29,11 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
         });
     };
 
-    const handleClick = () => {
+    const handleDetails = (data:any)=> {
         routes.push({
             pathname: '/admin/teacher/detail',
             state: {
-                teacherId: teacherList,
+                teacherDetails: data,
             },
         });
     };
@@ -101,7 +101,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData.teacherId)}
+                                            onChange={() => handleActiveInactive(rowData)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -111,9 +111,9 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Action',
                                     field: 'docStatus',
-                                    render: () => (
+                                    render: (rowData:any) => (
                                         <OutlineButton
-                                            btnClick={handleClick}
+                                            btnClick={()=>handleDetails(rowData)}
                                             style={{ width: '12rem' }}
                                             text="View Details"
                                         />

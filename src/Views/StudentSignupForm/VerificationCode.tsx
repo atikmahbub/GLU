@@ -24,7 +24,7 @@ const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumbe
     return (
         <div className="info__container">
             <Typography variant="h6" className="small__heading">
-                verification Code
+                Verification Code
             </Typography>
             <div className="otp-container">
                 <OtpInput value={context.state.otp} onChange={handleOtp} numInputs={6} />
