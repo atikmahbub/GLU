@@ -27,11 +27,11 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
 
-    const handleClick = () => {
+    const handleDetails = (data:any)=> {
         routes.push({
             pathname: '/admin/teacher/detail',
             state: {
-                teacherId: teacherList,
+                teacherDetails: data,
             },
         });
     };
@@ -118,9 +118,9 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Action',
                                     field: 'docStatus',
-                                    render: () => (
+                                    render: (rowData:any) => (
                                         <OutlineButton
-                                            btnClick={handleClick}
+                                            btnClick={()=>handleDetails(rowData)}
                                             style={{ width: '12rem' }}
                                             text="View Details"
                                         />

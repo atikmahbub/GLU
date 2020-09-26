@@ -30,6 +30,7 @@ const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
                 </div>
                 <div className="col-md-8 mb-3">
                     <UnderLineAddornmentSingleIcon
+                        disableRipple={true}
                         buttonClick={handleOtp}
                         label=""
                         type="number"
