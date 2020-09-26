@@ -9,8 +9,9 @@ interface props {
     icon?: React.ReactNode;
     type?:string;
     buttonClick?:()=> void
+    disableRipple?:boolean
 }
-const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ className, value, label, onChange, icon, type, buttonClick }) => {
+const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ className, value, label, onChange, icon, type, buttonClick, disableRipple }) => {
     return (
         <FormControl className={`${className}`} variant="outlined" fullWidth>
             <InputLabel htmlFor="password-input">{label}</InputLabel>
@@ -26,7 +27,7 @@ const UnderLineAddornmentSingleIcon: React.FunctionComponent<props> = ({ classNa
                             aria-label="toggle password visibility"
                             onClick={buttonClick}
                             edge="end"
-                            // disableRipple
+                            disableRipple={disableRipple}
                         >
                             {icon}
                         </IconButton>

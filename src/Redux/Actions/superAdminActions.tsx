@@ -12,7 +12,9 @@ import {
     ADMIN_STUDENT_LIST,
     ADMIN_PARENTS_LIST,
     ADMIN_ALL_USERS_COUNT,
+    TEACHER_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
+import { Dispatch } from 'react';
 
 export const getallUsersCountAPIcall = () => {
     return (dispatch: any) => {
@@ -79,7 +81,6 @@ export const getallTeacherAPIcall = () => {
     };
 };
 
-
 export const getallParentsAPIcall = () => {
     return (dispatch: any) => {
         API.get(superAdminEndpoints.getAllParents)
@@ -98,7 +99,7 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
         API.post(superAdminEndpoints.addSchool, data)
             .then((res) => {
                 dispatch(spinner(false));
-                toast.success("Invite Sent successfully.");
+                toast.success('Invite Sent successfully.');
                 dispatch(registerDataRes(res.data.data));
             })
             .catch((err) => {
@@ -107,49 +108,47 @@ export const addNewSchoolAPIcall = (data: any, history: any) => {
     };
 };
 
-export const activateDeactivateUser = (id: number, callback?:()=>void) => {
+export const activateDeactivateUser = (id: number, callback?: () => void) => {
     return (dispatch: any) => {
-        API.put(superAdminEndpoints.activateDeactivateSchool + "/" + id )
-        .then((res) => {
-            dispatch(spinner(false));
-            toast.success('Status Changed Successfully.');
-            if(callback){
-                callback();
-            }
-        })
-        .catch((err) => {
-            handleError(dispatch, err);
-        });       
-    }
-}
-
+        API.put(superAdminEndpoints.activateDeactivateSchool + '/' + id)
+            .then((res) => {
+                dispatch(spinner(false));
+                toast.success('Status Changed Successfully.');
+                if (callback) {
+                    callback();
+                }
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const activateDeactivateVideo = (id: number) => {
     return (dispatch: any) => {
-        API.put(superAdminEndpoints.activateDeactivateVideo + "/" + id)
-        .then((res) => {
-            dispatch(spinner(false));
-            toast.success("School Status Updated");
-        })
-        .catch((err) => {
-            handleError(dispatch, err);
-        });       
-    }
-}
-
+        API.put(superAdminEndpoints.activateDeactivateVideo + '/' + id)
+            .then((res) => {
+                dispatch(spinner(false));
+                toast.success('School Status Updated');
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const activateDeactivateTeacher = (id: number) => {
     return (dispatch: any) => {
-        API.put(superAdminEndpoints.activateDeactivateTeacher + "/" + id)
-        .then((res) => {
-            dispatch(spinner(false));
-            toast.success("Teacher Status Updated");
-        })
-        .catch((err) => {
-            handleError(dispatch, err);
-        });       
-    }
-}
+        API.put(superAdminEndpoints.activateDeactivateTeacher + '/' + id)
+            .then((res) => {
+                dispatch(spinner(false));
+                toast.success('Teacher Status Updated');
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
 
 export const schoolList = (data: any) => {
     return {
@@ -157,7 +156,6 @@ export const schoolList = (data: any) => {
         payload: data,
     };
 };
-
 
 export const videoList = (data: any) => {
     return {
@@ -173,14 +171,12 @@ export const adminTeacherList = (data: any) => {
     };
 };
 
-
 export const adminStudentList = (data: any) => {
     return {
         type: ADMIN_STUDENT_LIST,
         payload: data,
     };
 };
-
 
 export const adminParentsList = (data: any) => {
     return {
@@ -189,11 +185,28 @@ export const adminParentsList = (data: any) => {
     };
 };
 
-
-
 export const allUsersCount = (data: any) => {
     return {
         type: ADMIN_ALL_USERS_COUNT,
+        payload: data,
+    };
+};
+
+export const teacherDetailSuperAdmin = (id: number) => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(`${superAdminEndpoints.teacherDetails}${id}`)
+            .then((res: any) => {
+                dispatch(superAdminTeacherDetailsRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const superAdminTeacherDetailsRes = (data: any) => {
+    return {
+        type: TEACHER_DETAILS_SUPER,
         payload: data,
     };
 };
