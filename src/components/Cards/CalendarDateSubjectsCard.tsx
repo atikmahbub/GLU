@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
@@ -89,4 +89,4 @@ CalendarDateSubjectsCard.defaultProps = {
     background: 'primary',
 };
 
-export default memo(CalendarDateSubjectsCard);
+export default CalendarDateSubjectsCard;

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useHistory } from 'react-router';
 
 interface props {

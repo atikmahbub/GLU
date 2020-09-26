@@ -32,6 +32,7 @@ const TutorProfilePageContainer: FC<ITutorProfilePageContainer> = ({ userType })
         <NavigationMenu
             absolute
             colorWhite
+            userType={userType}
             background="transparent"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

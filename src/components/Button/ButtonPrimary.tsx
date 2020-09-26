@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import Button, { ButtonProps } from '@material-ui/core/Button';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -58,4 +58,4 @@ ButtonPrimary.defaultProps = {
     outlinedVariant: 1,
 };
 
-export default memo(ButtonPrimary);
+export default ButtonPrimary;

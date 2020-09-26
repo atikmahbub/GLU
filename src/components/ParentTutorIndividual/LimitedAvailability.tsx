@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
