@@ -99,7 +99,7 @@ export const studentStyle = {
         marginTop: '2.5625rem',
     },
     preNum: {
-        width: '30%',
+        width: '100%',
         display: 'inline-block',
         marginRight: '3%',
     },
@@ -155,7 +155,7 @@ export const studentStyle = {
     image: {
         width: '11.5rem',
         height: '11.47rem',
-        marginTop: '6rem',
+        marginTop: '3rem',
     },
     image2: {
         width: '100%',

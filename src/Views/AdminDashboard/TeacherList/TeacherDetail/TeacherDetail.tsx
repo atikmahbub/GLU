@@ -45,7 +45,7 @@ const TeacherDetail = () => {
         <Box component="div" className={classes.root}>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
-                    <h1>Documents</h1>
+                    <h1>Teacher</h1>
                     <div>
                         <img className={classes.image2} src={Img.chairman} alt="tutor" />
                     </div>
@@ -76,7 +76,7 @@ const TeacherDetail = () => {
                                 className={classes.textareaClass}
                             />
                         </div>
-                        <div className={classes.detailsText}>Your Details</div>
+                        <div className={classes.detailsText}>Teacher Details</div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>
@@ -116,23 +116,17 @@ const TeacherDetail = () => {
 
                         <div className={classes.mobile}>
                             <div className={classes.preNum}>
-                                <label htmlFor="countryCode" className={classes.inputLabel}>
+                                <label htmlFor="mobile" className={classes.inputLabel}>
                                     Mobile No
                                 </label>
-                                <select value={'+91'} id="countryCode" className={classes.selectInputBox}>
-                                    <option value="+971">UAE/ +971</option>
-                                    <option value="+971">AUS/ +971</option>
-                                    <option value="+971">USA/ +971</option>
-                                    <option value="+971">GBR/ +971</option>
-                                </select>
-                            </div>
-                            <div className={classes.mainNum}>
-                                <input
-                                    value={teacherData.phoneNumber}
-                                    type="number"
-                                    id="mobile"
-                                    className={classes.inputBox}
-                                ></input>
+                                <div>
+                                    <input
+                                        value={teacherData.phoneNumber}
+                                        type="number"
+                                        id="mobile"
+                                        className={classes.inputBox}
+                                    ></input>
+                                </div>
                             </div>
                         </div>
 

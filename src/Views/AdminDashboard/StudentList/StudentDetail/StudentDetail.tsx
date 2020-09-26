@@ -45,26 +45,8 @@ const StudentDetail = () => {
         <Box component="div" className={classes.root}>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
-                    <h1>Documents</h1>
+                    <h1>Student</h1>
                     <div>
-                        <img className={classes.image2} src={Img.chairman} alt="tutor" />
-                    </div>
-                    <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
-                        className={classes.upload}
-                    >
-                        Approve
-                    </div>
-                    <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
-                        className={classes.upload}
-                    >
-                        Reject
-                    </div>
-                </Grid>
-
-                <Grid item xs={6}>
-                    <div className={classes.details}>
                         <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
 
                         <div className={classes.bio}>
@@ -76,7 +58,7 @@ const StudentDetail = () => {
                                 className={classes.textareaClass}
                             />
                         </div>
-                        <div className={classes.detailsText}>Your Details</div>
+                        <div className={classes.detailsText}>Student Details</div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>
@@ -116,23 +98,17 @@ const StudentDetail = () => {
 
                         <div className={classes.mobile}>
                             <div className={classes.preNum}>
-                                <label htmlFor="countryCode" className={classes.inputLabel}>
+                                <label htmlFor="mobile" className={classes.inputLabel}>
                                     Mobile No
                                 </label>
-                                <select value={'+91'} id="countryCode" className={classes.selectInputBox}>
-                                    <option value="+971">UAE/ +971</option>
-                                    <option value="+971">AUS/ +971</option>
-                                    <option value="+971">USA/ +971</option>
-                                    <option value="+971">GBR/ +971</option>
-                                </select>
-                            </div>
-                            <div className={classes.mainNum}>
-                                <input
-                                    // value={teacherData.phoneNumber}
-                                    type="number"
-                                    id="mobile"
-                                    className={classes.inputBox}
-                                ></input>
+                                <div>
+                                    <input
+                                        // value={teacherData.phoneNumber}
+                                        type="number"
+                                        id="mobile"
+                                        className={classes.inputBox}
+                                    ></input>
+                                </div>
                             </div>
                         </div>
 
