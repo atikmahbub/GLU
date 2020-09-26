@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, makeStyles, TextareaAutosize } from '@material-ui/core';
-import { useLocation } from 'react-router-dom';
-
-import Img from '../../../../Assets/images';
-import { studentStyle } from './studentStyles.ts';
+import { studentStyle } from './studentStyles';
 import { useDispatch, useSelector } from 'react-redux';
-import { teacherDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
+import { useLocation } from 'react-router';
+import { studentDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
+import commonImg from '../../../../Assets/images';
 
 const useStyle = makeStyles(studentStyle as any);
 
 const StudentDetail = () => {
     const classes = useStyle();
-    // const [studentData, setStudentData] = useState({
-    //     firstName: '',
-    //     lastName: '',
-    //     bio: '',
-    //     email: '',
-    //     phoneNumber: '',
-    //     city: '',
-    // });
-    // const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
-    // const location = useLocation();
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     if (location?.state?.hasOwnProperty('teacherDetails')) {
-    //         dispatch(teacherDetailSuperAdmin((location as any)?.state?.teacherDetails?.teacherId));
-    //     }
-    // }, []);
-    // useEffect(() => {
-    //     if (teachetDetails) {
-    //         const data = {
-    //             firstName: teachetDetails.firstName,
-    //             lastName: teachetDetails.lastName,
-    //             bio: teachetDetails.bio,
-    //             email: teachetDetails?.User?.email,
-    //             phoneNumber: teachetDetails.phoneNumber,
-    //             city: teachetDetails.location,
-    //         };
-    //         setTeacherData(data);
-    //     }
-    // }, [teachetDetails]);
+    const [studentData, setStudentData] = useState({
+        firstName: '',
+        lastName: '',
+        bio: '',
+        email: '',
+        phoneNumber: '',
+        city: '',
+    });
+    const studentDetails = useSelector((state: any) => state.superAdminReducer.studentDetails);
+    const location = useLocation();
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (location?.state?.hasOwnProperty('studentDetails')) {
+            dispatch(studentDetailSuperAdmin((location as any)?.state?.studentDetails?.studentId));
+        }
+    }, []);
+    useEffect(() => {
+        if (studentDetails) {
+            console.log(studentDetails)
+            const data = {
+                firstName: studentDetails.firstName,
+                lastName: studentDetails.lastName,
+                bio: studentDetails.bio,
+                email: studentDetails?.User?.email,
+                phoneNumber: studentDetails.phoneNumber,
+                city: studentDetails.location,
+            };
+            setStudentData(data);
+        }
+    }, [studentDetails]);
 
     return (
         <Box component="div" className={classes.root}>
@@ -47,7 +47,7 @@ const StudentDetail = () => {
                 <Grid item xs={6}>
                     <h1>Documents</h1>
                     <div>
-                        <img className={classes.image2} src={Img.chairman} alt="tutor" />
+                        <img className={classes.image2} src={commonImg.chairman} alt="tutor" />
                     </div>
                     <div
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
@@ -65,13 +65,13 @@ const StudentDetail = () => {
 
                 <Grid item xs={6}>
                     <div className={classes.details}>
-                        <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
+                        <img src={commonImg.scaffgirl} alt="tutor" className={classes.image} />
 
                         <div className={classes.bio}>
                             <div className={classes.bioText}>Bio</div>
                             <TextareaAutosize
                                 id="bio"
-                                // value={teacherData.bio}
+                                value={studentData.bio}
                                 rowsMin={5}
                                 className={classes.textareaClass}
                             />
@@ -83,7 +83,7 @@ const StudentDetail = () => {
                                     First Name
                                 </label>
                                 <input
-                                    // value={teacherData.firstName}
+                                    value={studentData.firstName}
                                     type="text"
                                     id="firstName"
                                     className={classes.inputBox}
@@ -94,7 +94,7 @@ const StudentDetail = () => {
                                     Last Name
                                 </label>
                                 <input
-                                    // value={teacherData.lastName}
+                                    value={studentData.lastName}
                                     type="text"
                                     id="lastName"
                                     className={classes.inputBox}
@@ -107,7 +107,7 @@ const StudentDetail = () => {
                                 Email
                             </label>
                             <input
-                                // value={teacherData.email}
+                                value={studentData.email}
                                 type="text"
                                 id="email"
                                 className={classes.inputBox}
@@ -128,7 +128,7 @@ const StudentDetail = () => {
                             </div>
                             <div className={classes.mainNum}>
                                 <input
-                                    // value={teacherData.phoneNumber}
+                                    value={studentData.phoneNumber}
                                     type="number"
                                     id="mobile"
                                     className={classes.inputBox}
@@ -141,7 +141,7 @@ const StudentDetail = () => {
                                 Location
                             </label>
                             <input
-                                // value={teacherData.city}
+                                value={studentData.city}
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
