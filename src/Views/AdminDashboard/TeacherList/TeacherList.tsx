@@ -28,18 +28,27 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             },
         });
     };
+
+    const handleClick = () => {
+        routes.push({
+            pathname: '/admin/teacher/detail',
+            state: {
+                teacherId: teacherList,
+            },
+        });
+    };
+
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
-        dispatch(activateDeactivateTeacher(id))
+        dispatch(activateDeactivateTeacher(id));
         dispatch(getallTeacherAPIcall());
-    }
-    
+    };
+
     return (
         <div className="student-wrapper">
             <CardContainer>
                 {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
-                <AddButton title="Teachers"/>
-
+                <AddButton title="Teachers" />
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -60,9 +69,6 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Last Name',
                                     field: 'lastName',
-                                    // render: (rowData: any) => (
-                                    //     <TableUserProfile name={rowData.schoolName}/>
-                                    // ),
                                 },
                                 {
                                     title: 'Gender',
@@ -83,9 +89,13 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Document Status',
                                     field: 'docStatus',
-                                    render: ()=> (<Typography style={{color: colors.primary, fontSize: '1.25rem'}}>Pending</Typography>)
+                                    render: () => (
+                                        <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                            Pending
+                                        </Typography>
+                                    ),
                                 },
-                    
+
                                 {
                                     title: 'Active/Inactvie',
                                     render: (rowData: any) => (
@@ -101,9 +111,14 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Action',
                                     field: 'docStatus',
-                                    render: ()=> (<OutlineButton style={{width: '12rem'}} text="View Details"/>)
+                                    render: () => (
+                                        <OutlineButton
+                                            btnClick={handleClick}
+                                            style={{ width: '12rem' }}
+                                            text="View Details"
+                                        />
+                                    ),
                                 },
-
                             ]}
                             rowData={teacherList}
                         />

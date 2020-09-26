@@ -26,7 +26,7 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     docType: 'Driving Licence',
-                    docStatus: 'Pending'
+                    docStatus: 'Pending',
                 };
             });
             setTeacherList(data);
