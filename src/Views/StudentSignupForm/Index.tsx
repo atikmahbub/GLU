@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, IconButton } from '@material-ui/core';
-import { ArrowForward, ArrowBack, SportsBaseballRounded } from '@material-ui/icons';
+import { ArrowForward, ArrowBack } from '@material-ui/icons';
 import WhoIam from './WhoIam';
 import InfoContainer from './InfoContainer';
 import Education from './Education';
@@ -76,6 +76,7 @@ const Index: React.FunctionComponent = () => {
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
+    const [stuStepCom, setStuStepCom] = useState([true, false, false, false, false, false]);
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
@@ -158,10 +159,16 @@ const Index: React.FunctionComponent = () => {
     const handleNext = () => {
         setEditMode(false);
         userRegistration();
+        console.log(active);
         if (active === 0) {
             console.log('run');
             goToNextPage();
         }
+        // if(active===2 && whoIam==='student'){
+        //     goToNextPage();
+        //     const data = [...stuStepCom];
+        //     data[active] = true;
+        // }
         if (
             (active === 5 && whoIam === 'student') ||
             (active === 5 && whoIam === 'parent') ||
@@ -179,7 +186,18 @@ const Index: React.FunctionComponent = () => {
                 setActive((prevState) => prevState + 1);
             }
         }
+        // if (whoIam === 'student') {
+        //     const data = [...stuStepCom];
+        //     data[active] = true;
+        //     setStuStepCom(data);
+        // }
     };
+
+    // const checkGoNextOrNot = () => {
+    //     if (whoIam === 'student' && stuStepCom[active]) {
+    //         goToNextPage();
+    //     }
+    // };
 
     const dispatch = useDispatch();
     const userRegistration = () => {
@@ -220,7 +238,6 @@ const Index: React.FunctionComponent = () => {
             };
         });
         if (active === 1) {
-            SportsBaseballRounded;
             if (useUpdateApi) {
                 delete registerData.role;
                 delete registerData.firebaseToken;
@@ -481,7 +498,7 @@ const Index: React.FunctionComponent = () => {
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'About You', comp: <TeacherBio /> },
-        { title: 'Your Education', comp: <Education handler={handleNext} skip={goToNextPage}  /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} skip={goToNextPage} /> },
         {
             title: 'Your Education',
             comp: (
@@ -508,7 +525,10 @@ const Index: React.FunctionComponent = () => {
         { title: 'Your Skill', comp: <TeacherSkills /> },
         { title: 'Your Identity', comp: <IdentyCard /> },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} /> },
+        {
+            title: 'Verify Account',
+            comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} />,
+        },
     ];
     const getComponent = () => {
         switch (whoIam) {

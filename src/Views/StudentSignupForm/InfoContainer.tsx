@@ -108,7 +108,7 @@ const InfoContainer: React.FunctionComponent<props> = ({goNext}) => {
                     />
                 </RadioGroup>
             </FormControl>
-            <OutlineButton text="Next" width="10rem" btnClick={context.goNext} />
+            <OutlineButton text="Next" width="10rem" mt="3rem" btnClick={context.goNext} />
         </div>
     );
 };

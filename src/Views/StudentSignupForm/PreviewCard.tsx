@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
 import { registerContext } from './Index';

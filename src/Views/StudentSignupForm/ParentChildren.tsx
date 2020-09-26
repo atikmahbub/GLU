@@ -32,11 +32,11 @@ const ParentChildren: React.FunctionComponent<props> = ({ handler }) => {
         };
         context.setState(data);
     };
-    const handleSphoneCode = (value: string) => {
+    const handleSphoneCode = (e: React.SyntheticEvent<any>) => {
         const data = { ...context.state };
         data.parent.childs[data.parent.childs.length - 1] = {
             ...context.state.parent.childs[data.parent.childs.length - 1],
-            phoneCode: value,
+            phoneCode: (e.target as any).value,
         };
         context.setState(data);
     };
@@ -67,7 +67,7 @@ const ParentChildren: React.FunctionComponent<props> = ({ handler }) => {
                 email={context.state.parent.childs[context.state.parent.childs.length - 1].email}
                 handleEmail={handleSemailName}
                 mobilePre={context.state.parent.childs[context.state.parent.childs.length - 1].phoneCode}
-                handleMobilePre={(value: string) => handleSphoneCode(value)}
+                handleMobilePre={handleSphoneCode}
                 mobile={context.state.parent.childs[context.state.parent.childs.length - 1].mobile}
                 handleMobile={handleSPhoneNumber}
                 location={context.state.parent.childs[context.state.parent.childs.length - 1].location}
