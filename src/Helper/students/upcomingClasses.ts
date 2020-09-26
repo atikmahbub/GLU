@@ -1,6 +1,5 @@
-import format from 'date-fns/format';
 import { FeaturedCardElement, NextClassCardElement } from '../../components/Cards/types';
-import { parseTime } from '../date';
+import { parseDate, parseTime } from '../date';
 
 export function dataToNextClassCard({
     description,
@@ -16,7 +15,7 @@ export function dataToNextClassCard({
         description,
         subTitle: '75 min',
         name: `${FreelancerSubjectTeacher.Teacher.firstName} ${FreelancerSubjectTeacher.Teacher.lastName}`,
-        date: format(new Date(scheduledOn), 'MM/dd/yy'),
+        date: parseDate(scheduledOn),
         startTime: parseTime(startTime),
         endTime: parseTime(endTime),
     };

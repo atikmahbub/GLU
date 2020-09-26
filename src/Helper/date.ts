@@ -12,3 +12,7 @@ export function getCurrentMonth(): string {
 export function getCurrentYear(): string {
     return format(new Date(), 'yyyy');
 }
+
+export function parseDate(date: string): string {
+    return format(new Date(date), 'MM/dd/yy')
+}

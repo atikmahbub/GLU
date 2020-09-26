@@ -12,9 +12,10 @@ import HomeworkCard from '../../components/Cards/HomeworkCard';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
 import useMenuList from '../../Hooks/useMenuList';
 import { classesFiltersData } from '../../data/filters';
-import { homeworks } from '../../data/homework';
 import PageFooter from '../../components/PageFooter';
-import { UserType } from './types';
+import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
+import { HomeworkPage, UserType } from './types';
+import { HomeworkCardElement } from '../../components/Cards/types';
 
 const useStyles = makeStyles({
     filterContainer: {
@@ -36,11 +37,24 @@ const useStyles = makeStyles({
     },
 });
 
-interface IHomeworkPageContainer extends UserType {}
+interface IHomeworkPageContainer extends UserType, HomeworkPage {
+    isLoading: boolean;
+}
 
-const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
+const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({
+    userType,
+    isLoading,
+    incompleteCount,
+    overdueCount,
+    totalCount,
+    homeworks,
+    overdueHomework,
+}) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
+
+    const filteredHomeworks: HomeworkCardElement[] = [...homeworks, ...overdueHomework];
+
     return (
         <NavigationMenu
             absolute
@@ -49,6 +63,7 @@ const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            {isLoading && <FullScreenLoader />}
             <FullHeightContainer justify="space-between">
                 <CardsGridContainer>
                     <ColumnsContainer
@@ -64,11 +79,11 @@ const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
                                     />
                                 </Grid>
                                 <Grid container direction="column" className={classes.counter}>
-                                    <TitlePrimary>13</TitlePrimary>
+                                    <TitlePrimary>{incompleteCount}</TitlePrimary>
                                     <Typography className={classes.counterTitle}>Incomplete</Typography>
                                 </Grid>
                                 <Grid container direction="column">
-                                    <TitlePrimary>2</TitlePrimary>
+                                    <TitlePrimary>{overdueCount}</TitlePrimary>
                                     <Typography className={classes.counterTitle}>Overdue</Typography>
                                 </Grid>
                             </Grid>
@@ -77,10 +92,10 @@ const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({ userType }) => {
                             <Grid container direction="column">
                                 <Grid container direction="column" className={classes.rightTitleContainer}>
                                     <Typography className={classes.rightTitle}>Total Assignments</Typography>
-                                    <Typography className={classes.rightTitle}>15</Typography>
+                                    <Typography className={classes.rightTitle}>{totalCount}</Typography>
                                 </Grid>
                                 <Grid container>
-                                    {homeworks.map((homework, index) => (
+                                    {filteredHomeworks.map((homework, index) => (
                                         <HomeworkCard
                                             {...homework}
                                             titleLink={`/${userType}/homework/${homework.id}`}
