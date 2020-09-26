@@ -19,13 +19,13 @@ const useStyles = makeStyles({
     },
     inputRoot: {
         flexGrow: 1,
-        minWidth: ({ fullWidth }: any) => (fullWidth ? 'auto' :  250),
+        minWidth: ({ fullWidth }: any) => (fullWidth ? 'auto' : 250),
         height: '2.75rem',
         '& input': {
             padding: 0,
             height: '100%',
-            fontSize: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1rem' : '1.5625rem',
-            lineHeight: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1' : '1.875rem'
+            fontSize: ({ fontSizeVariant }: any) => (fontSizeVariant === 1 ? '1rem' : '1.5625rem'),
+            lineHeight: ({ fontSizeVariant }: any) => (fontSizeVariant === 1 ? '1' : '1.875rem'),
         },
     },
     inputRootUnderlined: {
@@ -63,13 +63,14 @@ const useStyles = makeStyles({
         width: 35,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-end',
+        paddingBottom: '1px',
     },
     label: {
         color: '#000',
         marginBottom: 0,
-        fontSize: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1rem' : '1.5625rem',
-        lineHeight: ({ fontSizeVariant }: any) => fontSizeVariant === 1 ? '1' : '1.875rem'
+        fontSize: ({ fontSizeVariant }: any) => (fontSizeVariant === 1 ? '1rem' : '1.5625rem'),
+        lineHeight: ({ fontSizeVariant }: any) => (fontSizeVariant === 1 ? '1' : '1.875rem'),
     },
     labelTop: {
         marginBottom: '0.6875rem',
@@ -84,7 +85,7 @@ type FormControlInputProps = {
     name: string;
     placeholder?: string;
     value: string;
-    onChange?: (e:React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     variant?: 'underlined' | 'outlined';
     rounded?: boolean;
     fullWidth?: boolean;
@@ -111,9 +112,9 @@ const FormControlInput: FC<FormControlInputProps> = ({
     labelPlacement,
     rootClassName,
     inputRootClassName,
-    fontSizeVariant
+    fontSizeVariant,
 }) => {
-    const classes = useStyles({ icon, rounded, fullWidth, fontSizeVariant});
+    const classes = useStyles({ icon, rounded, fullWidth, fontSizeVariant });
     return (
         <Grid
             container
@@ -161,7 +162,7 @@ FormControlInput.defaultProps = {
     onChange: () => {},
     variant: 'underlined',
     labelPlacement: 'top',
-    fontSizeVariant: 1
+    fontSizeVariant: 1,
 };
 
 export default memo(FormControlInput);

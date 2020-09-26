@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextField, Typography, Checkbox, TablePagination } from '@material-ui/core';
+import { Button, TextField, Typography, Checkbox, TablePagination, makeStyles } from '@material-ui/core';
 import { ArrowDownward, Search } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { CsvBuilder } from 'filefy';
@@ -7,7 +7,14 @@ import OutlineBtn from '../Button/OutlineBtn';
 import { colors } from '../../Styles/colors';
 import FormControlInput from '../Form/FormControlInput';
 
-const SearchBoxFilterExport = ({ availabeProps, filter }) => {
+const useStyles = makeStyles({
+    parent: {
+        width: (props) => props.width,
+    },
+});
+
+const SearchBoxFilterExport = ({ availabeProps, filter, width, disableExport }) => {
+    const classes = useStyles({ width });
     const [showFilter, setShowFilter] = useState(false);
     const [search, setSearch] = useState('');
     const handleFilter = () => {
@@ -27,18 +34,21 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
         new CsvBuilder('products.csv').setColumns(headColumn).addRows(rowData).exportFile();
     };
     return (
-        <div className="search-box-container">
-            <div className="filter-container">
-                {filter}
-                <Button
-                    disableRipple
-                    className="export-btn"
-                    endIcon={<ArrowDownward className="icon" />}
-                    onClick={handleExport}
-                >
-                    Export
-                </Button>
-            </div>
+        <div className={`search-box-container ${classes.parent}`}>
+            {!disableExport && (
+                <div className="filter-container">
+                    {filter}
+                    <Button
+                        disableRipple
+                        className="export-btn"
+                        endIcon={<ArrowDownward className="icon" />}
+                        onClick={handleExport}
+                    >
+                        Export
+                    </Button>
+                </div>
+            )}
+
             <FormControlInput
                 id=""
                 name=""
@@ -56,6 +66,8 @@ const SearchBoxFilterExport = ({ availabeProps, filter }) => {
 SearchBoxFilterExport.propTypes = {
     availabeProps: PropTypes.object,
     filter: PropTypes.element,
+    width: PropTypes.string,
+    disableExport: PropTypes.bool,
 };
 
 export default SearchBoxFilterExport;
