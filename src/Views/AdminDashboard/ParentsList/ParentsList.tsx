@@ -90,10 +90,10 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
 
                                 {
                                     width: '23%',
-                                    title: 'Approve/Reject',
+                                    title: 'Active/Inactive',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isActive}
+                                            checked={rowData.isActive == true ? true : false}
                                             onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"

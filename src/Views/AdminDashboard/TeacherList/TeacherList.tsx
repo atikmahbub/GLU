@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardContainer from '../../../Containers/Cards/CardContainer';
 import { Add } from '@material-ui/icons';
 import AddButton from '../../../components/Dashobard/AddButton';
@@ -9,7 +9,7 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
-import { activateDeactivateTeacher, getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { activateDeactivateUser, getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { Typography } from '@material-ui/core';
 import { colors } from '../../../Styles/colors';
 import OutlineButton from '../../../components/Button/OutlineButton';
@@ -18,16 +18,14 @@ interface props {
     teacherList: Array<string | number>;
 }
 const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
+    const [students, setTeachers] = useState<any>([]);
+    useEffect(() => {
+        if (teacherList) {
+            setTeachers(teacherList);
+        }
+    }, [teacherList]);
     const routes = useHistory();
     const dispatch = useDispatch();
-    const handleRoutes = () => {
-        routes.push({
-            pathname: routeEndpoints.school.addNewSchool,
-            state: {
-                breadcrumb: routeEndpoints.teacher.addNewTeacherBread,
-            },
-        });
-    };
 
     const handleDetails = (data:any)=> {
         routes.push({
@@ -37,10 +35,13 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             },
         });
     };
-
-    const handleActiveInactive = (id: number) => {
-        // setSwitchState(!switchState)
-        dispatch(activateDeactivateTeacher(id));
+    const handleActiveInactive = (id: number, i: number) => {
+        const data = [...students];
+        data[i].isActive = !data[i].isActive;
+        setTeachers(data);
+        dispatch(activateDeactivateUser(id, callGetParents));
+    };
+    const callGetParents = () => {
         dispatch(getallTeacherAPIcall());
     };
 
@@ -58,7 +59,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                             disableExport={true}
                             showToolbar={true}
                             showPagination={true}
-                            selectable={true}
+                            selectable={false}
                             tableHeight="100vh"
                             columns={[
                                 {
@@ -91,10 +92,16 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Document Status',
                                     field: 'docStatus',
-                                    render: () => (
-                                        <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                            Pending
-                                        </Typography>
+                                    render: (rowData: any) => (
+                                           rowData.isVerifiedByAdmin
+                                            ?
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Approved
+                                            </Typography> 
+                                            :
+                                            <Typography style={{ color: "red", fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>                          
                                     ),
                                 },
 
@@ -102,8 +109,8 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     title: 'Active/Inactvie',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isActive}
-                                            onChange={() => handleActiveInactive(rowData)}
+                                            checked={rowData.isActive == true ? true : false}
+                                            onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
