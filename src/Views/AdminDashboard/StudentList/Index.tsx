@@ -30,6 +30,7 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     isVerified: checkValue(element.isVerified),
+                    isActive: checkValue(element.isActive),
                 };
             });
             
