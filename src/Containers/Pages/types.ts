@@ -49,3 +49,14 @@ export interface HomeworkPage {
     homeworks: HomeworkCardElement[];
     overdueHomework: HomeworkCardElement[];
 }
+
+export interface DashboardSchool {
+    homework: {
+        isLoading: boolean;
+        count: number;
+    };
+}
+
+export interface DashboardPage {
+    school: DashboardSchool;
+}

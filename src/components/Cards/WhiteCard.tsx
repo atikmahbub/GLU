@@ -5,9 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import FullSizeLoader from '../Loaders/FullSizeLoader';
 
 const useStyles = makeStyles({
     root: {
+        position: 'relative',
         padding: '0 1.5625rem',
         minHeight: 250,
         height: 'fit-content',
@@ -61,9 +63,10 @@ interface IWhiteCard {
     titleRightLink?: string;
     titleRightLinkTo?: string;
     description?: string;
-    value?: string;
+    value?: string | number;
     forcePadding?: boolean;
     content?: ReactNode;
+    isLoading?: boolean;
 }
 
 const WhiteCard: FC<IWhiteCard> = ({
@@ -78,10 +81,12 @@ const WhiteCard: FC<IWhiteCard> = ({
     value,
     forcePadding,
     content,
+    isLoading,
 }) => {
     const classes = useStyles({ forcePadding });
     return (
         <Grid container item xs={size} className={classes.root}>
+            {isLoading && <FullSizeLoader />}
             <Paper className={classes.paper}>
                 <Grid container direction="column" justify="space-between">
                     <Grid container justify="space-between">
