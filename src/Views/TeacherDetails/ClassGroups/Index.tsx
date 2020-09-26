@@ -48,7 +48,7 @@ const Index = () => {
             pathname: `/dashboard/teacher-details/class-group-details/${String(group).toLowerCase().replace(' ', '-')}`,
             state: {
                 forTeacher: true,
-                teacherData: teacherdata
+                teacherData: teacherdata,
             },
         });
     };

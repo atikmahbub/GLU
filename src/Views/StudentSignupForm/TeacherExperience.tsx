@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import ExperienceContainer from './ExperienceContainer';
 import OutlineButton from '../../components/Button/OutlineButton';
+import { registerContext } from './Index';
 
 interface props{
-    nextHandler?:() => void
+    nextHandler?:() => void;
+    skip?:()=>void;
 }
-const TeacherExperience: React.FunctionComponent<props> = ({nextHandler}) => {
+const TeacherExperience: React.FunctionComponent<props> = ({nextHandler, skip}) => {
+    const context = useContext(registerContext);
     return (
         <div className="info__container">
                 <ExperienceContainer />
-            <div className="mb-5"></div>
-            <OutlineButton text="Add" btnClick={nextHandler} />
+            <div className="mb-4"></div>
+            <OutlineButton text="Add" width="10rem" btnClick={nextHandler} />
+            <div className="mb-4"></div>
+            <OutlineButton text="Next" width="10rem" mt="4rem" btnClick={skip} />
         </div>
     );
 };

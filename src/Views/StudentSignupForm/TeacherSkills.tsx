@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { TextField } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import { registerContext } from './Index';
+import OutlineButton from '../../components/Button/OutlineButton';
 
 const TeacherSkills = () => {
     const context = useContext(registerContext);
@@ -52,6 +53,9 @@ const TeacherSkills = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="mt-4">
+                <OutlineButton text="Next" width="10rem" btnClick={context.goNext} />
             </div>
         </div>
     );

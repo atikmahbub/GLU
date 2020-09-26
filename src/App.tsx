@@ -8,6 +8,7 @@ import { rootRouteInterface } from './Interfaces/rootRouteInterface';
 import { rootPrivateRoute } from './Routes/RootRoute/rootPrivateRoute';
 import { MuiThemeProvider } from '@material-ui/core';
 import theme from "./Styles/theme";
+import Spinner from './components/Spinner/Spinner';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -17,6 +18,7 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <MuiThemeProvider theme={theme}>
+                    <Spinner/>
                     <ToastContainer closeButton={this.CloseButton} />
                     <Router>
                         <Suspense fallback={<div>Loading...</div>}>

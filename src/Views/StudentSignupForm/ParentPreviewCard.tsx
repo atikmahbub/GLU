@@ -45,8 +45,9 @@ const ParentPreviewCard: React.FunctionComponent<props> = ({ title, handler, dat
                 </div>
             ))}
             <div className="my-4">
-                <OutlineButton text="Add More" btnClick={() => handler()} />
+                <OutlineButton text="Add More" width="10rem" btnClick={() => handler()} />
             </div>
+            <OutlineButton text="Next" width="10rem" mt="3rem" btnClick={context.goNext} />
         </div>
     );
 };
