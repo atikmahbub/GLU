@@ -9,6 +9,7 @@ const useStyles = makeStyles({
     root: {
         width: ({ fullWidth }: any) => (fullWidth ? '100%' : 'fit-content'),
         position: 'relative',
+        
     },
     rootColumn: {
         flexDirection: 'column',
