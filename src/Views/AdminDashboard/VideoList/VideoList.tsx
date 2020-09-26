@@ -5,9 +5,7 @@ import AddButton from '../../../components/Dashobard/AddButton';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { routeEndpoints } from '../../../Utility/routeEndpoints';
-import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
-import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateVideo, getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
 interface props {
@@ -26,9 +24,9 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
     };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
-        dispatch(activateDeactivateVideo(id))
+        dispatch(activateDeactivateVideo(id));
         dispatch(getallVideoAPIcall());
-    }
+    };
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -38,7 +36,9 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable
-                            showToolbar={false}
+                            width="23rem"
+                            showToolbar={true}
+                            disableExport={true}
                             showPagination={true}
                             selectable={true}
                             tableHeight="100vh"
