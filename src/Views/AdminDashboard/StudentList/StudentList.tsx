@@ -49,6 +49,8 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable
+                            width="23rem"
+                            disableExport={true}
                             showToolbar={true}
                             showPagination={true}
                             selectable={true}
