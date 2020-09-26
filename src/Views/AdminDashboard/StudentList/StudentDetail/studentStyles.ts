@@ -1,6 +1,6 @@
 import { colors } from '../../../../Styles/colors';
 
-export const teacherStyle = {
+export const studentStyle = {
     root: {
         backgroundColor: colors.white,
         padding: '1.5rem',
