@@ -20,19 +20,19 @@ const Identity: React.FunctionComponent = () => {
             >
                 <FormControlLabel
                     value="dl"
-                    className="title"
+                    className="title textBlack"
                     control={<Radio className="radio-button" />}
                     label="Drivers License"
                 />
                 <FormControlLabel
                     value="passport"
-                    className="title"
+                    className="title textBlack"
                     control={<Radio className="radio-button" />}
                     label="Passport"
                 />
                 <FormControlLabel
                     value="nationalId"
-                    className="title"
+                    className="title textBlack"
                     control={<Radio className="radio-button" />}
                     label="National ID"
                 />

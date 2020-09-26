@@ -76,6 +76,7 @@ const Index: React.FunctionComponent = () => {
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
+    const [stuStepCom, setStuStepCom] = useState([true, false, false, false, false, false]);
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
@@ -158,9 +159,16 @@ const Index: React.FunctionComponent = () => {
     const handleNext = () => {
         setEditMode(false);
         userRegistration();
+        console.log(active);
         if (active === 0) {
+            console.log('run');
             goToNextPage();
         }
+        // if(active===2 && whoIam==='student'){
+        //     goToNextPage();
+        //     const data = [...stuStepCom];
+        //     data[active] = true;
+        // }
         if (
             (active === 5 && whoIam === 'student') ||
             (active === 5 && whoIam === 'parent') ||
@@ -178,10 +186,22 @@ const Index: React.FunctionComponent = () => {
                 setActive((prevState) => prevState + 1);
             }
         }
+        // if (whoIam === 'student') {
+        //     const data = [...stuStepCom];
+        //     data[active] = true;
+        //     setStuStepCom(data);
+        // }
     };
+
+    // const checkGoNextOrNot = () => {
+    //     if (whoIam === 'student' && stuStepCom[active]) {
+    //         goToNextPage();
+    //     }
+    // };
 
     const dispatch = useDispatch();
     const userRegistration = () => {
+        console.log('run');
         let role = '';
         if (whoIam === 'student') {
             role = 'Student';
@@ -301,7 +321,7 @@ const Index: React.FunctionComponent = () => {
     };
     const resendPhoneCode = (value: string) => {
         console.log(value);
-        const contact = { phoneNumber: `${state.student.veriCode}${value}` };
+        const contact = { phoneNumber: value };
         dispatch(registerPhoneNumberAPIcall(contact));
     };
 
@@ -423,6 +443,10 @@ const Index: React.FunctionComponent = () => {
         }
     }, [verifyUser]);
 
+    const skipPages = () => {
+        setActive((prevState) => prevState + 2);
+    };
+
     //==================component render========================//
     const renderStepper: any = {
         student: <StudentStepper active={active} />,
@@ -431,7 +455,7 @@ const Index: React.FunctionComponent = () => {
     };
     const student = [
         { title: 'Your details', comp: <InfoContainer /> },
-        { title: 'Your Education', comp: <Education handler={handleNext} /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} skip={skipPages} /> },
         {
             title: 'Your Education',
             comp: (
@@ -474,7 +498,7 @@ const Index: React.FunctionComponent = () => {
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'About You', comp: <TeacherBio /> },
-        { title: 'Your Education', comp: <Education handler={handleNext} /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} skip={goToNextPage} /> },
         {
             title: 'Your Education',
             comp: (
@@ -486,7 +510,7 @@ const Index: React.FunctionComponent = () => {
                 />
             ),
         },
-        { title: 'Your Experience', comp: <TeacherExperience nextHandler={handleNext} /> },
+        { title: 'Your Experience', comp: <TeacherExperience nextHandler={handleNext} skip={goToNextPage} /> },
         {
             title: 'Your Experience',
             comp: (
@@ -501,7 +525,10 @@ const Index: React.FunctionComponent = () => {
         { title: 'Your Skill', comp: <TeacherSkills /> },
         { title: 'Your Identity', comp: <IdentyCard /> },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
+        {
+            title: 'Verify Account',
+            comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} />,
+        },
     ];
     const getComponent = () => {
         switch (whoIam) {
@@ -541,7 +568,7 @@ const Index: React.FunctionComponent = () => {
                             <div className="stepper_marker">{renderStepper[whoIam]}</div>
                         </div>
                         <div className="col-md-6 mb-2">
-                            <Typography className="stepper__title">Tell us a bit about yourself</Typography>
+                            <Typography className="stepper__title">Please tell us a bit about yourself...</Typography>
                             <Typography className="stepper__title">{renderComponent[active].title}</Typography>
                             <RegisterProvider
                                 value={{
@@ -553,6 +580,7 @@ const Index: React.FunctionComponent = () => {
                                     whoIam: whoIam,
                                     active: active,
                                     disable: cmsRegister,
+                                    goNext: handleNext,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,
@@ -576,7 +604,7 @@ const Index: React.FunctionComponent = () => {
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
-                    <IconButton className="controller-button" disabled={loader} onClick={handleNext}>
+                    <IconButton className="controller-button" disabled={loader} onClick={goToNextPage}>
                         <ArrowForward className="icon" />
                     </IconButton>
                 )}

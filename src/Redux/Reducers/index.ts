@@ -9,6 +9,7 @@ import { classReducer } from './classReducer';
 import { subjectReducer } from './subjectReducer';
 import { fileUploadReducer } from './fileUploadReducer';
 import { superAdminReducer } from './superAdminReducer';
+import studentModuleReducer from './studentModuleReducer';
 
 export const rootReducer = combineReducers({
     authReducer,
@@ -21,4 +22,5 @@ export const rootReducer = combineReducers({
     subjectReducer,
     fileUploadReducer,
     superAdminReducer,
+    studentModule: studentModuleReducer
 });

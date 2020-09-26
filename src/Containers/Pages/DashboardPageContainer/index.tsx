@@ -9,6 +9,7 @@ import School from './School';
 import PageFooter from '../../../components/PageFooter';
 import Personal from './Personal';
 import useMenuList from '../../../Hooks/useMenuList';
+import { DashboardPage } from '../types';
 
 const useStyles = makeStyles({
     tabsContainer: {
@@ -20,11 +21,11 @@ const useStyles = makeStyles({
     },
 });
 
-interface IDashboardPageContainer {
+interface IDashboardPageContainer extends DashboardPage {
     userType: UserTypes;
 }
 
-const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType }) => {
+const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school }) => {
     const classes = useStyles();
     const [activeTab, setActiveTab] = useState('personal');
     const menuList = useMenuList(userType);
@@ -42,7 +43,7 @@ const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType }) => {
                     <Tab value="school" label="School" className={classes.tab} />
                 </Tabs>
             </CardsGridContainer>
-            {activeTab === 'school' && <School userType={userType} />}
+            {activeTab === 'school' && <School userType={userType} {...school} />}
             {activeTab === 'personal' && <Personal userType={userType} />}
             <PageFooter background="secondary" />
         </NavigationMenu>

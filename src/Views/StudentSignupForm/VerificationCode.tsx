@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Typography } from '@material-ui/core';
 import OtpInput from 'react-otp-input';
 import { registerContext } from './Index';
+import OutlineButton from '../../components/Button/OutlineButton';
 
 interface props {
     onClick?: (value: string) => void;
@@ -17,7 +18,7 @@ const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumbe
     const resendPassword = () => {
         if (onClick) {
             context.setState({ ...context.state, otp: '' });
-            onClick(context.student.veriMobile);
+            onClick(`${context.student.veriCode}${context.student.veriMobile}`);
         }
     };
     return (
@@ -36,6 +37,7 @@ const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumbe
                 Didn’t receive a code <span onClick={resendPassword}>Resend </span> or
                 <span onClick={changeNumber}> Change number </span>
             </Typography>
+            <OutlineButton text="Complete" width="10rem" mt="5rem" btnClick={context.goNext} />
         </div>
     );
 };

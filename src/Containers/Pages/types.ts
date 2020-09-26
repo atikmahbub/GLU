@@ -6,6 +6,7 @@ import {
     UpcomingClassCardElement,
     CalendarDateSubjectsCardElement,
     WhiteBannerCardElement,
+    HomeworkCardElement,
 } from '../../components/Cards/types';
 import { UserTypes } from '../../Types/user';
 
@@ -39,4 +40,23 @@ export interface IndividualSubjectCardData {
     bannerCarouselBottom: BannerCardElement[];
     tutors: ImageCardElement[];
     whiteBannerCard: WhiteBannerCardElement;
+}
+
+export interface HomeworkPage {
+    incompleteCount: number;
+    overdueCount: number;
+    totalCount: number;
+    homeworks: HomeworkCardElement[];
+    overdueHomework: HomeworkCardElement[];
+}
+
+export interface DashboardSchool {
+    homework: {
+        isLoading: boolean;
+        count: number;
+    };
+}
+
+export interface DashboardPage {
+    school: DashboardSchool;
 }

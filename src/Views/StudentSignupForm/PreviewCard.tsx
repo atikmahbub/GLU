@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Typography, Button } from '@material-ui/core';
 import OutlineButton from '../../components/Button/OutlineButton';
 import { registerContext } from './Index';
@@ -45,8 +45,9 @@ const PreviewCard: React.FunctionComponent<props> = ({ title, handler, data, han
                 </div>
             ))}
             <div className="my-4">
-                <OutlineButton text="Add More" btnClick={() => handler()} />
+                <OutlineButton text="Add More" width="10rem" btnClick={() => handler()} />
             </div>
+            <OutlineButton text="Next" width="10rem" mt="3rem" btnClick={context.goNext} />
         </div>
     );
 };

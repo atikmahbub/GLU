@@ -53,7 +53,8 @@ export const studentsEndpoints = {
     getFeatureTeacher: 'review/featured/teachers',
     getUpcomingSessions: 'freelancer/student/session/upcoming',
     getPreviousSessions: 'freelancer/student/session/previous',
-    getFeatureSubject: 'freelancer/student/featured/subject'
+    getFeatureSubject: 'freelancer/student/featured/subject',
+    getHomework: 'student/status/homework'
 }
 
 

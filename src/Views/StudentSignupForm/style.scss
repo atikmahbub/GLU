@@ -34,7 +34,7 @@
         }
         .choose__container {
             margin-top: 3rem;
-            height: 60vh;
+            height: 70vh;
             overflow-y: auto;
             overflow-x: hidden;
             @include disableScroll;
@@ -57,15 +57,21 @@
                 width: 100%;
                 .MuiFormControlLabel-root {
                     margin: 0.3rem;
+                    margin-bottom: -1rem;
+                }
+            }
+            .textBlack{
+                .MuiFormControlLabel-label {
+                color: $black!important;
                 }
             }
             .title {
-                border-bottom: 1px solid $lightGray;
+                // border-bottom: 1px solid $lightGray;
                 .MuiFormControlLabel-label {
                     font-family: 'CircularXXWeb-Book';
                     font-size: 2.625rem;
                     line-height: 3.125rem;
-                    color: $black;
+                    color: #8B8B8B;
 
                     &:hover {
                         color: $primary;

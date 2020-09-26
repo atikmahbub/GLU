@@ -83,7 +83,7 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
         API.post(endponts.verifyOtp, data)
             .then(() => {
                 goToNextPage();
-                toast.success('Your mobile number verified successfully.');
+                toast.success('OTP has been sent');
                 dispatch(spinner(false));
             })
             .catch((err) => {
@@ -158,7 +158,7 @@ export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) =>
                 if (goToNextPage) {
                     goToNextPage();
                 }
-                toast.success('Your document saved successfully.');
+                toast.success('document uploaded successfully.');
                 dispatch(spinner(false));
             })
             .catch((err) => {

@@ -2,20 +2,32 @@ import React, { useContext } from 'react';
 import Identity from './Identity';
 import UploadMaxSize from '../../components/Button/UploadMaxSize';
 import { registerContext } from './Index';
+import OutlineButton from '../../components/Button/OutlineButton';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles({
+    ml: {
+        marginLeft: '4rem',
+    },
+});
 
 const IdentyCard = () => {
+    const classes = useStyles();
     const context = useContext(registerContext);
     const handleUpload = (file: File) => {
-        const data = {...context.state};
+        const data = { ...context.state };
         data.teacher.file = file;
         context.setState(data);
-    }
+    };
     return (
-        <div >
-            <Identity/>
-            <UploadMaxSize onClick={handleUpload} />
+        <div>
+            <Identity />
+            <div className={classes.ml}>
+                <UploadMaxSize width="10rem" onClick={handleUpload} />
+                <OutlineButton text="Next" width="10rem" mt="3rem" btnClick={context.goNext} />
+            </div>
         </div>
     );
-}
+};
 
 export default IdentyCard;
