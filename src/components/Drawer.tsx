@@ -30,6 +30,12 @@ const useStyles = makeStyles({
     },
 });
 
+export interface DrawerBase {
+    position?: 'left' | 'right' | 'top' | 'bottom';
+    open: boolean;
+    onClose: () => void;
+}
+
 export interface IDrawer extends DrawerProps {
     position?: 'left' | 'right' | 'top' | 'bottom';
     open: boolean;
