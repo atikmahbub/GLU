@@ -17,7 +17,7 @@ const CardTable = ({
     rowClick,
     wantRows,
     getWantRows,
-    filterRender
+    filterRender,
 }) => {
     return (
         <MaterialTable
@@ -31,10 +31,11 @@ const CardTable = ({
             columns={columns}
             data={rowData}
             components={{
-                Toolbar: (props) => (showToolbar ? <SearchBoxFilterExport filter={filterRender} availabeProps={props} /> : null),
+                Toolbar: (props) =>
+                    showToolbar ? <SearchBoxFilterExport filter={filterRender} availabeProps={props} /> : null,
             }}
-            onRowClick={rowClick}    
-            onSearchChange={(e)=>console.log(e)}
+            onRowClick={rowClick}
+            onSearchChange={(e) => console.log(e)}
             options={{
                 headerStyle: {
                     height: 1,
@@ -53,8 +54,8 @@ const CardTable = ({
                 showTextRowsSelected: false,
                 exportButton: true,
                 paging: showPagination,
-                tableLayout:'auto',
-                searchText:"gyan"
+                tableLayout: 'auto',
+                searchText: 'gyan',
             }}
             icons={{
                 Search: () => <i className="icon-Search_Nav" />,
@@ -76,7 +77,7 @@ CardTable.propTypes = {
     rowClick: PropTypes.func,
     wantRows: PropTypes.bool,
     getWantRows: PropTypes.func,
-    filterRender: PropTypes.element
+    filterRender: PropTypes.element,
 };
 
 export default memo(CardTable);

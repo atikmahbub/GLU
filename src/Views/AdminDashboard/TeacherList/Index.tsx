@@ -12,7 +12,7 @@ const Index = () => {
 
     useEffect(() => {
         dispatch(getallTeacherAPIcall());
-        console.log("======= action dispatche =========Video")
+        console.log('======= action dispatche =========Video');
     }, []);
     useEffect(() => {
         if (video) {
@@ -33,7 +33,7 @@ const Index = () => {
     }, [video]);
 
     // return <TeacherList teacherList={teacherList} />;
-    return <TeacherList teacherList={teacherList}/>
+    return <TeacherList teacherList={teacherList} />;
 };
 
 export default Index;

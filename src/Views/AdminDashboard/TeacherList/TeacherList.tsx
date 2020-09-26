@@ -26,10 +26,10 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
-        dispatch(activateDeactivateTeacher(id))
+        dispatch(activateDeactivateTeacher(id));
         dispatch(getallTeacherAPIcall());
-    }
-    
+    };
+
     return (
         <div className="student-wrapper">
             <CardContainer>
@@ -56,9 +56,6 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     width: '23%',
                                     title: 'Last Name',
                                     field: 'lastName',
-                                    // render: (rowData: any) => (
-                                    //     <TableUserProfile name={rowData.schoolName}/>
-                                    // ),
                                 },
                                 {
                                     width: '23%',
