@@ -3,6 +3,8 @@ import { TextField } from '@material-ui/core';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { registerContext } from './Index';
 import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
+import MobileCodeInput from '../../components/Inputs/MobileCodeInput';
+import { mobileCode } from '../../Helper/mobileCode';
 
 interface props {
     firstName: string;
@@ -14,7 +16,7 @@ interface props {
     handleFirstName: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleLastName: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleMobilePre: (value: string) => void;
+    handleMobilePre: (e: React.SyntheticEvent<any>) => void;
     handleMobile: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleLocation: (e: React.ChangeEvent<HTMLInputElement>) => void;
     disable?: boolean;
@@ -73,7 +75,14 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 {context.whoIam === 'parent' && context.active === 2 && (
                     <React.Fragment>
                         <div className="col-md-4">
-                            <SelectFieldUnderline
+                        <MobileCodeInput
+                        className="custom-adornment-input mb-3"
+                        label="Mobile Number"
+                        options={mobileCode}
+                        value={mobilePre}
+                        onChange={handleMobilePre}
+                    />
+                            {/* <SelectFieldUnderline
                                 className="custom-adornment-input"
                                 label="Mobile Number"
                                 options={['+91']}
@@ -81,7 +90,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                                 getValue={(value: string) => {
                                     handleMobilePre(value);
                                 }}
-                            />
+                            /> */}
                         </div>
                         <div className="col-md-8">
                             <TextField
@@ -98,7 +107,7 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
 
                 <div className="col-lg-12">
                     <UnderLineAddornmentSingleIcon
-                        label="Location"
+                        label="City"
                         className="custom-adornment-input"
                         value={location}
                         onChange={handleLocation}

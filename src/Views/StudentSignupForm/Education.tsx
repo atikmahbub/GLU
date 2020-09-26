@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import EducationInfoContainer from './EducationInfoContainer';
 import OutlineButton from '../../components/Button/OutlineButton';
 import { registerContext } from './Index';
@@ -9,13 +9,20 @@ interface props {
 }
 const Education: React.FunctionComponent<props> = ({ handler, skip }) => {
     const context = useContext(registerContext);
+    const getBtnText = () => {
+        if (context.whoIam === 'student') {
+            return 'Skip / Next';
+        } else {
+            return 'Next';
+        }
+    };
     return (
         <div className="info__container">
             <EducationInfoContainer />
             <div className="mt-4">
-                <OutlineButton text="Add" width="10rem"  btnClick={handler} />
+                <OutlineButton text="Add" width="10rem" btnClick={handler} />
             </div>
-            <OutlineButton text="Next" width="10rem" mt="5rem" btnClick={skip} />
+            <OutlineButton text={getBtnText()} width="10rem" mt="5rem" btnClick={skip} />
         </div>
     );
 };
