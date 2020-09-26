@@ -40,7 +40,7 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                             showToolbar={true}
                             disableExport={true}
                             showPagination={true}
-                            selectable={true}
+                            selectable={false}
                             tableHeight="100vh"
                             columns={[
                                 {

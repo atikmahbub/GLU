@@ -9,6 +9,7 @@
         .status-heading {
             color: $black;
             font-size: 1.875rem;
+            text-transform: capitalize;
         }
     }
     .total-no {
@@ -38,6 +39,7 @@
             color: $black;
             font-size: 1.875rem;
             font-family: inherit;
+            text-transform: capitalize;
         }
         .right-icon-box {
             align-self: flex-end;

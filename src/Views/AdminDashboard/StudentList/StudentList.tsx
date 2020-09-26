@@ -53,7 +53,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                             disableExport={true}
                             showToolbar={true}
                             showPagination={true}
-                            selectable={true}
+                            selectable={false}
                             tableHeight="100vh"
                             columns={[
                                 {

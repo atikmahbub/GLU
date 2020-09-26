@@ -42,10 +42,10 @@ const GraphContainer: React.FunctionComponent = () => {
     return (
         <div className="dashboard-session-card-wrapper">
             <div className="menu-options">
-                <IconButton onClick={handleHideShow}>
+                {/* <IconButton onClick={handleHideShow}>
                     <MoreVert />
-                </IconButton>
-                <div style={{display: hideShow ? 'block': 'none'}} className="menu-list">
+                </IconButton> */}
+                {/* <div style={{display: hideShow ? 'block': 'none'}} className="menu-list">
                     <div className="arrow-up"></div>
                     <ul>
                         {availGraph.map((item) => (
@@ -54,7 +54,7 @@ const GraphContainer: React.FunctionComponent = () => {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div> */}
             </div>
             {renderGraph()}
         </div>
