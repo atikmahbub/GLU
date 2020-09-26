@@ -3,43 +3,43 @@ import { Box, Grid, makeStyles, TextareaAutosize } from '@material-ui/core';
 import { useLocation } from 'react-router-dom';
 
 import Img from '../../../../Assets/images';
-import { teacherStyle } from './teacherStyle';
+import { studentStyle } from './studentStyles.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import { teacherDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
 
-const useStyle = makeStyles(teacherStyle as any);
+const useStyle = makeStyles(studentStyle as any);
 
-const TeacherDetail = () => {
+const StudentDetail = () => {
     const classes = useStyle();
-    const [teacherData, setTeacherData] = useState({
-        firstName: '',
-        lastName: '',
-        bio: '',
-        email: '',
-        phoneNumber: '',
-        city: '',
-    });
-    const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
-    const location = useLocation();
-    const dispatch = useDispatch();
-    useEffect(() => {
-        if (location?.state?.hasOwnProperty('teacherDetails')) {
-            dispatch(teacherDetailSuperAdmin((location as any)?.state?.teacherDetails?.teacherId));
-        }
-    }, []);
-    useEffect(() => {
-        if (teachetDetails) {
-            const data = {
-                firstName: teachetDetails.firstName,
-                lastName: teachetDetails.lastName,
-                bio: teachetDetails.bio,
-                email: teachetDetails?.User?.email,
-                phoneNumber: teachetDetails.phoneNumber,
-                city: teachetDetails.location,
-            };
-            setTeacherData(data);
-        }
-    }, [teachetDetails]);
+    // const [studentData, setStudentData] = useState({
+    //     firstName: '',
+    //     lastName: '',
+    //     bio: '',
+    //     email: '',
+    //     phoneNumber: '',
+    //     city: '',
+    // });
+    // const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
+    // const location = useLocation();
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     if (location?.state?.hasOwnProperty('teacherDetails')) {
+    //         dispatch(teacherDetailSuperAdmin((location as any)?.state?.teacherDetails?.teacherId));
+    //     }
+    // }, []);
+    // useEffect(() => {
+    //     if (teachetDetails) {
+    //         const data = {
+    //             firstName: teachetDetails.firstName,
+    //             lastName: teachetDetails.lastName,
+    //             bio: teachetDetails.bio,
+    //             email: teachetDetails?.User?.email,
+    //             phoneNumber: teachetDetails.phoneNumber,
+    //             city: teachetDetails.location,
+    //         };
+    //         setTeacherData(data);
+    //     }
+    // }, [teachetDetails]);
 
     return (
         <Box component="div" className={classes.root}>
@@ -71,7 +71,7 @@ const TeacherDetail = () => {
                             <div className={classes.bioText}>Bio</div>
                             <TextareaAutosize
                                 id="bio"
-                                value={teacherData.bio}
+                                // value={teacherData.bio}
                                 rowsMin={5}
                                 className={classes.textareaClass}
                             />
@@ -83,7 +83,7 @@ const TeacherDetail = () => {
                                     First Name
                                 </label>
                                 <input
-                                    value={teacherData.firstName}
+                                    // value={teacherData.firstName}
                                     type="text"
                                     id="firstName"
                                     className={classes.inputBox}
@@ -94,7 +94,7 @@ const TeacherDetail = () => {
                                     Last Name
                                 </label>
                                 <input
-                                    value={teacherData.lastName}
+                                    // value={teacherData.lastName}
                                     type="text"
                                     id="lastName"
                                     className={classes.inputBox}
@@ -107,7 +107,7 @@ const TeacherDetail = () => {
                                 Email
                             </label>
                             <input
-                                value={teacherData.email}
+                                // value={teacherData.email}
                                 type="text"
                                 id="email"
                                 className={classes.inputBox}
@@ -128,7 +128,7 @@ const TeacherDetail = () => {
                             </div>
                             <div className={classes.mainNum}>
                                 <input
-                                    value={teacherData.phoneNumber}
+                                    // value={teacherData.phoneNumber}
                                     type="number"
                                     id="mobile"
                                     className={classes.inputBox}
@@ -141,7 +141,7 @@ const TeacherDetail = () => {
                                 Location
                             </label>
                             <input
-                                value={teacherData.city}
+                                // value={teacherData.city}
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
@@ -158,4 +158,4 @@ const TeacherDetail = () => {
     );
 };
 
-export default TeacherDetail;
+export default StudentDetail;
