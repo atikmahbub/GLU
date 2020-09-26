@@ -18,11 +18,11 @@ const useStyles = makeStyles({
     },
 });
 
-interface props{
-    goNext?: ()=> void
+interface props {
+    goNext?: () => void;
 }
 
-const InfoContainer: React.FunctionComponent<props> = ({goNext}) => {
+const InfoContainer: React.FunctionComponent<props> = ({ goNext }) => {
     const classes = useStyles();
     const context = useContext(registerContext);
     const handleSfirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,8 +34,8 @@ const InfoContainer: React.FunctionComponent<props> = ({goNext}) => {
     const handleSemailName = (e: React.ChangeEvent<HTMLInputElement>) => {
         context.setState({ ...context.state, student: { ...context.state.student, email: e.target.value } });
     };
-    const handleSphoneCode = (value: string) => {
-        context.setState({ ...context.state, student: { ...context.state.student, gender: value } });
+    const handleSphoneCode = (e: React.SyntheticEvent<any>) => {
+        context.setState({ ...context.state, student: { ...context.state.student, gender: (e.target as any).value } });
     };
 
     const handleSPhoneNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,7 +58,7 @@ const InfoContainer: React.FunctionComponent<props> = ({goNext}) => {
                 email={context.student.email}
                 handleEmail={handleSemailName}
                 mobilePre={context.student.gender}
-                handleMobilePre={(value: string) => handleSphoneCode(value)}
+                handleMobilePre={handleSphoneCode}
                 mobile={context.student.mobile}
                 handleMobile={handleSPhoneNumber}
                 location={context.student.location}
