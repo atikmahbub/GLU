@@ -25,6 +25,8 @@ const Index = () => {
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
+                    docType: 'Driving Licence',
+                    docStatus: 'Pending'
                 };
             });
             setTeacherList(data);

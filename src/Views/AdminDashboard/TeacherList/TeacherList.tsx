@@ -10,6 +10,10 @@ import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateTeacher, getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
+import { Typography } from '@material-ui/core';
+import { colors } from '../../../Styles/colors';
+import OutlineButton from '../../../components/Button/OutlineButton';
+
 interface props {
     teacherList: Array<string | number>;
 }
@@ -47,7 +51,6 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                             tableHeight="100vh"
                             columns={[
                                 {
-                                    width: '23%',
                                     title: 'First Name',
                                     field: 'firstName',
                                     // render: (rowData: any) => (
@@ -55,7 +58,6 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     // ),
                                 },
                                 {
-                                    width: '23%',
                                     title: 'Last Name',
                                     field: 'lastName',
                                     // render: (rowData: any) => (
@@ -63,24 +65,29 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     // ),
                                 },
                                 {
-                                    width: '23%',
                                     title: 'Gender',
                                     field: 'gender',
                                 },
                                 {
-                                    width: '23%',
                                     title: 'Phone Number',
                                     field: 'phoneNumber',
                                 },
                                 {
-                                    width: '23%',
                                     title: 'Location',
                                     field: 'location',
                                 },
-
                                 {
-                                    width: '23%',
-                                    title: 'Approve/Reject',
+                                    title: 'Document Type',
+                                    field: 'docType',
+                                },
+                                {
+                                    title: 'Document Status',
+                                    field: 'docStatus',
+                                    render: ()=> (<Typography style={{color: colors.primary, fontSize: '1.25rem'}}>Pending</Typography>)
+                                },
+                    
+                                {
+                                    title: 'Active/Inactvie',
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
@@ -91,6 +98,12 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                         />
                                     ),
                                 },
+                                {
+                                    title: 'Action',
+                                    field: 'docStatus',
+                                    render: ()=> (<OutlineButton style={{width: '12rem'}} text="View Details"/>)
+                                },
+
                             ]}
                             rowData={teacherList}
                         />

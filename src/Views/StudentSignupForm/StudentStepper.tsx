@@ -10,7 +10,7 @@ const StudentStepper: React.FunctionComponent<props> = ({active}) => {
             <li className={`${active >= 1 ? 'active' : ''}`}>Your details</li>
             <li className={`${active >= 2 || active === 3 ? 'active' : ''}`}>Education</li>
             {/* <li className={`${active >= 4 ? 'active' : ''}`}>Mobile Number</li> */}
-            <li className={`${active >= 4 ? 'active' : ''}`}>verification</li>
+            <li className={`${active >= 4 ? 'active' : ''}`}>Verification</li>
         </ul>
     );
 };
