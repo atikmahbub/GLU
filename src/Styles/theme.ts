@@ -4,11 +4,18 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: 'CircularXXWeb',
     },
+    overrides: {
+        MuiCircularProgress: {
+            colorPrimary: {
+                color: '#000',
+            },
+        },
+    },
     props: {
         MuiTab: {
-            disableRipple: true
-        }
-    }
+            disableRipple: true,
+        },
+    },
 });
 
 export default theme;

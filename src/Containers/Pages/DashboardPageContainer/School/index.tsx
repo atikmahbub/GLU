@@ -8,6 +8,7 @@ import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
 import { calendarSubjectsCards } from '../../../../data/homepage';
 import { UserTypes } from '../../../../Types/user';
+import { DashboardSchool } from '../../types';
 
 const useStyles = makeStyles({
     container: {
@@ -18,11 +19,11 @@ const useStyles = makeStyles({
     },
 });
 
-interface ISchool {
+interface ISchool extends DashboardSchool {
     userType: UserTypes;
 }
 
-const School: FC<ISchool> = ({ userType }) => {
+const School: FC<ISchool> = ({ userType, homework }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -40,7 +41,14 @@ const School: FC<ISchool> = ({ userType }) => {
                         <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
                     </Grid>
                     <Grid container className={classes.container}>
-                        <WhiteCard size={3} title="Homework" description="Assignment" titleLink={`/${userType}/homework`} value="34" />
+                        <WhiteCard
+                            size={3}
+                            title="Homework"
+                            description="Assignment"
+                            titleLink={`/${userType}/homework`}
+                            value={homework.count}
+                            isLoading={homework.isLoading}
+                        />
                         <WhiteCard size={3} title="Recommended" description="Total" value="12" />
                         <WhiteCard
                             size={6}
