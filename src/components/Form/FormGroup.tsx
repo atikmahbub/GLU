@@ -4,6 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
     root: {
+        position: 'relative',
         marginBottom: ({ marginBottom, marginBottomVariant }: any) =>
             marginBottom ? (marginBottomVariant === 1 ? '3.125rem' : '6.25rem') : 0,
     },
@@ -18,7 +19,7 @@ interface IFormGroup {
 const FormGroup: FC<IFormGroup> = ({ marginBottom, marginBottomVariant, children }) => {
     const classes = useStyles({ marginBottom, marginBottomVariant });
     return (
-        <Grid container className={classes.root}>
+        <Grid container direction="column" className={classes.root}>
             {children}
         </Grid>
     );

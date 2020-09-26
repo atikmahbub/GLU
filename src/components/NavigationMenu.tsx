@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { BigMenu } from './BigMenu';
 import DrawerProvider from '../Providers/DrawerProvider';
+import SearchDrawer from '../Containers/Menus/SearchDrawer';
 import Notifications from './Notifications';
 import TopDrawerMenu from './TopDrawerMenu';
 import IconButton from './Button/IconButton';
@@ -34,8 +35,8 @@ const useStyles = makeStyles(({ transitions }) => ({
     container: {
         position: 'relative',
         zIndex: 1299,
-        backgroundColor: ({ background, topMenuDrawer, subjectsDrawer }: any) =>
-            topMenuDrawer || subjectsDrawer ? '#fff' : getColor(background),
+        backgroundColor: ({ background, topMenuDrawer, subjectsDrawer, searchDrawer }: any) =>
+            searchDrawer ? 'transparent' : topMenuDrawer || subjectsDrawer ? '#fff' : getColor(background),
         transition: ({ topMenuDrawer }: any) =>
             !topMenuDrawer ? transitions.create(['background-color'], { duration: 300 }) : 'none',
         padding: 'calc(1.6875rem - 12px) 3.125rem',
@@ -130,9 +131,10 @@ const NavigationMenu: FC<INavigationMenu> = ({
     const [menuDrawer, setMenuDrawer] = useState(false);
     const [topMenuDrawer, toggleTopMenuDrawer] = useToggle(false);
     const [subjectsDrawer, toggleSubjectsDrawer] = useToggle(false);
+    const [searchDrawer, toggleSearchDrawer] = useToggle(false);
     const [leftMenuDrawer, setLeftMenuDrawer] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
-    const classes = useStyles({ background, topMenuDrawer, subjectsDrawer });
+    const classes = useStyles({ background, topMenuDrawer, subjectsDrawer, searchDrawer });
 
     const openNotificationDrawer = useCallback(() => {
         setNotificationsDrawer(true);
@@ -193,8 +195,11 @@ const NavigationMenu: FC<INavigationMenu> = ({
                                 </IconButton>
                             </li>
                             <li>
-                                <IconButton className={classNames(classes.iconButton, classes.iconButtonLast)}>
-                                    <i className="icon-Search_Nav" />
+                                <IconButton
+                                    className={classNames(classes.iconButton, classes.iconButtonLast)}
+                                    onClick={toggleSearchDrawer}
+                                >
+                                    <i className={searchDrawer ? 'icon-Close_Nav' : 'icon-Search_Nav'} />
                                 </IconButton>
                             </li>
                         </>
@@ -236,7 +241,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                 </li>
             </>
         );
-    }, [classes, menuList, openNotificationDrawer, openMenuDrawer]);
+    }, [classes, menuList, openNotificationDrawer, openMenuDrawer, searchDrawer, toggleSearchDrawer]);
 
     const drawerOptions = useMemo(() => {
         return {
@@ -255,7 +260,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                     ref={containerRef}
                     className={classNames(classes.root, rootClassName, {
                         [classes.rootAbsolute]: absolute,
-                        [classes.rootColorWhite]: colorWhite && !topMenuDrawer && !subjectsDrawer,
+                        [classes.rootColorWhite]: colorWhite && !topMenuDrawer && !subjectsDrawer && !searchDrawer,
                     })}
                 >
                     <Grid
@@ -318,6 +323,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                     <TopDrawerMenu open={subjectsDrawer} onClose={closeDrawers} containerRef={containerRef}>
                         <TopDrawerMenuContent onClose={toggleSubjectsDrawer} userType={userType} />
                     </TopDrawerMenu>
+                    <SearchDrawer open={searchDrawer} onClose={toggleSearchDrawer} />
                 </div>
                 <div>{children}</div>
             </div>
