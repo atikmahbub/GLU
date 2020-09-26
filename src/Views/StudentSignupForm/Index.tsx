@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import { Typography, IconButton } from '@material-ui/core';
-import { ArrowForward, ArrowBack } from '@material-ui/icons';
+import { ArrowForward, ArrowBack, SportsBaseballRounded } from '@material-ui/icons';
 import WhoIam from './WhoIam';
 import InfoContainer from './InfoContainer';
 import Education from './Education';
@@ -159,6 +159,7 @@ const Index: React.FunctionComponent = () => {
         setEditMode(false);
         userRegistration();
         if (active === 0) {
+            console.log('run');
             goToNextPage();
         }
         if (
@@ -182,6 +183,7 @@ const Index: React.FunctionComponent = () => {
 
     const dispatch = useDispatch();
     const userRegistration = () => {
+        console.log('run');
         let role = '';
         if (whoIam === 'student') {
             role = 'Student';
@@ -218,6 +220,7 @@ const Index: React.FunctionComponent = () => {
             };
         });
         if (active === 1) {
+            SportsBaseballRounded;
             if (useUpdateApi) {
                 delete registerData.role;
                 delete registerData.firebaseToken;
@@ -301,7 +304,7 @@ const Index: React.FunctionComponent = () => {
     };
     const resendPhoneCode = (value: string) => {
         console.log(value);
-        const contact = { phoneNumber: `${state.student.veriCode}${value}` };
+        const contact = { phoneNumber: value };
         dispatch(registerPhoneNumberAPIcall(contact));
     };
 
@@ -423,6 +426,10 @@ const Index: React.FunctionComponent = () => {
         }
     }, [verifyUser]);
 
+    const skipPages = () => {
+        setActive((prevState) => prevState + 2);
+    };
+
     //==================component render========================//
     const renderStepper: any = {
         student: <StudentStepper active={active} />,
@@ -431,7 +438,7 @@ const Index: React.FunctionComponent = () => {
     };
     const student = [
         { title: 'Your details', comp: <InfoContainer /> },
-        { title: 'Your Education', comp: <Education handler={handleNext} /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} skip={skipPages} /> },
         {
             title: 'Your Education',
             comp: (
@@ -474,7 +481,7 @@ const Index: React.FunctionComponent = () => {
     const teacher = [
         { title: 'Your details', comp: <InfoContainer /> },
         { title: 'About You', comp: <TeacherBio /> },
-        { title: 'Your Education', comp: <Education handler={handleNext} /> },
+        { title: 'Your Education', comp: <Education handler={handleNext} skip={goToNextPage}  /> },
         {
             title: 'Your Education',
             comp: (
@@ -486,7 +493,7 @@ const Index: React.FunctionComponent = () => {
                 />
             ),
         },
-        { title: 'Your Experience', comp: <TeacherExperience nextHandler={handleNext} /> },
+        { title: 'Your Experience', comp: <TeacherExperience nextHandler={handleNext} skip={goToNextPage} /> },
         {
             title: 'Your Experience',
             comp: (
@@ -501,7 +508,7 @@ const Index: React.FunctionComponent = () => {
         { title: 'Your Skill', comp: <TeacherSkills /> },
         { title: 'Your Identity', comp: <IdentyCard /> },
         { title: 'Verify Account', comp: <VerifyAccount onClick={handleCodeSend} /> },
-        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={handleBack} /> },
+        { title: 'Verify Account', comp: <VerificationCode onClick={resendPhoneCode} changeNumber={changePhoneNumer} /> },
     ];
     const getComponent = () => {
         switch (whoIam) {
@@ -541,7 +548,7 @@ const Index: React.FunctionComponent = () => {
                             <div className="stepper_marker">{renderStepper[whoIam]}</div>
                         </div>
                         <div className="col-md-6 mb-2">
-                            <Typography className="stepper__title">Tell us a bit about yourself</Typography>
+                            <Typography className="stepper__title">Please tell us a bit about yourself...</Typography>
                             <Typography className="stepper__title">{renderComponent[active].title}</Typography>
                             <RegisterProvider
                                 value={{
@@ -553,6 +560,7 @@ const Index: React.FunctionComponent = () => {
                                     whoIam: whoIam,
                                     active: active,
                                     disable: cmsRegister,
+                                    goNext: handleNext,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,
@@ -576,7 +584,7 @@ const Index: React.FunctionComponent = () => {
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
-                    <IconButton className="controller-button" disabled={loader} onClick={handleNext}>
+                    <IconButton className="controller-button" disabled={loader} onClick={goToNextPage}>
                         <ArrowForward className="icon" />
                     </IconButton>
                 )}

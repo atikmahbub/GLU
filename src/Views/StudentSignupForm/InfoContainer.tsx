@@ -4,20 +4,25 @@ import UserDetailsForm from './UserDetailsForm';
 import { registerContext } from './Index';
 import PasswordOnChange from '../../components/Inputs/PasswordOnChange';
 import { colors } from '../../Styles/colors';
+import OutlineButton from '../../components/Button/OutlineButton';
 
 const useStyles = makeStyles({
     icon: {
         color: colors.black,
-        fontSize: '1rem'
+        fontSize: '1rem',
     },
-    formControl:{
-        '& .MuiRadio-root':{
-            padding: '0!important'
-        }
-    }
+    formControl: {
+        '& .MuiRadio-root': {
+            padding: '0!important',
+        },
+    },
 });
 
-const InfoContainer: React.FunctionComponent = () => {
+interface props{
+    goNext?: ()=> void
+}
+
+const InfoContainer: React.FunctionComponent<props> = ({goNext}) => {
     const classes = useStyles();
     const context = useContext(registerContext);
     const handleSfirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +84,7 @@ const InfoContainer: React.FunctionComponent = () => {
                 >
                     <FormControlLabel
                         value="tc"
-                        className={`title ${classes.formControl}` }
+                        className={`title ${classes.formControl}`}
                         control={
                             <Radio
                                 color="default"
@@ -91,7 +96,7 @@ const InfoContainer: React.FunctionComponent = () => {
                     />
                     <FormControlLabel
                         value="po"
-                        className={`title ${classes.formControl}` }
+                        className={`title ${classes.formControl}`}
                         control={
                             <Radio
                                 color="default"
@@ -103,6 +108,7 @@ const InfoContainer: React.FunctionComponent = () => {
                     />
                 </RadioGroup>
             </FormControl>
+            <OutlineButton text="Next" width="10rem" btnClick={context.goNext} />
         </div>
     );
 };

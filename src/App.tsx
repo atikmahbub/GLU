@@ -9,6 +9,7 @@ import { rootRouteInterface } from './Interfaces/rootRouteInterface';
 import { rootPrivateRoute } from './Routes/RootRoute/rootPrivateRoute';
 import { MuiThemeProvider } from '@material-ui/core';
 import theme from "./Styles/theme";
+import Spinner from './components/Spinner/Spinner';
 
 export class App extends React.Component {
     CloseButton = ({ closeToast }: { closeToast: any }) => <Close onClick={closeToast} />;
@@ -16,6 +17,7 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <MuiThemeProvider theme={theme}>
+                    <Spinner/>
                     <ToastContainer closeButton={this.CloseButton} />
                     <Router>
                         <Suspense fallback={<div>Loading...</div>}>

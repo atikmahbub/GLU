@@ -20,9 +20,10 @@ const useStlyes = makeStyles({
 
 interface props {
     onClick: (file: File) => void;
+    width?:string;
 }
 
-const UploadMaxSize: React.FC<props> = ({ onClick }) => {
+const UploadMaxSize: React.FC<props> = ({ onClick, width }) => {
     const classes = useStlyes();
     const [filename, setFilename] = useState<File>();
     const [showTitle, setShowTitle] = useState('Max file size 5MB');
@@ -57,7 +58,7 @@ const UploadMaxSize: React.FC<props> = ({ onClick }) => {
                 ref={input}
             />
             <label htmlFor="contained-button-file" style={{ marginBottom: 0 }}>
-                <OutlineButton text="Upload" btnClick={triggerInput} />
+                <OutlineButton text="Upload" width={width} btnClick={triggerInput} />
             </label>
             <Typography className={classes.maxSize}>{showTitle}</Typography>
         </div>

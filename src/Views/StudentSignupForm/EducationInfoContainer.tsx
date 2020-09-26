@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { TextField } from '@material-ui/core';
-import DateSelector from '../../components/DateTimeSelector/DateSelector';
 import { registerContext } from './Index';
 
 const EducationInfoContainer = () => {

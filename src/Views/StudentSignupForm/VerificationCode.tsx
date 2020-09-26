@@ -17,7 +17,7 @@ const VerificationCode: React.FunctionComponent<props> = ({ onClick, changeNumbe
     const resendPassword = () => {
         if (onClick) {
             context.setState({ ...context.state, otp: '' });
-            onClick(context.student.veriMobile);
+            onClick(`${context.student.veriCode}${context.student.veriMobile}`);
         }
     };
     return (
