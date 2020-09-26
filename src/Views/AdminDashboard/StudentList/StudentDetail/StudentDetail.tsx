@@ -28,7 +28,7 @@ const StudentDetail = () => {
     }, []);
     useEffect(() => {
         if (studentDetails) {
-            console.log(studentDetails)
+            console.log(studentDetails);
             const data = {
                 firstName: studentDetails.firstName,
                 lastName: studentDetails.lastName,
@@ -47,24 +47,6 @@ const StudentDetail = () => {
                 <Grid item xs={6}>
                     <h1>Student</h1>
                     <div>
-                        <img className={classes.image2} src={commonImg.chairman} alt="tutor" />
-                    </div>
-                    <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
-                        className={classes.upload}
-                    >
-                        Approve
-                    </div>
-                    <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
-                        className={classes.upload}
-                    >
-                        Reject
-                    </div>
-                </Grid>
-
-                <Grid item xs={6}>
-                    <div className={classes.details}>
                         <img src={commonImg.scaffgirl} alt="tutor" className={classes.image} />
 
                         <div className={classes.bio}>
@@ -123,20 +105,15 @@ const StudentDetail = () => {
                                 <label htmlFor="mobile" className={classes.inputLabel}>
                                     Mobile No
                                 </label>
-                                <select value={'+91'} id="countryCode" className={classes.selectInputBox}>
-                                    <option value="+971">UAE/ +971</option>
-                                    <option value="+971">AUS/ +971</option>
-                                    <option value="+971">USA/ +971</option>
-                                    <option value="+971">GBR/ +971</option>
-                                </select>
-                            </div>
-                            <div className={classes.mainNum}>
-                                <input
-                                    value={studentData.phoneNumber}
-                                    type="number"
-                                    id="mobile"
-                                    className={classes.inputBox}
-                                ></input>
+                                <div>
+                                    <input
+                                        value={studentData.phoneNumber}
+                                        type="number"
+                                        id="mobile"
+                                        className={classes.inputBox}
+                                        disabled
+                                    ></input>
+                                </div>
                             </div>
                         </div>
 
