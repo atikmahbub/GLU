@@ -88,10 +88,10 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
 
                                 {
                                     width: '23%',
-                                    title: 'Approve/Reject',
+                                    title: 'Active/Inactive',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isVerified}
+                                            checked={rowData.isActive == true ? true : false}
                                             onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
