@@ -45,7 +45,7 @@ const StudentDetail = () => {
         <Box component="div" className={classes.root}>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
-                    <h1>Documents</h1>
+                    <h1>Student</h1>
                     <div>
                         <img className={classes.image2} src={commonImg.chairman} alt="tutor" />
                     </div>
@@ -74,9 +74,10 @@ const StudentDetail = () => {
                                 value={studentData.bio}
                                 rowsMin={5}
                                 className={classes.textareaClass}
+                                disabled
                             />
                         </div>
-                        <div className={classes.detailsText}>Your Details</div>
+                        <div className={classes.detailsText}>Student Details</div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>
@@ -87,6 +88,7 @@ const StudentDetail = () => {
                                     type="text"
                                     id="firstName"
                                     className={classes.inputBox}
+                                    disabled
                                 ></input>
                             </div>
                             <div className={classes.lastName}>
@@ -98,6 +100,7 @@ const StudentDetail = () => {
                                     type="text"
                                     id="lastName"
                                     className={classes.inputBox}
+                                    disabled
                                 ></input>
                             </div>
                         </div>
@@ -111,12 +114,13 @@ const StudentDetail = () => {
                                 type="text"
                                 id="email"
                                 className={classes.inputBox}
+                                disabled
                             ></input>
                         </div>
 
                         <div className={classes.mobile}>
                             <div className={classes.preNum}>
-                                <label htmlFor="countryCode" className={classes.inputLabel}>
+                                <label htmlFor="mobile" className={classes.inputLabel}>
                                     Mobile No
                                 </label>
                                 <select value={'+91'} id="countryCode" className={classes.selectInputBox}>
@@ -145,6 +149,7 @@ const StudentDetail = () => {
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
+                                disabled
                             ></input>
                             <div className={classes.iconBox}>
                                 {/* <LocationSearchingIcon /> */}
