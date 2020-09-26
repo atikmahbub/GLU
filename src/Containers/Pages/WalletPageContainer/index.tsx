@@ -1,29 +1,26 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import NavigationMenu from '../../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
-import { createMenuList } from '../../../Helper/menus';
 import { UserTypes } from '../../../Types/user';
 import Activity from './Activity';
 import NoActivity from './NoActivity';
+import useMenuList from '../../../Hooks/useMenuList';
 
 interface IWalletPageContainer {
     userType: UserTypes;
 }
 
 const WalletPageContainer: FC<IWalletPageContainer> = ({ userType }) => {
-    const menuList = useMemo(() => createMenuList(userType), [userType]);
+    const menuList = useMenuList(userType);
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="transparent"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            {true ? (
-                <Activity userType={userType} />
-            ) : (
-                <NoActivity userType={userType} />
-            )}
+            {true ? <Activity userType={userType} /> : <NoActivity userType={userType} />}
         </NavigationMenu>
     );
 };

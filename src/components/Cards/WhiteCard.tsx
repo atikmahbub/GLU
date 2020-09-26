@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, memo } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
@@ -113,4 +113,4 @@ const WhiteCard: FC<IWhiteCard> = ({
     );
 };
 
-export default memo(WhiteCard);
+export default WhiteCard;

@@ -2,7 +2,6 @@ import React, { FC, useState, ReactNode, useMemo } from 'react';
 import { Typography} from '@material-ui/core';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import DateAndResources from './DateAndResources';
 import NavigationMenu from '../NavigationMenu';

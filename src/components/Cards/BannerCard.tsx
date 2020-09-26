@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC } from 'react';
 import Div100vh from 'react-div-100vh';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -55,4 +55,4 @@ const BannerCard: FC<IBannerCard> = ({ img, name, subject, time, description }) 
     );
 };
 
-export default memo(BannerCard);
+export default BannerCard;

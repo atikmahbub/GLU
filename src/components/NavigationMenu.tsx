@@ -15,6 +15,7 @@ import Drawer from './Drawer';
 import useToggle from '../Hooks/useToggle';
 import { getColor } from '../Helper/styles';
 import { menuListItem } from '../Interfaces/menuTypes';
+import { UserTypes } from '../Types/user';
 
 const useStyles = makeStyles(({ transitions }) => ({
     root: {
@@ -101,6 +102,7 @@ interface INavigationMenu {
     tutorOptions?: string;
     tutorProfileText?: boolean;
     LeftDrawerMenuComponent?: ReactNode;
+    userType?: UserTypes;
 }
 
 const NavigationMenu: FC<INavigationMenu> = ({
@@ -122,6 +124,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
     tutorOptions,
     tutorProfileText,
     LeftDrawerMenuComponent,
+    userType,
 }) => {
     const [notificationsDrawer, setNotificationsDrawer] = useState(false);
     const [menuDrawer, setMenuDrawer] = useState(false);
@@ -289,7 +292,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                                             lineHeight: '1.875rem',
                                             marginRight: '4.25rem',
                                             paddingTop: '1rem',
-                                            textDecoration:'none'
+                                            textDecoration: 'none',
                                         }}
                                     >
                                         Sign Out
@@ -313,7 +316,7 @@ const NavigationMenu: FC<INavigationMenu> = ({
                         </Drawer>
                     )}
                     <TopDrawerMenu open={subjectsDrawer} onClose={closeDrawers} containerRef={containerRef}>
-                        <TopDrawerMenuContent onClose={toggleSubjectsDrawer} />
+                        <TopDrawerMenuContent onClose={toggleSubjectsDrawer} userType={userType} />
                     </TopDrawerMenu>
                 </div>
                 <div>{children}</div>

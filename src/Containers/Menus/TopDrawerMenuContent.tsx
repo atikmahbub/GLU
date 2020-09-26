@@ -7,6 +7,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import TextBlue from '../../components/Typographies/TextBlue';
 import { academic, academicMore, curricular } from './data';
 import ImageCard from '../../components/Cards/ImageCard';
+import { UserTypes } from '../../Types/user';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -38,9 +39,10 @@ const useStyles = makeStyles({
 
 interface ITopDrawerMenuContent {
     onClose: () => void;
+    userType?: UserTypes;
 }
 
-const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose }) => {
+const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose, userType }) => {
     const classes = useStyles();
 
     return (
@@ -65,7 +67,7 @@ const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose }) => {
                                 className={classes.link}
                                 onClick={onClose}
                                 component={Link}
-                                to="/students/subject/1"
+                                to={`/${userType}/subject/${index}`}
                             >
                                 {item}
                             </Typography>
@@ -78,7 +80,7 @@ const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose }) => {
                                 className={classes.link}
                                 onClick={onClose}
                                 component={Link}
-                                to="/students/subject/1"
+                                to={`/${userType}/subject/${index}`}
                             >
                                 {item}
                             </Typography>
@@ -93,7 +95,8 @@ const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose }) => {
                                 className={classes.link}
                                 onClick={onClose}
                                 component={Link}
-                                to="/students/subject/1"
+                                to={`/${userType}/subject/${index}`}
+
                             >
                                 {item}
                             </Typography>
