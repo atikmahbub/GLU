@@ -56,6 +56,7 @@ const StudentDetail = () => {
                                 // value={teacherData.bio}
                                 rowsMin={5}
                                 className={classes.textareaClass}
+                                disabled
                             />
                         </div>
                         <div className={classes.detailsText}>Student Details</div>
@@ -69,6 +70,7 @@ const StudentDetail = () => {
                                     type="text"
                                     id="firstName"
                                     className={classes.inputBox}
+                                    disabled
                                 ></input>
                             </div>
                             <div className={classes.lastName}>
@@ -80,6 +82,7 @@ const StudentDetail = () => {
                                     type="text"
                                     id="lastName"
                                     className={classes.inputBox}
+                                    disabled
                                 ></input>
                             </div>
                         </div>
@@ -93,6 +96,7 @@ const StudentDetail = () => {
                                 type="text"
                                 id="email"
                                 className={classes.inputBox}
+                                disabled
                             ></input>
                         </div>
 
@@ -107,6 +111,7 @@ const StudentDetail = () => {
                                         type="number"
                                         id="mobile"
                                         className={classes.inputBox}
+                                        disabled
                                     ></input>
                                 </div>
                             </div>
@@ -121,6 +126,7 @@ const StudentDetail = () => {
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
+                                disabled
                             ></input>
                             <div className={classes.iconBox}>
                                 {/* <LocationSearchingIcon /> */}
