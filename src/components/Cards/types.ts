@@ -91,3 +91,9 @@ export interface HomeworkCardElement {
     description: string;
     submitted?: boolean;
 }
+
+export interface MessageUserCardElement {
+    img: string;
+    name: string;
+    status: string;
+}

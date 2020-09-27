@@ -23,6 +23,7 @@ const HelpSupport = lazy(() => import('../../Views/HelpSupport/HelpSupport'));
 const TutorProfile = lazy(() => import('../../Views/StudentsModule/TutorProfile'));
 const WalletTopOn = lazy(() => import('../../Views/StudentsModule/WalletTopOn'));
 const IndividualSubject = lazy(() => import('../../Views/StudentsModule/IndividualSubject'));
+const Messages = lazy(() => import('../../Views/StudentsModule/Messages'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -47,6 +48,7 @@ const routes = [
     createRouteObj('/students/tutor/:id', TutorProfile),
     createRouteObj('/students/wallet/top-on', WalletTopOn),
     createRouteObj('/students/subject/:id', IndividualSubject),
+    createRouteObj('/students/messages', Messages),
 ];
 
 export default routes;
