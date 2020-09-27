@@ -26,7 +26,7 @@ const NoMessages: FC<INoMessages> = ({ userType }) => {
         >
             <CardsGrid rows={2} rootClassName={classes.root}>
                 {users.map((user, index) => (
-                    <MessageUserCard key={index} link={`/${userType}/messages/${index}`} {...user} />
+                    <MessageUserCard key={index} onClick={(name) => console.log(name)}  {...user} />
                 ))}
             </CardsGrid>
         </EmptyPageContainer>

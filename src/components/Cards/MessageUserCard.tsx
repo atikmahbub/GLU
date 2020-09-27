@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom'
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -8,6 +8,14 @@ import TextPrimary from '../Typographies/TextPrimary';
 import { MessageUserCardElement } from './types';
 
 const useStyles = makeStyles({
+    root: {
+        '&:hover': {
+            cursor: 'pointer',
+            '& $name': {
+                textDecoration: 'underline'
+            }
+        }
+    },
     imgContainer: {
         width: '2.625rem',
     },
@@ -30,27 +38,46 @@ const useStyles = makeStyles({
             color: 'inherit',
         },
     },
+    container: {
+        width: 'fit-content'
+    },
+    indicator: {
+        width: 11,
+        height: 11,
+        border: '1px solid rgba(0, 0, 0, 0.5)',
+        borderRadius: '50%'
+    },
+    indicatorActive: {
+        borderColor: '#00A800',
+        background: '#00A800'
+    }
 });
 
 interface IMessageUserCard extends MessageUserCardElement {
-    link: string;
+    onClick: (name: string) => void,
+    indicator?: boolean;
+    indicatorActive?: boolean;
 }
 
-const MessageUserCard: FC<IMessageUserCard> = ({ img, name, status, link }) => {
+const MessageUserCard: FC<IMessageUserCard> = ({ img, name, status, onClick, indicator, indicatorActive }) => {
     const classes = useStyles();
     return (
-        <Grid container>
+        <Grid container onClick={() => onClick(name)} className={classes.root}>
             <Grid container className={classes.imgContainer}>
-                <AspectRatioImgCard
-                    ratio="100%"
-                    img={img}
-                />
+                <AspectRatioImgCard ratio="100%" img={img} />
             </Grid>
-            <Grid container direction="column" justify="space-between" className={classes.infoContainer}>
-                    <Link to={link} className={classes.link}>
-                        <TextPrimary className={classes.name}>{name}</TextPrimary>
-                    </Link>
+            <Grid container justify="space-between" className={classes.infoContainer}>
+                <Grid container direction="column" justify="space-between" className={classes.container}>
+                    <TextPrimary className={classes.name}>{name}</TextPrimary>
                     <Typography className={classes.status}>{status}</Typography>
+                </Grid>
+                <Grid container direction="column" className={classes.container}>
+                    {indicator && (
+                        <span className={classNames(classes.indicator, {
+                            [classes.indicatorActive]: indicatorActive
+                        })} />
+                    )}
+                </Grid>
             </Grid>
         </Grid>
     );
