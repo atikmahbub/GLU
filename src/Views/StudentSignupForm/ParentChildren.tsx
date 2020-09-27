@@ -77,7 +77,7 @@ const ParentChildren: React.FunctionComponent<props> = ({ handler }) => {
 
             <OutlineButton text="Add" width="10rem" btnClick={handler} />
             <div>
-                <OutlineButton text="Next" width="10rem" mt="4rem" btnClick={handler} />
+                <OutlineButton text="Next" width="10rem" mt="4rem" btnClick={context.goNext} />
             </div>
         </div>
     );

@@ -21,6 +21,7 @@ export const registerAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
+                // goToNextPage();
             });
     };
 };
@@ -37,6 +38,7 @@ export const updateRegisterAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
+                // goToNextPage();
             });
     };
 };
@@ -55,6 +57,9 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -73,6 +78,9 @@ export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void)
             .catch((err) => {
                 handleError(dispatch, err);
                 console.log(err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -89,6 +97,9 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -108,6 +119,9 @@ export const teacherExperienceAPIcall = (data: any, goToNextPage?: () => void) =
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -117,16 +131,18 @@ export const teacherAddSkillAPIcall = (data: any, goToNextPage?: () => void) => 
         dispatch(spinner(true));
         API.post(endponts.teahcerSkill, data)
             .then((res) => {
-                console.log(res);
+                toast.success('Your skills saved successfully.');
+                dispatch(spinner(false));
                 if (goToNextPage) {
                     goToNextPage();
                 }
-                toast.success('Your skills saved successfully.');
-                dispatch(spinner(false));
             })
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -146,6 +162,9 @@ export const teacherAddBioAPIcall = (data: any, id: number, goToNextPage?: () =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -164,6 +183,9 @@ export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -179,10 +201,14 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 }
                 toast.success('Your children information saved successfully.');
                 dispatch(spinner(false));
+                
             })
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
