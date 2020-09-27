@@ -53,7 +53,7 @@ const options = {
             content += `
             <div ><div class="arrow"></div><span class="tooltip-7785">
             <span style="font-weight:900; font-size:1rem;">
-            <span style="color:black; margin-left:5px;">$ ${this.y} </span></span></span></div>
+            <span style="color:black; margin-left:5px;">${this.y} </span></span></span></div>
             `
             return content;
         },
@@ -86,7 +86,7 @@ export const SessionInsightsChart = () => {
     return (
         <>
             <div className="heading">
-                <Typography className="head-text">Session Insights</Typography>
+                <Typography className="head-text">Active Users</Typography>
             </div>
             <div className="revenue-content">
                 {/* <div className="revenue-week-stat">

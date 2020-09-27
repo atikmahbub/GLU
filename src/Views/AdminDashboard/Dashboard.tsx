@@ -10,25 +10,10 @@ import { getallUsersCountAPIcall } from '../../Redux/Actions/superAdminActions';
 const Dashboard: React.FunctionComponent = () => {
     const dispatch = useDispatch();
     const all_users_count = useSelector((state: any) => state.superAdminReducer.allUsersCount);
-    const [usersCountArray, setAllUsersCountArray] = useState();
-
     useEffect(() => {
         dispatch(getallUsersCountAPIcall());
     }, []);
-
-    useEffect(() => {
-        if (all_users_count) {
-            const userListArray = []
-            for(let [key, value] of Object.entries(all_users_count)){
-                userListArray.push({
-                    email: key, total: value 
-                })
-            }
-            setAllUsersCountArray(userListArray);
-        }
-    }, [all_users_count]);
-
-    // alert(JSON.stringify(usersCountArray))
+    
     return (
         <div className="row row__margin">
             <div className="col-md-12 colum__spacing">
@@ -40,7 +25,7 @@ const Dashboard: React.FunctionComponent = () => {
                     </div>
                 </div>
                 <div className="row row__margin">
-                    {usersCountArray && usersCountArray.map((item: any) => (
+                    {all_users_count && all_users_count.map((item: any) => (
                         <div key={uuidv4()} className="col-md-6 colum__spacing">
                             <div className="bg-white">
                                 <CardStatus heading={item.email} total={item.total} />

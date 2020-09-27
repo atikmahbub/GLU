@@ -8,7 +8,7 @@ import ExamReportChart from './ExamReportChart';
 import HomeWorkChart from './HomeWorkChart';
 
 const availGraph = [
-    { name: 'Session Insights', render: 'session' },
+    { name: 'Active Users', render: 'session' },
     { name: 'Daily Attendance', render: 'attendance' },
     { name: 'Exam Result', render: 'result' },
     { name: 'Homework Completed', render: 'homework' },
