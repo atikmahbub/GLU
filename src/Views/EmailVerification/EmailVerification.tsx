@@ -3,8 +3,7 @@ import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import { useLocation, useHistory } from 'react-router';
 import Loader from '../../components/Loader';
-import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import { useSelector, useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { emailVerificationAPIcall } from '../../Redux/Actions/loginAction';
 
 const EmailVerification = () => {
