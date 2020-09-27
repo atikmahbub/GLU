@@ -201,7 +201,6 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 }
                 toast.success('Your children information saved successfully.');
                 dispatch(spinner(false));
-                
             })
             .catch((err) => {
                 console.log(err);
@@ -220,7 +219,7 @@ export const verfiyRegisterUserAPIcall = (token: string) => {
                 console.log(res);
                 const data = {
                     access_token: `Bearer ${token}`,
-                    userRoleId: res.data.data?.Teacher?.id
+                    userRoleId: res.data.data?.Teacher?.id,
                 };
                 localStorage.setItem('auth', JSON.stringify(data));
                 dispatch(userLogin(data));
@@ -237,5 +236,17 @@ export const verifyRegisterUserRes = (data: any) => {
     return {
         type: VERIFIY_USER,
         payload: data,
+    };
+};
+
+export const sendVerififcationEmailAPIcall = (data: any) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.sendEmail, data)
+            .then((res: any) => {
+                console.log(res);
+            })
+            .catch((err: any) => {
+                console.log(err);
+            });
     };
 };
