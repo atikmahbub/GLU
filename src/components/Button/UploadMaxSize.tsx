@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import OutlineButton from './OutlineButton';
 import { Typography, makeStyles } from '@material-ui/core';
 import { colors } from '../../Styles/colors';
@@ -7,23 +7,24 @@ const useStlyes = makeStyles({
     parent: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        maxWidth: '18rem',
+        justifyContent: 'flex-start',
+        maxWidth: '40rem',
         marginTop: '2rem',
     },
     maxSize: {
         fontSize: '1rem',
         color: colors.black,
-        marginLeft: '1rem'
+        marginLeft: '1rem',
     },
 });
 
 interface props {
     onClick: (file: File) => void;
-    width?:string;
+    width?: string;
+    fileName?: string;
 }
 
-const UploadMaxSize: React.FC<props> = ({ onClick, width }) => {
+const UploadMaxSize: React.FC<props> = ({ onClick, width, fileName }) => {
     const classes = useStlyes();
     const [filename, setFilename] = useState<File>();
     const [showTitle, setShowTitle] = useState('Max file size 5MB');
@@ -33,6 +34,11 @@ const UploadMaxSize: React.FC<props> = ({ onClick, width }) => {
             input.current.click();
         }
     };
+    useEffect(() => {
+        if (fileName) {
+            setShowTitle(fileName);
+        }
+    }, [fileName]);
 
     const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
         const totalFile = (e.target as HTMLInputElement).files;
