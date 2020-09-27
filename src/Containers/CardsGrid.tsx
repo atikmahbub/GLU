@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
@@ -23,12 +24,13 @@ const useStyles = makeStyles({
 
 interface ICardsGrid {
     rows?: 4 | 2;
+    rootClassName?: string;
 }
 
-const CardsGrid: FC<ICardsGrid> = ({ children, rows }) => {
+const CardsGrid: FC<ICardsGrid> = ({ children, rows, rootClassName }) => {
     const classes = useStyles({ rows })
     return (
-        <Grid container className={classes.root}>
+        <Grid container className={classNames(classes.root, rootClassName)}>
             {children}
         </Grid>
     )

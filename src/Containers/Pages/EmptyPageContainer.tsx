@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     },
     rightContainer: {
         position: 'relative',
+        paddingRight: '6.25rem'
     },
     titleContainer: {
         marginBottom: '2.5rem',
@@ -73,7 +74,7 @@ const EmptyPageContainer: FC<IEmptyPageContainer> = ({
                         <Grid container direction="column" className={classes.rightContainer}>
                             {rightComponent}
                             <Grid container className={classes.titleContainer}>
-                                <Grid container item xs={11}>
+                                <Grid container>
                                     <Typography variant="h2" className={classes.title}>
                                         {description}
                                     </Typography>
