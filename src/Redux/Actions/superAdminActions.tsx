@@ -22,7 +22,16 @@ export const getallUsersCountAPIcall = () => {
         API.get(superAdminEndpoints.getAllUsersCount)
             .then((res) => {
                 console.log(res);
-                dispatch(allUsersCount(res.data.data));
+                const userListArray = []
+                for(let [key, value] of Object.entries(res.data.data.userListCount)){
+                    if(key != "guardians"){
+                        userListArray.push({
+                            email: key, total: value 
+                        })
+                    }
+                }
+                userListArray.push({email: "videos", total: res.data.data.videos })
+                dispatch(allUsersCount(userListArray));
             })
             .catch((err) => {
                 handleError(dispatch, err);
