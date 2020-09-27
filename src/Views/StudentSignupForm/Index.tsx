@@ -76,7 +76,21 @@ const Index: React.FunctionComponent = () => {
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
-    const [stuStepCom, setStuStepCom] = useState([true, false, false, false, false, false]);
+    const [stuStepCom, setStuStepCom] = useState({ steps: [true, false, false, false, false], skip: false });
+    const [parStepCom, setParStepCom] = useState([true, false, false, false, false]);
+    const [teachStepCom, setTeachStepCom] = useState([
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    ]);
+
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
@@ -164,11 +178,17 @@ const Index: React.FunctionComponent = () => {
             console.log('run');
             goToNextPage();
         }
-        // if(active===2 && whoIam==='student'){
-        //     goToNextPage();
-        //     const data = [...stuStepCom];
-        //     data[active] = true;
-        // }
+        if (active === 2 && whoIam === 'student') {
+            goToNextPage();
+            const data = { ...stuStepCom };
+            data.steps[active] = true;
+            setStuStepCom(data);
+        } else if (active === 2 && whoIam === 'parent') {
+            goToNextPage();
+            const data = [...parStepCom];
+            data[active] = true;
+            setParStepCom(data);
+        }
         if (
             (active === 5 && whoIam === 'student') ||
             (active === 5 && whoIam === 'parent') ||
@@ -177,8 +197,9 @@ const Index: React.FunctionComponent = () => {
             otpVerifyCall();
         }
     };
-    console.log(state);
+    console.log(teachStepCom);
     const goToNextPage = () => {
+        console.log(active);
         if (whoIam !== '') {
             if (active === activeLength - 1) {
                 setHideButtons({ ...hideButtons, farword: true });
@@ -186,18 +207,35 @@ const Index: React.FunctionComponent = () => {
                 setActive((prevState) => prevState + 1);
             }
         }
-        // if (whoIam === 'student') {
-        //     const data = [...stuStepCom];
-        //     data[active] = true;
-        //     setStuStepCom(data);
-        // }
+        if (whoIam === 'student') {
+            const data = { ...stuStepCom };
+            data.steps[active] = true;
+            setStuStepCom(data);
+        } else if (whoIam === 'parent') {
+            console.log(active);
+            const data = [...parStepCom];
+            data[active] = true;
+            setParStepCom(data);
+        } else if (whoIam === 'teacher') {
+            console.log(active);
+            const data = [...teachStepCom];
+            data[active] = true;
+            setTeachStepCom(data);
+        }
     };
-
-    // const checkGoNextOrNot = () => {
-    //     if (whoIam === 'student' && stuStepCom[active]) {
-    //         goToNextPage();
-    //     }
-    // };
+    // console.log(parStepCom);
+    const checkGoNextOrNot = () => {
+        if (whoIam === 'student' && stuStepCom.steps[active]) {
+            goToNextPage();
+        } else if (whoIam === 'student' && stuStepCom.skip) {
+            goToNextPage();
+            goToNextPage();
+        } else if (whoIam === 'parent' && parStepCom[active]) {
+            goToNextPage();
+        } else if (whoIam === 'teacher' && teachStepCom[active]) {
+            goToNextPage();
+        }
+    };
 
     const dispatch = useDispatch();
     const userRegistration = () => {
@@ -268,10 +306,10 @@ const Index: React.FunctionComponent = () => {
             dispatch(teacherAddSkillAPIcall(skillSet, goToNextPage));
         } else if (active === 2 && whoIam === 'teacher') {
             const data = { bio: state.teacher.bio };
-            dispatch(teacherAddBioAPIcall(data, userData.userRoleId, goToNextPage));
+            dispatch(teacherAddBioAPIcall(data, userData?.userRoleId, goToNextPage));
         } else if (active === 8 && whoIam === 'teacher') {
             const file: any = state.teacher.file;
-            dispatch(getFileUploadAPIcall(file.name));
+            dispatch(getFileUploadAPIcall(file?.name));
         } else if (active === 3 && whoIam === 'parent') {
             state.parent.childs.map((item: any) => {
                 const data = {
@@ -316,7 +354,7 @@ const Index: React.FunctionComponent = () => {
     };
     const handleCodeSend = (value: string) => {
         console.log(value);
-        const contact = { phoneNumber: value };
+        const contact = { phoneNumber: `${state.student.veriCode}${state.student.veriMobile}` };
         dispatch(registerPhoneNumberAPIcall(contact, goToNextPage));
     };
     const resendPhoneCode = (value: string) => {
@@ -445,6 +483,9 @@ const Index: React.FunctionComponent = () => {
 
     const skipPages = () => {
         setActive((prevState) => prevState + 2);
+        const data = { ...stuStepCom };
+        data.skip = true;
+        setStuStepCom(data);
     };
 
     //==================component render========================//
@@ -581,6 +622,9 @@ const Index: React.FunctionComponent = () => {
                                     active: active,
                                     disable: cmsRegister,
                                     goNext: handleNext,
+                                    setNext: goToNextPage,
+                                    sendCode: handleCodeSend,
+                                    skip: skipPages,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,
@@ -604,7 +648,7 @@ const Index: React.FunctionComponent = () => {
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
-                    <IconButton className="controller-button" disabled={loader} onClick={goToNextPage}>
+                    <IconButton className="controller-button" disabled={loader} onClick={checkGoNextOrNot}>
                         <ArrowForward className="icon" />
                     </IconButton>
                 )}

@@ -16,13 +16,20 @@ const Education: React.FunctionComponent<props> = ({ handler, skip }) => {
             return 'Next';
         }
     };
+    const handleButton = ()=> {
+        if(context.whoIam === 'student'){
+            context.skip();
+        }else{
+            context.setNext();
+        }
+    }
     return (
         <div className="info__container">
             <EducationInfoContainer />
             <div className="mt-4">
-                <OutlineButton text="Add" width="10rem" btnClick={handler} />
+                <OutlineButton text="Add" width="10rem" btnClick={context.setNext} />
             </div>
-            <OutlineButton text={getBtnText()} width="10rem" mt="5rem" btnClick={skip} />
+            <OutlineButton text={getBtnText()} width="10rem" mt="5rem" btnClick={handleButton} />
         </div>
     );
 };

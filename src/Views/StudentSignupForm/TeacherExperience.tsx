@@ -13,9 +13,9 @@ const TeacherExperience: React.FunctionComponent<props> = ({nextHandler, skip}) 
         <div className="info__container">
                 <ExperienceContainer />
             <div className="mb-4"></div>
-            <OutlineButton text="Add" width="10rem" btnClick={nextHandler} />
+            <OutlineButton text="Add" width="10rem" btnClick={context.setNext} />
             <div className="mb-4"></div>
-            <OutlineButton text="Next" width="10rem" mt="4rem" btnClick={skip} />
+            <OutlineButton text="Next" width="10rem" mt="4rem" btnClick={context.setNext} />
         </div>
     );
 };
