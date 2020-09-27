@@ -222,6 +222,11 @@ const Index: React.FunctionComponent = () => {
             data[active] = true;
             setTeachStepCom(data);
         }
+        if (whoIam === 'student' && stuStepCom.skip) {
+            const data = { ...stuStepCom };
+            data.skip = false;
+            setStuStepCom(data);
+        }
     };
     // console.log(parStepCom);
     const checkGoNextOrNot = () => {
@@ -342,6 +347,10 @@ const Index: React.FunctionComponent = () => {
             pathname: '/signup-success',
             state: {
                 userName: `${state.student.firstName} ${state.student.lastName}`,
+                emailData: {
+                    email: state.student.email,
+                    token: userData?.access_token
+                }
             },
         });
     };
@@ -376,6 +385,13 @@ const Index: React.FunctionComponent = () => {
                     setActive((prevState) => prevState - 1);
                 }
             }
+        }
+    };
+    const checkGoBackOrNot = () => {
+        if (whoIam === 'student' && stuStepCom.skip) {
+            setActive((prevState) => prevState - 2);
+        } else {
+            handleBack();
         }
     };
     const changePhoneNumer = () => {
@@ -644,7 +660,7 @@ const Index: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <IconButton className="controller-button back" onClick={handleBack}>
+                <IconButton className="controller-button back" onClick={checkGoBackOrNot}>
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
