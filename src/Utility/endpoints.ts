@@ -47,7 +47,8 @@ export const endponts = {
     studentHomework: '/school/status/homework/student/',
     teacherRecommendationCount: 'teacher/recommend/count',
     getAllSubject: '/school/class-groups',
-    sendEmail: 'auth/send/email'
+    sendEmail: 'auth/send/email',
+    userEmailVerififcation: 'auth/register/email/'
 };
 
 export const studentsEndpoints = {

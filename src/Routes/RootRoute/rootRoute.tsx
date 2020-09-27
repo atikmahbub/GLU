@@ -29,6 +29,8 @@ const studentSearchResult = React.lazy(() => import('../../Views/StudentSearchRe
 const studentNoResult = React.lazy(() => import('../../Views/StudentNoResult/Index'));
 const ParentsHomePage = React.lazy(() => import('../../Views/ParentsHomePage/index'));
 const EmailVerification = React.lazy(() => import('../../Views/EmailVerification/EmailVerification'));
+const UserEmailVerification = React.lazy(() => import('../../Views/EmailVerification/UserEmailVerification'));
+
 const ParentDashboard = React.lazy(() => import('../../Views/ParentDashBoard/Dashboard'));
 const WatchSession = React.lazy(() => import('../../Views/SessionList/WatchSession'));
 
@@ -57,6 +59,8 @@ export const rootRoute = [
     { component: studentSearchResult, name: '/student-search' },
     { component: studentNoResult, name: '/student-no-result' },
     { component: EmailVerification, name: '/email-verification' },
+    { component: UserEmailVerification, name: '/user-email-verification' },
+
     { component: ParentsHomePage, name: '/parent/home' },
     { component: ParentDashboard, name: '/parent/dashboard' },
     { component: WatchSession, name: '/watch-session' },

@@ -3,29 +3,28 @@ import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import { useLocation, useHistory } from 'react-router';
 import Loader from '../../components/Loader';
-import { rootReducerType } from '../../Interfaces/reducerInterfaces';
-import { useSelector, useDispatch } from 'react-redux';
-import { emailVerificationAPIcall } from '../../Redux/Actions/loginAction';
+import { useDispatch } from 'react-redux';
+import { userEmailVerificationAPIcall } from '../../Redux/Actions/loginAction';
 
-const EmailVerification = () => {
+const UserEmailVerification = () => {
     const [loader, setLoader] = useState(true);
     const [show, setShow] = useState(false);
     const route = useLocation();
     const dispatch = useDispatch();
     const rotuePath = useHistory();
-    const redirectToHome = () =>{
+    const redirectToHome = () => {
         setTimeout(() => {
             setLoader(false);
         }, 1000);
-        setTimeout(()=>{
-            rotuePath.push("/")
-        },10000)
-    }
+        setTimeout(() => {
+            rotuePath.push('/');
+        }, 10000);
+    };
     useEffect(() => {
         const getToken = route.search.split('ref=');
         if (getToken[1]) {
             setShow(true);
-            dispatch(emailVerificationAPIcall(getToken[1], redirectToHome));
+            dispatch(userEmailVerificationAPIcall(getToken[1], redirectToHome));
         }
     }, []);
     return (
@@ -54,4 +53,4 @@ const EmailVerification = () => {
     );
 };
 
-export default EmailVerification;
+export default UserEmailVerification;
