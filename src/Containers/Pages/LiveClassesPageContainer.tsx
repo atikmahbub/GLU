@@ -59,4 +59,8 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, dat
     );
 };
 
+LiveClassesPageContainer.defaultProps = {
+    data: []
+}
+
 export default LiveClassesPageContainer;

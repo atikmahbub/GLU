@@ -77,3 +77,7 @@ export interface LiveClassesPage {
 export interface RecordedClassesPage {
     data: ImageCardElement[];
 }
+
+export interface TutorsPage {
+    data: ImageCardElement[];
+}

@@ -56,4 +56,8 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
     );
 };
 
+RecordedClassesPageContainer.defaultProps = {
+    data: []
+}
+
 export default RecordedClassesPageContainer;
