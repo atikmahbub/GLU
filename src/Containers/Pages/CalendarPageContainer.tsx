@@ -32,6 +32,7 @@ const CalendarPageContainer: FC<ICalendarPageContainer> = ({ userType }) => {
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
