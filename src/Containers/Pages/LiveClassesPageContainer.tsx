@@ -11,14 +11,14 @@ import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 import useMenuList from '../../Hooks/useMenuList';
 import useToggle from '../../Hooks/useToggle';
 import { classesFiltersData } from '../../data/filters';
-import { Async, LiveClassesPage, UserType } from './types';
+import { Async, LiveClassesPage, PaginationPage, UserType } from './types';
 import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
 import FullHeightContainer from '../FullHeightContainer';
 import CardsGridContainer from '../CardsGridContainer';
 
-interface ILiveClassesPageContainer extends UserType, LiveClassesPage, Async {}
+interface ILiveClassesPageContainer extends UserType, LiveClassesPage, Async, PaginationPage {}
 
-const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, data, isLoading }) => {
+const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, data, isLoading, total, current }) => {
     const menuList = useMenuList(userType);
     const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
 
@@ -37,7 +37,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, dat
                     userType={userType}
                 />
                 <Grid container direction="column">
-                    <CardsGridContainer paddingBottomVariant={2}>
+                    <CardsGridContainer paddingBottom={false}>
                         <FilterContainer
                             sort={false}
                             title="Live Classes"
@@ -51,7 +51,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, dat
                             </CardsGrid>
                         </FilterContainer>
                     </CardsGridContainer>
-                    <ShowMoreCard paddingTop={false} current={50} total={5488} />
+                    <ShowMoreCard current={total} total={current} />
                 </Grid>
                 <PageFooter />
             </FullHeightContainer>

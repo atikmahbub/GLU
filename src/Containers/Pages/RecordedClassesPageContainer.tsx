@@ -1,87 +1,57 @@
 import React, { FC } from 'react';
-import { UserTypes } from '../../Types/user';
+import Grid from '@material-ui/core/Grid';
 import NavigationMenu from '../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import CardsGrid from '../CardsGrid';
 import ImageCard from '../../components/Cards/ImageCard';
 import FilterContainer from '../FilterContainer';
 import CardsGridContainer from '../CardsGridContainer';
-import { cards2, classesFiltersData } from '../../data/filters';
+import { classesFiltersData } from '../../data/filters';
 import PageFooter from '../../components/PageFooter';
 import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 import useMenuList from '../../Hooks/useMenuList';
+import FullHeightContainer from '../FullHeightContainer';
+import { Async, PaginationPage, RecordedClassesPage, UserType } from './types';
+import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
 
-interface IRecordedClassesPageContainer {
-    userType: UserTypes;
-}
+interface IRecordedClassesPageContainer extends UserType, RecordedClassesPage, Async, PaginationPage {}
 
-const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({ userType }) => {
+const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
+    data,
+    total,
+    current,
+    userType,
+    isLoading,
+}) => {
     const menuList = useMenuList(userType);
-
     return (
         <NavigationMenu
+            absolute
             menuList={menuList}
             userType={userType}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            <FilterContainer
-                padding
-                sort={false}
-                title="Recorded Classes"
-                initialFilterLabel="Filter"
-                filtersData={classesFiltersData}
-            >
-                <CardsGrid>
-                    {cards2.map((card, index) => (
-                        <ImageCard key={index} {...card} />
-                    ))}
-                </CardsGrid>
-            </FilterContainer>
-            <CardsGridContainer background="secondary">
-                <CardsGrid rows={2}>
-                    <ImageCard
-                        bigTitle
-                        imgAspectRatio="76%"
-                        img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg"
-                        title={'Introducing advanced\nlong devision.\nMaths, Sarah Swan'}
-                        subTitle="AED200 / 75mins"
-                    />
-                    <ImageCard
-                        bigTitle
-                        imgAspectRatio="112%"
-                        img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg"
-                        title={'Natural selection and\nevolution.\nBiology, Jeff Lee'}
-                        subTitle="AED200 / 75mins"
-                    />
-                </CardsGrid>
-            </CardsGridContainer>
-            <CardsGridContainer>
-                <CardsGrid>
-                    {cards2.map((card, index) => (
-                        <ImageCard key={index} {...card} />
-                    ))}
-                </CardsGrid>
-            </CardsGridContainer>
-            <CardsGridContainer background="secondary">
-                <CardsGrid rows={2}>
-                    <ImageCard
-                        bigTitle
-                        imgAspectRatio="112%"
-                        img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607714/laptopgirl_nmbryo.jpg"
-                        title={'Natural selection and\nevolution.\nBiology, Jeff Lee'}
-                        subTitle="AED200 / 75mins"
-                    />
-                    <ImageCard
-                        bigTitle
-                        imgAspectRatio="76%"
-                        img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607715/blackbluetop_ggjltn.jpg"
-                        title={'Introducing advanced\nlong devision.\nMaths, Sarah Swan'}
-                        subTitle="AED200 / 75mins"
-                    />
-                </CardsGrid>
-            </CardsGridContainer>
-            <ShowMoreCard current={50} total={5488} />
-            <PageFooter />
+            {isLoading && <FullScreenLoader />}
+            <FullHeightContainer container direction="column" justify="space-between">
+                <Grid container direction="column">
+                    <CardsGridContainer paddingBottom={false}>
+                        <FilterContainer
+                            sort={false}
+                            title="Recorded Classes"
+                            initialFilterLabel="Filter"
+                            filtersData={classesFiltersData}
+                        >
+                            <CardsGrid>
+                                {data.map((card, index) => (
+                                    <ImageCard key={index} {...card} />
+                                ))}
+                            </CardsGrid>
+                        </FilterContainer>
+                    </CardsGridContainer>
+                    <ShowMoreCard current={current} total={total} />
+                </Grid>
+                <PageFooter />
+            </FullHeightContainer>
         </NavigationMenu>
     );
 };

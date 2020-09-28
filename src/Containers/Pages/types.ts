@@ -18,6 +18,11 @@ export interface Async {
     isLoading: boolean;
 }
 
+export interface PaginationPage {
+    total: number;
+    current: number;
+}
+
 export interface HomePageCardsData {
     bannerCarousel: BannerCardElement[];
     nextClass: NextClassCardElement;
@@ -66,5 +71,9 @@ export interface DashboardPage {
 }
 
 export interface LiveClassesPage {
-    data: ImageCardElement[]
+    data: ImageCardElement[];
+}
+
+export interface RecordedClassesPage {
+    data: ImageCardElement[];
 }
