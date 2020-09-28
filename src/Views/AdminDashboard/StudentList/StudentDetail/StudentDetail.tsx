@@ -19,6 +19,7 @@ const StudentDetail = () => {
         phoneNumber: '',
         city: '',
         education: '',
+        image: '',
     });
     const studentDetails = useSelector((state: any) => state.superAdminReducer.studentDetails);
     const location = useLocation();
@@ -39,6 +40,7 @@ const StudentDetail = () => {
                 phoneNumber: studentDetails.phoneNumber,
                 city: studentDetails.location,
                 education: studentDetails.StudentQualifications,
+                image: studentDetails.User.profile,
             };
             setStudentData(data);
         }
@@ -50,7 +52,15 @@ const StudentDetail = () => {
                 <Grid item xs={6}>
                     <h1>Student</h1>
                     <div>
-                        <img src={commonImg.scaffgirl} alt="tutor" className={classes.image} />
+                        <img
+                            src={
+                                studentDetails && studentDetails.User.profile
+                                    ? studentDetails.User.profile
+                                    : commonImg.scaffgirl
+                            }
+                            alt="tutor"
+                            className={classes.image}
+                        />
                         <div className={classes.detailsText}>Student Details</div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
@@ -129,16 +139,6 @@ const StudentDetail = () => {
                 </Grid>
                 <Grid xs={6}>
                     <div className={classes.detailsText}>Education</div>
-                    {/*<div className={classes.details}>
-                        <div className={classes.labelText}>2016-2019</div>
-                        <div className={classes.btnContainer}></div>
-                        <div className={classes.infoText}>
-                            IIT Guwahati
-                            <br />
-                            Btech
-                        </div>
-                    </div>
-                    <hr className={classes.hr} /> */}
                     {studentData.education instanceof Array &&
                         studentData.education.map((item: any) => {
                             return (

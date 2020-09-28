@@ -14,7 +14,7 @@ import {
     ADMIN_ALL_USERS_COUNT,
     TEACHER_DETAILS_SUPER,
     STUDENT_DETAILS_SUPER,
-    SCHOOL_DETAILS_SUPER
+    SCHOOL_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -23,15 +23,16 @@ export const getallUsersCountAPIcall = () => {
         API.get(superAdminEndpoints.getAllUsersCount)
             .then((res) => {
                 console.log(res);
-                const userListArray = []
-                for(let [key, value] of Object.entries(res.data.data.userListCount)){
-                    if(key != "guardians"){
+                const userListArray = [];
+                for (let [key, value] of Object.entries(res.data.data.userListCount)) {
+                    if (key != 'guardians') {
                         userListArray.push({
-                            email: key, total: value 
-                        })
+                            email: key,
+                            total: value,
+                        });
                     }
                 }
-                userListArray.push({email: "videos", total: res.data.data.videos })
+                userListArray.push({ email: 'videos', total: res.data.data.videos });
                 dispatch(allUsersCount(userListArray));
             })
             .catch((err) => {
@@ -222,7 +223,6 @@ export const superAdminTeacherDetailsRes = (data: any) => {
     };
 };
 
-
 export const studentDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {
         API.get(`${superAdminEndpoints.studentDetails}${id}`)
@@ -242,14 +242,14 @@ export const studentDetailSuperAdminRes = (data: any) => {
     };
 };
 
-
-
-export const schoolDetailSuperAdmin = (id: number) => {
+export const approveRejectTeacher = (id: any, data: any, history: any) => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
+        API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
             .then((res: any) => {
-                dispatch(schoolDetailSuperAdminRes(res.data.data));
+                console.log('resppe: ', res);
+                history.push('/admin/teacher');
             })
+
             .catch((err) => {
                 handleError(dispatch, err);
             });
