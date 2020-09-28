@@ -72,4 +72,5 @@ export const superAdminEndpoints = {
     getAllUsersCount: 'superadmin/users/count-list',
     teacherDetails: 'superadmin/teacher/',
     studentDetails: '/superAdmin/student/1',
+    schoolDetails: 'superAdmin/schools',
 };

@@ -3,7 +3,7 @@ import { Box, Grid, makeStyles, TextareaAutosize } from '@material-ui/core';
 import { studentStyle } from './studentStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import { studentDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
+import { schoolDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
 import commonImg from '../../../../Assets/images';
 import Reusable from './ReusableEdExp';
 
@@ -25,7 +25,7 @@ const StudentDetail = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         if (location?.state?.hasOwnProperty('studentDetails')) {
-            dispatch(studentDetailSuperAdmin((location as any)?.state?.studentDetails?.studentId));
+            dispatch(schoolDetailSuperAdmin((location as any)?.state?.studentDetails?.studentId));
         }
     }, []);
     useEffect(() => {

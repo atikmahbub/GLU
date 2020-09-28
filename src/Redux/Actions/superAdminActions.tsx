@@ -13,7 +13,8 @@ import {
     ADMIN_PARENTS_LIST,
     ADMIN_ALL_USERS_COUNT,
     TEACHER_DETAILS_SUPER,
-    STUDENT_DETAILS_SUPER
+    STUDENT_DETAILS_SUPER,
+    SCHOOL_DETAILS_SUPER
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -237,6 +238,27 @@ export const studentDetailSuperAdmin = (id: number) => {
 export const studentDetailSuperAdminRes = (data: any) => {
     return {
         type: STUDENT_DETAILS_SUPER,
+        payload: data,
+    };
+};
+
+
+
+export const schoolDetailSuperAdmin = (id: number) => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
+            .then((res: any) => {
+                dispatch(schoolDetailSuperAdminRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const schoolDetailSuperAdminRes = (data: any) => {
+    return {
+        type: SCHOOL_DETAILS_SUPER,
         payload: data,
     };
 };
