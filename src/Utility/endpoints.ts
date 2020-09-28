@@ -48,7 +48,7 @@ export const endponts = {
     teacherRecommendationCount: 'teacher/recommend/count',
     getAllSubject: '/school/class-groups',
     sendEmail: 'auth/send/email',
-    userEmailVerififcation: 'auth/register/email/'
+    userEmailVerififcation: 'auth/register/email/',
 };
 
 export const studentsEndpoints = {
@@ -56,9 +56,8 @@ export const studentsEndpoints = {
     getUpcomingSessions: 'freelancer/student/session/upcoming',
     getPreviousSessions: 'freelancer/student/session/previous',
     getFeatureSubject: 'freelancer/student/featured/subject',
-    getHomework: 'student/status/homework'
-}
-
+    getHomework: 'student/status/homework',
+};
 
 export const superAdminEndpoints = {
     getAllSchools: 'superAdmin/schools',
@@ -71,7 +70,6 @@ export const superAdminEndpoints = {
     getAllStudents: 'superadmin/students?type=external',
     getAllParents: 'superadmin/guardians',
     getAllUsersCount: 'superadmin/users/count-list',
-    teacherDetails: 'superadmin/teachers/',
-    studentDetails: '/superAdmin/student/1'
-
-}
+    teacherDetails: 'superadmin/teacher/',
+    studentDetails: '/superAdmin/student/1',
+};

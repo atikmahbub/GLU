@@ -12,6 +12,12 @@ export const studentStyle = {
     detailsText: {
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
+        marginTop: '7.5rem',
+    },
+    detailsText2: {
+        fontSize: '2.625rem',
+        fontFamily: 'CircularXXWeb-Book',
+        marginTop: '3.5rem',
     },
     name: {},
     firstName: {
@@ -197,5 +203,24 @@ export const studentStyle = {
             outline: 'none',
         },
         font: 'normal normal normal 42px/62px CircularXXWeb;',
+    },
+
+    infoText: {
+        fontSize: '2.265rem',
+        width: '23.81rem',
+        lineHeight: 1,
+        marginTop: '0.5625rem',
+        fontFamily: 'CircularXXWeb-Book',
+    },
+    labelText: {
+        display: 'inline-block',
+        marginTop: '1.9375rem',
+        fontSize: '1.5625rem',
+        font: 'normal normal normal 25px/30px CircularXXSub-RegularSubset',
+        marginBottom: '0',
+        fontFamily: 'CircularXXWeb-Book',
+    },
+    hr: {
+        marginTop: '2.5rem',
     },
 };

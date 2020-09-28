@@ -18,6 +18,7 @@ const TeacherDetail = () => {
         email: '',
         phoneNumber: '',
         city: '',
+        document: '',
     });
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
@@ -36,6 +37,7 @@ const TeacherDetail = () => {
                 email: teachetDetails?.User?.email,
                 phoneNumber: teachetDetails.phoneNumber,
                 city: teachetDetails.location,
+                document: teachetDetails.document,
             };
             setTeacherData(data);
         }
@@ -47,7 +49,7 @@ const TeacherDetail = () => {
                 <Grid item xs={6}>
                     <h1>Teacher</h1>
                     <div>
-                        <img className={classes.image2} src={Img.chairman} alt="tutor" />
+                        <img className={classes.image2} src={teacherData.document} alt="tutor" />
                     </div>
                     <div
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
@@ -126,7 +128,7 @@ const TeacherDetail = () => {
                                 <div>
                                     <input
                                         value={teacherData.phoneNumber}
-                                        type="number"
+                                        type="text"
                                         id="mobile"
                                         className={classes.inputBox}
                                         disabled
