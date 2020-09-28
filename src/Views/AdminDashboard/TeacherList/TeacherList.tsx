@@ -89,21 +89,21 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     title: 'Document Type',
                                     field: 'docType',
                                 },
-                                {
-                                    title: 'Document Status',
-                                    field: 'docStatus',
-                                    render: (rowData: any) => (
-                                           rowData.isVerifiedByAdmin
-                                            ?
-                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                                Approved
-                                            </Typography> 
-                                            :
-                                            <Typography style={{ color: "red", fontSize: '1.25rem' }}>
-                                                Pending
-                                            </Typography>                          
-                                    ),
-                                },
+                                // {
+                                //     title: 'Document Status',
+                                //     field: 'docStatus',
+                                //     render: (rowData: any) => (
+                                //            rowData.isVerifiedByAdmin
+                                //             ?
+                                //             <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                //                 Approved
+                                //             </Typography> 
+                                //             :
+                                //             <Typography style={{ color: "red", fontSize: '1.25rem' }}>
+                                //                 Pending
+                                //             </Typography>                          
+                                //     ),
+                                // },
 
                                 {
                                     title: 'Active/Inactvie',

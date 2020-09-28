@@ -74,4 +74,5 @@ export const superAdminEndpoints = {
     studentDetails: '/superAdmin/student/1',
     schoolDetails: 'superAdmin/schools',
     parentDetails: '/superAdmin/parent',
+    approveRejectTeacher: 'superadmin/unverified-freelancer-teachers',
 };
