@@ -15,6 +15,7 @@ interface HomeworkState extends AsyncState {
 }
 
 interface TeachersState extends AsyncState {
+    count: number;
     data: any[];
 }
 

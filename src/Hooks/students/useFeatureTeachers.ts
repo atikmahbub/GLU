@@ -6,7 +6,7 @@ import { fetchTeachers } from '../../Redux/Actions/studentModuleActions';
 
 function useFeatureTeachers() {
     const dispatch = useDispatch();
-    const { isSuccess, isPending, data } = useSelector(teachersSelector);
+    const { isSuccess, isPending, data, count } = useSelector(teachersSelector);
 
     useEffect(() => {
         if (!isSuccess) {
@@ -16,10 +16,11 @@ function useFeatureTeachers() {
 
     return useMemo(() => ({
         isPending,
+        count,
         teachersBannerCards: dataToBannerCards(data),
-        teachersImageCards: dataToImageCard(data.slice(0, 4)),
+        teachersImageCards: dataToImageCard(data),
         featuredTeachersCard: dataToFeaturedCard(data),
-    }), [isPending, data]);
+    }), [isPending, data, count]);
 }
 
 export default useFeatureTeachers;

@@ -3,10 +3,16 @@ import LiveClassesPageContainer from '../../../Containers/Pages/LiveClassesPageC
 import useUpcomingClasses from '../../../Hooks/students/useUpcomingClasses';
 
 const LiveClasses: FC = () => {
-    const { isPending, upcomingClassImageCards } = useUpcomingClasses();
+    const { isPending, upcomingClassImageCards, count } = useUpcomingClasses();
     return (
-        <LiveClassesPageContainer isLoading={isPending} userType="students" data={upcomingClassImageCards} />
-    )
-}
+        <LiveClassesPageContainer
+            userType="students"
+            current={count}
+            total={count}
+            isLoading={isPending}
+            data={upcomingClassImageCards}
+        />
+    );
+};
 
-export default LiveClasses
+export default LiveClasses;

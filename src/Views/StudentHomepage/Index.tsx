@@ -31,7 +31,7 @@ const Index: React.FunctionComponent = () => {
                 bannerCarouselCenter: teachersBannerCards,
                 bannerCarouselBottom: teachersBannerCards,
                 featuredTutors: featuredTeachersCard,
-                tutors: teachersImageCards,
+                tutors: teachersImageCards.slice(0, 4),
                 nextClass: nextClassCard,
                 featuredSubjects: featuredSubjectsCard,
                 upcomingClass: upcomingClassCard,
