@@ -98,3 +98,11 @@ export interface MessageUserCardElement {
     status: string;
     newMessagesCount?: number;
 }
+
+export interface CalendarSubjectCardElement {
+    img: string;
+    time: string;
+    description: string;
+    name: string;
+    subject: string;
+}
