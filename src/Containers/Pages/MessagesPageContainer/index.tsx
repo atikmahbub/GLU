@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import NavigationMenu from '../../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
 import useMenuList from '../../../Hooks/useMenuList';
@@ -10,6 +10,7 @@ interface IMessagesPageContainer extends UserType {}
 
 const MessagesPageContainer: FC<IMessagesPageContainer> = ({ userType }) => {
     const menuList = useMenuList(userType);
+    const [showChat, setShowChat] = useState(false);
     return (
         <NavigationMenu
             absolute
@@ -17,7 +18,7 @@ const MessagesPageContainer: FC<IMessagesPageContainer> = ({ userType }) => {
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            {true ? <Chat /> : <NoMessages userType={userType}/>}
+            {showChat ? <Chat /> : <NoMessages showChat={() => setShowChat(true)} userType={userType}/>}
         </NavigationMenu>
     );
 };

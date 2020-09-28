@@ -12,9 +12,11 @@ const useStyles = makeStyles({
     },
 });
 
-interface INoMessages extends UserType {}
+interface INoMessages extends UserType {
+    showChat: () => void
+}
 
-const NoMessages: FC<INoMessages> = ({ userType }) => {
+const NoMessages: FC<INoMessages> = ({ userType, showChat }) => {
     const classes = useStyles();
     return (
         <EmptyPageContainer
@@ -26,7 +28,7 @@ const NoMessages: FC<INoMessages> = ({ userType }) => {
         >
             <CardsGrid rows={2} rootClassName={classes.root}>
                 {users.map((user, index) => (
-                    <MessageUserCard key={index} onClick={(name) => console.log(name)}  {...user} />
+                    <MessageUserCard key={index} onClick={showChat}  {...user} />
                 ))}
             </CardsGrid>
         </EmptyPageContainer>
