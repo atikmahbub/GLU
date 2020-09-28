@@ -1,5 +1,5 @@
 import React from 'react';
-import { calendarSubjectsCards, recommendedCards2 } from '../../data/homepage';
+import { calendarSubjectsCards } from '../../data/homepage';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
 import useHomepage from '../../Hooks/students/useHomepage';
 import { getCurrentMonth, getCurrentYear } from '../../Helper/date';
@@ -14,6 +14,7 @@ const Index: React.FunctionComponent = () => {
         upcomingClassCard,
         prevClassImageCards,
         featuredSubjectsCard,
+        upcomingClassImageCards
     } = useHomepage();
 
     return (
@@ -25,7 +26,7 @@ const Index: React.FunctionComponent = () => {
                     date: `${getCurrentMonth()} ${getCurrentYear()}`,
                     cards: calendarSubjectsCards,
                 },
-                liveClasses: recommendedCards2,
+                liveClasses: upcomingClassImageCards,
                 bannerCarousel: teachersBannerCards,
                 bannerCarouselCenter: teachersBannerCards,
                 bannerCarouselBottom: teachersBannerCards,

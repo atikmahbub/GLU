@@ -64,3 +64,7 @@ export interface DashboardSchool {
 export interface DashboardPage {
     school: DashboardSchool;
 }
+
+export interface LiveClassesPage {
+    data: ImageCardElement[]
+}

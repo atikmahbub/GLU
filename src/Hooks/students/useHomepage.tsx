@@ -11,7 +11,12 @@ function useHomepage() {
         featuredTeachersCard,
         teachersBannerCards,
     } = useFeatureTeachers();
-    const { isPending: isPendingUpcomingClasses, nextClassCard, upcomingClassCard } = useUpcomingClasses();
+    const {
+        isPending: isPendingUpcomingClasses,
+        nextClassCard,
+        upcomingClassCard,
+        upcomingClassImageCards,
+    } = useUpcomingClasses();
     const { isPending: isPendingPreviousClasses, prevClassImageCards } = usePreviousClasses();
     const { isPending: isPendingFeaturedSubjects, featuredSubjectsCard } = useFeatureSubjects();
 
@@ -26,6 +31,7 @@ function useHomepage() {
             upcomingClassCard,
             prevClassImageCards,
             featuredSubjectsCard,
+            upcomingClassImageCards,
         }),
         [
             isPendingTeacher,
@@ -37,6 +43,7 @@ function useHomepage() {
             upcomingClassCard,
             prevClassImageCards,
             featuredSubjectsCard,
+            upcomingClassImageCards,
         ]
     );
 }

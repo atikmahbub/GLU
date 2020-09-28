@@ -1,4 +1,4 @@
-import { FeaturedCardElement, NextClassCardElement } from '../../components/Cards/types';
+import { FeaturedCardElement, ImageCardElement, NextClassCardElement } from '../../components/Cards/types';
 import { parseDate, parseTime } from '../date';
 
 export function dataToNextClassCard({
@@ -35,4 +35,26 @@ export function dataToFeaturedCard(data: any): FeaturedCardElement {
               imgBig: 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607724/shorthair_wwigyg.jpg',
               imgBigTitle: data[1].subjectName,
           };
+}
+
+export function dataToImageCards(data: any[]): ImageCardElement[] {
+    return data.map(
+        ({
+            id,
+            coverImage,
+            description,
+            price,
+            scheduledOn,
+            startTime,
+            endTime,
+            FreelancerSubjectTeacher: { FreelancerSubject, Teacher },
+        }) => ({
+            id,
+            img: coverImage || 'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607729/tablegirl_yg2bzv.jpg',
+            title: `${description}\n${FreelancerSubject.subjectName}. ${Teacher.firstName} ${Teacher.lastName}`,
+            subTitle: `AED${price}`,
+            date: parseDate(scheduledOn),
+            time: `${parseTime(startTime)} - ${parseTime(endTime)}`,
+        })
+    );
 }
