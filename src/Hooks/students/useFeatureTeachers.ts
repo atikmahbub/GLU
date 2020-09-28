@@ -1,29 +1,25 @@
-import { useEffect, useMemo, useState } from 'react';
-import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
+import { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { dataToBannerCards, dataToFeaturedCard, dataToImageCard } from '../../Helper/students/featureTeachers';
+import { teachersSelector } from '../../Redux/Selectors/studentModule';
+import { fetchTeachers } from '../../Redux/Actions/studentModuleActions';
 
 function useFeatureTeachers() {
-    const [state, setState] = useState<any>({
-        teachersBannerCards: [],
-        teachersImageCards: [],
-        featuredTeachersCard: null,
-    });
+    const dispatch = useDispatch();
+    const { isSuccess, isPending, data } = useSelector(teachersSelector);
 
     useEffect(() => {
-        API.get(studentsEndpoints.getFeatureTeacher).then(({ data: { success, data } }) => {
-            if (success) {
-                setState((prevState: any) => ({
-                    ...prevState,
-                    teachersBannerCards: dataToBannerCards(data),
-                    teachersImageCards: dataToImageCard(data.slice(0, 4)),
-                    featuredTeachersCard: dataToFeaturedCard(data),
-                }));
-            }
-        });
-    }, []);
+        if (!isSuccess) {
+            dispatch(fetchTeachers())
+        }
+    }, [isSuccess])
 
-    return useMemo(() => state, [state]);
+    return useMemo(() => ({
+        isPending,
+        teachersBannerCards: dataToBannerCards(data),
+        teachersImageCards: dataToImageCard(data.slice(0, 4)),
+        featuredTeachersCard: dataToFeaturedCard(data),
+    }), [isPending, data]);
 }
 
 export default useFeatureTeachers;

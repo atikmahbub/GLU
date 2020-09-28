@@ -10,6 +10,8 @@ import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateUser, getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
+import OutlineButton from '../../../components/Button/OutlineButton';
+
 interface props {
     parentsList: Array<string | number>;
 }
@@ -22,6 +24,17 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
     }, [parentsList]);
     const routes = useHistory();
     const dispatch = useDispatch();
+
+    const handleDetails = (data: any) => {
+        console.log("parent Detail")
+        // routes.push({
+        //     pathname: '/admin/student/detail',
+        //     state: {
+        //         studentDetails: data,
+        //     },
+        // });
+    };
+
     const handleRoutes = () => {
         routes.push({
             pathname: routeEndpoints.school.addNewSchool,
@@ -99,6 +112,14 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'View Details',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <OutlineButton text="View Details" btnClick={() => handleDetails(rowData)} />
                                     ),
                                 },
                             ]}

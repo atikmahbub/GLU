@@ -14,7 +14,7 @@ import useMenuList from '../../Hooks/useMenuList';
 import { classesFiltersData } from '../../data/filters';
 import PageFooter from '../../components/PageFooter';
 import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
-import { HomeworkPage, UserType } from './types';
+import { Async, HomeworkPage, UserType } from './types';
 import { HomeworkCardElement } from '../../components/Cards/types';
 
 const useStyles = makeStyles({
@@ -37,9 +37,7 @@ const useStyles = makeStyles({
     },
 });
 
-interface IHomeworkPageContainer extends UserType, HomeworkPage {
-    isLoading: boolean;
-}
+interface IHomeworkPageContainer extends UserType, HomeworkPage, Async {}
 
 const HomeworkPageContainer: FC<IHomeworkPageContainer> = ({
     userType,

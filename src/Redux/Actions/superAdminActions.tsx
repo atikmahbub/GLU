@@ -14,6 +14,7 @@ import {
     ADMIN_ALL_USERS_COUNT,
     TEACHER_DETAILS_SUPER,
     STUDENT_DETAILS_SUPER,
+    SCHOOL_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -248,8 +249,16 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
                 console.log('resppe: ', res);
                 history.push('/admin/teacher');
             })
+
             .catch((err) => {
                 handleError(dispatch, err);
             });
+    };
+};
+
+export const schoolDetailSuperAdminRes = (data: any) => {
+    return {
+        type: SCHOOL_DETAILS_SUPER,
+        payload: data,
     };
 };

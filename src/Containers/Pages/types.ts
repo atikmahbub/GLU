@@ -14,6 +14,10 @@ export interface UserType {
     userType: UserTypes;
 }
 
+export interface Async {
+    isLoading: boolean;
+}
+
 export interface HomePageCardsData {
     bannerCarousel: BannerCardElement[];
     nextClass: NextClassCardElement;
@@ -59,4 +63,8 @@ export interface DashboardSchool {
 
 export interface DashboardPage {
     school: DashboardSchool;
+}
+
+export interface LiveClassesPage {
+    data: ImageCardElement[]
 }

@@ -10,11 +10,11 @@ import FeaturedTutorsCard from '../../components/Cards/FeaturedTutorsCard';
 import CalendarDateSubjectsCard from '../../components/Cards/CalendarDateSubjectsCard';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import PageFooter from '../../components/PageFooter';
-import { HomePageCardsData } from './types';
-import { UserTypes } from '../../Types/user';
+import { Async, HomePageCardsData, UserType } from './types';
 import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 import useToggle from '../../Hooks/useToggle';
 import useMenuList from '../../Hooks/useMenuList';
+import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
 
 const useStyles = makeStyles({
     recommendedRoot: {
@@ -22,12 +22,11 @@ const useStyles = makeStyles({
     },
 });
 
-interface IHomePageContainer {
-    userType: UserTypes;
+interface IHomePageContainer extends UserType, Async {
     cardsData: HomePageCardsData;
 }
 
-const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
+const HomePageContainer: FC<IHomePageContainer> = ({ userType, isLoading, cardsData }) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
     const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
@@ -41,6 +40,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, cardsData }) => {
             background="transparent"
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            {isLoading && <FullScreenLoader />}
             <ClassPurchaseDrawer open={classPurchaseDrawer} onClose={toggleClassPurchaseDrawer} userType={userType} />
             <BannerCarousel cards={cardsData.bannerCarousel} />
             <NextClassCard {...cardsData.nextClass} />

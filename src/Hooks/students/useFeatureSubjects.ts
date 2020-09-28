@@ -1,25 +1,22 @@
-import { useEffect, useMemo, useState } from 'react';
-import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
-import { dataToFeaturedCard } from '../../Helper/students/upcomingClasses';
+import { useEffect, useMemo, } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { featuredSubjectsSelector } from '../../Redux/Selectors/studentModule';
+import { fetchFeaturedSubject } from '../../Redux/Actions/studentModuleActions';
 
 function useFeatureSubjects() {
-    const [state, setState] = useState<any>({
-        featuredSubjectsCard: null,
-    });
+    const dispatch = useDispatch()
+    const { isSuccess, isPending, data, featuredSubjectsCard } = useSelector(featuredSubjectsSelector)
 
     useEffect(() => {
-        API.get(studentsEndpoints.getFeatureSubject).then(({ data: { success, data } }) => {
-            if (success) {
-                setState((prevState: any) => ({
-                    ...prevState,
-                    featuredSubjectsCard: dataToFeaturedCard(data)
-                }))
-            }
-        });
-    }, []);
+        if (!isSuccess) {
+            dispatch(fetchFeaturedSubject())
+        }
+    }, [isSuccess])
 
-    return useMemo(() => state, [state]);
+    return useMemo(() => ({
+        isPending,
+        featuredSubjectsCard
+    }), [isPending, data]);
 }
 
 export default useFeatureSubjects;
