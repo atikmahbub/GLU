@@ -1,27 +1,26 @@
-import { useEffect, useMemo, useState } from 'react';
-import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
-import { dataToNextClassCard } from '../../Helper/students/upcomingClasses';
+import { useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { upcomingClassesSelector } from '../../Redux/Selectors/studentModule';
+import { fetchUpcomingClasses } from '../../Redux/Actions/studentModuleActions';
 
 function useUpcomingClasses() {
-    const [state, setState] = useState<any>({
-        nextClassCard: null,
-        upcomingClassCard: null,
-    });
+    const dispatch = useDispatch();
+    const { isSuccess, isPending, count, nextClassCard } = useSelector(upcomingClassesSelector);
 
     useEffect(() => {
-        API.get(studentsEndpoints.getUpcomingSessions).then(({ data: { data, success } }) => {
-            if (success && data.upcomingSessions.length) {
-                setState((prevState: any) => ({
-                    ...prevState,
-                    nextClassCard: dataToNextClassCard(data.upcomingSessions[0]),
-                    upcomingClassCard: dataToNextClassCard(data.upcomingSessions[0])
-                }));
-            }
-        });
-    }, []);
+        if (!isSuccess) {
+            dispatch(fetchUpcomingClasses());
+        }
+    }, [isSuccess]);
 
-    return useMemo(() => state, [state]);
+    return useMemo(
+        () => ({
+            isPending,
+            nextClassCard,
+            upcomingClassCard: nextClassCard,
+        }),
+        [count, isPending, nextClassCard]
+    );
 }
 
 export default useUpcomingClasses;

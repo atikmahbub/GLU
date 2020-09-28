@@ -1,20 +1,24 @@
 import React from 'react';
 import { calendarSubjectsCards, recommendedCards2 } from '../../data/homepage';
 import HomePageContainer from '../../Containers/Pages/HomePageContainer';
-import useFeatureTeachers from '../../Hooks/students/useFeatureTeachers';
-import useUpcomingClasses from '../../Hooks/students/useUpcomingClasses';
-import usePreviousClasses from '../../Hooks/students/usePreviousClasses';
-import useFeatureSubjects from '../../Hooks/students/useFeatureSubjects';
+import useHomepage from '../../Hooks/students/useHomepage';
 import { getCurrentMonth, getCurrentYear } from '../../Helper/date';
 
 const Index: React.FunctionComponent = () => {
-    const { teachersBannerCards, teachersImageCards, featuredTeachersCard } = useFeatureTeachers();
-    const { nextClassCard, upcomingClassCard } = useUpcomingClasses();
-    const { prevClassImageCards } = usePreviousClasses();
-    const { featuredSubjectsCard } = useFeatureSubjects();
+    const {
+        isPending,
+        teachersBannerCards,
+        teachersImageCards,
+        featuredTeachersCard,
+        nextClassCard,
+        upcomingClassCard,
+        prevClassImageCards,
+        featuredSubjectsCard,
+    } = useHomepage();
 
     return (
         <HomePageContainer
+            isLoading={isPending}
             userType="students"
             cardsData={{
                 calendar: {
@@ -22,29 +26,15 @@ const Index: React.FunctionComponent = () => {
                     cards: calendarSubjectsCards,
                 },
                 liveClasses: recommendedCards2,
-                ...(teachersBannerCards.length && {
-                    bannerCarousel: teachersBannerCards,
-                    bannerCarouselCenter: teachersBannerCards,
-                    bannerCarouselBottom: teachersBannerCards,
-                }),
-                ...(featuredTeachersCard && {
-                    featuredTutors: { ...featuredTeachersCard },
-                }),
-                ...(teachersImageCards.length && {
-                    tutors: teachersImageCards,
-                }),
-                ...(nextClassCard && {
-                    nextClass: { ...nextClassCard },
-                }),
-                ...(featuredSubjectsCard && {
-                    featuredSubjects: { ...featuredSubjectsCard },
-                }),
-                ...(upcomingClassCard && {
-                    upcomingClass: { ...upcomingClassCard },
-                }),
-                ...(prevClassImageCards.length && {
-                    recordedClasses: prevClassImageCards,
-                }),
+                bannerCarousel: teachersBannerCards,
+                bannerCarouselCenter: teachersBannerCards,
+                bannerCarouselBottom: teachersBannerCards,
+                featuredTutors: { ...featuredTeachersCard },
+                tutors: teachersImageCards,
+                nextClass: { ...nextClassCard },
+                featuredSubjects: { ...featuredSubjectsCard },
+                upcomingClass: { ...upcomingClassCard },
+                recordedClasses: prevClassImageCards.slice(0, 4),
             }}
         />
     );
