@@ -1,3 +1,5 @@
+import { FeaturedCardElement, NextClassCardElement } from '../../components/Cards/types';
+
 interface AsyncState {
     isPending: boolean;
     isSuccess: boolean;
@@ -12,8 +14,32 @@ interface HomeworkState extends AsyncState {
     overdueCount: number;
 }
 
+interface TeachersState extends AsyncState {
+    data: any[];
+}
+
+interface UpcomingClassesState extends AsyncState {
+    count: number;
+    data: any[];
+    nextClassCard: NextClassCardElement;
+}
+
+interface PreviousClassesState extends AsyncState {
+    count: number;
+    data: any[];
+}
+
+interface FeaturedSubjectsState extends AsyncState {
+    data: any[];
+    featuredSubjectsCard: FeaturedCardElement
+}
+
 export interface StudentModuleState {
     homework: HomeworkState;
+    teachers: TeachersState;
+    upcomingClasses: UpcomingClassesState;
+    previousClasses: PreviousClassesState;
+    featuredSubjects: FeaturedSubjectsState;
 }
 
 export interface RootState {

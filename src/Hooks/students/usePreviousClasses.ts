@@ -1,25 +1,23 @@
-import { useEffect, useMemo, useState } from 'react';
-import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
+import { useEffect, useMemo } from 'react';
 import { dataToImageCard } from '../../Helper/students/previousClasses';
+import { useDispatch, useSelector } from 'react-redux';
+import { previousClassesSelector } from '../../Redux/Selectors/studentModule';
+import { fetchPreviousClasses } from '../../Redux/Actions/studentModuleActions';
 
 function usePreviousClasses() {
-    const [state, setState] = useState<any>({
-        prevClassImageCards: []
-    });
+    const dispatch = useDispatch()
+    const { isSuccess, isPending, data } = useSelector(previousClassesSelector)
 
     useEffect(() => {
-        API.get(studentsEndpoints.getPreviousSessions).then(({ data: { success, data } }) => {
-            if (success && data.prerecordedSessions.length) {
-                setState((prevState: any) => ({
-                    ...prevState,
-                    prevClassImageCards: dataToImageCard(data.prerecordedSessions.slice(0, 4))
-                }))
-            }
-        });
-    }, []);
+        if (!isSuccess) {
+            dispatch(fetchPreviousClasses())
+        }
+    }, [isSuccess])
 
-    return useMemo(() => state, [state]);
+    return useMemo(() => ({
+        isPending,
+        prevClassImageCards: dataToImageCard(data)
+    }), [isPending]);
 }
 
 export default usePreviousClasses;
