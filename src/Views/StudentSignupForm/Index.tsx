@@ -97,6 +97,8 @@ const Index: React.FunctionComponent = () => {
     const userData = useSelector((state: rootReducerType) => state.authReducer.userData);
     const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
     const loader = useSelector((state: rootReducerType) => state.uiReducer.loader);
+    const childToken = useSelector((state: rootReducerType) => state.authReducer.childTokens);
+
     const handleSPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, password: e.target.value } });
     };
@@ -316,7 +318,7 @@ const Index: React.FunctionComponent = () => {
             const file: any = state.teacher.file;
             dispatch(getFileUploadAPIcall(file?.name));
         } else if (active === 3 && whoIam === 'parent') {
-            state.parent.childs.map((item: any) => {
+            state.parent.childs.map((item: any, i: number) => {
                 const data = {
                     firstName: item.firstName,
                     lastName: item.lastName,
@@ -324,7 +326,11 @@ const Index: React.FunctionComponent = () => {
                     phoneNumber: `${item.phoneCode}${item.phoneNum}`,
                     location: item.location,
                 };
-                dispatch(parentChildAddAPIcall(data, goToNextPage));
+                if (i === state.parent.childs.length - 1) {
+                    dispatch(parentChildAddAPIcall(data, goToNextPage));
+                } else {
+                    dispatch(parentChildAddAPIcall(data));
+                }
             });
         }
     };
@@ -349,8 +355,11 @@ const Index: React.FunctionComponent = () => {
                 userName: `${state.student.firstName} ${state.student.lastName}`,
                 emailData: {
                     email: state.student.email,
-                    token: userData?.access_token
-                }
+                    token: userData?.access_token,
+                    whoIam: whoIam,
+                    child: state.parent.childs,
+                    childToken: childToken,
+                },
             },
         });
     };

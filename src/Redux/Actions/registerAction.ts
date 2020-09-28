@@ -4,7 +4,7 @@ import { API, setAuthrizationToken } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
 import { userLogin } from './loginAction';
-import { VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, VERIFIY_USER } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 
 export const registerAPIcall = (data: any, goToNextPage: () => void) => {
@@ -201,6 +201,7 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 }
                 toast.success('Your children information saved successfully.');
                 dispatch(spinner(false));
+                dispatch(storeChildToken(res.data.data.token))
             })
             .catch((err) => {
                 console.log(err);
@@ -209,6 +210,13 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 //     goToNextPage();
                 // }
             });
+    };
+};
+
+export const storeChildToken = (data: any) => {
+    return {
+        type: CHILD_TOKEN,
+        payload: data,
     };
 };
 

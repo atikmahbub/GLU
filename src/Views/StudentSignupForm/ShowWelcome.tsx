@@ -29,13 +29,27 @@ const ShowWelcome = () => {
     useEffect(() => {
         if (routes.hasOwnProperty('state')) {
             if ((routes as any)?.state?.hasOwnProperty('userName')) {
-                setName((routes as any).state.userName);
-                const getToken = (routes as any).state?.emailData?.token.split('Bearer ')[1];
-                const data = {
-                    email: (routes as any).state?.emailData?.email,
-                    token: getToken,
-                };
-                dispatch(sendVerififcationEmailAPIcall(data));
+                const getState = (routes as any).state;
+                setName(getState?.userName);
+                if (getState?.emailData?.whoIam === 'parent') {
+                    getState?.emailData?.child.map((item: any, i: number) => {
+                        const data = {
+                            email: item.email,
+                            token: getState?.childToken[i],
+                            parent: {
+                                name: getState?.userName,
+                            },
+                        };
+                        dispatch(sendVerififcationEmailAPIcall(data));
+                    });
+                } else {
+                    const getToken = getState?.emailData?.token.split('Bearer ')[1];
+                    const data = {
+                        email: getState?.emailData?.email,
+                        token: getToken,
+                    };
+                    dispatch(sendVerififcationEmailAPIcall(data));
+                }
             }
         }
     }, []);
