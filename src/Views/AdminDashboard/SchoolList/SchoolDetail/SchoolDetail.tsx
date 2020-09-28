@@ -28,6 +28,11 @@ const StudentDetail = () => {
         linkedInUrl: '',
         youtubeUrl: '',
         bio: '',
+        studentCount: '',
+        guardianCount: '',
+        teacherCount: '',
+
+
     });
     const schoolDetails = useSelector((state: any) => state.superAdminReducer.schoolDetails);
     const location = useLocation();
@@ -54,6 +59,9 @@ const StudentDetail = () => {
                 linkedInUrl: schoolDetails.school.linkedInUrl,
                 youtubeUrl: schoolDetails.school.youtubeUrl,
                 bio: schoolDetails.school.bio,
+                studentCount: schoolDetails.studentCount,
+                guardianCount: schoolDetails.guardianCount,
+                teacherCount: schoolDetails.teacherCount,
             };
             console.log("=====school detail========", data)
 
@@ -99,7 +107,13 @@ const StudentDetail = () => {
          <Grid container>
                 <Grid item xs={6}>
                     <div style={{paddingLeft: '30px'}}>
-                        <img src={schoolData.profile} alt="tutor" style={{marginTop: "7rem"}} className={classes.image} />
+                        {
+                            schoolData.profile
+                            ?
+                            <img src={schoolData.profile} alt="tutor" style={{marginTop: "7rem"}} className={classes.image} />
+                            :
+                            ""
+                        }
                         <div className={classes.detailsText}>School Details</div>
                         <div className={classes.email}>
                             <label htmlFor="email" className={classes.inputLabel}>
@@ -241,21 +255,21 @@ const StudentDetail = () => {
                         <div key={uuidv4()} style={{margin:"10px",
                             boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
-                                <CardStatus heading="Student" total={29} />
+                                <CardStatus heading="Students" total={schoolData.studentCount} />
                             </div>
                         </div>
 
                         <div key={uuidv4()} style={{margin:"10px",
                             boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
-                                <CardStatus heading="Student" total={29} />
+                                <CardStatus heading="Teachers" total={schoolData.teacherCount} />
                             </div>
                         </div>
 
                         <div key={uuidv4()} style={{margin:"10px",
                             boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
-                                <CardStatus heading="Student" total={29} />
+                                <CardStatus heading="Parents" total={schoolData.guardianCount} />
                             </div>
                         </div>
 

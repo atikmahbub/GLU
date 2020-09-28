@@ -5,7 +5,7 @@ import { PeopleAlt } from '@material-ui/icons';
 interface cardStatusProps {
     icon?: any;
     heading: string;
-    total: number;
+    total: string;
 }
 
 const CardStatus: React.FunctionComponent<cardStatusProps> = ({ icon, heading, total }) => {
