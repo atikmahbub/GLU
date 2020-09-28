@@ -241,11 +241,12 @@ export const studentDetailSuperAdminRes = (data: any) => {
     };
 };
 
-export const approveRejectTeacher = (id: any, data: any) => {
+export const approveRejectTeacher = (id: any, data: any, history: any) => {
     return (dispatch: Dispatch<any>) => {
         API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
             .then((res: any) => {
-                dispatch(studentDetailSuperAdminRes(res.data.data));
+                console.log('resppe: ', res);
+                history.push('/admin/teacher');
             })
             .catch((err) => {
                 handleError(dispatch, err);

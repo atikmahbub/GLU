@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, makeStyles, TextareaAutosize } from '@material-ui/core';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import Img from '../../../../Assets/images';
 import { teacherStyle } from './teacherStyle';
@@ -27,6 +27,7 @@ const TeacherDetail = () => {
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
     const dispatch = useDispatch();
+    const history = useHistory();
     useEffect(() => {
         if (location?.state?.hasOwnProperty('teacherDetails')) {
             dispatch(teacherDetailSuperAdmin((location as any)?.state?.teacherDetails?.teacherId));
@@ -44,7 +45,7 @@ const TeacherDetail = () => {
                 document: teachetDetails.document,
                 experience: teachetDetails.TeacherExperiences,
                 education: teachetDetails.TeacherQualifications,
-                id: teachetDetails.userId,
+                id: teachetDetails.id,
             };
             setTeacherData(data);
         }
@@ -66,7 +67,8 @@ const TeacherDetail = () => {
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
                         className={classes.upload}
                         onClick={() => {
-                            approveRejectTeacher(teacherData.id, { key: 1 });
+                            console.log('Approve clocked');
+                            dispatch(approveRejectTeacher(teacherData.id, { key: 1 }, history));
                         }}
                     >
                         Approve
@@ -75,7 +77,9 @@ const TeacherDetail = () => {
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
                         className={classes.upload}
                         onClick={() => {
-                            approveRejectTeacher(teacherData.id, { key: 2 });
+                            console.log('Reject clocked');
+
+                            dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
                         }}
                     >
                         Reject
