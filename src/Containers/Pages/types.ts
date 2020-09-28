@@ -66,8 +66,16 @@ export interface DashboardSchool {
     };
 }
 
+export interface DashboardPersonal {
+    previousClasses: {
+        isLoading: boolean;
+        count: number;
+    };
+}
+
 export interface DashboardPage {
     school: DashboardSchool;
+    personal: DashboardPersonal;
 }
 
 export interface LiveClassesPage {

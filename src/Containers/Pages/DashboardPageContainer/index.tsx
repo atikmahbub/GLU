@@ -4,12 +4,11 @@ import NavigationMenu from '../../../components/NavigationMenu';
 import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
 import CardsGridContainer from '../../CardsGridContainer';
 import { Tab, Tabs } from '../../../components/Tabs';
-import { UserTypes } from '../../../Types/user';
 import School from './School';
 import PageFooter from '../../../components/PageFooter';
 import Personal from './Personal';
 import useMenuList from '../../../Hooks/useMenuList';
-import { DashboardPage } from '../types';
+import { DashboardPage, UserType } from '../types';
 
 const useStyles = makeStyles({
     tabsContainer: {
@@ -21,11 +20,9 @@ const useStyles = makeStyles({
     },
 });
 
-interface IDashboardPageContainer extends DashboardPage {
-    userType: UserTypes;
-}
+interface IDashboardPageContainer extends DashboardPage, UserType {}
 
-const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school }) => {
+const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school, personal }) => {
     const classes = useStyles();
     const [activeTab, setActiveTab] = useState('personal');
     const menuList = useMenuList(userType);
@@ -44,7 +41,7 @@ const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school 
                 </Tabs>
             </CardsGridContainer>
             {activeTab === 'school' && <School userType={userType} {...school} />}
-            {activeTab === 'personal' && <Personal userType={userType} />}
+            {activeTab === 'personal' && <Personal userType={userType} {...personal} />}
             <PageFooter background="secondary" />
         </NavigationMenu>
     );
