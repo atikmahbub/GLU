@@ -198,10 +198,10 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 console.log(res);
                 if (goToNextPage) {
                     goToNextPage();
+                    toast.success('Your children information saved successfully.');
                 }
-                toast.success('Your children information saved successfully.');
                 dispatch(spinner(false));
-                dispatch(storeChildToken(res.data.data.token))
+                dispatch(storeChildToken(res.data.data.token));
             })
             .catch((err) => {
                 console.log(err);
