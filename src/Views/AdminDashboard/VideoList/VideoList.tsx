@@ -8,6 +8,8 @@ import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateVideo, getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
+import OutlineButton from '../../../components/Button/OutlineButton';
+
 interface props {
     videoList: Array<string | number>;
 }
@@ -21,6 +23,15 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                 breadcrumb: routeEndpoints.teacher.addNewTeacherBread,
             },
         });
+    };
+    const handleDetails = (data: any) => {
+        console.log("parent Detail")
+        // routes.push({
+        //     pathname: '/admin/student/detail',
+        //     state: {
+        //         studentDetails: data,
+        //     },
+        // });
     };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
@@ -78,6 +89,14 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'View Details',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <OutlineButton text="View Details" btnClick={() => handleDetails(rowData)} />
                                     ),
                                 },
                             ]}

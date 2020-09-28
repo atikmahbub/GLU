@@ -4,10 +4,7 @@ import { studentStyle } from './studentStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { schoolDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
-import commonImg from '../../../../Assets/images';
-import Reusable from './ReusableEdExp';
 import CardStatus from './CardStatus';
-import GraphContainer from './GraphContainer';
 import { v4 as uuidv4 } from 'uuid';
 
 const useStyle = makeStyles(studentStyle as any);
@@ -46,61 +43,26 @@ const StudentDetail = () => {
         if (schoolDetails) {
             console.log(schoolDetails);
             const data = {
-                schoolName: schoolDetails.school.schoolName,
-                profile: schoolDetails.school.User.profile,
-                userId: schoolDetails.school.userId,
-                phoneNumber: schoolDetails.school.phoneNumber,
-                location: schoolDetails.school.location,
-                website: schoolDetails.school.website,
-                email: schoolDetails.school.User.email,
-                facebookUrl: schoolDetails.school.facebookUrl,
-                twitterUrl: schoolDetails.school.twitterUrl,
-                instagramUrl: schoolDetails.school.instagramUrl,
-                linkedInUrl: schoolDetails.school.linkedInUrl,
-                youtubeUrl: schoolDetails.school.youtubeUrl,
-                bio: schoolDetails.school.bio,
+                schoolName: schoolDetails.school && schoolDetails.school.schoolName,
+                profile: schoolDetails.school && schoolDetails.school.User.profile,
+                userId: schoolDetails.school && schoolDetails.school.userId,
+                phoneNumber: schoolDetails.school && schoolDetails.school.phoneNumber,
+                location: schoolDetails.school && schoolDetails.school.location,
+                website: schoolDetails.school && schoolDetails.school.website,
+                email: schoolDetails.school && schoolDetails.school.User.email,
+                facebookUrl: schoolDetails.school && schoolDetails.school.facebookUrl,
+                twitterUrl: schoolDetails.school && schoolDetails.school.twitterUrl,
+                instagramUrl: schoolDetails.school && schoolDetails.school.instagramUrl,
+                linkedInUrl: schoolDetails.school && schoolDetails.school.linkedInUrl,
+                youtubeUrl: schoolDetails.school && schoolDetails.school.youtubeUrl,
+                bio: schoolDetails.school && schoolDetails.school.bio,
                 studentCount: schoolDetails.studentCount,
                 guardianCount: schoolDetails.guardianCount,
                 teacherCount: schoolDetails.teacherCount,
             };
-            console.log("=====school detail========", data)
-
             setSchoolData(data);
         }
     }, [schoolDetails]);
-
-    // "data": {
-    //     "school": {
-    //         "id": 1,
-    //         "schoolName": "SJ Education Center",
-    //         "userId": 13,
-    //         "phoneNumber": "86868758324",
-    //         "location": "Delhi",
-    //         "website": "https://sjeducation.com",
-    //         "facebookUrl": "https://facebook.com/sjeducation",
-    //         "twitterUrl": "https://twitter.com/sjeducation",
-    //         "instagramUrl": "https://instagram.com/sjeducation",
-    //         "linkedInUrl": null,
-    //         "youtubeUrl": null,
-    //         "bio": "testingsddfsv",
-    //         "createdAt": "2020-07-21T08:35:28.862Z",
-    //         "updatedAt": "2020-09-25T10:55:36.956Z",
-    //         "deletedAt": null,
-    //         "User": {
-    //             "id": 13,
-    //             "username": "upk@123",
-    //             "email": "sjeducation@gmail.com",
-    //             "password": "$2a$10$r08DsMCkyAUbOuOzQV3XruWhxYIAkE1zIsG27i7E1IXVNXstjFQYq",
-    //             "roleId": 3,
-    //             "signupType": null,
-    //             "firebaseToken": "rtttttttttttt",
-    //             "profile": "https://glu-storage.sgp1.digitaloceanspaces.com/13/334388dc6e2e4a7c9a1a51346a004cc1.png",
-    //             "isActive": true,
-    //             "isEmailVerified": true,
-    //             "sendPromotionalOffer": null,
-    //             "createdAt": "2020-07-21T08:35:28.390Z",
-    //             "updatedAt": "2020-09-26T11:04:52.429Z"
-    //         }
 
     return (
         <Box component="div" className={classes.root}>
@@ -248,32 +210,28 @@ const StudentDetail = () => {
                     </div>
                 </Grid>
                 <Grid item xs={6}>
-                {/* <img src={schoolData.profile} alt="tutor" className={classes.image} /> */}
                 <div className={classes.detailsText}></div>
                 <div className="row row__margin" style={{paddingLeft: "100px"}}>
-                    {/* {all_users_count && all_users_count.map((item: any) => ( */}
                         <div key={uuidv4()} style={{margin:"10px",
-                            boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
+                            boxShadow:"0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
                                 <CardStatus heading="Students" total={schoolData.studentCount} />
                             </div>
                         </div>
 
                         <div key={uuidv4()} style={{margin:"10px",
-                            boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
+                            boxShadow:"0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
                                 <CardStatus heading="Teachers" total={schoolData.teacherCount} />
                             </div>
                         </div>
 
                         <div key={uuidv4()} style={{margin:"10px",
-                            boxShadow:"0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
+                            boxShadow:"0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)"}} className="col-md-9 colum__spacing">
                             <div className="bg-white">
                                 <CardStatus heading="Parents" total={schoolData.guardianCount} />
                             </div>
                         </div>
-
-                    {/* ))} */}
                 </div>
                 </Grid>
             </Grid>
