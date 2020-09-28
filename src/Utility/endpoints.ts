@@ -72,7 +72,7 @@ export const superAdminEndpoints = {
     getAllUsersCount: 'superadmin/users/count-list',
     teacherDetails: 'superadmin/teacher/',
     studentDetails: '/superAdmin/student/1',
-
-    approveRejectTeacher: 'superadmin/unverified-freelancer-teachers',
     schoolDetails: 'superAdmin/schools',
+    parentDetails: '/superAdmin/parent',
+    approveRejectTeacher: 'superadmin/unverified-freelancer-teachers',
 };

@@ -23,6 +23,7 @@ const TeacherDetail = () => {
         education: '',
         experience: '',
         id: '',
+        status: '',
     });
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
@@ -46,6 +47,7 @@ const TeacherDetail = () => {
                 experience: teachetDetails.TeacherExperiences,
                 education: teachetDetails.TeacherQualifications,
                 id: teachetDetails.id,
+                status: teachetDetails.status,
             };
             setTeacherData(data);
         }
@@ -63,18 +65,37 @@ const TeacherDetail = () => {
                             'No documents uploaded'
                         )}
                     </div>
-                    <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
+                    {
+                        teacherData.status == "Approved"
+                        ?
+                     <div
+                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem', backgroundColor: '#bedebe' }}
                         className={classes.upload}
                         onClick={() => {
                             console.log('Approve clocked');
                             dispatch(approveRejectTeacher(teacherData.id, { key: 1 }, history));
                         }}
                     >
-                        Approve
+                        Approved
                     </div>
+                    :
                     <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
+                    style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem'}}
+                    className={classes.upload}
+                    onClick={() => {
+                        console.log('Approve clocked');
+                        dispatch(approveRejectTeacher(teacherData.id, { key: 1 }, history));
+                    }}
+                >
+                    Approve
+                </div>
+                    }
+                    
+                    {
+                        teacherData.status == "Rejected"
+                        ?
+                        <div
+                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', backgroundColor: '#f35454' }}
                         className={classes.upload}
                         onClick={() => {
                             console.log('Reject clocked');
@@ -82,8 +103,23 @@ const TeacherDetail = () => {
                             dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
                         }}
                     >
-                        Reject
+                        Rejected
                     </div>
+                    :
+                    <div
+                    style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
+                    className={classes.upload}
+                    onClick={() => {
+                        console.log('Reject clocked');
+
+                        dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
+                    }}
+                >
+                    Reject
+                </div>
+
+                    }
+
                 </Grid>
 
                 <Grid item xs={6}>
