@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { studentDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
 import commonImg from '../../../../Assets/images';
+import Reusable from './ReusableEdExp';
 
 const useStyle = makeStyles(studentStyle as any);
 
@@ -17,6 +18,7 @@ const StudentDetail = () => {
         email: '',
         phoneNumber: '',
         city: '',
+        education: '',
     });
     const studentDetails = useSelector((state: any) => state.superAdminReducer.studentDetails);
     const location = useLocation();
@@ -36,6 +38,7 @@ const StudentDetail = () => {
                 email: studentDetails?.User?.email,
                 phoneNumber: studentDetails.phoneNumber,
                 city: studentDetails.location,
+                education: studentDetails.StudentQualifications,
             };
             setStudentData(data);
         }
@@ -43,22 +46,11 @@ const StudentDetail = () => {
 
     return (
         <Box component="div" className={classes.root}>
-            <Grid container spacing={4}>
+            <Grid container spacing={8}>
                 <Grid item xs={6}>
                     <h1>Student</h1>
                     <div>
                         <img src={commonImg.scaffgirl} alt="tutor" className={classes.image} />
-
-                        <div className={classes.bio}>
-                            <div className={classes.bioText}>Bio</div>
-                            <TextareaAutosize
-                                id="bio"
-                                value={studentData.bio}
-                                rowsMin={5}
-                                className={classes.textareaClass}
-                                disabled
-                            />
-                        </div>
                         <div className={classes.detailsText}>Student Details</div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
@@ -108,7 +100,7 @@ const StudentDetail = () => {
                                 <div>
                                     <input
                                         value={studentData.phoneNumber}
-                                        type="number"
+                                        type="text"
                                         id="mobile"
                                         className={classes.inputBox}
                                         disabled
@@ -122,7 +114,7 @@ const StudentDetail = () => {
                                 Location
                             </label>
                             <input
-                                value={studentData.city}
+                                value={studentData.city ? studentData.city : 'N/A'}
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
@@ -134,6 +126,30 @@ const StudentDetail = () => {
                             </div>
                         </div>
                     </div>
+                </Grid>
+                <Grid xs={6}>
+                    <div className={classes.detailsText}>Education</div>
+                    {/*<div className={classes.details}>
+                        <div className={classes.labelText}>2016-2019</div>
+                        <div className={classes.btnContainer}></div>
+                        <div className={classes.infoText}>
+                            IIT Guwahati
+                            <br />
+                            Btech
+                        </div>
+                    </div>
+                    <hr className={classes.hr} /> */}
+                    {studentData.education instanceof Array &&
+                        studentData.education.map((item: any) => {
+                            return (
+                                <Reusable
+                                    startDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                    endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                    institute={item.QualificationDetail.school}
+                                    position={item.QualificationDetail.fieldOfStudy}
+                                />
+                            );
+                        })}
                 </Grid>
             </Grid>
         </Box>

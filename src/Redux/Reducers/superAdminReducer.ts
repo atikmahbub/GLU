@@ -7,6 +7,7 @@ import {
     ADMIN_ALL_USERS_COUNT,
     TEACHER_DETAILS_SUPER,
     STUDENT_DETAILS_SUPER,
+    SCHOOL_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
     allUsersCount: null,
     teacherDetails: null,
     studentDetails: null,
+    schoolDetails: null,
 };
 export const superAdminReducer = (state = initialState, action: any) => {
     const newState = { ...state };
@@ -57,6 +59,11 @@ export const superAdminReducer = (state = initialState, action: any) => {
         }
         case STUDENT_DETAILS_SUPER: {
             newState.studentDetails = action.payload;
+            return newState;
+        }
+
+        case SCHOOL_DETAILS_SUPER: {
+            newState.schoolDetails = action.payload;
             return newState;
         }
         default: {

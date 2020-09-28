@@ -10,6 +10,7 @@ import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
+import OutlineButton from '../../../components/Button/OutlineButton';
 
 interface props {
     schoolList: any;
@@ -28,6 +29,14 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
             pathname: routeEndpoints.school.addNewSchool,
             state: {
                 breadcrumb: routeEndpoints.teacher.addNewTeacherBread,
+            },
+        });
+    };
+    const handleDetails = (data:any)=> {
+        routes.push({
+            pathname: '/admin/school/detail',
+            state: {
+                schoolDetails: data,
             },
         });
     };
@@ -85,6 +94,17 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
+                                        />
+                                    ),
+                                },
+                                {
+                                    title: 'Action',
+                                    field: 'docStatus',
+                                    render: (rowData:any) => (
+                                        <OutlineButton
+                                            btnClick={()=>handleDetails(rowData)}
+                                            style={{ width: '12rem' }}
+                                            text="View Details"
                                         />
                                     ),
                                 },
