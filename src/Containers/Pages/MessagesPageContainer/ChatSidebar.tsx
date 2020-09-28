@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import TitlePrimary from '../../../components/Typographies/TitlePrimary';
 import CardsGridContainer from '../../CardsGridContainer';
 import MessageUserCard from '../../../components/Cards/MessageUserCard';
-import { users } from '../../../data/messages';
+import { users2 } from '../../../data/messages';
 
 const useStyles = makeStyles({
     messageIcon: {
@@ -35,12 +35,13 @@ const ChatSidebar: FC = () => {
                     <i className={classNames('icon-Message', classes.messageIcon)} />
                 </Grid>
                 <Grid container direction="column">
-                    {users.map((user, index) => (
+                    {users2.map((user, index) => (
                         <Grid key={index} container className={classes.cardContainer}>
                             <MessageUserCard
                                 indicator
                                 indicatorActive={user.status === 'Online'}
                                 onClick={(name) => console.log(name)}
+                                expanded={index === 1}
                                 {...user}
                             />
                         </Grid>

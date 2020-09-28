@@ -1,31 +1,32 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import AspectRatioImgCard from './AspectRationImgCard';
 import TextPrimary from '../Typographies/TextPrimary';
 import { MessageUserCardElement } from './types';
+import Indicator from '../../Containers/Pages/MessagesPageContainer/Indicator';
 
 const useStyles = makeStyles({
     root: {
         '&:hover': {
             cursor: 'pointer',
             '& $name': {
-                textDecoration: 'underline'
-            }
-        }
+                textDecoration: 'underline',
+            },
+        },
     },
     imgContainer: {
-        width: '2.625rem',
+        width: ({ expanded }: any) => (expanded ? '10rem' : '2.625rem'),
     },
     infoContainer: {
         flexGrow: 1,
         width: 'auto',
-        paddingLeft: '1.5625rem',
+        paddingLeft: ({ expanded }: any) => (expanded ? '1.875rem' : '1.5625rem'),
     },
     name: {
-        lineHeight: '1.2rem',
+        fontSize: ({ expanded }: any) => (expanded ? '2.625rem' : '1.2rem'),
+        lineHeight: ({ expanded }: any) => (expanded ? '2.8125rem' : ''),
     },
     status: {
         fontSize: '1.125rem',
@@ -39,28 +40,32 @@ const useStyles = makeStyles({
         },
     },
     container: {
-        width: 'fit-content'
+        width: 'fit-content',
     },
-    indicator: {
-        width: 11,
-        height: 11,
-        border: '1px solid rgba(0, 0, 0, 0.5)',
-        borderRadius: '50%'
+    time: {
+        color: '#5F5F5F',
+        lineHeight: '1.25rem',
     },
-    indicatorActive: {
-        borderColor: '#00A800',
-        background: '#00A800'
-    }
 });
 
 interface IMessageUserCard extends MessageUserCardElement {
-    onClick: (name: string) => void,
+    onClick: (name: string) => void;
     indicator?: boolean;
     indicatorActive?: boolean;
+    expanded?: boolean;
 }
 
-const MessageUserCard: FC<IMessageUserCard> = ({ img, name, status, onClick, indicator, indicatorActive }) => {
-    const classes = useStyles();
+const MessageUserCard: FC<IMessageUserCard> = ({
+    img,
+    name,
+    status,
+    onClick,
+    indicator,
+    indicatorActive,
+    newMessagesCount,
+    expanded,
+}) => {
+    const classes = useStyles({ expanded });
     return (
         <Grid container onClick={() => onClick(name)} className={classes.root}>
             <Grid container className={classes.imgContainer}>
@@ -69,13 +74,25 @@ const MessageUserCard: FC<IMessageUserCard> = ({ img, name, status, onClick, ind
             <Grid container justify="space-between" className={classes.infoContainer}>
                 <Grid container direction="column" justify="space-between" className={classes.container}>
                     <TextPrimary className={classes.name}>{name}</TextPrimary>
-                    <Typography className={classes.status}>{status}</Typography>
+                    {expanded ? (
+                        <Grid container direction="column">
+                            <TextPrimary>Local Time</TextPrimary>
+                            <TextPrimary className={classes.time}>11.24am</TextPrimary>
+                        </Grid>
+                    ) : (
+                        <Typography className={classes.status}>{status}</Typography>
+                    )}
                 </Grid>
-                <Grid container direction="column" className={classes.container}>
-                    {indicator && (
-                        <span className={classNames(classes.indicator, {
-                            [classes.indicatorActive]: indicatorActive
-                        })} />
+                <Grid
+                    container
+                    direction="column"
+                    justify="space-between"
+                    alignItems="flex-end"
+                    className={classes.container}
+                >
+                    {indicator && <Indicator active={indicatorActive} />}
+                    {newMessagesCount && (
+                        <Typography className={classes.status}>{newMessagesCount} new messages</Typography>
                     )}
                 </Grid>
             </Grid>

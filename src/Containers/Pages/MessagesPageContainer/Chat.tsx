@@ -1,29 +1,31 @@
 import React, { FC } from 'react';
+import { use100vh } from 'react-div-100vh';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import CardsGridContainer from '../../CardsGridContainer';
 import FullHeightContainer from '../../FullHeightContainer';
 import ChatSidebar from './ChatSidebar';
+import MessagesBox from './MessagesBox';
 
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
     },
-    messageIcon: {
-        fontSize: '1.5rem',
-        marginLeft: '1.25rem'
-    },
+    container: {
+        overflow: 'auto',
+        maxHeight: ({ height }: any) => height
+    }
 });
 
 const Chat: FC = () => {
-    const classes = useStyles();
+    const height = use100vh();
+    const classes = useStyles({ height });
     return (
         <FullHeightContainer>
             <Grid container className={classes.root}>
-                <Grid container item xs={8}>
-                    <CardsGridContainer>1</CardsGridContainer>
+                <Grid container item xs={8} className={classes.container}>
+                    <MessagesBox />
                 </Grid>
-                <Grid container item xs={4}>
+                <Grid container item xs={4} className={classes.container}>
                     <ChatSidebar />
                 </Grid>
             </Grid>
