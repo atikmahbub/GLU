@@ -262,7 +262,8 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
         API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
             .then((res: any) => {
                 console.log('resppe: ', res);
-                history.push('/admin/teacher');
+                dispatch(teacherDetailSuperAdmin(id))
+                // history.push('/admin/teacher');
             })
 
             .catch((err) => {
