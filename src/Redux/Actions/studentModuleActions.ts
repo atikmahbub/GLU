@@ -21,25 +21,23 @@ interface HomeworkSuccess {
 export type StudentModuleActionTypes = SetHomeworkPending | HomeworkSuccess;
 
 export function fetchHomework(): AppThunk {
-    return async (dispatch) => {
+    return (dispatch) => {
         dispatch(setHomeworkPending());
-        try {
-            const {
-                data: { success, data },
-            } = await API.get(studentsEndpoints.getHomework);
-            if (success) {
-                const { incompleteCount, overDueCount, allHomeworkCount, overDueHW, nonOverDueHW } = data;
-                dispatch(
-                    homeworkSuccess(
-                        incompleteCount,
-                        overDueCount,
-                        allHomeworkCount,
-                        dataToHomeworkCards(nonOverDueHW),
-                        dataToHomeworkCards(overDueHW)
-                    )
-                );
-            }
-        } catch (e) {}
+            API.get(studentsEndpoints.getHomework)
+                .then(({ data: { success, data } }) => {
+                    if (success) {
+                        const { incompleteCount, overDueCount, allHomeworkCount, overDueHW, nonOverDueHW } = data;
+                        dispatch(
+                            homeworkSuccess(
+                                incompleteCount,
+                                overDueCount,
+                                allHomeworkCount,
+                                dataToHomeworkCards(nonOverDueHW),
+                                dataToHomeworkCards(overDueHW)
+                            )
+                        );
+                    }
+                });
     };
 }
 
