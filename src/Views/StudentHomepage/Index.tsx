@@ -30,11 +30,11 @@ const Index: React.FunctionComponent = () => {
                 bannerCarousel: teachersBannerCards,
                 bannerCarouselCenter: teachersBannerCards,
                 bannerCarouselBottom: teachersBannerCards,
-                featuredTutors: { ...featuredTeachersCard },
+                featuredTutors: featuredTeachersCard,
                 tutors: teachersImageCards,
-                nextClass: { ...nextClassCard },
-                featuredSubjects: { ...featuredSubjectsCard },
-                upcomingClass: { ...upcomingClassCard },
+                nextClass: nextClassCard,
+                featuredSubjects: featuredSubjectsCard,
+                upcomingClass: upcomingClassCard,
                 recordedClasses: prevClassImageCards.slice(0, 4),
             }}
         />
