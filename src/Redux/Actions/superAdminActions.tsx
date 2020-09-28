@@ -264,6 +264,7 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
                 console.log('resppe: ', res);
                 history.push('/admin/teacher');
             })
+
             .catch((err) => {
                 handleError(dispatch, err);
             });
@@ -276,8 +277,6 @@ export const schoolDetailSuperAdminRes = (data: any) => {
         payload: data,
     };
 };
-
-
 
 export const parentDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {

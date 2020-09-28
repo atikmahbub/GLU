@@ -17,6 +17,7 @@ function useUpcomingClasses() {
     return useMemo(
         () => ({
             isPending,
+            count,
             nextClassCard,
             upcomingClassCard: nextClassCard,
             upcomingClassImageCards: dataToImageCards(data)

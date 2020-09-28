@@ -7,8 +7,7 @@ import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
 import { calendarSubjectsCards } from '../../../../data/homepage';
-import { UserTypes } from '../../../../Types/user';
-import { DashboardSchool } from '../../types';
+import { DashboardSchool, UserType } from '../../types';
 
 const useStyles = makeStyles({
     container: {
@@ -19,9 +18,7 @@ const useStyles = makeStyles({
     },
 });
 
-interface ISchool extends DashboardSchool {
-    userType: UserTypes;
-}
+interface ISchool extends DashboardSchool, UserType {}
 
 const School: FC<ISchool> = ({ userType, homework }) => {
     const classes = useStyles();
