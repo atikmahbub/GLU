@@ -64,10 +64,18 @@ export interface DashboardSchool {
         isLoading: boolean;
         count: number;
     };
+    upcomingClasses: {
+        isLoading: boolean;
+        count: number;
+    };
 }
 
 export interface DashboardPersonal {
     previousClasses: {
+        isLoading: boolean;
+        count: number;
+    };
+    upcomingClasses: {
         isLoading: boolean;
         count: number;
     };

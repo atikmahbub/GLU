@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 interface IPersonal extends DashboardPersonal, UserType {}
 
-const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
+const Personal: FC<IPersonal> = ({ userType, previousClasses, upcomingClasses }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -63,9 +63,10 @@ const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
                         bigTitle
                         title={'Thursday 30th\nJuly\n2020'}
                         titleRightLink="See calendar"
-                        titleRightLinkTo="/students/"
+                        titleRightLinkTo={`/${userType}/calendar`}
                         description="Upcoming classes"
-                        value="4"
+                        value={upcomingClasses.count}
+                        isLoading={upcomingClasses.isLoading}
                         titleClassName={classes.calendarCardTitle}
                     />
                 </Grid>
