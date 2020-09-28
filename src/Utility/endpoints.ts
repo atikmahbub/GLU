@@ -73,4 +73,5 @@ export const superAdminEndpoints = {
     teacherDetails: 'superadmin/teacher/',
     studentDetails: '/superAdmin/student/1',
     schoolDetails: 'superAdmin/schools',
+    parentDetails: '/superAdmin/parent',
 };
