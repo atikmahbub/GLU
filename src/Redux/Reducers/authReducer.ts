@@ -1,9 +1,10 @@
-import { REGSITER_DATA, USER_LOGIN, VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, REGSITER_DATA, USER_LOGIN, VERIFIY_USER } from '../ActionTypes/authTypes';
 
 const initialState = {
     userData: null,
     registerData: null,
     verifyUser: null,
+    childTokens: [],
 };
 
 export const authReducer = (state = initialState, action: any) => {
@@ -19,6 +20,12 @@ export const authReducer = (state = initialState, action: any) => {
         }
         case VERIFIY_USER: {
             newState.verifyUser = action.payload;
+            return newState;
+        }
+        case CHILD_TOKEN: {
+            const data: any = [...newState.childTokens];
+            data.push(action.payload);
+            newState.childTokens = data;
             return newState;
         }
         default: {
