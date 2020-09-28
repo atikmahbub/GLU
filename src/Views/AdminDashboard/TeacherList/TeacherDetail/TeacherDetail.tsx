@@ -5,7 +5,8 @@ import { useLocation } from 'react-router-dom';
 import Img from '../../../../Assets/images';
 import { teacherStyle } from './teacherStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { teacherDetailSuperAdmin } from '../../../../Redux/Actions/superAdminActions';
+import { teacherDetailSuperAdmin, approveRejectTeacher } from '../../../../Redux/Actions/superAdminActions';
+import Reusable from './../../StudentList/StudentDetail/ReusableEdExp';
 
 const useStyle = makeStyles(teacherStyle as any);
 
@@ -19,6 +20,9 @@ const TeacherDetail = () => {
         phoneNumber: '',
         city: '',
         document: '',
+        education: '',
+        experience: '',
+        id: '',
     });
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
@@ -38,6 +42,9 @@ const TeacherDetail = () => {
                 phoneNumber: teachetDetails.phoneNumber,
                 city: teachetDetails.location,
                 document: teachetDetails.document,
+                experience: teachetDetails.TeacherExperiences,
+                education: teachetDetails.TeacherQualifications,
+                id: teachetDetails.userId,
             };
             setTeacherData(data);
         }
@@ -49,17 +56,27 @@ const TeacherDetail = () => {
                 <Grid item xs={6}>
                     <h1>Teacher</h1>
                     <div>
-                        <img className={classes.image2} src={teacherData.document} alt="tutor" />
+                        {teacherData.document ? (
+                            <img className={classes.image2} src={teacherData.document} alt="tutor" />
+                        ) : (
+                            'No documents uploaded'
+                        )}
                     </div>
                     <div
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
                         className={classes.upload}
+                        onClick={() => {
+                            approveRejectTeacher(teacherData.id, { key: 1 });
+                        }}
                     >
                         Approve
                     </div>
                     <div
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
                         className={classes.upload}
+                        onClick={() => {
+                            approveRejectTeacher(teacherData.id, { key: 2 });
+                        }}
                     >
                         Reject
                     </div>
@@ -127,7 +144,7 @@ const TeacherDetail = () => {
                                 </label>
                                 <div>
                                     <input
-                                        value={teacherData.phoneNumber}
+                                        value={teacherData.phoneNumber ? teacherData.phoneNumber : 'N/A'}
                                         type="text"
                                         id="mobile"
                                         className={classes.inputBox}
@@ -142,7 +159,7 @@ const TeacherDetail = () => {
                                 Location
                             </label>
                             <input
-                                value={teacherData.city}
+                                value={teacherData.city ? teacherData.city : 'N/A'}
                                 type="text"
                                 id="location"
                                 className={classes.inputBox}
@@ -153,6 +170,37 @@ const TeacherDetail = () => {
                                 <i className="icon-Locate"></i>
                             </div>
                         </div>
+                        <div className={classes.detailsText} style={{ marginTop: '6rem' }}>
+                            Education
+                        </div>
+                        {teacherData.education instanceof Array && teacherData.education.length > 0
+                            ? teacherData.education.map((item: any) => {
+                                  return (
+                                      <Reusable
+                                          startDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                          endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                          institute={item.QualificationDetail.school}
+                                          position={item.QualificationDetail.fieldOfStudy}
+                                      />
+                                  );
+                              })
+                            : 'No education data available'}
+
+                        <div className={classes.detailsText} style={{ marginTop: '6rem' }}>
+                            Experience
+                        </div>
+                        {teacherData.experience instanceof Array && teacherData.experience.length > 0
+                            ? teacherData.experience.map((item: any) => {
+                                  return (
+                                      <Reusable
+                                          startDate={item.Experience.startDate.split('T')[0].split('-')[0]}
+                                          endDate={item.Experience.startDate.split('T')[0].split('-')[0]}
+                                          institute={item.Experience.workPlace}
+                                          position={item.Experience.position}
+                                      />
+                                  );
+                              })
+                            : 'No experience data available'}
                     </div>
                 </Grid>
             </Grid>

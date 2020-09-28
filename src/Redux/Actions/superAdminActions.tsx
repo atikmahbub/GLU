@@ -13,7 +13,7 @@ import {
     ADMIN_PARENTS_LIST,
     ADMIN_ALL_USERS_COUNT,
     TEACHER_DETAILS_SUPER,
-    STUDENT_DETAILS_SUPER
+    STUDENT_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -22,15 +22,16 @@ export const getallUsersCountAPIcall = () => {
         API.get(superAdminEndpoints.getAllUsersCount)
             .then((res) => {
                 console.log(res);
-                const userListArray = []
-                for(let [key, value] of Object.entries(res.data.data.userListCount)){
-                    if(key != "guardians"){
+                const userListArray = [];
+                for (let [key, value] of Object.entries(res.data.data.userListCount)) {
+                    if (key != 'guardians') {
                         userListArray.push({
-                            email: key, total: value 
-                        })
+                            email: key,
+                            total: value,
+                        });
                     }
                 }
-                userListArray.push({email: "videos", total: res.data.data.videos })
+                userListArray.push({ email: 'videos', total: res.data.data.videos });
                 dispatch(allUsersCount(userListArray));
             })
             .catch((err) => {
@@ -221,7 +222,6 @@ export const superAdminTeacherDetailsRes = (data: any) => {
     };
 };
 
-
 export const studentDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {
         API.get(`${superAdminEndpoints.studentDetails}${id}`)
@@ -238,5 +238,17 @@ export const studentDetailSuperAdminRes = (data: any) => {
     return {
         type: STUDENT_DETAILS_SUPER,
         payload: data,
+    };
+};
+
+export const approveRejectTeacher = (id: any, data: any) => {
+    return (dispatch: Dispatch<any>) => {
+        API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
+            .then((res: any) => {
+                dispatch(studentDetailSuperAdminRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
     };
 };
