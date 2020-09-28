@@ -52,7 +52,7 @@ const useStyles = makeStyles({
     iconContainer: {
         position: 'absolute',
         width: 20,
-        height: 20,
+        height: '100%',
         pointerEvents: 'none',
         '& svg': {
             display: 'block',
@@ -64,7 +64,6 @@ const useStyles = makeStyles({
         width: 35,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'flex-end',
         paddingBottom: '1px',
     },
     label: {
@@ -137,6 +136,8 @@ const FormControlInput: FC<FormControlInputProps> = ({
             {icon && (
                 <Grid
                     item
+                    container
+                    alignItems="center"
                     className={classNames(classes.iconContainer, {
                         [classes.iconContainerOutlined]: variant === 'outlined',
                     })}

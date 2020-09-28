@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     },
 });
 
-const FullScreenLoader: FC = () => {
+const FullSizeLoader: FC = () => {
     const classes = useStyles();
     return (
         <Grid container justify="center" alignItems="center" className={classes.root}>
@@ -22,4 +22,4 @@ const FullScreenLoader: FC = () => {
     );
 };
 
-export default memo(FullScreenLoader);
+export default memo(FullSizeLoader);

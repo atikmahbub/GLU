@@ -96,4 +96,5 @@ export interface MessageUserCardElement {
     img: string;
     name: string;
     status: string;
+    newMessagesCount?: number;
 }

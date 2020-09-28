@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import Grid from '@material-ui/core/Grid';
+import classNames from 'classnames';
+import Grid, { GridProps } from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 
 const useStyles = makeStyles({
@@ -10,16 +11,17 @@ const useStyles = makeStyles({
     },
 });
 
-interface IFormGroup {
+interface IFormGroup extends GridProps {
     marginBottom?: boolean;
     marginBottomVariant?: 1 | 2;
     children: ReactNode;
+    rootClassName?: string;
 }
 
-const FormGroup: FC<IFormGroup> = ({ marginBottom, marginBottomVariant, children }) => {
+const FormGroup: FC<IFormGroup> = ({ marginBottom, marginBottomVariant, children, rootClassName, ...props }) => {
     const classes = useStyles({ marginBottom, marginBottomVariant });
     return (
-        <Grid container direction="column" className={classes.root}>
+        <Grid container direction="column" className={classNames(classes.root, rootClassName)} {...props}>
             {children}
         </Grid>
     );

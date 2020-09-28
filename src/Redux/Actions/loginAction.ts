@@ -86,7 +86,7 @@ export const emailVerificationAPIcall = (token: string, redirectToHome: () => vo
 
 export const userEmailVerificationAPIcall = (token: string, redirectToHome: () => void) => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${endponts.userEmailVerififcation}/${token}`)
+        API.get(`${endponts.userEmailVerififcation}${token}`)
             .then((res) => {
                 console.log(res);
                 redirectToHome();
