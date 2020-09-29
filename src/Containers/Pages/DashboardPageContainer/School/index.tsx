@@ -46,7 +46,7 @@ const School: FC<ISchool> = ({ userType, homework, upcomingClasses, profile, dat
                             value={homework.count}
                             isLoading={homework.isLoading}
                         />
-                        <WhiteCard size={3} title="Recommended" description="Total" value="12" />
+                        <WhiteCard size={3} title="Recommended" titleLink={`/${userType}/recommended`} description="Total" value="12" />
                         <WhiteCard
                             size={6}
                             bigTitle

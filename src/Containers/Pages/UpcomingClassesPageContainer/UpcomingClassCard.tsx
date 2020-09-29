@@ -3,40 +3,45 @@ import Grid from '@material-ui/core/Grid';
 import AspectRatioImgCard from '../../../components/Cards/AspectRationImgCard';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import DateSubjectCard from '../../../components/Cards/DateSubjectCard';
+import TextPrimary from '../../../components/Typographies/TextPrimary';
+import { UpcomingClassCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
         padding: '3.125rem 0',
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
         '&:last-child': {
-            borderBottom: 0
-        }
+            borderBottom: 0,
+        },
     },
     imgContainer: {
         paddingRight: '9.35rem',
     },
+    dateCardContainer: {
+        marginBottom: ({ text }: any) => (text ? '4.1875rem' : 0),
+    },
+    text: {
+        color: '#5F5F5F',
+    },
 });
 
-const UpcomingClassCard: FC = () => {
-    const classes = useStyles();
+interface IUpcomingClassCard extends UpcomingClassCardElement {}
+
+const UpcomingClassCard: FC<IUpcomingClassCard> = ({ text, img, ...dateSubjectCard }) => {
+    const classes = useStyles({ text });
     return (
         <Grid container className={classes.root}>
-            <Grid container xs={4} className={classes.imgContainer}>
+            <Grid container item xs={4} className={classes.imgContainer}>
                 <AspectRatioImgCard
                     ratio="76%"
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/vrplayerboy_fyrdco.jpg"
+                    img={img}
                 />
             </Grid>
-            <Grid container xs={8}>
-                <DateSubjectCard
-                    subject="English"
-                    subTitle="AED200"
-                    name="Jen Holden"
-                    description="How to structure narrative in fiction."
-                    date="24/07/20"
-                    startTime="3pm"
-                    endTime="4.30pm"
-                />
+            <Grid container item xs={8}>
+                <Grid container className={classes.dateCardContainer}>
+                    <DateSubjectCard {...dateSubjectCard} />
+                </Grid>
+                <TextPrimary className={classes.text}>{text}</TextPrimary>
             </Grid>
         </Grid>
     );

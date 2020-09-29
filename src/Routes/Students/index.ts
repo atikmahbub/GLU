@@ -25,6 +25,7 @@ const SchoolInfo = lazy(() => import('../../Views/StudentsModule/SchoolInfo'));
 const MyRecordedCLasses = lazy(() => import('../../Views/StudentsModule/MyRecordedClasses'));
 const WatchRecordedClass = lazy(() => import('../../Views/StudentsModule/WatchRecordedClass'));
 const UpcomingClasses = lazy(() => import('../../Views/StudentsModule/UpcomingClasses'));
+const RecommendedClasses = lazy(() => import('../../Views/StudentsModule/Recommended'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -52,6 +53,7 @@ const routes = [
     createRouteObj('/students/profile/recorded-classes', MyRecordedCLasses),
     createRouteObj('/students/profile/recorded-classes/:id', WatchRecordedClass),
     createRouteObj('/students/profile/upcoming-classes', UpcomingClasses),
+    createRouteObj('/students/recommended', RecommendedClasses),
 ];
 
 export default routes;
