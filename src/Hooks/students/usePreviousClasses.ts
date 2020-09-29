@@ -6,7 +6,7 @@ import { fetchPreviousClasses } from '../../Redux/Actions/studentModuleActions';
 
 function usePreviousClasses() {
     const dispatch = useDispatch()
-    const { isSuccess, isPending, data } = useSelector(previousClassesSelector)
+    const { isSuccess, isPending, data, count } = useSelector(previousClassesSelector)
 
     useEffect(() => {
         if (!isSuccess) {
@@ -16,8 +16,9 @@ function usePreviousClasses() {
 
     return useMemo(() => ({
         isPending,
+        count,
         prevClassImageCards: dataToImageCard(data)
-    }), [isPending]);
+    }), [isPending, data, count]);
 }
 
 export default usePreviousClasses;

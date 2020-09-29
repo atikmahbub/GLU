@@ -26,13 +26,13 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
     const dispatch = useDispatch();
 
     const handleDetails = (data: any) => {
-        console.log("parent Detail")
-        // routes.push({
-        //     pathname: '/admin/student/detail',
-        //     state: {
-        //         studentDetails: data,
-        //     },
-        // });
+        routes.push({
+            pathname: '/admin/parent/detail',
+            state: {
+                studentDetailsParent: data,
+            },
+            // children: data.children,
+        });
     };
 
     const handleRoutes = () => {

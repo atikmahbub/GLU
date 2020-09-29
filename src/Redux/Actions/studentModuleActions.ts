@@ -36,6 +36,7 @@ interface SetTeacherPending {
 
 interface TeachersSuccess {
     type: typeof TEACHERS_SUCCESS;
+    count: number;
     data: any[];
 }
 
@@ -131,9 +132,10 @@ function setTeachersPending(): SetTeacherPending {
     };
 }
 
-function teachersSuccess(data: any[]): TeachersSuccess {
+function teachersSuccess(count: number, data: any[]): TeachersSuccess {
     return {
         type: TEACHERS_SUCCESS,
+        count,
         data,
     };
 }
@@ -143,7 +145,7 @@ export function fetchTeachers(): AppThunk {
         dispatch(setTeachersPending());
         API.get(studentsEndpoints.getFeatureTeacher).then(({ data: { success, data } }) => {
             if (success) {
-                dispatch(teachersSuccess(data));
+                dispatch(teachersSuccess(data.length, data));
             }
         });
     };

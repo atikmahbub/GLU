@@ -25,6 +25,7 @@ const initialState: StudentModuleState = {
         isFailure: false,
     },
     teachers: {
+        count: 0,
         data: [],
         isPending: false,
         isSuccess: false,
@@ -108,6 +109,7 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     data: action.data,
+                    count: action.count
                 },
             };
         case UPCOMING_CLASSES_PENDING:

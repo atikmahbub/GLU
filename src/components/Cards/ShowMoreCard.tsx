@@ -29,7 +29,7 @@ const ShowMoreCard: FC<IShowMoreCard> = ({ current, total, paddingTop }) => {
     const classes = useStyles({ paddingTop });
     return (
         <Grid container alignItems="center" className={classes.root}>
-            <ButtonPrimary variant="outlined" className={classes.button}>
+            <ButtonPrimary variant="outlined" className={classes.button} disabled={current === total}>
                 Show more
             </ButtonPrimary>
             <Typography className={classes.text}>

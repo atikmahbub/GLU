@@ -15,6 +15,7 @@ import {
     TEACHER_DETAILS_SUPER,
     STUDENT_DETAILS_SUPER,
     SCHOOL_DETAILS_SUPER,
+    PARENT_DETAILS_SUPER
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -242,6 +243,20 @@ export const studentDetailSuperAdminRes = (data: any) => {
     };
 };
 
+
+
+export const schoolDetailSuperAdmin = (id: number) => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
+            .then((res: any) => {
+                dispatch(schoolDetailSuperAdminRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
 export const approveRejectTeacher = (id: any, data: any, history: any) => {
     return (dispatch: Dispatch<any>) => {
         API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
@@ -254,11 +269,30 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
                 handleError(dispatch, err);
             });
     };
-};
+};       
 
 export const schoolDetailSuperAdminRes = (data: any) => {
     return {
         type: SCHOOL_DETAILS_SUPER,
+        payload: data,
+    };
+};
+
+export const parentDetailSuperAdmin = (id: number) => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(`${superAdminEndpoints.parentDetails}/${id}`)
+            .then((res: any) => {
+                dispatch(parentDetailSuperAdminRes(res.data.data));
+            })
+            .catch((err) => {
+                handleError(dispatch, err);
+            });
+    };
+};
+
+export const parentDetailSuperAdminRes = (data: any) => {
+    return {
+        type: PARENT_DETAILS_SUPER,
         payload: data,
     };
 };

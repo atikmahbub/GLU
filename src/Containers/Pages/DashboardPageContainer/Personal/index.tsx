@@ -7,7 +7,7 @@ import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
 import { calendarSubjectsCards } from '../../../../data/homepage';
-import { UserTypes } from '../../../../Types/user';
+import { DashboardPersonal, UserType } from '../../types';
 
 const useStyles = makeStyles({
     container: {
@@ -24,11 +24,9 @@ const useStyles = makeStyles({
     },
 });
 
-interface IPersonal {
-    userType: UserTypes;
-}
+interface IPersonal extends DashboardPersonal, UserType {}
 
-const Personal: FC<IPersonal> = ({ userType }) => {
+const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -46,7 +44,8 @@ const Personal: FC<IPersonal> = ({ userType }) => {
                         size={3}
                         title="Previous Classes"
                         description="Purchased"
-                        value="57"
+                        isLoading={previousClasses.isLoading}
+                        value={previousClasses.count}
                         titleLink={`/${userType}/recorded-classes`}
                     />
                     <WhiteCard size={3} title="Whiteboard" description={'Try out what the class\nwill be like'} />
