@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { linkTo } from '../../Helper/linkTo';
+import { ProfileCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -50,15 +51,11 @@ const useStyles = makeStyles({
     },
 });
 
-type ProfileCardProps = {
-    name: string;
-    address: string;
-    phone: string;
-    email: string;
+interface IProfileCard extends ProfileCardElement {
     rootClassName?: string;
 };
 
-const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, email, rootClassName }) => {
+const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootClassName }) => {
     const classes = useStyles();
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
@@ -70,7 +67,7 @@ const ProfileCard: FC<ProfileCardProps> = ({ name, address, phone, email, rootCl
                 </Grid>
                 <Grid container item xs={6} className={classes.section}>
                     <img
-                        src="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597229086/gluschool/curlyahirgilr_owcgya.jpg"
+                        src={img}
                         alt="thumbnail"
                         className={classes.img}
                     />

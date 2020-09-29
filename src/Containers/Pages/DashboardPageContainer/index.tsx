@@ -8,7 +8,8 @@ import School from './School';
 import PageFooter from '../../../components/PageFooter';
 import Personal from './Personal';
 import useMenuList from '../../../Hooks/useMenuList';
-import { DashboardPage, UserType } from '../types';
+import { Async, DashboardPage, UserType } from '../types';
+import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
 
 const useStyles = makeStyles({
     tabsContainer: {
@@ -20,9 +21,9 @@ const useStyles = makeStyles({
     },
 });
 
-interface IDashboardPageContainer extends DashboardPage, UserType {}
+interface IDashboardPageContainer extends DashboardPage, UserType, Async {}
 
-const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school, personal }) => {
+const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school, personal, isLoading }) => {
     const classes = useStyles();
     const [activeTab, setActiveTab] = useState('personal');
     const menuList = useMenuList(userType);
@@ -34,6 +35,7 @@ const DashboardPageContainer: FC<IDashboardPageContainer> = ({ userType, school,
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            {isLoading && <FullScreenLoader />}
             <CardsGridContainer background="secondary" rootClassName={classes.tabsContainer}>
                 <Tabs value={activeTab} onChange={(_, tab) => setActiveTab(tab)}>
                     <Tab value="personal" label="Personal" className={classes.tab} />

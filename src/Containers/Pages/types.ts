@@ -7,6 +7,7 @@ import {
     CalendarDateSubjectsCardElement,
     WhiteBannerCardElement,
     HomeworkCardElement,
+    ProfileCardElement, DateSubjectCardElement,
 } from '../../components/Cards/types';
 import { UserTypes } from '../../Types/user';
 
@@ -68,6 +69,8 @@ export interface DashboardSchool {
         isLoading: boolean;
         count: number;
     };
+    profile: ProfileCardElement;
+    dateSubjectCards: DateSubjectCardElement[];
 }
 
 export interface DashboardPersonal {
@@ -79,6 +82,8 @@ export interface DashboardPersonal {
         isLoading: boolean;
         count: number;
     };
+    profile: ProfileCardElement;
+    dateSubjectCards: DateSubjectCardElement[];
 }
 
 export interface DashboardPage {

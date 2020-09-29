@@ -6,8 +6,8 @@ import LineChart from '../../../../components/Charts/LineChart';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
-import { calendarSubjectsCards } from '../../../../data/homepage';
 import { DashboardSchool, UserType } from '../../types';
+import { getCurrentTime } from '../../../../Helper/date';
 
 const useStyles = makeStyles({
     container: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 interface ISchool extends DashboardSchool, UserType {}
 
-const School: FC<ISchool> = ({ userType, homework, upcomingClasses }) => {
+const School: FC<ISchool> = ({ userType, homework, upcomingClasses, profile, dateSubjectCards }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -74,20 +74,15 @@ const School: FC<ISchool> = ({ userType, homework, upcomingClasses }) => {
                     </Grid>
                 </CardsGridContainer>
             </Grid>
-            <ProfileCard
-                name="Frank Howard"
-                address="Dubai, UAE"
-                phone="(+971) 4 554 0350"
-                email="frankhwrd@gmail.com"
-            />
+            <ProfileCard {...profile} />
             <CardsGridContainer background="secondary">
                 <CalendarDateSubjectsCard
                     background="secondary"
                     padding={false}
                     paddingBottom={false}
                     title="Your Morning"
-                    time="9.21am"
-                    cards={calendarSubjectsCards}
+                    time={getCurrentTime()}
+                    cards={dateSubjectCards}
                     cardsContainerPaddingBig
                 />
             </CardsGridContainer>

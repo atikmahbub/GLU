@@ -1,4 +1,9 @@
-import { FeaturedCardElement, ImageCardElement, NextClassCardElement } from '../../components/Cards/types';
+import {
+    DateSubjectCardElement,
+    FeaturedCardElement,
+    ImageCardElement,
+    NextClassCardElement,
+} from '../../components/Cards/types';
 import { parseDate, parseTime } from '../date';
 
 export function dataToNextClassCard({
@@ -55,6 +60,27 @@ export function dataToImageCards(data: any[]): ImageCardElement[] {
             subTitle: `AED${price}`,
             date: parseDate(scheduledOn),
             time: `${parseTime(startTime)} - ${parseTime(endTime)}`,
+        })
+    );
+}
+
+export function dataToDateSubjectCards(data: any[]): DateSubjectCardElement[] {
+    return data.map(
+        ({
+            scheduledOn,
+            startTime,
+            description,
+            duration,
+            endTime,
+            FreelancerSubjectTeacher: { FreelancerSubject, Teacher },
+        }) => ({
+            date: parseDate(scheduledOn),
+            startTime: parseTime(startTime),
+            endTime: parseTime(endTime),
+            subject: FreelancerSubject.subjectName,
+            description,
+            subTitle: duration,
+            name: `${Teacher.firstName} ${Teacher.lastName}`,
         })
     );
 }

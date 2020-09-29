@@ -3,6 +3,8 @@ import {
     FEATURED_SUBJECT_SUCCESS,
     HOMEWORK_PENDING,
     HOMEWORK_SUCCESS,
+    INFO_PENDING,
+    INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
     TEACHERS_PENDING,
@@ -12,7 +14,7 @@ import {
 } from '../ActionTypes/studentModuleTypes';
 import { AppThunk } from './types';
 import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
+import { endponts, studentsEndpoints } from '../../Utility/endpoints';
 import { FeaturedCardElement, HomeworkCardElement, NextClassCardElement } from '../../components/Cards/types';
 import { dataToHomeworkCards } from '../../Helper/students/homeworks';
 import { dataToFeaturedCard, dataToNextClassCard } from '../../Helper/students/upcomingClasses';
@@ -71,6 +73,19 @@ interface FeaturedSubjectsSuccess {
     featuredSubjectsCard: FeaturedCardElement;
 }
 
+interface SetInfoPending {
+    type: typeof INFO_PENDING;
+}
+
+interface InfoSuccess {
+    type: typeof INFO_SUCCESS;
+    img: string;
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+}
+
 export type StudentModuleActionTypes =
     | SetHomeworkPending
     | HomeworkSuccess
@@ -81,7 +96,9 @@ export type StudentModuleActionTypes =
     | SetPreviousClassesPending
     | PreviousClassesSuccess
     | SetFeaturedSubjectsPending
-    | FeaturedSubjectsSuccess;
+    | FeaturedSubjectsSuccess
+    | SetInfoPending
+    | InfoSuccess;
 
 function setHomeworkPending(): SetHomeworkPending {
     return {
@@ -236,6 +253,41 @@ export function fetchFeaturedSubject(): AppThunk {
         API.get(studentsEndpoints.getFeatureSubject).then(({ data: { success, data } }) => {
             if (success && data.length) {
                 dispatch(featuredSubjectsSuccess(data, dataToFeaturedCard(data)));
+            }
+        });
+    };
+}
+
+function setInfoPending(): SetInfoPending {
+    return {
+        type: INFO_PENDING,
+    };
+}
+
+function infoSuccess(img: string, name: string, email: string, phone: string, address: string): InfoSuccess {
+    return {
+        type: INFO_SUCCESS,
+        img,
+        name,
+        email,
+        phone,
+        address,
+    };
+}
+
+export function fetchInfo(): AppThunk {
+    return (dispatch) => {
+        dispatch(setInfoPending());
+        API.get(endponts.getUserProfile).then(({ data: { success, data } }) => {
+            if (success) {
+                const {
+                    firstName,
+                    lastName,
+                    phoneNumber,
+                    location,
+                    User: { email, profile },
+                } = data;
+                dispatch(infoSuccess(profile, `${firstName} ${lastName}`, email, phoneNumber, location));
             }
         });
     };

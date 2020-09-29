@@ -35,12 +35,21 @@ interface FeaturedSubjectsState extends AsyncState {
     featuredSubjectsCard: FeaturedCardElement
 }
 
+interface InfoState extends AsyncState {
+    name: string;
+    email: string;
+    phone: string;
+    img: string;
+    address: string;
+}
+
 export interface StudentModuleState {
     homework: HomeworkState;
     teachers: TeachersState;
     upcomingClasses: UpcomingClassesState;
     previousClasses: PreviousClassesState;
     featuredSubjects: FeaturedSubjectsState;
+    info: InfoState;
 }
 
 export interface RootState {

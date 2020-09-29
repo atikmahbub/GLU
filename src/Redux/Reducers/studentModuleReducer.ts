@@ -5,6 +5,8 @@ import {
     FEATURED_SUBJECT_SUCCESS,
     HOMEWORK_PENDING,
     HOMEWORK_SUCCESS,
+    INFO_PENDING,
+    INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
     TEACHERS_PENDING,
@@ -14,6 +16,16 @@ import {
 } from '../ActionTypes/studentModuleTypes';
 
 const initialState: StudentModuleState = {
+    info: {
+        img: '',
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        isPending: false,
+        isSuccess: false,
+        isFailure: false
+    },
     homework: {
         homeworks: [],
         overdueHomeworks: [],
@@ -168,6 +180,28 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isSuccess: true,
                     data: action.data,
                     featuredSubjectsCard: action.featuredSubjectsCard
+                }
+            }
+        case INFO_PENDING:
+            return {
+                ...state,
+                info: {
+                    ...state.info,
+                    isPending: true
+                }
+            }
+        case INFO_SUCCESS:
+            return {
+                ...state,
+                info: {
+                    ...state.info,
+                    isPending: false,
+                    isSuccess: true,
+                    address: action.address,
+                    img: action.img,
+                    name: action.name,
+                    email: action.email,
+                    phone: action.phone
                 }
             }
         default:

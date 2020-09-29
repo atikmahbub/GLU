@@ -106,3 +106,11 @@ export interface CalendarSubjectCardElement {
     name: string;
     subject: string;
 }
+
+export interface ProfileCardElement {
+    img: string;
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+}
