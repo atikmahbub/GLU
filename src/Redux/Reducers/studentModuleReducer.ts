@@ -17,15 +17,27 @@ import {
 
 const initialState: StudentModuleState = {
     info: {
-        img: '',
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        about: '',
+        data: {},
+        profileCard: {
+            img: '',
+            name: '',
+            address: '',
+            email: '',
+            phone: '',
+        },
+        editProfileForm: {
+            img: '',
+            firstName: '',
+            lastName: '',
+            about: '',
+            location: '',
+            password: '',
+            email: '',
+            phone: '',
+        },
         isPending: false,
         isSuccess: false,
-        isFailure: false
+        isFailure: false,
     },
     homework: {
         homeworks: [],
@@ -74,12 +86,12 @@ const initialState: StudentModuleState = {
             imgBig: '',
             imgBigTitle: '',
             imgSmall: '',
-            imgSmallTitle: ''
+            imgSmallTitle: '',
         },
         isPending: false,
         isSuccess: false,
         isFailure: false,
-    }
+    },
 };
 
 export default function (state = initialState, action: StudentModuleActionTypes): StudentModuleState {
@@ -122,7 +134,7 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     data: action.data,
-                    count: action.count
+                    count: action.count,
                 },
             };
         case UPCOMING_CLASSES_PENDING:
@@ -150,9 +162,9 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                 ...state,
                 previousClasses: {
                     ...state.previousClasses,
-                    isPending: true
-                }
-            }
+                    isPending: true,
+                },
+            };
         case PREVIOUS_CLASSES_SUCCESS:
             return {
                 ...state,
@@ -161,17 +173,17 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     count: action.count,
-                    data: action.data
-                }
-            }
+                    data: action.data,
+                },
+            };
         case FEATURED_SUBJECT_PENDING:
             return {
                 ...state,
                 featuredSubjects: {
                     ...state.featuredSubjects,
                     isPending: true,
-                }
-            }
+                },
+            };
         case FEATURED_SUBJECT_SUCCESS:
             return {
                 ...state,
@@ -180,17 +192,17 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     data: action.data,
-                    featuredSubjectsCard: action.featuredSubjectsCard
-                }
-            }
+                    featuredSubjectsCard: action.featuredSubjectsCard,
+                },
+            };
         case INFO_PENDING:
             return {
                 ...state,
                 info: {
                     ...state.info,
-                    isPending: true
-                }
-            }
+                    isPending: true,
+                },
+            };
         case INFO_SUCCESS:
             return {
                 ...state,
@@ -198,14 +210,11 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     ...state.info,
                     isPending: false,
                     isSuccess: true,
-                    address: action.address,
-                    img: action.img,
-                    name: action.name,
-                    email: action.email,
-                    phone: action.phone,
-                    about: action.about,
-                }
-            }
+                    data: action.data,
+                    profileCard: action.profileCard,
+                    editProfileForm: action.editProfileForm
+                },
+            };
         default:
             return state;
     }

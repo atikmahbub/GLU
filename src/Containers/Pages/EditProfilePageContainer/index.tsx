@@ -7,7 +7,7 @@ import LeftDrawerMenuContent from '../../Menus/LeftDrawerMenuContent';
 import CardsGridContainer from '../../CardsGridContainer';
 import CardsGrid from '../../CardsGrid';
 import TitlePrimary from '../../../components/Typographies/TitlePrimary';
-import { UserType } from '../types';
+import { Async, EditProfilePage, UserType } from '../types';
 import UploadImage from './UploadImage';
 import FormGroup from '../../../components/Form/FormGroup';
 import FormControlInput from '../../../components/Form/FormControlInput';
@@ -15,6 +15,7 @@ import EducationCard from './EducationCard';
 import { educations } from '../../../data/editProfile';
 import ButtonPrimary from '../../../components/Button/ButtonPrimary';
 import PageFooter from '../../../components/PageFooter';
+import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -29,9 +30,10 @@ const useStyles = makeStyles({
     }
 });
 
-interface IEditProfilePageContainer extends UserType {}
+interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {}
 
-const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType }) => {
+const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile }) => {
+    console.log(isLoading, profile)
     const classes = useStyles();
     const menuList = useMenuList(userType);
     return (
@@ -41,6 +43,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType }) =
             userType={userType}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            {isLoading && <FullScreenLoader />}
             <CardsGridContainer>
                 <CardsGrid rows={2}>
                     <Grid container direction="column">

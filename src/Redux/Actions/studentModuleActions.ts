@@ -15,9 +15,16 @@ import {
 import { AppThunk } from './types';
 import { API } from '../../Utility/API';
 import { endponts, studentsEndpoints } from '../../Utility/endpoints';
-import { FeaturedCardElement, HomeworkCardElement, NextClassCardElement } from '../../components/Cards/types';
+import {
+    FeaturedCardElement,
+    HomeworkCardElement,
+    NextClassCardElement,
+    ProfileCardElement,
+} from '../../components/Cards/types';
 import { dataToHomeworkCards } from '../../Helper/students/homeworks';
 import { dataToFeaturedCard, dataToNextClassCard } from '../../Helper/students/upcomingClasses';
+import { dataToEditProfileForm, dataToProfileCard } from '../../Helper/students/profileInfo';
+import { EditProfileForm } from '../../Interfaces/students/forms';
 
 interface SetHomeworkPending {
     type: typeof HOMEWORK_PENDING;
@@ -79,12 +86,9 @@ interface SetInfoPending {
 
 interface InfoSuccess {
     type: typeof INFO_SUCCESS;
-    img: string;
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-    about: string;
+    data: any;
+    profileCard: ProfileCardElement;
+    editProfileForm: EditProfileForm;
 }
 
 export type StudentModuleActionTypes =
@@ -265,22 +269,12 @@ function setInfoPending(): SetInfoPending {
     };
 }
 
-function infoSuccess(
-    img: string,
-    name: string,
-    email: string,
-    phone: string,
-    address: string,
-    about: string
-): InfoSuccess {
+function infoSuccess(data: any, profileCard: ProfileCardElement, editProfileForm: EditProfileForm): InfoSuccess {
     return {
         type: INFO_SUCCESS,
-        img,
-        name,
-        email,
-        phone,
-        address,
-        about,
+        data,
+        profileCard,
+        editProfileForm,
     };
 }
 
@@ -289,15 +283,7 @@ export function fetchInfo(): AppThunk {
         dispatch(setInfoPending());
         API.get(endponts.getUserProfile).then(({ data: { success, data } }) => {
             if (success) {
-                const {
-                    firstName,
-                    lastName,
-                    phoneNumber,
-                    location,
-                    about,
-                    User: { email, profile },
-                } = data;
-                dispatch(infoSuccess(profile, `${firstName} ${lastName}`, email, phoneNumber, location, about));
+                dispatch(infoSuccess(data, dataToProfileCard(data), dataToEditProfileForm(data)));
             }
         });
     };

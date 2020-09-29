@@ -10,6 +10,7 @@ import {
     ProfileCardElement, DateSubjectCardElement, CarouselClassCardElement,
 } from '../../components/Cards/types';
 import { UserTypes } from '../../Types/user';
+import { EditProfileForm } from '../../Interfaces/students/forms';
 
 export interface UserType {
     userType: UserTypes;
@@ -107,4 +108,8 @@ export interface TutorsPage {
 export interface ViewProfilePage {
     profileCard: ProfileCardElement;
     about: string;
+}
+
+export interface EditProfilePage {
+    profile: EditProfileForm;
 }
