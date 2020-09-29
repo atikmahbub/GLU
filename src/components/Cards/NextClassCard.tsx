@@ -9,6 +9,7 @@ import AspectRatioImgCard from './AspectRationImgCard';
 const useStyles = makeStyles({
     root: {
         padding: '5.3125rem 3.125rem',
+        background: ({ background }: any) => (background === 'primary' ? '#fff' : '#F7F7F7'),
     },
     imgWrapper: {
         paddingRight: '9.375rem',
@@ -16,20 +17,29 @@ const useStyles = makeStyles({
     },
 });
 
-interface INextClassCard extends NextClassCardElement {}
+interface INextClassCard extends NextClassCardElement {
+    background: 'primary' | 'secondary';
+}
 
-const NextClassCard: FC<INextClassCard> = ({ img, date, startTime, endTime, subject, description, subTitle, name }) => {
-    const classes = useStyles();
+const NextClassCard: FC<INextClassCard> = ({
+    img,
+    date,
+    startTime,
+    endTime,
+    subject,
+    description,
+    subTitle,
+    name,
+    background,
+}) => {
+    const classes = useStyles({ background });
     return (
         <Grid container className={classes.root}>
             <Grid container item xs={2}>
                 <TitlePrimary>Next Class</TitlePrimary>
             </Grid>
             <Grid container item xs={4} className={classes.imgWrapper}>
-                <AspectRatioImgCard
-                    img={img}
-                    ratio="77%"
-                />
+                <AspectRatioImgCard img={img} ratio="77%" />
             </Grid>
             <Grid container direction="column" item xs={5}>
                 <DateSubjectCard
@@ -42,10 +52,13 @@ const NextClassCard: FC<INextClassCard> = ({ img, date, startTime, endTime, subj
                     name={name}
                 />
             </Grid>
-            <Grid container justify="flex-end" item xs={1}>
-            </Grid>
+            <Grid container justify="flex-end" item xs={1}></Grid>
         </Grid>
     );
 };
+
+NextClassCard.defaultProps = {
+    background: 'primary'
+}
 
 export default NextClassCard;

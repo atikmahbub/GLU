@@ -101,7 +101,7 @@ const ClassPurchaseDrawer: FC<IClassPurchaseDrawer> = ({ open, onClose, userType
                             outlinedVariant={2}
                             className={classNames(classes.button)}
                             component={Link}
-                            to={`/${userType}/wallet`}
+                            to={`/${userType}/profile/recorded-classes/1`}
                         >
                             Watch
                         </ButtonPrimary>

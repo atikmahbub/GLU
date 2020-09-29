@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -18,25 +18,34 @@ const useStyles = makeStyles({
             left: 0,
         },
     },
+    contentContainer: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+    },
 });
 
 interface IAspectRatioImgCard {
     ratio: string;
-    img: string;
+    img?: string;
     alt?: string;
     rootClassName?: string;
+    content?: ReactNode;
 }
 
-const AspectRatioImgCard: FC<IAspectRatioImgCard> = ({
-    ratio,
-    img,
-    alt = 'preview',
-    rootClassName,
-}) => {
+const AspectRatioImgCard: FC<IAspectRatioImgCard> = ({ ratio, img, alt = 'preview', rootClassName, content }) => {
     const classes = useStyles({ ratio });
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
-            <LazyLoadImage effect="blur" src={img} alt={alt} />
+            {content ? (
+                <Grid container className={classes.contentContainer}>
+                    {content}
+                </Grid>
+            ) : (
+                <LazyLoadImage effect="blur" src={img} alt={alt} />
+            )}
         </Grid>
     );
 };

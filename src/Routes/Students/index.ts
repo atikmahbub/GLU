@@ -23,7 +23,8 @@ const Calendar = lazy(() => import('../../Views/StudentsModule/Calendar'));
 const EditProfile = lazy(() => import('../../Views/StudentsModule/EditProfile'));
 const ViewProfile = lazy(() => import('../../Views/StudentsModule/ViewProfile'));
 const SchoolInfo = lazy(() => import('../../Views/StudentsModule/SchoolInfo'));
-const MyRecordedCLasses = lazy(() => import('../../Views/StudentsModule/MyRecordedClasses'))
+const MyRecordedCLasses = lazy(() => import('../../Views/StudentsModule/MyRecordedClasses'));
+const WatchRecordedClass = lazy(() => import('../../Views/StudentsModule/WatchRecordedClass'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -49,7 +50,8 @@ const routes = [
     createRouteObj('/students/profile/edit', EditProfile),
     createRouteObj('/students/profile', ViewProfile),
     createRouteObj('/students/school/info', SchoolInfo),
-    createRouteObj('/students/profile/recorded-classes', MyRecordedCLasses)
+    createRouteObj('/students/profile/recorded-classes', MyRecordedCLasses),
+    createRouteObj('/students/profile/recorded-classes/:id', WatchRecordedClass),
 ];
 
 export default routes;

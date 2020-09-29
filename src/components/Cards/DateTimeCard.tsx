@@ -9,8 +9,8 @@ const DateTimeCard: FC<IDateTimeCard> = ({ date, startTime, endTime }) => {
     return (
         <Grid container direction="column">
             <TitlePrimary>{date}</TitlePrimary>
-            <TitlePrimary>{startTime}-</TitlePrimary>
-            <TitlePrimary>{endTime}</TitlePrimary>
+            {startTime && <TitlePrimary>{startTime}-</TitlePrimary>}
+            {endTime && <TitlePrimary>{endTime}</TitlePrimary>}
         </Grid>
     )
 }
