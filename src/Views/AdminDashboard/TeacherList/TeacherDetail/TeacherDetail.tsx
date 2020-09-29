@@ -7,7 +7,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Img from '../../../../Assets/images';
 import { teacherStyle } from './teacherStyle';
@@ -45,6 +44,8 @@ const TeacherDetail = () => {
         experience: '',
         id: '',
         status: '',
+        isVerifiedByAdmin: '',
+        rejectedReason: '',
     });
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
@@ -69,6 +70,8 @@ const TeacherDetail = () => {
                 education: teachetDetails.TeacherQualifications,
                 id: teachetDetails.id,
                 status: teachetDetails.status,
+                isVerifiedByAdmin: teachetDetails.isVerifiedByAdmin,
+                rejectedReason: teachetDetails.rejectReason,
             };
             setTeacherData(data);
         }
@@ -79,7 +82,7 @@ const TeacherDetail = () => {
             <div>
                 <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                     <DialogContent>
-                        <DialogContentText>Please type a reason for rejecting teacher</DialogContentText>
+                        <DialogContentText>Please type a reason for rejecting document</DialogContentText>
                         <TextField
                             autoFocus
                             margin="dense"
@@ -104,7 +107,7 @@ const TeacherDetail = () => {
             </div>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
-                    <h1>Teacher</h1>
+                    <h1>Document Status</h1>
                     <div>
                         {teacherData.document ? (
                             <img className={classes.image2} src={teacherData.document} alt="tutor" />
@@ -112,69 +115,87 @@ const TeacherDetail = () => {
                             'No documents uploaded'
                         )}
                     </div>
-                    {
-                        teacherData.status == "Approved"
-                        ?
-                     <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem', backgroundColor: '#bedebe' }}
-                        className={classes.upload}
-                        onClick={() => {
-                            console.log('Approve clocked');
-                            dispatch(
-                                approveRejectTeacher(teacherData.id, { key: 1, email: teacherData.email }, history)
-                            );
-                        }}
-                    >
-                        Approved
-                    </div>
-                    :
-                    <div
-                    style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem'}}
-                    className={classes.upload}
-                    onClick={() => {
-                        console.log('Approve clocked');
-                        dispatch(approveRejectTeacher(teacherData.id, { key: 1 }, history));
-                    }}
-                >
-                    Approve
-                </div>
-                    }
-                    
-                    {
-                        teacherData.status == "Rejected"
-                        ?
+                    {teacherData.status == 'Approved' ? (
                         <div
-                        style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', backgroundColor: '#f35454' }}
-                        className={classes.upload}
-                        onClick={() => {
-                            handleClickOpen();
-                            // console.log('Reject clocked');
-                            // dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
-                        }}
-                    >
-                        Rejected
-                    </div>
-                    :
-                    <div
-                    style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
-                    className={classes.upload}
-                    onClick={() => {
-                        console.log('Reject clocked');
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                                marginTop: '3rem',
+                                marginRight: '1rem',
+                                backgroundColor: '#bedebe',
+                            }}
+                            className={classes.upload}
+                            // onClick={() => {
+                            //     console.log('Approve clocked');
+                            //     dispatch(
+                            //         approveRejectTeacher(teacherData.id, { key: 1, email: teacherData.email }, history)
+                            //     );
+                            // }}
+                        >
+                            Approved
+                        </div>
+                    ) : (
+                        <div
+                            style={{ textDecoration: 'none', color: 'black', marginTop: '3rem', marginRight: '1rem' }}
+                            className={classes.upload}
+                            onClick={() => {
+                                console.log('Approve clocked');
+                                dispatch(
+                                    approveRejectTeacher(teacherData.id, { key: 1, email: teacherData.email }, history)
+                                );
+                            }}
+                        >
+                            Approve
+                        </div>
+                    )}
 
-                        dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
-                    }}
-                >
-                    Reject
-                </div>
-
-                    }
-
+                    {teacherData.status == 'Rejected' ? (
+                        <div
+                            style={{
+                                textDecoration: 'none',
+                                color: 'black',
+                                marginTop: '3rem',
+                                backgroundColor: '#f35454',
+                            }}
+                            className={classes.upload}
+                            // onClick={() => {
+                            //     // handleClickOpen();
+                            //     // console.log('Reject clocked');
+                            //     // dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
+                            // }}
+                        >
+                            Rejected
+                        </div>
+                    ) : (
+                        <div
+                            style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
+                            className={classes.upload}
+                            onClick={() => {
+                                handleClickOpen();
+                            }}
+                        >
+                            Reject
+                        </div>
+                    )}
+                    {teacherData.isVerifiedByAdmin && teacherData.status === 'Rejected' ? (
+                        <div>
+                            <div style={{ marginTop: '3rem' }} className={classes.bioText}>
+                                Reason
+                            </div>
+                            <TextareaAutosize
+                                id="bio"
+                                value={teacherData.rejectedReason}
+                                rowsMin={5}
+                                className={classes.textareaClass}
+                                disabled
+                            />
+                        </div>
+                    ) : null}
                 </Grid>
 
                 <Grid item xs={6}>
                     <div className={classes.details}>
-                        <img src={Img.scaffgirl} alt="tutor" className={classes.image} />
-
+                        <h1>Tutor Details</h1>
                         <div className={classes.bio}>
                             <div className={classes.bioText}>Bio</div>
                             <TextareaAutosize
@@ -185,7 +206,7 @@ const TeacherDetail = () => {
                                 disabled
                             />
                         </div>
-                        <div className={classes.detailsText}>Teacher Details</div>
+
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>

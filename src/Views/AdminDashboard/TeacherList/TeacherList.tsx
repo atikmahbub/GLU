@@ -27,7 +27,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     const routes = useHistory();
     const dispatch = useDispatch();
 
-    const handleDetails = (data:any)=> {
+    const handleDetails = (data: any) => {
         routes.push({
             pathname: '/admin/teacher/detail',
             state: {
@@ -73,10 +73,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     title: 'Last Name',
                                     field: 'lastName',
                                 },
-                                {
-                                    title: 'Gender',
-                                    field: 'gender',
-                                },
+
                                 {
                                     title: 'Phone Number',
                                     field: 'phoneNumber',
@@ -89,21 +86,24 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     title: 'Document Type',
                                     field: 'docType',
                                 },
-                                // {
-                                //     title: 'Document Status',
-                                //     field: 'docStatus',
-                                //     render: (rowData: any) => (
-                                //            rowData.isVerifiedByAdmin
-                                //             ?
-                                //             <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                //                 Approved
-                                //             </Typography> 
-                                //             :
-                                //             <Typography style={{ color: "red", fontSize: '1.25rem' }}>
-                                //                 Pending
-                                //             </Typography>                          
-                                //     ),
-                                // },
+                                {
+                                    title: 'Document Status',
+                                    field: 'docStatus',
+                                    render: (rowData: any) =>
+                                        rowData.status === 'Pending' ? (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) : rowData.status === 'Approved' ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Approved
+                                            </Typography>
+                                        ) : rowData.status === 'Rejected' ? (
+                                            <Typography style={{ color: 'red', fontSize: '1.25rem' }}>
+                                                Rejected
+                                            </Typography>
+                                        ) : null,
+                                },
 
                                 {
                                     title: 'Active/Inactvie',
@@ -120,9 +120,9 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Action',
                                     field: 'docStatus',
-                                    render: (rowData:any) => (
+                                    render: (rowData: any) => (
                                         <OutlineButton
-                                            btnClick={()=>handleDetails(rowData)}
+                                            btnClick={() => handleDetails(rowData)}
                                             style={{ width: '12rem' }}
                                             text="View Details"
                                         />

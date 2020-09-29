@@ -15,7 +15,7 @@ import {
     TEACHER_DETAILS_SUPER,
     STUDENT_DETAILS_SUPER,
     SCHOOL_DETAILS_SUPER,
-    PARENT_DETAILS_SUPER
+    PARENT_DETAILS_SUPER,
 } from '../ActionTypes/superAdminTypes';
 import { Dispatch } from 'react';
 
@@ -243,8 +243,6 @@ export const studentDetailSuperAdminRes = (data: any) => {
     };
 };
 
-
-
 export const schoolDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {
         API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
@@ -262,14 +260,15 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
         API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
             .then((res: any) => {
                 console.log('resppe: ', res);
-                history.push('/admin/teacher');
+                // history.push('/admin/teacher');
+                window.location.reload();
             })
 
             .catch((err) => {
                 handleError(dispatch, err);
             });
     };
-};       
+};
 
 export const schoolDetailSuperAdminRes = (data: any) => {
     return {

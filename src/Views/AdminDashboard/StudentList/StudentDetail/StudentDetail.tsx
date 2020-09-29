@@ -52,16 +52,9 @@ const StudentDetail = () => {
                 <Grid item xs={6}>
                     <h1>Student</h1>
                     <div>
-                        <img
-                            src={
-                                studentDetails && studentDetails.User.profile
-                                    ? studentDetails.User.profile
-                                    : commonImg.scaffgirl
-                            }
-                            alt="tutor"
-                            className={classes.image}
-                        />
-                        <div className={classes.detailsText}>Student Details</div>
+                        <div className={classes.detailsText2} style={{ marginTop: '2rem' }}>
+                            Student Details
+                        </div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>
