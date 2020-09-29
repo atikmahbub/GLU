@@ -9,7 +9,9 @@ const useStyles = makeStyles({
         width: '100%',
         height: '100%',
         zIndex: 1000,
-        backdropFilter: 'blur(2px)'
+        backdropFilter: 'blur(2px)',
+        top: 0,
+        left: 0
     },
 });
 

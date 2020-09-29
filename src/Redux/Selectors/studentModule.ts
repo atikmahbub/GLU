@@ -9,3 +9,5 @@ export const upcomingClassesSelector = (state: RootState) => state.studentModule
 export const previousClassesSelector = (state: RootState) => state.studentModule.previousClasses;
 
 export const featuredSubjectsSelector = (state: RootState) => state.studentModule.featuredSubjects;
+
+export const infoSelector = (state: RootState) => state.studentModule.info;

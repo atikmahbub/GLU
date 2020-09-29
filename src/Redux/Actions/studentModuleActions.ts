@@ -3,6 +3,8 @@ import {
     FEATURED_SUBJECT_SUCCESS,
     HOMEWORK_PENDING,
     HOMEWORK_SUCCESS,
+    INFO_PENDING,
+    INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
     TEACHERS_PENDING,
@@ -12,10 +14,17 @@ import {
 } from '../ActionTypes/studentModuleTypes';
 import { AppThunk } from './types';
 import { API } from '../../Utility/API';
-import { studentsEndpoints } from '../../Utility/endpoints';
-import { FeaturedCardElement, HomeworkCardElement, NextClassCardElement } from '../../components/Cards/types';
+import { endponts, studentsEndpoints } from '../../Utility/endpoints';
+import {
+    FeaturedCardElement,
+    HomeworkCardElement,
+    NextClassCardElement,
+    ProfileCardElement,
+} from '../../components/Cards/types';
 import { dataToHomeworkCards } from '../../Helper/students/homeworks';
 import { dataToFeaturedCard, dataToNextClassCard } from '../../Helper/students/upcomingClasses';
+import { dataToEditProfileForm, dataToProfileCard } from '../../Helper/students/profileInfo';
+import { EditProfileForm } from '../../Interfaces/students/forms';
 
 interface SetHomeworkPending {
     type: typeof HOMEWORK_PENDING;
@@ -71,6 +80,17 @@ interface FeaturedSubjectsSuccess {
     featuredSubjectsCard: FeaturedCardElement;
 }
 
+interface SetInfoPending {
+    type: typeof INFO_PENDING;
+}
+
+interface InfoSuccess {
+    type: typeof INFO_SUCCESS;
+    data: any;
+    profileCard: ProfileCardElement;
+    editProfileForm: EditProfileForm;
+}
+
 export type StudentModuleActionTypes =
     | SetHomeworkPending
     | HomeworkSuccess
@@ -81,7 +101,9 @@ export type StudentModuleActionTypes =
     | SetPreviousClassesPending
     | PreviousClassesSuccess
     | SetFeaturedSubjectsPending
-    | FeaturedSubjectsSuccess;
+    | FeaturedSubjectsSuccess
+    | SetInfoPending
+    | InfoSuccess;
 
 function setHomeworkPending(): SetHomeworkPending {
     return {
@@ -236,6 +258,32 @@ export function fetchFeaturedSubject(): AppThunk {
         API.get(studentsEndpoints.getFeatureSubject).then(({ data: { success, data } }) => {
             if (success && data.length) {
                 dispatch(featuredSubjectsSuccess(data, dataToFeaturedCard(data)));
+            }
+        });
+    };
+}
+
+function setInfoPending(): SetInfoPending {
+    return {
+        type: INFO_PENDING,
+    };
+}
+
+function infoSuccess(data: any, profileCard: ProfileCardElement, editProfileForm: EditProfileForm): InfoSuccess {
+    return {
+        type: INFO_SUCCESS,
+        data,
+        profileCard,
+        editProfileForm,
+    };
+}
+
+export function fetchInfo(): AppThunk {
+    return (dispatch) => {
+        dispatch(setInfoPending());
+        API.get(endponts.getUserProfile).then(({ data: { success, data } }) => {
+            if (success) {
+                dispatch(infoSuccess(data, dataToProfileCard(data), dataToEditProfileForm(data)));
             }
         });
     };

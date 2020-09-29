@@ -1,4 +1,5 @@
-import { FeaturedCardElement, NextClassCardElement } from '../../components/Cards/types';
+import { FeaturedCardElement, NextClassCardElement, ProfileCardElement } from '../../components/Cards/types';
+import { EditProfileForm } from '../../Interfaces/students/forms';
 
 interface AsyncState {
     isPending: boolean;
@@ -32,7 +33,13 @@ interface PreviousClassesState extends AsyncState {
 
 interface FeaturedSubjectsState extends AsyncState {
     data: any[];
-    featuredSubjectsCard: FeaturedCardElement
+    featuredSubjectsCard: FeaturedCardElement;
+}
+
+interface InfoState extends AsyncState {
+    data: any;
+    profileCard: ProfileCardElement;
+    editProfileForm: EditProfileForm;
 }
 
 export interface StudentModuleState {
@@ -41,6 +48,7 @@ export interface StudentModuleState {
     upcomingClasses: UpcomingClassesState;
     previousClasses: PreviousClassesState;
     featuredSubjects: FeaturedSubjectsState;
+    info: InfoState;
 }
 
 export interface RootState {
