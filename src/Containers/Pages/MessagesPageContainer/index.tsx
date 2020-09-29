@@ -14,6 +14,7 @@ const MessagesPageContainer: FC<IMessagesPageContainer> = ({ userType }) => {
     return (
         <NavigationMenu
             absolute
+            userType={userType}
             background="transparent"
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}

@@ -16,3 +16,7 @@ export function getCurrentYear(): string {
 export function parseDate(date: string): string {
     return format(new Date(date), 'MM/dd/yy')
 }
+
+export function getCurrentTime(): string {
+    return format(new Date(), 'h:mma')
+}

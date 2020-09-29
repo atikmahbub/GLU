@@ -31,7 +31,7 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
             state: {
                 studentDetailsParent: data,
             },
-            // children: data.children,
+            
         });
     };
 

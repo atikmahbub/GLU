@@ -6,8 +6,8 @@ import WhiteCard from '../../../../components/Cards/WhiteCard';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
-import { calendarSubjectsCards } from '../../../../data/homepage';
 import { DashboardPersonal, UserType } from '../../types';
+import { getCurrentTime } from '../../../../Helper/date';
 
 const useStyles = makeStyles({
     container: {
@@ -26,7 +26,14 @@ const useStyles = makeStyles({
 
 interface IPersonal extends DashboardPersonal, UserType {}
 
-const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
+const Personal: FC<IPersonal> = ({
+    userType,
+    previousClasses,
+    upcomingClasses,
+    profile,
+    dateSubjectCards,
+    carouselCards,
+}) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -37,7 +44,7 @@ const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
                         titleRightLinkTo="/students/upcoming-classes"
-                        content={<ClassesCarousel />}
+                        content={<ClassesCarousel data={carouselCards} />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />
                     <WhiteCard
@@ -63,27 +70,23 @@ const Personal: FC<IPersonal> = ({ userType, previousClasses }) => {
                         bigTitle
                         title={'Thursday 30th\nJuly\n2020'}
                         titleRightLink="See calendar"
-                        titleRightLinkTo="/students/"
+                        titleRightLinkTo={`/${userType}/calendar`}
                         description="Upcoming classes"
-                        value="4"
+                        value={upcomingClasses.count}
+                        isLoading={upcomingClasses.isLoading}
                         titleClassName={classes.calendarCardTitle}
                     />
                 </Grid>
             </CardsGridContainer>
-            <ProfileCard
-                name="Frank Howard"
-                address="Dubai, UAE"
-                phone="(+971) 4 554 0350"
-                email="frankhwrd@gmail.com"
-            />
+            <ProfileCard seeLink={`/${userType}/profile`} editLink={`/${userType}/profile/edit`} {...profile} />
             <CardsGridContainer background="secondary">
                 <CalendarDateSubjectsCard
                     background="secondary"
                     padding={false}
                     paddingBottom={false}
                     title="Your Morning"
-                    time="9.21am"
-                    cards={calendarSubjectsCards}
+                    time={getCurrentTime()}
+                    cards={dateSubjectCards}
                     cardsContainerPaddingBig
                 />
             </CardsGridContainer>

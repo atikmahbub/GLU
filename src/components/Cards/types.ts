@@ -98,3 +98,30 @@ export interface MessageUserCardElement {
     status: string;
     newMessagesCount?: number;
 }
+
+export interface CalendarSubjectCardElement {
+    img: string;
+    time: string;
+    description: string;
+    name: string;
+    subject: string;
+}
+
+export interface ProfileCardElement {
+    img: string;
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+}
+
+export interface CarouselClassCardElement extends DateSubjectCardElement {
+    img: string;
+}
+
+export interface EducationCardElement {
+    type: 'current' | 'previous';
+    name: string;
+    level: string;
+    subjects: string;
+}

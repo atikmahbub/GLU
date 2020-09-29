@@ -342,7 +342,7 @@ const Index: React.FunctionComponent = () => {
     }, [fileData]);
     const uploadDocument = () => {
         const data = {
-            fileName: fileData.file,
+            fileName: fileData.fileName,
             documentType: state.teacher.identity,
         };
         dispatch(teacherDocUploadAPIcall(data, goToNextPage));
