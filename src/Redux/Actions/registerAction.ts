@@ -64,6 +64,28 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
     };
 };
 
+export const teacherEduAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        dispatch(spinner(true));
+        API.post(endponts.teacherEdu, data)
+            .then((res) => {
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+                dispatch(spinner(false));
+                toast.success('Your education saved successfully.');
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
+            });
+    };
+};
+
+
 export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void) => {
     return (dispatch: Dispatch<any>) => {
         dispatch(spinner(true));
