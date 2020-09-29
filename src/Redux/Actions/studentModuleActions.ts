@@ -7,10 +7,13 @@ import {
     INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
+    SET_UPCOMING_CLASSES_FILTER,
     SUBJECTS_PENDING,
     SUBJECTS_SUCCESS,
     TEACHERS_PENDING,
     TEACHERS_SUCCESS,
+    UPCOMING_CLASSES_FILTER_PENDING,
+    UPCOMING_CLASSES_FILTER_SUCCESS,
     UPCOMING_CLASSES_PENDING,
     UPCOMING_CLASSES_SUCCESS,
 } from '../ActionTypes/studentModuleTypes';
@@ -27,6 +30,7 @@ import { dataToHomeworkCards } from '../../Helper/students/homeworks';
 import { dataToFeaturedCard, dataToNextClassCard } from '../../Helper/students/upcomingClasses';
 import { dataToEditProfileForm, dataToProfileCard } from '../../Helper/students/profileInfo';
 import { EditProfileForm } from '../../Interfaces/students/forms';
+import { SelectedFilterValue } from '../../Containers/FilterContainer/types';
 
 interface SetHomeworkPending {
     type: typeof HOMEWORK_PENDING;
@@ -103,6 +107,20 @@ interface SubjectsSuccess {
     data: any[];
 }
 
+interface SetUpcomingClassesFilter {
+    type: typeof SET_UPCOMING_CLASSES_FILTER;
+    filter: SelectedFilterValue;
+}
+
+interface SetUpcomingClassesFilterPending {
+    type: typeof UPCOMING_CLASSES_FILTER_PENDING;
+}
+
+interface UpcomingClassesFilterSuccess {
+    type: typeof UPCOMING_CLASSES_FILTER_SUCCESS;
+    data: any[];
+}
+
 export type StudentModuleActionTypes =
     | SetHomeworkPending
     | HomeworkSuccess
@@ -117,7 +135,10 @@ export type StudentModuleActionTypes =
     | SetInfoPending
     | InfoSuccess
     | SetSubjectsPending
-    | SubjectsSuccess;
+    | SubjectsSuccess
+    | SetUpcomingClassesFilterPending
+    | SetUpcomingClassesFilter
+    | UpcomingClassesFilterSuccess;
 
 function setHomeworkPending(): SetHomeworkPending {
     return {
@@ -223,6 +244,42 @@ export function fetchUpcomingClasses(): AppThunk {
                 }
             }
         });
+    };
+}
+
+function setUpcomingClassesFilter(filter: SelectedFilterValue): SetUpcomingClassesFilter {
+    return {
+        type: SET_UPCOMING_CLASSES_FILTER,
+        filter,
+    };
+}
+
+function setUpcomingClassesFilterPending(): SetUpcomingClassesFilterPending {
+    return {
+        type: UPCOMING_CLASSES_FILTER_PENDING,
+    };
+}
+
+function upcomingClassesFilterSuccess(data: any[]): UpcomingClassesFilterSuccess {
+    return {
+        type: UPCOMING_CLASSES_FILTER_SUCCESS,
+        data,
+    };
+}
+
+export function fetchUpcomingClassesFilter(filter: SelectedFilterValue): AppThunk {
+    return (dispatch) => {
+        dispatch(setUpcomingClassesFilter(filter));
+        if (filter) {
+            dispatch(setUpcomingClassesFilterPending());
+            API.get(
+                `/${studentsEndpoints.getUpcomingClassesFilter}/${filter.value}`
+            ).then(({ data: { success, data } }) => {
+                if (success) {
+                    console.log(data)
+                }
+            });
+        }
     };
 }
 

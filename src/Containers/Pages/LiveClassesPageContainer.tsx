@@ -10,17 +10,26 @@ import ShowMoreCard from '../../components/Cards/ShowMoreCard';
 import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
 import useMenuList from '../../Hooks/useMenuList';
 import useToggle from '../../Hooks/useToggle';
-import { classesFiltersData } from '../../data/filters';
-import { Async, LiveClassesPage, PaginationPage, UserType } from './types';
+import { Async, FilterPage, LiveClassesPage, PaginationPage, UserType } from './types';
 import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
 import FullHeightContainer from '../FullHeightContainer';
 import CardsGridContainer from '../CardsGridContainer';
+import useSubjects from '../../Hooks/students/useSubjects';
 
-interface ILiveClassesPageContainer extends UserType, LiveClassesPage, Async, PaginationPage {}
+interface ILiveClassesPageContainer extends UserType, LiveClassesPage, Async, PaginationPage, FilterPage {}
 
-const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, data, isLoading, total, current }) => {
+const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({
+    userType,
+    data,
+    isLoading,
+    total,
+    current,
+    onFilter,
+    selectedFilter,
+}) => {
     const menuList = useMenuList(userType);
     const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
+    const { filtersData } = useSubjects();
 
     return (
         <NavigationMenu
@@ -42,7 +51,9 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, dat
                             sort={false}
                             title="Live Classes"
                             initialFilterLabel="Filter"
-                            filtersData={classesFiltersData}
+                            filtersData={filtersData}
+                            onFilterChange={onFilter}
+                            value={selectedFilter}
                         >
                             <CardsGrid>
                                 {data.map((card, index) => (
@@ -60,7 +71,7 @@ const LiveClassesPageContainer: FC<ILiveClassesPageContainer> = ({ userType, dat
 };
 
 LiveClassesPageContainer.defaultProps = {
-    data: []
-}
+    data: [],
+};
 
 export default LiveClassesPageContainer;

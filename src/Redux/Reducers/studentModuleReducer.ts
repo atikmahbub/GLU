@@ -9,6 +9,7 @@ import {
     INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
+    SET_UPCOMING_CLASSES_FILTER,
     SUBJECTS_PENDING,
     SUBJECTS_SUCCESS,
     TEACHERS_PENDING,
@@ -70,6 +71,13 @@ const initialState: StudentModuleState = {
             date: '',
             startTime: '',
             endTime: '',
+        },
+        filters: {
+            value: null,
+            data: [],
+            isPending: false,
+            isSuccess: false,
+            isFailure: false,
         },
         isPending: false,
         isSuccess: false,
@@ -242,6 +250,17 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     data: action.data,
                 },
             };
+        case SET_UPCOMING_CLASSES_FILTER:
+            return {
+                ...state,
+                upcomingClasses: {
+                    ...state.upcomingClasses,
+                    filters: {
+                        ...state.upcomingClasses.filters,
+                        value: action.filter
+                    }
+                }
+            }
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { subjectsSelector } from '../../Redux/Selectors/studentModule';
 import { useEffect, useMemo } from 'react';
 import { fetchSubjects } from '../../Redux/Actions/studentModuleActions';
+import { dataToFiltersData } from '../../Helper/students/subjects';
 
 function useSubjects() {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function useSubjects() {
             count,
             data,
             isPending,
+            filtersData: dataToFiltersData(data),
         }),
         [count, data, isPending]
     );

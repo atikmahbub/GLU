@@ -1,10 +1,21 @@
-import { FeaturedCardElement, NextClassCardElement, ProfileCardElement } from '../../components/Cards/types';
+import {
+    FeaturedCardElement,
+    ImageCardElement,
+    NextClassCardElement,
+    ProfileCardElement,
+} from '../../components/Cards/types';
 import { EditProfileForm } from '../../Interfaces/students/forms';
+import { IFilterDataElement } from '../../Containers/FilterContainer/types';
 
 interface AsyncState {
     isPending: boolean;
     isSuccess: boolean;
     isFailure: boolean;
+}
+
+interface FilterState extends AsyncState {
+    value: IFilterDataElement | null;
+    data: ImageCardElement[];
 }
 
 interface HomeworkState extends AsyncState {
@@ -24,6 +35,7 @@ interface UpcomingClassesState extends AsyncState {
     count: number;
     data: any[];
     nextClassCard: NextClassCardElement;
+    filters: FilterState;
 }
 
 interface PreviousClassesState extends AsyncState {
