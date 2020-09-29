@@ -13,12 +13,15 @@ const useStyles = makeStyles({
     },
     imgWrapper: {
         paddingRight: '9.375rem',
-        paddingLeft: '3.125rem',
+        paddingLeft: ({ imgBig, isTitle }: any) => (imgBig || !isTitle) ? 0 : '3.125rem',
     },
 });
 
 interface INextClassCard extends NextClassCardElement {
-    background: 'primary' | 'secondary';
+    background?: 'primary' | 'secondary';
+    title?: string;
+    imgBig?: boolean;
+    isTitle?: boolean;
 }
 
 const NextClassCard: FC<INextClassCard> = ({
@@ -31,13 +34,18 @@ const NextClassCard: FC<INextClassCard> = ({
     subTitle,
     name,
     background,
+    title = 'Next Class',
+    imgBig,
+    isTitle = true
 }) => {
-    const classes = useStyles({ background });
+    const classes = useStyles({ background, imgBig, isTitle });
     return (
         <Grid container className={classes.root}>
-            <Grid container item xs={2}>
-                <TitlePrimary>Next Class</TitlePrimary>
-            </Grid>
+            {isTitle && (
+                <Grid container item xs={2}>
+                    <TitlePrimary>{title}</TitlePrimary>
+                </Grid>
+            )}
             <Grid container item xs={4} className={classes.imgWrapper}>
                 <AspectRatioImgCard img={img} ratio="77%" />
             </Grid>

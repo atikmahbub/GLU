@@ -43,7 +43,7 @@ const Personal: FC<IPersonal> = ({
                         size={6}
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
-                        titleRightLinkTo="/students/upcoming-classes"
+                        titleRightLinkTo={`/${userType}/profile/upcoming-classes`}
                         content={<ClassesCarousel data={carouselCards} />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />

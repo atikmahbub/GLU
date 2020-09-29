@@ -183,6 +183,7 @@ const WatchRecordedClassPageContainer: FC<IWatchRecordedClassPageContainer> = ({
                 />
             </CardsGridContainer>
             <NextClassCard
+                title="Watch Next"
                 background="secondary"
                 img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596607731/teacherblueshirt_mwwcwo.jpg"
                 subject="English"

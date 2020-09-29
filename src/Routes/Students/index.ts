@@ -8,7 +8,6 @@ const Reports = lazy(() => import('../../Views/StudentsModule/Reports'));
 const StudentsDashboard = lazy(() => import('../../Views/StudentsModule/Dashboard'));
 const StudentHomePage = lazy(() => import('../../Views/StudentHomepage/Index'));
 const PreviousClasses = lazy(() => import('../../Views/PreviousClasses/PreviousClasses'));
-const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
 const StudentClassesTutors = lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const StudentWatchPreviousClass = lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
 const Homework = lazy(() => import('../../Views/StudentsModule/Homework'));
@@ -25,13 +24,13 @@ const ViewProfile = lazy(() => import('../../Views/StudentsModule/ViewProfile'))
 const SchoolInfo = lazy(() => import('../../Views/StudentsModule/SchoolInfo'));
 const MyRecordedCLasses = lazy(() => import('../../Views/StudentsModule/MyRecordedClasses'));
 const WatchRecordedClass = lazy(() => import('../../Views/StudentsModule/WatchRecordedClass'));
+const UpcomingClasses = lazy(() => import('../../Views/StudentsModule/UpcomingClasses'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
     createRouteObj('/students/dashboard', StudentsDashboard),
     createRouteObj('/students/reports', Reports),
     createRouteObj('/students/previous-classes', PreviousClasses),
-    createRouteObj('/students/upcoming-classes', UpcomingClasses),
     createRouteObj('/students/classes', StudentClassesTutors),
     createRouteObj('/students/live-classes', LiveClasses),
     createRouteObj('/students/recorded-classes', RecordedClasses),
@@ -52,6 +51,7 @@ const routes = [
     createRouteObj('/students/school/info', SchoolInfo),
     createRouteObj('/students/profile/recorded-classes', MyRecordedCLasses),
     createRouteObj('/students/profile/recorded-classes/:id', WatchRecordedClass),
+    createRouteObj('/students/profile/upcoming-classes', UpcomingClasses),
 ];
 
 export default routes;
