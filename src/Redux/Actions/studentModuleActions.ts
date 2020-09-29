@@ -84,6 +84,7 @@ interface InfoSuccess {
     email: string;
     phone: string;
     address: string;
+    about: string;
 }
 
 export type StudentModuleActionTypes =
@@ -264,7 +265,14 @@ function setInfoPending(): SetInfoPending {
     };
 }
 
-function infoSuccess(img: string, name: string, email: string, phone: string, address: string): InfoSuccess {
+function infoSuccess(
+    img: string,
+    name: string,
+    email: string,
+    phone: string,
+    address: string,
+    about: string
+): InfoSuccess {
     return {
         type: INFO_SUCCESS,
         img,
@@ -272,6 +280,7 @@ function infoSuccess(img: string, name: string, email: string, phone: string, ad
         email,
         phone,
         address,
+        about,
     };
 }
 
@@ -285,9 +294,10 @@ export function fetchInfo(): AppThunk {
                     lastName,
                     phoneNumber,
                     location,
+                    about,
                     User: { email, profile },
                 } = data;
-                dispatch(infoSuccess(profile, `${firstName} ${lastName}`, email, phoneNumber, location));
+                dispatch(infoSuccess(profile, `${firstName} ${lastName}`, email, phoneNumber, location, about));
             }
         });
     };

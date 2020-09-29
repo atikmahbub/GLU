@@ -5,7 +5,7 @@ import { fetchInfo } from '../../Redux/Actions/studentModuleActions';
 
 function useProfileInfo() {
     const dispatch = useDispatch();
-    const { isSuccess, isPending, img, phone, email, name, address } = useSelector(infoSelector);
+    const { isSuccess, isPending, img, phone, email, name, address, about } = useSelector(infoSelector);
 
     useEffect(() => {
         if (!isSuccess) {
@@ -21,6 +21,7 @@ function useProfileInfo() {
             email,
             name,
             address,
+            about,
             profileCard: {
                 img,
                 phone,
@@ -29,7 +30,7 @@ function useProfileInfo() {
                 address,
             },
         }),
-        [isPending, img, phone, email, name, address]
+        [isPending, img, phone, email, name, address, about]
     );
 }
 

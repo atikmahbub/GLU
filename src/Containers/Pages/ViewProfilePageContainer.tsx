@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import NavigationMenu from '../../components/NavigationMenu';
-import { UserType } from './types';
+import { Async, UserType, ViewProfilePage } from './types';
 import LeftDrawerMenuContent from '../Menus/LeftDrawerMenuContent';
 import ProfileCard from '../../components/Cards/ProfileCard';
 import useMenuList from '../../Hooks/useMenuList';
@@ -13,6 +13,7 @@ import ColumnsContainer from '../ColumnsContainer';
 import { educations } from '../../data/editProfile';
 import EducationCard from './EditProfilePageContainer/EducationCard';
 import PageFooter from '../../components/PageFooter';
+import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
 
 const useStyles = makeStyles({
     educationCard: {
@@ -25,9 +26,9 @@ const useStyles = makeStyles({
     }
 });
 
-interface IViewProfilePageContainer extends UserType {}
+interface IViewProfilePageContainer extends UserType, ViewProfilePage, Async {}
 
-const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType }) => {
+const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType, profileCard, isLoading, about }) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
     return (
@@ -38,14 +39,11 @@ const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType }) =
             menuList={menuList}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
+            {isLoading && <FullScreenLoader />}
             <ProfileCard
                 editLink={`/${userType}/profile/edit`}
-                img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608147/gluschool/vrplayerboy_ddqot7.jpg"
-                name="Test test"
-                email="test@te.cc"
-                phone="33121"
-                address="12312"
                 background="secondary"
+                {...profileCard}
             />
             <CardsGridContainer paddingBottomVariant={2} paddingTopVariant={2}>
                 <CardsGrid rows={2}>
@@ -54,8 +52,7 @@ const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType }) =
                     </Grid>
                     <Grid container direction="column">
                         <TitlePrimary>
-                            I’m Frank, a secondary Student at GEMS school in Dubai. Currently studying Maths, Business
-                            Studies and History.
+                            {about}
                         </TitlePrimary>
                     </Grid>
                 </CardsGrid>
@@ -70,7 +67,7 @@ const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType }) =
                     rightContent={
                         <Grid container direction="column">
                             {educations.map((card, index) => (
-                                <EducationCard key={index} {...card} rootClassName={classes.educationCard} />
+                                <EducationCard key={index} actions={false} {...card} rootClassName={classes.educationCard} />
                             ))}
                         </Grid>
                     }

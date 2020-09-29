@@ -41,6 +41,7 @@ interface InfoState extends AsyncState {
     phone: string;
     img: string;
     address: string;
+    about: string;
 }
 
 export interface StudentModuleState {

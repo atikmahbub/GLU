@@ -29,18 +29,21 @@ const useStyles = makeStyles({
 
 interface IEducationCard extends EducationCardElement {
     rootClassName?: string;
+    actions?: boolean
 }
 
-const EducationCard: FC<IEducationCard> = ({ type, name, level, subjects, rootClassName }) => {
+const EducationCard: FC<IEducationCard> = ({ type, name, level, subjects, rootClassName, actions = true }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <TextPrimary>{type === 'current' ? 'Current Education' : 'Previous Education'}</TextPrimary>
-                <Grid container justify="flex-end" item xs={6}>
-                    <ButtonPrimary color="secondary" className={classes.button}>Edit</ButtonPrimary>
-                    <ButtonPrimary color="secondary" className={classes.button}>Delete</ButtonPrimary>
-                </Grid>
+                {actions && (
+                    <Grid container justify="flex-end" item xs={6}>
+                        <ButtonPrimary color="secondary" className={classes.button}>Edit</ButtonPrimary>
+                        <ButtonPrimary color="secondary" className={classes.button}>Delete</ButtonPrimary>
+                    </Grid>
+                )}
             </Grid>
             <Grid container direction="column">
                 <TitlePrimary>{name}</TitlePrimary>

@@ -103,3 +103,8 @@ export interface RecordedClassesPage {
 export interface TutorsPage {
     data: ImageCardElement[];
 }
+
+export interface ViewProfilePage {
+    profileCard: ProfileCardElement;
+    about: string;
+}

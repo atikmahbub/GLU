@@ -22,6 +22,7 @@ const initialState: StudentModuleState = {
         email: '',
         phone: '',
         address: '',
+        about: '',
         isPending: false,
         isSuccess: false,
         isFailure: false
@@ -201,7 +202,8 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     img: action.img,
                     name: action.name,
                     email: action.email,
-                    phone: action.phone
+                    phone: action.phone,
+                    about: action.about,
                 }
             }
         default:
