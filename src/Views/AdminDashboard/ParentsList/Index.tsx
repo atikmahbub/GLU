@@ -27,6 +27,7 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     isActive: checkValue(element.isActive),
+                    children: checkValue(element.children),
                 };
             });
             setParentsList(data);

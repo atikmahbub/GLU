@@ -247,7 +247,7 @@ export const studentDetailSuperAdminRes = (data: any) => {
 
 export const schoolDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
+        API.get(`${superAdminEndpoints.schoolDetails}/${id}`) 
             .then((res: any) => {
                 dispatch(schoolDetailSuperAdminRes(res.data.data));
             })

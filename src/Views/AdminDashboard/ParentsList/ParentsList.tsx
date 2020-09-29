@@ -26,12 +26,18 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
     const dispatch = useDispatch();
 
     const handleDetails = (data: any) => {
+        // alert(JSON.stringify(data.children))
+        let childrenArray = [];
+        for(let i=0; i<data.children.length;i++){
+            childrenArray.push((data.children[i]).studentId)
+        }
         routes.push({
             pathname: '/admin/parent/detail',
             state: {
                 studentDetailsParent: data,
+                childrenArray: childrenArray,
             },
-            // children: data.children,
+            
         });
     };
 

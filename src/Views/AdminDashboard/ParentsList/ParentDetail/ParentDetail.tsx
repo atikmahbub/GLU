@@ -40,6 +40,7 @@ const StudentDetail = () => {
     const studentDetailsParent = useSelector((state: any) => state.superAdminReducer.studentDetailsParent);
     const location = useLocation();
     const dispatch = useDispatch();
+    // alert(JSON.stringify(location))
     useEffect(() => {
         if (location?.state?.hasOwnProperty('studentDetailsParent')) {
             dispatch(parentDetailSuperAdmin((location as any)?.state?.studentDetailsParent?.guardianId));
@@ -165,9 +166,15 @@ const StudentDetail = () => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Child 1</MenuItem>
+          {
+              location.state.studentDetailsParent.children.map((children, index) => (
+                <MenuItem value={children.studentId}>{children.studentId}</MenuItem>
+
+              ))
+          }
+          {/* <MenuItem value={10}>Child 1</MenuItem>
           <MenuItem value={20}>Child 2</MenuItem>
-          <MenuItem value={30}>Child 3</MenuItem>
+          <MenuItem value={30}>Child 3</MenuItem> */}
         </Select>
       </FormControl>
         </div>
