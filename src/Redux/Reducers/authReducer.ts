@@ -1,4 +1,4 @@
-import { CHILD_TOKEN, REGSITER_DATA, USER_LOGIN, VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, CHILD_TOKEN_RESET, REGSITER_DATA, USER_LOGIN, VERIFIY_USER } from '../ActionTypes/authTypes';
 
 const initialState = {
     userData: null,
@@ -25,6 +25,11 @@ export const authReducer = (state = initialState, action: any) => {
         case CHILD_TOKEN: {
             const data: any = [...newState.childTokens];
             data.push(action.payload);
+            newState.childTokens = data;
+            return newState;
+        }
+        case CHILD_TOKEN_RESET: {
+            const data: any = [];
             newState.childTokens = data;
             return newState;
         }
