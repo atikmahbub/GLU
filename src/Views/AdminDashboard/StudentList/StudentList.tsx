@@ -11,6 +11,9 @@ import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { getallStudentAPIcall, activateDeactivateUser } from '../../../Redux/Actions/superAdminActions';
 import OutlineButton from '../../../components/Button/OutlineButton';
+import { Typography } from '@material-ui/core';
+import { colors } from '../../../Styles/colors';
+
 interface props {
     studentList: Array<string | number>;
 }
@@ -83,6 +86,23 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     width: '23%',
                                     title: 'Location',
                                     field: 'location',
+                                },
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified === 'Pending' ? (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) : rowData.isEmailVerified === 'Approved' ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Approved
+                                            </Typography>
+                                        ) :
+                                        <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                        Approved
+                                    </Typography>,
                                 },
 
                                 {
