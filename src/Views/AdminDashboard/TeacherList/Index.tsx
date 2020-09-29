@@ -14,7 +14,7 @@ const Index = () => {
     }, []);
     useEffect(() => {
         if (teacher) {
-            const data = teacher.map((element: any, i:number) => {
+            const data = teacher.map((element: any, i: number) => {
                 return {
                     index: i,
                     userId: checkValue(element.userId),
@@ -29,6 +29,7 @@ const Index = () => {
                     docStatus: 'Pending',
                     isActive: checkValue(element.isActive),
                     isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
+                    status: checkValue(element.status),
                 };
             });
             setTeacherList(data);

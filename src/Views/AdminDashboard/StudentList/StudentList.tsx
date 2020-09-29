@@ -73,11 +73,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     //     <TableUserProfile name={rowData.schoolName}/>
                                     // ),
                                 },
-                                {
-                                    width: '23%',
-                                    title: 'Gender',
-                                    field: 'gender',
-                                },
+
                                 {
                                     width: '23%',
                                     title: 'Phone Number',

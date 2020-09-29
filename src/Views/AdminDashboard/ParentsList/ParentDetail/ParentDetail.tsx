@@ -58,8 +58,6 @@ const StudentDetail = () => {
     const handleChange = (event:any) => {
         
         dispatch(studentDetailSuperAdmin(event.target.value));
-        alert(JSON.stringify(studentDetails))
-
          setMenuItemClicked(true);
          setChildrenMenuItem(event.target.value);
     };

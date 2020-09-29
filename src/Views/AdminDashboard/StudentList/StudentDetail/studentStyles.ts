@@ -14,6 +14,7 @@ export const studentStyle = {
         fontFamily: 'CircularXXWeb-Book',
         marginTop: '7.5rem',
     },
+    
     detailsText2: {
         fontSize: '2.625rem',
         fontFamily: 'CircularXXWeb-Book',
