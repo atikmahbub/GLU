@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { upcomingClassesSelector } from '../../Redux/Selectors/studentModule';
 import { fetchUpcomingClasses } from '../../Redux/Actions/studentModuleActions';
-import { dataToDateSubjectCards, dataToImageCards } from '../../Helper/students/upcomingClasses';
+import { dataToCarouselCards, dataToDateSubjectCards, dataToImageCards } from '../../Helper/students/upcomingClasses';
 
 function useUpcomingClasses() {
     const dispatch = useDispatch();
@@ -21,7 +21,8 @@ function useUpcomingClasses() {
             nextClassCard,
             upcomingClassCard: nextClassCard,
             upcomingClassImageCards: dataToImageCards(data),
-            dateSubjectCards: dataToDateSubjectCards(data)
+            dateSubjectCards: dataToDateSubjectCards(data),
+            carouselClassCards: dataToCarouselCards(data)
         }),
         [count, isPending, nextClassCard, count, nextClassCard]
     );

@@ -1,4 +1,5 @@
 import {
+    CarouselClassCardElement,
     DateSubjectCardElement,
     FeaturedCardElement,
     ImageCardElement,
@@ -64,23 +65,34 @@ export function dataToImageCards(data: any[]): ImageCardElement[] {
     );
 }
 
+function dataToDateSubjectCard({
+    scheduledOn,
+    startTime,
+    description,
+    duration,
+    endTime,
+    FreelancerSubjectTeacher: { FreelancerSubject, Teacher },
+}: any): DateSubjectCardElement {
+    return {
+        date: parseDate(scheduledOn),
+        startTime: parseTime(startTime),
+        endTime: parseTime(endTime),
+        subject: FreelancerSubject.subjectName,
+        description,
+        subTitle: duration,
+        name: `${Teacher.firstName} ${Teacher.lastName}`,
+    };
+}
+
+export function dataToCarouselCards(data: any[]): CarouselClassCardElement[] {
+    return data.map((item) => ({
+        img:
+            item.coverImage ||
+            'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597322212/gluschool/tutorDashboard_plnp4i.jpg',
+        ...dataToDateSubjectCard(item),
+    }));
+}
+
 export function dataToDateSubjectCards(data: any[]): DateSubjectCardElement[] {
-    return data.map(
-        ({
-            scheduledOn,
-            startTime,
-            description,
-            duration,
-            endTime,
-            FreelancerSubjectTeacher: { FreelancerSubject, Teacher },
-        }) => ({
-            date: parseDate(scheduledOn),
-            startTime: parseTime(startTime),
-            endTime: parseTime(endTime),
-            subject: FreelancerSubject.subjectName,
-            description,
-            subTitle: duration,
-            name: `${Teacher.firstName} ${Teacher.lastName}`,
-        })
-    );
+    return data.map(dataToDateSubjectCard);
 }

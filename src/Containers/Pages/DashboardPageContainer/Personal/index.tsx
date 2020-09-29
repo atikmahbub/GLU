@@ -26,7 +26,14 @@ const useStyles = makeStyles({
 
 interface IPersonal extends DashboardPersonal, UserType {}
 
-const Personal: FC<IPersonal> = ({ userType, previousClasses, upcomingClasses, profile, dateSubjectCards }) => {
+const Personal: FC<IPersonal> = ({
+    userType,
+    previousClasses,
+    upcomingClasses,
+    profile,
+    dateSubjectCards,
+    carouselCards,
+}) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -37,7 +44,7 @@ const Personal: FC<IPersonal> = ({ userType, previousClasses, upcomingClasses, p
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
                         titleRightLinkTo="/students/upcoming-classes"
-                        content={<ClassesCarousel />}
+                        content={<ClassesCarousel data={carouselCards} />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />
                     <WhiteCard

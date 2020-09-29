@@ -8,7 +8,12 @@ import useProfileInfo from '../../../Hooks/students/useProfileInfo';
 const StudentsDashboard: FC = () => {
     const { isPending: homeworkLoading, count: homeworkCount } = useHomework();
     const { isPending: previousClassesLoading, count: previousClassesCount } = usePreviousClasses();
-    const { isPending: upcomingClassesLoading, count: upcomingClassesCount, dateSubjectCards } = useUpcomingClasses();
+    const {
+        isPending: upcomingClassesLoading,
+        count: upcomingClassesCount,
+        dateSubjectCards,
+        carouselClassCards,
+    } = useUpcomingClasses();
     const { profileCard, isPending: isProfilePending } = useProfileInfo();
 
     return (
@@ -19,13 +24,14 @@ const StudentsDashboard: FC = () => {
                 homework: { isLoading: homeworkLoading, count: homeworkCount },
                 upcomingClasses: { isLoading: upcomingClassesLoading, count: upcomingClassesCount },
                 profile: profileCard,
-                dateSubjectCards
+                dateSubjectCards,
             }}
             personal={{
                 previousClasses: { isLoading: previousClassesLoading, count: previousClassesCount },
                 upcomingClasses: { isLoading: upcomingClassesLoading, count: upcomingClassesCount },
                 profile: profileCard,
-                dateSubjectCards
+                dateSubjectCards,
+                carouselCards: carouselClassCards
             }}
         />
     );

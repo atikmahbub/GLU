@@ -114,3 +114,7 @@ export interface ProfileCardElement {
     phone: string;
     address: string;
 }
+
+export interface CarouselClassCardElement extends DateSubjectCardElement {
+    img: string;
+}

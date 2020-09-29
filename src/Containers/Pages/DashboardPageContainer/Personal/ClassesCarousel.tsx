@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ClassCard from '../../../../components/Cards/ClassCard';
+import { CarouselClassCardElement } from '../../../../components/Cards/types';
 
 const useStyles = makeStyles({
     root: {
@@ -69,7 +70,11 @@ const settings = {
     pauseOnHover: false,
 };
 
-const ClassesCarousel: FC = () => {
+interface IClassesCarousel {
+    data: CarouselClassCardElement[];
+}
+
+const ClassesCarousel: FC<IClassesCarousel> = ({ data }) => {
     const classes = useStyles();
     return (
         <Grid container className={classes.root}>
@@ -78,13 +83,16 @@ const ClassesCarousel: FC = () => {
                 dotsClass={classNames('slick-dots', classes.sliderDots)}
                 className={classes.sliderRoot}
             >
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
+                {data.map((card, index) => (
+                    <ClassCard key={index} {...card} />
+                ))}
             </Slider>
         </Grid>
     );
 };
+
+ClassesCarousel.defaultProps = {
+    data: []
+}
 
 export default memo(ClassesCarousel);
