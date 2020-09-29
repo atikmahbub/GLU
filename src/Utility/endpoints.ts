@@ -47,6 +47,8 @@ export const endponts = {
     studentHomework: '/school/status/homework/student/',
     teacherRecommendationCount: 'teacher/recommend/count',
     getAllSubject: '/school/class-groups',
+    sendEmail: 'auth/send/email',
+    userEmailVerififcation: 'auth/register/email/',
 };
 
 export const studentsEndpoints = {
@@ -70,5 +72,9 @@ export const superAdminEndpoints = {
     getAllStudents: 'superadmin/students?type=external',
     getAllParents: 'superadmin/guardians',
     getAllUsersCount: 'superadmin/users/count-list',
-    teacherDetails: 'superadmin/teachers/',
+    teacherDetails: 'superadmin/teacher/',
+    studentDetails: '/superAdmin/student/',
+    schoolDetails: 'superAdmin/schools',
+    parentDetails: '/superAdmin/parent',
+    approveRejectTeacher: 'superadmin/unverified-freelancer-teachers',
 };

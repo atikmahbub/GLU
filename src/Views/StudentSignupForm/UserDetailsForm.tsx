@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { TextField } from '@material-ui/core';
 import UnderLineAddornmentSingleIcon from '../../components/Inputs/UnderLineAddornmentSingleIcon';
 import { registerContext } from './Index';
-import SelectFieldUnderline from '../../components/Inputs/SelectFieldUnderline';
 import MobileCodeInput from '../../components/Inputs/MobileCodeInput';
 import { mobileCode } from '../../Helper/mobileCode';
 
@@ -75,13 +74,13 @@ const UserDetailsForm: React.FunctionComponent<props> = ({
                 {context.whoIam === 'parent' && context.active === 2 && (
                     <React.Fragment>
                         <div className="col-md-4">
-                        <MobileCodeInput
-                        className="custom-adornment-input mb-3"
-                        label="Mobile Number"
-                        options={mobileCode}
-                        value={mobilePre}
-                        onChange={handleMobilePre}
-                    />
+                            <MobileCodeInput
+                                className="custom-adornment-input mb-3"
+                                label="Mobile Number"
+                                options={mobileCode}
+                                value={mobilePre}
+                                onChange={handleMobilePre}
+                            />
                             {/* <SelectFieldUnderline
                                 className="custom-adornment-input"
                                 label="Mobile Number"

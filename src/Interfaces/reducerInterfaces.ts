@@ -14,6 +14,7 @@ export interface authReducerType {
     userData: any;
     registerData: any;
     verifyUser: any;
+    childTokens: any;
 }
 export interface uiReducerType {
     loader: boolean;

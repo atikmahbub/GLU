@@ -1,21 +1,23 @@
 import { makeStyles, Typography } from '@material-ui/core';
 
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import WelcomeText from '../../components/WelcomeText';
+import { resetChildToken, sendVerififcationEmailAPIcall } from '../../Redux/Actions/registerAction';
 import { colors } from '../../Styles/colors';
 
 const useStyles = makeStyles({
     title: {
         fontSize: '1rem',
         color: colors.white,
-        marginLeft: '1.9rem'
+        marginLeft: '1.9rem',
     },
     link: {
         color: '#B4CBFF',
-        marginLeft: '2px'
+        marginLeft: '2px',
     },
 });
 
@@ -23,10 +25,38 @@ const ShowWelcome = () => {
     const classes = useStyles();
     const routes = useLocation();
     const [name, setName] = useState('');
+    const dispatch = useDispatch();
     useEffect(() => {
         if (routes.hasOwnProperty('state')) {
             if ((routes as any)?.state?.hasOwnProperty('userName')) {
-                setName((routes as any).state.userName);
+                const getState = (routes as any).state;
+                setName(getState?.userName);
+                if (getState?.emailData?.whoIam === 'parent') {
+                    getState?.emailData?.childToken.map((token: any, i: number) => {
+                        if (token) {
+                            const data = {
+                                email: getState.emailData.child[i].email,
+                                token: token,
+                                parent: {
+                                    name: getState?.userName,
+                                },
+                            };
+                            dispatch(sendVerififcationEmailAPIcall(data));
+                            if (i === getState?.emailData?.childToken.length - 1) {
+                                setTimeout(() => {
+                                    dispatch(resetChildToken());
+                                }, 100);
+                            }
+                        }
+                    });
+                } else {
+                    const getToken = getState?.emailData?.token.split('Bearer ')[1];
+                    const data = {
+                        email: getState?.emailData?.email,
+                        token: getToken,
+                    };
+                    dispatch(sendVerififcationEmailAPIcall(data));
+                }
             }
         }
     }, []);
@@ -36,7 +66,7 @@ const ShowWelcome = () => {
                 <WelcomeText title={`Thank You ${name}!`} />
             </div>
             <Typography className={classes.title}>
-                Account verified. Get started and 
+                Account verified. Get started and
                 <Link to="/login" className={classes.link}>
                     Sign In
                 </Link>

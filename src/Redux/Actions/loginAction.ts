@@ -73,10 +73,21 @@ export const emailSubscriber = (data: { email: string }, setEmail: Function) => 
 
 export const emailVerificationAPIcall = (token: string, redirectToHome: () => void) => {
     return (dispatch: Dispatch<any>) => {
-        dispatch(spinner(true));
         API.get(`${endponts.emailSubscribe}/${token}`)
             .then((res) => {
-                dispatch(spinner(false));
+                console.log(res);
+                redirectToHome();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+};
+
+export const userEmailVerificationAPIcall = (token: string, redirectToHome: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.get(`${endponts.userEmailVerififcation}${token}`)
+            .then((res) => {
                 console.log(res);
                 redirectToHome();
             })

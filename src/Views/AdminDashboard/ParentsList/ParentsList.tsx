@@ -10,6 +10,8 @@ import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateUser, getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
+import OutlineButton from '../../../components/Button/OutlineButton';
+
 interface props {
     parentsList: Array<string | number>;
 }
@@ -22,6 +24,17 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
     }, [parentsList]);
     const routes = useHistory();
     const dispatch = useDispatch();
+
+    const handleDetails = (data: any) => {
+        routes.push({
+            pathname: '/admin/parent/detail',
+            state: {
+                studentDetailsParent: data,
+            },
+            
+        });
+    };
+
     const handleRoutes = () => {
         routes.push({
             pathname: routeEndpoints.school.addNewSchool,
@@ -90,15 +103,23 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
 
                                 {
                                     width: '23%',
-                                    title: 'Approve/Reject',
+                                    title: 'Active/Inactive',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isActive}
+                                            checked={rowData.isActive == true ? true : false}
                                             onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'View Details',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <OutlineButton text="View Details" btnClick={() => handleDetails(rowData)} />
                                     ),
                                 },
                             ]}

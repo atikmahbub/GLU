@@ -10,6 +10,10 @@ import CardTable from '../../../components/Table/CardTable';
 import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { getallStudentAPIcall, activateDeactivateUser } from '../../../Redux/Actions/superAdminActions';
+import OutlineButton from '../../../components/Button/OutlineButton';
+import { Typography } from '@material-ui/core';
+import { colors } from '../../../Styles/colors';
+
 interface props {
     studentList: Array<string | number>;
 }
@@ -22,11 +26,11 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
     }, [studentList]);
     const routes = useHistory();
     const dispatch = useDispatch();
-    const handleRoutes = () => {
+    const handleDetails = (data: any) => {
         routes.push({
-            pathname: routeEndpoints.school.addNewSchool,
+            pathname: '/admin/student/detail',
             state: {
-                breadcrumb: routeEndpoints.teacher.addNewTeacherBread,
+                studentDetails: data,
             },
         });
     };
@@ -53,7 +57,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                             disableExport={true}
                             showToolbar={true}
                             showPagination={true}
-                            selectable={true}
+                            selectable={false}
                             tableHeight="100vh"
                             columns={[
                                 {
@@ -72,11 +76,7 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     //     <TableUserProfile name={rowData.schoolName}/>
                                     // ),
                                 },
-                                {
-                                    width: '23%',
-                                    title: 'Gender',
-                                    field: 'gender',
-                                },
+
                                 {
                                     width: '23%',
                                     title: 'Phone Number',
@@ -87,18 +87,43 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     title: 'Location',
                                     field: 'location',
                                 },
+                                // {
+                                //     title: 'Email Verification',
+                                //     field: 'isEmailVerified',
+                                //     render: (rowData: any) =>
+                                //         rowData.isEmailVerified === 'Pending' ? (
+                                //             <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                //                 Pending
+                                //             </Typography>
+                                //         ) : rowData.isEmailVerified === 'Approved' ? (
+                                //             <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                //                 Approved
+                                //             </Typography>
+                                //         ) :
+                                //         <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                //         Approved
+                                //     </Typography>,
+                                // },
 
                                 {
                                     width: '23%',
-                                    title: 'Approve/Reject',
+                                    title: 'Active/Inactive',
                                     render: (rowData: any) => (
                                         <Switch
-                                            checked={rowData.isVerified}
+                                            checked={rowData.isActive == true ? true : false}
                                             onChange={() => handleActiveInactive(rowData.userId, rowData.index)}
                                             color="primary"
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'View Details',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <OutlineButton text="View Details" btnClick={() => handleDetails(rowData)} />
                                     ),
                                 },
                             ]}

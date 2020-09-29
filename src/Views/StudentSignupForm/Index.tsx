@@ -31,6 +31,7 @@ import {
     parentChildAddAPIcall,
     verfiyRegisterUserAPIcall,
     updateRegisterAPIcall,
+    teacherEduAPIcall,
 } from '../../Redux/Actions/registerAction';
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
@@ -76,13 +77,29 @@ const Index: React.FunctionComponent = () => {
     const [curActive, setCurActive] = useState(0);
     const [activeLength, setActiveLength] = useState(0);
     const [useUpdateApi, setUseUpdateApi] = useState(false);
-    const [stuStepCom, setStuStepCom] = useState([true, false, false, false, false, false]);
+    const [stuStepCom, setStuStepCom] = useState({ steps: [true, false, false, false, false], skip: false });
+    const [parStepCom, setParStepCom] = useState([true, false, false, false, false]);
+    const [teachStepCom, setTeachStepCom] = useState([
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+    ]);
+
     const [hideButtons, setHideButtons] = useState({ farword: false, backward: false });
     const initial = { title: 'Who are you?', comp: <WhoIam whoAmIHandler={(value: string) => setWhoIam(value)} /> };
     const [renderComponent, setRenderComponent] = useState<any>([initial]);
     const userData = useSelector((state: rootReducerType) => state.authReducer.userData);
     const fileData = useSelector((state: rootReducerType) => state.fileUploadReducer.fileData);
     const loader = useSelector((state: rootReducerType) => state.uiReducer.loader);
+    const childToken = useSelector((state: rootReducerType) => state.authReducer.childTokens);
+
     const handleSPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState({ ...state, student: { ...state.student, password: e.target.value } });
     };
@@ -164,11 +181,17 @@ const Index: React.FunctionComponent = () => {
             console.log('run');
             goToNextPage();
         }
-        // if(active===2 && whoIam==='student'){
-        //     goToNextPage();
-        //     const data = [...stuStepCom];
-        //     data[active] = true;
-        // }
+        if (active === 2 && whoIam === 'student') {
+            goToNextPage();
+            const data = { ...stuStepCom };
+            data.steps[active] = true;
+            setStuStepCom(data);
+        } else if (active === 2 && whoIam === 'parent') {
+            goToNextPage();
+            const data = [...parStepCom];
+            data[active] = true;
+            setParStepCom(data);
+        }
         if (
             (active === 5 && whoIam === 'student') ||
             (active === 5 && whoIam === 'parent') ||
@@ -177,8 +200,9 @@ const Index: React.FunctionComponent = () => {
             otpVerifyCall();
         }
     };
-    console.log(state);
+    console.log(teachStepCom);
     const goToNextPage = () => {
+        console.log(active);
         if (whoIam !== '') {
             if (active === activeLength - 1) {
                 setHideButtons({ ...hideButtons, farword: true });
@@ -186,18 +210,40 @@ const Index: React.FunctionComponent = () => {
                 setActive((prevState) => prevState + 1);
             }
         }
-        // if (whoIam === 'student') {
-        //     const data = [...stuStepCom];
-        //     data[active] = true;
-        //     setStuStepCom(data);
-        // }
+        if (whoIam === 'student') {
+            const data = { ...stuStepCom };
+            data.steps[active] = true;
+            setStuStepCom(data);
+        } else if (whoIam === 'parent') {
+            console.log(active);
+            const data = [...parStepCom];
+            data[active] = true;
+            setParStepCom(data);
+        } else if (whoIam === 'teacher') {
+            console.log(active);
+            const data = [...teachStepCom];
+            data[active] = true;
+            setTeachStepCom(data);
+        }
+        if (whoIam === 'student' && stuStepCom.skip) {
+            const data = { ...stuStepCom };
+            data.skip = false;
+            setStuStepCom(data);
+        }
     };
-
-    // const checkGoNextOrNot = () => {
-    //     if (whoIam === 'student' && stuStepCom[active]) {
-    //         goToNextPage();
-    //     }
-    // };
+    // console.log(parStepCom);
+    const checkGoNextOrNot = () => {
+        if (whoIam === 'student' && stuStepCom.steps[active]) {
+            goToNextPage();
+        } else if (whoIam === 'student' && stuStepCom.skip) {
+            goToNextPage();
+            goToNextPage();
+        } else if (whoIam === 'parent' && parStepCom[active]) {
+            goToNextPage();
+        } else if (whoIam === 'teacher' && teachStepCom[active]) {
+            goToNextPage();
+        }
+    };
 
     const dispatch = useDispatch();
     const userRegistration = () => {
@@ -245,12 +291,20 @@ const Index: React.FunctionComponent = () => {
             } else {
                 dispatch(registerAPIcall(registerData, goToNextPage));
             }
-        } else if ((active === 3 && whoIam === 'student') || (active === 4 && whoIam === 'teacher')) {
+        } else if (active === 3 && whoIam === 'student') {
             educationData.forEach((item, i: number) => {
                 if (i === educationData.length - 1) {
                     dispatch(studentEduAPIcall(item, goToNextPage));
                 } else {
                     dispatch(studentEduAPIcall(item));
+                }
+            });
+        } else if (active === 4 && whoIam === 'teacher') {
+            educationData.forEach((item, i: number) => {
+                if (i === educationData.length - 1) {
+                    dispatch(teacherEduAPIcall(item, goToNextPage));
+                } else {
+                    dispatch(teacherEduAPIcall(item));
                 }
             });
         } else if (active === 6 && whoIam === 'teacher') {
@@ -268,12 +322,13 @@ const Index: React.FunctionComponent = () => {
             dispatch(teacherAddSkillAPIcall(skillSet, goToNextPage));
         } else if (active === 2 && whoIam === 'teacher') {
             const data = { bio: state.teacher.bio };
-            dispatch(teacherAddBioAPIcall(data, userData.userRoleId, goToNextPage));
+            dispatch(teacherAddBioAPIcall(data, userData?.userRoleId, goToNextPage));
         } else if (active === 8 && whoIam === 'teacher') {
             const file: any = state.teacher.file;
-            dispatch(getFileUploadAPIcall(file.name));
+            dispatch(getFileUploadAPIcall(file?.name));
         } else if (active === 3 && whoIam === 'parent') {
-            state.parent.childs.map((item: any) => {
+            state.parent.childs.map((item: any, i: number) => {
+                console.log('hello', 'child')
                 const data = {
                     firstName: item.firstName,
                     lastName: item.lastName,
@@ -281,7 +336,11 @@ const Index: React.FunctionComponent = () => {
                     phoneNumber: `${item.phoneCode}${item.phoneNum}`,
                     location: item.location,
                 };
-                dispatch(parentChildAddAPIcall(data, goToNextPage));
+                if (i === state.parent.childs.length - 1) {
+                    dispatch(parentChildAddAPIcall(data, goToNextPage));
+                } else {
+                    dispatch(parentChildAddAPIcall(data));
+                }
             });
         }
     };
@@ -293,7 +352,7 @@ const Index: React.FunctionComponent = () => {
     }, [fileData]);
     const uploadDocument = () => {
         const data = {
-            fileName: fileData.file,
+            fileName: fileData.fileName,
             documentType: state.teacher.identity,
         };
         dispatch(teacherDocUploadAPIcall(data, goToNextPage));
@@ -304,6 +363,13 @@ const Index: React.FunctionComponent = () => {
             pathname: '/signup-success',
             state: {
                 userName: `${state.student.firstName} ${state.student.lastName}`,
+                emailData: {
+                    email: state.student.email,
+                    token: userData?.access_token,
+                    whoIam: whoIam,
+                    child: state.parent.childs,
+                    childToken: childToken,
+                },
             },
         });
     };
@@ -316,7 +382,7 @@ const Index: React.FunctionComponent = () => {
     };
     const handleCodeSend = (value: string) => {
         console.log(value);
-        const contact = { phoneNumber: value };
+        const contact = { phoneNumber: `${state.student.veriCode}${state.student.veriMobile}` };
         dispatch(registerPhoneNumberAPIcall(contact, goToNextPage));
     };
     const resendPhoneCode = (value: string) => {
@@ -338,6 +404,13 @@ const Index: React.FunctionComponent = () => {
                     setActive((prevState) => prevState - 1);
                 }
             }
+        }
+    };
+    const checkGoBackOrNot = () => {
+        if (whoIam === 'student' && stuStepCom.skip) {
+            setActive((prevState) => prevState - 2);
+        } else {
+            handleBack();
         }
     };
     const changePhoneNumer = () => {
@@ -445,6 +518,9 @@ const Index: React.FunctionComponent = () => {
 
     const skipPages = () => {
         setActive((prevState) => prevState + 2);
+        const data = { ...stuStepCom };
+        data.skip = true;
+        setStuStepCom(data);
     };
 
     //==================component render========================//
@@ -581,6 +657,9 @@ const Index: React.FunctionComponent = () => {
                                     active: active,
                                     disable: cmsRegister,
                                     goNext: handleNext,
+                                    setNext: goToNextPage,
+                                    sendCode: handleCodeSend,
+                                    skip: skipPages,
                                     studentHandler: {
                                         password: handleSPassword,
                                         tc: handleTc,
@@ -600,11 +679,11 @@ const Index: React.FunctionComponent = () => {
                         </div>
                     </div>
                 </div>
-                <IconButton className="controller-button back" onClick={handleBack}>
+                <IconButton className="controller-button back" onClick={checkGoBackOrNot}>
                     <ArrowBack className="icon" />
                 </IconButton>
                 {!hideButtons.farword && (
-                    <IconButton className="controller-button" disabled={loader} onClick={goToNextPage}>
+                    <IconButton className="controller-button" disabled={loader} onClick={checkGoNextOrNot}>
                         <ArrowForward className="icon" />
                     </IconButton>
                 )}

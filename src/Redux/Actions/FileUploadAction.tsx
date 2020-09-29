@@ -24,6 +24,7 @@ export const getFileUploadAPIcall = (file: string, token?: string) => {
             })
             .catch((err) => {
                 console.log(err);
+                dispatch(spinner(false));
             });
     };
 };
@@ -55,6 +56,7 @@ export const uploadProfileAmznUrl = (url: string, image: File, callBack?: () => 
             })
             .catch((err) => {
                 console.log(err);
+                dispatch(spinner(false));
             });
     };
 };
@@ -74,6 +76,7 @@ export const uploadProfileFileName = (file: string, token: string) => {
             })
             .catch((err) => {
                 console.log(err);
+                dispatch(spinner(false));
             });
     };
 };

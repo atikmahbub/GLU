@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getallTeacherAPIcall } from '../../../Redux/Actions/superAdminActions';
 import { checkValue } from '../../../Helper/checkValue';
-import commonImg from '../../../Assets/images';
 import TeacherList from './TeacherList';
 
 const Index = () => {
     const dispatch = useDispatch();
-    const video = useSelector((state: any) => state.superAdminReducer.teacherList);
+    const teacher = useSelector((state: any) => state.superAdminReducer.teacherList);
     const [teacherList, setTeacherList] = useState([]);
 
     useEffect(() => {
         dispatch(getallTeacherAPIcall());
     }, []);
     useEffect(() => {
-        if (video) {
-            const data = video.map((element: any) => {
+        if (teacher) {
+            const data = teacher.map((element: any, i: number) => {
                 return {
+                    index: i,
                     userId: checkValue(element.userId),
                     teacherId: checkValue(element.teacherId),
                     firstName: checkValue(element.firstName),
@@ -27,13 +27,15 @@ const Index = () => {
                     registeredOn: checkValue(element.registeredOn),
                     docType: 'Driving Licence',
                     docStatus: 'Pending',
+                    isActive: checkValue(element.isActive),
+                    isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
+                    status: checkValue(element.status),
                 };
             });
             setTeacherList(data);
         }
-    }, [video]);
+    }, [teacher]);
 
-    // return <TeacherList teacherList={teacherList} />;
     return <TeacherList teacherList={teacherList} />;
 };
 

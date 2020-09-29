@@ -4,7 +4,7 @@ import { API, setAuthrizationToken } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
 import { userLogin } from './loginAction';
-import { VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, CHILD_TOKEN_RESET, VERIFIY_USER } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 
 export const registerAPIcall = (data: any, goToNextPage: () => void) => {
@@ -21,6 +21,7 @@ export const registerAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
+                goToNextPage();
             });
     };
 };
@@ -37,6 +38,7 @@ export const updateRegisterAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
+                goToNextPage();
             });
     };
 };
@@ -55,6 +57,30 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+            });
+    };
+};
+
+export const teacherEduAPIcall = (data: any, goToNextPage?: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        dispatch(spinner(true));
+        API.post(endponts.teacherEdu, data)
+            .then((res) => {
+                if (goToNextPage) {
+                    goToNextPage();
+                }
+                dispatch(spinner(false));
+                toast.success('Your education saved successfully.');
+            })
+            .catch((err) => {
+                console.log(err);
+                handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -73,6 +99,9 @@ export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void)
             .catch((err) => {
                 handleError(dispatch, err);
                 console.log(err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -89,6 +118,9 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -108,6 +140,9 @@ export const teacherExperienceAPIcall = (data: any, goToNextPage?: () => void) =
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -117,16 +152,18 @@ export const teacherAddSkillAPIcall = (data: any, goToNextPage?: () => void) => 
         dispatch(spinner(true));
         API.post(endponts.teahcerSkill, data)
             .then((res) => {
-                console.log(res);
+                toast.success('Your skills saved successfully.');
+                dispatch(spinner(false));
                 if (goToNextPage) {
                     goToNextPage();
                 }
-                toast.success('Your skills saved successfully.');
-                dispatch(spinner(false));
             })
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -146,6 +183,9 @@ export const teacherAddBioAPIcall = (data: any, id: number, goToNextPage?: () =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -164,6 +204,9 @@ export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -176,14 +219,26 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 console.log(res);
                 if (goToNextPage) {
                     goToNextPage();
+                    toast.success('Your children information saved successfully.');
                 }
-                toast.success('Your children information saved successfully.');
                 dispatch(spinner(false));
+                dispatch(storeChildToken(res.data.data.token));
             })
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
+                dispatch(storeChildToken(null));
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
+    };
+};
+
+export const storeChildToken = (data: any) => {
+    return {
+        type: CHILD_TOKEN,
+        payload: data,
     };
 };
 
@@ -194,7 +249,7 @@ export const verfiyRegisterUserAPIcall = (token: string) => {
                 console.log(res);
                 const data = {
                     access_token: `Bearer ${token}`,
-                    userRoleId: res.data.data?.Teacher?.id
+                    userRoleId: res.data.data?.Teacher?.id,
                 };
                 localStorage.setItem('auth', JSON.stringify(data));
                 dispatch(userLogin(data));
@@ -211,5 +266,24 @@ export const verifyRegisterUserRes = (data: any) => {
     return {
         type: VERIFIY_USER,
         payload: data,
+    };
+};
+
+export const sendVerififcationEmailAPIcall = (data: any) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.sendEmail, data)
+            .then((res: any) => {
+                console.log(res);
+            })
+            .catch((err: any) => {
+                console.log(err);
+            });
+    };
+};
+
+export const resetChildToken = () => {
+    return {
+        type: CHILD_TOKEN_RESET,
+        payload: null,
     };
 };

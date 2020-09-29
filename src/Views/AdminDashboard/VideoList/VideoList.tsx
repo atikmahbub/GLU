@@ -8,6 +8,8 @@ import { routeEndpoints } from '../../../Utility/routeEndpoints';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateVideo, getallVideoAPIcall } from '../../../Redux/Actions/superAdminActions';
+import OutlineButton from '../../../components/Button/OutlineButton';
+
 interface props {
     videoList: Array<string | number>;
 }
@@ -22,6 +24,15 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
             },
         });
     };
+    const handleDetails = (data: any) => {
+        console.log("parent Detail")
+        // routes.push({
+        //     pathname: '/admin/student/detail',
+        //     state: {
+        //         studentDetails: data,
+        //     },
+        // });
+    };
     const handleActiveInactive = (id: number) => {
         // setSwitchState(!switchState)
         dispatch(activateDeactivateVideo(id));
@@ -30,9 +41,6 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} />
-            </CardContainer>
-            <CardContainer>
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable
@@ -40,7 +48,7 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                             showToolbar={true}
                             disableExport={true}
                             showPagination={true}
-                            selectable={true}
+                            selectable={false}
                             tableHeight="100vh"
                             columns={[
                                 {
@@ -78,6 +86,14 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
                                             name="checkedB"
                                             inputProps={{ 'aria-label': 'primary checkbox' }}
                                         />
+                                    ),
+                                },
+                                {
+                                    width: '23%',
+                                    title: 'View Details',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <OutlineButton text="View Details" btnClick={() => handleDetails(rowData)} />
                                     ),
                                 },
                             ]}

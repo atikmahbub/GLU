@@ -13,7 +13,9 @@ const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
     console.log(context.student)
     const handleOtp = () => {
         if (onClick) {
-            onClick(`${context.student.veriCode}${context.student.veriMobile}`);
+            console.log()
+            // context.sendCode();
+            // onClick(`${context.student.veriCode}${context.student.veriMobile}` );
         }
     };
     return (
@@ -31,7 +33,7 @@ const VerifyAccount: React.FunctionComponent<props> = ({ onClick }) => {
                 <div className="col-md-8 mb-3">
                     <UnderLineAddornmentSingleIcon
                         disableRipple={true}
-                        buttonClick={handleOtp}
+                        buttonClick={context.sendCode}
                         label=""
                         type="number"
                         className="custom-adornment-input"

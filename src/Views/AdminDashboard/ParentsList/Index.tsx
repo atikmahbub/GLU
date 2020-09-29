@@ -19,13 +19,15 @@ const Index = () => {
                 return {
                     index: i,
                     userId: checkValue(element.userId),
-                    teacherId: checkValue(element.teacherId),
+                    guardianId: checkValue(element.guardianId),
                     firstName: checkValue(element.firstName),
                     lastName: checkValue(element.lastName),
                     gender: checkValue(element.gender),
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
+                    isActive: checkValue(element.isActive),
+                    // children: checkValue(element.GuardianStudents),
                 };
             });
             setParentsList(data);
