@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, makeStyles, TextareaAutosize } from '@material-ui/core';
 import { useLocation, useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Img from '../../../../Assets/images';
 import { teacherStyle } from './teacherStyle';
@@ -11,6 +18,20 @@ import Reusable from './../../StudentList/StudentDetail/ReusableEdExp';
 const useStyle = makeStyles(teacherStyle as any);
 
 const TeacherDetail = () => {
+    const [open, setOpen] = React.useState(false);
+    const [reason, setReason] = useState('');
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleSubmit = () => {
+        dispatch(approveRejectTeacher(teacherData.id, { key: 2, email: teacherData.email, reason: reason }, history));
+    };
+
     const classes = useStyle();
     const [teacherData, setTeacherData] = useState({
         firstName: '',
@@ -53,6 +74,32 @@ const TeacherDetail = () => {
 
     return (
         <Box component="div" className={classes.root}>
+            <div>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogContent>
+                        <DialogContentText>Please type a reason for rejecting teacher</DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="reason"
+                            type="textarea"
+                            fullWidth
+                            onChange={(e) => {
+                                setReason(e.target.value);
+                            }}
+                            value={reason}
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={handleSubmit} color="primary">
+                            Submit
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
             <Grid container spacing={4}>
                 <Grid item xs={6}>
                     <h1>Teacher</h1>
@@ -68,7 +115,9 @@ const TeacherDetail = () => {
                         className={classes.upload}
                         onClick={() => {
                             console.log('Approve clocked');
-                            dispatch(approveRejectTeacher(teacherData.id, { key: 1 }, history));
+                            dispatch(
+                                approveRejectTeacher(teacherData.id, { key: 1, email: teacherData.email }, history)
+                            );
                         }}
                     >
                         Approve
@@ -77,9 +126,9 @@ const TeacherDetail = () => {
                         style={{ textDecoration: 'none', color: 'black', marginTop: '3rem' }}
                         className={classes.upload}
                         onClick={() => {
-                            console.log('Reject clocked');
-
-                            dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
+                            handleClickOpen();
+                            // console.log('Reject clocked');
+                            // dispatch(approveRejectTeacher(teacherData.id, { key: 2 }, history));
                         }}
                     >
                         Reject
