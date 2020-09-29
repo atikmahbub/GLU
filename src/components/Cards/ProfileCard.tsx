@@ -59,8 +59,13 @@ const useStyles = makeStyles({
 interface IProfileCard extends ProfileCardElement {
     rootClassName?: string;
     seeLink?: string;
-    editLink: string;
+    editLink?: string;
     background?: 'primary' | 'secondary';
+    isTitle?: boolean;
+    isEditLink?: boolean;
+    isRedirectLink?: boolean;
+    redirectLink?: string;
+    redirectLinkText?: string
 }
 
 const ProfileCard: FC<IProfileCard> = ({
@@ -73,15 +78,22 @@ const ProfileCard: FC<IProfileCard> = ({
     seeLink,
     editLink = '/',
     background,
+    isTitle = true,
+    isEditLink = true,
+    isRedirectLink = false,
+    redirectLink,
+    redirectLinkText
 }) => {
     const classes = useStyles({ background });
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
             <Grid container className={classes.container}>
                 <Grid container item xs={6} className={classNames(classes.section, classes.noPaddingLeft)}>
-                    <Typography variant="h4" className={classes.title}>
-                        Profile
-                    </Typography>
+                    {isTitle && (
+                        <Typography variant="h4" className={classes.title}>
+                            Profile
+                        </Typography>
+                    )}
                 </Grid>
                 <Grid container item xs={6} className={classNames(classes.section, classes.noPaddingRight)}>
                     <img src={img} alt="thumbnail" className={classes.img} />
@@ -122,9 +134,16 @@ const ProfileCard: FC<IProfileCard> = ({
             </Grid>
             <Grid container justify="flex-end">
                 <Grid container item xs={6} className={classes.section}>
-                    <Typography className={classNames(classes.textSmall, classes.link)} component={Link} to={editLink}>
-                        Edit profile
-                    </Typography>
+                    {isEditLink && (
+                        <Typography className={classNames(classes.textSmall, classes.link)} component={Link} to={editLink}>
+                            Edit profile
+                        </Typography>
+                    )}
+                    {isRedirectLink && !isEditLink && (
+                        <a className={classNames(classes.textSmall, classes.link)} href={redirectLink} target="_blank">
+                            {redirectLinkText}
+                        </a>
+                    )}
                 </Grid>
             </Grid>
         </Grid>

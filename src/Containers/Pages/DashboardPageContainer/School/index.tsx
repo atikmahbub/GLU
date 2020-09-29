@@ -35,7 +35,7 @@ const School: FC<ISchool> = ({ userType, homework, upcomingClasses, profile, dat
                             content={<LineChart />}
                         />
                         <WhiteCard size={3} title="School Timetable" description="Classes" value="5" />
-                        <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
+                        <WhiteCard size={3} title="School Info" titleLink={`/${userType}/school/info`} description="Secondary" value="Dubai, UAE" />
                     </Grid>
                     <Grid container className={classes.container}>
                         <WhiteCard

@@ -11,7 +11,6 @@ const PreviousClasses = lazy(() => import('../../Views/PreviousClasses/PreviousC
 const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
 const StudentClassesTutors = lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const StudentWatchPreviousClass = lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
-const SchoolInfo = lazy(() => import('../../Views/Merits/SchoolInfo'));
 const MyPreviousClasses = lazy(() => import('../../Views/StudentsModule/MyPreviousClasses'));
 const Homework = lazy(() => import('../../Views/StudentsModule/Homework'));
 const IndividualHomework = lazy(() => import('../../Views/StudentsModule/IndividualHomework'));
@@ -24,6 +23,7 @@ const Messages = lazy(() => import('../../Views/StudentsModule/Messages'));
 const Calendar = lazy(() => import('../../Views/StudentsModule/Calendar'));
 const EditProfile = lazy(() => import('../../Views/StudentsModule/EditProfile'));
 const ViewProfile = lazy(() => import('../../Views/StudentsModule/ViewProfile'));
+const SchoolInfo = lazy(() => import('../../Views/StudentsModule/SchoolInfo'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -38,7 +38,6 @@ const routes = [
     createRouteObj('/students/favourites', Favourites),
     createRouteObj('/students/help', HelpSupport),
     createRouteObj('/students/watch-previous-classes', StudentWatchPreviousClass),
-    createRouteObj('/students/schoolInfo', SchoolInfo),
     createRouteObj('/students/my-previous-classes', MyPreviousClasses),
     createRouteObj('/students/wallet', Wallet),
     createRouteObj('/students/homework', Homework),
@@ -50,6 +49,7 @@ const routes = [
     createRouteObj('/students/calendar', Calendar),
     createRouteObj('/students/profile/edit', EditProfile),
     createRouteObj('/students/profile', ViewProfile),
+    createRouteObj('/students/school/info', SchoolInfo),
 ];
 
 export default routes;
