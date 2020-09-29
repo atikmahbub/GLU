@@ -42,12 +42,18 @@ interface InfoState extends AsyncState {
     editProfileForm: EditProfileForm;
 }
 
+interface SubjectsState extends AsyncState {
+    count: number;
+    data: any[];
+}
+
 export interface StudentModuleState {
     homework: HomeworkState;
     teachers: TeachersState;
     upcomingClasses: UpcomingClassesState;
     previousClasses: PreviousClassesState;
     featuredSubjects: FeaturedSubjectsState;
+    subjects: SubjectsState;
     info: InfoState;
 }
 

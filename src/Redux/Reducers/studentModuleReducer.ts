@@ -9,6 +9,8 @@ import {
     INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
+    SUBJECTS_PENDING,
+    SUBJECTS_SUCCESS,
     TEACHERS_PENDING,
     TEACHERS_SUCCESS,
     UPCOMING_CLASSES_PENDING,
@@ -88,6 +90,13 @@ const initialState: StudentModuleState = {
             imgSmall: '',
             imgSmallTitle: '',
         },
+        isPending: false,
+        isSuccess: false,
+        isFailure: false,
+    },
+    subjects: {
+        count: 0,
+        data: [],
         isPending: false,
         isSuccess: false,
         isFailure: false,
@@ -212,7 +221,25 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isSuccess: true,
                     data: action.data,
                     profileCard: action.profileCard,
-                    editProfileForm: action.editProfileForm
+                    editProfileForm: action.editProfileForm,
+                },
+            };
+        case SUBJECTS_PENDING:
+            return {
+                ...state,
+                subjects: {
+                    ...state.subjects,
+                    isPending: true,
+                },
+            };
+        case SUBJECTS_SUCCESS:
+            return {
+                ...state,
+                subjects: {
+                    ...state.subjects,
+                    isPending: false,
+                    isSuccess: true,
+                    data: action.data,
                 },
             };
         default:

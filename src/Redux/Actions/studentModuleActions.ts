@@ -7,6 +7,8 @@ import {
     INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
+    SUBJECTS_PENDING,
+    SUBJECTS_SUCCESS,
     TEACHERS_PENDING,
     TEACHERS_SUCCESS,
     UPCOMING_CLASSES_PENDING,
@@ -91,6 +93,16 @@ interface InfoSuccess {
     editProfileForm: EditProfileForm;
 }
 
+interface SetSubjectsPending {
+    type: typeof SUBJECTS_PENDING;
+}
+
+interface SubjectsSuccess {
+    type: typeof SUBJECTS_SUCCESS;
+    count: number;
+    data: any[];
+}
+
 export type StudentModuleActionTypes =
     | SetHomeworkPending
     | HomeworkSuccess
@@ -103,7 +115,9 @@ export type StudentModuleActionTypes =
     | SetFeaturedSubjectsPending
     | FeaturedSubjectsSuccess
     | SetInfoPending
-    | InfoSuccess;
+    | InfoSuccess
+    | SetSubjectsPending
+    | SubjectsSuccess;
 
 function setHomeworkPending(): SetHomeworkPending {
     return {
@@ -284,6 +298,32 @@ export function fetchInfo(): AppThunk {
         API.get(endponts.getUserProfile).then(({ data: { success, data } }) => {
             if (success) {
                 dispatch(infoSuccess(data, dataToProfileCard(data), dataToEditProfileForm(data)));
+            }
+        });
+    };
+}
+
+function setSubjectsPending(): SetSubjectsPending {
+    return {
+        type: SUBJECTS_PENDING,
+    };
+}
+
+function subjectsSuccess(count: number, data: any[]): SubjectsSuccess {
+    return {
+        type: SUBJECTS_SUCCESS,
+        count,
+        data,
+    };
+}
+
+export function fetchSubjects(): AppThunk {
+    return (dispatch) => {
+        dispatch(setSubjectsPending());
+        API.get(studentsEndpoints.getSubjects).then(({ data: { success, data } }) => {
+            if (success) {
+                const { schoolSubjects, schoolSubjectCount } = data;
+                dispatch(subjectsSuccess(schoolSubjectCount, schoolSubjects));
             }
         });
     };

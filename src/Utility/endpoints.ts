@@ -54,9 +54,9 @@ export const studentsEndpoints = {
     getUpcomingSessions: 'freelancer/student/session/upcoming',
     getPreviousSessions: 'freelancer/student/session/previous',
     getFeatureSubject: 'freelancer/student/featured/subject',
-    getHomework: 'student/status/homework'
-}
-
+    getHomework: 'student/status/homework',
+    getSubjects: 'freelancer/student/subject',
+};
 
 export const superAdminEndpoints = {
     getAllSchools: 'superAdmin/schools',
@@ -69,5 +69,5 @@ export const superAdminEndpoints = {
     getAllStudents: 'superadmin/students?type=external',
     getAllParents: 'superadmin/guardians',
     getAllUsersCount: 'superadmin/users/count-list',
-    teacherDetails: 'superadmin/teachers/'
-}
+    teacherDetails: 'superadmin/teachers/',
+};
