@@ -48,17 +48,23 @@ const StudentDetail = () => {
         email: '',
         phoneNumber: '',
         city: '',
+        children: '',
     });
     const studentDetailsParent = useSelector((state: any) => state.superAdminReducer.studentDetailsParent);
     const studentDetails = useSelector((state: any) => state.superAdminReducer.studentDetails);
 
     const location = useLocation();
     const dispatch = useDispatch();
-    // alert(JSON.stringify(studentData));
     const handleChange = (event:any) => {
-        // alert(event.target.value)
-    //   console.log("========= the menu =======", event.target.value)
+        
         dispatch(studentDetailSuperAdmin(event.target.value));
+        alert(JSON.stringify(studentDetails))
+
+         setMenuItemClicked(true);
+         setChildrenMenuItem(event.target.value);
+    };
+  
+    useEffect(() => {
         if (studentDetails) {
             console.log(studentDetails);
             const data = {
@@ -72,27 +78,18 @@ const StudentDetail = () => {
                 image: studentDetails.User.profile,
             };
             setStudentData(data);
-            // routes.push({
-            //     pathname: '/admin/student/detail',
-            //     state: {
-            //         studentDetails: data,
-            //     },
-            // });
         }
+    }, [studentDetails]);
 
-        
-         setMenuItemClicked(true);
-         setChildrenMenuItem(event.target.value);
-    };
-  
-    // alert(JSON.stringify(location))
     useEffect(() => {
         if (location?.state?.hasOwnProperty('studentDetailsParent')) {
             dispatch(parentDetailSuperAdmin((location as any)?.state?.studentDetailsParent?.guardianId));
         }
     }, []);
+
     useEffect(() => {
         if (studentDetailsParent) {
+            // alert(JSON.stringify(studentDetailsParent.GuardianStudents))
             console.log(studentDetailsParent);
             const data = {
                 firstName: studentDetailsParent.firstName,
@@ -100,10 +97,12 @@ const StudentDetail = () => {
                 email: studentDetailsParent?.User?.email,
                 phoneNumber: studentDetailsParent.phoneNumber,
                 city: studentDetailsParent.location,
+                GuardianStudents: studentDetailsParent.GuardianStudents,
             };
             setParentData(data);
         }
     }, [studentDetailsParent]);
+
 
     return (
     <>
@@ -195,7 +194,7 @@ const StudentDetail = () => {
 <Box component="div" className={classes.root} style={{marginTop: "30px"}}>
 <Grid container spacing={8}>
     <Grid item xs={6}>
-        <h1>Student Details</h1>
+        <h1>Child Details</h1>
         <div>
         <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">Select Child</InputLabel>
@@ -209,14 +208,11 @@ const StudentDetail = () => {
           onChange={handleChange}
         >
           {
-             location.state.studentDetailsParent.children.length > 0 && location.state.studentDetailsParent.children.map((children:any) => (
-                <MenuItem value={children.studentId}>{children.studentId}</MenuItem>
+          parentData.GuardianStudents && parentData.GuardianStudents.map((children:any) => (
+                <MenuItem value={children.studentId}>{children.Student.firstName}</MenuItem>
 
               ))
           }
-          {/* <MenuItem value={10}>Child 1</MenuItem>
-          <MenuItem value={20}>Child 2</MenuItem>
-          <MenuItem value={30}>Child 3</MenuItem> */}
         </Select>
       </FormControl>
         </div>
@@ -228,9 +224,9 @@ const StudentDetail = () => {
     // <Box component="div" className={classes.root}>
             <Grid container spacing={8} style={{padding: "40px"}}>
                 <Grid item xs={6}>
-                    <h1>Student</h1>
+                    {/* <h1>Student</h1> */}
                     <div>
-                        <img
+                        {/* <img
                             src={
                                 studentDetails && studentDetails.User.profile
                                     ? studentDetails.User.profile
@@ -238,7 +234,7 @@ const StudentDetail = () => {
                             }
                             alt="tutor"
                             className={classes.image}
-                        />
+                        /> */}
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>
@@ -314,7 +310,10 @@ const StudentDetail = () => {
                         </div>
                     </div>
                 </Grid>
-                <Grid xs={6}>
+                {
+                    studentData.education.length > 0
+                    ?
+                    <Grid xs={6}>
                     <div className={classes.detailsText}>Education</div>
                     {studentData.education instanceof Array &&
                         studentData.education.map((item: any) => {
@@ -328,6 +327,11 @@ const StudentDetail = () => {
                             );
                         })}
                 </Grid>
+                :
+                ""
+
+                }
+
             </Grid>
         // </Box>
         :
