@@ -53,7 +53,7 @@ const Personal: FC<IPersonal> = ({
                         description="Purchased"
                         isLoading={previousClasses.isLoading}
                         value={previousClasses.count}
-                        titleLink={`/${userType}/recorded-classes`}
+                        titleLink={`/${userType}/profile/recorded-classes`}
                     />
                     <WhiteCard size={3} title="Whiteboard" description={'Try out what the class\nwill be like'} />
                 </Grid>
