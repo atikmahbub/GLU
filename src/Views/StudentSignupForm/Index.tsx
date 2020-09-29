@@ -328,6 +328,7 @@ const Index: React.FunctionComponent = () => {
             dispatch(getFileUploadAPIcall(file?.name));
         } else if (active === 3 && whoIam === 'parent') {
             state.parent.childs.map((item: any, i: number) => {
+                console.log('hello', 'child')
                 const data = {
                     firstName: item.firstName,
                     lastName: item.lastName,

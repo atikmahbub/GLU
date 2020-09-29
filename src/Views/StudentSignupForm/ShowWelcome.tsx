@@ -6,7 +6,7 @@ import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import NavigationMenu from '../../components/NavigationMenu';
 import WelcomeText from '../../components/WelcomeText';
-import { sendVerififcationEmailAPIcall } from '../../Redux/Actions/registerAction';
+import { resetChildToken, sendVerififcationEmailAPIcall } from '../../Redux/Actions/registerAction';
 import { colors } from '../../Styles/colors';
 
 const useStyles = makeStyles({
@@ -32,15 +32,22 @@ const ShowWelcome = () => {
                 const getState = (routes as any).state;
                 setName(getState?.userName);
                 if (getState?.emailData?.whoIam === 'parent') {
-                    getState?.emailData?.child.map((item: any, i: number) => {
-                        const data = {
-                            email: item.email,
-                            token: getState?.childToken[i],
-                            parent: {
-                                name: getState?.userName,
-                            },
-                        };
-                        dispatch(sendVerififcationEmailAPIcall(data));
+                    getState?.emailData?.childToken.map((token: any, i: number) => {
+                        if (token) {
+                            const data = {
+                                email: getState.emailData.child[i].email,
+                                token: token,
+                                parent: {
+                                    name: getState?.userName,
+                                },
+                            };
+                            dispatch(sendVerififcationEmailAPIcall(data));
+                            if (i === getState?.emailData?.childToken.length - 1) {
+                                setTimeout(() => {
+                                    dispatch(resetChildToken());
+                                }, 100);
+                            }
+                        }
                     });
                 } else {
                     const getToken = getState?.emailData?.token.split('Bearer ')[1];

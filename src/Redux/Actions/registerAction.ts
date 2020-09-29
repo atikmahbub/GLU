@@ -4,7 +4,7 @@ import { API, setAuthrizationToken } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
 import { userLogin } from './loginAction';
-import { CHILD_TOKEN, VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, CHILD_TOKEN_RESET, VERIFIY_USER } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 
 export const registerAPIcall = (data: any, goToNextPage: () => void) => {
@@ -21,7 +21,7 @@ export const registerAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
-                // goToNextPage();
+                goToNextPage();
             });
     };
 };
@@ -38,7 +38,7 @@ export const updateRegisterAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
-                // goToNextPage();
+                goToNextPage();
             });
     };
 };
@@ -57,9 +57,9 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -78,13 +78,12 @@ export const teacherEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
-
 
 export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void) => {
     return (dispatch: Dispatch<any>) => {
@@ -100,9 +99,9 @@ export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void)
             .catch((err) => {
                 handleError(dispatch, err);
                 console.log(err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -119,9 +118,9 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -141,9 +140,9 @@ export const teacherExperienceAPIcall = (data: any, goToNextPage?: () => void) =
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -162,9 +161,9 @@ export const teacherAddSkillAPIcall = (data: any, goToNextPage?: () => void) => 
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -184,9 +183,9 @@ export const teacherAddBioAPIcall = (data: any, id: number, goToNextPage?: () =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -205,9 +204,9 @@ export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -228,9 +227,10 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                // if (goToNextPage) {
-                //     goToNextPage();
-                // }
+                dispatch(storeChildToken(null));
+                if (goToNextPage) {
+                    goToNextPage();
+                }
             });
     };
 };
@@ -278,5 +278,12 @@ export const sendVerififcationEmailAPIcall = (data: any) => {
             .catch((err: any) => {
                 console.log(err);
             });
+    };
+};
+
+export const resetChildToken = () => {
+    return {
+        type: CHILD_TOKEN_RESET,
+        payload: null,
     };
 };
