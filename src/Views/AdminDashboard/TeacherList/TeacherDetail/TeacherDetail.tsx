@@ -13,6 +13,7 @@ import { teacherStyle } from './teacherStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { teacherDetailSuperAdmin, approveRejectTeacher } from '../../../../Redux/Actions/superAdminActions';
 import Reusable from './../../StudentList/StudentDetail/ReusableEdExp';
+import SkillChip from './SkillChip';
 
 const useStyle = makeStyles(teacherStyle as any);
 
@@ -46,6 +47,7 @@ const TeacherDetail = () => {
         status: '',
         isVerifiedByAdmin: '',
         rejectedReason: '',
+        skills: '',
     });
     const teachetDetails = useSelector((state: any) => state.superAdminReducer.teacherDetails);
     const location = useLocation();
@@ -72,6 +74,7 @@ const TeacherDetail = () => {
                 status: teachetDetails.status,
                 isVerifiedByAdmin: teachetDetails.isVerifiedByAdmin,
                 rejectedReason: teachetDetails.rejectReason,
+                skills: teachetDetails.Skills,
             };
             setTeacherData(data);
         }
@@ -283,35 +286,48 @@ const TeacherDetail = () => {
                         <div className={classes.detailsText} style={{ marginTop: '6rem' }}>
                             Education
                         </div>
-                        {teacherData.education instanceof Array && teacherData.education.length > 0
-                            ? teacherData.education.map((item: any) => {
-                                  return (
-                                      <Reusable
-                                          startDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
-                                          endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
-                                          institute={item.QualificationDetail.school}
-                                          position={item.QualificationDetail.fieldOfStudy}
-                                      />
-                                  );
-                              })
-                            : 'No education data available'}
+                        {teacherData.education instanceof Array && teacherData.education.length > 0 ? (
+                            teacherData.education.map((item: any) => {
+                                return (
+                                    <Reusable
+                                        startDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                        endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
+                                        institute={item.QualificationDetail.school}
+                                        position={item.QualificationDetail.fieldOfStudy}
+                                    />
+                                );
+                            })
+                        ) : (
+                            <span style={{ marginTop: '2rem' }}>No education data available</span>
+                        )}
 
                         <div className={classes.detailsText} style={{ marginTop: '6rem' }}>
                             Experience
                         </div>
-                        {teacherData.experience instanceof Array && teacherData.experience.length > 0
-                            ? teacherData.experience.map((item: any) => {
-                                  return (
-                                      <Reusable
-                                          startDate={item.Experience.startDate.split('T')[0].split('-')[0]}
-                                          endDate={item.Experience.startDate.split('T')[0].split('-')[0]}
-                                          institute={item.Experience.workPlace}
-                                          position={item.Experience.position}
-                                      />
-                                  );
-                              })
-                            : 'No experience data available'}
+                        {teacherData.experience instanceof Array && teacherData.experience.length > 0 ? (
+                            teacherData.experience.map((item: any) => {
+                                return (
+                                    <Reusable
+                                        startDate={item.Experience.startDate.split('T')[0].split('-')[0]}
+                                        endDate={item.Experience.startDate.split('T')[0].split('-')[0]}
+                                        institute={item.Experience.workPlace}
+                                        position={item.Experience.position}
+                                    />
+                                );
+                            })
+                        ) : (
+                            <span style={{ marginTop: '4rem' }}>No experience data available</span>
+                        )}
                     </div>
+
+                    <div className={classes.detailsText} style={{ marginTop: '6rem' }}>
+                        Skills
+                    </div>
+                    {teacherData.skills instanceof Array && teacherData.skills.length > 0
+                        ? teacherData.skills.map((skill: any) => {
+                              return <SkillChip skill={skill.skillName} />;
+                          })
+                        : 'No skills data available'}
                 </Grid>
             </Grid>
         </Box>
