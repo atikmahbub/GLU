@@ -74,7 +74,7 @@ const School: FC<ISchool> = ({ userType, homework, upcomingClasses, profile, dat
                     </Grid>
                 </CardsGridContainer>
             </Grid>
-            <ProfileCard {...profile} />
+            <ProfileCard seeLink="/" editLink={`/${userType}/profile/edit`} {...profile} />
             <CardsGridContainer background="secondary">
                 <CalendarDateSubjectsCard
                     background="secondary"

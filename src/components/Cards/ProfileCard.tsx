@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
-import { linkTo } from '../../Helper/linkTo';
 import { ProfileCardElement } from './types';
 
 const useStyles = makeStyles({
@@ -53,9 +52,11 @@ const useStyles = makeStyles({
 
 interface IProfileCard extends ProfileCardElement {
     rootClassName?: string;
+    seeLink: string;
+    editLink: string;
 };
 
-const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootClassName }) => {
+const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootClassName, seeLink = '/', editLink = '/' }) => {
     const classes = useStyles();
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
@@ -75,7 +76,7 @@ const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootC
                 <Typography
                     className={classNames(classes.textSmall, classes.link, classes.seeLink)}
                     component={Link}
-                    to="/students/"
+                    to={seeLink}
                 >
                     See
                 </Typography>
@@ -103,7 +104,7 @@ const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootC
                     <Typography
                         className={classNames(classes.textSmall, classes.link)}
                         component={Link}
-                        to={linkTo.studentProfile}
+                        to={editLink}
                     >
                         Edit profile
                     </Typography>

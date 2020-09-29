@@ -118,3 +118,10 @@ export interface ProfileCardElement {
 export interface CarouselClassCardElement extends DateSubjectCardElement {
     img: string;
 }
+
+export interface EducationCardElement {
+    type: 'current' | 'previous';
+    name: string;
+    level: string;
+    subjects: string;
+}

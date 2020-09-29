@@ -78,7 +78,7 @@ const Personal: FC<IPersonal> = ({
                     />
                 </Grid>
             </CardsGridContainer>
-            <ProfileCard {...profile} />
+            <ProfileCard seeLink="/" editLink={`/${userType}/profile/edit`} {...profile} />
             <CardsGridContainer background="secondary">
                 <CalendarDateSubjectsCard
                     background="secondary"

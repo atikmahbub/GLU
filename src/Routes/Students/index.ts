@@ -1,6 +1,5 @@
 import { lazy } from 'react';
 import { createRouteObj } from '../../Helper/routes';
-import { linkTo } from '../../Helper/linkTo';
 const Wallet = lazy(() => import('../../Views/StudentsModule/Wallet'));
 const Tutors = lazy(() => import('../../Views/StudentsModule/Tutors'));
 const LiveClasses = lazy(() => import('../../Views/StudentsModule/LiveClasses'));
@@ -12,8 +11,6 @@ const PreviousClasses = lazy(() => import('../../Views/PreviousClasses/PreviousC
 const UpcomingClasses = lazy(() => import('../../Views/UpcomingClasses/Index'));
 const StudentClassesTutors = lazy(() => import('../../Views/StudentAllClassesTutors/StudentAllClassesTutors'));
 const StudentWatchPreviousClass = lazy(() => import('../../Views/StudentWatchPreviousClass/Index'));
-const TutorDetail = lazy(() => import('../../Views/TutorDetail/index'));
-const editStudentProfile = lazy(() => import('../../Views/StudentDashboard/EditStudentProfile/Index'));
 const SchoolInfo = lazy(() => import('../../Views/Merits/SchoolInfo'));
 const MyPreviousClasses = lazy(() => import('../../Views/StudentsModule/MyPreviousClasses'));
 const Homework = lazy(() => import('../../Views/StudentsModule/Homework'));
@@ -25,6 +22,7 @@ const WalletTopOn = lazy(() => import('../../Views/StudentsModule/WalletTopOn'))
 const IndividualSubject = lazy(() => import('../../Views/StudentsModule/IndividualSubject'));
 const Messages = lazy(() => import('../../Views/StudentsModule/Messages'));
 const Calendar = lazy(() => import('../../Views/StudentsModule/Calendar'));
+const EditProfile = lazy(() => import('../../Views/StudentsModule/EditProfile'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -39,8 +37,6 @@ const routes = [
     createRouteObj('/students/favourites', Favourites),
     createRouteObj('/students/help', HelpSupport),
     createRouteObj('/students/watch-previous-classes', StudentWatchPreviousClass),
-    createRouteObj(linkTo.tutorDetails, TutorDetail),
-    createRouteObj(linkTo.studentProfile, editStudentProfile),
     createRouteObj('/students/schoolInfo', SchoolInfo),
     createRouteObj('/students/my-previous-classes', MyPreviousClasses),
     createRouteObj('/students/wallet', Wallet),
@@ -51,6 +47,7 @@ const routes = [
     createRouteObj('/students/subject/:id', IndividualSubject),
     createRouteObj('/students/messages', Messages),
     createRouteObj('/students/calendar', Calendar),
+    createRouteObj('/students/profile/edit', EditProfile),
 ];
 
 export default routes;
