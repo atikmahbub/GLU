@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import TextPrimary from '../../../components/Typographies/TextPrimary';
@@ -26,12 +27,14 @@ const useStyles = makeStyles({
     },
 })
 
-interface IEducationCard extends EducationCardElement {}
+interface IEducationCard extends EducationCardElement {
+    rootClassName?: string;
+}
 
-const EducationCard: FC<IEducationCard> = ({ type, name, level, subjects }) => {
+const EducationCard: FC<IEducationCard> = ({ type, name, level, subjects, rootClassName }) => {
     const classes = useStyles();
     return (
-        <Grid container direction="column" className={classes.root}>
+        <Grid container direction="column" className={classNames(classes.root, rootClassName)}>
             <Grid container justify="space-between" className={classes.titleContainer}>
                 <TextPrimary>{type === 'current' ? 'Current Education' : 'Previous Education'}</TextPrimary>
                 <Grid container justify="flex-end" item xs={6}>

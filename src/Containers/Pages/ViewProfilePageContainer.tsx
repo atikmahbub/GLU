@@ -10,8 +10,20 @@ import CardsGridContainer from '../CardsGridContainer';
 import CardsGrid from '../CardsGrid';
 import TitlePrimary from '../../components/Typographies/TitlePrimary';
 import ColumnsContainer from '../ColumnsContainer';
+import { educations } from '../../data/editProfile';
+import EducationCard from './EditProfilePageContainer/EducationCard';
+import PageFooter from '../../components/PageFooter';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+    educationCard: {
+        '&:first-child': {
+            paddingTop: 0
+        },
+        '&:last-child': {
+            paddingBottom: 0
+        }
+    }
+});
 
 interface IViewProfilePageContainer extends UserType {}
 
@@ -57,11 +69,14 @@ const ViewProfilePageContainer: FC<IViewProfilePageContainer> = ({ userType }) =
                     }
                     rightContent={
                         <Grid container direction="column">
-                            12
+                            {educations.map((card, index) => (
+                                <EducationCard key={index} {...card} rootClassName={classes.educationCard} />
+                            ))}
                         </Grid>
                     }
                 />
             </CardsGridContainer>
+            <PageFooter />
         </NavigationMenu>
     );
 };
