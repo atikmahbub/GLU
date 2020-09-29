@@ -41,9 +41,6 @@ const VideoList: React.FunctionComponent<props> = ({ videoList }) => {
     return (
         <div className="student-wrapper">
             <CardContainer>
-                <AddButton title="Videos" btnIcon={<Add />} btnTitle="Add New Video" trigger={handleRoutes} />
-            </CardContainer>
-            <CardContainer>
                 <div className="student-table">
                     <div className="table__container">
                         <CardTable

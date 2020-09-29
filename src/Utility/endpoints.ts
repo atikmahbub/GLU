@@ -71,7 +71,7 @@ export const superAdminEndpoints = {
     getAllParents: 'superadmin/guardians',
     getAllUsersCount: 'superadmin/users/count-list',
     teacherDetails: 'superadmin/teacher/',
-    studentDetails: '/superAdmin/student/1',
+    studentDetails: '/superAdmin/student/',
     schoolDetails: 'superAdmin/schools',
     parentDetails: '/superAdmin/parent',
     approveRejectTeacher: 'superadmin/unverified-freelancer-teachers',
