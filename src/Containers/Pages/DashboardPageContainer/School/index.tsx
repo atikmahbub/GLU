@@ -6,8 +6,8 @@ import LineChart from '../../../../components/Charts/LineChart';
 import ProfileCard from '../../../../components/Cards/ProfileCard';
 import CardsGridContainer from '../../../CardsGridContainer';
 import CalendarDateSubjectsCard from '../../../../components/Cards/CalendarDateSubjectsCard';
-import { calendarSubjectsCards } from '../../../../data/homepage';
 import { DashboardSchool, UserType } from '../../types';
+import { getCurrentTime } from '../../../../Helper/date';
 
 const useStyles = makeStyles({
     container: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 interface ISchool extends DashboardSchool, UserType {}
 
-const School: FC<ISchool> = ({ userType, homework }) => {
+const School: FC<ISchool> = ({ userType, homework, upcomingClasses, profile, dateSubjectCards }) => {
     const classes = useStyles();
     return (
         <Grid container direction="column">
@@ -35,7 +35,7 @@ const School: FC<ISchool> = ({ userType, homework }) => {
                             content={<LineChart />}
                         />
                         <WhiteCard size={3} title="School Timetable" description="Classes" value="5" />
-                        <WhiteCard size={3} title="School Info" description="Secondary" value="Dubai, UAE" />
+                        <WhiteCard size={3} title="School Info" titleLink={`/${userType}/school/info`} description="Secondary" value="Dubai, UAE" />
                     </Grid>
                     <Grid container className={classes.container}>
                         <WhiteCard
@@ -52,9 +52,10 @@ const School: FC<ISchool> = ({ userType, homework }) => {
                             bigTitle
                             title={'Thursday 30th\nJuly\n2020'}
                             titleRightLink="See calendar"
-                            titleRightLinkTo="/students/"
+                            titleRightLinkTo={`/${userType}/calendar`}
                             description="Upcoming classes"
-                            value="4"
+                            isLoading={upcomingClasses.isLoading}
+                            value={upcomingClasses.count}
                             titleClassName={classes.calendarCardTitle}
                         />
                     </Grid>
@@ -73,20 +74,15 @@ const School: FC<ISchool> = ({ userType, homework }) => {
                     </Grid>
                 </CardsGridContainer>
             </Grid>
-            <ProfileCard
-                name="Frank Howard"
-                address="Dubai, UAE"
-                phone="(+971) 4 554 0350"
-                email="frankhwrd@gmail.com"
-            />
+            <ProfileCard seeLink={`/${userType}/profile`} editLink={`/${userType}/profile/edit`} {...profile} />
             <CardsGridContainer background="secondary">
                 <CalendarDateSubjectsCard
                     background="secondary"
                     padding={false}
                     paddingBottom={false}
                     title="Your Morning"
-                    time="9.21am"
-                    cards={calendarSubjectsCards}
+                    time={getCurrentTime()}
+                    cards={dateSubjectCards}
                     cardsContainerPaddingBig
                 />
             </CardsGridContainer>

@@ -1,4 +1,10 @@
-import { FeaturedCardElement, ImageCardElement, NextClassCardElement } from '../../components/Cards/types';
+import {
+    CarouselClassCardElement,
+    DateSubjectCardElement,
+    FeaturedCardElement,
+    ImageCardElement,
+    NextClassCardElement,
+} from '../../components/Cards/types';
 import { parseDate, parseTime } from '../date';
 
 export function dataToNextClassCard({
@@ -57,4 +63,36 @@ export function dataToImageCards(data: any[]): ImageCardElement[] {
             time: `${parseTime(startTime)} - ${parseTime(endTime)}`,
         })
     );
+}
+
+function dataToDateSubjectCard({
+    scheduledOn,
+    startTime,
+    description,
+    duration,
+    endTime,
+    FreelancerSubjectTeacher: { FreelancerSubject, Teacher },
+}: any): DateSubjectCardElement {
+    return {
+        date: parseDate(scheduledOn),
+        startTime: parseTime(startTime),
+        endTime: parseTime(endTime),
+        subject: FreelancerSubject.subjectName,
+        description,
+        subTitle: duration,
+        name: `${Teacher.firstName} ${Teacher.lastName}`,
+    };
+}
+
+export function dataToCarouselCards(data: any[]): CarouselClassCardElement[] {
+    return data.map((item) => ({
+        img:
+            item.coverImage ||
+            'https://res.cloudinary.com/ddwbbzuxw/image/upload/v1597322212/gluschool/tutorDashboard_plnp4i.jpg',
+        ...dataToDateSubjectCard(item),
+    }));
+}
+
+export function dataToDateSubjectCards(data: any[]): DateSubjectCardElement[] {
+    return data.map(dataToDateSubjectCard);
 }

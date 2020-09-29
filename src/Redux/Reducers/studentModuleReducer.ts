@@ -5,6 +5,8 @@ import {
     FEATURED_SUBJECT_SUCCESS,
     HOMEWORK_PENDING,
     HOMEWORK_SUCCESS,
+    INFO_PENDING,
+    INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
     TEACHERS_PENDING,
@@ -14,6 +16,29 @@ import {
 } from '../ActionTypes/studentModuleTypes';
 
 const initialState: StudentModuleState = {
+    info: {
+        data: {},
+        profileCard: {
+            img: '',
+            name: '',
+            address: '',
+            email: '',
+            phone: '',
+        },
+        editProfileForm: {
+            img: '',
+            firstName: '',
+            lastName: '',
+            about: '',
+            location: '',
+            password: '',
+            email: '',
+            phone: '',
+        },
+        isPending: false,
+        isSuccess: false,
+        isFailure: false,
+    },
     homework: {
         homeworks: [],
         overdueHomeworks: [],
@@ -61,12 +86,12 @@ const initialState: StudentModuleState = {
             imgBig: '',
             imgBigTitle: '',
             imgSmall: '',
-            imgSmallTitle: ''
+            imgSmallTitle: '',
         },
         isPending: false,
         isSuccess: false,
         isFailure: false,
-    }
+    },
 };
 
 export default function (state = initialState, action: StudentModuleActionTypes): StudentModuleState {
@@ -109,7 +134,7 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     data: action.data,
-                    count: action.count
+                    count: action.count,
                 },
             };
         case UPCOMING_CLASSES_PENDING:
@@ -137,9 +162,9 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                 ...state,
                 previousClasses: {
                     ...state.previousClasses,
-                    isPending: true
-                }
-            }
+                    isPending: true,
+                },
+            };
         case PREVIOUS_CLASSES_SUCCESS:
             return {
                 ...state,
@@ -148,17 +173,17 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     count: action.count,
-                    data: action.data
-                }
-            }
+                    data: action.data,
+                },
+            };
         case FEATURED_SUBJECT_PENDING:
             return {
                 ...state,
                 featuredSubjects: {
                     ...state.featuredSubjects,
                     isPending: true,
-                }
-            }
+                },
+            };
         case FEATURED_SUBJECT_SUCCESS:
             return {
                 ...state,
@@ -167,9 +192,29 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isPending: false,
                     isSuccess: true,
                     data: action.data,
-                    featuredSubjectsCard: action.featuredSubjectsCard
-                }
-            }
+                    featuredSubjectsCard: action.featuredSubjectsCard,
+                },
+            };
+        case INFO_PENDING:
+            return {
+                ...state,
+                info: {
+                    ...state.info,
+                    isPending: true,
+                },
+            };
+        case INFO_SUCCESS:
+            return {
+                ...state,
+                info: {
+                    ...state.info,
+                    isPending: false,
+                    isSuccess: true,
+                    data: action.data,
+                    profileCard: action.profileCard,
+                    editProfileForm: action.editProfileForm
+                },
+            };
         default:
             return state;
     }
