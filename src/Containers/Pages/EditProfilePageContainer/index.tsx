@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useFormik } from 'formik';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import useMenuList from '../../../Hooks/useMenuList';
@@ -33,9 +34,21 @@ const useStyles = makeStyles({
 interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {}
 
 const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile }) => {
-    console.log(isLoading, profile)
     const classes = useStyles();
     const menuList = useMenuList(userType);
+    const { values, setValues } = useFormik({
+        initialValues: profile,
+        onSubmit: (values) => {
+            console.log(values)
+        }
+    })
+
+    useEffect(() => {
+        setValues(profile)
+    }, [profile])
+
+    console.log(values)
+
     return (
         <NavigationMenu
             absolute
@@ -56,14 +69,14 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                             <TitlePrimary>Profile Info</TitlePrimary>
                         </Grid>
                         <FormGroup marginBottomVariant={2}>
-                            <UploadImage />
+                            <UploadImage value={values.img} />
                         </FormGroup>
                         <FormGroup marginBottomVariant={2}>
                             <FormControlInput
                                 fullWidth
                                 id="edit-profile_bio"
                                 name="bio"
-                                value=""
+                                value={values.about}
                                 onChange={() => {}}
                                 label="Bio"
                                 fontSizeVariant={2}
@@ -79,7 +92,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                         fullWidth
                                         id="edit-profile_firstname"
                                         name="firstname"
-                                        value=""
+                                        value={values.firstName}
                                         onChange={() => {}}
                                         label="First Name"
                                         fontSizeVariant={2}
@@ -88,7 +101,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                         fullWidth
                                         id="edit-profile_lastname"
                                         name="lastname"
-                                        value=""
+                                        value={values.lastName}
                                         onChange={() => {}}
                                         label="Last Name"
                                         fontSizeVariant={2}
@@ -100,7 +113,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     fullWidth
                                     id="edit-profile_email"
                                     name="email"
-                                    value=""
+                                    value={values.email}
                                     onChange={() => {}}
                                     label="Email"
                                     fontSizeVariant={2}
@@ -112,7 +125,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                         fullWidth
                                         id="edit-profile_code"
                                         name="code"
-                                        value=""
+                                        value={values.phone}
                                         onChange={() => {}}
                                         label="Mobile Number"
                                         fontSizeVariant={2}
@@ -134,7 +147,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     fullWidth
                                     id="edit-profile_location"
                                     name="location"
-                                    value=""
+                                    value={values.location}
                                     onChange={() => {}}
                                     label="Location"
                                     fontSizeVariant={2}
@@ -145,7 +158,8 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     fullWidth
                                     id="edit-profile_password"
                                     name="password"
-                                    value=""
+                                    type="password"
+                                    value={values.password}
                                     onChange={() => {}}
                                     label="Password"
                                     fontSizeVariant={2}

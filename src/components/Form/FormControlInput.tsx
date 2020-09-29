@@ -80,11 +80,12 @@ const useStyles = makeStyles({
     },
 });
 
-type FormControlInputProps = {
+interface IFormControlInput {
     id: string;
     name: string;
     placeholder?: string;
     value: string;
+    type?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     variant?: 'underlined' | 'outlined';
     rounded?: boolean;
@@ -96,12 +97,14 @@ type FormControlInputProps = {
     rootClassName?: string;
     inputRootClassName?: string;
     fontSizeVariant?: 1 | 2;
-};
-const FormControlInput: FC<FormControlInputProps> = ({
+}
+
+const FormControlInput: FC<IFormControlInput> = ({
     id,
     name,
     placeholder,
     value,
+    type,
     onChange,
     variant,
     rounded,
@@ -148,6 +151,7 @@ const FormControlInput: FC<FormControlInputProps> = ({
             <InputBase
                 id={id}
                 name={name}
+                type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
@@ -165,6 +169,7 @@ FormControlInput.defaultProps = {
     variant: 'underlined',
     labelPlacement: 'top',
     fontSizeVariant: 1,
+    type: 'text'
 };
 
 export default memo(FormControlInput);
