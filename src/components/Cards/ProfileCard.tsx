@@ -8,7 +8,7 @@ import { ProfileCardElement } from './types';
 
 const useStyles = makeStyles({
     root: {
-        background: '#fff',
+        background: ({ background }: any) => (background === 'primary' ? '#fff' : '#F7F7F7'),
         color: '#000',
         padding: '8.4375rem 3.0625rem',
     },
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         position: 'relative',
     },
     section: {
-      padding: '0 1.5625rem'
+        padding: '0 1.5625rem',
     },
     title: {
         fontSize: '2.625rem',
@@ -46,48 +46,69 @@ const useStyles = makeStyles({
     },
     seeLink: {
         position: 'absolute',
-        right: 0
+        right: 0,
+    },
+    noPaddingLeft: {
+        paddingLeft: 0,
+    },
+    noPaddingRight: {
+        paddingRight: 0,
     },
 });
 
 interface IProfileCard extends ProfileCardElement {
     rootClassName?: string;
-    seeLink: string;
+    seeLink?: string;
     editLink: string;
-};
+    background?: 'primary' | 'secondary';
+}
 
-const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootClassName, seeLink = '/', editLink = '/' }) => {
-    const classes = useStyles();
+const ProfileCard: FC<IProfileCard> = ({
+    img,
+    name,
+    address,
+    phone,
+    email,
+    rootClassName,
+    seeLink,
+    editLink = '/',
+    background,
+}) => {
+    const classes = useStyles({ background });
     return (
         <Grid container className={classNames(classes.root, rootClassName)}>
             <Grid container className={classes.container}>
-                <Grid container item xs={6} className={classes.section}>
+                <Grid container item xs={6} className={classNames(classes.section, classes.noPaddingLeft)}>
                     <Typography variant="h4" className={classes.title}>
                         Profile
                     </Typography>
                 </Grid>
-                <Grid container item xs={6} className={classes.section}>
-                    <img
-                        src={img}
-                        alt="thumbnail"
-                        className={classes.img}
-                    />
+                <Grid container item xs={6} className={classNames(classes.section, classes.noPaddingRight)}>
+                    <img src={img} alt="thumbnail" className={classes.img} />
                 </Grid>
-                <Typography
-                    className={classNames(classes.textSmall, classes.link, classes.seeLink)}
-                    component={Link}
-                    to={seeLink}
-                >
-                    See
-                </Typography>
+                {seeLink && (
+                    <Typography
+                        className={classNames(classes.textSmall, classes.link, classes.seeLink)}
+                        component={Link}
+                        to={seeLink}
+                    >
+                        See
+                    </Typography>
+                )}
             </Grid>
             <Grid container className={classes.container}>
-                <Grid container item xs={6} className={classes.section}>
+                <Grid container item xs={6} className={classNames(classes.section, classes.noPaddingLeft)}>
                     <Typography variant="h2" className={classes.text}>
                         {name}
                     </Typography>
                 </Grid>
-                <Grid container item xs={6} className={classes.section}>
+                <Grid
+                    container
+                    direction="column"
+                    item
+                    xs={6}
+                    className={classNames(classes.section, classes.noPaddingRight)}
+                >
                     <Typography variant="h3" className={classes.text}>
                         {address}
                     </Typography>
@@ -101,17 +122,17 @@ const ProfileCard: FC<IProfileCard> = ({ img, name, address, phone, email, rootC
             </Grid>
             <Grid container justify="flex-end">
                 <Grid container item xs={6} className={classes.section}>
-                    <Typography
-                        className={classNames(classes.textSmall, classes.link)}
-                        component={Link}
-                        to={editLink}
-                    >
+                    <Typography className={classNames(classes.textSmall, classes.link)} component={Link} to={editLink}>
                         Edit profile
                     </Typography>
                 </Grid>
             </Grid>
         </Grid>
     );
+};
+
+ProfileCard.defaultProps = {
+    background: 'primary',
 };
 
 export default ProfileCard;

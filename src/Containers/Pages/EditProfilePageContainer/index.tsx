@@ -38,6 +38,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType }) =
         <NavigationMenu
             absolute
             menuList={menuList}
+            userType={userType}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
             <CardsGridContainer>

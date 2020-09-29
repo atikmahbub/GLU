@@ -17,7 +17,6 @@ import { cards } from '../../data/calendar';
 
 const useStyles = makeStyles({
     leftContainer: {
-        paddingRight: '3.125rem',
     },
     titleContainer: {
         marginBottom: '1.875rem'

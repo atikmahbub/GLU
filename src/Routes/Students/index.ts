@@ -23,6 +23,7 @@ const IndividualSubject = lazy(() => import('../../Views/StudentsModule/Individu
 const Messages = lazy(() => import('../../Views/StudentsModule/Messages'));
 const Calendar = lazy(() => import('../../Views/StudentsModule/Calendar'));
 const EditProfile = lazy(() => import('../../Views/StudentsModule/EditProfile'));
+const ViewProfile = lazy(() => import('../../Views/StudentsModule/ViewProfile'));
 
 const routes = [
     createRouteObj('/students/home', StudentHomePage),
@@ -48,6 +49,7 @@ const routes = [
     createRouteObj('/students/messages', Messages),
     createRouteObj('/students/calendar', Calendar),
     createRouteObj('/students/profile/edit', EditProfile),
+    createRouteObj('/students/profile', ViewProfile),
 ];
 
 export default routes;

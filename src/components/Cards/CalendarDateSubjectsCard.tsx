@@ -4,6 +4,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import TitlePrimary from '../Typographies/TitlePrimary';
 import DateSubjectCard from './DateSubjectCard';
 import { CalendarDateSubjectsCardElement, DateSubjectCardElement } from './types';
+import ColumnsContainer from '../../Containers/ColumnsContainer';
 
 const useStyles = makeStyles({
     root: {
@@ -11,25 +12,15 @@ const useStyles = makeStyles({
         paddingBottom: ({ paddingBottom }: any) => (paddingBottom ? '6.25rem' : 0),
         background: ({ background }: any) => (background === 'primary' ? '#fff' : '#F7F7F7'),
     },
-    content: {
-        borderTop: '1px solid rgba(0, 0, 0, 0.25)',
-        paddingTop: '3.25rem',
-    },
-    leftColumn: {
-        paddingRight: '3.125rem',
-    },
-    cardsContainer: {
-        borderLeft: '1px solid rgba(0, 0, 0, 0.25)',
-        paddingLeft: ({ cardsContainerPaddingBig }: any) => cardsContainerPaddingBig ? '3.125rem' : '1.5625rem',
-        paddingRight: '1.5625rem',
-    },
     card: {
         paddingBottom: '4.6875rem',
-        marginBottom: '2.1875rem',
+        paddingTop: '2.1875rem',
         borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
+        '&:first-child': {
+            paddingTop: 0
+        },
         '&:last-child': {
             borderBottom: 0,
-            marginBottom: 0,
         },
     },
 });
@@ -58,17 +49,19 @@ const CalendarDateSubjectsCard: FC<ICalendarDateSubjectsCard> = ({
     const classes = useStyles({ padding, paddingBottom, background, cardsContainerPaddingBig });
     return (
         <Grid container className={classes.root}>
-            <Grid container className={classes.content}>
-                <Grid container item xs={6} className={classes.leftColumn}>
-                    <Grid container item xs={6}>
-                        <TitlePrimary>{title}</TitlePrimary>
+            <ColumnsContainer
+                leftContent={
+                    <Grid container>
+                        <Grid container item xs={6}>
+                            <TitlePrimary>{title}</TitlePrimary>
+                        </Grid>
+                        <Grid container justify="space-between" item xs={6}>
+                            <TitlePrimary>{date}</TitlePrimary>
+                            {time && <TitlePrimary>{time}</TitlePrimary>}
+                        </Grid>
                     </Grid>
-                    <Grid container justify="space-between" item xs={6}>
-                        <TitlePrimary>{date}</TitlePrimary>
-                        {time && <TitlePrimary>{time}</TitlePrimary>}
-                    </Grid>
-                </Grid>
-                <Grid container item xs={6} className={classes.cardsContainer}>
+                }
+                rightContent={
                     <Grid container direction="column">
                         {cards.map((card, index) => (
                             <Grid container className={classes.card} key={index}>
@@ -76,8 +69,8 @@ const CalendarDateSubjectsCard: FC<ICalendarDateSubjectsCard> = ({
                             </Grid>
                         ))}
                     </Grid>
-                </Grid>
-            </Grid>
+                }
+            />
         </Grid>
     );
 };
