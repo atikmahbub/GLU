@@ -87,23 +87,20 @@ const StudentList: React.FunctionComponent<props> = ({ studentList }) => {
                                     title: 'Location',
                                     field: 'location',
                                 },
-                                // {
-                                //     title: 'Email Verification',
-                                //     field: 'isEmailVerified',
-                                //     render: (rowData: any) =>
-                                //         rowData.isEmailVerified === 'Pending' ? (
-                                //             <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                //                 Pending
-                                //             </Typography>
-                                //         ) : rowData.isEmailVerified === 'Approved' ? (
-                                //             <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
-                                //                 Approved
-                                //             </Typography>
-                                //         ) :
-                                //         <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
-                                //         Approved
-                                //     </Typography>,
-                                // },
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified == true ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Verifiied
+                                            </Typography>
+                                        ) : (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) ,
+                                },
 
                                 {
                                     width: '23%',

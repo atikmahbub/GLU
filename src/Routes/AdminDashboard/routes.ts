@@ -1,7 +1,6 @@
 import Dashboard from '../../Views/AdminDashboard/Dashboard';
 import StudentList from '../../Views/StudentList/Index';
 import AddNewStudent from '../../Views/AddNewStudent/AddNewStudent';
-import AddNewTeacher from '../../Views/AddNewTeacher/Index';
 import AddNewStaff from '../../Views/AddNewStaff/AddNewStaff';
 import AddNewParent from '../../Views/AddNewParent/AddNewParent';
 import ParentList from '../../Views/ParentList/Index';
@@ -63,6 +62,7 @@ import AddNewSchool from '../../Views/AddNewSchool/Index';
 import StudentDetailAdminPage from '../../Views/AdminDashboard/StudentList/StudentDetail/StudentDetail';
 import SchoolDetailAdminPage from '../../Views/AdminDashboard/SchoolList/SchoolDetail/SchoolDetail';
 import ParentDetailAdminPage from '../../Views/AdminDashboard/ParentsList/ParentDetail/ParentDetail';
+import AddNewTeacher from '../../Views/AddNewTeacherSuperAdmin/Index';
 
 
 export const dashboardRoutes = [
@@ -74,6 +74,8 @@ export const dashboardRoutes = [
     { pathname: '/admin/parent', component: AdminParentList },
     { pathname: '/admin/parent/detail', component: ParentDetailAdminPage },
     { pathname: '/admin/school/add-new-school', component: AddNewSchool },
+    { pathname: '/admin/teacher/add-new-teacher', component: AddNewTeacher },
+
     { pathname: '/admin/teacher/detail', component: TeacherDetailAdminPage },
     { pathname: '/admin/student/detail', component: StudentDetailAdminPage },
     { pathname: '/admin/school/detail', component: SchoolDetailAdminPage },

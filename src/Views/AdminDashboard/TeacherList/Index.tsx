@@ -30,6 +30,7 @@ const Index = () => {
                     isActive: checkValue(element.isActive),
                     isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
                     status: checkValue(element.status),
+                    isEmailVerified: checkValue(element.isEmailVerified),
                 };
             });
             setTeacherList(data);

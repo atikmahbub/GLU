@@ -24,6 +24,8 @@ const Index = () => {
                     createdAt: checkValue(element.createdAt),
                     isActive: element.User.isActive == null ? true :element.User.isActive,
                     userId: checkValue(element.User.id),
+                    isEmailVerified: checkValue(element.User.isEmailVerified),
+
                 };
             });
 
