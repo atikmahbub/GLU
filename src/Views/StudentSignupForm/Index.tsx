@@ -31,6 +31,7 @@ import {
     parentChildAddAPIcall,
     verfiyRegisterUserAPIcall,
     updateRegisterAPIcall,
+    teacherEduAPIcall,
 } from '../../Redux/Actions/registerAction';
 import { getFileUploadAPIcall, uploadProfileAmznUrl } from '../../Redux/Actions/FileUploadAction';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
@@ -290,12 +291,20 @@ const Index: React.FunctionComponent = () => {
             } else {
                 dispatch(registerAPIcall(registerData, goToNextPage));
             }
-        } else if ((active === 3 && whoIam === 'student') || (active === 4 && whoIam === 'teacher')) {
+        } else if (active === 3 && whoIam === 'student') {
             educationData.forEach((item, i: number) => {
                 if (i === educationData.length - 1) {
                     dispatch(studentEduAPIcall(item, goToNextPage));
                 } else {
                     dispatch(studentEduAPIcall(item));
+                }
+            });
+        } else if (active === 4 && whoIam === 'teacher') {
+            educationData.forEach((item, i: number) => {
+                if (i === educationData.length - 1) {
+                    dispatch(teacherEduAPIcall(item, goToNextPage));
+                } else {
+                    dispatch(teacherEduAPIcall(item));
                 }
             });
         } else if (active === 6 && whoIam === 'teacher') {
@@ -319,6 +328,7 @@ const Index: React.FunctionComponent = () => {
             dispatch(getFileUploadAPIcall(file?.name));
         } else if (active === 3 && whoIam === 'parent') {
             state.parent.childs.map((item: any, i: number) => {
+                console.log('hello', 'child')
                 const data = {
                     firstName: item.firstName,
                     lastName: item.lastName,
