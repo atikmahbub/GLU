@@ -17,6 +17,9 @@ import { educations } from '../../../data/editProfile';
 import ButtonPrimary from '../../../components/Button/ButtonPrimary';
 import PageFooter from '../../../components/PageFooter';
 import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
+import { EditProfileForm } from '../../../Interfaces/students/forms';
+import { useDispatch } from 'react-redux';
+import { fetchUpdateInfo } from '../../../Redux/Actions/studentModuleActions';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -27,27 +30,26 @@ const useStyles = makeStyles({
     },
     button: {
         paddingTop: '0.6875rem',
-        paddingBottom: '0.6875rem'
-    }
+        paddingBottom: '0.6875rem',
+    },
 });
 
 interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {}
 
 const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile }) => {
+    const dispatch = useDispatch();
     const classes = useStyles();
     const menuList = useMenuList(userType);
-    const { values, setValues } = useFormik({
+    const { values, setValues, handleChange, submitForm } = useFormik({
         initialValues: profile,
-        onSubmit: (values) => {
-            console.log(values)
-        }
-    })
+        onSubmit: ({ firstName, lastName, about, email, location, phone }: EditProfileForm) => {
+            dispatch(fetchUpdateInfo({ lastName }));
+        },
+    });
 
     useEffect(() => {
-        setValues(profile)
-    }, [profile])
-
-    console.log(values)
+        setValues(profile);
+    }, [profile]);
 
     return (
         <NavigationMenu
@@ -75,9 +77,9 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                             <FormControlInput
                                 fullWidth
                                 id="edit-profile_bio"
-                                name="bio"
+                                name="about"
                                 value={values.about}
-                                onChange={() => {}}
+                                onChange={handleChange}
                                 label="Bio"
                                 fontSizeVariant={2}
                             />
@@ -91,18 +93,18 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     <FormControlInput
                                         fullWidth
                                         id="edit-profile_firstname"
-                                        name="firstname"
+                                        name="firstName"
                                         value={values.firstName}
-                                        onChange={() => {}}
+                                        onChange={handleChange}
                                         label="First Name"
                                         fontSizeVariant={2}
                                     />
                                     <FormControlInput
                                         fullWidth
                                         id="edit-profile_lastname"
-                                        name="lastname"
+                                        name="lastName"
                                         value={values.lastName}
-                                        onChange={() => {}}
+                                        onChange={handleChange}
                                         label="Last Name"
                                         fontSizeVariant={2}
                                     />
@@ -114,33 +116,21 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     id="edit-profile_email"
                                     name="email"
                                     value={values.email}
-                                    onChange={() => {}}
+                                    onChange={handleChange}
                                     label="Email"
                                     fontSizeVariant={2}
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <CardsGrid rows={2}>
-                                    <FormControlInput
-                                        fullWidth
-                                        id="edit-profile_code"
-                                        name="code"
-                                        value={values.phone}
-                                        onChange={() => {}}
-                                        label="Mobile Number"
-                                        fontSizeVariant={2}
-                                    />
-                                    <FormControlInput
-                                        fullWidth
-                                        id="edit-profile_phone"
-                                        name="phone"
-                                        value=""
-                                        label="Mobile Number"
-                                        onChange={() => {}}
-                                        fontSizeVariant={2}
-                                        labelClassName={classes.hiddenLabel}
-                                    />
-                                </CardsGrid>
+                                <FormControlInput
+                                    fullWidth
+                                    id="edit-profile_phone"
+                                    name="phone"
+                                    value={values.phone}
+                                    onChange={handleChange}
+                                    label="Mobile Number"
+                                    fontSizeVariant={2}
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <FormControlInput
@@ -160,7 +150,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     name="password"
                                     type="password"
                                     value={values.password}
-                                    onChange={() => {}}
+                                    onChange={handleChange}
                                     label="Password"
                                     fontSizeVariant={2}
                                 />
@@ -173,9 +163,18 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     <EducationCard key={index} {...card} />
                                 ))}
                             </Grid>
-                            <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>Add more</ButtonPrimary>
+                            <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>
+                                Add more
+                            </ButtonPrimary>
                         </FormGroup>
-                        <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>Save changes</ButtonPrimary>
+                        <ButtonPrimary
+                            className={classes.button}
+                            variant="outlined"
+                            outlinedVariant={2}
+                            onClick={submitForm}
+                        >
+                            Save changes
+                        </ButtonPrimary>
                     </Grid>
                 </CardsGrid>
             </CardsGridContainer>

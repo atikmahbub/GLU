@@ -16,6 +16,7 @@ import {
     TEACHERS_SUCCESS,
     UPCOMING_CLASSES_PENDING,
     UPCOMING_CLASSES_SUCCESS,
+    UPDATE_INFO_PENDING,
 } from '../ActionTypes/studentModuleTypes';
 
 const initialState: StudentModuleState = {
@@ -38,6 +39,11 @@ const initialState: StudentModuleState = {
             email: '',
             phone: '',
         },
+        isPending: false,
+        isSuccess: false,
+        isFailure: false,
+    },
+    updateInfo: {
         isPending: false,
         isSuccess: false,
         isFailure: false,
@@ -257,10 +263,18 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     ...state.upcomingClasses,
                     filters: {
                         ...state.upcomingClasses.filters,
-                        value: action.filter
-                    }
-                }
-            }
+                        value: action.filter,
+                    },
+                },
+            };
+        case UPDATE_INFO_PENDING:
+            return {
+                ...state,
+                updateInfo: {
+                    ...state.updateInfo,
+                    isPending: true,
+                },
+            };
         default:
             return state;
     }

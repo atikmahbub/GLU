@@ -54,6 +54,8 @@ interface InfoState extends AsyncState {
     editProfileForm: EditProfileForm;
 }
 
+interface UpdateInfoState extends AsyncState {}
+
 interface SubjectsState extends AsyncState {
     count: number;
     data: any[];
@@ -67,6 +69,7 @@ export interface StudentModuleState {
     featuredSubjects: FeaturedSubjectsState;
     subjects: SubjectsState;
     info: InfoState;
+    updateInfo: UpdateInfoState;
 }
 
 export interface RootState {
