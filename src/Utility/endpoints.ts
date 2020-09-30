@@ -49,6 +49,7 @@ export const endponts = {
     getAllSubject: '/school/class-groups',
     sendEmail: 'auth/send/email',
     userEmailVerififcation: 'auth/register/email/',
+    childReject: 'auth/child/reject'
 };
 
 export const studentsEndpoints = {
