@@ -88,6 +88,7 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                 {
                                     title: 'Email Verification',
                                     field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending'},
                                     render: (rowData: any) =>
                                         rowData.isEmailVerified === true ? (
                                             <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
@@ -103,6 +104,8 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                 {
                                     width: '23%',
                                     title: 'Active/Inactive',
+                                    field: 'isActive',
+                                    lookup: { 'N/A': 'Inactive', true: 'Active' },
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}
