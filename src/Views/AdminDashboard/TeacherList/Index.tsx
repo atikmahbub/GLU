@@ -26,7 +26,7 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     docType: 'Driving Licence',
-                    docStatus: 'Pending',
+                    docStatus: checkValue(element.status),
                     isActive: checkValue(element.isActive),
                     isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
                     status: checkValue(element.status),

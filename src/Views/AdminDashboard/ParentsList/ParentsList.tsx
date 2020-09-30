@@ -31,7 +31,6 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
             state: {
                 studentDetailsParent: data,
             },
-            
         });
     };
 
@@ -104,6 +103,8 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                 {
                                     width: '23%',
                                     title: 'Active/Inactive',
+                                    field: 'isActive',
+                                    lookup: { 'N/A': 'Inactive', true: 'Active' },
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive == true ? true : false}
