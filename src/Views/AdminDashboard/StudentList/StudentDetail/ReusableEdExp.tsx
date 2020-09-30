@@ -37,9 +37,10 @@ interface props {
     endDate: any;
     institute: string;
     position: string;
+    desig: string;
 }
 
-const ReusableEduExp: React.FC<props> = ({ startDate, endDate, institute, position }) => {
+const ReusableEduExp: React.FC<props> = ({ startDate, endDate, institute, position, desig }) => {
     const classes = useStyles();
 
     return (
@@ -51,6 +52,8 @@ const ReusableEduExp: React.FC<props> = ({ startDate, endDate, institute, positi
                     {institute}
                     <br />
                     {position}
+                    <br />
+                    {desig}
                 </div>
             </div>
             <hr className={classes.hr} />

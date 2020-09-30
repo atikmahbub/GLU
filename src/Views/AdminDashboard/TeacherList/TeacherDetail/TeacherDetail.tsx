@@ -294,6 +294,7 @@ const TeacherDetail = () => {
                                         endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
                                         institute={item.QualificationDetail.school}
                                         position={item.QualificationDetail.fieldOfStudy}
+                                        desig={item.QualificationDetail.qualification}
                                     />
                                 );
                             })
@@ -312,6 +313,7 @@ const TeacherDetail = () => {
                                         endDate={item.Experience.startDate.split('T')[0].split('-')[0]}
                                         institute={item.Experience.workPlace}
                                         position={item.Experience.position}
+                                        desig={item.Experience.department}
                                     />
                                 );
                             })

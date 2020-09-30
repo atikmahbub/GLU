@@ -86,9 +86,11 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     title: 'Document Type',
                                     field: 'docType',
                                 },
+
                                 {
                                     title: 'Document Status',
                                     field: 'docStatus',
+                                    lookup: { Approved: 'Approved', Rejected: 'Rejected', Pending: 'Pending' },
                                     render: (rowData: any) =>
                                         rowData.status === 'Pending' ? (
                                             <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
@@ -106,7 +108,9 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 },
 
                                 {
-                                    title: 'Active/Inactvie',
+                                    title: 'Active/Inactive',
+                                    field: 'isActive',
+                                    lookup: { 'N/A': 'Inactive', true: 'Active' },
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive == true ? true : false}
