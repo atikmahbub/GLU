@@ -33,6 +33,8 @@ const useStyles = makeStyles({
         fontSize: '5rem',
         lineHeight: '5rem',
         fontWeight: 400,
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-all'
     },
     textSmall: {
         fontSize: '1.25rem',
