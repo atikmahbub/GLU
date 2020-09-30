@@ -17,9 +17,7 @@ import { educations } from '../../../data/editProfile';
 import ButtonPrimary from '../../../components/Button/ButtonPrimary';
 import PageFooter from '../../../components/PageFooter';
 import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
-import { EditProfileForm } from '../../../Interfaces/students/forms';
-import { useDispatch } from 'react-redux';
-import { fetchUpdateInfo } from '../../../Redux/Actions/studentModuleActions';
+import { EditProfileForm, UpdateProfileForm } from '../../../Interfaces/students/forms';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -34,16 +32,17 @@ const useStyles = makeStyles({
     },
 });
 
-interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {}
+interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {
+    onSubmit: (data: UpdateProfileForm) => void;
+}
 
-const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile }) => {
-    const dispatch = useDispatch();
+const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile, onSubmit }) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
     const { values, setValues, handleChange, submitForm } = useFormik({
         initialValues: profile,
         onSubmit: ({ firstName, lastName, about, email, location, phone }: EditProfileForm) => {
-            dispatch(fetchUpdateInfo({ firstName, lastName, about, email, location, phoneNumber: phone }));
+            onSubmit({ firstName, lastName, about, email, location, phoneNumber: phone });
         },
     });
 
