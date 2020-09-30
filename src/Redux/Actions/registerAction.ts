@@ -21,7 +21,7 @@ export const registerAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
-                goToNextPage();
+                // goToNextPage();
             });
     };
 };
@@ -38,7 +38,7 @@ export const updateRegisterAPIcall = (data: any, goToNextPage: () => void) => {
             })
             .catch((err) => {
                 handleError(dispatch, err);
-                goToNextPage();
+                // goToNextPage();
             });
     };
 };
@@ -57,9 +57,9 @@ export const studentEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -78,9 +78,9 @@ export const teacherEduAPIcall = (data: any, goToNextPage?: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -99,9 +99,9 @@ export const registerPhoneNumberAPIcall = (data: any, goToNextPage?: () => void)
             .catch((err) => {
                 handleError(dispatch, err);
                 console.log(err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -118,9 +118,9 @@ export const verifyOTPAPIcall = (data: any, goToNextPage: () => void) => {
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -140,9 +140,9 @@ export const teacherExperienceAPIcall = (data: any, goToNextPage?: () => void) =
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -161,9 +161,9 @@ export const teacherAddSkillAPIcall = (data: any, goToNextPage?: () => void) => 
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -183,9 +183,9 @@ export const teacherAddBioAPIcall = (data: any, id: number, goToNextPage?: () =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -204,9 +204,9 @@ export const teacherDocUploadAPIcall = (data: any, goToNextPage?: () => void) =>
             .catch((err) => {
                 console.log(err);
                 handleError(dispatch, err);
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
@@ -228,9 +228,9 @@ export const parentChildAddAPIcall = (data: any, goToNextPage?: () => void) => {
                 console.log(err);
                 handleError(dispatch, err);
                 dispatch(storeChildToken(null));
-                if (goToNextPage) {
-                    goToNextPage();
-                }
+                // if (goToNextPage) {
+                //     goToNextPage();
+                // }
             });
     };
 };
