@@ -20,14 +20,18 @@ const useStyles = makeStyles({
     }
 });
 
-const UploadImage: FC = () => {
+interface IUploadImage {
+    value: string;
+}
+
+const UploadImage: FC<IUploadImage> = ({ value }) => {
     const classes = useStyles();
     return (
         <Grid container>
             <Grid container className={classes.imgContainer}>
                 <AspectRatioImgCard
                     ratio="100%"
-                    img="https://res.cloudinary.com/ddwbbzuxw/image/upload/v1596608147/gluschool/vrplayerboy_ddqot7.jpg"
+                    img={value}
                 />
             </Grid>
             <Grid container className={classes.infoContainer}>

@@ -141,6 +141,7 @@ const StudentDetail = () => {
                                     endDate={item.QualificationDetail.startDate.split('T')[0].split('-')[0]}
                                     institute={item.QualificationDetail.school}
                                     position={item.QualificationDetail.fieldOfStudy}
+                                    desig={item.QualificationDetail.qualification}
                                 />
                             );
                         })}

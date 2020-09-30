@@ -4,9 +4,9 @@ import MadeBy from '../Footer/MadeBy';
 import { useLocation, useHistory } from 'react-router';
 import Loader from '../../components/Loader';
 import { useDispatch } from 'react-redux';
-import { userEmailVerificationAPIcall } from '../../Redux/Actions/loginAction';
+import { childRejectEmailAPIcall } from '../../Redux/Actions/registerAction';
 
-const UserEmailVerification = () => {
+const ChildEMailVerification = () => {
     const [loader, setLoader] = useState(true);
     const [show, setShow] = useState(false);
     const route = useLocation();
@@ -24,7 +24,10 @@ const UserEmailVerification = () => {
         const getToken = route.search.split('ref=');
         if (getToken[1]) {
             setShow(true);
-            dispatch(userEmailVerificationAPIcall(getToken[1], redirectToHome));
+            const data = {
+                token: getToken[1],
+            };
+            dispatch(childRejectEmailAPIcall(data, redirectToHome));
         }
     }, []);
     return (
@@ -38,7 +41,7 @@ const UserEmailVerification = () => {
                 show && (
                     <div className="center_content">
                         <Typography variant="h1" className="heading">
-                            Email Verified
+                            Child Rejected Successfully.
                         </Typography>
                         <Typography variant="h1" className="sub-heading">
                             Your email address has been confirmed.
@@ -53,4 +56,4 @@ const UserEmailVerification = () => {
     );
 };
 
-export default UserEmailVerification;
+export default ChildEMailVerification;

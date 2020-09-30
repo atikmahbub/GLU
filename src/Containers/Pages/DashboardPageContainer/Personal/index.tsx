@@ -43,7 +43,7 @@ const Personal: FC<IPersonal> = ({
                         size={6}
                         title={'Upcoming\nClasses'}
                         titleRightLink="See upcoming"
-                        titleRightLinkTo="/students/upcoming-classes"
+                        titleRightLinkTo={`/${userType}/profile/upcoming-classes`}
                         content={<ClassesCarousel data={carouselCards} />}
                         titleClassName={classes.upcomingClassCardTitle}
                     />
@@ -53,7 +53,7 @@ const Personal: FC<IPersonal> = ({
                         description="Purchased"
                         isLoading={previousClasses.isLoading}
                         value={previousClasses.count}
-                        titleLink={`/${userType}/recorded-classes`}
+                        titleLink={`/${userType}/profile/recorded-classes`}
                     />
                     <WhiteCard size={3} title="Whiteboard" description={'Try out what the class\nwill be like'} />
                 </Grid>

@@ -13,8 +13,12 @@ import useMenuList from '../../Hooks/useMenuList';
 import FullHeightContainer from '../FullHeightContainer';
 import { Async, PaginationPage, RecordedClassesPage, UserType } from './types';
 import FullScreenLoader from '../../components/Loaders/FullScreenLoader';
+import ClassPurchaseDrawer from '../Menus/ClassPurchaseDrawer';
+import useToggle from '../../Hooks/useToggle';
 
-interface IRecordedClassesPageContainer extends UserType, RecordedClassesPage, Async, PaginationPage {}
+interface IRecordedClassesPageContainer extends UserType, RecordedClassesPage, Async, PaginationPage {
+    purchased?: boolean;
+}
 
 const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
     data,
@@ -22,8 +26,11 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
     current,
     userType,
     isLoading,
+    purchased,
 }) => {
     const menuList = useMenuList(userType);
+    const [classPurchaseDrawer, toggleClassPurchaseDrawer] = useToggle(false);
+
     return (
         <NavigationMenu
             absolute
@@ -32,6 +39,12 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
             {isLoading && <FullScreenLoader />}
+            <ClassPurchaseDrawer
+                open={classPurchaseDrawer}
+                onClose={toggleClassPurchaseDrawer}
+                userType={userType}
+                purchased={purchased}
+            />
             <FullHeightContainer container direction="column" justify="space-between">
                 <Grid container direction="column">
                     <CardsGridContainer paddingBottom={false}>
@@ -40,10 +53,12 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
                             title="Recorded Classes"
                             initialFilterLabel="Filter"
                             filtersData={classesFiltersData}
+                            value={null}
+                            onFilterChange={() => {}}
                         >
                             <CardsGrid>
                                 {data.map((card, index) => (
-                                    <ImageCard key={index} {...card} />
+                                    <ImageCard onTitleClick={toggleClassPurchaseDrawer} key={index} {...card} />
                                 ))}
                             </CardsGrid>
                         </FilterContainer>
@@ -57,7 +72,7 @@ const RecordedClassesPageContainer: FC<IRecordedClassesPageContainer> = ({
 };
 
 RecordedClassesPageContainer.defaultProps = {
-    data: []
-}
+    data: [],
+};
 
 export default RecordedClassesPageContainer;

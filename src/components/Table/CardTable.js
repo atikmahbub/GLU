@@ -19,7 +19,7 @@ const CardTable = ({
     getWantRows,
     filterRender,
     width,
-    disableExport
+    disableExport,
 }) => {
     return (
         <MaterialTable
@@ -34,7 +34,14 @@ const CardTable = ({
             data={rowData}
             components={{
                 Toolbar: (props) =>
-                    showToolbar ? <SearchBoxFilterExport disableExport={disableExport} width={width} filter={filterRender} availabeProps={props} /> : null,
+                    showToolbar ? (
+                        <SearchBoxFilterExport
+                            disableExport={disableExport}
+                            width={width}
+                            filter={filterRender}
+                            availabeProps={props}
+                        />
+                    ) : null,
             }}
             onRowClick={rowClick}
             onSearchChange={(e) => console.log(e)}
@@ -64,6 +71,9 @@ const CardTable = ({
                 ResetSearch: () => <Clear style={{ fontSize: 15 }} />,
                 Export: () => <CloudDownloadOutlined />,
             }}
+            options={{
+                filtering: true,
+            }}
         />
     );
 };
@@ -81,7 +91,7 @@ CardTable.propTypes = {
     getWantRows: PropTypes.func,
     filterRender: PropTypes.element,
     width: PropTypes.string,
-    disableExport: PropTypes.bool
+    disableExport: PropTypes.bool,
 };
 
 export default memo(CardTable);

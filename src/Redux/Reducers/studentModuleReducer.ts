@@ -9,10 +9,15 @@ import {
     INFO_SUCCESS,
     PREVIOUS_CLASSES_PENDING,
     PREVIOUS_CLASSES_SUCCESS,
+    SET_UPCOMING_CLASSES_FILTER,
+    SUBJECTS_PENDING,
+    SUBJECTS_SUCCESS,
     TEACHERS_PENDING,
     TEACHERS_SUCCESS,
     UPCOMING_CLASSES_PENDING,
     UPCOMING_CLASSES_SUCCESS,
+    UPDATE_INFO_PENDING,
+    UPDATE_INFO_SUCCESS,
 } from '../ActionTypes/studentModuleTypes';
 
 const initialState: StudentModuleState = {
@@ -35,6 +40,11 @@ const initialState: StudentModuleState = {
             email: '',
             phone: '',
         },
+        isPending: false,
+        isSuccess: false,
+        isFailure: false,
+    },
+    updateInfo: {
         isPending: false,
         isSuccess: false,
         isFailure: false,
@@ -69,6 +79,13 @@ const initialState: StudentModuleState = {
             startTime: '',
             endTime: '',
         },
+        filters: {
+            value: null,
+            data: [],
+            isPending: false,
+            isSuccess: false,
+            isFailure: false,
+        },
         isPending: false,
         isSuccess: false,
         isFailure: false,
@@ -88,6 +105,13 @@ const initialState: StudentModuleState = {
             imgSmall: '',
             imgSmallTitle: '',
         },
+        isPending: false,
+        isSuccess: false,
+        isFailure: false,
+    },
+    subjects: {
+        count: 0,
+        data: [],
         isPending: false,
         isSuccess: false,
         isFailure: false,
@@ -212,7 +236,52 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                     isSuccess: true,
                     data: action.data,
                     profileCard: action.profileCard,
-                    editProfileForm: action.editProfileForm
+                    editProfileForm: action.editProfileForm,
+                },
+            };
+        case SUBJECTS_PENDING:
+            return {
+                ...state,
+                subjects: {
+                    ...state.subjects,
+                    isPending: true,
+                },
+            };
+        case SUBJECTS_SUCCESS:
+            return {
+                ...state,
+                subjects: {
+                    ...state.subjects,
+                    isPending: false,
+                    isSuccess: true,
+                    data: action.data,
+                },
+            };
+        case SET_UPCOMING_CLASSES_FILTER:
+            return {
+                ...state,
+                upcomingClasses: {
+                    ...state.upcomingClasses,
+                    filters: {
+                        ...state.upcomingClasses.filters,
+                        value: action.filter,
+                    },
+                },
+            };
+        case UPDATE_INFO_PENDING:
+            return {
+                ...state,
+                updateInfo: {
+                    ...state.updateInfo,
+                    isPending: true,
+                },
+            };
+        case UPDATE_INFO_SUCCESS:
+            return {
+                ...state,
+                updateInfo: {
+                    ...state.updateInfo,
+                    isPending: false,
                 },
             };
         default:

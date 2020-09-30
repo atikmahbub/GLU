@@ -58,9 +58,11 @@ const useStyles = makeStyles({
     }
 });
 
-interface IClassPurchaseDrawer extends IDrawer, UserType {}
+interface IClassPurchaseDrawer extends IDrawer, UserType {
+    purchased?: boolean;
+}
 
-const ClassPurchaseDrawer: FC<IClassPurchaseDrawer> = ({ open, onClose, userType }) => {
+const ClassPurchaseDrawer: FC<IClassPurchaseDrawer> = ({ open, onClose, userType, purchased }) => {
     const classes = useStyles();
     const [confirm, setConfirm] = useState(false);
 
@@ -92,7 +94,19 @@ const ClassPurchaseDrawer: FC<IClassPurchaseDrawer> = ({ open, onClose, userType
                         <TitlePrimary>Maths</TitlePrimary>
                     </Grid>
                 </Grid>
-                {confirm ? (
+                {purchased ? (
+                    <Grid container alignItems="center" className={classes.buttonContainer}>
+                        <ButtonPrimary
+                            variant="outlined"
+                            outlinedVariant={2}
+                            className={classNames(classes.button)}
+                            component={Link}
+                            to={`/${userType}/profile/recorded-classes/1`}
+                        >
+                            Watch
+                        </ButtonPrimary>
+                    </Grid>
+                ) : (confirm ? (
                     <Grid container alignItems="center" className={classes.buttonContainer}>
                         <ButtonPrimary
                             variant="outlined"
@@ -117,7 +131,7 @@ const ClassPurchaseDrawer: FC<IClassPurchaseDrawer> = ({ open, onClose, userType
                         </ButtonPrimary>
                         <Typography className={classes.price}>AED200</Typography>
                     </Grid>
-                )}
+                ))}
                 <Grid container direction="column">
                     <TextPrimary className={classes.description}>
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt

@@ -1,11 +1,12 @@
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { infoSelector } from '../../Redux/Selectors/studentModule';
+import { infoSelector, updateInfoSelector } from '../../Redux/Selectors/studentModule';
 import { fetchInfo } from '../../Redux/Actions/studentModuleActions';
 
 function useProfileInfo() {
     const dispatch = useDispatch();
     const { isSuccess, isPending, data, profileCard, editProfileForm } = useSelector(infoSelector);
+    const { isPending: isUpdatePending } = useSelector(updateInfoSelector);
 
     useEffect(() => {
         if (!isSuccess) {
@@ -19,9 +20,10 @@ function useProfileInfo() {
             data,
             profileCard,
             editProfileForm,
-            about: data.about
+            about: data.about,
+            isUpdatePending,
         }),
-        [isPending, data, profileCard, editProfileForm]
+        [isPending, data, profileCard, editProfileForm, isUpdatePending]
     );
 }
 

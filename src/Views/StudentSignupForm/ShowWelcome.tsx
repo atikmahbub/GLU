@@ -32,11 +32,17 @@ const ShowWelcome = () => {
                 const getState = (routes as any).state;
                 setName(getState?.userName);
                 if (getState?.emailData?.whoIam === 'parent') {
+                    const getToken = getState?.emailData?.token.split('Bearer ')[1];
+                    const data = {
+                        email: getState?.emailData?.email,
+                        token: getToken,
+                    };
+                    dispatch(sendVerififcationEmailAPIcall(data));
                     getState?.emailData?.childToken.map((token: any, i: number) => {
                         if (token) {
                             const data = {
                                 email: getState.emailData.child[i].email,
-                                token: token,
+                                token: token.split('Bearer ')[1],
                                 parent: {
                                     name: getState?.userName,
                                 },

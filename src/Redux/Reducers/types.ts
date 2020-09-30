@@ -1,10 +1,21 @@
-import { FeaturedCardElement, NextClassCardElement, ProfileCardElement } from '../../components/Cards/types';
+import {
+    FeaturedCardElement,
+    ImageCardElement,
+    NextClassCardElement,
+    ProfileCardElement,
+} from '../../components/Cards/types';
 import { EditProfileForm } from '../../Interfaces/students/forms';
+import { IFilterDataElement } from '../../Containers/FilterContainer/types';
 
 interface AsyncState {
     isPending: boolean;
     isSuccess: boolean;
     isFailure: boolean;
+}
+
+interface FilterState extends AsyncState {
+    value: IFilterDataElement | null;
+    data: ImageCardElement[];
 }
 
 interface HomeworkState extends AsyncState {
@@ -24,6 +35,7 @@ interface UpcomingClassesState extends AsyncState {
     count: number;
     data: any[];
     nextClassCard: NextClassCardElement;
+    filters: FilterState;
 }
 
 interface PreviousClassesState extends AsyncState {
@@ -42,13 +54,22 @@ interface InfoState extends AsyncState {
     editProfileForm: EditProfileForm;
 }
 
+interface UpdateInfoState extends AsyncState {}
+
+interface SubjectsState extends AsyncState {
+    count: number;
+    data: any[];
+}
+
 export interface StudentModuleState {
     homework: HomeworkState;
     teachers: TeachersState;
     upcomingClasses: UpcomingClassesState;
     previousClasses: PreviousClassesState;
     featuredSubjects: FeaturedSubjectsState;
+    subjects: SubjectsState;
     info: InfoState;
+    updateInfo: UpdateInfoState;
 }
 
 export interface RootState {

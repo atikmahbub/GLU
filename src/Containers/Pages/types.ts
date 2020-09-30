@@ -11,6 +11,7 @@ import {
 } from '../../components/Cards/types';
 import { UserTypes } from '../../Types/user';
 import { EditProfileForm } from '../../Interfaces/students/forms';
+import { SelectedFilterValue } from '../FilterContainer/types';
 
 export interface UserType {
     userType: UserTypes;
@@ -23,6 +24,11 @@ export interface Async {
 export interface PaginationPage {
     total: number;
     current: number;
+}
+
+export interface FilterPage {
+    onFilter: (filter: SelectedFilterValue) => void;
+    selectedFilter: SelectedFilterValue;
 }
 
 export interface HomePageCardsData {
