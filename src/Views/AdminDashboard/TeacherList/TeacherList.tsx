@@ -99,6 +99,8 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 {
                                     title: 'Email Verification',
                                     field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending'},
+
                                     render: (rowData: any) =>
                                         rowData.isEmailVerified === true ? (
                                             <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
@@ -146,7 +148,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 },
                                 {
                                     title: 'Action',
-                                    field: 'docStatus',
+                                    field: '',
                                     render: (rowData: any) => (
                                         <OutlineButton
                                             btnClick={() => handleDetails(rowData)}

@@ -108,6 +108,7 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                 {
                                     title: 'Email Verification',
                                     field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending'},
                                     render: (rowData: any) =>
                                         rowData.isEmailVerified === true ? (
                                             <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
