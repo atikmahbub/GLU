@@ -43,7 +43,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
     const { values, setValues, handleChange, submitForm } = useFormik({
         initialValues: profile,
         onSubmit: ({ firstName, lastName, about, email, location, phone }: EditProfileForm) => {
-            dispatch(fetchUpdateInfo({ lastName }));
+            dispatch(fetchUpdateInfo({ firstName, lastName, about, email, location, phoneNumber: phone }));
         },
     });
 

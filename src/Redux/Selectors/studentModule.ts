@@ -13,3 +13,5 @@ export const featuredSubjectsSelector = (state: RootState) => state.studentModul
 export const infoSelector = (state: RootState) => state.studentModule.info;
 
 export const subjectsSelector = (state: RootState) => state.studentModule.subjects;
+
+export const updateInfoSelector = (state: RootState) => state.studentModule.updateInfo;

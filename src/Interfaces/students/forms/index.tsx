@@ -14,7 +14,7 @@ export interface UpdateProfileForm {
     firstName?: string;
     lastName?: string;
     email?: string;
-    phone?: string;
+    phoneNumber?: string;
     location?: string;
     password?: string;
 }

@@ -17,6 +17,7 @@ import {
     UPCOMING_CLASSES_PENDING,
     UPCOMING_CLASSES_SUCCESS,
     UPDATE_INFO_PENDING,
+    UPDATE_INFO_SUCCESS,
 } from '../ActionTypes/studentModuleTypes';
 
 const initialState: StudentModuleState = {
@@ -273,6 +274,14 @@ export default function (state = initialState, action: StudentModuleActionTypes)
                 updateInfo: {
                     ...state.updateInfo,
                     isPending: true,
+                },
+            };
+        case UPDATE_INFO_SUCCESS:
+            return {
+                ...state,
+                updateInfo: {
+                    ...state.updateInfo,
+                    isPending: false,
                 },
             };
         default:

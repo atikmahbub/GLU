@@ -129,7 +129,6 @@ interface SetUpdateInfoPending {
 
 interface UpdateInfoSuccess {
     type: typeof UPDATE_INFO_SUCCESS;
-    data: UpdateProfileForm;
 }
 
 export type StudentModuleActionTypes =
@@ -273,12 +272,12 @@ function setUpcomingClassesFilterPending(): SetUpcomingClassesFilterPending {
     };
 }
 
-function upcomingClassesFilterSuccess(data: any[]): UpcomingClassesFilterSuccess {
-    return {
-        type: UPCOMING_CLASSES_FILTER_SUCCESS,
-        data,
-    };
-}
+// function upcomingClassesFilterSuccess(data: any[]): UpcomingClassesFilterSuccess {
+//     return {
+//         type: UPCOMING_CLASSES_FILTER_SUCCESS,
+//         data,
+//     };
+// }
 
 export function fetchUpcomingClassesFilter(filter: SelectedFilterValue): AppThunk {
     return (dispatch) => {
@@ -379,19 +378,21 @@ function setUpdateInfoPending(): SetUpdateInfoPending {
     }
 }
 
-function updateInfoSuccess(data: UpdateProfileForm): UpdateInfoSuccess {
+function updateInfoSuccess(): UpdateInfoSuccess {
     return {
-        type: UPDATE_INFO_SUCCESS,
-        data
+        type: UPDATE_INFO_SUCCESS
     }
 }
 
 export function fetchUpdateInfo(data: UpdateProfileForm): AppThunk {
     return dispatch => {
-        dispatch(setUpcomingPending())
-        API.put(endponts.updateProfile, {
-            data
-        }).then(res => console.log(res))
+        dispatch(setUpdateInfoPending())
+        API.put(endponts.updateProfile, data).then(({ data: { success } }) => {
+            if (success) {
+                dispatch(updateInfoSuccess())
+                dispatch(fetchInfo())
+            }
+        })
     }
 }
 
