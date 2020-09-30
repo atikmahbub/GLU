@@ -287,3 +287,18 @@ export const resetChildToken = () => {
         payload: null,
     };
 };
+
+export const childRejectEmailAPIcall = (data: any, redirect: () => void) => {
+    return (dispatch: Dispatch<any>) => {
+        API.post(endponts.childReject, data)
+            .then((res: any) => {
+                console.log(res);
+                if (redirect) {
+                    redirect();
+                }
+            })
+            .catch((err: any) => {
+                console.log(err);
+            });
+    };
+};

@@ -42,7 +42,7 @@ const ShowWelcome = () => {
                         if (token) {
                             const data = {
                                 email: getState.emailData.child[i].email,
-                                token: token,
+                                token: token.split('Bearer ')[1],
                                 parent: {
                                     name: getState?.userName,
                                 },
