@@ -26,6 +26,14 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     }, [teacherList]);
     const routes = useHistory();
     const dispatch = useDispatch();
+    const handleRoutes = () => {
+        routes.push({
+            pathname: routeEndpoints.school.addNewTeacher,
+            state: {
+                breadcrumb: routeEndpoints.school.addNewTeacher,
+            },
+        });
+    };
 
     const handleDetails = (data: any) => {
         routes.push({
@@ -49,7 +57,8 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
         <div className="student-wrapper">
             <CardContainer>
                 {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
-                <AddButton title="Teachers" />
+                <AddButton title="Teachers"/>
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -87,6 +96,20 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                     field: 'docType',
                                 },
 
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified === true ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Verifiied
+                                            </Typography>
+                                        ) : (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) ,
+                                },
                                 {
                                     title: 'Document Status',
                                     field: 'docStatus',

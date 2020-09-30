@@ -27,7 +27,9 @@ const Index = () => {
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
                     isActive: checkValue(element.isActive),
-                    // children: checkValue(element.GuardianStudents),
+                    children: checkValue(element.children),
+                    isEmailVerified: checkValue(element.isEmailVerified),
+
                 };
             });
             setParentsList(data);

@@ -41,6 +41,7 @@ const StudentDetail = () => {
                 city: studentDetails.location,
                 education: studentDetails.StudentQualifications,
                 image: studentDetails.User.profile,
+                parentStatus: studentDetails.parentStatus,
             };
             setStudentData(data);
         }

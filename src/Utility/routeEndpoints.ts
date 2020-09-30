@@ -30,5 +30,6 @@ export const routeEndpoints = {
 
     school:{
         addNewSchool:'/admin/school/add-new-school',
+        addNewTeacher:'/admin/teacher/add-new-teacher',
     }
 }
