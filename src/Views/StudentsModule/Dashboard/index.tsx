@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
 import DashboardPageContainer from '../../../Containers/Pages/DashboardPageContainer';
 import useHomework from '../../../Hooks/students/useHomework';
-import usePreviousClasses from '../../../Hooks/students/usePreviousClasses';
 import useUpcomingClasses from '../../../Hooks/students/useUpcomingClasses';
 import useProfileInfo from '../../../Hooks/students/useProfileInfo';
 
 const StudentsDashboard: FC = () => {
     const { isPending: homeworkLoading, count: homeworkCount } = useHomework();
-    const { isPending: previousClassesLoading, count: previousClassesCount } = usePreviousClasses();
     const {
         isPending: upcomingClassesLoading,
         count: upcomingClassesCount,
@@ -27,7 +25,7 @@ const StudentsDashboard: FC = () => {
                 dateSubjectCards,
             }}
             personal={{
-                previousClasses: { isLoading: previousClassesLoading, count: previousClassesCount },
+                previousClasses: { isLoading: false, count: 4 },
                 upcomingClasses: { isLoading: upcomingClassesLoading, count: upcomingClassesCount },
                 profile: profileCard,
                 dateSubjectCards,

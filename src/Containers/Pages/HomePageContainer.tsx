@@ -51,6 +51,7 @@ const HomePageContainer: FC<IHomePageContainer> = ({ userType, isLoading, cardsD
                 link={`/${userType}/recorded-classes`}
                 data={cardsData.recordedClasses}
                 rootClassName={classes.recommendedRoot}
+                cardTitleClick={toggleClassPurchaseDrawer}
             />
             <BannerCarousel cards={cardsData.bannerCarouselCenter} />
             <UpcomingClassCard {...cardsData.upcomingClass} />

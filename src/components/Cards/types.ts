@@ -25,8 +25,8 @@ export interface WhiteBannerCardElement {
 
 export interface DateTimeCardElement {
     date: string;
-    startTime: string;
-    endTime: string;
+    startTime?: string;
+    endTime?: string;
 }
 
 export interface DateSubjectCardElement extends DateTimeCardElement {

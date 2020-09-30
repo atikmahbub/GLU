@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -7,7 +7,7 @@ import TitlePrimary from '../../components/Typographies/TitlePrimary';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import FilterDrawer from './FilterDrawer';
 import useToggle from '../../Hooks/useToggle';
-import { IFilterDataElement, IFilterElement } from './types';
+import { IFilterDataElement, IFilterElement, SelectedFilterValue } from './types';
 
 const useStyles = makeStyles({
     root: {
@@ -29,11 +29,11 @@ const useStyles = makeStyles({
     },
 });
 
-function getFilterText(filter: string): string {
-    return filter ? ' - ' + filter : '+';
+function getFilterText(filter: SelectedFilterValue): string {
+    return filter ? ' - ' + filter.label : '+';
 }
 
-type CardsGridContainerProps = {
+interface IFilterContainer {
     title: string;
     rootClassName?: string;
     padding?: boolean;
@@ -41,9 +41,11 @@ type CardsGridContainerProps = {
     filtersData: IFilterDataElement[];
     initialFilterLabel?: string;
     sort?: boolean;
-};
+    onFilterChange: (filter: SelectedFilterValue) => void;
+    value: SelectedFilterValue;
+}
 
-const FilterContainer: FC<CardsGridContainerProps> = ({
+const FilterContainer: FC<IFilterContainer> = ({
     title,
     rootClassName,
     padding,
@@ -52,13 +54,15 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
     sort,
     initialFilterLabel,
     children,
+    onFilterChange,
+    value,
 }) => {
     const classes = useStyles({ padding, children: !!children });
     const [filterDrawer, toggleFilterDrawer] = useToggle(false);
-    const [activeFilter, setActiveFilter] = useState('');
+    console.log(value)
 
-    const handleChange = useCallback(({ label }: IFilterDataElement) => {
-        setActiveFilter(label);
+    const handleChange = useCallback((filter: IFilterDataElement) => {
+        onFilterChange(filter)
     }, []);
 
     return (
@@ -85,7 +89,7 @@ const FilterContainer: FC<CardsGridContainerProps> = ({
                 >
                     <ButtonPrimary className={classes.filterBtn} onClick={toggleFilterDrawer}>
                         Filter
-                        {getFilterText(activeFilter)}
+                        {getFilterText(value)}
                     </ButtonPrimary>
                     {sort && (
                         <ButtonPrimary className={classes.sortBtn}>
@@ -104,6 +108,7 @@ FilterContainer.defaultProps = {
     filters: [],
     filtersData: [],
     sort: true,
+    onFilterChange: () => {}
 };
 
 export default FilterContainer;

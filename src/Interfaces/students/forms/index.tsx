@@ -8,3 +8,13 @@ export interface EditProfileForm {
     location: string;
     password: string;
 }
+
+export interface UpdateProfileForm {
+    about?: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phoneNumber?: string;
+    location?: string;
+    password?: string;
+}

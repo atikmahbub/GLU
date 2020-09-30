@@ -5,9 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import TextBlue from '../../components/Typographies/TextBlue';
-import { academic, academicMore, curricular } from './data';
+import { curricular } from './data';
 import ImageCard from '../../components/Cards/ImageCard';
 import { UserTypes } from '../../Types/user';
+import useSubjects from '../../Hooks/students/useSubjects';
+import FullSizeLoader from '../../components/Loaders/FullSizeLoader';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -44,9 +46,11 @@ interface ITopDrawerMenuContent {
 
 const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose, userType }) => {
     const classes = useStyles();
+    const { isPending: isSubjectsPending, data } = useSubjects();
 
     return (
         <Grid container>
+            {(isSubjectsPending) && <FullSizeLoader />}
             <Grid container>
                 <Grid container item xs={6} className={classes.titleContainer}>
                     <Typography className={classes.title}>Academic</Typography>
@@ -61,28 +65,28 @@ const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose, userType }) 
             <Grid container>
                 <Grid container item xs={6}>
                     <Grid container direction="column" item xs={6}>
-                        {academic.map((item, index) => (
+                        {data.slice(0, 13).map(({ id, subjectName }: any) => (
                             <Typography
-                                key={index}
+                                key={id}
                                 className={classes.link}
                                 onClick={onClose}
                                 component={Link}
-                                to={`/${userType}/subject/${index}`}
+                                to={`/${userType}/subject/${id}`}
                             >
-                                {item}
+                                {subjectName}
                             </Typography>
                         ))}
                     </Grid>
                     <Grid container direction="column" item xs={6}>
-                        {academicMore.map((item, index) => (
+                        {data.slice(13).map(({ id, subjectName }) => (
                             <Typography
-                                key={index}
+                                key={id}
                                 className={classes.link}
                                 onClick={onClose}
                                 component={Link}
-                                to={`/${userType}/subject/${index}`}
+                                to={`/${userType}/subject/${id}`}
                             >
-                                {item}
+                                {subjectName}
                             </Typography>
                         ))}
                     </Grid>
@@ -96,7 +100,6 @@ const TopDrawerMenuContent: FC<ITopDrawerMenuContent> = ({ onClose, userType }) 
                                 onClick={onClose}
                                 component={Link}
                                 to={`/${userType}/subject/${index}`}
-
                             >
                                 {item}
                             </Typography>

@@ -1,5 +1,7 @@
 export type FilterValue = string | null;
 
+export type SelectedFilterValue = IFilterDataElement | null;
+
 export interface IFilterElement {
     label: string;
     value: FilterValue;

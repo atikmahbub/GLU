@@ -34,6 +34,8 @@ const TutorsPageContainer: FC<ITutorsPageContainer> = ({ userType, data, isLoadi
                             title="Tutors"
                             initialFilterLabel="Filter"
                             filtersData={classesFiltersData}
+                            value={null}
+                            onFilterChange={() => {}}
                         >
                             <CardsGrid>
                                 {data.map((card, index) => (
