@@ -153,7 +153,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({
                                     id="edit-profile_location"
                                     name="location"
                                     value={values.location}
-                                    onChange={() => {}}
+                                    onChange={handleChange}
                                     label="Location"
                                     fontSizeVariant={2}
                                 />
