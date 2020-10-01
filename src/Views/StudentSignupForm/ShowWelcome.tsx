@@ -26,11 +26,13 @@ const ShowWelcome = () => {
     const routes = useLocation();
     const [name, setName] = useState('');
     const dispatch = useDispatch();
+    const [identity, setIdentity] = useState('');
     useEffect(() => {
         if (routes.hasOwnProperty('state')) {
             if ((routes as any)?.state?.hasOwnProperty('userName')) {
                 const getState = (routes as any).state;
                 setName(getState?.userName);
+                setIdentity(getState?.emailData?.whoIam);
                 if (getState?.emailData?.whoIam === 'parent') {
                     const getToken = getState?.emailData?.token.split('Bearer ')[1];
                     const data = {
@@ -71,12 +73,18 @@ const ShowWelcome = () => {
             <div className="signup__setup welcome__page">
                 <WelcomeText title={`Thank You ${name}!`} />
             </div>
-            <Typography className={classes.title}>
-                Account verified. Get started and
-                <Link to="/login" className={classes.link}>
-                    Sign In
-                </Link>
-            </Typography>
+            {identity === 'teacher' ? (
+                <Typography className={classes.title}>
+                    we will let you know as soon as we have verified your documents
+                </Typography>
+            ) : (
+                <Typography className={classes.title}>
+                    Please verify your email address to
+                    <Link to="/login" className={classes.link}>
+                        Sign In
+                    </Link>
+                </Typography>
+            )}
         </NavigationMenu>
     );
 };
