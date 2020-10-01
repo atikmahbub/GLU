@@ -81,7 +81,7 @@ export interface RootState {
     parentReducer: any;
     classReducer: any;
     subjectReducer: any;
-    filterUploadReducer: any;
+    fileUploadReducer: any;
     superAdminReducer: any;
     studentModule: StudentModuleState;
 }

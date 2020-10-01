@@ -2,8 +2,9 @@ import Axios from 'axios';
 import { Dispatch } from 'react';
 import { API } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
-import { GET_FILE_URL } from '../ActionTypes/FileUploadTypes';
+import { GET_FILE_URL, UPLOAD_FILE_PENDING, UPLOAD_FILE_SUCCESS } from '../ActionTypes/FileUploadTypes';
 import { spinner } from './uiAction';
+import { AppThunk } from './types';
 
 export const getFileUploadAPIcall = (file: string, token?: string) => {
     return (dispatch: Dispatch<any>) => {
@@ -80,3 +81,26 @@ export const uploadProfileFileName = (file: string, token: string) => {
             });
     };
 };
+
+const setUploadFilePending = () => ({
+    type: UPLOAD_FILE_PENDING
+})
+
+const setUploadFileSuccess = () => ({
+    type: UPLOAD_FILE_SUCCESS
+})
+
+export const fetchUploadFile = (fileName: string, onComplete?: () => void): AppThunk => {
+    return dispatch => {
+        dispatch(setUploadFilePending())
+        API.put(endponts.uploadFileName, { fileName })
+            .then(({ data: { success } }) => {
+                if (success) {
+                    dispatch(setUploadFileSuccess())
+                    if (onComplete) {
+                        onComplete()
+                    }
+                }
+            })
+    }
+}
