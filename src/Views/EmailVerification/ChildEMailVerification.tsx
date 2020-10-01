@@ -3,33 +3,50 @@ import { Typography } from '@material-ui/core';
 import MadeBy from '../Footer/MadeBy';
 import { useLocation, useHistory } from 'react-router';
 import Loader from '../../components/Loader';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { childRejectEmailAPIcall } from '../../Redux/Actions/registerAction';
 
 const ChildEMailVerification = () => {
     const [loader, setLoader] = useState(true);
     const [show, setShow] = useState(false);
+    const [status, setStatus] = useState('');
+    const childStatus = useSelector((state: any) => state.authReducer.childReject);
     const route = useLocation();
     const dispatch = useDispatch();
     const rotuePath = useHistory();
-    const redirectToHome = () => {
+    const redirectToHome = (childStatus: any) => {
         setTimeout(() => {
             setLoader(false);
         }, 1000);
         setTimeout(() => {
-            rotuePath.push('/');
+            if (childStatus.isStudentAlreadyRegistered) {
+                rotuePath.push('/login');
+            } else {
+                rotuePath.push(`/signup?ref=${childStatus.token}`);
+            }
         }, 10000);
     };
     useEffect(() => {
-        const getToken = route.search.split('ref=');
-        if (getToken[1]) {
+        const url = route.search;
+        const query = new URLSearchParams(url);
+        const token = query.get('ref');
+        const status = query.get('status');
+        console.log(query, token, status);
+        if (token) {
             setShow(true);
             const data = {
-                token: getToken[1],
+                token,
+                status,
             };
-            dispatch(childRejectEmailAPIcall(data, redirectToHome));
+            dispatch(childRejectEmailAPIcall(data));
         }
     }, []);
+    useEffect(() => {
+        if (childStatus) {
+            setStatus(childStatus.status);
+            redirectToHome(childStatus);
+        }
+    }, [childStatus]);
     return (
         <div className="email_verification_container">
             <div className="logo-container">
@@ -41,10 +58,10 @@ const ChildEMailVerification = () => {
                 show && (
                     <div className="center_content">
                         <Typography variant="h1" className="heading">
-                            Child Rejected Successfully.
+                            Child {status} Successfully.
                         </Typography>
                         <Typography variant="h1" className="sub-heading">
-                            Your email address has been confirmed.
+                            Your status has been confirmed.
                         </Typography>
                     </div>
                 )
