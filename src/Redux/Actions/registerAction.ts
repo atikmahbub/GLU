@@ -4,7 +4,7 @@ import { API, setAuthrizationToken } from '../../Utility/API';
 import { endponts } from '../../Utility/endpoints';
 import { handleError } from './errorHandler';
 import { userLogin } from './loginAction';
-import { CHILD_TOKEN, CHILD_TOKEN_RESET, VERIFIY_USER } from '../ActionTypes/authTypes';
+import { CHILD_TOKEN, CHILD_TOKEN_RESET, VERIFIY_USER, CHILD_REJECT } from '../ActionTypes/authTypes';
 import { spinner } from './uiAction';
 
 export const registerAPIcall = (data: any, goToNextPage: () => void) => {
@@ -288,17 +288,22 @@ export const resetChildToken = () => {
     };
 };
 
-export const childRejectEmailAPIcall = (data: any, redirect: () => void) => {
+export const childRejectEmailAPIcall = (data: any) => {
     return (dispatch: Dispatch<any>) => {
         API.post(endponts.childReject, data)
             .then((res: any) => {
                 console.log(res);
-                if (redirect) {
-                    redirect();
-                }
+                dispatch(childRejectRes(res.data.data));
             })
             .catch((err: any) => {
                 console.log(err);
             });
+    };
+};
+
+const childRejectRes = (data: any) => {
+    return {
+        type: CHILD_REJECT,
+        payload: data,
     };
 };
