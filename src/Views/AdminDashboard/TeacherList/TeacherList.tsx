@@ -57,7 +57,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
         <div className="student-wrapper">
             <CardContainer>
                 {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
-                <AddButton title="Teachers"/>
+                <AddButton title="Teachers" />
 
             </CardContainer>
             <CardContainer>
@@ -93,13 +93,32 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 },
                                 {
                                     title: 'Document Type',
-                                    field: 'docType',
+                                    field: 'documentType',
+                                    lookup: { Dl: 'Driving Licence', passport: 'Passport', nationalId: 'National ID' },
+                                    render: (rowData: any) =>
+                                        rowData.documentType === 'Dl' ? (
+                                            <Typography style={{ fontSize: '1.25rem' }}>
+                                                Driving Licence
+                                            </Typography>
+                                        ) :
+                                            rowData.documentType === 'passport'
+                                                ?
+                                                (
+                                                    <Typography style={{ fontSize: '1.25rem' }}>
+                                                        Passport
+                                            </Typography>
+                                                )
+                                                :
+                                                <Typography style={{ fontSize: '1.25rem' }}>
+                                                    National ID
+                                        </Typography>
+                                    ,
                                 },
 
                                 {
                                     title: 'Email Verification',
                                     field: 'isEmailVerified',
-                                    lookup: { true: 'Verified', "N/A": 'Pending'},
+                                    lookup: { true: 'Verified', "N/A": 'Pending' },
 
                                     render: (rowData: any) =>
                                         rowData.isEmailVerified === true ? (
@@ -107,10 +126,10 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                                 Verifiied
                                             </Typography>
                                         ) : (
-                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
-                                                Pending
+                                                <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                    Pending
                                             </Typography>
-                                        ) ,
+                                            ),
                                 },
                                 {
                                     title: 'Document Status',

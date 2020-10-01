@@ -25,7 +25,7 @@ const Index = () => {
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
-                    docType: 'Driving Licence',
+                    documentType: checkValue(element.documentType),
                     docStatus: checkValue(element.status),
                     isActive: checkValue(element.isActive),
                     isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
