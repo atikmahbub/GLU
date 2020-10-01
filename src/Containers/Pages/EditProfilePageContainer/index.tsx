@@ -18,6 +18,7 @@ import ButtonPrimary from '../../../components/Button/ButtonPrimary';
 import PageFooter from '../../../components/PageFooter';
 import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
 import { EditProfileForm, UpdateProfileForm } from '../../../Interfaces/students/forms';
+import useFileUpload, { OnUploadComplete } from '../../../Hooks/useFileUpload';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -34,11 +35,21 @@ const useStyles = makeStyles({
 
 interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {
     onSubmit: (data: UpdateProfileForm) => void;
+    onUploadComplete: OnUploadComplete;
 }
 
-const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile, onSubmit }) => {
+const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({
+    userType,
+    isLoading,
+    profile,
+    onSubmit,
+    onUploadComplete,
+}) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
+    const { file, setFile, handleUploadClick, isLoading: isFileUploadLoading } = useFileUpload(
+        onUploadComplete
+    );
     const { values, setValues, handleChange, submitForm } = useFormik({
         initialValues: profile,
         onSubmit: ({ firstName, lastName, about, email, location, phone }: EditProfileForm) => {
@@ -57,7 +68,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
             userType={userType}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            {isLoading && <FullScreenLoader />}
+            {(isLoading || isFileUploadLoading) && <FullScreenLoader />}
             <CardsGridContainer>
                 <CardsGrid rows={2}>
                     <Grid container direction="column">
@@ -70,7 +81,12 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                             <TitlePrimary>Profile Info</TitlePrimary>
                         </Grid>
                         <FormGroup marginBottomVariant={2}>
-                            <UploadImage value={values.img} />
+                            <UploadImage
+                                value={values.img}
+                                onSelect={setFile}
+                                selectedFile={file}
+                                onUploadClick={handleUploadClick}
+                            />
                         </FormGroup>
                         <FormGroup marginBottomVariant={2}>
                             <FormControlInput
@@ -137,7 +153,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     id="edit-profile_location"
                                     name="location"
                                     value={values.location}
-                                    onChange={() => {}}
+                                    onChange={handleChange}
                                     label="Location"
                                     fontSizeVariant={2}
                                 />

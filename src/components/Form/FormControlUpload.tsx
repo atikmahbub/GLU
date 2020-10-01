@@ -1,8 +1,10 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import ButtonPrimary from '../Button/ButtonPrimary';
+import { mbToBytes } from '../../Helper/files';
 
 const useStyles = makeStyles({
     button: {
@@ -11,20 +13,67 @@ const useStyles = makeStyles({
     text: {
         fontFamily: 'CircularXXMonoWeb-Regular',
     },
+    choseOther: {
+        paddingTop: '1rem',
+    },
 });
 
 interface IFormControlUpload {
     max: number;
+    onChange: (file: File) => void;
+    value: File | null;
+    onUploadClick: () => void;
 }
 
-const FormControlUpload: FC<IFormControlUpload> = ({ max }) => {
+const FormControlUpload: FC<IFormControlUpload> = ({ max, onChange, value, onUploadClick }) => {
     const classes = useStyles();
-    return (
-        <Grid container alignItems="center">
+
+    const handleDrop = useCallback(
+        (files) => {
+            onChange(files[0]);
+        },
+        [onChange]
+    );
+
+    const { getInputProps, getRootProps } = useDropzone({
+        onDrop: handleDrop,
+        maxSize: mbToBytes(max),
+        multiple: false,
+    });
+
+    const choseButton = (
+        <div {...getRootProps()}>
+            <input {...getInputProps()} />
             <ButtonPrimary variant="outlined" outlinedVariant={2} className={classes.button}>
-                Upload
+                Chose
             </ButtonPrimary>
-            <Typography className={classes.text}>Max size {max}MB</Typography>
+        </div>
+    );
+
+    return (
+        <Grid container direction="column">
+            <Grid container alignItems="center">
+                {value ? (
+                    <div>
+                        <ButtonPrimary
+                            variant="outlined"
+                            outlinedVariant={2}
+                            className={classes.button}
+                            onClick={onUploadClick}
+                        >
+                            Upload
+                        </ButtonPrimary>
+                    </div>
+                ) : (
+                    choseButton
+                )}
+                <Typography className={classes.text}>{value ? value.name : `Max size ${max}MB`}</Typography>
+            </Grid>
+            {value && (
+                <Grid container className={classes.choseOther}>
+                    {choseButton}
+                </Grid>
+            )}
         </Grid>
     );
 };
