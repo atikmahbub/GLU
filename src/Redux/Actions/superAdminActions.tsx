@@ -245,7 +245,7 @@ export const studentDetailSuperAdminRes = (data: any) => {
 
 export const schoolDetailSuperAdmin = (id: number) => {
     return (dispatch: Dispatch<any>) => {
-        API.get(`${superAdminEndpoints.schoolDetails}/${id}`) 
+        API.get(`${superAdminEndpoints.schoolDetails}/${id}`)
             .then((res: any) => {
                 dispatch(schoolDetailSuperAdminRes(res.data.data));
             })
@@ -260,8 +260,8 @@ export const approveRejectTeacher = (id: any, data: any, history: any) => {
         API.put(`${superAdminEndpoints.approveRejectTeacher}/${id}/verify`, data)
             .then((res: any) => {
                 console.log('resppe: ', res);
-                dispatch(teacherDetailSuperAdmin(id))
-                window.location.reload();
+                dispatch(teacherDetailSuperAdmin(id));
+                // window.location.reload();
             })
 
             .catch((err) => {

@@ -30,6 +30,7 @@ const TeacherDetail = () => {
 
     const handleSubmit = () => {
         dispatch(approveRejectTeacher(teacherData.id, { key: 2, email: teacherData.email, reason: reason }, history));
+        setOpen(false);
     };
 
     const classes = useStyle();

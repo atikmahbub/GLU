@@ -20,6 +20,7 @@ import {
     POST_TEACHER_HOMEWORK,
     DELETE_SKILL,
     ADD_DETAILS,
+    INDIVIDUAL_HOMEWORK,
 } from '../ActionTypes/teacherTypes';
 import { spinner } from './uiAction';
 import { toast } from 'react-toastify';
@@ -549,3 +550,26 @@ export const getAllStudentTeacherAPIcall = (id: number) => {
             });
     };
 };
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// Get homework by id
+export const homeworkById = (data: any) => {
+    return {
+        type: INDIVIDUAL_HOMEWORK,
+        payload: data,
+    };
+};
+
+export const getHomeworkById = (id: number) => {
+    return async (dispatch: any) => {
+        try {
+            const res = await API.get(`${endponts.teacherHomework}/${id}`);
+            console.log('individual homework: ', res);
+            dispatch(homeworkById(res.data.data));
+        } catch (err) {
+            handleError(dispatch, err);
+        }
+    };
+};
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////

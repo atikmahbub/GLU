@@ -1,12 +1,12 @@
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import List from './HomeworkStatusList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTeacherHomework,getTeacherHomeworkCount} from '../../Redux/Actions/teacherAction';
-import ReusableSmallButton from '../../components/ReusableSmallButton'
+import { getTeacherHomework, getTeacherHomeworkCount, teacherList } from '../../Redux/Actions/teacherAction';
+import ReusableSmallButton from '../../components/ReusableSmallButton';
 import NavigationMenu from '../../components/NavigationMenu';
-import PageFooter from '../../components/PageFooter'
+import PageFooter from '../../components/PageFooter';
 import { rootReducerType } from '../../Interfaces/reducerInterfaces';
 const TutorHomework: React.FunctionComponent = () => {
     const menu = [
@@ -15,62 +15,30 @@ const TutorHomework: React.FunctionComponent = () => {
         { link: '', name: 'Messages' },
         { link: '', name: 'Shop' },
     ];
-    const dispatch=useDispatch();
-    const teacherHomework=useSelector((state:rootReducerType)=>state.teacherReducer.teacherHomework)
-    const teacherHomeworkCount=useSelector((state:rootReducerType)=>state.teacherReducer.teacherHomeworkCount)
-    console.log("homework here"+JSON.stringify(teacherHomework))
+    const dispatch = useDispatch();
+    const teacherHomework = useSelector((state: rootReducerType) => state.teacherReducer.teacherHomework);
+    const teacherHomeworkCount = useSelector((state: rootReducerType) => state.teacherReducer.teacherHomeworkCount);
+    console.log('homework here' + JSON.stringify(teacherHomework));
     useEffect(() => {
         dispatch(getTeacherHomework());
         dispatch(getTeacherHomeworkCount());
-    }, [])
-    const ListArray = [
-        {
-            submissions: '25/30',
-            date: '11/08/20',
-            subject: 'Maths',
-            subjectDesc: 'Advanced linear alegbra',
-            desc:
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
-            isSubmitted:false,
-            DueOrComplete:"Due"
-        },
-        {
-            submissions: '12/30',
-            date: '3/08/20',
-            subject: 'Biology',
-            subjectDesc: 'How chlorophyll absorbs light',
-            desc:
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
-                isSubmitted:true,
-                DueOrComplete:"Due"
-        },
-    ];
-    const List2Array = [
-        {
-            submissions: '25/30',
-            date: '11/08/20',
-            subject: 'Maths',
-            subjectDesc: 'Advanced linear alegbra',
-            desc:
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
-            isSubmitted:false,
-            DueOrComplete:"Complete"
-        },
-      
-        {
-            submissions: '12/30',
-            date: '3/08/20',
-            subject: 'Biology',
-            subjectDesc: 'How chlorophyll absorbs light',
-            desc:
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
-                isSubmitted:false,
-                DueOrComplete:"Complete"
-            },
-    ];
+    }, []);
+
+    const ListArray =
+        teacherHomework &&
+        teacherHomework.filter((el) => {
+            const dat = new Date(el.homework.dueDate);
+            return dat > Date.now();
+        });
+    const List2Array =
+        teacherHomework &&
+        teacherHomework.filter((el) => {
+            const dat = new Date(el.homework.dueDate);
+            return dat < Date.now();
+        });
     return (
         <>
-             <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={"show"} reverseButtons={'yes'} >
+            <NavigationMenu menuList={menu} showBurgerNav={'hide'} tutorOptions={'show'} reverseButtons={'yes'}>
                 <div className="tutor_homework_main">
                     <div className="container-fluid">
                         <div className="row">
@@ -86,18 +54,21 @@ const TutorHomework: React.FunctionComponent = () => {
                                     </div>
                                     <div className="tutor_homework_number_count">
                                         <div className="submissions_count">
-                                            <Typography className="tutor_homework_main_text">{teacherHomeworkCount?teacherHomeworkCount.submission:' '}</Typography>
+                                            <Typography className="tutor_homework_main_text">
+                                                {teacherHomeworkCount ? teacherHomeworkCount.submission : ' '}
+                                            </Typography>
                                             <Typography className="tutor_homewwork_main_xstext">Submmisions</Typography>
                                         </div>
                                         <div className="missing_count">
-                                        <Typography className="tutor_homework_main_text">{teacherHomeworkCount?teacherHomeworkCount.missing:' '}</Typography>
+                                            <Typography className="tutor_homework_main_text">
+                                                {teacherHomeworkCount ? teacherHomeworkCount.missing : ' '}
+                                            </Typography>
                                             <Typography className="tutor_homewwork_main_xstext">Missing</Typography>
                                         </div>
                                     </div>
                                     <div className="create_button">
-                                        <ReusableSmallButton linkurl={"/tutor/set-homework"} heading={"Create"}/>
+                                        <ReusableSmallButton linkurl={'/tutor/set-homework'} heading={'Create'} />
                                     </div>
-                    
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 left_border">
@@ -108,22 +79,24 @@ const TutorHomework: React.FunctionComponent = () => {
                                         </Typography>
                                     </div>
                                     <div className="tutor_homework_main_list">
-                                        {teacherHomework&&teacherHomework.map((val, index) => (
-                                            <>
-
-                                                <List
-                                                    subject={val.Subject.subjectName}
-                                                    submissions={"15/30"}
-                                                    date={val.dueDate.toString().substring(0,10)}
-                                                    desc={val.description}
-                                                    subjectDesc={val.title}
-                                                    linkurl={'/tutor/individual-homework'}
-                                                    isSubmitted={true}
-                                                    DueOrComplete={"Due"}
-                                                />
-                                                <div className="homework_horizontalline"></div>
-                                            </>
-                                        ))}
+                                        {ListArray &&
+                                            ListArray.map((val, index) => (
+                                                <>
+                                                    <List
+                                                        subject={val.homework.title}
+                                                        submissions={`${val.submission}/${
+                                                            val.missing + val.submission
+                                                        }`}
+                                                        date={val.homework.dueDate.toString().substring(0, 10)}
+                                                        desc={val.homework.description}
+                                                        subjectDesc={val.homework.Subject.subjectName}
+                                                        linkurl={`/tutor/individual-homework/${val.homework.id}`}
+                                                        isSubmitted={true}
+                                                        DueOrComplete={'Due'}
+                                                    />
+                                                    <div className="homework_horizontalline"></div>
+                                                </>
+                                            ))}
                                     </div>
                                 </div>
                             </div>
@@ -131,35 +104,40 @@ const TutorHomework: React.FunctionComponent = () => {
                         <div className="row">
                             <div className="col-md-6 p-0">
                                 <div className="previous_homework">
-                                            <Typography className="tutor_homework_main_text">Previous</Typography>
+                                    <Typography className="tutor_homework_main_text">Previous</Typography>
                                 </div>
                             </div>
                             <div className="col-md-6 p-0 left_border">
                                 <div className="tutor_homework_main_container">
-                            
                                     <div className="tutor_homework_main_list">
-                                        {List2Array.map((val, index) => (
-                                            <>
-                                                <List
-                                                    subject={val.subject}
-                                                    submissions={val.submissions}
-                                                    date={val.date}
-                                                    desc={val.desc}
-                                                    subjectDesc={val.subjectDesc}
-                                                    isSubmitted={val.isSubmitted}
-                                                    DueOrComplete={val.DueOrComplete}
-                                                />
-                                                
-                                                {index!==ListArray.length-1&&<div className="homework_horizontalline"></div>}
-                                            </>
-                                        ))}
+                                        {List2Array &&
+                                            List2Array.map((val, index) => (
+                                                <>
+                                                    <List
+                                                        subject={val.homework.title}
+                                                        submissions={`${val.submission}/${
+                                                            val.missing + val.submission
+                                                        }`}
+                                                        date={val.homework.dueDate.toString().substring(0, 10)}
+                                                        desc={val.homework.description}
+                                                        subjectDesc={val.homework.Subject.subjectName}
+                                                        linkurl={`/tutor/individual-homework/${val.homework.id}`}
+                                                        isSubmitted={true}
+                                                        DueOrComplete={'Due'}
+                                                    />
+
+                                                    {index !== List2Array.length - 1 && (
+                                                        <div className="homework_horizontalline"></div>
+                                                    )}
+                                                </>
+                                            ))}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="commonFooter">
-                        <PageFooter padding={false}/>
+                        <PageFooter padding={false} />
                     </div>
                 </div>
             </NavigationMenu>
