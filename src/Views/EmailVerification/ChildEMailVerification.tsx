@@ -24,7 +24,7 @@ const ChildEMailVerification = () => {
             } else {
                 rotuePath.push(`/signup?ref=${childStatus.token}`);
             }
-        }, 10000);
+        }, 5000);
     };
     useEffect(() => {
         const url = route.search;
