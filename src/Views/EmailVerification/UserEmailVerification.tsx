@@ -38,7 +38,7 @@ const UserEmailVerification = () => {
                 show && (
                     <div className="center_content">
                         <Typography variant="h1" className="heading">
-                            Subscription Verified
+                            Email Verified
                         </Typography>
                         <Typography variant="h1" className="sub-heading">
                             Your email address has been confirmed.

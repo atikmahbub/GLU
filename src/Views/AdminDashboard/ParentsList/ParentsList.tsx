@@ -11,6 +11,9 @@ import TableUserProfile from '../../../components/Dashobard/TableUserProfile';
 import Switch from '@material-ui/core/Switch';
 import { activateDeactivateUser, getallParentsAPIcall } from '../../../Redux/Actions/superAdminActions';
 import OutlineButton from '../../../components/Button/OutlineButton';
+import Typography from '@material-ui/core/Typography';
+import { colors } from '../../../Styles/colors';
+
 
 interface props {
     parentsList: Array<string | number>;
@@ -86,8 +89,11 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                 },
                                 {
                                     width: '23%',
-                                    title: 'Gender',
-                                    field: 'gender',
+                                    title: 'No of Childrens',
+                                    field: '',
+                                    render: (rowData: any) => (
+                                        <Typography>{rowData.children.length}</Typography>
+                                    ),
                                 },
                                 {
                                     width: '23%',
@@ -99,7 +105,21 @@ const ParentsList: React.FunctionComponent<props> = ({ parentsList }) => {
                                     title: 'Location',
                                     field: 'location',
                                 },
-
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending'},
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified === true ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Verifiied
+                                            </Typography>
+                                        ) : (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) ,
+                                },
                                 {
                                     width: '23%',
                                     title: 'Active/Inactive',

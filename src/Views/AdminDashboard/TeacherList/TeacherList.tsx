@@ -26,6 +26,14 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
     }, [teacherList]);
     const routes = useHistory();
     const dispatch = useDispatch();
+    const handleRoutes = () => {
+        routes.push({
+            pathname: routeEndpoints.school.addNewTeacher,
+            state: {
+                breadcrumb: routeEndpoints.school.addNewTeacher,
+            },
+        });
+    };
 
     const handleDetails = (data: any) => {
         routes.push({
@@ -50,6 +58,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
             <CardContainer>
                 {/* <AddButton title="Teachers" btnIcon={<Add />} btnTitle="Add New Teacher" trigger={handleRoutes} /> */}
                 <AddButton title="Teachers" />
+
             </CardContainer>
             <CardContainer>
                 <div className="student-table">
@@ -84,9 +93,44 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 },
                                 {
                                     title: 'Document Type',
-                                    field: 'docType',
+                                    field: 'documentType',
+                                    lookup: { Dl: 'Driving Licence', passport: 'Passport', nationalId: 'National ID' },
+                                    render: (rowData: any) =>
+                                        rowData.documentType === 'Dl' ? (
+                                            <Typography style={{ fontSize: '1.25rem' }}>
+                                                Driving Licence
+                                            </Typography>
+                                        ) :
+                                            rowData.documentType === 'passport'
+                                                ?
+                                                (
+                                                    <Typography style={{ fontSize: '1.25rem' }}>
+                                                        Passport
+                                            </Typography>
+                                                )
+                                                :
+                                                <Typography style={{ fontSize: '1.25rem' }}>
+                                                    National ID
+                                        </Typography>
+                                    ,
                                 },
 
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending' },
+
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified === true ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Verifiied
+                                            </Typography>
+                                        ) : (
+                                                <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                    Pending
+                                            </Typography>
+                                            ),
+                                },
                                 {
                                     title: 'Document Status',
                                     field: 'docStatus',
@@ -123,7 +167,7 @@ const TeacherList: React.FunctionComponent<props> = ({ teacherList }) => {
                                 },
                                 {
                                     title: 'Action',
-                                    field: 'docStatus',
+                                    field: '',
                                     render: (rowData: any) => (
                                         <OutlineButton
                                             btnClick={() => handleDetails(rowData)}

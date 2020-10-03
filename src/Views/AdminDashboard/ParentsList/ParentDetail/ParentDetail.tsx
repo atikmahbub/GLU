@@ -17,7 +17,6 @@ import { useHistory } from 'react-router-dom';
 
 
 const useStyle = makeStyles(studentStyle as any);
-
 const StudentDetail = () => {
     const classes = useStyle();
     const [childrenMenuItemClicked, setMenuItemClicked] = React.useState(false);
@@ -33,6 +32,8 @@ const StudentDetail = () => {
         city: '',
         education: '',
         image: '',
+        isEmailVerified: '',
+        studentDetails: '',
     });
 
     const handleClose = () => {
@@ -74,6 +75,8 @@ const StudentDetail = () => {
                 city: studentDetails.location,
                 education: studentDetails.StudentQualifications,
                 image: studentDetails.User.profile,
+                isEmailVerified: studentDetails.User.isEmailVerified,
+                parentStatus: studentDetails.parentStatus
             };
             setStudentData(data);
         }
@@ -233,6 +236,31 @@ const StudentDetail = () => {
                             alt="tutor"
                             className={classes.image}
                         /> */}
+
+                        <div className={classes.email}>
+                            <label htmlFor="email" className={classes.inputLabel}>
+                                Parent Status
+                            </label>
+                            <input
+                                value={studentData.parentStatus}
+                                type="text"
+                                id="email"
+                                className={classes.inputBox}
+                                disabled
+                            ></input>
+                        </div>
+                        <div className={classes.email}>
+                            <label htmlFor="email" className={classes.inputLabel}>
+                                Email Verified Status
+                            </label>
+                            <input
+                                value={studentData.isEmailVerified === true ? "Verified" : "Not Verified"}
+                                type="text"
+                                id="email"
+                                className={classes.inputBox}
+                                disabled
+                            ></input>
+                        </div>
                         <div className={classes.name}>
                             <div className={classes.firstName}>
                                 <label htmlFor="firstName" className={classes.inputLabel}>

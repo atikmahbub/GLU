@@ -6,7 +6,7 @@ import { dataToCarouselCards, dataToDateSubjectCards, dataToImageCards } from '.
 
 function useUpcomingClasses() {
     const dispatch = useDispatch();
-    const { isSuccess, isPending, count, nextClassCard, data } = useSelector(upcomingClassesSelector);
+    const { isSuccess, isPending, count, nextClassCard, data, filters } = useSelector(upcomingClassesSelector);
 
     useEffect(() => {
         if (!isSuccess) {
@@ -22,9 +22,10 @@ function useUpcomingClasses() {
             upcomingClassCard: nextClassCard,
             upcomingClassImageCards: dataToImageCards(data),
             dateSubjectCards: dataToDateSubjectCards(data),
-            carouselClassCards: dataToCarouselCards(data)
+            carouselClassCards: dataToCarouselCards(data),
+            filters
         }),
-        [count, isPending, nextClassCard, count, nextClassCard]
+        [count, isPending, nextClassCard, count, nextClassCard, filters]
     );
 }
 

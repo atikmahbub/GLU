@@ -11,6 +11,8 @@ import ActionToolbar from '../../../components/Dashobard/ActionToolbar';
 import CardTable from '../../../components/Table/CardTable';
 import Switch from '@material-ui/core/Switch';
 import OutlineButton from '../../../components/Button/OutlineButton';
+import Typography from '@material-ui/core/Typography';
+import { colors } from '../../../Styles/colors';
 
 interface props {
     schoolList: any;
@@ -83,10 +85,27 @@ const SchoolList: React.FunctionComponent<props> = ({ schoolList }) => {
                                     title: 'PhoneNumber',
                                     field: 'phoneNumber',
                                 },
+                                {
+                                    title: 'Email Verification',
+                                    field: 'isEmailVerified',
+                                    lookup: { true: 'Verified', "N/A": 'Pending'},
+                                    render: (rowData: any) =>
+                                        rowData.isEmailVerified === true ? (
+                                            <Typography style={{ color: 'green', fontSize: '1.25rem' }}>
+                                                Verifiied
+                                            </Typography>
+                                        ) : (
+                                            <Typography style={{ color: colors.primary, fontSize: '1.25rem' }}>
+                                                Pending
+                                            </Typography>
+                                        ) ,
+                                },
 
                                 {
                                     width: '23%',
                                     title: 'Active/Inactive',
+                                    field: 'isActive',
+                                    lookup: { 'N/A': 'Inactive', true: 'Active' },
                                     render: (rowData: any) => (
                                         <Switch
                                             checked={rowData.isActive}

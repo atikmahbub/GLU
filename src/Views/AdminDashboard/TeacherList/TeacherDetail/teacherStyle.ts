@@ -157,12 +157,18 @@ export const teacherStyle = {
         height: '11.47rem',
         marginTop: '6rem',
     },
+    documentContainer:{
+        overflow: 'scroll',
+        width: '100%',
+        height: '50rem',
+    },
     image2: {
         width: '100%',
         marginTop: '2.49rem',
-        height: '30rem',
-        objectFit: 'cover',
+        // height: '30rem',
+        // objectFit: 'cover',
         backgroundPosition: 'bottom',
+        // overflow: 'scroll',
     },
     addPhotoBox: {
         marginLeft: '3.125rem',

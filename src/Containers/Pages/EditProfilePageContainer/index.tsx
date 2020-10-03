@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
+import { useFormik } from 'formik';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Grid from '@material-ui/core/Grid';
 import useMenuList from '../../../Hooks/useMenuList';
@@ -16,6 +17,8 @@ import { educations } from '../../../data/editProfile';
 import ButtonPrimary from '../../../components/Button/ButtonPrimary';
 import PageFooter from '../../../components/PageFooter';
 import FullScreenLoader from '../../../components/Loaders/FullScreenLoader';
+import { EditProfileForm, UpdateProfileForm } from '../../../Interfaces/students/forms';
+import useFileUpload, { OnUploadComplete } from '../../../Hooks/useFileUpload';
 
 const useStyles = makeStyles({
     titleContainer: {
@@ -26,16 +29,38 @@ const useStyles = makeStyles({
     },
     button: {
         paddingTop: '0.6875rem',
-        paddingBottom: '0.6875rem'
-    }
+        paddingBottom: '0.6875rem',
+    },
 });
 
-interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {}
+interface IEditProfilePageContainer extends UserType, Async, EditProfilePage {
+    onSubmit: (data: UpdateProfileForm) => void;
+    onUploadComplete: OnUploadComplete;
+}
 
-const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isLoading, profile }) => {
-    console.log(isLoading, profile)
+const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({
+    userType,
+    isLoading,
+    profile,
+    onSubmit,
+    onUploadComplete,
+}) => {
     const classes = useStyles();
     const menuList = useMenuList(userType);
+    const { file, setFile, handleUploadClick, isLoading: isFileUploadLoading } = useFileUpload(
+        onUploadComplete
+    );
+    const { values, setValues, handleChange, submitForm } = useFormik({
+        initialValues: profile,
+        onSubmit: ({ firstName, lastName, about, email, location, phone }: EditProfileForm) => {
+            onSubmit({ firstName, lastName, about, email, location, phoneNumber: phone });
+        },
+    });
+
+    useEffect(() => {
+        setValues(profile);
+    }, [profile]);
+
     return (
         <NavigationMenu
             absolute
@@ -43,7 +68,7 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
             userType={userType}
             LeftDrawerMenuComponent={<LeftDrawerMenuContent userType={userType} />}
         >
-            {isLoading && <FullScreenLoader />}
+            {(isLoading || isFileUploadLoading) && <FullScreenLoader />}
             <CardsGridContainer>
                 <CardsGrid rows={2}>
                     <Grid container direction="column">
@@ -56,15 +81,20 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                             <TitlePrimary>Profile Info</TitlePrimary>
                         </Grid>
                         <FormGroup marginBottomVariant={2}>
-                            <UploadImage />
+                            <UploadImage
+                                value={values.img}
+                                onSelect={setFile}
+                                selectedFile={file}
+                                onUploadClick={handleUploadClick}
+                            />
                         </FormGroup>
                         <FormGroup marginBottomVariant={2}>
                             <FormControlInput
                                 fullWidth
                                 id="edit-profile_bio"
-                                name="bio"
-                                value=""
-                                onChange={() => {}}
+                                name="about"
+                                value={values.about}
+                                onChange={handleChange}
                                 label="Bio"
                                 fontSizeVariant={2}
                             />
@@ -78,18 +108,18 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     <FormControlInput
                                         fullWidth
                                         id="edit-profile_firstname"
-                                        name="firstname"
-                                        value=""
-                                        onChange={() => {}}
+                                        name="firstName"
+                                        value={values.firstName}
+                                        onChange={handleChange}
                                         label="First Name"
                                         fontSizeVariant={2}
                                     />
                                     <FormControlInput
                                         fullWidth
                                         id="edit-profile_lastname"
-                                        name="lastname"
-                                        value=""
-                                        onChange={() => {}}
+                                        name="lastName"
+                                        value={values.lastName}
+                                        onChange={handleChange}
                                         label="Last Name"
                                         fontSizeVariant={2}
                                     />
@@ -100,42 +130,30 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     fullWidth
                                     id="edit-profile_email"
                                     name="email"
-                                    value=""
-                                    onChange={() => {}}
+                                    value={values.email}
+                                    onChange={handleChange}
                                     label="Email"
                                     fontSizeVariant={2}
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <CardsGrid rows={2}>
-                                    <FormControlInput
-                                        fullWidth
-                                        id="edit-profile_code"
-                                        name="code"
-                                        value=""
-                                        onChange={() => {}}
-                                        label="Mobile Number"
-                                        fontSizeVariant={2}
-                                    />
-                                    <FormControlInput
-                                        fullWidth
-                                        id="edit-profile_phone"
-                                        name="phone"
-                                        value=""
-                                        label="Mobile Number"
-                                        onChange={() => {}}
-                                        fontSizeVariant={2}
-                                        labelClassName={classes.hiddenLabel}
-                                    />
-                                </CardsGrid>
+                                <FormControlInput
+                                    fullWidth
+                                    id="edit-profile_phone"
+                                    name="phone"
+                                    value={values.phone}
+                                    onChange={handleChange}
+                                    label="Mobile Number"
+                                    fontSizeVariant={2}
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <FormControlInput
                                     fullWidth
                                     id="edit-profile_location"
                                     name="location"
-                                    value=""
-                                    onChange={() => {}}
+                                    value={values.location}
+                                    onChange={handleChange}
                                     label="Location"
                                     fontSizeVariant={2}
                                 />
@@ -145,8 +163,9 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     fullWidth
                                     id="edit-profile_password"
                                     name="password"
-                                    value=""
-                                    onChange={() => {}}
+                                    type="password"
+                                    value={values.password}
+                                    onChange={handleChange}
                                     label="Password"
                                     fontSizeVariant={2}
                                 />
@@ -159,9 +178,18 @@ const EditProfilePageContainer: FC<IEditProfilePageContainer> = ({ userType, isL
                                     <EducationCard key={index} {...card} />
                                 ))}
                             </Grid>
-                            <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>Add more</ButtonPrimary>
+                            <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>
+                                Add more
+                            </ButtonPrimary>
                         </FormGroup>
-                        <ButtonPrimary className={classes.button} variant="outlined" outlinedVariant={2}>Save changes</ButtonPrimary>
+                        <ButtonPrimary
+                            className={classes.button}
+                            variant="outlined"
+                            outlinedVariant={2}
+                            onClick={submitForm}
+                        >
+                            Save changes
+                        </ButtonPrimary>
                     </Grid>
                 </CardsGrid>
             </CardsGridContainer>

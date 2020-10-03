@@ -112,7 +112,7 @@ const TeacherDetail = () => {
             <Grid container spacing={4}>
                 <Grid item xs={6}>
                     <h1>Document Status</h1>
-                    <div>
+                    <div className={classes.documentContainer}>
                         {teacherData.document ? (
                             <img className={classes.image2} src={teacherData.document} alt="tutor" />
                         ) : (
@@ -206,6 +206,7 @@ const TeacherDetail = () => {
                                 id="bio"
                                 value={teacherData.bio}
                                 rowsMin={5}
+                                aria-label="minimum height"
                                 className={classes.textareaClass}
                                 disabled
                             />

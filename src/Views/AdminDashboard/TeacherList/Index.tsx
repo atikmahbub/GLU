@@ -25,11 +25,12 @@ const Index = () => {
                     phoneNumber: checkValue(element.phoneNumber),
                     location: checkValue(element.location),
                     registeredOn: checkValue(element.registeredOn),
-                    docType: 'Driving Licence',
+                    documentType: checkValue(element.documentType),
                     docStatus: checkValue(element.status),
                     isActive: checkValue(element.isActive),
                     isVerifiedByAdmin: checkValue(element.isVerifiedByAdmin),
                     status: checkValue(element.status),
+                    isEmailVerified: checkValue(element.isEmailVerified),
                 };
             });
             setTeacherList(data);

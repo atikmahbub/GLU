@@ -49,6 +49,7 @@ export const endponts = {
     getAllSubject: '/school/class-groups',
     sendEmail: 'auth/send/email',
     userEmailVerififcation: 'auth/register/email/',
+    childReject: 'auth/child/reject'
 };
 
 export const studentsEndpoints = {
@@ -57,6 +58,8 @@ export const studentsEndpoints = {
     getPreviousSessions: 'freelancer/student/session/previous',
     getFeatureSubject: 'freelancer/student/featured/subject',
     getHomework: 'student/status/homework',
+    getSubjects: 'freelancer/student/subject',
+    getUpcomingClassesFilter: 'student/filter/upcomingSession/extraCurricular'
 };
 
 export const superAdminEndpoints = {

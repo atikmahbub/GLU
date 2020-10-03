@@ -31,6 +31,7 @@ const Index = () => {
                     registeredOn: checkValue(element.registeredOn),
                     isVerified: checkValue(element.isVerified),
                     isActive: checkValue(element.isActive),
+                    isEmailVerified: checkValue(element.isEmailVerified), 
                 };
             });
             
