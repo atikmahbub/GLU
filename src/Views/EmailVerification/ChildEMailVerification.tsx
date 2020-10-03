@@ -22,7 +22,9 @@ const ChildEMailVerification = () => {
             if (childStatus.isStudentAlreadyRegistered) {
                 rotuePath.push('/login');
             } else {
-                rotuePath.push(`/signup?ref=${childStatus.token}`);
+                if (childStatus.hasOwnProperty('isStudentAlreadyRegistered')) {
+                    rotuePath.push(`/signup?ref=${childStatus.token}`);
+                }
             }
         }, 5000);
     };
@@ -58,7 +60,9 @@ const ChildEMailVerification = () => {
                 show && (
                     <div className="center_content">
                         <Typography variant="h1" className="heading">
-                            Child {status} Successfully.
+                            {status === 'Approved'
+                                ? 'You have accepted the invitation successfully.'
+                                : 'You have rejected the invitation successfully.'}
                         </Typography>
                         <Typography variant="h1" className="sub-heading">
                             Your status has been confirmed.
